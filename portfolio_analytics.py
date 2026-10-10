@@ -247,8 +247,9 @@ def gemini_json(prompt, use_search=False, temperature=0.3):
 
 PM_PROMPT = """You are acting as an experienced Indian mutual fund portfolio manager reviewing the
 portfolio of an NRI client (lives in Texas, USA; invests via NRO and external folios; long horizon,
-10+ years; goals include buying agricultural land in India). Use the DATA below, and use Google Search
-to research each fund's current situation: fund manager changes, AUM size, expense ratio (Direct vs
+10+ years; goals include buying agricultural land in India). Use the DATA below (including the recent
+news headlines about each fund), and if Google Search is available, use it to research each fund's
+current situation: fund manager changes, AUM size, expense ratio (Direct vs
 Regular), recent regulatory issues or news, and category outlook. Be specific and honest. Prefer
 fewer, better funds. Keep tax costs low: don't suggest selling lots held under 12 months unless there
 is a strong reason; Regular-to-Direct switches are best done when gains fit within the yearly
@@ -270,8 +271,35 @@ DATA
 {data}"""
 
 
+def fund_news(funds, days=90, per_fund=3):
+    """Recent headlines about each fund from Google News RSS (free). Returns {fund: [items]}."""
+    import feedparser
+    from urllib.parse import quote_plus
+    news = {}
+    for f in funds:
+        if is_index_fund(f):
+            continue
+        q = quote_plus(f'"{f["name"].replace(" Fund", "")}" when:{days}d')
+        try:
+            r = requests.get(f"https://news.google.com/rss/search?q={q}&hl=en-IN&gl=IN&ceid=IN:en",
+                             headers={"User-Agent": "Mozilla/5.0 (portfolio-report)"}, timeout=20)
+            r.raise_for_status()
+            items = []
+            for e in feedparser.parse(r.content).entries[:per_fund]:
+                title = e.get("title", "")
+                outlet = title.rsplit(" - ", 1)[1] if " - " in title else "Google News"
+                items.append({"title": title.rsplit(" - ", 1)[0], "outlet": outlet,
+                              "date": e.get("published", "")[:16], "link": e.get("link", "")})
+            if items:
+                news[f["name"]] = items
+        except Exception as exc:
+            gh_annotate("warning", f"News lookup failed for {f['name']}: {type(exc).__name__}")
+    return news
+
+
 def pm_review(funds, bench, mc, taxcal, flags, rates):
     total = sum(f["value"] for f in funds)
+    news = fund_news(funds)
     data = {
         "total_value": round(total),
         "assumed_expected_return_pct": round(rates[1], 2),
@@ -293,8 +321,13 @@ def pm_review(funds, bench, mc, taxcal, flags, rates):
                 "est_tax_if_regular_switched_now": round(taxcal["switch_tax"]),
                 "funds_with_unknown_purchase_dates": taxcal["unknown"]},
         "rule_based_flags": flags,
+        "recent_news_headlines_last_90_days": {k: [f"{i['date']} {i['outlet']}: {i['title']}" for i in v]
+                                               for k, v in news.items()},
     }
     result, sources, model = gemini_json(PM_PROMPT.format(data=json.dumps(data, default=str)), use_search=True)
+    if result is not None and not sources:  # no search grounding: cite the news we gathered
+        sources = [{"title": f"{i['outlet']}: {i['title'][:70]}", "uri": i["link"]}
+                   for items in news.values() for i in items[:1]][:8]
     if not result or not isinstance(result.get("funds"), list):
         return None
     names = {f["name"] for f in funds}
