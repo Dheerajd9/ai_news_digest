@@ -80,6 +80,7 @@ def tokens(text):
     return set(re.findall(r"[a-z0-9]+", text)) - STOPWORDS
 
 
+CATEGORY_WORDS = {"large", "mid", "small", "multi", "flexi", "micro", "focused", "contra", "value"}
 _ALL_SCHEMES = None
 
 
@@ -116,6 +117,8 @@ def find_scheme(fund, plan, snap):
                 continue
             have = tokens(name)
             if not want <= have:  # every word of the query must be in the name
+                continue
+            if (CATEGORY_WORDS & have) - want:  # e.g. "Large and Midcap" is not "Midcap"
                 continue
             score = 1.0 - 0.1 * len(have - want)  # each extra word means a different fund
             if score > scored.get(code, (-9, ""))[0]:
