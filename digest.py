@@ -61,6 +61,8 @@ FEEDS = {
 OFFICIAL = {"OpenAI", "Google AI", "Google DeepMind", "Microsoft AI", "Hugging Face"}
 BIG_NAMES = ["openai", "anthropic", "claude", "google", "gemini", "deepmind",
              "apple", "meta", "microsoft", "copilot", "nvidia", "gpt"]
+API_HEADERS = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
+               "Content-Type": "application/json"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (ai-news-digest; +https://github.com)"}
 
 
@@ -83,6 +85,7 @@ def entry_time(entry):
 def fetch_items():
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     items = []
+    report = []
     for source, url in FEEDS.items():
         try:
             resp = requests.get(url, headers=HEADERS, timeout=20)
@@ -90,6 +93,7 @@ def fetch_items():
             feed = feedparser.parse(resp.content)
         except Exception as exc:  # one bad feed shouldn't break the digest
             print(f"[warn] {source}: {exc}", file=sys.stderr)
+            report.append(f"{source}=ERR({type(exc).__name__})")
             continue
         count = 0
         for e in feed.entries:
@@ -110,7 +114,8 @@ def fetch_items():
                 "published": published,
             })
             count += 1
-        print(f"[info] {source}: {count} recent items", file=sys.stderr)
+        report.append(f"{source}={count}/{len(feed.entries)}")
+    gh_annotate("notice", "Feeds (recent/total): " + ", ".join(report))
     return dedupe(items)
 
 
@@ -174,9 +179,14 @@ def available_models(token):
     """Model IDs currently offered by GitHub Models (empty list if the catalog can't be read)."""
     try:
         resp = requests.get("https://models.github.ai/catalog/models",
-                            headers={"Authorization": f"Bearer {token}"}, timeout=20)
+                            headers={**API_HEADERS, "Authorization": f"Bearer {token}"}, timeout=20)
         resp.raise_for_status()
-        return [m["id"] for m in resp.json()]
+        try:
+            return [m["id"] for m in resp.json()]
+        except ValueError:
+            gh_annotate("warning", f"Catalog HTTP {resp.status_code}, non-JSON "
+                        f"({resp.headers.get('content-type')}): {resp.text[:150]!r}")
+            return []
     except Exception as exc:
         gh_annotate("warning", f"Couldn't read GitHub Models catalog: {exc}")
         return []
@@ -225,8 +235,7 @@ def call_model(token, model, prompt, items):
         try:
             resp = requests.post(
                 "https://models.github.ai/inference/chat/completions",
-                headers={"Authorization": f"Bearer {token}",
-                         "Content-Type": "application/json"},
+                headers={**API_HEADERS, "Authorization": f"Bearer {token}"},
                 json=body, timeout=90,
             )
             if resp.status_code >= 400:
@@ -234,7 +243,11 @@ def call_model(token, model, prompt, items):
                 if resp.status_code in (400, 401, 403, 404):  # not worth retrying this model
                     return None, error
                 raise RuntimeError(error)
-            content = resp.json()["choices"][0]["message"]["content"]
+            try:
+                content = resp.json()["choices"][0]["message"]["content"]
+            except ValueError:
+                return None, (f"{model} HTTP {resp.status_code}, non-JSON reply "
+                              f"({resp.headers.get('content-type')}): {resp.text[:150]!r}")
             match = re.search(r"\{.*\}", content, re.S)  # tolerate ```json fences or extra text
             stories = []
             for s in json.loads(match.group(0) if match else content)["stories"][:TOP_N]:

@@ -8,6 +8,9 @@ on:
     - cron: "7 12 * * *"   # morning
     - cron: "7 23 * * *"   # evening
   workflow_dispatch:        # lets you click "Run workflow" to test anytime
+  push:                     # code changes trigger a test run that does NOT send email
+    branches: [main]
+    paths: ["digest.py", "requirements.txt", ".github/workflows/digest.yml"]
 
 permissions:
   contents: read
@@ -33,4 +36,9 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-        run: python digest.py
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            python digest.py --dry-run
+          else
+            python digest.py
+          fi
