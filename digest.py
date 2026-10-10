@@ -166,22 +166,62 @@ News items:
 {items}"""
 
 
+PREFERRED_MODELS = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini", "openai/gpt-5-mini",
+                    "openai/gpt-4.1", "openai/gpt-4o"]
+
+
+def available_models(token):
+    """Model IDs currently offered by GitHub Models (empty list if the catalog can't be read)."""
+    try:
+        resp = requests.get("https://models.github.ai/catalog/models",
+                            headers={"Authorization": f"Bearer {token}"}, timeout=20)
+        resp.raise_for_status()
+        return [m["id"] for m in resp.json()]
+    except Exception as exc:
+        gh_annotate("warning", f"Couldn't read GitHub Models catalog: {exc}")
+        return []
+
+
+def model_candidates(token):
+    catalog = available_models(token)
+    order = [MODEL] + [m for m in PREFERRED_MODELS if m != MODEL]
+    if not catalog:
+        return order
+    picks = [m for m in order if m in catalog]
+    # Anything else from OpenAI in the catalog, smallest first, as a last resort
+    extras = sorted((m for m in catalog if m.startswith("openai/") and m not in picks),
+                    key=lambda m: ("mini" not in m and "nano" not in m, m))
+    return picks + extras[:3]
+
+
 def pick_with_ai(items):
     token = os.getenv("GITHUB_TOKEN")
     if not token:
         print("[info] No GITHUB_TOKEN, skipping AI step", file=sys.stderr)
         return None
     listing = "\n".join(
-        f"[{i}] ({it['source']}) {it['title']} — {it['summary'][:220]}"
+        f"[{i}] ({it['source']}) {it['title']} — {it['summary'][:180]}"
         for i, it in enumerate(items)
     )
+    prompt = PROMPT.format(n=TOP_N, items=listing)
+    last_error = ""
+    for model in model_candidates(token)[:4]:
+        stories, last_error = call_model(token, model, prompt, items)
+        if stories:
+            gh_annotate("notice", f"Stories picked by {model}")
+            return stories
+    gh_annotate("warning", f"AI step failed, sent plain headlines instead. Last error: {last_error}")
+    return None
+
+
+def call_model(token, model, prompt, items):
     body = {
-        "model": MODEL,
+        "model": model,
         "temperature": 0.2,
-        "response_format": {"type": "json_object"},
-        "messages": [{"role": "user", "content": PROMPT.format(n=TOP_N, items=listing)}],
+        "messages": [{"role": "user", "content": prompt}],
     }
-    for attempt in range(3):
+    error = ""
+    for attempt in range(2):
         try:
             resp = requests.post(
                 "https://models.github.ai/inference/chat/completions",
@@ -189,20 +229,26 @@ def pick_with_ai(items):
                          "Content-Type": "application/json"},
                 json=body, timeout=90,
             )
-            resp.raise_for_status()
+            if resp.status_code >= 400:
+                error = f"{model} HTTP {resp.status_code}: {resp.text[:200]}"
+                if resp.status_code in (400, 401, 403, 404):  # not worth retrying this model
+                    return None, error
+                raise RuntimeError(error)
             content = resp.json()["choices"][0]["message"]["content"]
-            content = re.sub(r"^```(?:json)?|```$", "", content.strip()).strip()
+            match = re.search(r"\{.*\}", content, re.S)  # tolerate ```json fences or extra text
             stories = []
-            for s in json.loads(content)["stories"][:TOP_N]:
+            for s in json.loads(match.group(0) if match else content)["stories"][:TOP_N]:
                 idx = int(s["id"])
                 if 0 <= idx < len(items):  # links always come from the feeds, never the model
                     stories.append({**s, "link": items[idx]["link"], "source": items[idx]["source"]})
             if stories:
-                return stories
+                return stories, ""
+            error = f"{model}: no usable stories in reply"
         except Exception as exc:
+            error = error or f"{model}: {type(exc).__name__}: {exc}"
             print(f"[warn] AI attempt {attempt + 1} failed: {exc}", file=sys.stderr)
             time.sleep(5 * (attempt + 1))
-    return None
+    return None, error
 
 
 def fallback_stories(items):

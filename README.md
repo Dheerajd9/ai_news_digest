@@ -66,7 +66,7 @@ times, edit the two `cron:` lines in `.github/workflows/digest.yml`.
 Set these as environment variables in the workflow's `env:` block:
 
 - `TOP_N` — number of stories (default 5)
-- `MODEL` — any GitHub Models model, e.g. `openai/gpt-4.1` (default `openai/gpt-4o-mini`)
+- `MODEL` — preferred GitHub Models model (default `openai/gpt-4o-mini`); if it is unavailable the script automatically tries other free OpenAI models from the catalog
 - `LOOKBACK_HOURS` — how far back to look (default 14)
 
 Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
