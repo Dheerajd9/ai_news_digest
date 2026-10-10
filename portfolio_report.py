@@ -20,6 +20,8 @@ from datetime import date, datetime, timedelta
 import requests
 
 from digest import GEMINI_API, LOCAL_TZ, gemini_models, gh_annotate, send_email
+import portfolio_analytics as pa
+import report_sections as rs
 
 MFAPI = "https://api.mfapi.in/mf"
 HORIZONS = [5, 10, 15, 20]
@@ -225,7 +227,7 @@ def risk_stats(hist, years=3):
     return vol, mdd * 100
 
 
-def analyse(cfg):
+def analyse(cfg, quiet=False):
     snap = date.fromisoformat(cfg["snapshot_date"])
     out, matches = [], []
     for f in cfg["funds"]:
@@ -259,11 +261,12 @@ def analyse(cfg):
             "r1y": cagr(hist, 1), "r3y": cagr(hist, 3), "r5y": cagr(hist, 5), "r10y": cagr(hist, 10),
             "vol": vol, "mdd": mdd,
             "inception": hist[0][0],
+            "hist": hist,
         })
         matches.append(f"{f['name']} => {out[-1]['scheme']} [{code}] NAV {last_v:.2f} "
                        f"({last_d:%d %b}), value {inr(units * last_v)}, 3Y {pct(out[-1]['r3y'])}"
                        + (f", your XIRR {pct(out[-1]['xirr'])}" if out[-1]['xirr'] is not None else ""))
-    for i in range(0, len(matches), 5):  # GitHub shows max 10 notes per step, so batch them
+    for i in ([] if quiet else range(0, len(matches), 5)):  # GitHub shows max 10 notes per step
         gh_annotate("notice", "Matched funds: " + " | ".join(matches[i:i + 5]))
     return out
 
@@ -424,7 +427,7 @@ def color(x):
     return "#16a34a" if x is not None and x >= 0 else "#dc2626"
 
 
-def build_html(funds, cfg, rates, rows, flags, review):
+def build_html(funds, cfg, rates, rows, flags, review, extra=None):
     total = sum(f["value"] for f in funds)
     invested = sum(f["invested"] for f in funds)
     gain = total - invested
@@ -459,6 +462,7 @@ def build_html(funds, cfg, rates, rows, flags, review):
     review_html = "".join(f"<li style='margin:6px 0'>{html.escape(p)}</li>" for p in (review or []))
     flags_html = "".join(f"<li style='margin:6px 0'>{html.escape(p)}</li>" for p in flags)
     sip_note = f" plus a {inr(sip)}/month SIP" if sip else " with no new money added (lump sum growing)"
+    sec_top, sec_mid, sec_tax = rs.extra_sections(extra or {}, funds, rates, sip)
 
     return f"""<!doctype html><html><body style="margin:0;background:#f6f6f6">
 <div style="max-width:720px;margin:0 auto;background:#fff;padding:22px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;line-height:1.5;color:#1a1a1a">
@@ -472,6 +476,8 @@ def build_html(funds, cfg, rates, rows, flags, review):
     <td style="width:25%;padding:4px;vertical-align:top"><div style="background:#f8fafc;border-radius:10px;padding:10px"><div style="font-size:12px;color:#666">Last 15 days</div><div style="font-size:18px;font-weight:700;color:{color(r15)}">{pct(r15, 2)}</div></div></td>
   </tr></table>
 
+  {sec_top}
+
   <h3 style="margin:22px 0 6px">🔮 Where it could be</h3>
   <p style="margin:0 0 8px;color:#444">Today's {short_inr(total)}{sip_note}. Assumed yearly returns, weighted by your fund mix:
   <b>{rates[0]:.1f}%</b> conservative, <b>{rates[1]:.1f}%</b> expected, <b>{rates[2]:.1f}%</b> optimistic.</p>
@@ -481,11 +487,15 @@ def build_html(funds, cfg, rates, rows, flags, review):
   <p style="font-size:12px;color:#777;margin:6px 0">* Adjusted for {cfg.get('inflation_pct', 6)}% yearly inflation. ** If fully redeemed then: 12.5% on gains above ₹1.25 lakh, before surcharge/cess and NRI TDS rules.<br>
   Mutual funds don't pay fixed interest. At the expected rate, your portfolio would grow by roughly <b>{short_inr(yearly)}</b> in a typical year, but real years swing anywhere from about −30% to +40%.</p>
 
+  {sec_mid}
+
   <h3 style="margin:22px 0 6px">🧭 Expert review</h3>
   {f"<ul style='padding-left:18px;margin:0'>{review_html}</ul>" if review_html else "<p style='color:#777'>AI review unavailable this time; see the checks below.</p>"}
 
   <h3 style="margin:22px 0 6px">⚠️ Checks</h3>
   <ul style="padding-left:18px;margin:0;color:#444">{flags_html}</ul>
+
+  {sec_tax}
 
   <h3 style="margin:22px 0 6px">🧩 Category mix</h3>
   <table style="border-collapse:collapse;width:100%">{mix}</table>
@@ -497,7 +507,7 @@ def build_html(funds, cfg, rates, rows, flags, review):
   <p style="font-size:12px;color:#777;margin:6px 0">"Your XIRR" is your personal yearly return from your actual purchase dates{'' if pxirr is None else f"; across funds with purchase history ({covered * 100:.0f}% of the portfolio) it is <b>{pxirr:.1f}%</b> a year"}. The other return columns are each fund's own NAV performance. 3 yr and 5 yr are yearly averages (CAGR). Volatility is yearly, over 3 years.</p>
 
   <p style="font-size:11px;color:#999;margin-top:22px;border-top:1px solid #eee;padding-top:10px">
-  Data: AMFI NAVs via mfapi.in. Projections use fixed long-run assumptions, not forecasts; actual returns will differ, and past performance doesn't guarantee future results.
+  Data: AMFI NAVs via mfapi.in; holdings last updated {html.escape(cfg.get('updated', cfg['snapshot_date']))} (send a new statement after any buy or sell). Projections use fixed long-run assumptions, not forecasts; actual returns will differ, and past performance doesn't guarantee future results.
   This is an automated planning summary, not investment, tax or financial advice. Check tax rules with a tax professional before redeeming.</p>
 </div></body></html>"""
 
@@ -508,6 +518,44 @@ def build_text(funds, rates, rows, flags, review):
     lines += [f"  {r['years']} yrs: {short_inr(r['exp'])} (range {short_inr(r['cons'])} – {short_inr(r['opt'])})" for r in rows]
     lines += ["", "Review:"] + [f"- {p}" for p in (review or [])] + ["", "Checks:"] + [f"- {p}" for p in flags]
     return "\n".join(lines)
+
+
+def build_extra(funds, cfg, rates, flags):
+    """Benchmark check, Monte Carlo, tax calendar and portfolio-manager review. Each part is
+    optional: if one fails, the report still goes out without it."""
+    total = sum(f["value"] for f in funds)
+    invested = sum(f["invested"] for f in funds)
+    snap = date.fromisoformat(cfg["snapshot_date"])
+    sip = float(cfg.get("monthly_sip", 0) or 0)
+    extra, notes = {}, []
+    for name, fn in [("bench", lambda: pa.benchmark_check(funds, snap)),
+                     ("vol", lambda: pa.portfolio_volatility(funds)[0]),
+                     ("tax", lambda: pa.tax_calendar(funds))]:
+        try:
+            extra[name] = fn()
+        except Exception as exc:
+            gh_annotate("warning", f"{name} section skipped: {type(exc).__name__}: {exc}")
+    if "vol" in extra:
+        extra["mc"] = pa.monte_carlo(total, invested, rates[1], extra["vol"], sip,
+                                     seed=int(date.today().strftime("%Y%m%d")))
+        notes.append(f"Vol {extra['vol'] * 100:.1f}%; MC median " + "; ".join(
+            f"{r['years']}y {short_inr(r['p50'])} ({short_inr(r['p10'])}-{short_inr(r['p90'])})" for r in extra["mc"]))
+    if "bench" in extra:
+        notes.append("Bench: " + "; ".join(
+            f"{k}: {v['verdict']}" + (f" {v['beat_pct']:.0f}%/{v['avg_excess']:+.1f}" if "beat_pct" in v else "")
+            for k, v in extra["bench"].items()))
+    if "tax" in extra:
+        t = extra["tax"]
+        notes.append(f"Tax: LT {inr(t['lt_gain'])}, ST {inr(t['st_gain'])}, switch tax {inr(t['switch_tax'])}, "
+                     f"unknown {len(t['unknown'])}")
+    try:
+        extra["pm"] = pa.pm_review(funds, extra.get("bench", {}), extra.get("mc", []),
+                                   extra.get("tax") or pa.tax_calendar(funds), flags, rates)
+    except Exception as exc:
+        gh_annotate("warning", f"PM review skipped: {type(exc).__name__}: {exc}")
+    if notes:
+        gh_annotate("notice", " || ".join(notes))
+    return extra
 
 
 # ------------------------------------------------------------------- main --
@@ -525,10 +573,11 @@ def main():
     flags = rule_flags(funds)
     review = expert_review(funds, rates, rows, flags)
     total = sum(f["value"] for f in funds)
+    extra = build_extra(funds, cfg, rates, flags)
     gh_annotate("notice", f"Total {inr(total)}; expected rate {rates[1]:.1f}%; "
                 + "; ".join(f"{r['years']}y {short_inr(r['exp'])}" for r in rows))
 
-    html_body = build_html(funds, cfg, rates, rows, flags, review)
+    html_body = build_html(funds, cfg, rates, rows, flags, review, extra)
     if args.dry_run:
         with open("portfolio_preview.html", "w", encoding="utf-8") as f:
             f.write(html_body)

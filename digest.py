@@ -446,7 +446,7 @@ def fallback_stories(items):
 
 # --------------------------------------------------------------- emailing --
 
-def build_html(stories, edition, ai_used, total):
+def build_html(stories, edition, ai_used, total, portfolio_line=""):
     now = datetime.now(LOCAL_TZ)
     rows = []
     for n, s in enumerate(stories, 1):
@@ -469,6 +469,7 @@ def build_html(stories, edition, ai_used, total):
     <div style="max-width:640px;margin:0 auto;background:#fff;padding:24px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:15px;line-height:1.5">
       <h2 style="margin:0">🤖 AI News — {edition} Edition</h2>
       <div style="color:#888;font-size:13px">{now:%A, %B %d, %Y · %I:%M %p %Z} · picked from {total} stories in the last {LOOKBACK_HOURS}h</div>
+      {portfolio_line}
       {note}
       {''.join(rows) if rows else '<p>No major AI stories in this window.</p>'}
       <p style="color:#aaa;font-size:12px;margin-top:20px">Sent by your GitHub Actions AI News Digest.</p>
@@ -520,6 +521,55 @@ def send_email(subject, html_body, text_body):
     gh_annotate("notice", f"Email sent to {len(recipients)} recipient(s)")
 
 
+# -------------------------------------------------------- portfolio extras --
+
+ALERT_STATE = "alerts.json"
+
+
+def portfolio_morning(dry_run):
+    """Daily portfolio line for the morning email, plus smart alerts. Never breaks the digest."""
+    if not os.path.exists("portfolio.json"):
+        return ""
+    try:
+        import portfolio_analytics as pa
+        import portfolio_report as pr
+        with open("portfolio.json", encoding="utf-8") as f:
+            cfg = json.load(f)
+        funds = pr.analyse(cfg, quiet=True)
+        snap = pa.daily_snapshot(funds)
+        c = lambda x: "#16a34a" if x >= 0 else "#dc2626"
+        line = (f'<div style="margin:12px 0 4px;padding:10px 12px;background:#f8fafc;border-radius:10px;font-size:14px">'
+                f'💼 <b>Portfolio {pr.inr(snap["total"])}</b> · '
+                f'<span style="color:{c(snap["day_pct"])}">{snap["day_pct"]:+.2f}% ({pr.inr(snap["day_abs"])}) last day</span> · '
+                f'<span style="color:{c(snap["mtd_pct"])}">{snap["mtd_pct"]:+.1f}% this month</span>'
+                f'<span style="color:#999;font-size:12px"> · NAVs of {snap["nav_date"]:%d %b}</span></div>')
+        gh_annotate("notice", f"Portfolio {pr.inr(snap['total'])}, day {snap['day_pct']:+.2f}%, "
+                    f"week {snap['week_pct']:+.1f}%, month {snap['mtd_pct']:+.1f}%")
+        try:
+            with open(ALERT_STATE, encoding="utf-8") as f:
+                state = json.load(f)
+        except (FileNotFoundError, ValueError):
+            state = {}
+        fresh, new_state = pa.alerts(funds, state)
+        if fresh:
+            body = "".join(f"<p style='margin:10px 0'>⚠️ {html.escape(m)}</p>" for _, m in fresh)
+            html_alert = (f'<!doctype html><html><body style="font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;'
+                          f'font-size:15px;line-height:1.5;max-width:640px;margin:0 auto;padding:20px">'
+                          f'<h2 style="margin:0 0 6px">⚠️ Portfolio alert</h2>{body}'
+                          f'<p style="color:#888;font-size:12px">Automated alert from your portfolio tracker. '
+                          f'Not investment advice. Big falls are usually a reason to check, not to rush.</p></body></html>')
+            gh_annotate("warning", f"{len(fresh)} portfolio alert(s): " + " | ".join(k for k, _ in fresh))
+            if not dry_run:
+                send_email(f"⚠️ Portfolio alert — {datetime.now(LOCAL_TZ):%b %d}", html_alert,
+                           "\n\n".join(m for _, m in fresh))
+                with open(ALERT_STATE, "w", encoding="utf-8") as f:
+                    json.dump(new_state, f, indent=1)
+        return line
+    except Exception as exc:
+        gh_annotate("warning", f"Portfolio line skipped: {type(exc).__name__}: {exc}")
+        return ""
+
+
 # ------------------------------------------------------------------- main --
 
 TARGET_HOURS = {7: "Morning", 18: "Evening"}  # local Texas time
@@ -560,7 +610,8 @@ def main():
     gh_annotate("notice", f"{len(items)} candidate stories, {len(stories)} picked, AI summary used: {ai_used}")
 
     subject = f"🤖 AI News {edition} Digest — {datetime.now(LOCAL_TZ):%b %d}"
-    html_body = build_html(stories, edition, ai_used, len(items))
+    portfolio_line = portfolio_morning(args.dry_run) if edition == "Morning" else ""
+    html_body = build_html(stories, edition, ai_used, len(items), portfolio_line)
     text_body = build_text(stories, edition)
 
     if args.dry_run:

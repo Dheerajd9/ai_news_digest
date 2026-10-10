@@ -6,7 +6,7 @@ on:
   workflow_dispatch:           # click "Run workflow" to get a report anytime
   push:                        # code/portfolio changes trigger a test run that does NOT send email
     branches: [main]
-    paths: ["portfolio_report.py", "portfolio.json", ".github/workflows/portfolio.yml"]
+    paths: ["portfolio_report.py", "portfolio_analytics.py", "report_sections.py", "portfolio.json", ".github/workflows/portfolio.yml"]
 
 permissions:
   contents: read
@@ -14,7 +14,7 @@ permissions:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
 
