@@ -581,7 +581,7 @@ def main():
     if args.dry_run:
         with open("portfolio_preview.html", "w", encoding="utf-8") as f:
             f.write(html_body)
-        print(build_text(funds, rates, rows, flags, review))
+        print("[info] Dry run: wrote portfolio_preview.html (not printed, logs may be visible)")
         return
     send_email(f"📈 Portfolio Report — {short_inr(total)} — {datetime.now(LOCAL_TZ):%b %d}",
                html_body, build_text(funds, rates, rows, flags, review))

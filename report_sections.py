@@ -59,7 +59,9 @@ def section_pm(pm):
     watch = "".join(f"<li style='margin:5px 0'>{esc(x)}</li>" for x in pm.get("watch") or [])
     if watch:
         parts.append(f"<h4 style='margin:14px 0 4px'>Watch before the next review</h4><ul style='padding-left:18px;margin:0'>{watch}</ul>")
-    srcs = " · ".join(f"<a href='{esc(x['uri'])}' style='color:#2563eb'>{esc(x['title'])}</a>" for x in pm.get("sources") or [])
+    from digest import safe_url
+    srcs = " · ".join(f"<a href='{esc(safe_url(x['uri']))}' style='color:#2563eb'>{esc(x['title'])}</a>"
+                      for x in pm.get("sources") or [] if safe_url(x.get("uri")))
     if srcs:
         parts.append(f"<p style='font-size:11px;color:#888;margin:8px 0 0'>Research sources ({esc(pm.get('model'))}): {srcs}</p>")
     parts.append("<p style='font-size:11px;color:#888;margin:6px 0 0'>AI-generated suggestions to discuss and verify, "
