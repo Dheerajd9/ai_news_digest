@@ -10,7 +10,7 @@ picks and summarizes the stories, and Gmail sends the email.
    Microsoft, Hugging Face, TechCrunch, The Verge, Ars Technica, VentureBeat,
    MIT Tech Review, and Google News (for Anthropic, Apple, Meta).
 2. **Clean** — drops old items and merges the same story from different outlets.
-3. **Pick** — a free AI model (`openai/gpt-4o-mini` via GitHub Models) chooses the
+3. **Pick** — Google Gemini's free tier (falling back to GitHub Models) chooses the
    5 most important stories and writes a summary + "why it matters" for each.
    Links always come straight from the feeds, never from the AI.
 4. **Send** — a clean HTML email to your inbox. If the AI step ever fails,
@@ -44,6 +44,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 | `GMAIL_USER` | your Gmail address (the sender) |
 | `GMAIL_APP_PASSWORD` | the 16-character app password |
 | `TO_EMAIL` | where to send it (can be the same address; comma-separate for several) |
+| `GEMINI_API_KEY` | free key from https://aistudio.google.com/apikey (writes the summaries) |
 
 ### 4. Test it
 Repo → **Actions** tab → **AI News Digest** → **Run workflow**. In about a

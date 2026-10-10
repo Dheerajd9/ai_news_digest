@@ -235,16 +235,92 @@ def model_candidates(token):
     return picks + extras[:3]
 
 
-def pick_with_ai(items):
-    token = os.getenv("GITHUB_TOKEN")
-    if not token:
-        print("[info] No GITHUB_TOKEN, skipping AI step", file=sys.stderr)
+def parse_stories(content, items):
+    """Turn the model's JSON reply into stories; links always come from the feeds."""
+    match = re.search(r"\{.*\}", content, re.S)  # tolerate ```json fences or extra text
+    stories = []
+    for s in json.loads(match.group(0) if match else content)["stories"][:TOP_N]:
+        idx = int(s["id"])
+        if 0 <= idx < len(items):
+            stories.append({**s, "link": items[idx]["link"], "source": items[idx]["source"]})
+    return stories
+
+
+GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
+
+
+def gemini_models(key):
+    """Free 'flash' models that can generate text, newest first."""
+    preferred = os.getenv("GEMINI_MODEL", "").strip()
+    names = []
+    try:
+        r = requests.get(f"{GEMINI_API}/models", headers={"x-goog-api-key": key},
+                         params={"pageSize": 200}, timeout=20)
+        r.raise_for_status()
+        for m in r.json().get("models", []):
+            name = m["name"].split("/", 1)[-1]
+            if ("generateContent" in m.get("supportedGenerationMethods", [])
+                    and "flash" in name and not re.search(r"image|tts|audio|live|thinking|exp", name)):
+                names.append(name)
+    except Exception as exc:
+        gh_annotate("warning", f"Couldn't list Gemini models: {type(exc).__name__}: {str(exc)[:150]}")
+
+    def version(n):
+        nums = re.findall(r"\d+(?:\.\d+)?", n)
+        return float(nums[0]) if nums else 0.0
+    names.sort(key=lambda n: (-version(n), "lite" in n, "preview" in n, n))
+    fallback = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-2.0-flash"]
+    order = ([preferred] if preferred else []) + names + fallback
+    return list(dict.fromkeys(order))[:4]
+
+
+def pick_with_gemini(prompt, items):
+    key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not key:
         return None
+    last_error = ""
+    for model in gemini_models(key):
+        r = None
+        try:
+            r = requests.post(
+                f"{GEMINI_API}/models/{model}:generateContent",
+                headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                json={"contents": [{"parts": [{"text": prompt}]}],
+                      "generationConfig": {"temperature": 0.2,
+                                           "responseMimeType": "application/json"}},
+                timeout=90,
+            )
+            if r.status_code >= 400:
+                last_error = f"{model} HTTP {r.status_code}: {r.text[:200]}"
+                continue
+            parts = r.json()["candidates"][0]["content"]["parts"]
+            stories = parse_stories("".join(p.get("text", "") for p in parts), items)
+            if stories:
+                gh_annotate("notice", f"Stories picked by Gemini {model}")
+                return stories
+            last_error = f"{model}: no usable stories in reply"
+        except Exception as exc:
+            body = (r.text[:150] if r is not None else "")
+            last_error = f"{model}: {type(exc).__name__}: {exc} {body!r}"
+    gh_annotate("warning", f"Gemini failed. Last error: {last_error}")
+    return None
+
+
+def pick_with_ai(items):
     listing = "\n".join(
         f"[{i}] ({it['source']}) {it['title']} — {it['summary'][:180]}"
         for i, it in enumerate(items)
     )
     prompt = PROMPT.format(n=TOP_N, items=listing)
+    stories = pick_with_gemini(prompt, items)
+    if stories:
+        return stories
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        print("[info] No AI key available, skipping AI step", file=sys.stderr)
+        return None
+    if not os.getenv("GEMINI_API_KEY"):
+        gh_annotate("notice", "No GEMINI_API_KEY secret yet, trying GitHub Models")
     last_error = ""
     working = find_endpoint(token)
     if not working:
