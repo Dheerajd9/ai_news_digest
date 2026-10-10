@@ -171,6 +171,37 @@ News items:
 {items}"""
 
 
+# GitHub Models has served chat completions from two addresses; the working one is
+# detected at runtime by find_endpoint().
+ENDPOINTS = [
+    "https://models.github.ai/inference/chat/completions",
+    "https://models.inference.ai.azure.com/chat/completions",
+]
+ENDPOINT = ENDPOINTS[0]
+
+
+def find_endpoint(token):
+    """Return the first endpoint that answers a tiny request with real JSON."""
+    global ENDPOINT
+    notes = []
+    for url in ENDPOINTS:
+        for model in ("openai/gpt-4o-mini", "gpt-4o-mini", "openai/gpt-4.1-mini"):
+            try:
+                r = requests.post(url, headers={**API_HEADERS, "Authorization": f"Bearer {token}"},
+                                  json={"model": model, "max_tokens": 5,
+                                        "messages": [{"role": "user", "content": "Say hi"}]},
+                                  timeout=30)
+                r.json()["choices"]
+                ENDPOINT = url
+                gh_annotate("notice", f"AI endpoint OK: {url} ({model})")
+                return model
+            except Exception:
+                notes.append(f"{url.split('/')[2]} {model}: HTTP {getattr(r, 'status_code', '?')} "
+                             f"{(getattr(r, 'text', '') or '')[:60]!r}")
+    gh_annotate("warning", "No AI endpoint answered: " + " | ".join(notes))
+    return None
+
+
 PREFERRED_MODELS = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini", "openai/gpt-5-mini",
                     "openai/gpt-4.1", "openai/gpt-4o"]
 
@@ -215,7 +246,14 @@ def pick_with_ai(items):
     )
     prompt = PROMPT.format(n=TOP_N, items=listing)
     last_error = ""
-    for model in model_candidates(token)[:4]:
+    working = find_endpoint(token)
+    if not working:
+        return None
+    candidates = model_candidates(token)
+    if "azure.com" in ENDPOINT:  # this endpoint uses bare model names
+        candidates = [m.split("/", 1)[-1] for m in candidates]
+    candidates = [working] + [m for m in candidates if m != working]
+    for model in candidates[:4]:
         stories, last_error = call_model(token, model, prompt, items)
         if stories:
             gh_annotate("notice", f"Stories picked by {model}")
@@ -234,7 +272,7 @@ def call_model(token, model, prompt, items):
     for attempt in range(2):
         try:
             resp = requests.post(
-                "https://models.github.ai/inference/chat/completions",
+                ENDPOINT,
                 headers={**API_HEADERS, "Authorization": f"Bearer {token}"},
                 json=body, timeout=90,
             )
