@@ -14,6 +14,7 @@ import math
 import os
 import random
 import re
+import time
 from datetime import date, timedelta
 
 import requests
@@ -214,9 +215,14 @@ def gemini_json(prompt, use_search=False, temperature=0.3):
             else:
                 body["generationConfig"]["responseMimeType"] = "application/json"
             try:
-                r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
-                                  headers={"x-goog-api-key": key, "Content-Type": "application/json"},
-                                  json=body, timeout=180)
+                for wait in (0, 35, 70):  # free tier rate limits reset within a minute
+                    if wait:
+                        time.sleep(wait)
+                    r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
+                                      headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+                                      json=body, timeout=180)
+                    if r.status_code != 429:
+                        break
                 if r.status_code >= 400:
                     last = f"{model}{' +search' if search else ''} HTTP {r.status_code}: {r.text[:120]}"
                     continue
