@@ -204,6 +204,8 @@ def gemini_json(prompt, use_search=False, temperature=0.3):
     attempts = ([True, False] if use_search else [False])
     last = ""
     for search in attempts:
+        if not search and use_search and last:
+            gh_annotate("warning", f"Google Search grounding unavailable, using data only. Reason: {last}")
         for model in gemini_models(key)[:3]:
             body = {"contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {"temperature": temperature}}

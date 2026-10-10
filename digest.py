@@ -610,7 +610,7 @@ def main():
     gh_annotate("notice", f"{len(items)} candidate stories, {len(stories)} picked, AI summary used: {ai_used}")
 
     subject = f"🤖 AI News {edition} Digest — {datetime.now(LOCAL_TZ):%b %d}"
-    portfolio_line = portfolio_morning(args.dry_run) if edition == "Morning" else ""
+    portfolio_line = portfolio_morning(args.dry_run) if edition == "Morning" or args.dry_run else ""
     html_body = build_html(stories, edition, ai_used, len(items), portfolio_line)
     text_body = build_text(stories, edition)
 
