@@ -2,19 +2,26 @@ name: AI News Digest
 
 on:
   schedule:
-    # GitHub cron runs in UTC. Times below are ~7 AM and ~6 PM in Texas during
-    # daylight time (CDT, UTC-5). From Nov 1 (CST, UTC-6) they arrive an hour
-    # earlier: ~6 AM and ~5 PM. GitHub can also delay scheduled runs 5-30 min.
-    - cron: "7 12 * * *"   # morning
-    - cron: "7 23 * * *"   # evening
+    # GitHub cron is UTC only. Each edition has two slots: one matches 7 AM / 6 PM
+    # Texas time in summer (CDT, UTC-5) and the other in winter (CST, UTC-6).
+    # digest.py checks which slot matches today and quietly skips the other one,
+    # so emails arrive at ~7:07 AM and ~6:07 PM all year (GitHub may start a few minutes late).
+    - cron: "7 12 * * *"   # 7:07 AM CDT
+    - cron: "7 13 * * *"   # 7:07 AM CST
+    - cron: "7 23 * * *"   # 6:07 PM CDT
+    - cron: "7 0 * * *"    # 6:07 PM CST
   workflow_dispatch:        # lets you click "Run workflow" to test anytime
   push:                     # code changes trigger a test run that does NOT send email
     branches: [main]
     paths: ["digest.py", "requirements.txt", ".github/workflows/digest.yml"]
 
 permissions:
-  contents: read
-  models: read              # free GitHub Models access via GITHUB_TOKEN
+  contents: write           # to save sent.json (remembers stories already emailed)
+  models: read              # free GitHub Models access (fallback AI)
+
+concurrency:
+  group: digest             # never run two digests at the same time
+  cancel-in-progress: false
 
 jobs:
   digest:
@@ -37,9 +44,22 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             python digest.py --dry-run
           else
             python digest.py
+          fi
+
+      - name: Remember sent stories
+        if: github.event_name != 'push'
+        run: |
+          if [ -n "$(git status --porcelain sent.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git add sent.json
+            git commit -m "Update sent stories"
+            git pull --rebase --quiet
+            git push
           fi

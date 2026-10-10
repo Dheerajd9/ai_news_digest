@@ -6,10 +6,13 @@ picks and summarizes the stories, and Gmail sends the email.
 
 ## How it works
 
-1. **Collect** — pulls the last 14 hours of posts from OpenAI, Google, DeepMind,
-   Microsoft, Hugging Face, TechCrunch, The Verge, Ars Technica, VentureBeat,
-   MIT Tech Review, and Google News (for Anthropic, Apple, Meta).
-2. **Clean** — drops old items and merges the same story from different outlets.
+1. **Collect** — pulls the last 14 hours of posts from company blogs (OpenAI, Google,
+   DeepMind, Microsoft, Hugging Face), tech press (TechCrunch, The Verge, Ars Technica,
+   VentureBeat, MIT Tech Review, The Decoder, Wired), AI stories from CNBC, Axios and
+   Engadget, popular Hacker News posts, and Google News (for Anthropic, Apple, Meta).
+2. **Clean** — drops old items, merges the same story from different outlets (keeping the
+   publisher's own link over a Google News redirect), and skips anything already emailed
+   in the last 5 days, so the evening digest doesn't repeat the morning one.
 3. **Pick** — Google Gemini's free tier (falling back to GitHub Models) chooses the
    5 most important stories and writes a summary + "why it matters" for each.
    Links always come straight from the feeds, never from the AI.
@@ -53,14 +56,19 @@ mark it "Not spam").
 
 ## Schedule
 
-| Run | Cron (UTC) | Texas time (CDT, until Nov 1) | Texas time (CST, after Nov 1) |
-|---|---|---|---|
-| Morning | `7 12 * * *` | ~7:07 AM | ~6:07 AM |
-| Evening | `7 23 * * *` | ~6:07 PM | ~5:07 PM |
+Emails arrive at about **7:07 AM and 6:07 PM Texas time, all year**. GitHub cron only
+understands UTC, so the workflow has two slots per edition (one for daylight time, one
+for standard time); `digest.py` sends on the slot that matches today and quietly skips
+the other. GitHub can start scheduled runs a few minutes late when it's busy.
 
-GitHub cron only understands UTC, so the time shifts an hour with daylight saving.
-Scheduled runs can also start 5–30 minutes late when GitHub is busy. To change the
-times, edit the two `cron:` lines in `.github/workflows/digest.yml`.
+To change the times, edit `TARGET_HOURS` in `digest.py` and the `cron:` lines in
+`.github/workflows/digest.yml` (one UTC slot for each offset, -5 and -6).
+
+## Memory (sent.json)
+
+After each email, the workflow commits `sent.json`, the list of stories already sent.
+It keeps 5 days of history. These daily commits also keep the repo active, so GitHub
+never pauses the schedule for inactivity. Delete the file to reset the memory.
 
 ## Customizing
 
@@ -76,9 +84,6 @@ Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
 
 - **Cost:** free. Each run takes about 1 minute, so ~60 minutes a month, well inside
   GitHub's free 2,000 minutes for private repos (public repos are unlimited).
-- **60-day rule:** GitHub pauses scheduled workflows in a repo with no commits for
-  60 days and emails you first. Just click **Enable workflow** on the Actions tab,
-  or make any small commit.
 - **Free AI limits:** GitHub Models' free tier has daily request limits that are far
   above the 2 calls a day this uses.
 - **Preview locally:** `pip install -r requirements.txt && python digest.py --dry-run`

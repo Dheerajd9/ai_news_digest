@@ -52,6 +52,15 @@ FEEDS = {
     "Ars Technica": "https://arstechnica.com/ai/feed/",
     "VentureBeat": "https://venturebeat.com/category/ai/feed/",
     "MIT Tech Review": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+    "The Decoder": "https://the-decoder.com/feed/",
+    "Wired": "https://www.wired.com/feed/tag/ai/latest/rss",
+    # General tech/business feeds, filtered down to AI stories
+    "CNBC Tech": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
+    "Axios": "https://api.axios.com/feed/",
+    "Engadget": "https://www.engadget.com/rss.xml",
+    # Hacker News posts about AI with 100+ points (links go to the original article)
+    "Hacker News": ("https://hnrss.org/newest?points=100&q=AI+OR+LLM+OR+OpenAI+OR+Anthropic"
+                    "+OR+Gemini+OR+Claude+OR+GPT"),
     # Google News catches companies without their own RSS (Anthropic, Apple, Meta)
     "Google News": (
         "https://news.google.com/rss/search?q=Anthropic+OR+%22Apple+Intelligence%22"
@@ -59,6 +68,11 @@ FEEDS = {
     ),
 }
 OFFICIAL = {"OpenAI", "Google AI", "Google DeepMind", "Microsoft AI", "Hugging Face"}
+NEEDS_AI_FILTER = {"CNBC Tech", "Axios", "Engadget"}
+AI_WORDS = re.compile(r"\b(ai|a\.i\.|artificial intelligence|llms?|openai|anthropic|claude|gemini|"
+                      r"chatgpt|gpt-?\d*|copilot|deepmind|machine learning|chatbots?|nvidia|agents?)\b", re.I)
+STATE_FILE = os.getenv("STATE_FILE", "sent.json")
+STATE_DAYS = 5  # remember sent stories this long so they aren't repeated
 BIG_NAMES = ["openai", "anthropic", "claude", "google", "gemini", "deepmind",
              "apple", "meta", "microsoft", "copilot", "nvidia", "gpt"]
 API_HEADERS = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
@@ -101,16 +115,24 @@ def fetch_items():
             if not published or published < cutoff:
                 continue
             title = clean(e.get("title"), 200)
+            summary = clean(e.get("summary") or e.get("description"))
+            if source in NEEDS_AI_FILTER and not AI_WORDS.search(title + " " + summary):
+                continue
+            link = e.get("link", "")
             # Google News titles end with " - Outlet"; keep the outlet as the source
             outlet = source
             if source == "Google News" and " - " in title:
                 title, outlet = title.rsplit(" - ", 1)
+            if source == "Hacker News":
+                outlet = re.sub(r"^www\.", "", link.split("/")[2]) if "//" in link else source
             items.append({
                 "title": title,
-                "summary": clean(e.get("summary") or e.get("description")),
-                "link": e.get("link", ""),
+                "summary": summary,
+                "link": link,
                 "source": outlet,
                 "official": source in OFFICIAL,
+                # 0 = company blog, 1 = publisher's own feed, 2 = Google News redirect link
+                "tier": 0 if source in OFFICIAL else (2 if source == "Google News" else 1),
                 "published": published,
             })
             count += 1
@@ -124,17 +146,49 @@ def norm(title):
     return {w for w in words if len(w) > 3}
 
 
+def similar(a, b):
+    wa, wb = norm(a), norm(b)
+    return len(wa & wb) >= max(3, 0.6 * min(len(wa), len(wb)))
+
+
 def dedupe(items):
-    """Drop near-duplicate headlines (same story from several outlets)."""
-    items.sort(key=lambda i: (not i["official"], -i["published"].timestamp()))
+    """Drop near-duplicate headlines (same story from several outlets).
+    Company blogs win, then the publisher's own feed, so links point to the original source."""
+    items.sort(key=lambda i: (i["tier"], -i["published"].timestamp()))
     kept = []
     for it in items:
-        words = norm(it["title"])
-        dup = any(len(words & norm(k["title"])) >= max(3, 0.6 * min(len(words), len(norm(k["title"]))))
-                  for k in kept)
+        dup = any(similar(it["title"], k["title"]) for k in kept)
         if not dup:
             kept.append(it)
     return kept
+
+
+def load_state():
+    try:
+        with open(STATE_FILE, encoding="utf-8") as f:
+            sent = json.load(f).get("sent", [])
+    except (FileNotFoundError, ValueError):
+        return []
+    cutoff = datetime.now(timezone.utc) - timedelta(days=STATE_DAYS)
+    return [s for s in sent if datetime.fromisoformat(s["at"]) >= cutoff]
+
+
+def drop_already_sent(items, sent):
+    links = {s["link"] for s in sent}
+    titles = [s["title"] for s in sent]
+    fresh = [it for it in items
+             if it["link"] not in links and not any(similar(it["title"], t) for t in titles)]
+    gh_annotate("notice", f"Skipped {len(items) - len(fresh)} stories already sent in the last {STATE_DAYS} days")
+    return fresh
+
+
+def save_state(sent, stories, items):
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    by_link = {it["link"]: it["title"] for it in items}
+    for st in stories:
+        sent.append({"link": st["link"], "title": by_link.get(st["link"], st["headline"]), "at": now})
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump({"sent": sent}, f, indent=1)
 
 
 def rank(items):
@@ -142,6 +196,7 @@ def rank(items):
     def score(it):
         text = (it["title"] + " " + it["summary"]).lower()
         s = 3 if it["official"] else 0
+        s -= 1 if it["tier"] == 2 else 0  # prefer stories with a direct publisher link
         s += sum(1 for n in BIG_NAMES if n in text)
         if re.search(r"launch|release|introduc|announc|unveil|model", text):
             s += 2
@@ -155,7 +210,7 @@ PROMPT = """You are an AI news editor. From the numbered news items below, pick 
 important artificial intelligence stories. Prioritize major AI product launches, new AI
 models, important research, and significant announcements from companies like OpenAI,
 Anthropic, Google, Apple, Meta, and Microsoft. Skip duplicates (same story from different
-outlets), minor announcements, opinion pieces, deals/coupons, and how-to articles.
+outlets; if two items are the same story, use the one that is NOT from Google News), minor announcements, opinion pieces, deals/coupons, and how-to articles.
 
 For each story return:
 - "id": the item number you used
@@ -308,7 +363,8 @@ def pick_with_gemini(prompt, items):
 
 def pick_with_ai(items):
     listing = "\n".join(
-        f"[{i}] ({it['source']}) {it['title']} — {it['summary'][:180]}"
+        f"[{i}] ({it['source']}{' via Google News' if it['tier'] == 2 else ''}) "
+        f"{it['title']} — {it['summary'][:180]}"
         for i, it in enumerate(items)
     )
     prompt = PROMPT.format(n=TOP_N, items=listing)
@@ -466,13 +522,37 @@ def send_email(subject, html_body, text_body):
 
 # ------------------------------------------------------------------- main --
 
+TARGET_HOURS = {7: "Morning", 18: "Evening"}  # local Texas time
+
+
+def scheduled_local_time():
+    """Local time a scheduled run was *meant* for (GitHub can start runs late)."""
+    cron = os.getenv("SCHEDULE", "").split()
+    if os.getenv("GITHUB_EVENT_NAME") != "schedule" or len(cron) < 2:
+        return None
+    now = datetime.now(timezone.utc)
+    planned = now.replace(hour=int(cron[1]), minute=int(cron[0]), second=0, microsecond=0)
+    if planned > now:  # run started after midnight UTC for a slot planned the day before
+        planned -= timedelta(days=1)
+    return planned.astimezone(LOCAL_TZ)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="write preview.html instead of emailing")
     args = parser.parse_args()
 
-    edition = "Morning" if datetime.now(LOCAL_TZ).hour < 15 else "Evening"
-    items = rank(fetch_items())[:MAX_CANDIDATES]
+    planned = scheduled_local_time()
+    if planned is not None:
+        if planned.hour not in TARGET_HOURS:
+            # Two cron slots exist per edition (summer/winter UTC offset); only one matches today.
+            print(f"[info] Slot is {planned:%H:%M %Z}, not a digest time today. Skipping.", file=sys.stderr)
+            return
+        edition = TARGET_HOURS[planned.hour]
+    else:
+        edition = "Morning" if datetime.now(LOCAL_TZ).hour < 15 else "Evening"
+    sent = load_state()
+    items = rank(drop_already_sent(fetch_items(), sent))[:MAX_CANDIDATES]
     stories = pick_with_ai(items) if items else None
     ai_used = stories is not None
     if not ai_used:
@@ -490,6 +570,7 @@ def main():
         print("[info] Dry run: wrote preview.html", file=sys.stderr)
     else:
         send_email(subject, html_body, text_body)
+        save_state(sent, stories, items)
 
 
 if __name__ == "__main__":
