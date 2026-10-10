@@ -80,7 +80,8 @@ def tokens(text):
     return set(re.findall(r"[a-z0-9]+", text)) - STOPWORDS
 
 
-CATEGORY_WORDS = {"large", "mid", "small", "multi", "flexi", "micro", "focused", "contra", "value"}
+CATEGORY_WORDS = {"large", "mid", "small", "multi", "flexi", "micro", "focused", "contra", "value",
+                  "nifty", "index", "sensex", "etf", "fof"}  # index funds never stand in for active funds
 _ALL_SCHEMES = None
 
 
@@ -113,7 +114,8 @@ def find_scheme(fund, plan, snap):
         want = tokens(query)
         for code, name in all_schemes():
             low = name.lower()
-            if plan.lower() not in low or "growth" not in low or EXCLUDE.search(name):
+            plan_ok = re.search(r"\bdir(ect)?\b" if plan.lower() == "direct" else r"\breg(ular)?\b", low)
+            if not plan_ok or not re.search(r"\bgr(owth|\.)?\b", low) or EXCLUDE.search(name):
                 continue
             have = tokens(name)
             if not want <= have:  # every word of the query must be in the name
