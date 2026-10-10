@@ -69,34 +69,28 @@ def pct(x, digits=1):
 
 # ------------------------------------------------------------- fund data --
 
+STOPWORDS = {"fund", "plan", "option", "the", "growth", "direct", "regular", "scheme", "an", "open",
+             "ended", "equity", "formerly", "known", "as", "erstwhile"}
+
+
 def tokens(text):
-    text = text.lower().replace("&", " and ").replace("midcap", "mid cap").replace("smallcap", "small cap")
-    return set(re.findall(r"[a-z0-9]+", text)) - {"fund", "plan", "option", "the", "growth", "direct", "regular"}
+    text = re.sub(r"\(.*?\)", " ", text.lower())  # drop "(formerly ...)" notes
+    text = text.replace("&", " and ").replace("midcap", "mid cap").replace("smallcap", "small cap") \
+               .replace("largecap", "large cap").replace("multicap", "multi cap").replace("flexicap", "flexi cap")
+    return set(re.findall(r"[a-z0-9]+", text)) - STOPWORDS
 
 
-def find_scheme(fund, plan):
-    if fund.get("scheme_code"):
-        return int(fund["scheme_code"]), None
-    best = None
-    for query in fund.get("search", [fund["name"]]):
-        r = requests.get(f"{MFAPI}/search", params={"q": query}, timeout=30)
+_ALL_SCHEMES = None
+
+
+def all_schemes():
+    """Full AMFI scheme list from MFapi (about 40k schemes), fetched once per run."""
+    global _ALL_SCHEMES
+    if _ALL_SCHEMES is None:
+        r = requests.get(MFAPI, timeout=60)
         r.raise_for_status()
-        want = tokens(query)
-        for s in r.json():
-            name = s["schemeName"]
-            low = name.lower()
-            if plan.lower() not in low or "growth" not in low or EXCLUDE.search(name):
-                continue
-            have = tokens(name)
-            score = len(want & have) / max(len(want), 1) - 0.01 * len(have - want)
-            if best is None or score > best[0]:
-                best = (score, int(s["schemeCode"]), name)
-        if best and best[0] >= 0.99:
-            break
-    if not best or best[0] < 0.6:
-        raise RuntimeError(f"No {plan} Growth match found for '{fund['name']}'. "
-                           "Add its scheme_code in portfolio.json.")
-    return best[1], best[2]
+        _ALL_SCHEMES = [(int(s["schemeCode"]), s["schemeName"]) for s in r.json()]
+    return _ALL_SCHEMES
 
 
 def nav_history(code):
@@ -106,6 +100,33 @@ def nav_history(code):
     hist = sorted((datetime.strptime(d["date"], "%d-%m-%Y").date(), float(d["nav"]))
                   for d in js["data"] if float(d["nav"]) > 0)
     return js["meta"], hist
+
+
+def find_scheme(fund, plan, snap):
+    """Best-matching live Direct/Regular Growth scheme. Returns (code, name, meta, history)."""
+    if fund.get("scheme_code"):
+        meta, hist = nav_history(int(fund["scheme_code"]))
+        return int(fund["scheme_code"]), meta.get("scheme_name", fund["name"]), meta, hist
+    scored = {}
+    for query in fund.get("search", [fund["name"]]):
+        want = tokens(query)
+        for code, name in all_schemes():
+            low = name.lower()
+            if plan.lower() not in low or "growth" not in low or EXCLUDE.search(name):
+                continue
+            have = tokens(name)
+            if not want <= have:  # every word of the query must be in the name
+                continue
+            score = 1.0 - 0.1 * len(have - want)  # each extra word means a different fund
+            if score > scored.get(code, (-9, ""))[0]:
+                scored[code] = (score, name)
+    for code, (score, name) in sorted(scored.items(), key=lambda kv: -kv[1][0])[:6]:
+        meta, hist = nav_history(code)
+        if not hist or (date.today() - hist[-1][0]).days > 20 or hist[0][0] > snap:
+            continue  # closed, merged or too new to have a NAV on the snapshot date
+        return code, name, meta, hist
+    raise RuntimeError(f"No live {plan} Growth scheme found for '{fund['name']}'. "
+                       "Add its scheme_code in portfolio.json.")
 
 
 def nav_on(hist, day):
@@ -145,10 +166,9 @@ def risk_stats(hist, years=3):
 
 def analyse(cfg):
     snap = date.fromisoformat(cfg["snapshot_date"])
-    out = []
+    out, matches = [], []
     for f in cfg["funds"]:
-        code, matched = find_scheme(f, cfg.get("plan", "Direct"))
-        meta, hist = nav_history(code)
+        code, matched, meta, hist = find_scheme(f, cfg.get("plan", "Direct"), snap)
         base = nav_on(hist, snap)
         if not base:
             raise RuntimeError(f"No NAV on or before {snap} for {f['name']}")
@@ -168,8 +188,10 @@ def analyse(cfg):
             "vol": vol, "mdd": mdd,
             "inception": hist[0][0],
         })
-        gh_annotate("notice", f"{f['name']} -> {out[-1]['scheme']} (code {code}), "
-                    f"NAV {last_v:.2f} on {last_d}, 3Y CAGR {pct(out[-1]['r3y'])}")
+        matches.append(f"{f['name']} => {out[-1]['scheme']} [{code}] NAV {last_v:.2f} "
+                       f"({last_d:%d %b}), 3Y {pct(out[-1]['r3y'])}")
+    for i in range(0, len(matches), 5):  # GitHub shows max 10 notes per step, so batch them
+        gh_annotate("notice", "Matched funds: " + " | ".join(matches[i:i + 5]))
     return out
 
 
