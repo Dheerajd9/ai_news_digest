@@ -1,0 +1,36 @@
+name: AI News Digest
+
+on:
+  schedule:
+    # GitHub cron runs in UTC. Times below are ~7 AM and ~6 PM in Texas during
+    # daylight time (CDT, UTC-5). From Nov 1 (CST, UTC-6) they arrive an hour
+    # earlier: ~6 AM and ~5 PM. GitHub can also delay scheduled runs 5-30 min.
+    - cron: "7 12 * * *"   # morning
+    - cron: "7 23 * * *"   # evening
+  workflow_dispatch:        # lets you click "Run workflow" to test anytime
+
+permissions:
+  contents: read
+  models: read              # free GitHub Models access via GITHUB_TOKEN
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build and send digest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+        run: python digest.py

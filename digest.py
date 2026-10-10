@@ -1,0 +1,301 @@
+"""
+AI News Digest — collects the latest AI news from free RSS feeds, picks the
+top 5 stories with a free AI model (GitHub Models), and emails them to you.
+
+Runs on GitHub Actions twice a day. Everything used here is free:
+  - RSS feeds (no API keys)
+  - GitHub Models (free tier, uses the built-in GITHUB_TOKEN)
+  - Gmail SMTP with an App Password
+
+If the AI step fails for any reason, the email still goes out with the top
+headlines picked by a simple ranking, so you never miss a digest.
+
+Local test (no email sent, writes preview.html):
+    python digest.py --dry-run
+"""
+
+import argparse
+import html
+import json
+import os
+import re
+import smtplib
+import sys
+import time
+from datetime import datetime, timedelta, timezone
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from zoneinfo import ZoneInfo
+
+import feedparser
+import requests
+
+# ---------------------------------------------------------------- settings --
+
+LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "14"))  # a little over 12h so cron delays don't leave gaps
+TOP_N = int(os.getenv("TOP_N", "5"))
+MODEL = os.getenv("MODEL", "openai/gpt-4o-mini")
+LOCAL_TZ = ZoneInfo(os.getenv("LOCAL_TZ", "America/Chicago"))
+MAX_CANDIDATES = 40  # keeps the prompt inside the free tier's input limit
+
+# Source name -> feed URL. Official company blogs get a priority boost.
+FEEDS = {
+    # Official company blogs
+    "OpenAI": "https://openai.com/news/rss.xml",
+    "Google AI": "https://blog.google/technology/ai/rss/",
+    "Google DeepMind": "https://deepmind.google/blog/rss.xml",
+    "Microsoft AI": "https://blogs.microsoft.com/ai/feed/",
+    "Hugging Face": "https://huggingface.co/blog/feed.xml",
+    # Tech press
+    "TechCrunch": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "The Verge": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "Ars Technica": "https://arstechnica.com/ai/feed/",
+    "VentureBeat": "https://venturebeat.com/category/ai/feed/",
+    "MIT Tech Review": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+    # Google News catches companies without their own RSS (Anthropic, Apple, Meta)
+    "Google News": (
+        "https://news.google.com/rss/search?q=Anthropic+OR+%22Apple+Intelligence%22"
+        "+OR+%22Meta+AI%22+OR+OpenAI+OR+Gemini+when:1d&hl=en-US&gl=US&ceid=US:en"
+    ),
+}
+OFFICIAL = {"OpenAI", "Google AI", "Google DeepMind", "Microsoft AI", "Hugging Face"}
+BIG_NAMES = ["openai", "anthropic", "claude", "google", "gemini", "deepmind",
+             "apple", "meta", "microsoft", "copilot", "nvidia", "gpt"]
+HEADERS = {"User-Agent": "Mozilla/5.0 (ai-news-digest; +https://github.com)"}
+
+
+# ------------------------------------------------------------- collecting --
+
+def clean(text, limit=300):
+    text = re.sub(r"<[^>]+>", " ", text or "")
+    text = html.unescape(re.sub(r"\s+", " ", text)).strip()
+    return text[:limit]
+
+
+def entry_time(entry):
+    for key in ("published_parsed", "updated_parsed"):
+        t = entry.get(key)
+        if t:
+            return datetime(*t[:6], tzinfo=timezone.utc)
+    return None
+
+
+def fetch_items():
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+    items = []
+    for source, url in FEEDS.items():
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=20)
+            resp.raise_for_status()
+            feed = feedparser.parse(resp.content)
+        except Exception as exc:  # one bad feed shouldn't break the digest
+            print(f"[warn] {source}: {exc}", file=sys.stderr)
+            continue
+        count = 0
+        for e in feed.entries:
+            published = entry_time(e)
+            if not published or published < cutoff:
+                continue
+            title = clean(e.get("title"), 200)
+            # Google News titles end with " - Outlet"; keep the outlet as the source
+            outlet = source
+            if source == "Google News" and " - " in title:
+                title, outlet = title.rsplit(" - ", 1)
+            items.append({
+                "title": title,
+                "summary": clean(e.get("summary") or e.get("description")),
+                "link": e.get("link", ""),
+                "source": outlet,
+                "official": source in OFFICIAL,
+                "published": published,
+            })
+            count += 1
+        print(f"[info] {source}: {count} recent items", file=sys.stderr)
+    return dedupe(items)
+
+
+def norm(title):
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    return {w for w in words if len(w) > 3}
+
+
+def dedupe(items):
+    """Drop near-duplicate headlines (same story from several outlets)."""
+    items.sort(key=lambda i: (not i["official"], -i["published"].timestamp()))
+    kept = []
+    for it in items:
+        words = norm(it["title"])
+        dup = any(len(words & norm(k["title"])) >= max(3, 0.6 * min(len(words), len(norm(k["title"]))))
+                  for k in kept)
+        if not dup:
+            kept.append(it)
+    return kept
+
+
+def rank(items):
+    """Simple fallback ranking: official blogs and big company names first."""
+    def score(it):
+        text = (it["title"] + " " + it["summary"]).lower()
+        s = 3 if it["official"] else 0
+        s += sum(1 for n in BIG_NAMES if n in text)
+        if re.search(r"launch|release|introduc|announc|unveil|model", text):
+            s += 2
+        return s
+    return sorted(items, key=lambda it: (-score(it), -it["published"].timestamp()))
+
+
+# ------------------------------------------------------------ AI picking --
+
+PROMPT = """You are an AI news editor. From the numbered news items below, pick the {n} most
+important artificial intelligence stories. Prioritize major AI product launches, new AI
+models, important research, and significant announcements from companies like OpenAI,
+Anthropic, Google, Apple, Meta, and Microsoft. Skip duplicates (same story from different
+outlets), minor announcements, opinion pieces, deals/coupons, and how-to articles.
+
+For each story return:
+- "id": the item number you used
+- "headline": a short headline (max 12 words)
+- "summary": what happened, in your own words (max 45 words)
+- "why": why it matters (max 35 words)
+Keep summary + why under 100 words total. Use only facts present in the items.
+
+Reply with JSON only, in this exact shape:
+{{"stories": [{{"id": 0, "headline": "", "summary": "", "why": ""}}]}}
+
+News items:
+{items}"""
+
+
+def pick_with_ai(items):
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        print("[info] No GITHUB_TOKEN, skipping AI step", file=sys.stderr)
+        return None
+    listing = "\n".join(
+        f"[{i}] ({it['source']}) {it['title']} — {it['summary'][:220]}"
+        for i, it in enumerate(items)
+    )
+    body = {
+        "model": MODEL,
+        "temperature": 0.2,
+        "response_format": {"type": "json_object"},
+        "messages": [{"role": "user", "content": PROMPT.format(n=TOP_N, items=listing)}],
+    }
+    for attempt in range(3):
+        try:
+            resp = requests.post(
+                "https://models.github.ai/inference/chat/completions",
+                headers={"Authorization": f"Bearer {token}",
+                         "Content-Type": "application/json"},
+                json=body, timeout=90,
+            )
+            resp.raise_for_status()
+            content = resp.json()["choices"][0]["message"]["content"]
+            content = re.sub(r"^```(?:json)?|```$", "", content.strip()).strip()
+            stories = []
+            for s in json.loads(content)["stories"][:TOP_N]:
+                idx = int(s["id"])
+                if 0 <= idx < len(items):  # links always come from the feeds, never the model
+                    stories.append({**s, "link": items[idx]["link"], "source": items[idx]["source"]})
+            if stories:
+                return stories
+        except Exception as exc:
+            print(f"[warn] AI attempt {attempt + 1} failed: {exc}", file=sys.stderr)
+            time.sleep(5 * (attempt + 1))
+    return None
+
+
+def fallback_stories(items):
+    return [{
+        "headline": it["title"],
+        "summary": it["summary"][:280] or "Open the link for details.",
+        "why": "",
+        "link": it["link"],
+        "source": it["source"],
+    } for it in items[:TOP_N]]
+
+
+# --------------------------------------------------------------- emailing --
+
+def build_html(stories, edition, ai_used, total):
+    now = datetime.now(LOCAL_TZ)
+    rows = []
+    for n, s in enumerate(stories, 1):
+        why = (f'<p style="margin:6px 0 0;color:#444"><b>Why it matters:</b> '
+               f'{html.escape(s["why"])}</p>') if s.get("why") else ""
+        rows.append(f"""
+        <div style="padding:16px 0;border-bottom:1px solid #eee">
+          <div style="font-size:12px;color:#888">{n} · {html.escape(s['source'])}</div>
+          <h3 style="margin:4px 0 6px;font-size:17px;line-height:1.3">
+            <a href="{html.escape(s['link'])}" style="color:#1a1a1a;text-decoration:none">{html.escape(s['headline'])}</a>
+          </h3>
+          <p style="margin:0;color:#333">{html.escape(s['summary'])}</p>
+          {why}
+          <p style="margin:8px 0 0"><a href="{html.escape(s['link'])}" style="color:#2563eb">Read the source →</a></p>
+        </div>""")
+    note = "" if ai_used else (
+        '<p style="color:#b45309;font-size:13px">AI summary unavailable this run, '
+        'so these are the top headlines by ranking.</p>')
+    return f"""<!doctype html><html><body style="margin:0;background:#f6f6f6">
+    <div style="max-width:640px;margin:0 auto;background:#fff;padding:24px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:15px;line-height:1.5">
+      <h2 style="margin:0">🤖 AI News — {edition} Edition</h2>
+      <div style="color:#888;font-size:13px">{now:%A, %B %d, %Y · %I:%M %p %Z} · picked from {total} stories in the last {LOOKBACK_HOURS}h</div>
+      {note}
+      {''.join(rows) if rows else '<p>No major AI stories in this window.</p>'}
+      <p style="color:#aaa;font-size:12px;margin-top:20px">Sent by your GitHub Actions AI News Digest.</p>
+    </div></body></html>"""
+
+
+def build_text(stories, edition):
+    lines = [f"AI News — {edition} Edition", ""]
+    for n, s in enumerate(stories, 1):
+        lines += [f"{n}. {s['headline']} ({s['source']})", s["summary"]]
+        if s.get("why"):
+            lines.append(f"Why it matters: {s['why']}")
+        lines += [s["link"], ""]
+    return "\n".join(lines)
+
+
+def send_email(subject, html_body, text_body):
+    user = os.environ["GMAIL_USER"]
+    password = os.environ["GMAIL_APP_PASSWORD"]
+    recipients = [a.strip() for a in os.environ.get("TO_EMAIL", user).split(",") if a.strip()]
+    msg = MIMEMultipart("alternative")
+    msg["Subject"], msg["From"], msg["To"] = subject, user, ", ".join(recipients)
+    msg.attach(MIMEText(text_body, "plain", "utf-8"))
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
+        smtp.login(user, password)
+        smtp.sendmail(user, recipients, msg.as_string())
+    print(f"[info] Email sent to {len(recipients)} recipient(s)", file=sys.stderr)
+
+
+# ------------------------------------------------------------------- main --
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true", help="write preview.html instead of emailing")
+    args = parser.parse_args()
+
+    edition = "Morning" if datetime.now(LOCAL_TZ).hour < 15 else "Evening"
+    items = rank(fetch_items())[:MAX_CANDIDATES]
+    stories = pick_with_ai(items) if items else None
+    ai_used = stories is not None
+    if not ai_used:
+        stories = fallback_stories(items)
+
+    subject = f"🤖 AI News {edition} Digest — {datetime.now(LOCAL_TZ):%b %d}"
+    html_body = build_html(stories, edition, ai_used, len(items))
+    text_body = build_text(stories, edition)
+
+    if args.dry_run:
+        with open("preview.html", "w", encoding="utf-8") as f:
+            f.write(html_body)
+        print(text_body)
+        print("[info] Dry run: wrote preview.html", file=sys.stderr)
+    else:
+        send_email(subject, html_body, text_body)
+
+
+if __name__ == "__main__":
+    main()
