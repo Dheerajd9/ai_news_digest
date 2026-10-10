@@ -104,34 +104,90 @@ def nav_history(code):
     return js["meta"], hist
 
 
+def plan_matches(name, plan):
+    low = name.lower()
+    if plan.lower() == "direct":
+        return bool(re.search(r"\bdir(ect)?\b", low))
+    return not re.search(r"\bdir(ect)?\b", low)  # Regular plans often don't say "Regular"
+
+
+def verified(hist, fund):
+    """True if the scheme's NAV on each known purchase date matches the statement (within 1%)."""
+    txns = fund.get("transactions") or []
+    if not txns:
+        return True
+    for t in txns[:2]:
+        got = nav_on(hist, date.fromisoformat(t["date"]))
+        if not got or abs(got[1] / t["nav"] - 1) > 0.01:
+            return False
+    return True
+
+
+def live(hist, snap):
+    return bool(hist) and (date.today() - hist[-1][0]).days <= 20 and hist[0][0] <= snap
+
+
 def find_scheme(fund, plan, snap):
-    """Best-matching live Direct/Regular Growth scheme. Returns (code, name, meta, history)."""
+    """Best-matching live scheme, verified against purchase NAVs when available.
+    Returns (code, name, meta, history)."""
     if fund.get("scheme_code"):
         meta, hist = nav_history(int(fund["scheme_code"]))
+        if not verified(hist, fund):
+            raise RuntimeError(f"scheme_code {fund['scheme_code']} NAV doesn't match your purchase NAV for {fund['name']}")
         return int(fund["scheme_code"]), meta.get("scheme_name", fund["name"]), meta, hist
     scored = {}
     for query in fund.get("search", [fund["name"]]):
         want = tokens(query)
         for code, name in all_schemes():
-            low = name.lower()
-            plan_ok = re.search(r"\bdir(ect)?\b" if plan.lower() == "direct" else r"\breg(ular)?\b", low)
-            if not plan_ok or not re.search(r"\bgr(owth|\.)?\b", low) or EXCLUDE.search(name):
+            if not plan_matches(name, plan) or not re.search(r"\bgr(owth|\.)?\b", name.lower()) \
+                    or EXCLUDE.search(name):
                 continue
             have = tokens(name)
-            if not want <= have:  # every word of the query must be in the name
+            if not want <= have or (CATEGORY_WORDS & have) - want:
                 continue
-            if (CATEGORY_WORDS & have) - want:  # e.g. "Large and Midcap" is not "Midcap"
-                continue
-            score = 1.0 - 0.1 * len(have - want)  # each extra word means a different fund
+            score = 1.0 - 0.1 * len(have - want)
             if score > scored.get(code, (-9, ""))[0]:
                 scored[code] = (score, name)
-    for code, (score, name) in sorted(scored.items(), key=lambda kv: -kv[1][0])[:6]:
+    tried = set()
+    for code, (score, name) in sorted(scored.items(), key=lambda kv: -kv[1][0])[:10]:
+        tried.add(code)
         meta, hist = nav_history(code)
-        if not hist or (date.today() - hist[-1][0]).days > 20 or hist[0][0] > snap:
-            continue  # closed, merged or too new to have a NAV on the snapshot date
-        return code, name, meta, hist
-    raise RuntimeError(f"No live {plan} Growth scheme found for '{fund['name']}'. "
+        if live(hist, snap) and verified(hist, fund):
+            return code, name, meta, hist
+    # Fallback for funds AMFI lists under an unexpected name: scan the fund house's
+    # schemes for one whose NAV matches the purchase NAV exactly.
+    if fund.get("transactions"):
+        house = " ".join(fund.get("search", [fund["name"]])[0].lower().split()[:2])
+        pool = [(c, n) for c, n in all_schemes()
+                if n.lower().startswith(house.split()[0]) and house.split()[-1] in n.lower()
+                and plan_matches(n, plan) and not EXCLUDE.search(n) and c not in tried]
+        for code, name in pool[:150]:
+            meta, hist = nav_history(code)
+            if live(hist, snap) and verified(hist, fund):
+                gh_annotate("notice", f"{fund['name']}: found by NAV match as '{name}'")
+                return code, name, meta, hist
+    raise RuntimeError(f"No live {plan} Growth scheme matching your purchase NAV for '{fund['name']}'. "
                        "Add its scheme_code in portfolio.json.")
+
+
+def xirr(flows):
+    """flows: [(date, amount)], investments negative. Annual rate in %, or None."""
+    if len(flows) < 2 or not any(a < 0 for _, a in flows) or not any(a > 0 for _, a in flows):
+        return None
+    t0 = min(d for d, _ in flows)
+
+    def npv(r):
+        return sum(a / (1 + r) ** ((d - t0).days / 365.0) for d, a in flows)
+    lo, hi = -0.99, 10.0
+    if npv(lo) * npv(hi) > 0:
+        return None
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if npv(lo) * npv(mid) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    return mid * 100
 
 
 def nav_on(hist, day):
@@ -173,15 +229,26 @@ def analyse(cfg):
     snap = date.fromisoformat(cfg["snapshot_date"])
     out, matches = [], []
     for f in cfg["funds"]:
-        code, matched, meta, hist = find_scheme(f, cfg.get("plan", "Direct"), snap)
-        base = nav_on(hist, snap)
-        if not base:
-            raise RuntimeError(f"No NAV on or before {snap} for {f['name']}")
-        units = f["value_on_snapshot"] / base[1]
+        plan = f.get("plan", cfg.get("plan", "Direct"))
+        code, matched, meta, hist = find_scheme(f, plan, snap)
+        txns = f.get("transactions") or []
+        if f.get("units"):
+            units = float(f["units"])
+        else:
+            base = nav_on(hist, snap)
+            if not base:
+                raise RuntimeError(f"No NAV on or before {snap} for {f['name']}")
+            units = f["value_on_snapshot"] / base[1]
+        invested = sum(t["amount"] for t in txns) if txns else f["invested"]
         last_d, last_v = hist[-1]
+        flows = [(date.fromisoformat(t["date"]), -t["amount"]) for t in txns]
         vol, mdd = risk_stats(hist)
         out.append({
             **f,
+            "plan": plan,
+            "invested": invested,
+            "flows": flows,
+            "xirr": xirr(flows + [(last_d, units * last_v)]) if flows else None,
             "code": code,
             "scheme": matched or meta.get("scheme_name", f["name"]),
             "units": units,
@@ -194,7 +261,8 @@ def analyse(cfg):
             "inception": hist[0][0],
         })
         matches.append(f"{f['name']} => {out[-1]['scheme']} [{code}] NAV {last_v:.2f} "
-                       f"({last_d:%d %b}), 3Y {pct(out[-1]['r3y'])}")
+                       f"({last_d:%d %b}), value {inr(units * last_v)}, 3Y {pct(out[-1]['r3y'])}"
+                       + (f", your XIRR {pct(out[-1]['xirr'])}" if out[-1]['xirr'] is not None else ""))
     for i in range(0, len(matches), 5):  # GitHub shows max 10 notes per step, so batch them
         gh_annotate("notice", "Matched funds: " + " | ".join(matches[i:i + 5]))
     return out
@@ -236,6 +304,16 @@ def projections(funds, cfg):
 
 # --------------------------------------------------------------- insights --
 
+def portfolio_xirr(funds):
+    known = [f for f in funds if f["flows"]]
+    if not known:
+        return None, 0.0
+    end = max(f["nav_date"] for f in known)
+    flows = [fl for f in known for fl in f["flows"]] + [(end, sum(f["value"] for f in known))]
+    share = sum(f["value"] for f in known) / sum(f["value"] for f in funds)
+    return xirr(flows), share
+
+
 def rule_flags(funds):
     total = sum(f["value"] for f in funds)
     flags = []
@@ -257,6 +335,12 @@ def rule_flags(funds):
         if len(same) >= 2 and cat not in ("sectoral",):
             names = ", ".join(f["name"] for f in same)
             flags.append(f"{len(same)} {CATEGORY_LABEL[cat].lower()} funds ({names}) likely overlap a lot.")
+    regular = [f for f in funds if f["plan"].lower() == "regular"]
+    if regular:
+        names = ", ".join(f["name"] for f in regular)
+        flags.append(f"{names} {'is a Regular plan' if len(regular) == 1 else 'are Regular plans'}: these pay "
+                     "a distributor commission, typically 0.5–1% a year more than the Direct plan of the same fund. "
+                     "Over 15–20 years that gap compounds into a noticeably smaller corpus.")
     tiny = [f["name"] for f in funds if f["value"] / total < 0.015]
     if tiny:
         flags.append(f"Very small holdings ({', '.join(tiny)}) barely move the total; consider merging them.")
@@ -293,7 +377,8 @@ def expert_review(funds, rates, rows, flags):
     data = {
         "total_value": round(total), "invested": round(sum(f["invested"] for f in funds)),
         "funds": [{k: (round(v, 2) if isinstance(v, float) else v) for k, v in {
-            "name": f["name"], "category": CATEGORY_LABEL[f["category"]], "weight_pct": f["value"] / total * 100,
+            "name": f["name"], "plan": f["plan"], "your_xirr_pct": f["xirr"],
+            "category": CATEGORY_LABEL[f["category"]], "weight_pct": f["value"] / total * 100,
             "value": f["value"], "invested": f["invested"], "ret_15d_pct": f["r15d"], "ret_1y_pct": f["r1y"],
             "cagr_3y_pct": f["r3y"], "cagr_5y_pct": f["r5y"], "volatility_pct": f["vol"],
             "max_drawdown_3y_pct": f["mdd"]}.items()} for f in funds],
@@ -344,12 +429,14 @@ def build_html(funds, cfg, rates, rows, flags, review):
     invested = sum(f["invested"] for f in funds)
     gain = total - invested
     r15 = sum(f["value"] * f["r15d"] for f in funds) / total
+    pxirr, covered = portfolio_xirr(funds)
     nav_date = max(f["nav_date"] for f in funds)
     sip = float(cfg.get("monthly_sip", 0) or 0)
 
     fund_rows = "".join(f"""<tr>
-      <td {TDL}><b>{html.escape(f['name'])}</b><br><span style="font-size:11px;color:#888">{CATEGORY_LABEL[f['category']]} · {f['value'] / total * 100:.1f}%</span></td>
+      <td {TDL}><b>{html.escape(f['name'])}</b><br><span style="font-size:11px;color:#888">{CATEGORY_LABEL[f['category']]} · {f['plan']} · {f['value'] / total * 100:.1f}%</span></td>
       <td {TD}>{short_inr(f['value'])}<br><span style="font-size:11px;color:{color(f['value'] - f['invested'])}">{pct((f['value'] / f['invested'] - 1) * 100)}</span></td>
+      <td {TD}>{pct(f['xirr'])}</td>
       <td {TD} style="color:{color(f['r15d'])}">{pct(f['r15d'])}</td>
       <td {TD}>{pct(f['r1y'])}</td><td {TD}>{pct(f['r3y'])}</td><td {TD}>{pct(f['r5y'])}</td>
       <td {TD}>{'—' if f['vol'] is None else f"{f['vol']:.0f}%"}</td>
@@ -405,9 +492,9 @@ def build_html(funds, cfg, rates, rows, flags, review):
 
   <h3 style="margin:22px 0 6px">📊 Fund by fund</h3>
   <div style="overflow-x:auto"><table style="border-collapse:collapse;width:100%;font-size:13px">
-    <tr><th {THL}>Fund</th><th {TH}>Value / gain</th><th {TH}>15 days</th><th {TH}>1 yr</th><th {TH}>3 yr/yr</th><th {TH}>5 yr/yr</th><th {TH}>Volatility</th><th {TH}>Worst fall (3y)</th></tr>
+    <tr><th {THL}>Fund</th><th {TH}>Value / gain</th><th {TH}>Your XIRR</th><th {TH}>15 days</th><th {TH}>1 yr</th><th {TH}>3 yr/yr</th><th {TH}>5 yr/yr</th><th {TH}>Volatility</th><th {TH}>Worst fall (3y)</th></tr>
     {fund_rows}</table></div>
-  <p style="font-size:12px;color:#777;margin:6px 0">Fund returns are the fund's NAV performance ({cfg.get('plan', 'Direct')} plan, Growth), not your personal XIRR. 3 yr and 5 yr are yearly averages (CAGR). Volatility is yearly, over 3 years.</p>
+  <p style="font-size:12px;color:#777;margin:6px 0">"Your XIRR" is your personal yearly return from your actual purchase dates{'' if pxirr is None else f"; across funds with purchase history ({covered * 100:.0f}% of the portfolio) it is <b>{pxirr:.1f}%</b> a year"}. The other return columns are each fund's own NAV performance. 3 yr and 5 yr are yearly averages (CAGR). Volatility is yearly, over 3 years.</p>
 
   <p style="font-size:11px;color:#999;margin-top:22px;border-top:1px solid #eee;padding-top:10px">
   Data: AMFI NAVs via mfapi.in. Projections use fixed long-run assumptions, not forecasts; actual returns will differ, and past performance doesn't guarantee future results.
