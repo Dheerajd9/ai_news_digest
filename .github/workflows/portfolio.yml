@@ -1,0 +1,39 @@
+name: Portfolio Report
+
+on:
+  schedule:
+    - cron: "7 13 1,16 * *"   # 1st and 16th of every month, ~8 AM CDT / ~7 AM CST
+  workflow_dispatch:           # click "Run workflow" to get a report anytime
+  push:                        # code/portfolio changes trigger a test run that does NOT send email
+    branches: [main]
+    paths: ["portfolio_report.py", "portfolio.json", ".github/workflows/portfolio.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build and send portfolio report
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            python portfolio_report.py --dry-run
+          else
+            python portfolio_report.py
+          fi
