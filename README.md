@@ -88,3 +88,37 @@ Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
   above the 2 calls a day this uses.
 - **Preview locally:** `pip install -r requirements.txt && python digest.py --dry-run`
   writes `preview.html` without sending anything.
+
+---
+
+# 📈 Portfolio Report
+
+`portfolio_report.py` emails a mutual fund portfolio review on the **1st and 16th of
+every month** (and anytime via **Actions → Portfolio Report → Run workflow**).
+Holdings live in `portfolio.json`; keep this repo **private**.
+
+What's in the report:
+
+- **Portfolio manager view** — per-fund suggestions (keep / watch / consolidate /
+  switch to Direct), a simpler target structure and tax-aware steps. Written by Gemini
+  from your data plus the last 90 days of news about each fund (and Google Search when
+  the free quota allows). Suggestions to verify, not advice.
+- **Projections** — 5/10/15/20 years under conservative / expected / optimistic
+  category assumptions, in today's money and after estimated LTCG.
+- **Chances** — 5,000-path Monte Carlo using the portfolio's real 3-year volatility.
+- **Benchmark check** — each active fund vs its index (Nifty 50 / Midcap 150 /
+  Smallcap 250 / Nifty 500) over rolling 3-year periods.
+- **Tax calendar** — long/short-term gains, unused ₹1.25 lakh exemption, lots turning
+  long-term soon, Regular→Direct switch cost; a countdown banner in Jan–Mar.
+- **Fund table** — your XIRR, 15-day/1/3/5-year returns, volatility, worst fall.
+
+Funds are matched to AMFI schemes and verified against your purchase NAVs, so a
+lookalike scheme can't slip in.
+
+**Daily extras (in the 7 AM news email):** a one-line portfolio value with last-day and
+month-to-date change, plus a separate **alert email** if the portfolio falls 7%+ in a
+week or a fund falls 15%+ from its 3-month high (at most once a week per alert).
+
+**Keeping it current:** after any buy/sell, update `portfolio.json` (or send a new
+statement export to whoever maintains it). Funds without `transactions` use their
+snapshot value and don't get XIRR/tax-lot detail.
