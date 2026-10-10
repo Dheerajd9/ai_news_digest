@@ -256,18 +256,39 @@ def build_text(stories, edition):
     return "\n".join(lines)
 
 
+def gh_annotate(level, message):
+    """Show a message on the GitHub Actions run summary page (never include secret values)."""
+    if os.getenv("GITHUB_ACTIONS"):
+        print(f"::{level}::{message}")
+    print(f"[{level}] {message}", file=sys.stderr)
+
+
 def send_email(subject, html_body, text_body):
-    user = os.environ["GMAIL_USER"]
-    password = os.environ["GMAIL_APP_PASSWORD"]
-    recipients = [a.strip() for a in os.environ.get("TO_EMAIL", user).split(",") if a.strip()]
+    user = os.getenv("GMAIL_USER", "").strip()
+    password = os.getenv("GMAIL_APP_PASSWORD", "").replace(" ", "").strip()
+    to = os.getenv("TO_EMAIL", "").strip() or user
+    missing = [name for name, val in (("GMAIL_USER", user), ("GMAIL_APP_PASSWORD", password)) if not val]
+    if missing:
+        raise RuntimeError(f"Missing repository secret(s): {', '.join(missing)}. "
+                           "Check names under Settings > Secrets and variables > Actions.")
+    if "@" not in user:
+        raise RuntimeError("GMAIL_USER doesn't look like an email address.")
+    if len(password) != 16:
+        gh_annotate("warning", f"GMAIL_APP_PASSWORD has {len(password)} characters; a Gmail app password has 16.")
+    recipients = [a.strip() for a in to.split(",") if a.strip()]
     msg = MIMEMultipart("alternative")
     msg["Subject"], msg["From"], msg["To"] = subject, user, ", ".join(recipients)
     msg.attach(MIMEText(text_body, "plain", "utf-8"))
     msg.attach(MIMEText(html_body, "html", "utf-8"))
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
-        smtp.login(user, password)
-        smtp.sendmail(user, recipients, msg.as_string())
-    print(f"[info] Email sent to {len(recipients)} recipient(s)", file=sys.stderr)
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
+            smtp.login(user, password)
+            smtp.sendmail(user, recipients, msg.as_string())
+    except smtplib.SMTPAuthenticationError:
+        raise RuntimeError("Gmail rejected the login. Check GMAIL_USER is the same Gmail that "
+                           "created the app password, and GMAIL_APP_PASSWORD is the 16-letter app "
+                           "password (not your normal Gmail password).") from None
+    gh_annotate("notice", f"Email sent to {len(recipients)} recipient(s)")
 
 
 # ------------------------------------------------------------------- main --
@@ -283,6 +304,7 @@ def main():
     ai_used = stories is not None
     if not ai_used:
         stories = fallback_stories(items)
+    gh_annotate("notice", f"{len(items)} candidate stories, {len(stories)} picked, AI summary used: {ai_used}")
 
     subject = f"🤖 AI News {edition} Digest — {datetime.now(LOCAL_TZ):%b %d}"
     html_body = build_html(stories, edition, ai_used, len(items))
@@ -298,4 +320,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        gh_annotate("error", f"{type(exc).__name__}: {exc}")
+        sys.exit(1)
