@@ -9,3 +9,4 @@
 - Trends only when several meaningful developments point the same way; never from one or two weak examples.
 - What happens next: use scenario language (most likely next step, possible alternative, major risk, key decision to watch); no invented probabilities.
 - Final check: what is genuinely new, what is repeated, what is the same event, what is fact vs prediction, what remains unknown, what can be removed without making the listener less informed (remove it).
+- Advanced story tracking: report a continuing story only if an open question got answered, the stage moved (discussed → proposed → approved → effective → implemented; announced → committed → built → operational), a meaningful milestone happened, or real life changed. Then say what changed, with one line of timeline context ("We've been following this since August; today something finally changed"). Never call a proposal, a bill passing one chamber, a court hearing or a company promise a done deal.

@@ -292,7 +292,9 @@ def load_stories(today: str) -> dict[str, dict]:
 def story_memory(stories: dict[str, dict], limit: int = 40) -> str:
     active = sorted(stories.items(), key=lambda kv: kv[1].get("last_seen", ""), reverse=True)[:limit]
     return json.dumps([{"id": sid, **{k: st.get(k) for k in
-                       ("title", "status", "first_seen", "last_seen", "known")},
+                       ("title", "status", "stage", "summary", "open_questions",
+                        "first_seen", "last_seen")},
+                        "timeline": st.get("timeline", [])[-5:],
                         "expectations": st.get("expectations", [])[-3:]}
                        for sid, st in active], ensure_ascii=False)
 
@@ -312,18 +314,47 @@ def extract_stories(md: str) -> tuple[str, list[dict]]:
         return md, []
 
 
+def compact_timeline(timeline: list[dict], keep: int = 10) -> list[dict]:
+    """Keep timelines small: merge the oldest milestones into one summary line."""
+    if len(timeline) <= keep:
+        return timeline
+    old, recent = timeline[:len(timeline) - keep + 1], timeline[len(timeline) - keep + 1:]
+    merged = {"date": f"{old[0]['date'].split('..')[0]}..{old[-1]['date'].split('..')[-1]}",
+              "event": ("; ".join(e["event"] for e in old))[:220]}
+    return [merged] + recent
+
+
 def update_stories(stories: dict[str, dict], new: list[dict], today: str) -> dict[str, dict]:
     statuses = {"NEW", "DEVELOPING", "MAJOR CHANGE", "RESOLVED", "ARCHIVED"}
     for d in new[:60]:
-        sid = re.sub(r"[^a-z0-9-]", "", str(d.get("id", "")).lower().replace(" ", "-"))[:60]
+        sid = re.sub(r"[^a-z0-9-]", "", str(d.get("id", "")).lower().replace(" ", "-")
+                     .replace("_", "-"))[:60]
         if len(sid) < 3:
             continue
-        st = stories.setdefault(sid, {"first_seen": today, "expectations": []})
-        st["title"] = str(d.get("title", st.get("title", "")))[:150]
+        st = stories.setdefault(sid, {"first_seen": today, "expectations": [], "timeline": []})
+        if "known" in st and "summary" not in st:          # older ledger format
+            st["summary"] = st.pop("known")
+        st["title"] = str(d.get("title") or st.get("title", ""))[:150]
         status = str(d.get("status", "")).upper()
         st["status"] = status if status in statuses else st.get("status", "DEVELOPING")
-        if d.get("known"):
-            st["known"] = str(d["known"])[:300]
+        if d.get("stage"):
+            st["stage"] = str(d["stage"]).upper()[:40]
+        summary = d.get("summary") or d.get("known")
+        if summary:
+            st["summary"] = str(summary)[:300]
+        answered = {str(q).strip().lower() for q in (d.get("answered") or [])}
+        questions = d.get("open_questions")
+        if isinstance(questions, list):
+            st["open_questions"] = [str(q)[:150] for q in questions
+                                    if str(q).strip() and str(q).strip().lower() not in answered][:5]
+        elif answered:
+            st["open_questions"] = [q for q in st.get("open_questions", [])
+                                    if q.strip().lower() not in answered]
+        milestone = str(d.get("milestone") or "").strip()
+        tl = st.setdefault("timeline", [])
+        if milestone and not (tl and tl[-1]["event"].lower() == milestone.lower()):
+            tl.append({"date": today, "event": milestone[:120]})
+            st["timeline"] = compact_timeline(tl)
         st["last_seen"] = today
         exp = str(d.get("expectation") or "").strip()
         if exp and all(e["text"] != exp for e in st.get("expectations", [])):
@@ -767,7 +798,8 @@ def main() -> None:
     system = ((ROOT / "prompts" / cfg["prompt"]).read_text()
               .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
               .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"])
-              + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text())
+              + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
+              + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text())
     today_iso = now.strftime("%Y-%m-%d")
     stories = load_stories(today_iso)
     ledger = story_memory(stories)
