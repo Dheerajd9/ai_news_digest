@@ -505,12 +505,14 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
 
 
 def write_brief(system: str, items, history, date_str, markets, memory,
-                ledger: str = "") -> str | None:
+                ledger: str = "", system_core: str | None = None) -> str | None:
     full = build_user(items, history, date_str, markets, memory, ledger=ledger)
     print(f"  brief prompt ~{est_tokens(system, full):,} tokens")
+    # Backup brain has a small (~8k token) window: core rules only, no add-on layers.
     return (call_gemini(system, full)
-            or call_github_models(system, build_user(items, history, date_str, markets,
-                                                     memory, compact=True, ledger=ledger)))
+            or call_github_models(system_core or system,
+                                  build_user(items, history, date_str, markets, memory,
+                                             compact=True, ledger=ledger)))
 
 
 def fact_check(draft: str, items: list[dict]) -> str:
@@ -862,8 +864,9 @@ def main() -> None:
                              keep_links=(edition == "weekly"))
     system = ((ROOT / "prompts" / cfg["prompt"]).read_text()
               .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
-              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"])
-              + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
+              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
+    system_core = system
+    system = (system + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text())
     SOURCE_QUALITY = load_source_quality()
@@ -899,7 +902,7 @@ def main() -> None:
             print("Nothing new. Exiting.")
             return
         brief = None if no_llm else write_brief(system, items, history, date_str,
-                                                markets_plain, memory, ledger)
+                                                markets_plain, memory, ledger, system_core)
         new_stories: list[dict] = []
         if brief:
             brief, meta = extract_meta(brief)
