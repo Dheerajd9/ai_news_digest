@@ -20,7 +20,7 @@ RSS (~45 feeds) ─> last 26h/12h ─> skip already-sent, merge duplicates (coun
       ─> numbers box (markets.py) ─> story memory (last 3 days of briefs/)
       ─> Gemini writes brief, every bullet cites [S12]
       ─> fact-check pass (GitHub Models) drops anything sources don't support
-      ─> ids become links ─> podcast.py: Arjun & Meera script ─> edge-tts Indian voices ─> MP3
+      ─> ids become links ─> podcast.py: Kartik & Priya script ─> Gemini 2-voice TTS (edge-tts backup) ─> MP3
       ─> Gmail (+ Telegram) ─> archive in briefs/ ─> podfeed.py ─> your podcast app
 ```
 

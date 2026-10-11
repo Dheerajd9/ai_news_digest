@@ -8,7 +8,7 @@ Voices, best first:
 Set PODCAST_TTS=edge to always use B.
 
 1. A free LLM (same Gemini -> GitHub Models chain as the brief) rewrites the brief
-   as a natural conversation between ARJUN and MEERA (prompts/podcast_prompt.md).
+   as a natural conversation between KARTIK and PRIYA (prompts/podcast_prompt.md).
 2. edge-tts (Microsoft Edge's neural voices, no API key) speaks each line with
    Indian English voices. Change voices with PODCAST_VOICE_A / PODCAST_VOICE_B
    (list all: `edge-tts --list-voices | grep en-IN`).
@@ -29,10 +29,10 @@ from pathlib import Path
 import requests
 
 VOICES = {
-    "ARJUN": os.getenv("PODCAST_VOICE_A", "en-IN-PrabhatNeural"),
-    "MEERA": os.getenv("PODCAST_VOICE_B", "en-IN-NeerjaExpressiveNeural"),
+    "KARTIK": os.getenv("PODCAST_VOICE_A", "en-IN-PrabhatNeural"),
+    "PRIYA": os.getenv("PODCAST_VOICE_B", "en-IN-NeerjaExpressiveNeural"),
 }
-FALLBACK_VOICE = {"MEERA": "en-IN-NeerjaNeural"}
+FALLBACK_VOICE = {"PRIYA": "en-IN-NeerjaNeural"}
 RATE = os.getenv("PODCAST_RATE", "+4%")   # a touch faster than default sounds more natural
 
 ROOT = Path(__file__).parent
@@ -47,7 +47,7 @@ def clean_brief_for_script(brief_md: str) -> str:
 def parse_script(script: str) -> list[tuple[str, str]]:
     turns = []
     for line in script.splitlines():
-        m = re.match(r"\s*\**\s*(ARJUN|MEERA)\s*\**\s*:\s*(.+)", line, re.I)
+        m = re.match(r"\s*\**\s*(KARTIK|PRIYA)\s*\**\s*:\s*(.+)", line, re.I)
         if m:
             speaker, said = m.group(1).upper(), m.group(2).strip()
             said = re.sub(r"\[S\d+\]", "", said)            # source ids
@@ -96,10 +96,10 @@ def stitch(parts: list[Path], out_mp3: Path, workdir: Path) -> None:
 
 # ---------------------------------------------------------------- Gemini TTS
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
-GEMINI_VOICES = {"ARJUN": os.getenv("GEMINI_VOICE_A", "Charon"),   # informative male
-                 "MEERA": os.getenv("GEMINI_VOICE_B", "Sulafat")}  # warm female
+GEMINI_VOICES = {"KARTIK": os.getenv("GEMINI_VOICE_A", "Charon"),   # informative male
+                 "PRIYA": os.getenv("GEMINI_VOICE_B", "Sulafat")}  # warm female
 STYLE = ("Read this aloud as a lively, friendly Indian English TV news discussion. "
-         "Arjun and Meera are two Indian news anchors from Hyderabad. Both speak with a "
+         "Kartik and Priya are two Indian friends from Hyderabad hosting a news show. Both speak with a "
          "natural Indian English accent, warm and expressive, at a relaxed conversational "
          "pace, reacting to each other like real people, never robotic:")
 CHUNK_CHARS = 3200    # ~3 minutes of audio per request

@@ -73,6 +73,8 @@ jobs:
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PODCAST_REPO: ${{ vars.PODCAST_REPO }}
+          PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             DRY_RUN=1 NO_LLM=1 python digest.py | tail -60

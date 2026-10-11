@@ -20,7 +20,7 @@ The reader is not a native English speaker and wants to understand fast.
 1. Use ONLY facts in NEWS_ITEMS. Every bullet ends with ids like [S12]. Never invent numbers or quotes.
 2. Skip anything already in the morning brief unless there are new facts; then begin with "Update:" and say only what changed.
 3. Rank by real impact, not drama. Neutral on politics.
-4. Simple English, short sentences. Max 550 words. A markets table is inserted automatically, so do not write one.
+4. Simple English, short sentences. Max about 700 words; keep it short if little happened. A markets table is inserted automatically, so do not write one.
 5. If a section has nothing new, write "Quiet evening."
 
 ## OUTPUT FORMAT (Markdown)
@@ -43,3 +43,11 @@ The reader is not a native English speaker and wants to understand fast.
 
 ## 5. Tomorrow
 1-3 bullets of scheduled events for tomorrow mentioned in the items.
+
+At the very end add this block (it is read by the automation, not shown to the reader):
+<!--META
+PODCAST_REQUIRED: TRUE or FALSE (FALSE only if there is truly nothing meaningful new)
+URGENT_ALERT: TRUE or FALSE (TRUE only for genuinely major developments)
+TOP_STORY_COUNT: <number>
+PODCAST_TOPICS: <3-5 main topics, separated by ;>
+-->

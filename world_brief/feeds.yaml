@@ -18,6 +18,8 @@ india_economy:
   - https://www.thehindu.com/business/Economy/feeder/default.rss
   - https://news.google.com/rss/search?q=%22mutual+fund%22+OR+SIP+OR+AMFI+OR+SEBI+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=Sensex+OR+Nifty+closing+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=FII+OR+FPI+OR+DII+selling+OR+buying+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=RBI+repo+OR+%22CPI+inflation%22+OR+%22forex+reserves%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
 
 telangana_hyderabad:
   - https://www.thehindu.com/news/national/telangana/feeder/default.rss
@@ -62,3 +64,21 @@ science_health_climate:
   - https://www.sciencedaily.com/rss/top/science.xml
   - https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=ISRO+OR+monsoon+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+
+official:   # straight from regulators and central banks (skipped quietly if a feed is down)
+  - https://www.rbi.org.in/pressreleases_rss.xml
+  - https://www.sebi.gov.in/sebirss.xml
+  - https://www.federalreserve.gov/feeds/press_all.xml
+  - https://www.bls.gov/feed/bls_latest.rss
+  - https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3
+
+us_markets_economy:
+  - https://www.cnbc.com/id/100003114/device/rss/rss.html
+  - https://www.cnbc.com/id/20910258/device/rss/rss.html
+  - https://news.google.com/rss/search?q=%22stock+market%22+today+S%26P+Nasdaq+when:1d&hl=en-US&gl=US&ceid=US:en
+
+jobs_tax_housing:
+  - https://news.google.com/rss/search?q=tech+layoffs+OR+%22tech+jobs%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=IRS+OR+%22capital+gains+tax%22+OR+%22tax+deadline%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22income+tax%22+OR+%22GST+council%22+OR+NRI+tax+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+loan+rates%22+when:2d&hl=en-US&gl=US&ceid=US:en

@@ -122,7 +122,7 @@ def build_feed(repo: str, episodes: list[dict]) -> str:
   <channel>
     <title>World Brief</title>
     <link>{site}</link>
-    <description>Daily India-first news podcast: India, USA and the world, with Arjun and Meera.</description>
+    <description>Daily India-first news podcast: India, USA and the world, with Kartik and Priya.</description>
     <language>en-in</language>
     <itunes:author>World Brief bot</itunes:author>
     <itunes:image href="{site}/cover.png"/>

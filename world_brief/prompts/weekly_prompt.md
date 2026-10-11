@@ -52,3 +52,11 @@ For each: **bold headline**, then 2-4 sentences: how it began, how it moved, whe
 
 ## 9. Big picture
 One short paragraph (4-6 sentences): the pattern behind this week's news, explained simply, and what it could mean for the reader.
+
+At the very end add this block (it is read by the automation, not shown to the reader):
+<!--META
+PODCAST_REQUIRED: TRUE or FALSE (FALSE only if there is truly nothing meaningful new)
+URGENT_ALERT: TRUE or FALSE (TRUE only for genuinely major developments)
+TOP_STORY_COUNT: <number>
+PODCAST_TOPICS: <3-5 main topics, separated by ;>
+-->
