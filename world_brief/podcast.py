@@ -56,8 +56,8 @@ PROFILES = {
         "gemini": {"RAVI": os.getenv("GEMINI_TELUGU_VOICE_A", "Charon"),
                    "LAKSHMI": os.getenv("GEMINI_TELUGU_VOICE_B", "Sulafat")},
         "style": ("Read this aloud in natural, warm spoken Telugu, like a friendly Telugu news "
-                  "discussion on a Hyderabad TV channel. Ravi and Lakshmi are two Telugu hosts from "
-                  "Hyderabad talking to elderly parents. Speak clearly at a calm, unhurried pace with "
+                  "discussion on a Hyderabad TV channel. Ravi and Lakshmi are two Telugu news hosts "
+                  "from Hyderabad. Speak clearly at a calm, unhurried pace with "
                   "a natural Telangana (Hyderabad) accent and Telangana yaasa expressions, warm and "
                   "homely like family talking, never robotic or bookish:"),
     },

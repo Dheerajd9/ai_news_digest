@@ -70,16 +70,16 @@ The feed is marked hidden from podcast directories; only people with the URL can
 
 ## Telugu edition for parents (Amma & Nanna)
 
-Every morning, after your English brief, the same fact-checked news is retold in **simple spoken Telugu**:
-- A Telugu letter: top 5, India, Telangana & Hyderabad (with weather), **gold 24K/22K per gram and per 10 g, silver per kg, dollar rate**, Sensex/Nifty & mutual funds, America & our children there (visas, jobs), world, health, history.
-- A **Ravi & Lakshmi** Telugu conversation podcast (about 8-12 min, calm pace for elders). Gemini Telugu voice first, Microsoft Telugu voices (`te-IN-MohanNeural`, `te-IN-ShrutiNeural`) as backup.
+Every morning, after your English brief, the same fact-checked news goes to the parents as a **simple English email** with a **Telugu podcast**:
+- An English email (simple words, key words in bold): top 5, India, Telangana & Hyderabad (with weather), **gold 24K/22K per gram and per 10 g, silver per kg, dollar rate**, Sensex/Nifty & mutual funds, America & our children there (visas, jobs), world, health, history.
+- A **Ravi & Lakshmi** Telugu podcast in Telangana yaasa, straight to the news (no greetings), about 5-8 min. Gemini Telugu voice first, Microsoft Telugu voices (`te-IN-MohanNeural`, `te-IN-ShrutiNeural`) as backup.
 - Arrives at the same time as your morning brief (about 6 PM in India).
 
 Turn it on (repo → Settings → Secrets and variables → Actions → Secrets):
 
 | Secret | Value | Result |
 |---|---|---|
-| `PARENTS_EMAIL` | `amma@gmail.com,nanna@gmail.com` | Telugu email with a play link and the MP3 attached |
+| `PARENTS_EMAIL` | `amma@gmail.com,nanna@gmail.com` | English email with the Telugu podcast link and MP3 attached |
 | `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the play link + 3 headlines |
 
 **WhatsApp (free, via CallMeBot) — one-time setup on each parent's phone:**

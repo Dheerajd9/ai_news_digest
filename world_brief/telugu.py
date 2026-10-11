@@ -1,9 +1,9 @@
 """
-Telugu edition for parents: the same fact-checked morning news, retold in simple
-spoken Telugu, as a short letter + a Ravi & Lakshmi conversation podcast.
+Parents' edition: the same fact-checked morning news as a short, simple ENGLISH email,
+plus a Ravi & Lakshmi podcast in Telugu (Telangana yaasa, straight to the news).
 
 Delivery (all optional, all free):
-  PARENTS_EMAIL      one or more addresses, comma-separated -> Telugu email + MP3 attached
+  PARENTS_EMAIL      one or more addresses, comma-separated -> English email + Telugu MP3
   PARENTS_WHATSAPP   "phone:apikey" pairs, comma-separated -> WhatsApp text with the play
                      link, via CallMeBot (free; each phone activates it once, see README).
                      Needs the public podcast repo (PODCAST_REPO/PODCAST_TOKEN) for the link.
@@ -36,13 +36,18 @@ def parents_configured() -> bool:
     return bool(os.getenv("PARENTS_EMAIL", "").strip() or os.getenv("PARENTS_WHATSAPP", "").strip())
 
 
-def write_telugu_letter(english_plain: str, markets_plain: str, date_str: str) -> str | None:
-    system = (ROOT / "prompts" / "telugu_brief_prompt.md").read_text()
+def write_parents_letter(english_plain: str, markets_plain: str, date_str: str) -> str | None:
+    """Simple English email for the parents (the podcast is in Telugu)."""
+    system = (ROOT / "prompts" / "parents_brief_prompt.md").read_text().replace("{DATE}", date_str)
     user = (f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\n"
             f"ENGLISH_BRIEF:\n{english_plain}")
     text = digest.ask(system, user, prefer="gemini")
-    if not text or len(re.findall(r"[ఀ-౿]", text)) < 200:   # must really be Telugu
-        print("  ! Telugu letter missing or not in Telugu")
+    if not text or len(text.split()) < 120:
+        print("  ! parents' letter missing or too short")
+        return None
+    telugu_chars = len(re.findall("[\u0C00-\u0C7F]", text))
+    if telugu_chars > 0.2 * len(text):                     # must be English
+        print("  ! parents' letter came back in Telugu; skipped")
         return None
     return re.sub(r"^```(?:markdown)?\s*|\s*```$", "", text.strip()) + "\n"
 
@@ -56,13 +61,13 @@ def headlines(md: str, n: int = 3) -> list[str]:
 def listen_block(url: str | None, minutes: int | None) -> str:
     if not (url or minutes):
         return ""
-    parts = ["## 🎧 వార్తలు వినండి", ""]
+    parts = ["## 🎧 Listen in Telugu", ""]
     if url:
-        parts.append(f"**▶️ [ఇక్కడ నొక్కి వినండి]({url})** · ఈ ఈమెయిల్‌తో MP3 కూడా జత చేశాం")
+        parts.append(f"**▶️ [Tap here to listen]({url})** · the MP3 is also attached to this email")
     else:
-        parts.append("**ఈ ఈమెయిల్‌తో MP3 జత చేశాం — దాన్ని నొక్కి వినండి**")
+        parts.append("**The Telugu news audio (MP3) is attached to this email: tap it to listen**")
     if minutes:
-        parts.append(f"సుమారు **{minutes} నిమిషాలు**")
+        parts.append(f"About **{minutes} minutes**")
     return "  \n".join(parts[:1]) + "\n\n" + "  \n".join(parts[2:]) + "\n"
 
 
@@ -88,7 +93,7 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
     """Build and deliver the Telugu edition. Never raises: English edition must not suffer."""
     try:
         english_plain = digest.strip_links(english_final)
-        letter = write_telugu_letter(english_plain, markets_plain, date_str)
+        letter = write_parents_letter(english_plain, markets_plain, date_str)
         if not letter:
             return
         from podcast import make_podcast
@@ -122,9 +127,9 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
         letter = letter.replace("{{LISTEN}}", listen_block(url, minutes))
         letter = re.sub(r"\n{3,}", "\n\n", letter)
 
-        title = f"🌏 ఈ రోజు వార్తలు — {now:%d-%m-%Y}" + (" 🎧" if mp3 else "")
+        title = f"🌏 Today's News — {now:%d %b %Y}" + (" 🎧 Telugu audio" if mp3 else "")
         if dry:
-            print("\n----- TELUGU EDITION -----\n" + letter)
+            print("\n----- PARENTS' EDITION -----\n" + letter)
             return
         to = os.getenv("PARENTS_EMAIL", "").strip()
         if to:
@@ -132,12 +137,12 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
                               audio_name=f"Telugu-News-{now:%Y-%m-%d}.mp3")
         if os.getenv("PARENTS_WHATSAPP", "").strip():
             if url:
-                msg = ("🙏 నమస్కారం! ఈ రోజు వార్తలు వినండి 🎧\n" + url + "\n\n"
+                msg = ("🎧 Today's news in Telugu: " + url + "\n\n"
                        + "\n".join(f"• {h}" for h in headlines(letter)))
             else:   # no public link today: still send the headlines
-                msg = ("🙏 నమస్కారం! ఈ రోజు ముఖ్యమైన వార్తలు:\n\n"
+                msg = ("Today's top news:\n\n"
                        + "\n".join(f"• {h}" for h in headlines(letter))
-                       + ("\n\n🎧 పూర్తి వార్తలు ఈమెయిల్‌లో వినండి." if to else ""))
+                       + ("\n\n🎧 Telugu audio is in the email." if to else ""))
                 print("  WhatsApp: sending headlines without audio link")
             send_whatsapp(msg[:1500])
         TELUGU_DIR.mkdir(parents=True, exist_ok=True)
