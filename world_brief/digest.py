@@ -59,6 +59,10 @@ STATE_FILE = ROOT / "state" / "seen.json"
 STORIES_FILE = ROOT / "state" / "stories.json"   # story ledger: memory across days
 SOURCES_FILE = ROOT / "state" / "source_quality.json"   # how useful each source has been
 TRENDS_FILE = ROOT / "state" / "trends.json"            # daily topic counters (Python trend radar)
+ENTITIES_FILE = ROOT / "state" / "entities.json"        # lightweight entity + connection memory
+BELIEFS_FILE = ROOT / "state" / "beliefs.json"          # long-term conclusions (weekly)
+SCORECARD_FILE = ROOT / "state" / "scorecard.json"      # how well the system itself is doing
+LLM_CALLS = {"gemini": 0, "github": 0}
 TREND_TOPICS = {
     "AI agents / automation": r"\bAI agents?\b|agentic|automat(e|ion) .{0,20}jobs",
     "AI models & capability": r"\b(LLM|large language model|AI model|frontier model|reasoning model)s?\b",
@@ -275,6 +279,8 @@ def dedupe(items: list[dict], seen: dict[str, str]) -> list[dict]:
 
 SOURCE_QUALITY: dict[str, dict] = {}
 TREND_TEXT = ""
+ENTITY_TEXT = ""
+BELIEFS_TEXT = ""
 
 
 def cap_per_category(items: list[dict]) -> list[dict]:
@@ -388,6 +394,108 @@ def trend_counters(data: dict[str, dict[str, int]], today: str) -> str:
         rows.append({"topic": k, "last_7_days": r, "previous_7_days": b, "direction": direction})
     days = len({d for d in data if (t - datetime.fromisoformat(d)).days < 14})
     return json.dumps({"days_of_history": days, "topics": rows[:20]}, ensure_ascii=False)
+
+
+# ---------------------------------------------------------------- entities, beliefs, scorecard
+def load_json(path: Path, default):
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return default
+
+
+def update_entities(mem: dict, new: list[dict], today: str) -> dict:
+    """Entities + evidence-based connections from the AI's STORIES block; forgets old ones."""
+    ents, conns = mem.setdefault("entities", {}), mem.setdefault("connections", [])
+    for d in new:
+        sid = str(d.get("id", ""))[:60]
+        for name in (d.get("entities") or [])[:8]:
+            name = str(name).strip()[:60]
+            if len(name) < 2:
+                continue
+            e = ents.setdefault(name, {"first_seen": today, "count": 0, "stories": []})
+            e["count"] += 1
+            e["last_seen"] = today
+            if sid and sid not in e["stories"]:
+                e["stories"] = (e["stories"] + [sid])[-8:]
+        for c in (d.get("connections") or [])[:4]:
+            c = str(c).strip()[:160]
+            if len(c) < 8:
+                continue
+            hit = next((x for x in conns if x["text"].lower() == c.lower()), None)
+            if hit:
+                hit["count"] += 1
+                hit["last_seen"] = today
+            else:
+                conns.append({"text": c, "first_seen": today, "last_seen": today, "count": 1})
+    t = datetime.fromisoformat(today)
+    age = lambda d: (t - datetime.fromisoformat(d)).days
+    mem["entities"] = {k: v for k, v in ents.items()
+                       if age(v["last_seen"]) <= 60 and not (v["count"] == 1 and age(v["last_seen"]) > 21)}
+    mem["connections"] = sorted((c for c in conns if age(c["last_seen"]) <= 90),
+                                key=lambda c: c["last_seen"], reverse=True)[:60]
+    return mem
+
+
+def entity_memory_text(mem: dict) -> str:
+    ents = sorted(mem.get("entities", {}).items(),
+                  key=lambda kv: (kv[1]["last_seen"], kv[1]["count"]), reverse=True)[:30]
+    return json.dumps({"entities": [{"name": k, "count": v["count"], "last_seen": v["last_seen"],
+                                     "stories": v["stories"][-4:]} for k, v in ents],
+                       "connections": [c["text"] for c in mem.get("connections", [])[:20]]},
+                      ensure_ascii=False)
+
+
+def extract_block(md: str, name: str) -> tuple[str, list[dict]]:
+    m = re.search(r"<!--\s*" + name + r"(.*?)-->", md, re.S)
+    if not m:
+        return md, []
+    md = md[:m.start()].rstrip() + "\n" + md[m.end():].lstrip()
+    j = re.search(r"\[.*\]", m.group(1), re.S)
+    try:
+        data = json.loads(j.group(0)) if j else []
+        return md, [x for x in data if isinstance(x, dict)]
+    except json.JSONDecodeError:
+        print(f"  ! {name} block was not valid JSON; skipped")
+        return md, []
+
+
+def update_beliefs(old: list[dict], new: list[dict], today: str) -> list[dict]:
+    if not new:
+        return old
+    out = []
+    for b in new[:12]:
+        if str(b.get("status", "")).upper() == "DROPPED" or not b.get("conclusion"):
+            continue
+        b = {k: str(b.get(k, ""))[:300] for k in ("id", "conclusion", "confidence", "momentum",
+                                                 "supporting", "contradicting",
+                                                 "would_change_mind", "status")}
+        prev = next((o for o in old if o.get("id") == b["id"]), None)
+        b["since"] = prev.get("since", today) if prev else today
+        b["updated"] = today
+        out.append(b)
+    return out
+
+
+def record_run(card: dict, run: dict, weekly: bool) -> dict:
+    runs = (card.get("runs", []) + [run])[-90:]
+    card["runs"] = runs
+    if weekly:
+        recent = [r for r in runs if r["date"] >= (datetime.fromisoformat(run["date"])
+                                                   - timedelta(days=7)).strftime("%Y-%m-%d")]
+        avg = lambda key: round(sum(r.get(key, 0) for r in recent) / max(len(recent), 1), 1)
+        summary = {"week_ending": run["date"], "runs": len(recent),
+                   "avg_items_to_ai": avg("items_to_ai"), "avg_stories_cited": avg("cited"),
+                   "avg_email_words": avg("email_words"),
+                   "avg_podcast_minutes": avg("podcast_minutes"),
+                   "corrections": sum(r.get("corrections", 0) for r in recent),
+                   "action_required": sum(r.get("action_required", 0) for r in recent),
+                   "quiet_days": sum(1 for r in recent if r.get("quiet")),
+                   "verification_warnings": sum(r.get("warnings", 0) for r in recent),
+                   "llm_calls": sum(r.get("llm_calls", 0) for r in recent)}
+        card["weekly"] = (card.get("weekly", []) + [summary])[-26:]
+        print(f"  weekly system scorecard: {summary}")
+    return card
 
 
 # ---------------------------------------------------------------- story ledger
@@ -563,7 +671,9 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
             f"ON_THIS_DAY:\n{json.dumps(history, ensure_ascii=False)}\n\n"
             f"PREVIOUS_BRIEFS:\n{memory or '(none)'}\n\n"
             f"STORY_MEMORY:\n{ledger or '[]'}\n\n"
-            f"TREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}")
+            f"TREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}"
+            + ("" if compact else f"\n\nENTITY_MEMORY:\n{ENTITY_TEXT or '(none yet)'}\n\n"
+                                  f"CURRENT_BELIEFS:\n{BELIEFS_TEXT or '[]'}"))
 
 
 def write_brief(system: str, items, history, date_str, markets, memory,
@@ -657,6 +767,7 @@ def call_gemini(system: str, user: str) -> str | None:
                     print(f"  ! Gemini {model} HTTP {r.status_code}: {r.text[:150]}",
                           file=sys.stderr)
                     break
+                LLM_CALLS["gemini"] += 1
                 parts = r.json()["candidates"][0]["content"]["parts"]
                 text = "".join(p.get("text", "") for p in parts)
                 if text.strip():
@@ -686,6 +797,7 @@ def call_github_models(system: str, user: str) -> str | None:
                 print(f"  ! GitHub Models {model} HTTP {r.status_code}: {r.text[:150]}",
                       file=sys.stderr)
                 continue
+            LLM_CALLS["github"] += 1
             text = r.json()["choices"][0]["message"]["content"]
             if text and text.strip():
                 print(f"  written by GitHub Models {model}")
@@ -907,7 +1019,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
 
 
 def main() -> None:
-    global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT
+    global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT, ENTITY_TEXT, BELIEFS_TEXT
     edition = os.getenv("EDITION", "morning").strip() or "morning"
     cfg = EDITIONS[edition]
     dry = os.getenv("DRY_RUN") == "1"
@@ -931,7 +1043,8 @@ def main() -> None:
     system = (system + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "human_intelligence_layer.md").read_text())
+              + "\n\n" + (ROOT / "prompts" / "human_intelligence_layer.md").read_text()
+              + "\n\n" + (ROOT / "prompts" / "decision_layer.md").read_text())
     SOURCE_QUALITY = load_source_quality()
     today_iso = now.strftime("%Y-%m-%d")
     try:
@@ -939,6 +1052,11 @@ def main() -> None:
     except Exception:
         trends = {}
     TREND_TEXT = trend_counters(trends, today_iso) if trends else ""
+    entities = load_json(ENTITIES_FILE, {})
+    beliefs = load_json(BELIEFS_FILE, [])
+    ENTITY_TEXT = entity_memory_text(entities) if entities else ""
+    BELIEFS_TEXT = json.dumps(beliefs, ensure_ascii=False) if beliefs else ""
+    run = {"date": today_iso, "edition": edition}
     # First weekly report of the month also answers "what changed our understanding?"
     monthly = edition == "weekly" and now.day <= 7
     system = system.replace("{MONTHLY_BLOCK}", (
@@ -960,6 +1078,8 @@ def main() -> None:
             return
         user = (f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\n"
                 f"STORY_MEMORY:\n{ledger}\n\nTREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}\n\n"
+                f"ENTITY_MEMORY:\n{ENTITY_TEXT or '(none yet)'}\n\n"
+                f"CURRENT_BELIEFS:\n{BELIEFS_TEXT or '[]'}\n\n"
                 f"PREVIOUS_BRIEFS:\n{memory}")
         if monthly:
             weeklies = sorted(ARCHIVE_DIR.glob("*-weekly.md"))[-5:]
@@ -971,12 +1091,15 @@ def main() -> None:
             return
         brief, meta = extract_meta(brief)
         brief, new_stories = extract_stories(brief)
+        brief, new_beliefs = extract_block(brief, "BELIEFS")
     else:
         LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", cfg["lookback"]))
         feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
         print("Fetching feeds...")
         raw = fetch_items(feeds)
-        items = cap_per_category(dedupe(raw, seen))
+        deduped = dedupe(raw, seen)
+        items = cap_per_category(deduped)
+        run.update(raw=len(raw), after_dedupe=len(deduped), items_to_ai=len(items))
         history = on_this_day(now) if edition == "morning" else []
         print(f"{len(raw)} raw -> {len(items)} items after dedupe/cap; "
               f"{len(history)} history events; memory {len(memory):,} chars")
@@ -1081,6 +1204,25 @@ def main() -> None:
         if script.exists():
             (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
                 script.read_text())
+    (ROOT / "state").mkdir(exist_ok=True)
+    if new_stories:
+        ENTITIES_FILE.write_text(json.dumps(update_entities(entities, new_stories, today_iso),
+                                            indent=0, ensure_ascii=False))
+    if edition == "weekly" and new_beliefs:
+        BELIEFS_FILE.write_text(json.dumps(update_beliefs(beliefs, new_beliefs, today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  beliefs updated: {len(new_beliefs)}")
+    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
+    run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
+               email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
+               podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0 for e in episodes),
+               corrections=final.count("CORRECTION"),
+               action_required=attention.count("ACTION REQUIRED"),
+               quiet=int((re.findall(r"\d+", str(meta.get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
+               warnings=len(warnings), llm_calls=sum(LLM_CALLS.values()),
+               stories_tracked=len(new_stories))
+    SCORECARD_FILE.write_text(json.dumps(record_run(load_json(SCORECARD_FILE, {}), run,
+                                                    edition == "weekly"), indent=0))
     if items:
         TRENDS_FILE.parent.mkdir(exist_ok=True)
         TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,

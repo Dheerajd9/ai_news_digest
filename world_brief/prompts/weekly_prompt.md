@@ -37,7 +37,7 @@ Each: <label> **<real headline>**: how it began, how it moved, where it stands, 
 **📊 The week in markets:** at most 3 observations explaining the week's moves (rupee, Nifty, S&P, gold, oil) using reasons from the briefs.
 
 ## 🧠 The big picture
-3-5 trends that actually emerged this week, each in 2-3 simple sentences.
+3-5 trends that actually emerged this week, each in 2-3 simple sentences: is it talk or real action (money, hiring, construction, contracts), is momentum starting, growing, slowing or reversing, and what would change our mind. If evidence supports it, add one line **What people may be missing:** an important development getting less attention than its consequences justify (never contrarian just to sound clever).
 
 {MONTHLY_BLOCK}
 
@@ -52,4 +52,9 @@ TOP_STORY_COUNT: <number>
 HIGH_IMPACT_STORY_COUNT: <number>
 URGENT_ALERT: FALSE
 VERIFICATION_WARNINGS: <...or NONE>
+-->
+
+After the META block, also update the system's long-term conclusions (not shown to the reader). Start from CURRENT_BELIEFS: keep, strengthen, weaken, revise or drop each one based on the week's evidence (one report alone never reverses a conclusion; never protect an old one), and add a new one only when several independent signals support it. At most 12. JSON only:
+<!--BELIEFS
+[{"id": "<short-lowercase-id>", "conclusion": "<one sentence>", "confidence": "HIGH|MEDIUM|LOW", "momentum": "STARTING|GROWING|ACCELERATING|STABLE|SLOWING|REVERSING", "supporting": "<short evidence>", "contradicting": "<short evidence or none yet>", "would_change_mind": "<what evidence would make us reconsider>", "status": "ACTIVE|REVISED|DROPPED"}]
 -->
