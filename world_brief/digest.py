@@ -768,12 +768,25 @@ def gemini_models(key: str) -> list[str]:
     return list(dict.fromkeys(order))[:4]
 
 
+GEMINI_DAY_LIMIT: set[str] = set()     # models whose free daily quota is used up this run
+
+
 def call_gemini(system: str, user: str) -> str | None:
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         return None
-    for model in gemini_models(key):
-        for _ in range(2):
+    models = gemini_models(key)
+    busy = False
+    for model in models + (["__pause__"] + models if len(models) > 0 else []):
+        if model == "__pause__":         # every model was busy/failed: wait and try once more
+            if not busy:
+                break
+            print("  Gemini busy everywhere; waiting 60s and trying again", file=sys.stderr)
+            time.sleep(60)
+            continue
+        if model in GEMINI_DAY_LIMIT:
+            continue
+        for attempt in range(2):
             try:
                 r = requests.post(
                     f"{GEMINI_API}/models/{model}:generateContent",
@@ -785,9 +798,17 @@ def call_gemini(system: str, user: str) -> str | None:
                 if r.status_code == 429:          # free-tier limit
                     if "PerDay" in r.text or "per day" in r.text.lower():
                         print(f"  ! Gemini {model}: daily free quota used up", file=sys.stderr)
+                        GEMINI_DAY_LIMIT.add(model)
                         break
                     time.sleep(20)                # per-minute limit: wait, retry once
                     continue
+                if r.status_code >= 500:          # "high demand": short wait, retry once
+                    busy = True
+                    print(f"  ! Gemini {model} busy (HTTP {r.status_code})", file=sys.stderr)
+                    if attempt == 0:
+                        time.sleep(15)
+                        continue
+                    break
                 if r.status_code >= 400:
                     print(f"  ! Gemini {model} HTTP {r.status_code}: {r.text[:150]}",
                           file=sys.stderr)
@@ -799,13 +820,13 @@ def call_gemini(system: str, user: str) -> str | None:
                     print(f"  written by Gemini {model}")
                     return text
             except Exception as exc:
-                print(f"  ! Gemini {model}: {redact(str(exc))}", file=sys.stderr)
+                busy = True
+                print(f"  ! Gemini {model}: {redact(str(exc))[:200]}", file=sys.stderr)
                 break
     return None
 
 
-GH_ENDPOINTS = ["https://models.github.ai/inference/chat/completions",
-                "https://models.inference.ai.azure.com/chat/completions"]
+GH_ENDPOINTS = ["https://models.github.ai/inference/chat/completions"]
 
 
 def call_github_models(system: str, user: str) -> str | None:
@@ -813,7 +834,14 @@ def call_github_models(system: str, user: str) -> str | None:
     if not token:
         return None
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json",
-               "Accept": "application/json", "X-GitHub-Api-Version": "2022-11-28"}
+               "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
+    room = (GH_MODELS_MAX_TOKENS - est_tokens(system)) * 4      # free tier: ~8k tokens input
+    if room < 2000:
+        print(f"  ! GitHub Models skipped: instructions alone are ~{est_tokens(system):,} tokens",
+              file=sys.stderr)
+        return None
+    if len(user) > room:
+        user = user[:room] + "\n\n(input shortened to fit)"
     for url in GH_ENDPOINTS:
         for model in ("openai/gpt-4.1-mini", "openai/gpt-4o-mini", "gpt-4o-mini"):
             try:
@@ -841,7 +869,11 @@ def fallback_brief(items: list[dict], date_str: str) -> str:
     """Used when every LLM fails: plain headlines, so you still get something."""
     lines = [f"# World Brief — {date_str}", "", "_LLM unavailable today; headlines only._", ""]
     cat = None
+    per_cat: dict[str, int] = {}
     for it in items:
+        if per_cat.get(it["category"], 0) >= 6:     # keep it short and readable
+            continue
+        per_cat[it["category"]] = per_cat.get(it["category"], 0) + 1
         if it["category"] != cat:
             cat = it["category"]
             lines += ["", f"## {cat.replace('_', ' ').title()}"]
@@ -1204,6 +1236,17 @@ def main() -> None:
             return
         brief = None if no_llm else write_brief(system, items, history, date_str,
                                                 markets_plain, memory, ledger, system_core)
+        if (not brief and not no_llm and os.getenv("GITHUB_EVENT_NAME") == "schedule"
+                and os.getenv("DRY_RUN") != "1"):
+            # Every AI was down or out of quota. Don't send a headlines-only email yet: fail
+            # this slot (no done marker) so the next backup slot tries again. Second failure
+            # in a day falls through to the headlines-only email, so you always get something.
+            flag = DONE_DIR / f"{now:%Y-%m-%d}-{edition}-retry"
+            if not flag.exists():
+                DONE_DIR.mkdir(parents=True, exist_ok=True)
+                flag.write_text(datetime.now(timezone.utc).isoformat())
+                print("  ! every AI failed; will retry in the next scheduled slot")
+                sys.exit(1)
         new_stories: list[dict] = []
         if brief:
             brief, meta = extract_meta(brief)

@@ -147,6 +147,7 @@ class QuotaExhausted(Exception):
 
 
 TTS_BUDGET_SEC = int(os.getenv("GEMINI_TTS_BUDGET_SEC", "480"))   # then fall back to edge-tts
+_TTS_DAY_LIMIT: set[str] = set()   # TTS models whose daily free quota is used up
 _GEMINI_TTS_OFF = False   # set once the daily quota is gone, so later episodes skip straight to backup
 
 
@@ -186,13 +187,24 @@ def discover_voices(key: str, language: str) -> list[dict]:
                          params={"language_code": language, "page_size": 50}, timeout=20)
         if r.status_code >= 400:
             return []
-        voices = r.json().get("voices", [])
+        voices = [v for v in r.json().get("voices", []) if isinstance(v, dict)]
+        if voices:
+            print(f"  voice library fields: {sorted(voices[0].keys())}")
         print(f"  voice library for {language}: " + "; ".join(
-            f"{v.get('name', '?')} ({v.get('gender', '?')}, {v.get('accent', '') or v.get('regionCode', '')}, "
+            f"{voice_name(v) or '?'} ({v.get('gender', '?')}, {v.get('accent', '') or v.get('regionCode', '')}, "
             f"{v.get('type', '')})" for v in voices[:20]))
         return voices
     except Exception:
         return []
+
+
+def voice_name(v: dict) -> str:
+    """The library's field name for a voice id has changed between API versions: try them all."""
+    for k in ("voiceName", "voice_name", "name", "voiceId", "voice_id", "id", "displayName"):
+        val = v.get(k)
+        if isinstance(val, str) and val.strip():
+            return val.strip().split("/")[-1]
+    return ""
 
 
 def voice_sets(key: str, profile: dict) -> list[dict]:
@@ -202,17 +214,16 @@ def voice_sets(key: str, profile: dict) -> list[dict]:
     sets = [profile["gemini"]]
     if profile.get("lang_code"):
         lib = discover_voices(key, profile["lang_code"])
-        name = lambda v: v.get("voiceName") or v.get("name", "").split("/")[-1]
-        male = [v for v in lib if str(v.get("gender", "")).upper().startswith("M")]
-        female = [v for v in lib if str(v.get("gender", "")).upper().startswith("F")]
+        male = [n for v in lib if str(v.get("gender", "")).upper().startswith("M") and (n := voice_name(v))]
+        female = [n for v in lib if str(v.get("gender", "")).upper().startswith("F") and (n := voice_name(v))]
         if male and female:
-            sets.insert(0, {a: name(male[0]), b: name(female[0])})
+            sets.insert(0, {a: male[0], b: female[0]})
     pinned = profile.get("gemini_pinned") or {}
     if all(pinned.get(h) for h in (a, b)):
         sets.insert(0, pinned)
     out = []
     for vs in sets:
-        if vs not in out:
+        if vs not in out and all(vs.get(h) for h in (a, b)):     # never send an empty voice name
             out.append(vs)
     return out
 
@@ -230,14 +241,14 @@ def gemini_speak_chunk(turns, key: str, model: str, out_mp3: Path, work: Path,
                 "multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
                     {"speaker": sp.title(), "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": v}}}
                     for sp, v in voices.items()]}}}}
-    for attempt in range(2):
+    for attempt in range(4):
         r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
                           headers={"x-goog-api-key": key}, json=body, timeout=240)
         if r.status_code == 429 and ("PerDay" in r.text or "per day" in r.text.lower()):
-            raise QuotaExhausted("Gemini TTS daily free quota used up")
-        if r.status_code == 429 or r.status_code >= 500:
-            if attempt == 0:
-                time.sleep(15)
+            raise QuotaExhausted(f"Gemini TTS {model} daily free quota used up")
+        if r.status_code == 429 or r.status_code >= 500:     # per-minute limit or busy: wait
+            if attempt < 3:
+                time.sleep(25 * (attempt + 1))
                 continue
             raise RuntimeError(f"Gemini TTS busy (HTTP {r.status_code})")
         if r.status_code >= 400:
@@ -276,7 +287,8 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
         return None
     start = time.time()
     candidates = voice_sets(key, profile)
-    for model in gemini_tts_models(key)[:2]:
+    models = [m for m in gemini_tts_models(key)[:2] if m not in _TTS_DAY_LIMIT]
+    for model in models:
         for voices in candidates:
             try:
                 parts = []
@@ -289,13 +301,16 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
                 print(f"  voices: Gemini {model} {voices} ({len(parts)} part(s))")
                 return parts
             except QuotaExhausted as exc:
-                print(f"  ! {exc}; using backup voices")
-                _GEMINI_TTS_OFF = True
-                return None
+                print(f"  ! {exc}")
+                _TTS_DAY_LIMIT.add(model)
+                break                                   # next model has its own free quota
             except Exception as exc:
                 print(f"  ! Gemini TTS {model} {voices} failed: {_redact(str(exc))[:300]}")
                 if "too slow" in str(exc):
                     return None
+    if models and all(m in _TTS_DAY_LIMIT for m in models):
+        print("  Gemini TTS: all free quota used today; using backup voices")
+        _GEMINI_TTS_OFF = True
     return None
 
 
