@@ -1,0 +1,136 @@
+{
+"entities": {
+"Donald Trump": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"russia-ukraine-energy-truce"
+],
+"last_seen": "2026-10-11"
+},
+"Yandex": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"russia-ukraine-energy-truce"
+],
+"last_seen": "2026-10-11"
+},
+"Ukraine": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"russia-ukraine-energy-truce"
+],
+"last_seen": "2026-10-11"
+},
+"Russia": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"russia-ukraine-energy-truce"
+],
+"last_seen": "2026-10-11"
+},
+"Nvidia": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-china-chip-smuggling"
+],
+"last_seen": "2026-10-11"
+},
+"Super Micro": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-china-chip-smuggling"
+],
+"last_seen": "2026-10-11"
+},
+"US Department of Justice": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-china-chip-smuggling"
+],
+"last_seen": "2026-10-11"
+},
+"China": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-china-chip-smuggling"
+],
+"last_seen": "2026-10-11"
+},
+"Saudi Arabia": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-11"
+},
+"Houthis": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-11"
+},
+"Yemen": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-11"
+},
+"Iran": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-11"
+},
+"IndiGo": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"indigo-hyderabad-emergency"
+],
+"last_seen": "2026-10-11"
+},
+"Hyderabad Airport": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"indigo-hyderabad-emergency"
+],
+"last_seen": "2026-10-11"
+}
+},
+"connections": [
+{
+"text": "Energy ceasefire -> lower crude risk premium -> easing oil prices",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "US export restrictions -> semiconductor smuggling enforcement -> supply chain scrutiny",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "Middle East escalation -> oil prices above $104 -> Indian import bill pressure",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+}
+]
+}

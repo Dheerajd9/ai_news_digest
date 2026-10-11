@@ -1,0 +1,15 @@
+KARTIK: Good evening. Top story tonight: a major US federal enforcement action involving high-end artificial intelligence hardware.
+PRIYA: A contractor for server maker Super Micro pleaded guilty in US court to illegally smuggling advanced AI servers into China. Those servers contained restricted Nvidia processors banned from export under US rules.
+KARTIK: That is a big deal. We talk a lot about export restrictions, but a criminal guilty plea shows the Department of Justice is actively shutting down smuggling networks.
+PRIYA: Exactly. Washington is treating chip controls as serious national security enforcement, not just corporate guidance. Anyone in enterprise tech should expect compliance checks on advanced GPUs to tighten even further.
+KARTIK: Meanwhile, in the Middle East, tensions escalated sharply today following that drone strike on Riyadh airport.
+PRIYA: They did. Saudi-backed forces launched retaliatory airstrikes directly on Yemen's Sanaa airport. That keeps the risk of shipping disruptions in the Red Sea very high heading into the new week.
+KARTIK: And that impacts energy markets immediately. Crude oil closed the weekend above one hundred and four dollars a barrel, with these strikes keeping upward pressure on prices just before Asian markets open.
+PRIYA: Turning to Europe, Donald Trump made headlines today claiming a diplomatic breakthrough, but we need to look at this one very carefully.
+KARTIK: What was claimed, and what is actually verified?
+PRIYA: Trump publicly claimed Russia and Ukraine agreed to an immediate energy ceasefire. But neither Moscow nor Kyiv has confirmed it. In fact, Ukrainian drones reportedly struck a Russian Yandex data center today, so there is no verified truce on the ground.
+KARTIK: That distinction is critical. So Priya, what are the three main takeaways listeners should remember tonight?
+PRIYA: First, a US contractor pleaded guilty to smuggling restricted Nvidia AI servers to China, signaling strict criminal enforcement of tech exports. Second, Saudi retaliatory strikes in Yemen are keeping Red Sea security and oil prices on edge. And third, Donald Trump claimed an immediate energy ceasefire between Russia and Ukraine, but neither country has confirmed it.
+KARTIK: And what is the main thing to watch as Monday begins?
+PRIYA: Watch how currency markets test the Reserve Bank of India's five-million-dollar derivative trading cap when trading desks open tomorrow, to see if the rupee can stabilize against the dollar.
+KARTIK: That is our update for this Sunday evening. Rest up, and we will catch you tomorrow morning.

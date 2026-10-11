@@ -1,17 +1,21 @@
 {
 "2026-10-11": {
-"Canada immigration": 1,
-"Fed & US rates": 1,
-"Middle East conflict": 9,
-"RBI & India rates": 1,
-"Russia-Ukraine": 11,
-"US immigration (H-1B, green card)": 6,
+"AI agents / automation": 3,
+"Canada immigration": 2,
+"Fed & US rates": 2,
+"India-US trade & tariffs": 2,
+"Middle East conflict": 22,
+"RBI & India rates": 5,
+"Russia-Ukraine": 22,
+"US immigration (H-1B, green card)": 14,
 "US-China tension": 2,
-"data centers & AI infrastructure": 1,
-"energy & power grids": 1,
-"oil": 15,
-"rupee": 6,
-"semiconductors": 2,
-"tech hiring": 1
+"cyber attacks & scams": 2,
+"data centers & AI infrastructure": 5,
+"energy & power grids": 2,
+"oil": 21,
+"rupee": 11,
+"semiconductors": 3,
+"tech hiring": 1,
+"tech layoffs": 2
 }
 }
