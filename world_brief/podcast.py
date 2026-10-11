@@ -212,14 +212,45 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
     return None
 
 
+def review_script(script: str, llm, length: str, hosts: tuple[str, str]) -> str:
+    """Quality gate: an editor pass that rewrites a weak draft before it reaches the voices.
+    Keeps the draft if the rewrite looks broken."""
+    system = (ROOT / "prompts" / "podcast_review_prompt.md").read_text().replace("{LENGTH}", length)
+    try:
+        revised = llm(system, f"SCRIPT:\n{script}")
+    except Exception:
+        return script
+    before, after = parse_script(script, hosts), parse_script(revised or "", hosts)
+    words = lambda turns: sum(len(t.split()) for _, t in turns)
+    if len(after) >= 6 and words(after) >= 0.5 * words(before):
+        print(f"  script reviewed: {words(before)} -> {words(after)} words")
+        return revised
+    print("  ! script review unusable; keeping the first draft")
+    return script
+
+
+def latest_previous_script(archive: Path, kind: str, max_chars: int = 4000) -> str:
+    """Most recent earlier script of this kind (for 'Yesterday we talked about...')."""
+    if not archive.exists():
+        return ""
+    files = sorted(archive.glob(f"*-{kind}.txt"))
+    return files[-1].read_text()[-max_chars:] if files else ""
+
+
 def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                  length: str = "About 1,500 to 2,300 words (10 to 15 minutes spoken).",
                  show: str = "The Morning Brief", lang: str = "en",
-                 prompt_file: str | None = None, out_name: str | None = None) -> Path | None:
+                 prompt_file: str | None = None, out_name: str | None = None,
+                 report_type: str = "MORNING", previous_script: str = "") -> Path | None:
     profile = PROFILES[lang]
     system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
               .replace("{LENGTH}", length).replace("{SHOW}", show))
-    script = llm(system, f"DATE: {date_str}\n\nTODAY'S BRIEF:\n{clean_brief_for_script(brief_md)}")
+    user = f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n\nBRIEF:\n{clean_brief_for_script(brief_md)}"
+    if previous_script:
+        user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
+    script = llm(system, user)
+    if script and os.getenv("PODCAST_REVIEW", "1") == "1":
+        script = review_script(script, llm, length, profile["hosts"])
     turns = parse_script(script or "", profile["hosts"])
     if len(turns) < 6:
         print(f"  ! {lang} podcast script too short or missing; skipping audio")

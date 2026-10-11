@@ -57,6 +57,7 @@ import yaml
 ROOT = Path(__file__).parent
 STATE_FILE = ROOT / "state" / "seen.json"
 ARCHIVE_DIR = ROOT / "briefs"
+PODCAST_ARCHIVE = ARCHIVE_DIR / "podcasts"   # subfolder: not part of the brief memory
 TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/Chicago"))
 
 LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))
@@ -585,7 +586,7 @@ EDITIONS = {
                                "world events, the previous US market close, Asian markets."),
                 "podcasts": [
                     (*QUICK, "⚡ Quick", "The Morning Brief: Quick",
-                     "About 750 to 1,000 words (5 to 7 minutes). Shorter if little happened."),
+                     "At most about 1,000 words (5 to 7 minutes MAXIMUM). A 4-minute episode is completely fine."),
                     (*FULL, "📻 Full", "The Morning Brief: Full",
                      "About 1,500 to 2,300 words (10 to 15 minutes): shorter on a quiet day, "
                      "longer on a big news day."),
@@ -595,14 +596,14 @@ EDITIONS = {
                 "file_suffix": "-evening", "top5_intro": "",
                 "podcasts": [
                     (*QUICK, "⚡ Quick", "The Evening Update",
-                     "About 450 to 600 words (3 to 4 minutes). Shorter if little happened."),
+                     "At most about 600 words (3 to 4 minutes MAXIMUM). Shorter if little changed."),
                 ]},
     "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
                "memory_days": 7, "memory_chars": 120000, "fact_check": False,
                "file_suffix": "-weekly", "top5_intro": "",
                "podcasts": [
                    (*FULL, "📻 Weekly", "The Weekly Deep Dive",
-                    "About 1,800 to 2,300 words (12 to 15 minutes)."),
+                    "At most about 2,300 words (12 to 15 minutes MAXIMUM). Shorter is fine."),
                ]},
 }
 GENERIC_TOPICS = {"update", "updates", "latest", "news", "breaking", "story", "new", "previously"}
@@ -747,14 +748,16 @@ def main() -> None:
     episodes: list[dict] = []
     wants_podcast = meta.get("PODCAST_REQUIRED", "TRUE").upper().startswith("T")
     if os.getenv("PODCAST", "1") == "1" and not no_llm and wants_podcast:
-        from podcast import make_podcast
+        from podcast import make_podcast, latest_previous_script
         import podfeed
         source_text = strip_links(final.replace("{{LISTEN}}", ""))
         for prompt_file, kind, label, show, length in cfg["podcasts"]:
             try:
                 mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
                                    length=length, show=show, prompt_file=prompt_file,
-                                   out_name=f"world_brief_{kind}.mp3")
+                                   out_name=f"world_brief_{kind}.mp3",
+                                   report_type=edition.upper(),
+                                   previous_script=latest_previous_script(PODCAST_ARCHIVE, kind))
             except Exception as exc:
                 print(f"  ! {kind} podcast failed: {redact(str(exc))[:200]}", file=sys.stderr)
                 continue
@@ -770,6 +773,7 @@ def main() -> None:
                     ep["url"] = podfeed.publish_episode(ep)
                 except Exception as exc:
                     print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
+            ep["kind"] = kind
             episodes.append(ep)
         if episodes:
             (ROOT / "out" / "episodes.json").write_text(
@@ -809,6 +813,13 @@ def main() -> None:
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
     (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)
+    # Keep podcast scripts as memory for tomorrow's episode ("Yesterday we talked about...").
+    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    for ep in episodes:
+        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
+        if script.exists():
+            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
+                script.read_text())
     if items:
         stamp = datetime.now(timezone.utc).isoformat()
         for it in items:

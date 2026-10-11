@@ -94,10 +94,12 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
         from podcast import make_podcast
         mp3 = None
         if os.getenv("PODCAST", "1") == "1":
+            from podcast import latest_previous_script
             mp3 = make_podcast(letter.replace("{{LISTEN}}", ""), date_str, out_dir,
                                lambda s, u: digest.ask(s, u, prefer="gemini"),
-                               length="About 900 to 1,400 Telugu words (8 to 12 minutes spoken).",
-                               show="ఈ రోజు వార్తలు", lang="te")
+                               length="About 700 to 1,000 Telugu words (5 to 8 minutes spoken).",
+                               show="ఈ రోజు వార్తలు", lang="te", report_type="MORNING",
+                               previous_script=latest_previous_script(TELUGU_DIR, "podcast", 3000))
         url, minutes = None, None
         if mp3:
             minutes = digest.audio_minutes(mp3)
@@ -127,5 +129,8 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
                 print("  WhatsApp skipped: needs the public podcast link (PODCAST_REPO/PODCAST_TOKEN)")
         TELUGU_DIR.mkdir(parents=True, exist_ok=True)
         (TELUGU_DIR / f"{now:%Y-%m-%d}.md").write_text(letter)
+        script = out_dir / "script_telugu_podcast.txt"
+        if script.exists():
+            (TELUGU_DIR / f"{now:%Y-%m-%d}-podcast.txt").write_text(script.read_text())
     except Exception as exc:
         print(f"  ! Telugu edition failed: {type(exc).__name__}: {_redact(str(exc))[:200]}", file=sys.stderr)
