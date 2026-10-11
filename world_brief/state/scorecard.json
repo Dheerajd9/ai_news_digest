@@ -44,6 +44,22 @@
 "warnings": 0,
 "llm_calls": 10,
 "stories_tracked": 4
+},
+{
+"date": "2026-10-11",
+"edition": "morning",
+"raw": 1852,
+"after_dedupe": 831,
+"items_to_ai": 275,
+"cited": 275,
+"email_words": 5157,
+"podcast_minutes": 19,
+"corrections": 0,
+"action_required": 0,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 2,
+"stories_tracked": 0
 }
 ],
 "weekly": [
