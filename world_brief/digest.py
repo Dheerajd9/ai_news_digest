@@ -1021,9 +1021,14 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
 DONE_DIR = ROOT / "state" / "done"   # markers so backup schedule slots don't resend
 
 
+EDITION_WINDOWS = {"morning": range(7, 13), "weekly": range(9, 15), "evening": range(18, 23)}
+
+
 def mark_done(now: datetime, edition: str) -> None:
-    """Record that today's edition is finished (sent, or nothing to send)."""
-    if os.getenv("DRY_RUN") == "1":
+    """Record that today's edition is finished (sent, or nothing to send). Only inside the
+    edition's normal window, so an early test run (e.g. evening at 9 AM) doesn't cancel the
+    real one later that day."""
+    if os.getenv("DRY_RUN") == "1" or now.hour not in EDITION_WINDOWS.get(edition, range(24)):
         return
     DONE_DIR.mkdir(parents=True, exist_ok=True)
     (DONE_DIR / f"{now:%Y-%m-%d}-{edition}").write_text(datetime.now(timezone.utc).isoformat())

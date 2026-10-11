@@ -28,7 +28,7 @@ on:
         default: auto
   push:                        # code changes: quick test run, no AI, no email
     branches: [main]
-    paths: ["world_brief/**", ".github/workflows/world_brief.yml"]
+    paths: ["world_brief/**", ".github/workflows/world_brief.yml", "!world_brief/run_request.txt"]
 
 permissions:
   contents: write              # save world_brief/state + briefs archive (story memory)

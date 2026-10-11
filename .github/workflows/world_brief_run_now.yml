@@ -1,0 +1,79 @@
+name: World Brief - run all editions now
+
+# Lets Claude (or you) trigger a full test of every edition without clicking anything:
+# push a change to world_brief/run_request.txt and GitHub runs morning -> weekly -> evening
+# for real (emails + podcasts), one after another. Morning/weekly already sent today are
+# skipped (no duplicates); evening sent outside 6-11 PM doesn't block tonight's real one.
+
+on:
+  push:
+    branches: [main]
+    paths: ["world_brief/run_request.txt"]
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    concurrency:
+      group: world-brief
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: world_brief
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: world_brief/requirements.txt
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
+      - name: Run morning, weekly, evening
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PODCAST_REPO: ${{ vars.PODCAST_REPO }}
+          PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
+          PARENTS_EMAIL: ${{ secrets.PARENTS_EMAIL }}
+          PARENTS_WHATSAPP: ${{ secrets.PARENTS_WHATSAPP }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          D=$(TZ=America/Chicago date +%F)
+          mkdir -p logs
+          for ED in morning weekly evening; do
+            if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
+              echo "== weekly: not Sunday, running anyway as a test =="
+            fi
+            if [ "$ED" != evening ] && [ -e "state/done/$D-$ED" ]; then
+              echo "== $ED already sent today, skipping =="; continue
+            fi
+            echo "================ $ED ================"
+            rm -rf out
+            EDITION=$ED python digest.py 2>&1 | tee "logs/latest-$ED.log" || echo "!! $ED failed"
+            for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
+                     state/entities.json state/beliefs.json state/scorecard.json state/done briefs logs; do
+              if [ -e "$f" ]; then git add "$f"; fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "World brief ($ED, run-now) $(date -u +%F)"
+              git pull --rebase --quiet && git push
+            fi
+          done
