@@ -74,6 +74,28 @@ def clean(text: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(text)).strip()
 
 
+HOST_NAMES = {
+    "indianexpress": "Indian Express", "hindustantimes": "Hindustan Times",
+    "timesofindia": "Times of India", "livemint": "Mint", "economictimes": "Economic Times",
+    "thehindu": "The Hindu", "bbci": "BBC", "aljazeera": "Al Jazeera", "theguardian": "The Guardian",
+    "dw.com": "DW", "france24": "France 24", "npr.org": "NPR", "nhk.or.jp": "NHK World",
+    "arstechnica": "Ars Technica", "technologyreview": "MIT Tech Review", "hnrss": "Hacker News",
+    "nature.com": "Nature", "sciencedaily": "ScienceDaily", "freightwaves": "FreightWaves",
+}
+
+
+def short_source(name: str) -> str:
+    """'World news | The Guardian' -> 'The Guardian'; 'Al Jazeera – Breaking News...' -> 'Al Jazeera'."""
+    name = name.strip()
+    for sep in (" | ", " -- "):
+        if sep in name:
+            name = name.split(sep)[-1].strip()
+    for sep in (" – ", " - ", ": "):
+        if sep in name:
+            name = name.split(sep)[0].strip()
+    return {"World": "DW", "mint": "Mint"}.get(name, name)[:30]
+
+
 def entry_time(e) -> datetime | None:
     for key in ("published_parsed", "updated_parsed"):
         t = e.get(key)
@@ -94,7 +116,9 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
             except Exception as exc:  # one bad feed must not kill the run
                 print(f"  ! feed failed: {url} ({exc})", file=sys.stderr)
                 continue
-            source = clean(parsed.feed.get("title", "")) or url.split("/")[2]
+            host = url.split("/")[2]
+            source = next((n for h, n in HOST_NAMES.items() if h in host), None) \
+                or short_source(clean(parsed.feed.get("title", "")) or host)
             kept = 0
             for e in parsed.entries:
                 ts = entry_time(e)
@@ -108,6 +132,7 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
                 src = source
                 if "news.google.com" in url and " - " in title:
                     title, src = title.rsplit(" - ", 1)
+                    src = short_source(src)
                 items.append({
                     "category": category,
                     "source": src[:60],
@@ -410,12 +435,21 @@ def fallback_brief(items: list[dict], date_str: str) -> str:
 
 
 def link_citations(md: str, items: list[dict]) -> str:
+    """[S12] -> [[Source]](link); one link per outlet per line, max 3 per line."""
     by_id = {it["id"]: it for it in items}
+    out = []
+    for line in md.split("\n"):
+        used: list[str] = []
 
-    def repl(m):
-        it = by_id.get(m.group(1))
-        return f" [[{it['source']}]]({it['link']})" if it else ""
-    return re.sub(r"\[(S\d+)\]", repl, md)
+        def repl(m):
+            it = by_id.get(m.group(1))
+            if not it or it["source"] in used or len(used) >= 3:
+                return ""
+            used.append(it["source"])
+            return f" [[{it['source']}]]({it['link']})"
+        line = re.sub(r"\s*\[(S\d+)\]", repl, line)
+        out.append(re.sub(r"  +(\[\[)", r" \1", line))
+    return "\n".join(out)
 
 
 # ---------------------------------------------------------------- deliver
@@ -491,6 +525,14 @@ EDITIONS = {
                "podcast_length": "1,800 to 2,200 words (about 13 to 15 minutes spoken)",
                "show": "The Weekly Deep Dive", "file_suffix": "-weekly"},
 }
+
+
+def episode_notes(brief: str) -> str:
+    """Short, clean show notes for podcast apps: the one-liner + Top 5 headlines."""
+    one = re.search(r"\*\*(?:In one line|Since this morning|The week in one line):\*\*\s*(.+)", brief)
+    heads = re.findall(r"^- \*\*(.+?)\*\*", brief, re.M)[:5]
+    notes = (one.group(1).strip() + "\n\n" if one else "") + "\n".join(f"• {h}" for h in heads)
+    return re.sub(r"\s*\[S\d+\]", "", notes)[:1500]
 
 
 def insert_box(md: str, box: str) -> str:
@@ -569,7 +611,7 @@ def main() -> None:
         plain = re.sub(r"[#*_|>]", "", strip_links(final))
         (ROOT / "out" / "episode.json").write_text(json.dumps({
             "edition": edition, "title": title, "date": now.isoformat(),
-            "file": str(audio_path), "description": plain[:3500]}, ensure_ascii=False))
+            "file": str(audio_path), "description": episode_notes(brief)}, ensure_ascii=False))
 
     if dry:
         print("\n" + final)

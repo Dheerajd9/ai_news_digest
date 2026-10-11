@@ -34,6 +34,8 @@ A markets-and-weather table is inserted automatically, so do not write one. When
 8. Plain, simple English. Short sentences. Explain any jargon in five words or fewer.
 9. Skip: opinion columns, listicles, product deals, celebrity, film box office, minor crime, routine sports, horoscopes, duplicate follow-ups with no new facts.
 10. If a section has nothing important, write "Quiet day." Do not pad.
+11. No financial, legal or immigration advice ("lock in", "buy", "apply now"). State the facts and what they mean; the reader decides.
+12. Respect the word budget: one or two sentences per bullet, and stay near the low end of each section's bullet range. Pick the most important stories rather than covering everything.
 
 ## OUTPUT FORMAT (Markdown, exactly these sections in this order)
 
