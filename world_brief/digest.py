@@ -88,6 +88,34 @@ HOST_NAMES = {
 }
 
 
+OFFICIAL_SOURCES = re.compile(
+    r"\(official\)|\.gov\b|gov\.in|nic\.in|press information bureau|\bPIB\b|reserve bank of india|"
+    r"\bRBI\b|\bSEBI\b|ministry of|\bMEA\b|white ?house|federal reserve|treasury|department of|"
+    r"\bUSCIS\b|\bDHS\b|\bBLS\b|bureau of labor|\bSEC\b|\bUSTR\b|\bIRCC\b|supreme court of|"
+    r"\bNSE\b|\bBSE\b|govt\.|government of", re.I)
+MAJOR_SOURCES = {
+    "reuters", "associated press", "ap news", "ap", "bloomberg", "financial times", "bbc", "bbc news",
+    "cnbc", "the hindu", "indian express", "the indian express", "hindustan times", "times of india",
+    "the times of india", "mint", "livemint", "economic times", "the economic times", "business standard",
+    "ndtv", "ndtv profit", "moneycontrol", "moneycontrol.com", "pti", "ani", "ani news", "press trust of india",
+    "npr", "the guardian", "al jazeera", "dw", "deutsche welle", "nhk world", "france 24", "cnn",
+    "the new york times", "new york times", "the washington post", "washington post",
+    "the wall street journal", "wsj", "politico", "axios", "the economist", "nature", "ars technica",
+    "mit tech review", "live law", "bar and bench", "the tribune", "deccan herald", "the new indian express",
+    "telangana today", "the print", "theprint", "scroll", "fortune", "forbes", "usa today", "abc news",
+    "cbs news", "nbc news", "fox news", "the verge", "techcrunch", "wired", "kyiv independent",
+    "nikkei asia", "south china morning post", "the japan times", "cbc", "global news", "businessline",
+    "the hindu businessline", "india today", "news on air", "all india radio", "doordarshan",
+}
+
+
+def source_tier(source: str) -> str:
+    """official / major / other: lets the AI apply the extraordinary-claim rule."""
+    if OFFICIAL_SOURCES.search(source):
+        return "official"
+    return "major" if source.lower().strip() in MAJOR_SOURCES else "other"
+
+
 def redact(text: str) -> str:
     """Remove anything that looks like a secret (bot tokens, api keys) before logging."""
     text = re.sub(r"bot\d+:[\w-]+", "bot***", text)
@@ -300,11 +328,15 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
             if per_cat.get(it["category"], 0) >= 7:
                 continue
             per_cat[it["category"]] = per_cat.get(it["category"], 0) + 1
-            payload.append({k: it[k] for k in ("id", "category", "source", "coverage", "title")})
+            payload.append({**{k: it[k] for k in ("id", "category", "source", "coverage", "title")},
+                            "tier": source_tier(it["source"])})
         history, memory = history[:5], memory[-1500:]
     else:
-        payload = [{k: it[k] for k in ("id", "category", "source", "coverage", "title",
-                                        "summary", "published")} for it in items]
+        payload = [{**{k: it[k] for k in ("id", "category", "source", "coverage", "title",
+                                           "summary", "published")},
+                    "tier": source_tier(it["source"]),
+                    "also": [f"{a} ({source_tier(a)})" for a in it.get("also", [])][:6]}
+                   for it in items]
     return (f"DATE: {date_str}\n\nMARKETS: {markets or '(none)'}\n\n"
             f"NEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}\n\n"
             f"ON_THIS_DAY:\n{json.dumps(history, ensure_ascii=False)}\n\n"
@@ -324,7 +356,8 @@ def fact_check(draft: str, items: list[dict]) -> str:
     cited = set(re.findall(r"\[(S\d+)\]", draft))
     if not cited:
         return draft
-    src = [{"id": i["id"], "title": i["title"], "summary": i["summary"][:200]}
+    src = [{"id": i["id"], "source": i["source"], "tier": source_tier(i["source"]),
+            "published": i["published"][:10], "title": i["title"], "summary": i["summary"][:200]}
            for i in items if i["id"] in cited]
     system = (ROOT / "prompts" / "factcheck_prompt.md").read_text()
     user = f"SOURCE_ITEMS:\n{json.dumps(src, ensure_ascii=False)}\n\nDRAFT:\n{draft}"
@@ -465,7 +498,7 @@ def link_citations(md: str, items: list[dict]) -> str:
 
 
 # ---------------------------------------------------------------- deliver
-def send_email(subject: str, md: str, audio: Path | None = None, to: str | None = None,
+def send_email(subject: str, md: str, audio=None, to: str | None = None,
                audio_name: str | None = None) -> None:
     user, pwd = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
     to = to or os.getenv("TO_EMAIL")
@@ -488,10 +521,20 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     msg = MIMEMultipart("mixed")
     msg["Subject"], msg["From"], msg["To"] = subject, user, to
     msg.attach(body)
-    if audio and audio.exists() and audio.stat().st_size < 20_000_000:  # Gmail cap is 25 MB
-        part = MIMEAudio(audio.read_bytes(), "mpeg")
-        part.add_header("Content-Disposition", "attachment",
-                        filename=audio_name or f"World-Brief-{datetime.now(TZ):%Y-%m-%d}.mp3")
+    files = [audio] if isinstance(audio, Path) else list(audio or [])
+    total = 0
+    for f in files:
+        if not (f and f.exists()):
+            continue
+        size = f.stat().st_size
+        if total + size > 20_000_000:                    # Gmail caps a message at 25 MB
+            print(f"  (skipped attaching {f.name}: email would be too large; use the link)")
+            continue
+        total += size
+        part = MIMEAudio(f.read_bytes(), "mpeg")
+        name = audio_name if (audio_name and len(files) == 1) else \
+            f"World-Brief-{datetime.now(TZ):%Y-%m-%d}-{f.stem.split('_')[-1]}.mp3"
+        part.add_header("Content-Disposition", "attachment", filename=name)
         msg.attach(part)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
         s.login(user, pwd)
@@ -533,21 +576,36 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
 
 
 # ---------------------------------------------------------------- main
+QUICK = ("podcast_quick_prompt.md", "quick")
+FULL = ("podcast_prompt.md", "full")
 EDITIONS = {
     "morning": {"title": "World Brief", "prompt": "brief_prompt.md", "lookback": 26,
-                "memory_days": 3, "memory_chars": 14000, "fact_check": True,
-                "podcast_length": ("About 1,500 to 2,300 words (10 to 15 minutes spoken): "
-                                   "shorter on a quiet day, longer on a big news day."),
-                "show": "The Morning Brief", "file_suffix": "", "script_by": "github"},
+                "memory_days": 3, "memory_chars": 14000, "fact_check": True, "file_suffix": "",
+                "top5_intro": ("Frame this as 🌅 what happened while I was sleeping: India, overnight "
+                               "world events, the previous US market close, Asian markets."),
+                "podcasts": [
+                    (*QUICK, "⚡ Quick", "The Morning Brief: Quick",
+                     "About 750 to 1,000 words (5 to 7 minutes). Shorter if little happened."),
+                    (*FULL, "📻 Full", "The Morning Brief: Full",
+                     "About 1,500 to 2,300 words (10 to 15 minutes): shorter on a quiet day, "
+                     "longer on a big news day."),
+                ]},
     "evening": {"title": "Evening Update", "prompt": "evening_prompt.md", "lookback": 12,
                 "memory_days": 1, "memory_chars": 9000, "fact_check": True,
-                "podcast_length": "About 500 to 900 words (3 to 6 minutes spoken).",
-                "show": "The Evening Update", "file_suffix": "-evening", "script_by": "github"},
+                "file_suffix": "-evening", "top5_intro": "",
+                "podcasts": [
+                    (*QUICK, "⚡ Quick", "The Evening Update",
+                     "About 450 to 600 words (3 to 4 minutes). Shorter if little happened."),
+                ]},
     "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
                "memory_days": 7, "memory_chars": 120000, "fact_check": False,
-               "podcast_length": "About 2,000 to 2,800 words (14 to 18 minutes spoken).",
-               "show": "The Weekly Deep Dive", "file_suffix": "-weekly", "script_by": "gemini"},
+               "file_suffix": "-weekly", "top5_intro": "",
+               "podcasts": [
+                   (*FULL, "📻 Weekly", "The Weekly Deep Dive",
+                    "About 1,800 to 2,300 words (12 to 15 minutes)."),
+               ]},
 }
+GENERIC_TOPICS = {"update", "updates", "latest", "news", "breaking", "story", "new", "previously"}
 
 
 def extract_meta(md: str) -> tuple[str, dict]:
@@ -566,13 +624,14 @@ def extract_meta(md: str) -> tuple[str, dict]:
 def episode_notes(brief: str, meta: dict) -> str:
     """Short, clean show notes for podcast apps: the one-liner + topics/top headlines."""
     one = re.search(r"\*\*(?:In one line|Since this morning|The week in one line):\*\*\s*(.+)", brief)
-    topics = [t.strip() for t in meta.get("PODCAST_TOPICS", "").split(";") if t.strip()]
-    if not topics:
-        sec = re.search(r"^## 1\..*?(?=^## )", brief, re.S | re.M)
+    topics = [t.strip(" •-") for t in meta.get("PODCAST_TOPICS", "").split(";")
+              if t.strip(" •-") and t.strip(" •-").lower() not in GENERIC_TOPICS]
+    if len(topics) < 2:
+        sec = re.search(r"^## (?:1\.|🚨|🌆).*?(?=^## )", brief, re.S | re.M)
         topics = []
         for line in re.findall(r"^- .+$", sec.group(0) if sec else brief, re.M):
             bolds = [b for b in re.findall(r"\*\*(.+?)\*\*", line)
-                     if b.strip(" :") not in ("Update", "Previously", "New") and len(b) > 3]
+                     if b.strip(" :").lower() not in GENERIC_TOPICS and len(b) > 5]
             if bolds:
                 topics.append(bolds[0].strip(" :"))
         topics = topics[:5]
@@ -599,19 +658,22 @@ def audio_minutes(audio: Path) -> int | None:
         return None
 
 
-def listen_section(audio: Path | None, link: str | None, meta: dict, brief: str) -> str:
-    if not audio:
+def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
+    """🎧 block near the top of the email: one line per podcast + real topic titles."""
+    if not episodes:
         return ""
-    minutes = audio_minutes(audio)
-    topics = episode_notes(brief, meta).split("\n\n")[-1].replace("\n", " ")
-    lines = ["## 🎧 Listen to Kartik & Priya", "",
-             "**Today's podcast:** " + (f"[Play or download]({link}) · " if link else "")
-             + "also attached to this email as an MP3"]
-    if minutes:
-        lines.append(f"**Listening time:** about {minutes} minute{'s' if minutes > 1 else ''}")
-    if topics.strip():
-        lines.append(f"**Topics:** {topics}")
-    return lines[0] + "\n\n" + "  \n".join(lines[2:]) + "\n"
+    lines = []
+    for ep in episodes:
+        mins = audio_minutes(ep["file"])
+        when = f" (about {mins} min)" if mins else ""
+        play = f"[Play or download]({ep['url']})" if ep.get("url") else "attached to this email"
+        lines.append(f"**{ep['label']}{when}:** {play}")
+    topics = [t.lstrip("• ").strip() for t in episode_notes(brief, meta).split("\n\n")[-1].split("\n")]
+    topics = [t for t in topics if t]
+    out = "## 🎧 Listen to Kartik & Priya\n\n" + "  \n".join(lines) + "\n"
+    if topics:
+        out += "\n**Today's topics:**\n" + "\n".join(f"- {t}" for t in topics[:7]) + "\n"
+    return out
 
 
 def main() -> None:
@@ -632,7 +694,9 @@ def main() -> None:
         box, markets_plain = "", ""
     memory = previous_briefs(cfg["memory_days"], cfg["memory_chars"],
                              keep_links=(edition == "weekly"))
-    system = (ROOT / "prompts" / cfg["prompt"]).read_text().replace("{DATE}", date_str)
+    system = ((ROOT / "prompts" / cfg["prompt"]).read_text()
+              .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
+              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
 
     items: list[dict] = []
     meta: dict = {}
@@ -671,58 +735,71 @@ def main() -> None:
     brief = insert_box(brief, box)
     final = link_citations(brief, items)
 
-    # Podcast (Kartik & Priya), unless the AI says there's nothing worth a podcast.
-    audio_path = None
+    title = f"{cfg['title']} — {date_str}"
+    warnings = [w.strip() for w in meta.get("VERIFICATION_WARNINGS", "").split(";")
+                if w.strip() and w.strip().upper() not in ("NONE", "N/A", "-")]
+    if warnings:
+        final += ("\n\n## ⚠️ Verification notes\n"
+                  + "\n".join(f"- {w}" for w in warnings[:5])
+                  + "\n\n_These claims could not be fully verified from strong sources yet._\n")
+
+    # Podcasts (Kartik & Priya): Quick and/or Full, unless the AI says nothing is worth it.
+    episodes: list[dict] = []
     wants_podcast = meta.get("PODCAST_REQUIRED", "TRUE").upper().startswith("T")
     if os.getenv("PODCAST", "1") == "1" and not no_llm and wants_podcast:
-        try:
-            from podcast import make_podcast
-            script_llm = (write_script if cfg["script_by"] == "github"
-                          else (lambda s, u: ask(s, u, prefer="gemini")))
-            audio_path = make_podcast(strip_links(final.replace("{{LISTEN}}", "")), date_str,
-                                      ROOT / "out", script_llm,
-                                      length=cfg["podcast_length"], show=cfg["show"])
-        except Exception as exc:
-            print(f"  ! podcast failed, email still goes out: {redact(str(exc))}", file=sys.stderr)
+        from podcast import make_podcast
+        import podfeed
+        source_text = strip_links(final.replace("{{LISTEN}}", ""))
+        for prompt_file, kind, label, show, length in cfg["podcasts"]:
+            try:
+                mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
+                                   length=length, show=show, prompt_file=prompt_file,
+                                   out_name=f"world_brief_{kind}.mp3")
+            except Exception as exc:
+                print(f"  ! {kind} podcast failed: {redact(str(exc))[:200]}", file=sys.stderr)
+                continue
+            if not mp3:
+                continue
+            tag = edition if kind == "full" else f"{edition}-{kind}"
+            ep = {"edition": tag, "title": f"{title} ({label.split(' ', 1)[-1]})",
+                  "date": now.isoformat(), "file": str(mp3), "label": label,
+                  "description": episode_notes(brief, meta), "url": None}
+            # Publish BEFORE emailing so the links in the email already work.
+            if podfeed.configured() and not dry:
+                try:
+                    ep["url"] = podfeed.publish_episode(ep)
+                except Exception as exc:
+                    print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
+            episodes.append(ep)
+        if episodes:
+            (ROOT / "out" / "episodes.json").write_text(
+                json.dumps(episodes, ensure_ascii=False, default=str))
     elif not wants_podcast:
         print("  podcast skipped: AI says nothing meaningful new")
 
-    title = f"{cfg['title']} — {date_str}"
-    link = None
-    if audio_path:
-        episode = {"edition": edition, "title": title, "date": now.isoformat(),
-                   "file": str(audio_path), "description": episode_notes(brief, meta)}
-        (ROOT / "out" / "episode.json").write_text(json.dumps(episode, ensure_ascii=False))
-        # Publish to the podcast feed BEFORE emailing, so the link in the email already works.
-        import podfeed
-        if podfeed.configured() and not dry:
-            try:
-                link = podfeed.publish_episode(episode)
-            except Exception as exc:
-                print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
-    listen = listen_section(audio_path, link, meta, brief)
+    listen = listen_section(episodes, meta, brief)
     if "{{LISTEN}}" in final:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:
         final = insert_box(final, listen)
     final = re.sub(r"\n{3,}", "\n\n", final)
-
+    audio_files = [Path(e["file"]) for e in episodes]
 
     urgent = meta.get("URGENT_ALERT", "").upper().startswith("T")
-    subject = ("🚨 " if urgent else "") + title + (" 🎧" if audio_path else "")
+    subject = ("🚨 " if urgent else "") + title + (" 🎧" if episodes else "")
     telugu_on = (edition in os.getenv("TELUGU_EDITIONS", "morning").split(",")
                  and not no_llm and items)
     if dry:
         print(f"\nSUBJECT: {subject}\n\n" + final)
-        if audio_path:
-            print(f"\n[podcast saved at {audio_path}]")
+        for f in audio_files:
+            print(f"\n[podcast saved at {f}]")
         if telugu_on and os.getenv("TELUGU_DRY_RUN") == "1":
             import telugu
             telugu.run(final, markets_plain, date_str, now, ROOT / "out", dry=True)
         return
 
-    send_email(subject, final, audio_path)
-    send_telegram(final, audio_path)
+    send_email(subject, final, audio_files)
+    send_telegram(final, audio_files[0] if audio_files else None)
 
     # Telugu edition for parents (only if PARENTS_EMAIL / PARENTS_WHATSAPP is set).
     if telugu_on:

@@ -6,12 +6,12 @@ India first, USA second, then the world. A daily news email plus a two-host audi
 
 | When | What | Why that time |
 |---|---|---|
-| **7:37 AM daily** | **World Brief**: 13 sections, ~9 min read + ~10 min podcast | India's day is done (~6 PM IST), US overnight news in, before US markets open |
-| **6:07 PM daily** | **Evening Update**: only what changed since morning, ~3 min + ~4 min podcast | US day and markets closed; India early morning |
+| **7:37 AM daily** | **World Brief**: Top 5 + attention + money first, full detail below; **⚡ Quick podcast (5–7 min)** + **📻 Full podcast (10–15 min)** | India's day is done (~6 PM IST), US overnight news in, before US markets open |
+| **6:07 PM daily** | **Evening Update**: only what changed since morning, ~3 min + ⚡ 3–4 min podcast (skipped on quiet days) | US day and markets closed; India early morning |
 | **Sunday 9:07 AM** | **Weekly Deep Dive**: the week's 5 big stories and their arc, what to watch next week, ~14 min podcast | Built from the week's briefs |
 | **Every 2 h, 7 AM-11 PM** | **Breaking alert** only if something truly big (visa rule, crash, disaster, war) | Usually silent |
 
-Every email starts with an **exact numbers box** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, Brent, gold per gram and per ounce in India (IBJA 24K/22K, ₹) and USA ($), Dallas + Hyderabad weather) from data APIs, never from AI. Text is very simple English with the key words in **bold** for quick skimming, plus a daily Sensex/Nifty/mutual-fund update.
+Accuracy: every item carries a source trust level (official / major / other); extraordinary claims need an official source or two major outlets, otherwise they're marked ⚠️ NOT YET VERIFIED and listed under Verification notes. Every email has an **exact money dashboard** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, Brent, gold per gram and per ounce in India (IBJA 24K/22K, ₹) and USA ($), Dallas + Hyderabad weather) from data APIs, never from AI. Text is very simple English with the key words in **bold** for quick skimming, plus a daily Sensex/Nifty/mutual-fund update.
 
 ## How it works
 

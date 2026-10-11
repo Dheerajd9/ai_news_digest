@@ -24,20 +24,19 @@ UA = {"User-Agent": "Mozilla/5.0 (world-brief personal digest)"}
 OZ = 31.1035  # grams in one troy ounce
 
 # label, yahoo, stooq, kind   (kind: index | fx | usd | usd0 | yield)
-SNAPSHOT = [
-    ("S&P 500", "^GSPC", "^spx", "index"),
-    ("Nasdaq", "^IXIC", "^ndq", "index"),
-    ("Dow Jones", "^DJI", "^dji", "index"),
-    ("Nifty 50", "^NSEI", None, "index"),
-    ("Sensex", "^BSESN", None, "index"),
-    ("Bank Nifty", "^NSEBANK", None, "index"),
-    ("USD → INR", "INR=X", "usdinr", "fx"),
-    ("Gold ($/oz)", "GC=F", "xauusd", "usd"),
-    ("GOLD_INDIA", None, None, "special"),
-    ("Silver ($/oz)", "SI=F", "xagusd", "usd"),
-    ("Brent oil ($/bbl)", "BZ=F", "cb.f", "usd"),
-    ("Bitcoin", "BTC-USD", "btcusd", "usd0"),
-    ("US 10Y yield", "^TNX", None, "yield"),
+INDICES = [
+    ("🇮🇳 Nifty 50", "^NSEI", None, "index"),
+    ("🇮🇳 Sensex", "^BSESN", None, "index"),
+    ("🇮🇳 Bank Nifty", "^NSEBANK", None, "index"),
+    ("🇺🇸 S&P 500", "^GSPC", "^spx", "index"),
+    ("🇺🇸 Nasdaq Composite", "^IXIC", "^ndq", "index"),
+    ("🇺🇸 Dow Jones", "^DJI", "^dji", "index"),
+    ("💵 USD/INR", "INR=X", "usdinr", "fx"),
+]
+TAIL = [
+    ("🛢️ Brent crude ($/bbl)", "BZ=F", "cb.f", "usd"),
+    ("₿ Bitcoin", "BTC-USD", "btcusd", "usd0"),
+    ("🇺🇸 US 10-year Treasury yield", "^TNX", None, "yield"),
 ]
 # Given to the AI only; it mentions them when something meaningful happened.
 EXTRA = [
@@ -125,7 +124,12 @@ def status_of(t: float | None, kind: str) -> str:
     age = time.time() - t
     if age < 35 * 60:
         return "LIVE (delayed)" if kind == "usd0" else "DELAYED"
-    return "PREVIOUS CLOSE" if age < 4 * 86400 else "STALE"
+    if kind == "usd0":
+        return "LATEST AVAILABLE"
+    if age > 4 * 86400:
+        return "STALE"
+    # A weekend or holiday gap means the exchange is closed right now.
+    return "MARKET CLOSED" if datetime.now(timezone.utc).weekday() >= 5 else "PREVIOUS CLOSE"
 
 
 # ---------------------------------------------------------------- formatting
@@ -205,59 +209,58 @@ def ibja() -> dict:
     return _IBJA
 
 
-def gold_india_row(weekly: bool) -> dict | None:
-    g = ibja().get("999")
-    if g:
-        return {"label": "Gold 24K India (₹/g)", "value": inr(g), "change": "—",
-                "status": "IBJA daily rate"}
-    oz, fx = closes_for("GC=F", "xauusd"), closes_for("INR=X", "usdinr")
-    if oz and fx:
-        return {"label": "Gold India (world price, ₹/g)", "value": inr(oz[-1] * fx[-1] / OZ),
-                "change": "—", "status": "converted"}
-    return None
-
-
-def metals_block() -> tuple[str, str]:
-    gold, fx, silver = closes_for("GC=F", "xauusd"), closes_for("INR=X", "usdinr"), \
-        closes_for("SI=F", "xagusd")
-    if not gold:
-        return "", ""
+def metal_rows(weekly: bool) -> list[dict]:
+    """Gold & silver rows, all derived from ONE set of numbers so they stay consistent:
+    USD/gram = USD/oz / 31.1035, rupee conversions use the same USD/INR as the table."""
+    rows = []
+    gold, gt = series("GC=F", "xauusd")
+    silver, st = series("SI=F", "xagusd")
+    fx = closes_for("INR=X", "usdinr")
     rate = ibja()
-    oz = gold[-1]
-    md = ["**🪙 Gold**", "", "| | 1 gram | 10 grams | 1 ounce (31.1 g) |", "|---|---:|---:|---:|"]
-    plain = []
+    back = 6 if weekly else 2
+
+    def chg(c):
+        then = c[-back] if len(c) >= back else c[0]
+        return fmt_change(c[-1], then, "usd")
+
     if rate.get("999"):
         g24 = rate["999"]
-        md.append(f"| 🇮🇳 India 24K | {inr(g24)} | {inr(g24 * 10)} | {inr(g24 * OZ)} |")
-        plain.append(f"India 24K gold {inr(g24)} per gram, {inr(g24 * 10)} per 10 grams (IBJA)")
+        rows += [
+            {"label": "🪙 Gold 24K India (₹/gram)", "value": inr(g24), "change": "—",
+             "status": "LATEST AVAILABLE (IBJA)"},
+            {"label": "🪙 Gold 24K India (₹/10 grams)", "value": inr(g24 * 10), "change": "—",
+             "status": "LATEST AVAILABLE (IBJA)"},
+            {"label": "🪙 Gold 24K India (₹/troy ounce)", "value": inr(g24 * OZ), "change": "—",
+             "status": "LATEST AVAILABLE (IBJA)"},
+        ]
         if rate.get("916"):
-            g22 = rate["916"]
-            md.append(f"| 🇮🇳 India 22K (jewellery) | {inr(g22)} | {inr(g22 * 10)} | {inr(g22 * OZ)} |")
-            plain.append(f"India 22K gold {inr(g22)} per gram")
-        india_note = "India: IBJA benchmark rate, without 3% GST and making charges (jewellery shops charge more)."
-    elif fx:
-        g = oz * fx[-1] / OZ
-        md.append(f"| 🇮🇳 India (world price in ₹) | {inr(g)} | {inr(g * 10)} | {inr(g * OZ)} |")
-        plain.append(f"Gold at world price in rupees {inr(g)} per gram")
-        india_note = "India: world price converted to rupees, before import duty and GST (shops charge more)."
-    else:
-        india_note = ""
-    chg = fmt_change(gold[-1], gold[-2], "usd")
-    md.append(f"| 🌍 World / USA spot | ${oz / OZ:,.2f} | ${oz * 10 / OZ:,.2f} | ${oz:,.2f} |")
-    md += ["", f"_World gold: previous close ${gold[-2]:,.2f}, today {chg}. {india_note}_"]
-    plain.append(f"World gold ${oz:,.2f} per ounce (${oz / OZ:,.2f} per gram), previous close "
-                 f"${gold[-2]:,.2f}, change {chg.split(' ', 1)[1]}")
+            rows.append({"label": "🪙 Gold 22K India (₹/gram)", "value": inr(rate["916"]),
+                         "change": "—", "status": "LATEST AVAILABLE (IBJA)"})
+    elif gold and fx:
+        g = gold[-1] * fx[-1] / OZ
+        rows.append({"label": "🪙 Gold India (world price in ₹/gram)", "value": inr(g),
+                     "change": chg(gold), "status": "CONVERTED (before duty & GST)"})
+    if gold:
+        stat = "1-WEEK CHANGE" if weekly else status_of(gt, "usd")
+        rows += [
+            {"label": "🪙 Gold world ($/gram)", "value": f"${gold[-1] / OZ:,.2f}",
+             "change": chg(gold), "status": stat},
+            {"label": "🪙 Gold world ($/troy ounce)", "value": f"${gold[-1]:,.2f}",
+             "change": chg(gold), "status": stat},
+        ]
     if silver:
-        s = silver[-1]
-        kg_inr = rate.get("silver_kg") or (s * fx[-1] / OZ * 1000 if fx else None)
-        md += ["", "**🥈 Silver**", "", "| | 1 gram | 1 ounce | 1 kg |", "|---|---:|---:|---:|",
-               f"| 🌍 World (USD) | ${s / OZ:,.3f} | ${s:,.2f} | ${s / OZ * 1000:,.0f} |"]
-        if kg_inr:
-            src = "IBJA" if rate.get("silver_kg") else "world price in ₹"
-            md.append(f"| 🇮🇳 India ({src}) | {inr(kg_inr / 1000, 2)} | {inr(kg_inr / 1000 * OZ)} | {inr(kg_inr)} |")
-        plain.append(f"Silver ${s:,.2f} per ounce, change {fmt_change(s, silver[-2], 'usd').split(' ', 1)[1]}"
-                     + (f", India {inr(kg_inr)} per kg" if kg_inr else ""))
-    return "\n".join(md), "; ".join(plain)
+        kg = rate.get("silver_kg")
+        if kg:
+            rows.append({"label": "🥈 Silver India (₹/kg)", "value": inr(kg), "change": "—",
+                         "status": "LATEST AVAILABLE (IBJA)"})
+        elif fx:
+            rows.append({"label": "🥈 Silver India (world price in ₹/kg)",
+                         "value": inr(silver[-1] / OZ * 1000 * fx[-1]), "change": chg(silver),
+                         "status": "CONVERTED (before duty & GST)"})
+        rows.append({"label": "🥈 Silver world ($/ounce)", "value": f"${silver[-1]:,.2f}",
+                     "change": chg(silver),
+                     "status": "1-WEEK CHANGE" if weekly else status_of(st, "usd")})
+    return rows
 
 
 # ---------------------------------------------------------------- weather
@@ -285,35 +288,35 @@ def weather_rows() -> list[dict]:
 
 # ---------------------------------------------------------------- the box
 def numbers_box(weekly: bool = False) -> tuple[str, str]:
-    """Return (markdown for the email, plain text for the AI and podcast)."""
-    rows = []
-    for label, y, s, kind in SNAPSHOT:
-        row = gold_india_row(weekly) if kind == "special" else _row(label, y, s, kind, weekly)
-        if row:
-            rows.append(row)
-    extra = [r for r in (_row(l, y, s, k, weekly) for l, y, s, k in EXTRA) if r]
+    """ONE compact money dashboard (markdown) + plain text for the AI and podcast."""
+    rows = [r for r in (_row(l, y, s, k, weekly) for l, y, s, k in INDICES) if r]
     try:
-        metals_md, metals_plain = metals_block()
+        rows += metal_rows(weekly)
     except Exception:
-        metals_md, metals_plain = "", ""
+        pass
+    rows += [r for r in (_row(l, y, s, k, weekly) for l, y, s, k in TAIL) if r]
+    extra = [r for r in (_row(l, y, s, k, weekly) for l, y, s, k in EXTRA) if r]
     weather = weather_rows()
     if not (rows or weather):
         return "", ""
 
     stamp = datetime.now(ZoneInfo("America/Chicago")).strftime("%d %b %Y, %I:%M %p CT")
-    head = "1-week change" if weekly else "Daily change"
-    md = ["## 📊 Market snapshot", "",
-          f"| Asset | Latest | {head} | Status |", "|---|---:|---:|---|"]
+    head = "1-week change" if weekly else "Change"
+    md = ["## 📊 Money & markets", "", f"| Asset | Latest | {head} | Status |",
+          "|---|---:|---:|---|"]
     md += [f"| {r['label']} | {r['value']} | {r['change']} | {r['status']} |" for r in rows]
-    if metals_md:
-        md += ["", metals_md]
+    fx = closes_for("INR=X", "usdinr")
+    notes = [f"Data as of {stamp}."]
+    if fx:
+        notes.append(f"Rupee conversions use ₹{fx[-1]:,.2f} per $.")
+    notes.append("India gold/silver = IBJA benchmark rates, without 3% GST and making charges "
+                 "(jewellery shops charge more); world prices are international spot/futures.")
+    md += ["", "_" + " ".join(notes) + "_"]
     if weather:
-        md += [""] + [f"**{w['city']}** ({w['day']}): {w['text']}" for w in weather]
-    md += ["", f"_Data as of {stamp}. Sources: Yahoo Finance / Stooq / ECB, IBJA, Open-Meteo._", ""]
+        md += ["", "Weather: " + " · ".join(f"{w['city']} ({w['day']}) {w['text']}" for w in weather)]
+    md.append("")
 
     plain = [f"{r['label']} {r['value']} ({r['change']}, {r['status']})" for r in rows + extra]
-    if metals_plain:
-        plain.append(metals_plain)
     plain += [f"{w['city']} weather {w['day']}: {w['text']}" for w in weather]
     plain.append(f"MARKET_DATA_TIMESTAMP {stamp}")
     return "\n".join(md), "; ".join(plain)

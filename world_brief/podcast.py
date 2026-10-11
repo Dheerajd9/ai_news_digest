@@ -214,9 +214,10 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
 
 def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                  length: str = "About 1,500 to 2,300 words (10 to 15 minutes spoken).",
-                 show: str = "The Morning Brief", lang: str = "en") -> Path | None:
+                 show: str = "The Morning Brief", lang: str = "en",
+                 prompt_file: str | None = None, out_name: str | None = None) -> Path | None:
     profile = PROFILES[lang]
-    system = ((ROOT / "prompts" / profile["prompt"]).read_text()
+    system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
               .replace("{LENGTH}", length).replace("{SHOW}", show))
     script = llm(system, f"DATE: {date_str}\n\nTODAY'S BRIEF:\n{clean_brief_for_script(brief_md)}")
     turns = parse_script(script or "", profile["hosts"])
@@ -225,7 +226,8 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         return None
     print(f"  {lang} podcast script: {len(turns)} turns, {sum(len(t.split()) for _, t in turns)} words")
 
-    work = out_dir / f"podcast_parts_{lang}"
+    tag = (out_name or profile["file"]).rsplit(".", 1)[0]
+    work = out_dir / f"parts_{tag}"
     shutil.rmtree(work, ignore_errors=True)
     work.mkdir(parents=True)
     tts_pref = os.getenv("TELUGU_TTS" if lang == "te" else "PODCAST_TTS", "gemini")
@@ -238,9 +240,9 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
             speak_line(said, speaker, p, profile)
             parts.append(p)
 
-    out_mp3 = out_dir / profile["file"]
+    out_mp3 = out_dir / (out_name or profile["file"])
     stitch(parts, out_mp3, work)
-    (out_dir / f"podcast_script_{lang}.txt").write_text(
+    (out_dir / f"script_{tag}.txt").write_text(
         "\n".join(f"{s}: {t}" for s, t in turns))
-    print(f"  {lang} podcast ready: {out_mp3.stat().st_size / 1e6:.1f} MB")
+    print(f"  {tag} podcast ready: {out_mp3.stat().st_size / 1e6:.1f} MB")
     return out_mp3
