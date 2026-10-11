@@ -514,11 +514,11 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
 EDITIONS = {
     "morning": {"title": "World Brief", "prompt": "brief_prompt.md", "lookback": 26,
                 "memory_days": 3, "memory_chars": 14000, "fact_check": True,
-                "podcast_length": "1,300 to 1,600 words (about 9 to 11 minutes spoken)",
+                "podcast_length": "1,800 to 2,200 words (about 12 to 15 minutes spoken)",
                 "show": "The Morning Brief", "file_suffix": ""},
     "evening": {"title": "Evening Update", "prompt": "evening_prompt.md", "lookback": 12,
                 "memory_days": 1, "memory_chars": 9000, "fact_check": True,
-                "podcast_length": "500 to 650 words (about 4 minutes spoken)",
+                "podcast_length": "700 to 900 words (about 5 to 6 minutes spoken)",
                 "show": "The Evening Update", "file_suffix": "-evening"},
     "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
                "memory_days": 7, "memory_chars": 120000, "fact_check": False,

@@ -11,7 +11,7 @@ India first, USA second, then the world. A daily news email plus a two-host audi
 | **Sunday 9:07 AM** | **Weekly Deep Dive**: the week's 5 big stories and their arc, what to watch next week, ~14 min podcast | Built from the week's briefs |
 | **Every 2 h, 7 AM-11 PM** | **Breaking alert** only if something truly big (visa rule, crash, disaster, war) | Usually silent |
 
-Every email starts with an **exact numbers box** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, gold, Brent, Dallas + Hyderabad weather) from data APIs, never from AI.
+Every email starts with an **exact numbers box** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, Brent, gold per gram and per ounce in India (IBJA 24K/22K, ₹) and USA ($), Dallas + Hyderabad weather) from data APIs, never from AI. Text is very simple English with the key words in **bold** for quick skimming, plus a daily Sensex/Nifty/mutual-fund update.
 
 ## How it works
 
@@ -32,7 +32,7 @@ Story memory: yesterday's stories are not repeated; continuing ones come as shor
 |---|---|---|
 | Main brief | Gemini free tier (`GEMINI_API_KEY`) | 2 calls (+1 on Sunday) |
 | Fact-check, podcast script, alert scoring | GitHub Models (built-in `GITHUB_TOKEN`) | ~4-12 small calls |
-| Voices | edge-tts (Microsoft neural, no key; unofficial) | ~150 short lines |
+| Voices | Gemini 2-speaker TTS (free tier, natural Indian-English news-anchor style); edge-tts Indian voices as backup | ~5 TTS calls |
 | Markets / weather / history | Yahoo + Stooq + ECB, Open-Meteo, Wikipedia | few requests |
 | Running it | GitHub Actions | ~15 min (private repo free tier: 2,000 min/month) |
 | Delivery | Gmail SMTP app password, optional Telegram | 2-3 emails |
@@ -70,7 +70,7 @@ The feed is marked hidden from podcast directories; only people with the URL can
 
 ## Tuning
 
-- Voices: `PODCAST_VOICE_A` / `PODCAST_VOICE_B` (e.g. `en-US-AndrewNeural`), speed `PODCAST_RATE`, audio off `PODCAST=0`.
+- Voices: Gemini `GEMINI_VOICE_A` / `GEMINI_VOICE_B` (default Charon / Sulafat), force backup voices with `PODCAST_TTS=edge` (`PODCAST_VOICE_A` / `PODCAST_VOICE_B`, `PODCAST_RATE`), audio off `PODCAST=0`.
 - Alerts: `watchlist.yaml` → keywords, `min_score`, `max_alerts_per_day`.
 - Length: `MAX_PER_CATEGORY`, `CATEGORY_CAPS` in digest.py.
 

@@ -16,6 +16,8 @@ india_economy:
   - https://www.livemint.com/rss/economy
   - https://economictimes.indiatimes.com/rssfeedstopstories.cms
   - https://www.thehindu.com/business/Economy/feeder/default.rss
+  - https://news.google.com/rss/search?q=%22mutual+fund%22+OR+SIP+OR+AMFI+OR+SEBI+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=Sensex+OR+Nifty+closing+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
 telangana_hyderabad:
   - https://www.thehindu.com/news/national/telangana/feeder/default.rss

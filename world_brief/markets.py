@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import csv
 import io
+import re
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
@@ -68,7 +69,16 @@ def _frankfurter_usdinr() -> list[float]:
     return [rates[d]["INR"] for d in sorted(rates)]
 
 
+_CACHE: dict[str, list[float]] = {}
+
+
 def closes_for(yahoo: str, stooq: str | None) -> list[float]:
+    if yahoo not in _CACHE:
+        _CACHE[yahoo] = _closes_for(yahoo, stooq)
+    return _CACHE[yahoo]
+
+
+def _closes_for(yahoo: str, stooq: str | None) -> list[float]:
     for fn, sym in ((_yahoo, yahoo), (_stooq, stooq)):
         if not sym:
             continue
@@ -138,10 +148,74 @@ def weather_rows() -> list[dict]:
     return rows
 
 
+OZ = 31.1035  # grams in one troy ounce
+
+
+def inr(v: float) -> str:
+    """Indian digit grouping: 464786.5 -> '₹4,64,787'."""
+    n = str(int(round(v)))
+    head, tail = n[:-3], n[-3:]
+    groups = []
+    while len(head) > 2:
+        groups.insert(0, head[-2:])
+        head = head[:-2]
+    return "₹" + ",".join(([head] if head else []) + groups + [tail])
+
+
+def ibja_per_gram() -> dict[str, float]:
+    """India's benchmark gold rate (IBJA), per gram, without 3% GST and making charges."""
+    r = requests.get("https://ibjarates.com/", headers=UA, timeout=20)
+    r.raise_for_status()
+    text = re.sub(r"<[^>]+>", " ", r.text)
+    text = re.sub(r"\s+", " ", text)
+    out = {}
+    for purity in ("999", "916"):
+        m = re.search(purity + r" ?Purity\D{0,40}?([\d,]{4,8})\s*\(\s*1\s*Gram", text)
+        if m:
+            v = float(m.group(1).replace(",", ""))
+            if 3000 < v < 100000:           # sanity check: rupees per gram
+                out[purity] = v
+    return out
+
+
+def gold_block() -> tuple[str, str]:
+    usd_oz = closes_for("GC=F", "xauusd")
+    fx = closes_for("INR=X", "usdinr")
+    if not usd_oz:
+        return "", ""
+    oz = usd_oz[-1]
+    rows = []
+    try:
+        ibja = ibja_per_gram()
+    except Exception:
+        ibja = {}
+    if ibja.get("999"):
+        rows.append(("🇮🇳 India 24K", inr(ibja["999"]), inr(ibja["999"] * OZ)))
+        if ibja.get("916"):
+            rows.append(("🇮🇳 India 22K (jewellery)", inr(ibja["916"]), inr(ibja["916"] * OZ)))
+        note = "India: IBJA rate, without 3% GST and making charges."
+    elif fx:
+        g_inr = oz * fx[-1] / OZ
+        rows.append(("🇮🇳 India (world price in ₹)", inr(g_inr), inr(g_inr * OZ)))
+        note = "India: world price converted to rupees, before import duty and GST (shops charge more)."
+    else:
+        note = ""
+    rows.append(("🇺🇸 USA", f"${oz / OZ:,.2f}", f"${oz:,.2f}"))
+    md = ["**Gold today**", "", "| | 1 gram | 1 ounce (31.1 g) |", "|---|---:|---:|"]
+    md += [f"| {a} | {b} | {c} |" for a, b, c in rows]
+    md += ["", f"_{note} USA: world gold price._" if note else "_USA: world gold price._"]
+    plain = "Gold: " + "; ".join(f"{a.split(' ', 1)[1]} {b} per gram, {c} per ounce" for a, b, c in rows)
+    return "\n".join(md), plain
+
+
 def numbers_box(weekly: bool = False) -> tuple[str, str]:
     """Return (markdown box for the email, plain one-liner for the AI and podcast)."""
     m, w = market_rows(weekly), weather_rows()
-    if not (m or w):
+    try:
+        g_md, g_plain = gold_block()
+    except Exception:
+        g_md, g_plain = "", ""
+    if not (m or w or g_md):
         return "", ""
     span = "1 week" if weekly else "1 day"
     lines = ["## Markets & weather", ""]
@@ -151,9 +225,12 @@ def numbers_box(weekly: bool = False) -> tuple[str, str]:
         lines += [f"| {r['label']} | {r['value']} | {r['change']} |" for r in m]
         plain += [f"{r['label']} {r['value']} ({r['change'].split(' ', 1)[1]} over {span})"
                   for r in m]
+    if g_md:
+        lines += ["", g_md]
+        plain.append(g_plain)
     if w:
         lines += [""] + [f"**{r['city']}** ({r['day']}): {r['text']}" for r in w]
         plain += [f"{r['city']} weather {r['day']}: {r['text']}" for r in w]
     lines += ["", "_Latest close or last available price; data from Yahoo Finance / Stooq / "
-              "ECB and Open-Meteo._", ""]
+              "ECB / IBJA and Open-Meteo._", ""]
     return "\n".join(lines), "; ".join(plain)
