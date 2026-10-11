@@ -1059,6 +1059,39 @@ DONE_DIR = ROOT / "state" / "done"   # markers so backup schedule slots don't re
 EDITION_WINDOWS = {"morning": range(7, 13), "weekly": range(9, 15), "evening": range(18, 23)}
 
 
+def token_reminder(edition: str) -> None:
+    """Morning check of PODCAST_TOKEN: email Dji when it is rejected or expires within 14 days,
+    so the podcast links never break by surprise. Never fails the run."""
+    import podfeed
+    if edition != "morning" or os.getenv("DRY_RUN") == "1" or not podfeed.configured():
+        return
+    try:
+        state, days = podfeed.token_status()
+    except Exception:
+        return
+    print(f"  podcast key check: {state}" + (f", expires in {days} days" if days is not None else ""))
+    if state == "bad":
+        subject, why = "⚠️ Podcast key not working: renew PODCAST_TOKEN", "GitHub is rejecting the podcast key (expired or deleted)."
+    elif state == "ok" and days is not None and days <= 14:
+        subject = f"⏰ Podcast key expires in {max(days, 0)} day(s): renew PODCAST_TOKEN"
+        why = f"Your podcast key (PODCAST_TOKEN) expires in **{max(days, 0)} day(s)**."
+    else:
+        return
+    steps = (f"{why} Until it is renewed, the emails still arrive with the MP3 attached, "
+             "but the tap-to-listen links and the WhatsApp audio link stop working.\n\n"
+             "**How to renew (2 minutes):**\n\n"
+             "1. Open https://github.com/settings/personal-access-tokens, click the podcast token, "
+             "press **Regenerate token** and choose **1 year**.\n"
+             "2. Copy the new key (starts with `github_pat_`).\n"
+             "3. Open your repo: Settings → Secrets and variables → Actions → **PODCAST_TOKEN** → "
+             "pencil icon → paste → **Update secret**.\n\n"
+             "You'll get this reminder every morning until it is renewed.")
+    try:
+        send_email(subject, steps)
+    except Exception as exc:
+        print(f"  ! token reminder email failed: {type(exc).__name__}")
+
+
 def mark_done(now: datetime, edition: str) -> None:
     """Record that today's edition is finished (sent, or nothing to send). Only inside the
     edition's normal window, so an early test run (e.g. evening at 9 AM) doesn't cancel the
@@ -1252,6 +1285,7 @@ def main() -> None:
     send_email(subject, final, audio_files)
     mark_done(now, edition)            # email is out: backup slots must not resend it
     send_telegram(final, audio_files[0] if audio_files else None)
+    token_reminder(edition)
 
     # Telugu edition for parents (only if PARENTS_EMAIL / PARENTS_WHATSAPP is set).
     if telugu_on:

@@ -22,7 +22,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -144,6 +144,29 @@ def build_feed(repo: str, episodes: list[dict]) -> str:
   </channel>
 </rss>
 """
+
+
+def token_status() -> tuple[str, int | None]:
+    """Check PODCAST_TOKEN without changing anything.
+    Returns ("ok", days_left), ("bad", None) when GitHub rejects it, or ("unknown", None)."""
+    cfg = configured()
+    if not cfg:
+        return "unknown", None
+    repo, token = cfg
+    try:
+        r = requests.get(f"{API}/repos/{repo}", timeout=30,
+                         headers={"Authorization": f"Bearer {token}",
+                                  "Accept": "application/vnd.github+json"})
+    except Exception:
+        return "unknown", None
+    if r.status_code in (401, 403):
+        return "bad", None
+    exp = r.headers.get("github-authentication-token-expiration", "")   # e.g. "2027-10-11 15:20:00 UTC"
+    m = re.match(r"(\d{4}-\d{2}-\d{2})", exp)
+    if r.status_code == 200 and m:
+        days = (datetime.strptime(m.group(1), "%Y-%m-%d").date() - datetime.now(timezone.utc).date()).days
+        return "ok", days
+    return ("ok" if r.status_code == 200 else "unknown"), None
 
 
 def configured() -> tuple[str, str] | None:
