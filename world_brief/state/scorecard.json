@@ -1,0 +1,20 @@
+{
+"runs": [
+{
+"date": "2026-10-11",
+"edition": "morning",
+"raw": 1676,
+"after_dedupe": 1112,
+"items_to_ai": 302,
+"cited": 45,
+"email_words": 2170,
+"podcast_minutes": 15,
+"corrections": 0,
+"action_required": 0,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 14,
+"stories_tracked": 0
+}
+]
+}

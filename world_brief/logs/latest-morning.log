@@ -1,0 +1,160 @@
+  ! feed failed: https://indianexpress.com/section/india/feed/ (403 Client Error: Forbidden for url: https://indianexpress.com/section/india/feed/)
+  ! feed failed: https://www.bls.gov/feed/bls_latest.rss (403 Client Error: Forbidden for url: https://www.bls.gov/feed/bls_latest.rss)
+  ! Gemini gemini-3.8-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+  ! Gemini gemini-3.8-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  ! Gemini gemini-3.7-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! Gemini gemini-3.8-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! Gemini gemini-3.7-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! Gemini gemini-3.6-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+Edition: morning
+Fetching feeds...
+   34 items  india                        Top stories
+   39 items  india                        India
+   60 items  india                        The Hindu
+   99 items  india                        Hindustan Times
+   45 items  india                        Times of India
+    2 items  india                        BBC
+   31 items  india_economy                Business
+    3 items  india_economy                Mint
+   44 items  india_economy                Economic Times
+    1 items  india_economy                The Hindu
+   70 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   38 items  india_economy                "Sensex OR Nifty closing when:
+   15 items  india_economy                "FII OR FPI OR DII selling OR 
+   23 items  india_economy                "RBI repo OR "CPI inflation" O
+   41 items  telangana_hyderabad          The Hindu
+   28 items  telangana_hyderabad          The Hindu
+  100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
+   52 items  usa                          U.S.
+   10 items  usa                          NPR
+    4 items  usa                          NPR
+  100 items  usa                          "Texas OR Dallas when:1d"
+   42 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+    3 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   39 items  india_us_visa_trade          "India US trade OR tariff OR "
+   33 items  india_us_visa_trade          "rupee dollar OR remittance wh
+   39 items  india_us_visa_trade          "India exports OR imports when
+   19 items  world                        BBC
+   25 items  world                        Al Jazeera
+   26 items  world                        The Guardian
+    3 items  world                        DW
+   32 items  world                        The Hindu
+   42 items  world                        DW
+    3 items  global_economy               BBC
+   34 items  global_economy               Business
+  100 items  global_economy               "oil prices OR shipping OR san
+    0 items  tech_ai                      Ars Technica
+    0 items  tech_ai                      MIT Tech Review
+    4 items  tech_ai                      Hacker News
+   28 items  tech_ai                      Technology
+  100 items  tech_ai                      ""artificial intelligence" whe
+    0 items  science_health_climate       Nature
+    7 items  science_health_climate       ScienceDaily
+   30 items  science_health_climate       Science
+   25 items  science_health_climate       "ISRO OR monsoon when:2d"
+   10 items  official                     RBI (official)
+   30 items  official                     SEBI (official)
+    0 items  official                     Federal Reserve (official)
+   20 items  official                     PIB (official)
+   13 items  us_markets_economy           CNBC
+    0 items  us_markets_economy           CNBC
+   48 items  us_markets_economy           ""stock market" today S&P Nasd
+   12 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   19 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   30 items  jobs_tax_housing             ""income tax" OR "GST council"
+   21 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+1676 raw -> 302 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~62,081 tokens
+  written by Gemini gemini-3.7-flash
+  written by Gemini gemini-3.7-flash
+  fact-check done (2 bullet(s) removed)
+  meta: {}
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 738 -> 585 words
+  en podcast script: 19 turns, 585 words
+  ! Gemini TTS gemini-3.8-flash-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  ! Gemini TTS gemini-3.8-flash-lite-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  voices: edge-tts (en)
+  world_brief_quick podcast ready: 2.1 MB
+  ! podcast feed failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.githu
+  written by Gemini gemini-3.7-flash
+  written by Gemini gemini-3.6-flash
+  script reviewed: 2296 -> 1413 words
+  en podcast script: 41 turns, 1413 words
+  ! Gemini TTS gemini-3.8-flash-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  ! Gemini TTS gemini-3.8-flash-lite-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  voices: edge-tts (en)
+  world_brief_full podcast ready: 5.3 MB
+  ! podcast feed failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.githu
+  email sent (1 recipient(s))
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.5-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 467 -> 527 words
+  te podcast script: 22 turns, 527 words
+  ! Gemini TTS gemini-3.8-flash-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  ! Gemini TTS gemini-3.8-flash-lite-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  voices: edge-tts (te)
+  telugu_podcast podcast ready: 2.7 MB
+  ! Telugu audio upload attempt 1 failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.github.com/rest",
+  "status": "401"
+}
+  ! Telugu audio upload attempt 2 failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.github.com/rest",
+  "status": "401"
+}
+  email sent (1 recipient(s))
