@@ -1,0 +1,62 @@
+# Category -> list of RSS feeds. India first, USA second, then the world.
+# Google News feeds aggregate many outlets; hl/gl/ceid=IN gives the India edition.
+# Add or remove freely. Broken feeds are skipped, not fatal.
+
+india:
+  - https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/headlines/section/topic/NATION?hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.thehindu.com/news/national/feeder/default.rss
+  - https://indianexpress.com/section/india/feed/
+  - https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml
+  - https://timesofindia.indiatimes.com/rssfeedstopstories.cms
+  - https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
+
+india_economy:
+  - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.livemint.com/rss/economy
+  - https://economictimes.indiatimes.com/rssfeedstopstories.cms
+  - https://www.thehindu.com/business/Economy/feeder/default.rss
+
+telangana_hyderabad:
+  - https://www.thehindu.com/news/national/telangana/feeder/default.rss
+  - https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
+  - https://news.google.com/rss/search?q=Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+
+usa:
+  - https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US:en
+  - https://feeds.npr.org/1001/rss.xml
+  - https://feeds.npr.org/1014/rss.xml
+  - https://news.google.com/rss/search?q=Texas+OR+Dallas+when:1d&hl=en-US&gl=US&ceid=US:en
+
+india_us_visa_trade:
+  - https://news.google.com/rss/search?q=H-1B+OR+USCIS+OR+%22green+card%22+OR+OPT+OR+%22visa+bulletin%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22Express+Entry%22+OR+IRCC+when:2d&hl=en-CA&gl=CA&ceid=CA:en
+  - https://news.google.com/rss/search?q=India+US+trade+OR+tariff+OR+%22India-US%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=rupee+dollar+OR+remittance+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=India+exports+OR+imports+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+
+world:
+  - https://feeds.bbci.co.uk/news/world/rss.xml
+  - https://www.aljazeera.com/xml/rss/all.xml
+  - https://www.theguardian.com/world/rss
+  - https://rss.dw.com/rdf/rss-en-world
+  - https://www.thehindu.com/news/international/feeder/default.rss
+  - https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en
+
+global_economy:
+  - https://feeds.bbci.co.uk/news/business/rss.xml
+  - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=oil+prices+OR+shipping+OR+sanctions+when:1d&hl=en-US&gl=US&ceid=US:en
+
+tech_ai:
+  - https://feeds.arstechnica.com/arstechnica/index
+  - https://www.technologyreview.com/feed/
+  - https://hnrss.org/frontpage?points=300
+  - https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=%22artificial+intelligence%22+when:1d&hl=en-US&gl=US&ceid=US:en
+
+science_health_climate:
+  - https://www.nature.com/nature.rss
+  - https://www.sciencedaily.com/rss/top/science.xml
+  - https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=ISRO+OR+monsoon+when:2d&hl=en-IN&gl=IN&ceid=IN:en

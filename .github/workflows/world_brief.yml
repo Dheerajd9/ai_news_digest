@@ -1,0 +1,80 @@
+name: World Brief + Podcast
+
+# Daily India-first world news brief + two-host audio podcast, emailed to TO_EMAIL.
+# 100% free: Gemini free tier (GEMINI_API_KEY), GitHub Models backup (built-in token),
+# edge-tts voices (no key), Gmail SMTP, GitHub Actions minutes (~3 min/day).
+
+on:
+  schedule:
+    - cron: "37 12 * * *"   # 7:37 AM CDT / 6:37 AM CST (GitHub cron is UTC; may start a few min late)
+  workflow_dispatch:         # "Run workflow" button: full run, sends email
+  push:                      # code changes: quick test run, no AI, no email
+    branches: [main]
+    paths: ["world_brief/**", ".github/workflows/world_brief.yml"]
+
+permissions:
+  contents: write            # save world_brief/state + briefs archive
+  models: read               # GitHub Models free backup brain
+
+concurrency:
+  group: world-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: world_brief
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: world_brief/requirements.txt
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+
+      - name: Build brief + podcast and send
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            DRY_RUN=1 NO_LLM=1 python digest.py | tail -40
+          else
+            python digest.py
+          fi
+
+      # Podcast MP3 also kept as a downloadable run artifact for 14 days
+      # (not committed, so the repo stays small).
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'push'
+        with:
+          name: world-brief-podcast
+          path: world_brief/out/*.mp3
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Save state and archive
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add state briefs 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "World brief $(date -u +%F)"
+            git pull --rebase --quiet
+            git push
+          fi

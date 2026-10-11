@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 preview.html
 portfolio_preview.html
+world_brief/out/
