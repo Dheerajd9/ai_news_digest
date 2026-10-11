@@ -104,11 +104,21 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
         if mp3:
             minutes = digest.audio_minutes(mp3)
             if podfeed.configured() and not dry:
-                try:
-                    url = podfeed.upload_asset(mp3, f"{now:%Y-%m-%d}-telugu.mp3")
-                    podfeed.prune_extra("-telugu.mp3", keep=21)
-                except Exception as exc:
-                    print(f"  ! Telugu audio upload failed: {type(exc).__name__}")
+                for attempt in (1, 2):
+                    try:
+                        url = podfeed.upload_asset(mp3, f"{now:%Y-%m-%d}-telugu.mp3")
+                        print(f"  Telugu audio uploaded ({mp3.stat().st_size / 1e6:.1f} MB)")
+                        break
+                    except Exception as exc:
+                        print(f"  ! Telugu audio upload attempt {attempt} failed: "
+                              f"{type(exc).__name__}: {_redact(str(exc))[:200]}")
+                if url:
+                    try:
+                        podfeed.prune_extra("-telugu.mp3", keep=21)
+                    except Exception as exc:
+                        print(f"  ! Telugu prune failed: {type(exc).__name__}")
+            elif not podfeed.configured():
+                print("  Telugu audio: no public podcast repo configured, email attachment only")
         letter = letter.replace("{{LISTEN}}", listen_block(url, minutes))
         letter = re.sub(r"\n{3,}", "\n\n", letter)
 
@@ -124,9 +134,12 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
             if url:
                 msg = ("🙏 నమస్కారం! ఈ రోజు వార్తలు వినండి 🎧\n" + url + "\n\n"
                        + "\n".join(f"• {h}" for h in headlines(letter)))
-                send_whatsapp(msg[:1500])
-            else:
-                print("  WhatsApp skipped: needs the public podcast link (PODCAST_REPO/PODCAST_TOKEN)")
+            else:   # no public link today: still send the headlines
+                msg = ("🙏 నమస్కారం! ఈ రోజు ముఖ్యమైన వార్తలు:\n\n"
+                       + "\n".join(f"• {h}" for h in headlines(letter))
+                       + ("\n\n🎧 పూర్తి వార్తలు ఈమెయిల్‌లో వినండి." if to else ""))
+                print("  WhatsApp: sending headlines without audio link")
+            send_whatsapp(msg[:1500])
         TELUGU_DIR.mkdir(parents=True, exist_ok=True)
         (TELUGU_DIR / f"{now:%Y-%m-%d}.md").write_text(letter)
         script = out_dir / "script_telugu_podcast.txt"

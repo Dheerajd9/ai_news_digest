@@ -88,7 +88,10 @@ jobs:
             python -c "import markets; b, p = markets.numbers_box(); print(b or 'numbers box: no data'); print(p)"
             DRY_RUN=1 NO_LLM=1 python alerts.py
           else
-            python digest.py
+            set -o pipefail
+            mkdir -p logs
+            # Redacted run log kept in this private repo for debugging (no secrets are printed).
+            python digest.py 2>&1 | tee "logs/latest-$EDITION.log"
           fi
 
       # MP3 also kept as a downloadable run artifact for 14 days (not committed).
@@ -107,7 +110,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          for f in state/seen.json state/stories.json state/source_quality.json state/trends.json state/entities.json state/beliefs.json state/scorecard.json briefs; do
+          for f in state/seen.json state/stories.json state/source_quality.json state/trends.json state/entities.json state/beliefs.json state/scorecard.json briefs logs; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
