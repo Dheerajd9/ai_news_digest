@@ -135,6 +135,14 @@ GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
 CHUNK_CHARS = 3200    # ~3 minutes of audio per request
 
 
+class QuotaExhausted(Exception):
+    pass
+
+
+TTS_BUDGET_SEC = int(os.getenv("GEMINI_TTS_BUDGET_SEC", "480"))   # then fall back to edge-tts
+_GEMINI_TTS_OFF = False   # set once the daily quota is gone, so later episodes skip straight to backup
+
+
 def gemini_tts_models(key: str) -> list[str]:
     try:
         r = requests.get(f"{GEMINI_API}/models", headers={"x-goog-api-key": key},
@@ -171,12 +179,16 @@ def gemini_speak_chunk(turns, key: str, model: str, out_mp3: Path, work: Path,
                 "multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
                     {"speaker": sp.title(), "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": v}}}
                     for sp, v in profile["gemini"].items()]}}}}
-    for attempt in range(3):
+    for attempt in range(2):
         r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
-                          headers={"x-goog-api-key": key}, json=body, timeout=300)
+                          headers={"x-goog-api-key": key}, json=body, timeout=180)
+        if r.status_code == 429 and ("PerDay" in r.text or "per day" in r.text.lower()):
+            raise QuotaExhausted("Gemini TTS daily free quota used up")
         if r.status_code == 429 or r.status_code >= 500:
-            time.sleep(40 * (attempt + 1))
-            continue
+            if attempt == 0:
+                time.sleep(15)
+                continue
+            raise RuntimeError(f"Gemini TTS busy (HTTP {r.status_code})")
         if r.status_code >= 400:
             raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
         part = r.json()["candidates"][0]["content"]["parts"][0]["inlineData"]
@@ -195,18 +207,26 @@ def gemini_speak_chunk(turns, key: str, model: str, out_mp3: Path, work: Path,
 
 
 def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path] | None:
+    global _GEMINI_TTS_OFF
     key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not key or tts_pref == "edge" or not shutil.which("ffmpeg"):
+    if not key or tts_pref == "edge" or _GEMINI_TTS_OFF or not shutil.which("ffmpeg"):
         return None
-    for model in gemini_tts_models(key):
+    start = time.time()
+    for model in gemini_tts_models(key)[:2]:
         try:
             parts = []
             for n, chunk in enumerate(chunk_turns(turns)):
+                if time.time() - start > TTS_BUDGET_SEC:
+                    raise RuntimeError("Gemini TTS too slow today; switching to backup voices")
                 p = work / f"g{n:02d}.mp3"
                 gemini_speak_chunk(chunk, key, model, p, work, profile)
                 parts.append(p)
             print(f"  voices: Gemini {model} ({len(parts)} part(s))")
             return parts
+        except QuotaExhausted as exc:
+            print(f"  ! {exc}; using backup voices")
+            _GEMINI_TTS_OFF = True
+            return None
         except Exception as exc:
             print(f"  ! Gemini TTS {model} failed: {_redact(str(exc))[:200]}")
     return None

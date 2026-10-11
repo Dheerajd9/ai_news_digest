@@ -421,8 +421,11 @@ def call_gemini(system: str, user: str) -> str | None:
                           "contents": [{"role": "user", "parts": [{"text": user}]}],
                           "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}},
                     timeout=180)
-                if r.status_code == 429:          # free-tier rate limit: wait, retry once
-                    time.sleep(30)
+                if r.status_code == 429:          # free-tier limit
+                    if "PerDay" in r.text or "per day" in r.text.lower():
+                        print(f"  ! Gemini {model}: daily free quota used up", file=sys.stderr)
+                        break
+                    time.sleep(20)                # per-minute limit: wait, retry once
                     continue
                 if r.status_code >= 400:
                     print(f"  ! Gemini {model} HTTP {r.status_code}: {r.text[:150]}",
