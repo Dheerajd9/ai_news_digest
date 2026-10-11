@@ -612,18 +612,6 @@ def due_edition():
     return None
 
 
-def scheduled_local_time():
-    """Local time a scheduled run was *meant* for (GitHub can start runs late)."""
-    cron = os.getenv("SCHEDULE", "").split()
-    if os.getenv("GITHUB_EVENT_NAME") != "schedule" or len(cron) < 2:
-        return None
-    now = datetime.now(timezone.utc)
-    planned = now.replace(hour=int(cron[1]), minute=int(cron[0]), second=0, microsecond=0)
-    if planned > now:  # run started after midnight UTC for a slot planned the day before
-        planned -= timedelta(days=1)
-    return planned.astimezone(LOCAL_TZ)
-
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="write preview.html instead of emailing")

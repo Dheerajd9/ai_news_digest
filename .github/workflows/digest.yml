@@ -11,7 +11,8 @@ on:
   workflow_dispatch:        # lets you click "Run workflow" to test anytime
   push:                     # code changes trigger a test run that does NOT send email
     branches: [main]
-    paths: ["digest.py", "portfolio_analytics.py", "requirements.txt", ".github/workflows/digest.yml"]
+    paths: ["digest.py", "portfolio_analytics.py", "requirements.txt", ".github/workflows/digest.yml",
+            "digest_run_request.txt"]   # a change to this file = send the due edition for real
 
 permissions:
   contents: write           # to save sent.json / alerts.json (remembers what was sent)
@@ -43,15 +44,16 @@ jobs:
           SCHEDULE: ${{ github.event.schedule }}
           REPO_PRIVATE: ${{ github.event.repository.private }}
           EVENT_NAME: ${{ github.event_name }}
+          RUN_REQUEST: ${{ contains(join(github.event.head_commit.modified, ','), 'digest_run_request.txt') || contains(join(github.event.head_commit.added, ','), 'digest_run_request.txt') }}
         run: |
-          if [ "$EVENT_NAME" = "push" ]; then
+          if [ "$EVENT_NAME" = "push" ] && [ "$RUN_REQUEST" != "true" ]; then
             python digest.py --dry-run
           else
             python digest.py
           fi
 
       - name: Remember sent stories
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' || contains(join(github.event.head_commit.modified, ','), 'digest_run_request.txt') || contains(join(github.event.head_commit.added, ','), 'digest_run_request.txt')
         run: |
           if [ -n "$(git status --porcelain sent.json alerts.json digest_done.json 2>/dev/null)" ]; then
             git config user.name "github-actions[bot]"
