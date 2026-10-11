@@ -42,7 +42,7 @@ If any piece fails, the rest still runs: no AI → headline list; no voice → e
 ## Files
 
 - `digest.py` main pipeline (editions: `EDITION=morning|evening|weekly`)
-- `markets.py` exact numbers box · `podcast.py` audio · `podfeed.py` podcast-app feed · `alerts.py` breaking alerts
+- `markets.py` exact numbers · `podcast.py` audio (English + Telugu) · `podfeed.py` podcast feed + public MP3 links · `telugu.py` parents' edition · `alerts.py` breaking alerts
 - `feeds.yaml` news sources · `watchlist.yaml` alert keywords and thresholds
 - `prompts/` brief, evening, weekly, fact-check, podcast, alert prompts (edit READER PROFILE to tune)
 - `briefs/` archive (also the story memory) · `state/seen.json` what was already sent
@@ -67,6 +67,35 @@ This repo is private and podcast apps can't log in, so episodes go to a tiny **p
    `https://dheerajd9.github.io/world-brief-podcast/feed.xml`
 
 The feed is marked hidden from podcast directories; only people with the URL can subscribe.
+
+## Telugu edition for parents (Amma & Nanna)
+
+Every morning, after your English brief, the same fact-checked news is retold in **simple spoken Telugu**:
+- A Telugu letter: top 5, India, Telangana & Hyderabad (with weather), **gold 24K/22K per gram and per 10 g, silver per kg, dollar rate**, Sensex/Nifty & mutual funds, America & our children there (visas, jobs), world, health, history.
+- A **Ravi & Lakshmi** Telugu conversation podcast (about 8-12 min, calm pace for elders). Gemini Telugu voice first, Microsoft Telugu voices (`te-IN-MohanNeural`, `te-IN-ShrutiNeural`) as backup.
+- Arrives at the same time as your morning brief (about 6 PM in India).
+
+Turn it on (repo → Settings → Secrets and variables → Actions → Secrets):
+
+| Secret | Value | Result |
+|---|---|---|
+| `PARENTS_EMAIL` | `amma@gmail.com,nanna@gmail.com` | Telugu email with a play link and the MP3 attached |
+| `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the play link + 3 headlines |
+
+**WhatsApp (free, via CallMeBot) — one-time setup on each parent's phone:**
+1. Open callmebot.com → WhatsApp API, and save the CallMeBot phone number shown there in the parent's contacts.
+2. From the parent's WhatsApp, send that contact the message shown on the site (`I allow callmebot to send me messages`).
+3. CallMeBot replies with an API key. Put `phone:apikey` into `PARENTS_WHATSAPP`.
+
+WhatsApp needs the public podcast feed (`PODCAST_REPO` + `PODCAST_TOKEN`) because it sends a link. The message text passes through CallMeBot's service; it only contains public news headlines and the link.
+
+## Security notes
+
+- Secrets live only in GitHub Actions secrets; nothing secret is in the code. Logs never print email addresses, phone numbers, API keys or bot tokens (errors are redacted).
+- Workflow inputs go through environment variables, never pasted into shell scripts (no script injection); the edition value is whitelisted.
+- Email HTML: raw HTML from feeds or the AI is escaped, and only `http(s)` links are kept.
+- `PODCAST_TOKEN` is a fine-grained token limited to the one public podcast repo (Contents only). Only public news audio goes there.
+- The AI only rewrites fetched headlines; a fact-check pass removes unsupported claims; market numbers never come from the AI.
 
 ## Tuning
 

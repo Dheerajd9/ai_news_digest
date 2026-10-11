@@ -33,7 +33,7 @@ concurrency:
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: world_brief
@@ -53,13 +53,17 @@ jobs:
 
       - name: Pick edition
         id: ed
+        env:                       # passed as env, never pasted into the script (injection-safe)
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_EDITION: ${{ inputs.edition }}
         run: |
-          case "${{ github.event.schedule }}" in
+          case "$SCHEDULE" in
             "7 23 * * *") ED=evening ;;
             "7 14 * * 0") ED=weekly ;;
-            "") ED="${{ inputs.edition || 'morning' }}" ;;
+            "") ED="$INPUT_EDITION" ;;
             *) ED=morning ;;
           esac
+          case "$ED" in morning|evening|weekly) ;; *) ED=morning ;; esac
           echo "edition=$ED" >> "$GITHUB_OUTPUT"
           echo "Edition: $ED"
 
@@ -75,21 +79,17 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           PODCAST_REPO: ${{ vars.PODCAST_REPO }}
           PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
+          PARENTS_EMAIL: ${{ secrets.PARENTS_EMAIL }}
+          PARENTS_WHATSAPP: ${{ secrets.PARENTS_WHATSAPP }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
+          if [ "$EVENT_NAME" = "push" ]; then
             DRY_RUN=1 NO_LLM=1 python digest.py | tail -60
             python -c "import markets; b, p = markets.numbers_box(); print(b or 'numbers box: no data'); print(p)"
             DRY_RUN=1 NO_LLM=1 python alerts.py
           else
             python digest.py
           fi
-
-      - name: Publish to podcast apps (optional)
-        if: github.event_name != 'push'
-        env:
-          PODCAST_REPO: ${{ vars.PODCAST_REPO }}
-          PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
-        run: python podfeed.py
 
       # MP3 also kept as a downloadable run artifact for 14 days (not committed).
       - uses: actions/upload-artifact@v4
@@ -102,12 +102,14 @@ jobs:
 
       - name: Save state and archive
         if: github.event_name != 'push'
+        env:
+          EDITION: ${{ steps.ed.outputs.edition }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add state/seen.json briefs 2>/dev/null || true
           if ! git diff --cached --quiet; then
-            git commit -m "World brief (${{ steps.ed.outputs.edition }}) $(date -u +%F)"
+            git commit -m "World brief ($EDITION) $(date -u +%F)"
             git pull --rebase --quiet
             git push
           fi

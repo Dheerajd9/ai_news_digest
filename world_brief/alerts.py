@@ -81,10 +81,15 @@ def deliver(alerts: list[dict]) -> None:
     text = "\n\n".join(lines)
     token, chat = os.getenv("TELEGRAM_BOT_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
     if token and chat:
-        requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
-                      json={"chat_id": chat, "text": text}, timeout=30)
-        print("  alert sent to Telegram")
-        return
+        try:
+            r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                              json={"chat_id": chat, "text": text}, timeout=30)
+            if r.status_code == 200:
+                print("  alert sent to Telegram")
+                return
+            print(f"  ! Telegram HTTP {r.status_code}; falling back to email")
+        except Exception as exc:     # URL contains the bot token: print only the type
+            print(f"  ! Telegram failed ({type(exc).__name__}); falling back to email")
     md = "\n\n".join(f"### 🚨 {a['headline']}\n{a['why']}  \n[{a['source']}]({a['link']})"
                      for a in alerts)
     digest.send_email(f"🚨 Breaking: {alerts[0]['headline']}", md)
@@ -128,4 +133,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as exc:
-        print(f"! alerts failed: {exc}", file=sys.stderr)
+        print(f"! alerts failed: {type(exc).__name__}: {digest.redact(str(exc))[:200]}",
+              file=sys.stderr)

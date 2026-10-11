@@ -88,6 +88,13 @@ HOST_NAMES = {
 }
 
 
+def redact(text: str) -> str:
+    """Remove anything that looks like a secret (bot tokens, api keys) before logging."""
+    text = re.sub(r"bot\d+:[\w-]+", "bot***", text)
+    text = re.sub(r"(apikey|key|token)=[^&\s]+", r"\1=***", text, flags=re.I)
+    return re.sub(r"github_pat_\w+|gh[pousr]_\w+|AIza[\w-]{20,}", "***", text)
+
+
 def short_source(name: str) -> str:
     """'World news | The Guardian' -> 'The Guardian'; 'Al Jazeera – Breaking News...' -> 'Al Jazeera'."""
     name = name.strip()
@@ -118,7 +125,7 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
                 resp.raise_for_status()
                 parsed = feedparser.parse(resp.content)
             except Exception as exc:  # one bad feed must not kill the run
-                print(f"  ! feed failed: {url} ({exc})", file=sys.stderr)
+                print(f"  ! feed failed: {url} ({redact(str(exc))})", file=sys.stderr)
                 continue
             host = url.split("/")[2]
             source = next((n for h, n in HOST_NAMES.items() if h in host), None) \
@@ -228,7 +235,7 @@ def on_this_day(today: datetime) -> list[dict]:
         return [{"year": e.get("year"), "text": e.get("text", "")[:250]}
                 for e in data.get("selected", [])[:15]]
     except Exception as exc:
-        print(f"  ! on-this-day failed ({exc})", file=sys.stderr)
+        print(f"  ! on-this-day failed ({redact(str(exc))})", file=sys.stderr)
         return []
 
 
@@ -356,7 +363,7 @@ def gemini_models(key: str) -> list[str]:
                     and not re.search(r"image|tts|audio|live|thinking|exp|transcribe", name)):
                 names.append(name)
     except Exception as exc:
-        print(f"  ! couldn't list Gemini models: {exc}", file=sys.stderr)
+        print(f"  ! couldn't list Gemini models: {redact(str(exc))}", file=sys.stderr)
 
     def version(n):
         nums = re.findall(r"\d+(?:\.\d+)?", n)
@@ -393,7 +400,7 @@ def call_gemini(system: str, user: str) -> str | None:
                     print(f"  written by Gemini {model}")
                     return text
             except Exception as exc:
-                print(f"  ! Gemini {model}: {exc}", file=sys.stderr)
+                print(f"  ! Gemini {model}: {redact(str(exc))}", file=sys.stderr)
                 break
     return None
 
@@ -421,7 +428,7 @@ def call_github_models(system: str, user: str) -> str | None:
                 print(f"  written by GitHub Models {model}")
                 return text
         except Exception as exc:
-            print(f"  ! GitHub Models {model}: {exc}", file=sys.stderr)
+            print(f"  ! GitHub Models {model}: {redact(str(exc))}", file=sys.stderr)
     return None
 
 
@@ -447,7 +454,8 @@ def link_citations(md: str, items: list[dict]) -> str:
 
         def repl(m):
             it = by_id.get(m.group(1))
-            if not it or it["source"] in used or len(used) >= 3:
+            if (not it or it["source"] in used or len(used) >= 3
+                    or not re.match(r"https?://", it["link"])):
                 return ""
             used.append(it["source"])
             return f" [[{it['source']}]]({it['link']})"
@@ -457,12 +465,17 @@ def link_citations(md: str, items: list[dict]) -> str:
 
 
 # ---------------------------------------------------------------- deliver
-def send_email(subject: str, md: str, audio: Path | None = None) -> None:
-    user, pwd, to = (os.getenv(k) for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", "TO_EMAIL"))
+def send_email(subject: str, md: str, audio: Path | None = None, to: str | None = None,
+               audio_name: str | None = None) -> None:
+    user, pwd = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
+    to = to or os.getenv("TO_EMAIL")
     if not (user and pwd and to):
-        print("  (email skipped: GMAIL_USER / GMAIL_APP_PASSWORD / TO_EMAIL not set)")
+        print("  (email skipped: GMAIL_USER / GMAIL_APP_PASSWORD / recipient not set)")
         return
-    body_html = markdown.markdown(md, extensions=["extra"])
+    # Escape raw HTML coming from feeds/AI so only Markdown formatting reaches the email.
+    safe_md = re.sub(r"\]\((?!https?://)[^)]*\)", "]", md)      # only http(s) links survive
+    body_html = markdown.markdown(safe_md.replace("&", "&amp;").replace("<", "&lt;"),
+                                  extensions=["extra"])
     body_html = (body_html
                  .replace("<table>", '<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">')
                  .replace("<td", '<td style="border-bottom:1px solid #eee;padding:4px 10px"')
@@ -478,12 +491,13 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     if audio and audio.exists() and audio.stat().st_size < 20_000_000:  # Gmail cap is 25 MB
         part = MIMEAudio(audio.read_bytes(), "mpeg")
         part.add_header("Content-Disposition", "attachment",
-                        filename=f"World-Brief-{datetime.now(TZ):%Y-%m-%d}.mp3")
+                        filename=audio_name or f"World-Brief-{datetime.now(TZ):%Y-%m-%d}.mp3")
         msg.attach(part)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
         s.login(user, pwd)
-        s.sendmail(user, [a.strip() for a in to.split(",")], msg.as_string())
-    print(f"  email sent to {to}")
+        recipients = [a.strip() for a in to.split(",") if a.strip()]
+        s.sendmail(user, recipients, msg.as_string())
+    print(f"  email sent ({len(recipients)} recipient(s))")
 
 
 def send_telegram(md: str, audio: Path | None = None) -> None:
@@ -500,17 +514,21 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
             buf = ""
         buf += para + "\n"
     chunks.append(buf)
-    for c in chunks:
-        if c.strip():
-            requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
-                          json={"chat_id": chat, "text": c,
-                                "disable_web_page_preview": True}, timeout=30)
-    if audio and audio.exists():
-        with audio.open("rb") as f:
-            requests.post(f"https://api.telegram.org/bot{token}/sendAudio",
-                          data={"chat_id": chat, "title": "World Brief podcast",
-                                "performer": "Kartik & Priya"},
-                          files={"audio": (audio.name, f, "audio/mpeg")}, timeout=120)
+    try:
+        for c in chunks:
+            if c.strip():
+                requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                              json={"chat_id": chat, "text": c,
+                                    "disable_web_page_preview": True}, timeout=30)
+        if audio and audio.exists():
+            with audio.open("rb") as f:
+                requests.post(f"https://api.telegram.org/bot{token}/sendAudio",
+                              data={"chat_id": chat, "title": "World Brief podcast",
+                                    "performer": "Kartik & Priya"},
+                              files={"audio": (audio.name, f, "audio/mpeg")}, timeout=120)
+    except Exception as exc:   # the URL holds the bot token: print only the error type
+        print(f"  ! telegram failed: {type(exc).__name__}")
+        return
     print(f"  telegram sent ({len(chunks)} message(s){' + audio' if audio else ''})")
 
 
@@ -566,19 +584,19 @@ def insert_box(md: str, box: str) -> str:
     return md + "\n\n" + box if i < 0 else md[:i] + "\n\n" + box + md[i:]
 
 
-def listen_section(audio: Path | None, edition: str, now: datetime, meta: dict,
-                   brief: str) -> str:
-    if not audio:
-        return ""
+def audio_minutes(audio: Path) -> int | None:
     try:
         out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                               "-of", "csv=p=0", str(audio)], capture_output=True, text=True)
-        minutes = max(1, round(float(out.stdout.strip()) / 60))
+        return max(1, round(float(out.stdout.strip()) / 60))
     except Exception:
-        minutes = None
-    repo = os.getenv("PODCAST_REPO", "").strip()
-    link = (f"https://github.com/{repo}/releases/download/episodes/{now:%Y-%m-%d}-{edition}.mp3"
-            if repo and os.getenv("PODCAST_TOKEN") else "")
+        return None
+
+
+def listen_section(audio: Path | None, link: str | None, meta: dict, brief: str) -> str:
+    if not audio:
+        return ""
+    minutes = audio_minutes(audio)
     topics = episode_notes(brief, meta).split("\n\n")[-1].replace("\n", " ")
     lines = ["## 🎧 Listen to Kartik & Priya", "",
              "**Today's podcast:** " + (f"[Play or download]({link}) · " if link else "")
@@ -604,7 +622,7 @@ def main() -> None:
     try:
         box, markets_plain = numbers_box(weekly=(edition == "weekly"))
     except Exception as exc:
-        print(f"  ! numbers box failed: {exc}", file=sys.stderr)
+        print(f"  ! numbers box failed: {redact(str(exc))}", file=sys.stderr)
         box, markets_plain = "", ""
     memory = previous_briefs(cfg["memory_days"], cfg["memory_chars"],
                              keep_links=(edition == "weekly"))
@@ -659,35 +677,52 @@ def main() -> None:
                                       ROOT / "out", script_llm,
                                       length=cfg["podcast_length"], show=cfg["show"])
         except Exception as exc:
-            print(f"  ! podcast failed, email still goes out: {exc}", file=sys.stderr)
+            print(f"  ! podcast failed, email still goes out: {redact(str(exc))}", file=sys.stderr)
     elif not wants_podcast:
         print("  podcast skipped: AI says nothing meaningful new")
 
-    listen = listen_section(audio_path, edition, now, meta, brief)
+    title = f"{cfg['title']} — {date_str}"
+    link = None
+    if audio_path:
+        episode = {"edition": edition, "title": title, "date": now.isoformat(),
+                   "file": str(audio_path), "description": episode_notes(brief, meta)}
+        (ROOT / "out" / "episode.json").write_text(json.dumps(episode, ensure_ascii=False))
+        # Publish to the podcast feed BEFORE emailing, so the link in the email already works.
+        import podfeed
+        if podfeed.configured() and not dry:
+            try:
+                link = podfeed.publish_episode(episode)
+            except Exception as exc:
+                print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
+    listen = listen_section(audio_path, link, meta, brief)
     if "{{LISTEN}}" in final:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:
         final = insert_box(final, listen)
     final = re.sub(r"\n{3,}", "\n\n", final)
 
-    title = f"{cfg['title']} — {date_str}"
-    if audio_path:
-        # Metadata for the podcast-app feed publisher (podfeed.py).
-        (ROOT / "out" / "episode.json").write_text(json.dumps({
-            "edition": edition, "title": title, "date": now.isoformat(),
-            "file": str(audio_path), "description": episode_notes(brief, meta)},
-            ensure_ascii=False))
 
     urgent = meta.get("URGENT_ALERT", "").upper().startswith("T")
     subject = ("🚨 " if urgent else "") + title + (" 🎧" if audio_path else "")
+    telugu_on = (edition in os.getenv("TELUGU_EDITIONS", "morning").split(",")
+                 and not no_llm and items)
     if dry:
         print(f"\nSUBJECT: {subject}\n\n" + final)
         if audio_path:
             print(f"\n[podcast saved at {audio_path}]")
+        if telugu_on and os.getenv("TELUGU_DRY_RUN") == "1":
+            import telugu
+            telugu.run(final, markets_plain, date_str, now, ROOT / "out", dry=True)
         return
 
     send_email(subject, final, audio_path)
     send_telegram(final, audio_path)
+
+    # Telugu edition for parents (only if PARENTS_EMAIL / PARENTS_WHATSAPP is set).
+    if telugu_on:
+        import telugu
+        if telugu.parents_configured():
+            telugu.run(final, markets_plain, date_str, now, ROOT / "out", dry=False)
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
     (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)

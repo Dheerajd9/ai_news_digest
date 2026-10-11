@@ -19,6 +19,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -27,6 +28,12 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 import requests
+
+
+def _redact(text: str) -> str:
+    text = re.sub(r"bot\d+:[\w-]+", "bot***", text)
+    text = re.sub(r"(apikey|key|token)=[^&\s]+", r"\1=***", text, flags=re.I)
+    return re.sub(r"github_pat_\w+|gh[pousr]_\w+|AIza[\w-]{20,}", "***", text)
 
 ROOT = Path(__file__).parent
 API = "https://api.github.com"
@@ -135,43 +142,55 @@ def build_feed(repo: str, episodes: list[dict]) -> str:
 """
 
 
-def main() -> None:
+def configured() -> tuple[str, str] | None:
     repo, token = os.getenv("PODCAST_REPO", "").strip(), os.getenv("PODCAST_TOKEN", "").strip()
-    meta_path = ROOT / "out" / "episode.json"
-    if not (repo and token):
-        print("Podcast feed: PODCAST_REPO / PODCAST_TOKEN not set, skipping.")
-        return
-    if not meta_path.exists():
-        print("Podcast feed: no episode today, skipping.")
-        return
-    meta = json.loads(meta_path.read_text())
-    mp3 = Path(meta["file"])
-    stamp = datetime.fromisoformat(meta["date"])
-    asset_name = f"{stamp:%Y-%m-%d}-{meta['edition']}.mp3"
+    if repo and token and re.fullmatch(r"[\w.-]+/[\w.-]+", repo):
+        return repo, token
+    return None
 
+
+def upload_asset(path: Path, asset_name: str) -> str:
+    """Upload (or replace) one MP3 on the 'episodes' release; return its public URL."""
+    repo, token = configured()
     rel = release(repo, token)
-    for a in rel.get("assets", []):               # re-run same day: replace
+    for a in rel.get("assets", []):
         if a["name"] == asset_name:
             gh("DELETE", f"/repos/{repo}/releases/assets/{a['id']}", token)
     upload_url = rel["upload_url"].split("{")[0]
     asset = gh("POST", upload_url, token, params={"name": asset_name},
-               headers={"Content-Type": "audio/mpeg"}, data=mp3.read_bytes()).json()
+               headers={"Content-Type": "audio/mpeg"}, data=path.read_bytes()).json()
+    return asset["browser_download_url"]
+
+
+def prune_extra(suffix: str, keep: int = 21) -> None:
+    """Keep only the newest `keep` assets ending in `suffix` (e.g. Telugu episodes)."""
+    repo, token = configured()
+    assets = sorted((a for a in release(repo, token).get("assets", [])
+                     if a["name"].endswith(suffix)), key=lambda a: a["name"], reverse=True)
+    for a in assets[keep:]:
+        gh("DELETE", f"/repos/{repo}/releases/assets/{a['id']}", token)
+
+
+def publish_episode(meta: dict) -> str:
+    """Upload the English episode, update feed.xml for podcast apps; return the MP3 URL."""
+    repo, token = configured()
+    mp3 = Path(meta["file"])
+    stamp = datetime.fromisoformat(meta["date"])
+    asset_name = f"{stamp:%Y-%m-%d}-{meta['edition']}.mp3"
+    url = upload_asset(mp3, asset_name)
 
     text, _ = get_file(repo, "episodes.json", token)
     episodes = json.loads(text) if text else []
     episodes = [e for e in episodes if e["id"] != asset_name]
     episodes.insert(0, {
         "id": asset_name, "title": meta["title"], "description": meta["description"],
-        "url": asset["browser_download_url"], "bytes": mp3.stat().st_size,
+        "url": url, "bytes": mp3.stat().st_size,
         "pubDate": format_datetime(stamp), "duration": duration_seconds(mp3)})
-
-    # Prune old episodes (feed entries and their audio files).
     keep, drop = episodes[:KEEP], {e["id"] for e in episodes[KEEP:]}
     if drop:
         for a in release(repo, token).get("assets", []):
             if a["name"] in drop:
                 gh("DELETE", f"/repos/{repo}/releases/assets/{a['id']}", token)
-
     if get_file(repo, "cover.png", token)[1] is None:
         cover = ROOT / "out" / "cover.png"
         if make_cover(cover):
@@ -180,11 +199,24 @@ def main() -> None:
              token, f"Episode {asset_name}")
     put_file(repo, "feed.xml", build_feed(repo, keep).encode(), token, f"Feed {asset_name}")
     owner, name = repo.split("/")
-    print(f"Podcast feed updated: https://{owner.lower()}.github.io/{name}/feed.xml")
+    print(f"  podcast feed updated: https://{owner.lower()}.github.io/{name}/feed.xml")
+    return url
+
+
+def main() -> None:
+    """CLI: publish out/episode.json (normally digest.py calls publish_episode itself)."""
+    meta_path = ROOT / "out" / "episode.json"
+    if not configured():
+        print("Podcast feed: PODCAST_REPO / PODCAST_TOKEN not set, skipping.")
+        return
+    if not meta_path.exists():
+        print("Podcast feed: no episode today, skipping.")
+        return
+    publish_episode(json.loads(meta_path.read_text()))
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as exc:        # feed problems must never fail the daily run
-        print(f"! podcast feed failed: {exc}", file=sys.stderr)
+        print(f"! podcast feed failed: {type(exc).__name__}: {_redact(str(exc))[:200]}", file=sys.stderr)
