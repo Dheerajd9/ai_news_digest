@@ -1,0 +1,29 @@
+# Breaking-alert watchlist. Runs every 2 hours (7 AM - 11 PM Dallas time).
+# A headline becomes a candidate if it matches a keyword below OR many outlets
+# ran it within the last few hours. Then the AI scores importance 1-10 and only
+# sends 8+ (min_score). Most days you get nothing; that's the point.
+
+min_score: 8
+max_alerts_per_day: 5
+lookback_hours: 3
+wide_coverage: 5          # this many outlets on one story = candidate even without keywords
+
+keywords:
+  visa_immigration: [H-1B, H1B, USCIS, "green card", OPT, "visa bulletin", "travel ban",
+                     "Express Entry", IRCC, deportation, "immigration rule"]
+  india_money: [RBI, "repo rate", rupee, Sensex, Nifty, "stock market crash", GST, "union budget"]
+  home: [Telangana, Hyderabad]
+  us_money: ["Federal Reserve", "rate cut", "rate hike", recession, "government shutdown"]
+  big_events: [earthquake, cyclone, tsunami, "terror attack", war, ceasefire, coup,
+               "state of emergency", assassination, pandemic, outbreak]
+  tech_jobs: [layoffs, "AI regulation", "tech layoffs"]
+
+feeds:
+  - https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=H-1B+OR+USCIS+OR+%22green+card%22+OR+%22Express+Entry%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://feeds.bbci.co.uk/news/world/rss.xml
+  - https://www.thehindu.com/news/national/feeder/default.rss

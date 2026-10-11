@@ -1,60 +1,78 @@
 # World Brief
 
-A free daily email (and optional Telegram message) that tells you what happened in about 9 minutes. India first, USA second, then the world: politics, economy and trade, visas, tech and AI, science, upcoming events, and a bit of history. Runs on GitHub Actions, costs nothing.
+India first, USA second, then the world. A daily news email plus a two-host audio podcast, fully automated on GitHub Actions and **100% free**.
 
-## How it works (the pattern most people use)
+## What you get, and when (Dallas time, summer; one hour earlier in winter)
+
+| When | What | Why that time |
+|---|---|---|
+| **7:37 AM daily** | **World Brief**: 13 sections, ~9 min read + ~10 min podcast | India's day is done (~6 PM IST), US overnight news in, before US markets open |
+| **6:07 PM daily** | **Evening Update**: only what changed since morning, ~3 min + ~4 min podcast | US day and markets closed; India early morning |
+| **Sunday 9:07 AM** | **Weekly Deep Dive**: the week's 5 big stories and their arc, what to watch next week, ~14 min podcast | Built from the week's briefs |
+| **Every 2 h, 7 AM-11 PM** | **Breaking alert** only if something truly big (visa rule, crash, disaster, war) | Usually silent |
+
+Every email starts with an **exact numbers box** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, gold, Brent, Dallas + Hyderabad weather) from data APIs, never from AI.
+
+## How it works
 
 ```
-RSS feeds (~45: India, Telangana, USA, world) ──> last 26h only ──> drop already-sent + merge duplicates
-      │                                               (count how many outlets = importance)
-      ▼
-cap per category (India 40, others 25), round-robin by outlet ──> Wikipedia "on this day"
-      │
-      ▼
-LLM (Gemini free tier, GitHub Models free backup) + brief_prompt.md
-      │   model must cite [S12] ids for every bullet → we swap ids for real links
-      ▼
-Email (Gmail) / Telegram  ──>  commit seen.json + briefs/DATE.md back to repo
+RSS (~45 feeds) ─> last 26h/12h ─> skip already-sent, merge duplicates (count outlets)
+      ─> numbers box (markets.py) ─> story memory (last 3 days of briefs/)
+      ─> Gemini writes brief, every bullet cites [S12]
+      ─> fact-check pass (GitHub Models) drops anything sources don't support
+      ─> ids become links ─> podcast.py: Arjun & Meera script ─> edge-tts Indian voices ─> MP3
+      ─> Gmail (+ Telegram) ─> archive in briefs/ ─> podfeed.py ─> your podcast app
 ```
 
-Why this design, not "ask ChatGPT for today's news":
-- **Grounded.** The model only sees real headlines you fetched, and must cite each one. Much less hallucination, and every bullet is clickable.
-- **Cheap.** About 30–40k input tokens per day fits free tiers easily.
-- **No repeats.** `state/seen.json` remembers what you got for 7 days.
-- **Never silent.** If every LLM fails, you still get a plain headline list.
-- **Daily commit** keeps the repo active so GitHub never auto-disables the schedule (public repos stop scheduled runs after 60 days without activity).
+Story memory: yesterday's stories are not repeated; continuing ones come as short "Update:" bullets.
+
+## Free stack and daily usage
+
+| Piece | Free source | Use per day |
+|---|---|---|
+| Main brief | Gemini free tier (`GEMINI_API_KEY`) | 2 calls (+1 on Sunday) |
+| Fact-check, podcast script, alert scoring | GitHub Models (built-in `GITHUB_TOKEN`) | ~4-12 small calls |
+| Voices | edge-tts (Microsoft neural, no key; unofficial) | ~150 short lines |
+| Markets / weather / history | Yahoo + Stooq + ECB, Open-Meteo, Wikipedia | few requests |
+| Running it | GitHub Actions | ~15 min (private repo free tier: 2,000 min/month) |
+| Delivery | Gmail SMTP app password, optional Telegram | 2-3 emails |
+
+If any piece fails, the rest still runs: no AI → headline list; no voice → email without audio; no market data → box skipped.
+
+## Files
+
+- `digest.py` main pipeline (editions: `EDITION=morning|evening|weekly`)
+- `markets.py` exact numbers box · `podcast.py` audio · `podfeed.py` podcast-app feed · `alerts.py` breaking alerts
+- `feeds.yaml` news sources · `watchlist.yaml` alert keywords and thresholds
+- `prompts/` brief, evening, weekly, fact-check, podcast, alert prompts (edit READER PROFILE to tune)
+- `briefs/` archive (also the story memory) · `state/seen.json` what was already sent
 
 ## Setup
 
-Already done in this repo. It reuses the existing secrets `GEMINI_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `TO_EMAIL`, plus the built-in `GITHUB_TOKEN` for the free GitHub Models backup. Optional: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+Already live in this repo, reusing secrets `GEMINI_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `TO_EMAIL`. Optional: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (alerts then go to your phone instead of email).
 
-Workflow: `.github/workflows/world_brief.yml`, daily 7:37 AM CDT / 6:37 AM CST. Actions tab → **World Brief + Podcast** → **Run workflow** to get one now.
+Run any edition now: Actions → **World Brief + Podcast** → Run workflow → pick edition.
 
-## Podcast
+### Optional: podcast in your podcast app (5 minutes, one time)
 
-Same brief, retold as a 9–11 minute chat between two hosts, Arjun and Meera, with Indian English neural voices:
-1. `prompts/podcast_prompt.md` turns the brief into a natural two-host script (free Gemini / GitHub Models).
-2. `podcast.py` speaks each line with free Microsoft Edge voices via `edge-tts` (`en-IN-PrabhatNeural`, `en-IN-NeerjaExpressiveNeural`), joins them with ffmpeg.
-3. The MP3 is attached to the email, sent to Telegram if set up, and kept 14 days as a run artifact.
+This repo is private and podcast apps can't log in, so episodes go to a tiny **public** repo (public news audio only):
 
-Change voices with env vars `PODCAST_VOICE_A` / `PODCAST_VOICE_B` (e.g. `en-US-AndrewNeural`, `en-GB-SoniaNeural`), speed with `PODCAST_RATE`, or turn audio off with `PODCAST=0`. edge-tts is free but unofficial; if Microsoft ever blocks it, the email still arrives, just without audio.
+1. Create a new **public** repo named `world-brief-podcast` (tick "Add a README").
+2. In that repo: Settings → Pages → Source: *Deploy from a branch* → `main` / root → Save.
+3. GitHub → Settings → Developer settings → Fine-grained tokens → Generate: repository access *Only* `world-brief-podcast`, permission *Contents: Read and write*.
+4. In **this** repo: Settings → Secrets and variables → Actions:
+   - Secret `PODCAST_TOKEN` = that token
+   - Variable `PODCAST_REPO` = `Dheerajd9/world-brief-podcast`
+5. After the next run, in Apple Podcasts (Library → ⋯ → Follow a Show by URL) or Pocket Casts (Search → paste URL) add:
+   `https://dheerajd9.github.io/world-brief-podcast/feed.xml`
+
+The feed is marked hidden from podcast directories; only people with the URL can subscribe.
 
 ## Tuning
 
-- **What you get:** edit the READER PROFILE block and sections in `prompts/brief_prompt.md`. This is the main lever.
-- **Sources:** edit `feeds.yaml`. Google News search feeds take any query, e.g. `https://news.google.com/rss/search?q=semiconductors+when:1d&hl=en-US&gl=US&ceid=US:en`.
-- **Length/cost:** `MAX_PER_CATEGORY` (default 25) and `CATEGORY_CAPS` in digest.py and `LOOKBACK_HOURS` (default 26) env vars.
-- **Twice a day:** add a second cron line, e.g. `"52 23 * * *"` for evening, and set `LOOKBACK_HOURS=13`.
-- **Privacy note:** Gemini free tier may use prompts to improve Google products. Fine for public news; never put personal data in the prompt.
-
-## Ideas to level up later
-
-- Weekly "Sunday deep dive": a second workflow that reads the last 7 files in `briefs/` and writes trends of the week.
-- Embedding-based clustering (Gemini embeddings are free) instead of title similarity, for better merging.
-- Audio version: send the brief to a TTS model and post the MP3 to Telegram for the commute.
-- A Telugu edition for parents, using the same items and a translated prompt.
-
----
+- Voices: `PODCAST_VOICE_A` / `PODCAST_VOICE_B` (e.g. `en-US-AndrewNeural`), speed `PODCAST_RATE`, audio off `PODCAST=0`.
+- Alerts: `watchlist.yaml` → keywords, `min_score`, `max_alerts_per_day`.
+- Length: `MAX_PER_CATEGORY`, `CATEGORY_CAPS` in digest.py.
 
 ## Bonus: manual prompt for ChatGPT / Claude chat (no code)
 

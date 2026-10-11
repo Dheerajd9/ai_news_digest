@@ -12,6 +12,16 @@ PRIORITY ORDER: India first, USA second, then the rest of the world. India and U
 1. `NEWS_ITEMS`: a JSON list. Each item has `id` (like "S12"), `category`, `source`, `coverage` (how many outlets ran this same story; higher = more widely reported), `title`, `summary`, `published`.
 2. `ON_THIS_DAY`: a JSON list of historical events for today's date (from Wikipedia).
 3. `DATE`: today's date.
+4. `MARKETS`: exact market prices and weather from data feeds (may be empty).
+5. `PREVIOUS_BRIEFS`: the last few briefs already sent to this reader (may be empty). This is your memory.
+
+## STORY MEMORY (use PREVIOUS_BRIEFS)
+- If a story was already covered and NEWS_ITEMS has nothing new about it, leave it out.
+- If it is a continuing story with new facts, start the bullet with "Update:" and give only what changed, plus at most one short clause of background ("after Tuesday's announcement, ...").
+- Never take new facts from PREVIOUS_BRIEFS. They are only context; every fact must still come from NEWS_ITEMS with an id.
+
+## NUMBERS
+A markets-and-weather table is inserted automatically, so do not write one. When a story needs a price or index level, use MARKETS numbers exactly as given; never estimate.
 
 ## HARD RULES
 1. Use ONLY facts present in NEWS_ITEMS and ON_THIS_DAY. Never add facts from your own memory, never guess numbers, never invent quotes. If something is unclear in the sources, say "reports say" or leave it out.

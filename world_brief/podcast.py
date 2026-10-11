@@ -84,8 +84,11 @@ def stitch(parts: list[Path], out_mp3: Path, workdir: Path) -> None:
                     str(out_mp3)], check=True)
 
 
-def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm) -> Path | None:
-    system = (ROOT / "prompts" / "podcast_prompt.md").read_text()
+def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
+                 length: str = "1,300 to 1,600 words (about 9 to 11 minutes spoken)",
+                 show: str = "The Morning Brief") -> Path | None:
+    system = ((ROOT / "prompts" / "podcast_prompt.md").read_text()
+              .replace("{LENGTH}", length).replace("{SHOW}", show))
     script = llm(system, f"DATE: {date_str}\n\nTODAY'S BRIEF:\n{clean_brief_for_script(brief_md)}")
     turns = parse_script(script or "")
     if len(turns) < 6:

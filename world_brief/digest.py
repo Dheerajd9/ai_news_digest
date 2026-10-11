@@ -1,26 +1,34 @@
 """
-World Brief: daily global news digest.
+World Brief: India-first daily news digest with an audio podcast. All free.
 
-Pipeline:
-  1. Fetch RSS feeds (feeds.yaml), keep items from the last LOOKBACK_HOURS.
-  2. Drop items already sent (state/seen.json) and near-duplicate headlines.
-  3. Cap items per category so the LLM prompt stays small (free-tier friendly).
-  4. Add "on this day" history from Wikipedia.
-  5. Ask an LLM (Gemini free tier, GitHub Models free backup) to write the brief using prompts/brief_prompt.md.
-     The model must cite item ids like [S12]; we turn those into real links afterwards,
-     which keeps it grounded and lets you verify every claim.
-  6. Deliver by email (Gmail SMTP) and/or Telegram. Archive markdown in briefs/.
+Editions (EDITION env):
+  morning  full brief, 13 sections, ~9 min read + ~10 min podcast
+  evening  what changed since morning, ~3 min read + ~4 min podcast
+  weekly   Sunday deep dive built from the week's briefs + ~14 min podcast
 
-Env vars (GitHub Secrets):
+Pipeline (morning/evening):
+  1. Fetch RSS feeds (feeds.yaml) from the last LOOKBACK_HOURS.
+  2. Drop items already sent (state/seen.json); merge near-duplicate headlines and
+     count how many outlets ran each story ("coverage" = importance signal).
+  3. Cap items per category (India gets the most room).
+  4. Exact numbers box: markets + weather from free data APIs (markets.py), never from AI.
+  5. Story memory: the last few archived briefs go in as context, so continuing stories
+     become short "Update:" bullets instead of repeats.
+  6. Gemini (free) writes the brief; every bullet cites ids like [S12].
+  7. Fact-check pass removes or softens anything the cited sources don't support.
+  8. Ids become real links; podcast.py turns the brief into a two-host MP3.
+  9. Email (Gmail) + optional Telegram; archive in briefs/; episode.json for podfeed.py.
+
+Env vars:
   GEMINI_API_KEY        free Google AI Studio key (GEMINI_MODEL optional, auto-picked)
-  GITHUB_TOKEN          built-in in Actions; GitHub Models = free backup brain
-  GMAIL_USER, GMAIL_APP_PASSWORD, TO_EMAIL     (for email)
-  TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID         (optional)
+  GITHUB_TOKEN          built-in in Actions; GitHub Models = free second brain
+  GMAIL_USER, GMAIL_APP_PASSWORD, TO_EMAIL     email delivery
+  TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID         optional
+  EDITION               morning (default) | evening | weekly
   PODCAST=1 (default)   also make an MP3 podcast and attach it
   DRY_RUN=1             build everything, send nothing, save nothing
   NO_LLM=1              skip AI (test runs, so free quota isn't spent)
 """
-
 from __future__ import annotations
 
 import calendar
@@ -196,32 +204,112 @@ def on_this_day(today: datetime) -> list[dict]:
 
 
 # ---------------------------------------------------------------- LLM
-# All providers here are free: Gemini free tier (your key) and GitHub Models
-# (built-in GITHUB_TOKEN, no extra key). If both fail you still get headlines.
+# All providers are free: Gemini free tier (your key) and GitHub Models (built-in
+# GITHUB_TOKEN). Quota plan: Gemini (big context) writes the main brief; GitHub Models
+# (small context, separate quota) does fact-check and podcast script when they fit.
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
+GH_MODELS_MAX_TOKENS = 7000      # free tier caps input near 8k tokens
+
+
+def est_tokens(*texts: str) -> int:
+    return sum(len(t) for t in texts) // 4
+
+
+def ask(system: str, user: str, prefer: str = "gemini") -> str | None:
+    """Free LLM call. prefer='github' saves Gemini quota for small jobs."""
+    fits_gh = est_tokens(system, user) < GH_MODELS_MAX_TOKENS
+    order = [call_gemini, call_github_models]
+    if prefer == "github" and fits_gh:
+        order.reverse()
+    for fn in order:
+        if fn is call_github_models and not fits_gh:
+            continue
+        text = fn(system, user)
+        if text:
+            return text
+    return None
+
+
+def strip_links(md: str) -> str:
+    return re.sub(r"\s?\[\[([^\]]+)\]\]\([^)]+\)", "", md)
+
+
+def previous_briefs(days: int, max_chars: int, keep_links: bool = False) -> str:
+    """Story memory: the daily briefs this reader already got (oldest first)."""
+    if not ARCHIVE_DIR.exists():
+        return ""
+    cutoff = (datetime.now(TZ) - timedelta(days=days)).strftime("%Y-%m-%d")
+    files = sorted(p for p in ARCHIVE_DIR.glob("*.md")
+                   if p.name[:10] >= cutoff and "weekly" not in p.name)
+    chunks = []
+    for p in files:
+        text = p.read_text()
+        if not keep_links:
+            text = strip_links(text)
+        chunks.append(f"=== {p.stem} ===\n{text.strip()}")
+    joined = "\n\n".join(chunks)
+    return joined[-max_chars:]          # keep the newest if too long
 
 
 def build_user(items: list[dict], history: list[dict], date_str: str,
-               compact: bool = False) -> str:
+               markets: str, memory: str, compact: bool = False) -> str:
     if compact:
-        # GitHub Models' free tier caps input at about 8k tokens per request,
-        # so send titles only, India first, most-covered stories first.
+        # GitHub Models' free tier caps input near 8k tokens: titles only, India first,
+        # most-covered first, and only the latest previous brief.
         order = list(CATEGORY_CAPS) + sorted({i["category"] for i in items} - set(CATEGORY_CAPS))
         ranked = sorted(items, key=lambda i: (order.index(i["category"]), -i["coverage"]))
         per_cat: dict[str, int] = {}
-        slim = []
+        payload = []
         for it in ranked:
-            if per_cat.get(it["category"], 0) >= 8:
+            if per_cat.get(it["category"], 0) >= 7:
                 continue
             per_cat[it["category"]] = per_cat.get(it["category"], 0) + 1
-            slim.append({k: it[k] for k in ("id", "category", "source", "coverage", "title")})
-        payload, hist = slim, history[:6]
+            payload.append({k: it[k] for k in ("id", "category", "source", "coverage", "title")})
+        history, memory = history[:5], memory[-1500:]
     else:
         payload = [{k: it[k] for k in ("id", "category", "source", "coverage", "title",
                                         "summary", "published")} for it in items]
-        hist = history
-    return (f"DATE: {date_str}\n\nNEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}"
-            f"\n\nON_THIS_DAY:\n{json.dumps(hist, ensure_ascii=False)}")
+    return (f"DATE: {date_str}\n\nMARKETS: {markets or '(none)'}\n\n"
+            f"NEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}\n\n"
+            f"ON_THIS_DAY:\n{json.dumps(history, ensure_ascii=False)}\n\n"
+            f"PREVIOUS_BRIEFS:\n{memory or '(none)'}")
+
+
+def write_brief(system: str, items, history, date_str, markets, memory) -> str | None:
+    full = build_user(items, history, date_str, markets, memory)
+    print(f"  brief prompt ~{est_tokens(system, full):,} tokens")
+    return (call_gemini(system, full)
+            or call_github_models(system, build_user(items, history, date_str, markets,
+                                                     memory, compact=True)))
+
+
+def fact_check(draft: str, items: list[dict]) -> str:
+    """Second pass: drop or soften anything the cited sources don't support."""
+    cited = set(re.findall(r"\[(S\d+)\]", draft))
+    if not cited:
+        return draft
+    src = [{"id": i["id"], "title": i["title"], "summary": i["summary"][:200]}
+           for i in items if i["id"] in cited]
+    system = (ROOT / "prompts" / "factcheck_prompt.md").read_text()
+    user = f"SOURCE_ITEMS:\n{json.dumps(src, ensure_ascii=False)}\n\nDRAFT:\n{draft}"
+    checked = ask(system, user, prefer="github")
+    if not checked:
+        print("  ! fact-check unavailable; sending the unchecked draft")
+        return draft
+    checked = re.sub(r"^```(?:markdown)?\s*|\s*```$", "", checked.strip())
+    # Guardrails: a checker that wipes out most of the brief or its headings is wrong.
+    heads = lambda t: len(re.findall(r"^## ", t, re.M))
+    if len(checked) < 0.6 * len(draft) or heads(checked) < heads(draft) - 1:
+        print("  ! fact-check removed too much; keeping the draft")
+        return draft
+    removed = len(re.findall(r"^\s*- ", draft, re.M)) - len(re.findall(r"^\s*- ", checked, re.M))
+    print(f"  fact-check done ({max(removed, 0)} bullet(s) removed)")
+    return checked
+
+
+def write_script(system: str, user: str) -> str | None:
+    """Podcast script writer (GitHub Models first, to save Gemini quota)."""
+    return ask(system, user, prefer="github")
 
 
 def gemini_models(key: str) -> list[str]:
@@ -308,18 +396,6 @@ def call_github_models(system: str, user: str) -> str | None:
     return None
 
 
-def write_brief(system: str, items: list[dict], history: list[dict],
-                date_str: str) -> str | None:
-    full = build_user(items, history, date_str)
-    print(f"  brief prompt ~{(len(system) + len(full)) // 4:,} tokens")
-    return (call_gemini(system, full)
-            or call_github_models(system, build_user(items, history, date_str, compact=True)))
-
-
-def write_script(system: str, user: str) -> str | None:
-    """Generic free LLM call (used by the podcast script writer)."""
-    return call_gemini(system, user) or call_github_models(system, user)
-
 
 def fallback_brief(items: list[dict], date_str: str) -> str:
     """Used when every LLM fails: plain headlines, so you still get something."""
@@ -349,6 +425,10 @@ def send_email(subject: str, md: str, audio: Path | None = None) -> None:
         print("  (email skipped: GMAIL_USER / GMAIL_APP_PASSWORD / TO_EMAIL not set)")
         return
     body_html = markdown.markdown(md, extensions=["extra"])
+    body_html = (body_html
+                 .replace("<table>", '<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">')
+                 .replace("<td", '<td style="border-bottom:1px solid #eee;padding:4px 10px"')
+                 .replace("<th", '<th style="border-bottom:2px solid #ccc;padding:4px 10px"'))
     page = f"""<html><body style="font-family:Georgia,serif;max-width:680px;margin:auto;
 line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     body = MIMEMultipart("alternative")
@@ -397,37 +477,99 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
 
 
 # ---------------------------------------------------------------- main
+EDITIONS = {
+    "morning": {"title": "World Brief", "prompt": "brief_prompt.md", "lookback": 26,
+                "memory_days": 3, "memory_chars": 14000, "fact_check": True,
+                "podcast_length": "1,300 to 1,600 words (about 9 to 11 minutes spoken)",
+                "show": "The Morning Brief", "file_suffix": ""},
+    "evening": {"title": "Evening Update", "prompt": "evening_prompt.md", "lookback": 12,
+                "memory_days": 1, "memory_chars": 9000, "fact_check": True,
+                "podcast_length": "500 to 650 words (about 4 minutes spoken)",
+                "show": "The Evening Update", "file_suffix": "-evening"},
+    "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
+               "memory_days": 7, "memory_chars": 120000, "fact_check": False,
+               "podcast_length": "1,800 to 2,200 words (about 13 to 15 minutes spoken)",
+               "show": "The Weekly Deep Dive", "file_suffix": "-weekly"},
+}
+
+
+def insert_box(md: str, box: str) -> str:
+    """Put the exact-numbers box right after the one-line summary."""
+    if not box:
+        return md
+    i = md.find("\n## ")
+    return md + "\n\n" + box if i < 0 else md[:i] + "\n\n" + box + md[i:]
+
+
 def main() -> None:
+    global LOOKBACK_HOURS
+    edition = os.getenv("EDITION", "morning").strip() or "morning"
+    cfg = EDITIONS[edition]
     dry = os.getenv("DRY_RUN") == "1"
+    no_llm = os.getenv("NO_LLM") == "1"
     now = datetime.now(TZ)
     date_str = now.strftime("%A, %d %B %Y")
+    print(f"Edition: {edition}")
 
-    feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
-    print("Fetching feeds...")
-    raw = fetch_items(feeds)
+    from markets import numbers_box
+    try:
+        box, markets_plain = numbers_box(weekly=(edition == "weekly"))
+    except Exception as exc:
+        print(f"  ! numbers box failed: {exc}", file=sys.stderr)
+        box, markets_plain = "", ""
+    memory = previous_briefs(cfg["memory_days"], cfg["memory_chars"],
+                             keep_links=(edition == "weekly"))
+    system = (ROOT / "prompts" / cfg["prompt"]).read_text().replace("{DATE}", date_str)
+
+    items: list[dict] = []
     seen = load_seen()
-    items = cap_per_category(dedupe(raw, seen))
-    history = on_this_day(now)
-    print(f"{len(raw)} raw -> {len(items)} items after dedupe/cap; {len(history)} history events")
-    if not items:
-        print("Nothing new. Exiting.")
-        return
-
-    system = (ROOT / "prompts" / "brief_prompt.md").read_text().replace("{DATE}", date_str)
-    if os.getenv("NO_LLM") == "1":
-        brief = fallback_brief(items, date_str)
+    if edition == "weekly":
+        if not memory:
+            print("No briefs from this week yet. Exiting.")
+            return
+        user = f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\nPREVIOUS_BRIEFS:\n{memory}"
+        brief = None if no_llm else call_gemini(system, user)
+        if not brief:
+            print("Weekly needs the AI and it was unavailable. Exiting.")
+            return
     else:
-        brief = write_brief(system, items, history, date_str) or fallback_brief(items, date_str)
+        LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", cfg["lookback"]))
+        feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
+        print("Fetching feeds...")
+        raw = fetch_items(feeds)
+        items = cap_per_category(dedupe(raw, seen))
+        history = on_this_day(now) if edition == "morning" else []
+        print(f"{len(raw)} raw -> {len(items)} items after dedupe/cap; "
+              f"{len(history)} history events; memory {len(memory):,} chars")
+        if not items:
+            print("Nothing new. Exiting.")
+            return
+        brief = None if no_llm else write_brief(system, items, history, date_str,
+                                                markets_plain, memory)
+        if brief and cfg["fact_check"]:
+            brief = fact_check(brief, items)
+        brief = brief or fallback_brief(items, date_str)
+
+    brief = insert_box(brief, box)
     final = link_citations(brief, items)
 
-    # Audio podcast version of the same brief (free: Gemini/GitHub Models script + edge-tts voices).
+    # Audio podcast of the same brief (free: GitHub Models/Gemini script + edge-tts voices).
     audio_path = None
-    if os.getenv("PODCAST", "1") == "1" and os.getenv("NO_LLM") != "1":
+    if os.getenv("PODCAST", "1") == "1" and not no_llm:
         try:
             from podcast import make_podcast
-            audio_path = make_podcast(brief, date_str, ROOT / "out", write_script)
+            audio_path = make_podcast(strip_links(final), date_str, ROOT / "out", write_script,
+                                      length=cfg["podcast_length"], show=cfg["show"])
         except Exception as exc:
             print(f"  ! podcast failed, email still goes out: {exc}", file=sys.stderr)
+
+    title = f"{cfg['title']} — {date_str}"
+    if audio_path:
+        # Metadata for the podcast-app feed publisher (podfeed.py).
+        plain = re.sub(r"[#*_|>]", "", strip_links(final))
+        (ROOT / "out" / "episode.json").write_text(json.dumps({
+            "edition": edition, "title": title, "date": now.isoformat(),
+            "file": str(audio_path), "description": plain[:3500]}, ensure_ascii=False))
 
     if dry:
         print("\n" + final)
@@ -435,17 +577,17 @@ def main() -> None:
             print(f"\n[podcast saved at {audio_path}]")
         return
 
-    subject = f"World Brief — {date_str}" + (" 🎧" if audio_path else "")
-    send_email(subject, final, audio_path)
+    send_email(title + (" 🎧" if audio_path else ""), final, audio_path)
     send_telegram(final, audio_path)
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
-    (ARCHIVE_DIR / f"{now:%Y-%m-%d}.md").write_text(final)
-    stamp = datetime.now(timezone.utc).isoformat()
-    for it in items:
-        seen[key_of(it)] = stamp
-    STATE_FILE.parent.mkdir(exist_ok=True)
-    STATE_FILE.write_text(json.dumps(seen, indent=0))
+    (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)
+    if items:
+        stamp = datetime.now(timezone.utc).isoformat()
+        for it in items:
+            seen[key_of(it)] = stamp
+        STATE_FILE.parent.mkdir(exist_ok=True)
+        STATE_FILE.write_text(json.dumps(seen, indent=0))
 
 
 if __name__ == "__main__":

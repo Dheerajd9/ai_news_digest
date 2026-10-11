@@ -1,19 +1,29 @@
 name: World Brief + Podcast
 
-# Daily India-first world news brief + two-host audio podcast, emailed to TO_EMAIL.
-# 100% free: Gemini free tier (GEMINI_API_KEY), GitHub Models backup (built-in token),
-# edge-tts voices (no key), Gmail SMTP, GitHub Actions minutes (~3 min/day).
+# India-first news brief + two-host audio podcast, emailed to TO_EMAIL. 100% free:
+# Gemini free tier, GitHub Models backup (built-in token), edge-tts voices, Gmail SMTP.
+#
+# GitHub cron is UTC. Times below are Dallas summer time (CDT); in winter (CST)
+# everything arrives one hour earlier. GitHub may start runs a few minutes late.
 
 on:
   schedule:
-    - cron: "37 12 * * *"   # 7:37 AM CDT / 6:37 AM CST (GitHub cron is UTC; may start a few min late)
-  workflow_dispatch:         # "Run workflow" button: full run, sends email
+    - cron: "37 12 * * *"   # morning  7:37 AM CDT  (India ~6 PM: India's day is done)
+    - cron: "7 23 * * *"    # evening  6:07 PM CDT  (US day + markets closed)
+    - cron: "7 14 * * 0"    # weekly   Sunday 9:07 AM CDT deep dive
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: "Which edition to send now"
+        type: choice
+        options: [morning, evening, weekly]
+        default: morning
   push:                      # code changes: quick test run, no AI, no email
     branches: [main]
     paths: ["world_brief/**", ".github/workflows/world_brief.yml"]
 
 permissions:
-  contents: write            # save world_brief/state + briefs archive
+  contents: write            # save world_brief/state + briefs archive (story memory)
   models: read               # GitHub Models free backup brain
 
 concurrency:
@@ -23,7 +33,7 @@ concurrency:
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: world_brief
@@ -41,8 +51,21 @@ jobs:
           pip install -r requirements.txt
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
+      - name: Pick edition
+        id: ed
+        run: |
+          case "${{ github.event.schedule }}" in
+            "7 23 * * *") ED=evening ;;
+            "7 14 * * 0") ED=weekly ;;
+            "") ED="${{ inputs.edition || 'morning' }}" ;;
+            *) ED=morning ;;
+          esac
+          echo "edition=$ED" >> "$GITHUB_OUTPUT"
+          echo "Edition: $ED"
+
       - name: Build brief + podcast and send
         env:
+          EDITION: ${{ steps.ed.outputs.edition }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
@@ -52,17 +75,25 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            DRY_RUN=1 NO_LLM=1 python digest.py | tail -40
+            DRY_RUN=1 NO_LLM=1 python digest.py | tail -60
+            python -c "import markets; b, p = markets.numbers_box(); print(b or 'numbers box: no data'); print(p)"
+            DRY_RUN=1 NO_LLM=1 python alerts.py
           else
             python digest.py
           fi
 
-      # Podcast MP3 also kept as a downloadable run artifact for 14 days
-      # (not committed, so the repo stays small).
+      - name: Publish to podcast apps (optional)
+        if: github.event_name != 'push'
+        env:
+          PODCAST_REPO: ${{ vars.PODCAST_REPO }}
+          PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
+        run: python podfeed.py
+
+      # MP3 also kept as a downloadable run artifact for 14 days (not committed).
       - uses: actions/upload-artifact@v4
         if: github.event_name != 'push'
         with:
-          name: world-brief-podcast
+          name: world-brief-${{ steps.ed.outputs.edition }}-podcast
           path: world_brief/out/*.mp3
           retention-days: 14
           if-no-files-found: ignore
@@ -72,9 +103,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add state briefs 2>/dev/null || true
+          git add state/seen.json briefs 2>/dev/null || true
           if ! git diff --cached --quiet; then
-            git commit -m "World brief $(date -u +%F)"
+            git commit -m "World brief (${{ steps.ed.outputs.edition }}) $(date -u +%F)"
             git pull --rebase --quiet
             git push
           fi

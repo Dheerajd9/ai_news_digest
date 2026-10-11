@@ -3,3 +3,4 @@ __pycache__/
 preview.html
 portfolio_preview.html
 world_brief/out/
+world_brief/state/alerts_seen.json
