@@ -3,9 +3,9 @@ name: AI News Digest
 on:
   schedule:
     # GitHub cron is UTC and sometimes drops runs, so each edition has backup slots.
-    # digest.py sends an edition only if it is due in Texas local time (morning 7-11,
+    # digest.py sends an edition only if it is due in Texas local time (morning 7 AM-1:59 PM,
     # evening 6-9 PM) and not already sent today (digest_done.json); other slots skip.
-    - cron: "7 12-15 * * *"   # morning slots: CDT 7:07-10:07 / CST 6:07-9:07 (backups)
+    - cron: "7 12-18 * * *"   # morning slots: CDT 7:07 AM-1:07 PM / CST 6:07 AM-12:07 PM (backups)
     - cron: "7 23 * * *"      # evening: CDT 6:07 PM
     - cron: "7 0-2 * * *"     # evening backups: CDT 7-9 PM / CST 6-8 PM
   workflow_dispatch:        # lets you click "Run workflow" to test anytime

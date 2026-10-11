@@ -591,7 +591,7 @@ def portfolio_morning(dry_run):
 TARGET_HOURS = {7: "Morning", 18: "Evening"}  # local Texas time
 # Self-healing schedule: several backup cron slots per edition. Each scheduled run sends an
 # edition only if it is due (local time window) and not already sent today (DONE_FILE).
-WINDOWS = {"Morning": range(7, 12), "Evening": range(18, 22)}
+WINDOWS = {"Morning": range(7, 14), "Evening": range(18, 22)}
 DONE_FILE = "digest_done.json"
 
 
