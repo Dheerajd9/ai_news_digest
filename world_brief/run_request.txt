@@ -1,1 +1,2 @@
 2026-10-11T14:09:37Z run all editions (requested by Dji to verify emails)
+2026-10-11T15:21:25Z run: morning force (verify new PODCAST_TOKEN, Gemini voices, longer Telugu)
