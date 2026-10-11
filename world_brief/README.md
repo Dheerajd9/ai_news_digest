@@ -13,6 +13,10 @@ India first, USA second, then the world. A daily news email plus a two-host audi
 
 Accuracy: every item carries a source trust level (official / major / other); extraordinary claims need an official source or two major outlets, otherwise they're marked ⚠️ NOT YET VERIFIED and listed under Verification notes. Every email has an **exact money dashboard** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, Brent, gold per gram and per ounce in India (IBJA 24K/22K, ₹) and USA ($), Dallas + Hyderabad weather) from data APIs, never from AI. Text is very simple English with the key words in **bold** for quick skimming, plus a daily Sensex/Nifty/mutual-fund update.
 
+## Fully automatic, self-healing
+
+GitHub sometimes delays or drops scheduled runs, so every edition has several backup slots (about hourly). Each run checks Dallas local time and `state/done/` markers: the first slot that runs sends the edition, later ones stop in seconds. A failed run is retried by the next slot, and you get a short "⚠️ run failed — retrying automatically" email. Summer/winter time is handled automatically. You never need to click "Run workflow".
+
 ## How it works
 
 ```

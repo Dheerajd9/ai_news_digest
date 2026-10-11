@@ -1018,6 +1018,21 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
     return out
 
 
+DONE_DIR = ROOT / "state" / "done"   # markers so backup schedule slots don't resend
+
+
+def mark_done(now: datetime, edition: str) -> None:
+    """Record that today's edition is finished (sent, or nothing to send)."""
+    if os.getenv("DRY_RUN") == "1":
+        return
+    DONE_DIR.mkdir(parents=True, exist_ok=True)
+    (DONE_DIR / f"{now:%Y-%m-%d}-{edition}").write_text(datetime.now(timezone.utc).isoformat())
+    cutoff = (now - timedelta(days=10)).strftime("%Y-%m-%d")
+    for old in DONE_DIR.iterdir():                        # keep the folder small
+        if old.name[:10] < cutoff:
+            old.unlink()
+
+
 def main() -> None:
     global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT, ENTITY_TEXT, BELIEFS_TEXT
     edition = os.getenv("EDITION", "morning").strip() or "morning"
@@ -1075,6 +1090,7 @@ def main() -> None:
     if edition == "weekly":
         if not memory:
             print("No briefs from this week yet. Exiting.")
+            mark_done(now, edition)
             return
         user = (f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\n"
                 f"STORY_MEMORY:\n{ledger}\n\nTREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}\n\n"
@@ -1105,6 +1121,7 @@ def main() -> None:
               f"{len(history)} history events; memory {len(memory):,} chars")
         if not items:
             print("Nothing new. Exiting.")
+            mark_done(now, edition)
             return
         brief = None if no_llm else write_brief(system, items, history, date_str,
                                                 markets_plain, memory, ledger, system_core)
@@ -1187,6 +1204,7 @@ def main() -> None:
         return
 
     send_email(subject, final, audio_files)
+    mark_done(now, edition)            # email is out: backup slots must not resend it
     send_telegram(final, audio_files[0] if audio_files else None)
 
     # Telugu edition for parents (only if PARENTS_EMAIL / PARENTS_WHATSAPP is set).

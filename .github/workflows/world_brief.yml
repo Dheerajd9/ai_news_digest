@@ -1,30 +1,38 @@
 name: World Brief + Podcast
 
-# India-first news brief + two-host audio podcast, emailed to TO_EMAIL. 100% free:
+# India-first news brief + podcasts, fully automatic. 100% free:
 # Gemini free tier, GitHub Models backup (built-in token), edge-tts voices, Gmail SMTP.
 #
-# GitHub cron is UTC. Times below are Dallas summer time (CDT); in winter (CST)
-# everything arrives one hour earlier. GitHub may start runs a few minutes late.
+# Self-healing schedule: GitHub sometimes delays or DROPS scheduled runs, so each
+# edition has several backup slots. Every run decides what is due from Dallas local time
+# (summer or winter, no manual DST changes) and from the "done" markers in
+# world_brief/state/done/. The first slot that runs sends the edition; later slots see
+# the marker and stop in seconds. A failed run is retried by the next slot automatically.
+#
+#   Morning brief      due 7:30 AM - 12:59 PM Dallas  (normally sent ~7:37 AM)
+#   Sunday weekly      due 9:00 AM -  2:59 PM Dallas  (normally sent ~9:37 AM)
+#   Evening update     due 6:00 PM - 10:59 PM Dallas  (normally sent ~6:07 PM)
 
 on:
   schedule:
-    - cron: "37 12 * * *"   # morning  7:37 AM CDT  (India ~6 PM: India's day is done)
-    - cron: "7 23 * * *"    # evening  6:07 PM CDT  (US day + markets closed)
-    - cron: "7 14 * * 0"    # weekly   Sunday 9:07 AM CDT deep dive
+    - cron: "37 12-17 * * *"   # morning (+ Sunday weekly) slots: CDT 7:37-12:37 / CST 6:37-11:37
+    - cron: "37 18,19 * * 0"   # extra Sunday slots for the weekly report
+    - cron: "7 23 * * *"       # evening: CDT 6:07 PM
+    - cron: "7 0-2 * * *"      # evening backups: CDT 7-9 PM / CST 6-8 PM
   workflow_dispatch:
     inputs:
       edition:
-        description: "Which edition to send now"
+        description: "Send this edition now (normally not needed: everything is automatic)"
         type: choice
-        options: [morning, evening, weekly]
-        default: morning
-  push:                      # code changes: quick test run, no AI, no email
+        options: [auto, morning, evening, weekly]
+        default: auto
+  push:                        # code changes: quick test run, no AI, no email
     branches: [main]
     paths: ["world_brief/**", ".github/workflows/world_brief.yml"]
 
 permissions:
-  contents: write            # save world_brief/state + briefs archive (story memory)
-  models: read               # GitHub Models free backup brain
+  contents: write              # save world_brief/state + briefs archive (story memory)
+  models: read                 # GitHub Models free backup brain
 
 concurrency:
   group: world-brief
@@ -40,34 +48,50 @@ jobs:
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
+      - name: Pick edition (what is due right now?)
+        id: ed
+        env:                   # passed as env, never pasted into the script (injection-safe)
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_EDITION: ${{ inputs.edition }}
+        run: |
+          D=$(TZ=America/Chicago date +%F)
+          H=$((10#$(TZ=America/Chicago date +%H)))
+          DOW=$(TZ=America/Chicago date +%u)          # 7 = Sunday
+          is_done() { [ -e "state/done/$D-$1" ]; }
+          due() {
+            if [ "$H" -ge 7 ] && [ "$H" -le 12 ] && ! is_done morning; then echo morning
+            elif [ "$DOW" = 7 ] && [ "$H" -ge 9 ] && [ "$H" -le 14 ] && ! is_done weekly; then echo weekly
+            elif [ "$H" -ge 18 ] && [ "$H" -le 22 ] && ! is_done evening; then echo evening
+            else echo skip
+            fi
+          }
+          case "$EVENT_NAME" in
+            push) ED=test ;;
+            workflow_dispatch)
+              case "$INPUT_EDITION" in
+                morning|evening|weekly) ED="$INPUT_EDITION" ;;
+                *) ED=$(due); [ "$ED" = skip ] && ED=morning ;;
+              esac ;;
+            *) ED=$(due) ;;
+          esac
+          echo "edition=$ED" >> "$GITHUB_OUTPUT"
+          echo "Dallas time: $D ${H}h (day $DOW) -> edition: $ED"
+
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        if: steps.ed.outputs.edition != 'skip'
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: world_brief/requirements.txt
 
       - name: Install
+        if: steps.ed.outputs.edition != 'skip'
         run: |
           pip install -r requirements.txt
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
 
-      - name: Pick edition
-        id: ed
-        env:                       # passed as env, never pasted into the script (injection-safe)
-          SCHEDULE: ${{ github.event.schedule }}
-          INPUT_EDITION: ${{ inputs.edition }}
-        run: |
-          case "$SCHEDULE" in
-            "7 23 * * *") ED=evening ;;
-            "7 14 * * 0") ED=weekly ;;
-            "") ED="$INPUT_EDITION" ;;
-            *) ED=morning ;;
-          esac
-          case "$ED" in morning|evening|weekly) ;; *) ED=morning ;; esac
-          echo "edition=$ED" >> "$GITHUB_OUTPUT"
-          echo "Edition: $ED"
-
       - name: Build brief + podcast and send
+        if: steps.ed.outputs.edition != 'skip'
         env:
           EDITION: ${{ steps.ed.outputs.edition }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -81,10 +105,9 @@ jobs:
           PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
           PARENTS_EMAIL: ${{ secrets.PARENTS_EMAIL }}
           PARENTS_WHATSAPP: ${{ secrets.PARENTS_WHATSAPP }}
-          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "$EVENT_NAME" = "push" ]; then
-            DRY_RUN=1 NO_LLM=1 python digest.py | tail -60
+          if [ "$EDITION" = "test" ]; then
+            EDITION=morning DRY_RUN=1 NO_LLM=1 python digest.py | tail -60
             python -c "import markets; b, p = markets.numbers_box(); print(b or 'numbers box: no data'); print(p)"
             DRY_RUN=1 NO_LLM=1 python alerts.py
           else
@@ -94,9 +117,9 @@ jobs:
             python digest.py 2>&1 | tee "logs/latest-$EDITION.log"
           fi
 
-      # MP3 also kept as a downloadable run artifact for 14 days (not committed).
+      # MP3s also kept as downloadable run artifacts for 14 days (not committed).
       - uses: actions/upload-artifact@v4
-        if: github.event_name != 'push'
+        if: steps.ed.outputs.edition != 'skip' && steps.ed.outputs.edition != 'test'
         with:
           name: world-brief-${{ steps.ed.outputs.edition }}-podcast
           path: world_brief/out/*.mp3
@@ -104,13 +127,14 @@ jobs:
           if-no-files-found: ignore
 
       - name: Save state and archive
-        if: github.event_name != 'push'
+        if: always() && steps.ed.outputs.edition != 'skip' && steps.ed.outputs.edition != 'test'
         env:
           EDITION: ${{ steps.ed.outputs.edition }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          for f in state/seen.json state/stories.json state/source_quality.json state/trends.json state/entities.json state/beliefs.json state/scorecard.json briefs logs; do
+          for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
+                   state/entities.json state/beliefs.json state/scorecard.json state/done briefs logs; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
@@ -118,3 +142,14 @@ jobs:
             git pull --rebase --quiet
             git push
           fi
+
+      # If anything broke, email a short alert (the next slot also retries automatically).
+      - name: Tell me if this run failed
+        if: failure() && steps.ed.outputs.edition != 'test'
+        env:
+          EDITION: ${{ steps.ed.outputs.edition }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+        run: python3 notify_failure.py
