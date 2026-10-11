@@ -264,7 +264,8 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                  report_type: str = "MORNING", previous_script: str = "") -> Path | None:
     profile = PROFILES[lang]
     system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
-              .replace("{LENGTH}", length).replace("{SHOW}", show))
+              .replace("{LENGTH}", length).replace("{SHOW}", show)
+              + (ROOT / "prompts" / "intelligence_layer_short.md").read_text())
     user = f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n\nBRIEF:\n{clean_brief_for_script(brief_md)}"
     if previous_script:
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"

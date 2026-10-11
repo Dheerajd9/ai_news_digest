@@ -56,6 +56,7 @@ import yaml
 
 ROOT = Path(__file__).parent
 STATE_FILE = ROOT / "state" / "seen.json"
+STORIES_FILE = ROOT / "state" / "stories.json"   # story ledger: memory across days
 ARCHIVE_DIR = ROOT / "briefs"
 PODCAST_ARCHIVE = ARCHIVE_DIR / "podcasts"   # subfolder: not part of the brief memory
 TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/Chicago"))
@@ -233,8 +234,12 @@ def cap_per_category(items: list[dict]) -> list[dict]:
     for it in items:
         by_cat.setdefault(it["category"], []).append(it)
     capped = []
+    tier_bonus = {"official": 3, "major": 1, "other": 0}
     for cat, cat_items in by_cat.items():
         limit = CATEGORY_CAPS.get(cat, MAX_PER_CATEGORY)
+        # Simple Python scoring first (cheap): trusted and widely covered stories go first.
+        cat_items.sort(key=lambda i: (tier_bonus[source_tier(i["source"])] + 2 * i.get("coverage", 1)),
+                       reverse=True)
         # Round-robin across sources so one outlet cannot fill a category.
         by_src: dict[str, list[dict]] = {}
         for it in cat_items:
@@ -266,6 +271,65 @@ def on_this_day(today: datetime) -> list[dict]:
     except Exception as exc:
         print(f"  ! on-this-day failed ({redact(str(exc))})", file=sys.stderr)
         return []
+
+
+# ---------------------------------------------------------------- story ledger
+def load_stories(today: str) -> dict[str, dict]:
+    """Tracked stories. Resolved/archived ones fade out after 3 days, anything unseen for 14."""
+    try:
+        stories = json.loads(STORIES_FILE.read_text())
+    except Exception:
+        return {}
+    keep = {}
+    for sid, st in stories.items():
+        age = (datetime.fromisoformat(today) - datetime.fromisoformat(st.get("last_seen", today))).days
+        if age > 14 or (st.get("status") in ("RESOLVED", "ARCHIVED") and age > 3):
+            continue
+        keep[sid] = st
+    return keep
+
+
+def story_memory(stories: dict[str, dict], limit: int = 40) -> str:
+    active = sorted(stories.items(), key=lambda kv: kv[1].get("last_seen", ""), reverse=True)[:limit]
+    return json.dumps([{"id": sid, **{k: st.get(k) for k in
+                       ("title", "status", "first_seen", "last_seen", "known")},
+                        "expectations": st.get("expectations", [])[-3:]}
+                       for sid, st in active], ensure_ascii=False)
+
+
+def extract_stories(md: str) -> tuple[str, list[dict]]:
+    m = re.search(r"<!--\s*STORIES(.*?)-->", md, re.S)
+    if not m:
+        return md, []
+    md = md[:m.start()].rstrip() + "\n" + md[m.end():].lstrip()
+    raw = m.group(1).strip()
+    j = re.search(r"\[.*\]", raw, re.S)
+    try:
+        data = json.loads(j.group(0)) if j else []
+        return md, [d for d in data if isinstance(d, dict)]
+    except json.JSONDecodeError:
+        print("  ! story ledger block was not valid JSON; skipped")
+        return md, []
+
+
+def update_stories(stories: dict[str, dict], new: list[dict], today: str) -> dict[str, dict]:
+    statuses = {"NEW", "DEVELOPING", "MAJOR CHANGE", "RESOLVED", "ARCHIVED"}
+    for d in new[:60]:
+        sid = re.sub(r"[^a-z0-9-]", "", str(d.get("id", "")).lower().replace(" ", "-"))[:60]
+        if len(sid) < 3:
+            continue
+        st = stories.setdefault(sid, {"first_seen": today, "expectations": []})
+        st["title"] = str(d.get("title", st.get("title", "")))[:150]
+        status = str(d.get("status", "")).upper()
+        st["status"] = status if status in statuses else st.get("status", "DEVELOPING")
+        if d.get("known"):
+            st["known"] = str(d["known"])[:300]
+        st["last_seen"] = today
+        exp = str(d.get("expectation") or "").strip()
+        if exp and all(e["text"] != exp for e in st.get("expectations", [])):
+            st.setdefault("expectations", []).append({"date": today, "text": exp[:250]})
+            st["expectations"] = st["expectations"][-5:]
+    return stories
 
 
 # ---------------------------------------------------------------- LLM
@@ -317,7 +381,7 @@ def previous_briefs(days: int, max_chars: int, keep_links: bool = False) -> str:
 
 
 def build_user(items: list[dict], history: list[dict], date_str: str,
-               markets: str, memory: str, compact: bool = False) -> str:
+               markets: str, memory: str, compact: bool = False, ledger: str = "") -> str:
     if compact:
         # GitHub Models' free tier caps input near 8k tokens: titles only, India first,
         # most-covered first, and only the latest previous brief.
@@ -331,7 +395,7 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
             per_cat[it["category"]] = per_cat.get(it["category"], 0) + 1
             payload.append({**{k: it[k] for k in ("id", "category", "source", "coverage", "title")},
                             "tier": source_tier(it["source"])})
-        history, memory = history[:5], memory[-1500:]
+        history, memory, ledger = history[:5], memory[-1500:], ledger[:1500]
     else:
         payload = [{**{k: it[k] for k in ("id", "category", "source", "coverage", "title",
                                            "summary", "published")},
@@ -341,15 +405,17 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
     return (f"DATE: {date_str}\n\nMARKETS: {markets or '(none)'}\n\n"
             f"NEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}\n\n"
             f"ON_THIS_DAY:\n{json.dumps(history, ensure_ascii=False)}\n\n"
-            f"PREVIOUS_BRIEFS:\n{memory or '(none)'}")
+            f"PREVIOUS_BRIEFS:\n{memory or '(none)'}\n\n"
+            f"STORY_MEMORY:\n{ledger or '[]'}")
 
 
-def write_brief(system: str, items, history, date_str, markets, memory) -> str | None:
-    full = build_user(items, history, date_str, markets, memory)
+def write_brief(system: str, items, history, date_str, markets, memory,
+                ledger: str = "") -> str | None:
+    full = build_user(items, history, date_str, markets, memory, ledger=ledger)
     print(f"  brief prompt ~{est_tokens(system, full):,} tokens")
     return (call_gemini(system, full)
             or call_github_models(system, build_user(items, history, date_str, markets,
-                                                     memory, compact=True)))
+                                                     memory, compact=True, ledger=ledger)))
 
 
 def fact_check(draft: str, items: list[dict]) -> str:
@@ -700,7 +766,11 @@ def main() -> None:
                              keep_links=(edition == "weekly"))
     system = ((ROOT / "prompts" / cfg["prompt"]).read_text()
               .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
-              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
+              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"])
+              + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text())
+    today_iso = now.strftime("%Y-%m-%d")
+    stories = load_stories(today_iso)
+    ledger = story_memory(stories)
 
     items: list[dict] = []
     meta: dict = {}
@@ -709,12 +779,14 @@ def main() -> None:
         if not memory:
             print("No briefs from this week yet. Exiting.")
             return
-        user = f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\nPREVIOUS_BRIEFS:\n{memory}"
+        user = (f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\n"
+                f"STORY_MEMORY:\n{ledger}\n\nPREVIOUS_BRIEFS:\n{memory}")
         brief = None if no_llm else call_gemini(system, user)
         if not brief:
             print("Weekly needs the AI and it was unavailable. Exiting.")
             return
         brief, meta = extract_meta(brief)
+        brief, new_stories = extract_stories(brief)
     else:
         LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", cfg["lookback"]))
         feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
@@ -728,9 +800,11 @@ def main() -> None:
             print("Nothing new. Exiting.")
             return
         brief = None if no_llm else write_brief(system, items, history, date_str,
-                                                markets_plain, memory)
+                                                markets_plain, memory, ledger)
+        new_stories: list[dict] = []
         if brief:
             brief, meta = extract_meta(brief)
+            brief, new_stories = extract_stories(brief)
             if cfg["fact_check"]:
                 brief = fact_check(brief, items)
         brief = brief or fallback_brief(items, date_str)
@@ -823,6 +897,11 @@ def main() -> None:
         if script.exists():
             (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
                 script.read_text())
+    if new_stories:
+        STORIES_FILE.parent.mkdir(exist_ok=True)
+        STORIES_FILE.write_text(json.dumps(update_stories(stories, new_stories, today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  story ledger: {len(new_stories)} stories updated")
     if items:
         stamp = datetime.now(timezone.utc).isoformat()
         for it in items:
