@@ -589,6 +589,27 @@ def portfolio_morning(dry_run):
 # ------------------------------------------------------------------- main --
 
 TARGET_HOURS = {7: "Morning", 18: "Evening"}  # local Texas time
+# Self-healing schedule: several backup cron slots per edition. Each scheduled run sends an
+# edition only if it is due (local time window) and not already sent today (DONE_FILE).
+WINDOWS = {"Morning": range(7, 12), "Evening": range(18, 22)}
+DONE_FILE = "digest_done.json"
+
+
+def load_done():
+    try:
+        with open(DONE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def due_edition():
+    local = datetime.now(LOCAL_TZ)
+    done = load_done()
+    for edition, hours in WINDOWS.items():
+        if local.hour in hours and done.get(edition) != f"{local:%Y-%m-%d}":
+            return edition
+    return None
 
 
 def scheduled_local_time():
@@ -608,13 +629,12 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="write preview.html instead of emailing")
     args = parser.parse_args()
 
-    planned = scheduled_local_time()
-    if planned is not None:
-        if planned.hour not in TARGET_HOURS:
-            # Two cron slots exist per edition (summer/winter UTC offset); only one matches today.
-            print(f"[info] Slot is {planned:%H:%M %Z}, not a digest time today. Skipping.", file=sys.stderr)
+    if os.getenv("GITHUB_EVENT_NAME") == "schedule":
+        edition = due_edition()
+        if edition is None:
+            print(f"[info] {datetime.now(LOCAL_TZ):%H:%M %Z}: nothing due (or already sent). Skipping.",
+                  file=sys.stderr)
             return
-        edition = TARGET_HOURS[planned.hour]
     else:
         edition = "Morning" if datetime.now(LOCAL_TZ).hour < 15 else "Evening"
     sent = load_state()
@@ -637,6 +657,10 @@ def main():
         print("[info] Dry run: wrote preview.html", file=sys.stderr)
     else:
         send_email(subject, html_body, text_body)
+        done = load_done()
+        done[edition] = f"{datetime.now(LOCAL_TZ):%Y-%m-%d}"
+        with open(DONE_FILE, "w", encoding="utf-8") as f:
+            json.dump(done, f)
         save_state(sent, stories, items)
 
 

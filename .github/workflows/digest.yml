@@ -2,14 +2,12 @@ name: AI News Digest
 
 on:
   schedule:
-    # GitHub cron is UTC only. Each edition has two slots: one matches 7 AM / 6 PM
-    # Texas time in summer (CDT, UTC-5) and the other in winter (CST, UTC-6).
-    # digest.py checks which slot matches today and quietly skips the other one,
-    # so emails arrive at ~7:07 AM and ~6:07 PM all year (GitHub may start a few minutes late).
-    - cron: "7 12 * * *"   # 7:07 AM CDT
-    - cron: "7 13 * * *"   # 7:07 AM CST
-    - cron: "7 23 * * *"   # 6:07 PM CDT
-    - cron: "7 0 * * *"    # 6:07 PM CST
+    # GitHub cron is UTC and sometimes drops runs, so each edition has backup slots.
+    # digest.py sends an edition only if it is due in Texas local time (morning 7-11,
+    # evening 6-9 PM) and not already sent today (digest_done.json); other slots skip.
+    - cron: "7 12-15 * * *"   # morning slots: CDT 7:07-10:07 / CST 6:07-9:07 (backups)
+    - cron: "7 23 * * *"      # evening: CDT 6:07 PM
+    - cron: "7 0-2 * * *"     # evening backups: CDT 7-9 PM / CST 6-8 PM
   workflow_dispatch:        # lets you click "Run workflow" to test anytime
   push:                     # code changes trigger a test run that does NOT send email
     branches: [main]
@@ -54,10 +52,10 @@ jobs:
       - name: Remember sent stories
         if: github.event_name != 'push'
         run: |
-          if [ -n "$(git status --porcelain sent.json alerts.json 2>/dev/null)" ]; then
+          if [ -n "$(git status --porcelain sent.json alerts.json digest_done.json 2>/dev/null)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-            for f in sent.json alerts.json; do [ -f "$f" ] && git add "$f"; done
+            for f in sent.json alerts.json digest_done.json; do [ -f "$f" ] && git add "$f"; done
             git commit -m "Update sent stories and alert state"
             git pull --rebase --quiet
             git push
