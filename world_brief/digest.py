@@ -755,7 +755,7 @@ def call_gemini(system: str, user: str) -> str | None:
                     headers={"x-goog-api-key": key},
                     json={"system_instruction": {"parts": [{"text": system}]},
                           "contents": [{"role": "user", "parts": [{"text": user}]}],
-                          "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}},
+                          "generationConfig": {"temperature": 0.4, "maxOutputTokens": 16384}},
                     timeout=180)
                 if r.status_code == 429:          # free-tier limit
                     if "PerDay" in r.text or "per day" in r.text.lower():
@@ -779,31 +779,35 @@ def call_gemini(system: str, user: str) -> str | None:
     return None
 
 
+GH_ENDPOINTS = ["https://models.github.ai/inference/chat/completions",
+                "https://models.inference.ai.azure.com/chat/completions"]
+
+
 def call_github_models(system: str, user: str) -> str | None:
     token = os.getenv("GITHUB_TOKEN", "").strip()
     if not token:
         return None
-    for model in ("openai/gpt-4.1-mini", "openai/gpt-4o-mini"):
-        try:
-            r = requests.post(
-                "https://models.github.ai/inference/chat/completions",
-                headers={"Authorization": f"Bearer {token}",
-                         "Accept": "application/vnd.github+json"},
-                json={"model": model, "temperature": 0.4, "max_tokens": 4000,
-                      "messages": [{"role": "system", "content": system},
-                                   {"role": "user", "content": user}]},
-                timeout=180)
-            if r.status_code >= 400:
-                print(f"  ! GitHub Models {model} HTTP {r.status_code}: {r.text[:150]}",
-                      file=sys.stderr)
-                continue
-            LLM_CALLS["github"] += 1
-            text = r.json()["choices"][0]["message"]["content"]
-            if text and text.strip():
-                print(f"  written by GitHub Models {model}")
-                return text
-        except Exception as exc:
-            print(f"  ! GitHub Models {model}: {redact(str(exc))}", file=sys.stderr)
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json",
+               "Accept": "application/json", "X-GitHub-Api-Version": "2022-11-28"}
+    for url in GH_ENDPOINTS:
+        for model in ("openai/gpt-4.1-mini", "openai/gpt-4o-mini", "gpt-4o-mini"):
+            try:
+                r = requests.post(url, headers=headers, timeout=180,
+                                  json={"model": model, "temperature": 0.4, "max_tokens": 4000,
+                                        "messages": [{"role": "system", "content": system},
+                                                     {"role": "user", "content": user}]})
+                if r.status_code >= 400 or "json" not in r.headers.get("content-type", ""):
+                    print(f"  ! GitHub Models {url.split('/')[2]} {model}: HTTP {r.status_code} "
+                          f"{r.headers.get('content-type', '')} {redact(r.text[:120])!r}",
+                          file=sys.stderr)
+                    continue
+                LLM_CALLS["github"] += 1
+                text = r.json()["choices"][0]["message"]["content"]
+                if text and text.strip():
+                    print(f"  written by GitHub Models {model}")
+                    return text
+            except Exception as exc:
+                print(f"  ! GitHub Models {model}: {redact(str(exc))[:150]}", file=sys.stderr)
     return None
 
 
@@ -1064,7 +1068,13 @@ def main() -> None:
               + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "human_intelligence_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "decision_layer.md").read_text())
+              + "\n\n" + (ROOT / "prompts" / "decision_layer.md").read_text()
+              + "\n\n## FINAL OUTPUT REMINDER (most important)\n"
+                "Write the brief exactly in the OUTPUT FORMAT given at the top. Keep "
+                "{{LISTEN}} and {{MARKET_SNAPSHOT}} exactly once each. Your answer MUST end with "
+                "the <!--META ... --> block and then the <!--STORIES [...] --> JSON block"
+              + (" and then the <!--BELIEFS [...] --> JSON block" if edition == "weekly" else "")
+              + ". These hidden blocks keep the system's memory; never skip them.")
     SOURCE_QUALITY = load_source_quality()
     today_iso = now.strftime("%Y-%m-%d")
     try:

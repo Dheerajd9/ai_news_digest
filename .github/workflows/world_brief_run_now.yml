@@ -58,11 +58,17 @@ jobs:
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           D=$(TZ=America/Chicago date +%F)
           mkdir -p logs
-          for ED in morning weekly evening; do
+          # Last line of run_request.txt may say e.g. "run: morning force" (default: all three).
+          REQ=$(tail -n 1 run_request.txt | tr 'A-Z' 'a-z')
+          EDS=$(echo "$REQ" | grep -oE '\b(morning|weekly|evening)\b' | tr '\n' ' ')
+          [ -z "$EDS" ] && EDS="morning weekly evening"
+          FORCE=$(echo "$REQ" | grep -qw force && echo 1 || echo 0)
+          echo "Requested: $EDS (force=$FORCE)"
+          for ED in $EDS; do
             if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
               echo "== weekly: not Sunday, running anyway as a test =="
             fi
-            if [ "$ED" != evening ] && [ -e "state/done/$D-$ED" ]; then
+            if [ "$FORCE" = 0 ] && [ "$ED" != evening ] && [ -e "state/done/$D-$ED" ]; then
               echo "== $ED already sent today, skipping =="; continue
             fi
             echo "================ $ED ================"

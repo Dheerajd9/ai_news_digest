@@ -38,8 +38,11 @@ PROFILES = {
                  "PRIYA": os.getenv("PODCAST_VOICE_B", "en-IN-NeerjaExpressiveNeural")},
         "edge_fallback": {"PRIYA": "en-IN-NeerjaNeural"},
         "edge_rate": os.getenv("PODCAST_RATE", "+4%"),
-        "gemini": {"KARTIK": os.getenv("GEMINI_VOICE_A", "Charon"),
-                   "PRIYA": os.getenv("GEMINI_VOICE_B", "Sulafat")},
+        "gemini": {"KARTIK": "Charon", "PRIYA": "Sulafat"},
+        "gemini_pinned": {"KARTIK": os.getenv("GEMINI_VOICE_A", ""),
+                          "PRIYA": os.getenv("GEMINI_VOICE_B", "")},
+        "lang_code": "en-IN",
+        "turn_style": "Warm, friendly, natural conversation, relaxed pace",
         "style": ("Read this aloud as a lively, friendly Indian English news discussion show. "
                   "Kartik and Priya are two Indian friends from Hyderabad hosting the show. Both "
                   "speak with a natural Indian English accent, warm and expressive, at a relaxed "
@@ -53,8 +56,11 @@ PROFILES = {
                  "LAKSHMI": os.getenv("TELUGU_VOICE_B", "te-IN-ShrutiNeural")},
         "edge_fallback": {},
         "edge_rate": os.getenv("TELUGU_RATE", "-4%"),     # a little slower for elders
-        "gemini": {"RAVI": os.getenv("GEMINI_TELUGU_VOICE_A", "Charon"),
-                   "LAKSHMI": os.getenv("GEMINI_TELUGU_VOICE_B", "Sulafat")},
+        "gemini": {"RAVI": "Charon", "LAKSHMI": "Sulafat"},
+        "gemini_pinned": {"RAVI": os.getenv("GEMINI_TELUGU_VOICE_A", ""),
+                          "LAKSHMI": os.getenv("GEMINI_TELUGU_VOICE_B", "")},
+        "lang_code": "te-IN",
+        "turn_style": "Natural spoken Telugu as people talk in Hyderabad, warm and clear, calm conversational pace",
         "style": ("Read this aloud in natural, warm spoken Telugu, like a friendly Telugu news "
                   "discussion on a Hyderabad TV channel. Ravi and Lakshmi are two Telugu news hosts "
                   "from Hyderabad. Speak clearly at a calm, unhurried pace with "
@@ -171,17 +177,61 @@ def chunk_turns(turns: list[tuple[str, str]]) -> list[list[tuple[str, str]]]:
     return chunks
 
 
+def discover_voices(key: str, language: str) -> list[dict]:
+    """Voices Google offers for a language (Extended Voice Library). Logged so the best ones
+    can be pinned with GEMINI_TELUGU_VOICE_A / _B. Empty list if the endpoint isn't available."""
+    try:
+        r = requests.get(f"{GEMINI_API}/voices", headers={"x-goog-api-key": key},
+                         params={"language_code": language, "page_size": 50}, timeout=20)
+        if r.status_code >= 400:
+            return []
+        voices = r.json().get("voices", [])
+        print(f"  voice library for {language}: " + "; ".join(
+            f"{v.get('name', '?')} ({v.get('gender', '?')}, {v.get('accent', '') or v.get('regionCode', '')}, "
+            f"{v.get('type', '')})" for v in voices[:20]))
+        return voices
+    except Exception:
+        return []
+
+
+def voice_sets(key: str, profile: dict) -> list[dict]:
+    """Voice pairs to try, best first: pinned env voices, library voices for the language,
+    then the default prebuilt pair."""
+    a, b = profile["hosts"]
+    sets = [profile["gemini"]]
+    if profile.get("lang_code"):
+        lib = discover_voices(key, profile["lang_code"])
+        name = lambda v: v.get("voiceName") or v.get("name", "").split("/")[-1]
+        male = [v for v in lib if str(v.get("gender", "")).upper().startswith("M")]
+        female = [v for v in lib if str(v.get("gender", "")).upper().startswith("F")]
+        if male and female:
+            sets.insert(0, {a: name(male[0]), b: name(female[0])})
+    pinned = profile.get("gemini_pinned") or {}
+    if all(pinned.get(h) for h in (a, b)):
+        sets.insert(0, pinned)
+    out = []
+    for vs in sets:
+        if vs not in out:
+            out.append(vs)
+    return out
+
+
 def gemini_speak_chunk(turns, key: str, model: str, out_mp3: Path, work: Path,
-                       profile: dict) -> None:
-    text = profile["style"] + "\n\n" + "\n".join(f"{s.title()}: {t}" for s, t in turns)
-    body = {"contents": [{"parts": [{"text": text}]}],
+                       profile: dict, voices: dict) -> None:
+    """One request = one chunk of the dialogue; each turn is its own part with
+    speech_metadata.speaker (current Gemini TTS multi-speaker format)."""
+    parts = [{"text": t, "speech_metadata": {"speaker": s.title(),
+                                             **({"style": profile["turn_style"]}
+                                                if profile.get("turn_style") else {})}}
+             for s, t in turns]
+    body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {
                 "multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
                     {"speaker": sp.title(), "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": v}}}
-                    for sp, v in profile["gemini"].items()]}}}}
+                    for sp, v in voices.items()]}}}}
     for attempt in range(2):
         r = requests.post(f"{GEMINI_API}/models/{model}:generateContent",
-                          headers={"x-goog-api-key": key}, json=body, timeout=180)
+                          headers={"x-goog-api-key": key}, json=body, timeout=240)
         if r.status_code == 429 and ("PerDay" in r.text or "per day" in r.text.lower()):
             raise QuotaExhausted("Gemini TTS daily free quota used up")
         if r.status_code == 429 or r.status_code >= 500:
@@ -190,16 +240,28 @@ def gemini_speak_chunk(turns, key: str, model: str, out_mp3: Path, work: Path,
                 continue
             raise RuntimeError(f"Gemini TTS busy (HTTP {r.status_code})")
         if r.status_code >= 400:
-            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
-        part = r.json()["candidates"][0]["content"]["parts"][0]["inlineData"]
-        rate = re.search(r"rate=(\d+)", part.get("mimeType", "")) 
-        pcm = work / (out_mp3.stem + ".pcm")
-        pcm.write_bytes(base64.b64decode(part["data"]))
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "s16le",
-                        "-ar", rate.group(1) if rate else "24000", "-ac", "1", "-i", str(pcm),
-                        "-b:a", "64k", str(out_mp3)], check=True)
+            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:300]}")
+        audio = [p["inlineData"] for p in r.json()["candidates"][0]["content"]["parts"]
+                 if "inlineData" in p]
+        if not audio:
+            raise RuntimeError("no audio in response")
+        mime = audio[0].get("mimeType", "")
+        raw = b"".join(base64.b64decode(p["data"]) for p in audio)
+        if "wav" in mime.lower() or raw[:4] == b"RIFF":
+            src = work / (out_mp3.stem + ".wav")
+            src.write_bytes(raw)
+            cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src)]
+        else:                                           # raw 16-bit PCM
+            rate = re.search(r"rate=(\d+)", mime)
+            src = work / (out_mp3.stem + ".pcm")
+            src.write_bytes(raw)
+            cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "s16le",
+                   "-ar", rate.group(1) if rate else "24000", "-ac", "1", "-i", str(src)]
+        subprocess.run(cmd + ["-ac", "1", "-ar", "24000", "-b:a", "64k", str(out_mp3)], check=True)
         words = sum(len(t.split()) for _, t in turns)
-        secs = pcm.stat().st_size / (2 * int(rate.group(1) if rate else 24000))
+        secs = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                     "-of", "csv=p=0", str(out_mp3)],
+                                    capture_output=True, text=True).stdout.strip() or 0)
         if secs < words / 4.5:          # far too short = cut-off audio
             raise RuntimeError(f"audio too short ({secs:.0f}s for {words} words)")
         return
@@ -212,27 +274,32 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
     if not key or tts_pref == "edge" or _GEMINI_TTS_OFF or not shutil.which("ffmpeg"):
         return None
     start = time.time()
+    candidates = voice_sets(key, profile)
     for model in gemini_tts_models(key)[:2]:
-        try:
-            parts = []
-            for n, chunk in enumerate(chunk_turns(turns)):
-                if time.time() - start > TTS_BUDGET_SEC:
-                    raise RuntimeError("Gemini TTS too slow today; switching to backup voices")
-                p = work / f"g{n:02d}.mp3"
-                gemini_speak_chunk(chunk, key, model, p, work, profile)
-                parts.append(p)
-            print(f"  voices: Gemini {model} ({len(parts)} part(s))")
-            return parts
-        except QuotaExhausted as exc:
-            print(f"  ! {exc}; using backup voices")
-            _GEMINI_TTS_OFF = True
-            return None
-        except Exception as exc:
-            print(f"  ! Gemini TTS {model} failed: {_redact(str(exc))[:200]}")
+        for voices in candidates:
+            try:
+                parts = []
+                for n, chunk in enumerate(chunk_turns(turns)):
+                    if time.time() - start > TTS_BUDGET_SEC:
+                        raise RuntimeError("Gemini TTS too slow today; switching to backup voices")
+                    p = work / f"g{n:02d}.mp3"
+                    gemini_speak_chunk(chunk, key, model, p, work, profile, voices)
+                    parts.append(p)
+                print(f"  voices: Gemini {model} {voices} ({len(parts)} part(s))")
+                return parts
+            except QuotaExhausted as exc:
+                print(f"  ! {exc}; using backup voices")
+                _GEMINI_TTS_OFF = True
+                return None
+            except Exception as exc:
+                print(f"  ! Gemini TTS {model} {voices} failed: {_redact(str(exc))[:300]}")
+                if "too slow" in str(exc):
+                    return None
     return None
 
 
-def review_script(script: str, llm, length: str, hosts: tuple[str, str]) -> str:
+def review_script(script: str, llm, length: str, hosts: tuple[str, str],
+                  min_ratio: float = 0.5) -> str:
     """Quality gate: an editor pass that rewrites a weak draft before it reaches the voices.
     Keeps the draft if the rewrite looks broken."""
     system = (ROOT / "prompts" / "podcast_review_prompt.md").read_text().replace("{LENGTH}", length)
@@ -242,7 +309,7 @@ def review_script(script: str, llm, length: str, hosts: tuple[str, str]) -> str:
         return script
     before, after = parse_script(script, hosts), parse_script(revised or "", hosts)
     words = lambda turns: sum(len(t.split()) for _, t in turns)
-    if len(after) >= 6 and words(after) >= 0.5 * words(before):
+    if len(after) >= 6 and words(after) >= min_ratio * words(before):
         print(f"  script reviewed: {words(before)} -> {words(after)} words")
         return revised
     print("  ! script review unusable; keeping the first draft")
@@ -271,7 +338,8 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
     script = llm(system, user)
     if script and os.getenv("PODCAST_REVIEW", "1") == "1":
-        script = review_script(script, llm, length, profile["hosts"])
+        script = review_script(script, llm, length, profile["hosts"],
+                               min_ratio=0.85 if lang == "te" else 0.5)
     turns = parse_script(script or "", profile["hosts"])
     if len(turns) < 6:
         print(f"  ! {lang} podcast script too short or missing; skipping audio")

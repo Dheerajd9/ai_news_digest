@@ -58,7 +58,7 @@ When it fits, use ONE big story to teach one useful concept in 15-30 seconds ins
 - Safety for elders: if the letter has a 🔐 Be careful point (scam calls, UPI/bank fraud, "digital arrest", AI voice-clone calls), Lakshmi explains it simply and clearly what to do; this deserves airtime because it protects them. Never create fear.
 - Corrections and status: say clearly if something is only a proposal or not yet confirmed, and if yesterday's news was corrected, say it in one simple line.
 - The three-things question in Telugu, for example: "లక్ష్మి గారూ, ఈ రోజు గుర్తుపెట్టుకోవాల్సిన మూడు ముచ్చట్లు ఏంది?"
-- Choose about 3-6 important conversations; three excellent stories beat six weak ones.
+- Cover all the important stories in the letter (usually 6-10), with real explanation for each: what happened, why, what it means for a family in Telangana or a son working in America. Biggest stories first and longest. Never pad, but do not stop early.
 
 ## SHOW FLOW BY REPORT TYPE
 - MORNING: opening → biggest story → naturally connected story → next most important India/USA/India-USA development → immigration/trade/tech/jobs/geopolitics by importance → optional lower-priority story → what to watch → three things to remember → one thing to watch next → natural ending.

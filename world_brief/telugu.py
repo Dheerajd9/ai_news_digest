@@ -102,7 +102,8 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
             from podcast import latest_previous_script
             mp3 = make_podcast(letter.replace("{{LISTEN}}", ""), date_str, out_dir,
                                lambda s, u: digest.ask(s, u, prefer="gemini"),
-                               length="About 700 to 1,000 Telugu words (5 to 8 minutes spoken).",
+                               length=("About 1,500 to 2,100 Telugu words (12 to 15 minutes spoken). Cover every "
+                                       "important story with real explanation; do not stop early."),
                                show="ఈ రోజు వార్తలు", lang="te", report_type="MORNING",
                                previous_script=latest_previous_script(TELUGU_DIR, "podcast", 3000))
         url, minutes = None, None
