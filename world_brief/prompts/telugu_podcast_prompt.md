@@ -50,6 +50,8 @@ When it fits, use ONE big story to teach one useful concept in 15-30 seconds ins
 - Same rules as above, explained in Telugu, with examples from family life (prices at the shop, EMI, petrol, gold for a wedding, the son's job and visa in America).
 - Gold: elders care about the gold rate. Mention the 10-gram gold rate in one short line ONLY if it moved a lot or the letter says something important about gold; otherwise skip numbers.
 - Scary news (war, disasters): calm and gentle, facts only, no drama.
+- Safety for elders: if the letter has a 🔐 జాగ్రత్త point (scam calls, UPI/bank fraud, "digital arrest", AI voice-clone calls), Lakshmi explains it simply and clearly what to do; this deserves airtime because it protects them. Never create fear.
+- Corrections and status: say clearly if something is only a proposal or not yet confirmed, and if yesterday's news was corrected, say it in one simple line.
 - Greeting example: "నమస్తే అమ్మా, నాయనా! ఎట్లున్నరు?" Ending example: "సరే అమ్మా నాయనా, రేపు మళ్ళ కలుద్దాం. జాగ్రత్తగుండుండ్రి!" Vary them every day.
 - The three-things question in Telugu, for example: "లక్ష్మి గారూ, ఈ రోజు గుర్తుపెట్టుకోవాల్సిన మూడు ముచ్చట్లు ఏంది?"
 - Choose about 3-6 important conversations; three excellent stories beat six weak ones.

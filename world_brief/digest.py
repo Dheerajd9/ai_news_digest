@@ -58,6 +58,28 @@ ROOT = Path(__file__).parent
 STATE_FILE = ROOT / "state" / "seen.json"
 STORIES_FILE = ROOT / "state" / "stories.json"   # story ledger: memory across days
 SOURCES_FILE = ROOT / "state" / "source_quality.json"   # how useful each source has been
+TRENDS_FILE = ROOT / "state" / "trends.json"            # daily topic counters (Python trend radar)
+TREND_TOPICS = {
+    "AI agents / automation": r"\bAI agents?\b|agentic|automat(e|ion) .{0,20}jobs",
+    "AI models & capability": r"\b(LLM|large language model|AI model|frontier model|reasoning model)s?\b",
+    "data centers & AI infrastructure": r"data cent(er|re)s?|GPU|AI infrastructure",
+    "semiconductors": r"semiconductor|chipmaker|\bchips?\b|\bfab(s)?\b",
+    "tech layoffs": r"layoffs?|job cuts",
+    "tech hiring": r"\bhiring\b|recruit(ing|ment)|job openings",
+    "US immigration (H-1B, green card)": r"H-1B|green card|USCIS|\bOPT\b|visa bulletin|PERM",
+    "Canada immigration": r"Express Entry|IRCC|\bPGWP\b|study permit",
+    "India-US trade & tariffs": r"(India.{0,25}(US|U\.S\.|America|Washington).{0,40}(trade|tariff|deal))|(tariff.{0,40}India)",
+    "cyber attacks & scams": r"scam|fraud|data breach|ransomware|phishing|hack(ed|ers)?",
+    "energy & power grids": r"power grid|electricity demand|nuclear (power|energy)|renewable|solar|battery storage",
+    "oil": r"\boil price|crude|\bBrent\b|OPEC",
+    "rupee": r"\brupee\b",
+    "RBI & India rates": r"repo rate|RBI (policy|rate)|monetary policy committee|\bMPC\b",
+    "Fed & US rates": r"Federal Reserve|\bFed\b.{0,20}rate|rate (cut|hike)",
+    "India manufacturing & PLI": r"\bPLI\b|manufacturing.{0,30}India|India.{0,30}manufacturing",
+    "US-China tension": r"(US|U\.S\.|Washington).{0,30}China|China.{0,30}(US|U\.S\.|Washington)",
+    "Middle East conflict": r"Israel|Iran|Gaza|Houthi|Middle East",
+    "Russia-Ukraine": r"Ukraine|Russia",
+}
 OLD_SKIPPED: dict[str, int] = {}                      # per source: items dropped as too old
 
 EXPLAINER = re.compile(r"\b(explainer|explained|what is|what are|how to|analysis|opinion|op-ed|"
@@ -252,6 +274,7 @@ def dedupe(items: list[dict], seen: dict[str, str]) -> list[dict]:
 
 
 SOURCE_QUALITY: dict[str, dict] = {}
+TREND_TEXT = ""
 
 
 def cap_per_category(items: list[dict]) -> list[dict]:
@@ -327,6 +350,44 @@ def update_source_quality(q: dict[str, dict], items: list[dict], final_md_ids: s
     for src, n in OLD_SKIPPED.items():
         q.setdefault(src, {"seen": 0, "used": 0, "duplicate": 0, "old": 0})["old"] += n
     return q
+
+
+# ---------------------------------------------------------------- trend radar (Python)
+def update_trends(items: list[dict], today: str) -> dict[str, dict[str, int]]:
+    """Count how many fresh stories touched each topic today; keep 35 days."""
+    try:
+        data = json.loads(TRENDS_FILE.read_text())
+    except Exception:
+        data = {}
+    day = data.setdefault(today, {})
+    for topic, pattern in TREND_TOPICS.items():
+        rx = re.compile(pattern, re.I)
+        n = sum(1 for it in items if rx.search(f"{it['title']} {it['summary']}"))
+        if n:
+            day[topic] = day.get(topic, 0) + n
+    cutoff = (datetime.fromisoformat(today) - timedelta(days=35)).strftime("%Y-%m-%d")
+    return {d: v for d, v in data.items() if d >= cutoff}
+
+
+def trend_counters(data: dict[str, dict[str, int]], today: str) -> str:
+    """Last 7 days vs the 7 before, per topic: evidence for (not proof of) a trend."""
+    t = datetime.fromisoformat(today)
+    def window(a, b):
+        out: dict[str, int] = {}
+        for d, counts in data.items():
+            age = (t - datetime.fromisoformat(d)).days
+            if a <= age < b:
+                for k, v in counts.items():
+                    out[k] = out.get(k, 0) + v
+        return out
+    recent, before = window(0, 7), window(7, 14)
+    rows = []
+    for k in sorted(set(recent) | set(before), key=lambda k: -recent.get(k, 0)):
+        r, b = recent.get(k, 0), before.get(k, 0)
+        direction = "new" if not b else ("up" if r > 1.3 * b else "down" if r < 0.7 * b else "flat")
+        rows.append({"topic": k, "last_7_days": r, "previous_7_days": b, "direction": direction})
+    days = len({d for d in data if (t - datetime.fromisoformat(d)).days < 14})
+    return json.dumps({"days_of_history": days, "topics": rows[:20]}, ensure_ascii=False)
 
 
 # ---------------------------------------------------------------- story ledger
@@ -501,7 +562,8 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
             f"NEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}\n\n"
             f"ON_THIS_DAY:\n{json.dumps(history, ensure_ascii=False)}\n\n"
             f"PREVIOUS_BRIEFS:\n{memory or '(none)'}\n\n"
-            f"STORY_MEMORY:\n{ledger or '[]'}")
+            f"STORY_MEMORY:\n{ledger or '[]'}\n\n"
+            f"TREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}")
 
 
 def write_brief(system: str, items, history, date_str, markets, memory,
@@ -845,7 +907,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
 
 
 def main() -> None:
-    global LOOKBACK_HOURS, SOURCE_QUALITY
+    global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT
     edition = os.getenv("EDITION", "morning").strip() or "morning"
     cfg = EDITIONS[edition]
     dry = os.getenv("DRY_RUN") == "1"
@@ -868,9 +930,24 @@ def main() -> None:
     system_core = system
     system = (system + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
               + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text())
+              + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text()
+              + "\n\n" + (ROOT / "prompts" / "human_intelligence_layer.md").read_text())
     SOURCE_QUALITY = load_source_quality()
     today_iso = now.strftime("%Y-%m-%d")
+    try:
+        trends = json.loads(TRENDS_FILE.read_text())
+    except Exception:
+        trends = {}
+    TREND_TEXT = trend_counters(trends, today_iso) if trends else ""
+    # First weekly report of the month also answers "what changed our understanding?"
+    monthly = edition == "weekly" and now.day <= 7
+    system = system.replace("{MONTHLY_BLOCK}", (
+        "## 🧭 This month: what changed our understanding?\n"
+        "3-5 points on what we learned this month that changed our understanding of where "
+        "things are heading (not a list of headlines): AI capability, jobs and skills, India's "
+        "and America's long-term direction (announcements vs implementation vs measurable "
+        "results), risks that rose or fell, expectations that proved right or wrong. Use "
+        "PREVIOUS_WEEKLY_REPORTS, STORY_MEMORY and TREND_COUNTERS.") if monthly else "")
     stories = load_stories(today_iso)
     ledger = story_memory(stories)
 
@@ -882,7 +959,12 @@ def main() -> None:
             print("No briefs from this week yet. Exiting.")
             return
         user = (f"DATE: {date_str}\n\nMARKETS: {markets_plain or '(none)'}\n\n"
-                f"STORY_MEMORY:\n{ledger}\n\nPREVIOUS_BRIEFS:\n{memory}")
+                f"STORY_MEMORY:\n{ledger}\n\nTREND_COUNTERS:\n{TREND_TEXT or '(none yet)'}\n\n"
+                f"PREVIOUS_BRIEFS:\n{memory}")
+        if monthly:
+            weeklies = sorted(ARCHIVE_DIR.glob("*-weekly.md"))[-5:]
+            user += "\n\nPREVIOUS_WEEKLY_REPORTS:\n" + "\n\n".join(
+                strip_links(p.read_text())[:6000] for p in weeklies)
         brief = None if no_llm else call_gemini(system, user)
         if not brief:
             print("Weekly needs the AI and it was unavailable. Exiting.")
@@ -1000,6 +1082,9 @@ def main() -> None:
             (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
                 script.read_text())
     if items:
+        TRENDS_FILE.parent.mkdir(exist_ok=True)
+        TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,
+                                          sort_keys=True))
         cited = set(re.findall(r"\[(S\d+)\]", brief))
         SOURCES_FILE.parent.mkdir(exist_ok=True)
         SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
