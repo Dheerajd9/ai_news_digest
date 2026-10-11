@@ -57,6 +57,24 @@ import yaml
 ROOT = Path(__file__).parent
 STATE_FILE = ROOT / "state" / "seen.json"
 STORIES_FILE = ROOT / "state" / "stories.json"   # story ledger: memory across days
+SOURCES_FILE = ROOT / "state" / "source_quality.json"   # how useful each source has been
+OLD_SKIPPED: dict[str, int] = {}                      # per source: items dropped as too old
+
+EXPLAINER = re.compile(r"\b(explainer|explained|what is|what are|how to|analysis|opinion|op-ed|"
+                       r"column|editorial|q&a|faq|in charts|fact check)\b", re.I)
+OLDER_EVENT = re.compile(r"\b(last (week|month|year)|earlier this (month|year)|years? ago|"
+                         r"anniversary|looking back|a year after|months after)\b", re.I)
+
+
+def item_flags(it: dict) -> list[str]:
+    """Cheap Python hints for the AI (old-news and opinion detector)."""
+    text = f"{it['title']} {it['summary']}"
+    flags = []
+    if EXPLAINER.search(text):
+        flags.append("explainer/analysis/opinion")
+    if OLDER_EVENT.search(text):
+        flags.append("mentions an older event: check the event date")
+    return flags
 ARCHIVE_DIR = ROOT / "briefs"
 PODCAST_ARCHIVE = ARCHIVE_DIR / "podcasts"   # subfolder: not part of the brief memory
 TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/Chicago"))
@@ -164,6 +182,7 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
             for e in parsed.entries:
                 ts = entry_time(e)
                 if ts and ts < cutoff:
+                    OLD_SKIPPED[source] = OLD_SKIPPED.get(source, 0) + 1
                     continue
                 title = clean(e.get("title", ""))
                 link = e.get("link", "")
@@ -220,13 +239,19 @@ def dedupe(items: list[dict], seen: dict[str, str]) -> list[dict]:
             kept = out[match]
             if it["source"] not in kept["also"]:
                 kept["also"].append(it["source"])
+                if SequenceMatcher(None, nt, titles[match]).ratio() > 0.95:
+                    kept["copies"] = kept.get("copies", 0) + 1
             continue
         it["also"] = []
+        it["copies"] = 0
         titles.append(nt)
         out.append(it)
     for it in out:
         it["coverage"] = 1 + len(it["also"])
     return out
+
+
+SOURCE_QUALITY: dict[str, dict] = {}
 
 
 def cap_per_category(items: list[dict]) -> list[dict]:
@@ -238,7 +263,9 @@ def cap_per_category(items: list[dict]) -> list[dict]:
     for cat, cat_items in by_cat.items():
         limit = CATEGORY_CAPS.get(cat, MAX_PER_CATEGORY)
         # Simple Python scoring first (cheap): trusted and widely covered stories go first.
-        cat_items.sort(key=lambda i: (tier_bonus[source_tier(i["source"])] + 2 * i.get("coverage", 1)),
+        cat_items.sort(key=lambda i: (tier_bonus[source_tier(i["source"])] + 2 * i.get("coverage", 1)
+                                      + 1.5 * (source_score(SOURCE_QUALITY, i["source"]) or 0)
+                                      - (1 if item_flags(i) else 0)),
                        reverse=True)
         # Round-robin across sources so one outlet cannot fill a category.
         by_src: dict[str, list[dict]] = {}
@@ -271,6 +298,35 @@ def on_this_day(today: datetime) -> list[dict]:
     except Exception as exc:
         print(f"  ! on-this-day failed ({redact(str(exc))})", file=sys.stderr)
         return []
+
+
+# ---------------------------------------------------------------- source quality
+def load_source_quality() -> dict[str, dict]:
+    try:
+        return json.loads(SOURCES_FILE.read_text())
+    except Exception:
+        return {}
+
+
+def source_score(q: dict[str, dict], source: str) -> float | None:
+    """Share of this source's items that ended up in a brief (needs some history first)."""
+    rec = q.get(source)
+    if not rec or rec.get("seen", 0) < 10:
+        return None
+    return round(rec.get("used", 0) / rec["seen"], 2)
+
+
+def update_source_quality(q: dict[str, dict], items: list[dict], final_md_ids: set[str]) -> dict:
+    for it in items:
+        rec = q.setdefault(it["source"], {"seen": 0, "used": 0, "duplicate": 0, "old": 0})
+        rec["seen"] += 1
+        if it["id"] in final_md_ids:
+            rec["used"] += 1
+        for other in it.get("also", []):
+            q.setdefault(other, {"seen": 0, "used": 0, "duplicate": 0, "old": 0})["duplicate"] += 1
+    for src, n in OLD_SKIPPED.items():
+        q.setdefault(src, {"seen": 0, "used": 0, "duplicate": 0, "old": 0})["old"] += n
+    return q
 
 
 # ---------------------------------------------------------------- story ledger
@@ -355,6 +411,12 @@ def update_stories(stories: dict[str, dict], new: list[dict], today: str) -> dic
         if milestone and not (tl and tl[-1]["event"].lower() == milestone.lower()):
             tl.append({"date": today, "event": milestone[:120]})
             st["timeline"] = compact_timeline(tl)
+        corr = d.get("correction")
+        if isinstance(corr, dict) and corr.get("corrected"):
+            st.setdefault("corrections", []).append(
+                {"correction_date": today, **{k: str(corr.get(k, ""))[:200]
+                                              for k in ("previous", "corrected", "reason")}})
+            st["corrections"] = st["corrections"][-3:]
         st["last_seen"] = today
         exp = str(d.get("expectation") or "").strip()
         if exp and all(e["text"] != exp for e in st.get("expectations", [])):
@@ -431,7 +493,9 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
         payload = [{**{k: it[k] for k in ("id", "category", "source", "coverage", "title",
                                            "summary", "published")},
                     "tier": source_tier(it["source"]),
-                    "also": [f"{a} ({source_tier(a)})" for a in it.get("also", [])][:6]}
+                    "also": [f"{a} ({source_tier(a)})" for a in it.get("also", [])][:6],
+                    "copies": it.get("copies", 0), "flags": item_flags(it),
+                    "source_score": source_score(SOURCE_QUALITY, it["source"])}
                    for it in items]
     return (f"DATE: {date_str}\n\nMARKETS: {markets or '(none)'}\n\n"
             f"NEWS_ITEMS:\n{json.dumps(payload, ensure_ascii=False)}\n\n"
@@ -455,6 +519,7 @@ def fact_check(draft: str, items: list[dict]) -> str:
     if not cited:
         return draft
     src = [{"id": i["id"], "source": i["source"], "tier": source_tier(i["source"]),
+            "also": len(i.get("also", [])), "copies": i.get("copies", 0), "flags": item_flags(i),
             "published": i["published"][:10], "title": i["title"], "summary": i["summary"][:200]}
            for i in items if i["id"] in cited]
     system = (ROOT / "prompts" / "factcheck_prompt.md").read_text()
@@ -778,7 +843,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
 
 
 def main() -> None:
-    global LOOKBACK_HOURS
+    global LOOKBACK_HOURS, SOURCE_QUALITY
     edition = os.getenv("EDITION", "morning").strip() or "morning"
     cfg = EDITIONS[edition]
     dry = os.getenv("DRY_RUN") == "1"
@@ -799,7 +864,9 @@ def main() -> None:
               .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
               .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"])
               + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text())
+              + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
+              + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text())
+    SOURCE_QUALITY = load_source_quality()
     today_iso = now.strftime("%Y-%m-%d")
     stories = load_stories(today_iso)
     ledger = story_memory(stories)
@@ -929,6 +996,11 @@ def main() -> None:
         if script.exists():
             (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
                 script.read_text())
+    if items:
+        cited = set(re.findall(r"\[(S\d+)\]", brief))
+        SOURCES_FILE.parent.mkdir(exist_ok=True)
+        SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
+                                           indent=1, ensure_ascii=False, sort_keys=True))
     if new_stories:
         STORIES_FILE.parent.mkdir(exist_ok=True)
         STORIES_FILE.write_text(json.dumps(update_stories(stories, new_stories, today_iso),
