@@ -1,0 +1,30 @@
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+  ! Gemini gemini-3.8-flash HTTP 503: {
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
+  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
+Edition: weekly
+  written by Gemini gemini-3.8-flash
+  meta: {}
+  written by Gemini gemini-3.7-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 1701 -> 1146 words
+  en podcast script: 37 turns, 1146 words
+  ! Gemini TTS gemini-3.8-flash-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  ! Gemini TTS gemini-3.8-flash-lite-tts failed: HTTP 400: {
+  "error": {
+    "code": 400,
+    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
+  voices: edge-tts (en)
+  world_brief_full podcast ready: 4.0 MB
+  ! podcast feed failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
+  "message": "Bad credentials",
+  "documentation_url": "https://docs.githu
+  email sent (1 recipient(s))
+  weekly system scorecard: {'week_ending': '2026-10-11', 'runs': 2, 'avg_items_to_ai': 151.0, 'avg_stories_cited': 22.5, 'avg_email_words': 1399.0, 'avg_podcast_minutes': 11.5, 'corrections': 0, 'action_required': 0, 'quiet_days': 0, 'verification_warnings': 0, 'llm_calls': 21}

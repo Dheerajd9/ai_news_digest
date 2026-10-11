@@ -15,6 +15,34 @@
 "warnings": 0,
 "llm_calls": 14,
 "stories_tracked": 0
+},
+{
+"date": "2026-10-11",
+"edition": "weekly",
+"cited": 0,
+"email_words": 628,
+"podcast_minutes": 8,
+"corrections": 0,
+"action_required": 0,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 7,
+"stories_tracked": 0
+}
+],
+"weekly": [
+{
+"week_ending": "2026-10-11",
+"runs": 2,
+"avg_items_to_ai": 151.0,
+"avg_stories_cited": 22.5,
+"avg_email_words": 1399.0,
+"avg_podcast_minutes": 11.5,
+"corrections": 0,
+"action_required": 0,
+"quiet_days": 0,
+"verification_warnings": 0,
+"llm_calls": 21
 }
 ]
 }
