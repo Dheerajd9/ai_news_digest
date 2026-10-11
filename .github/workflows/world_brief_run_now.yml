@@ -53,7 +53,9 @@ jobs:
           PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
           PARENTS_EMAIL: ${{ secrets.PARENTS_EMAIL }}
           PARENTS_WHATSAPP: ${{ secrets.PARENTS_WHATSAPP }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          FAILED=""
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           D=$(TZ=America/Chicago date +%F)
@@ -73,7 +75,11 @@ jobs:
             fi
             echo "================ $ED ================"
             rm -rf out
-            EDITION=$ED python digest.py 2>&1 | tee "logs/latest-$ED.log" || echo "!! $ED failed"
+            set -o pipefail
+            if ! EDITION=$ED python digest.py 2>&1 | tee "logs/latest-$ED.log"; then
+              echo "!! $ED failed"; FAILED="$FAILED $ED"
+              EDITION="$ED (run-now)" python3 notify_failure.py || true
+            fi
             for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
                      state/entities.json state/beliefs.json state/scorecard.json state/done briefs logs; do
               if [ -e "$f" ]; then git add "$f"; fi
@@ -83,3 +89,4 @@ jobs:
               git pull --rebase --quiet && git push
             fi
           done
+          if [ -n "$FAILED" ]; then echo "Failed editions:$FAILED"; exit 1; fi

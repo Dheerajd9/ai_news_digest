@@ -189,6 +189,28 @@ def entry_time(e) -> datetime | None:
     return None
 
 
+KNOWN_LINKS: set[str] = set()     # article links seen in this run's feeds (email link allowlist)
+
+
+def link_allowed(url: str) -> bool:
+    """Only links we put there ourselves may appear in an email: real feed articles, our own
+    podcast repo / GitHub Pages, and this repo's run pages. Anything else (for example a link a
+    feed tried to sneak into the AI's answer) is dropped, so no phishing link can be emailed."""
+    if not re.match(r"https://|http://", url):
+        return False
+    if url in KNOWN_LINKS:
+        return True
+    prefixes = []
+    pod = os.getenv("PODCAST_REPO", "").strip()
+    if re.fullmatch(r"[\w.-]+/[\w.-]+", pod):
+        owner, name = pod.split("/")
+        prefixes += [f"https://github.com/{pod}/", f"https://{owner.lower()}.github.io/{name}/"]
+    repo = os.getenv("GITHUB_REPOSITORY", "").strip()
+    if repo:
+        prefixes.append(f"https://github.com/{repo}/")
+    return any(url.startswith(p) for p in prefixes)
+
+
 def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     items = []
@@ -219,6 +241,9 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
                 if "news.google.com" in url and " - " in title:
                     title, src = title.rsplit(" - ", 1)
                     src = short_source(src)
+                if not re.match(r"https?://", link):
+                    continue
+                KNOWN_LINKS.add(link)
                 items.append({
                     "category": category,
                     "source": src[:60],
@@ -851,10 +876,16 @@ def send_email(subject: str, md: str, audio=None, to: str | None = None,
     if not (user and pwd and to):
         print("  (email skipped: GMAIL_USER / GMAIL_APP_PASSWORD / recipient not set)")
         return
+    subject = re.sub(r"[\r\n]+", " ", subject).strip()[:200]   # no header injection
+    # Only links we trust survive (see link_allowed); others keep their text, lose the link.
+    safe_md = re.sub(r"\[([^\]]*)\]\(([^)\s]*)[^)]*\)",
+                     lambda m: m.group(0) if link_allowed(m.group(2)) else m.group(1), md)
+    safe_md = re.sub(r"(?m)^\s{0,3}\[[^\]]+\]:\s*\S+.*$", "", safe_md)   # no reference-style links
     # Escape raw HTML coming from feeds/AI so only Markdown formatting reaches the email.
-    safe_md = re.sub(r"\]\((?!https?://)[^)]*\)", "]", md)      # only http(s) links survive
     body_html = markdown.markdown(safe_md.replace("&", "&amp;").replace("<", "&lt;"),
                                   extensions=["extra"])
+    body_html = re.sub(r'<img[^>]*>', "", body_html)                          # no tracking images
+    body_html = re.sub(r'href="(?!https?://)[^"]*"', 'href="#"', body_html)   # belt and braces
     body_html = (body_html
                  .replace("<table>", '<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">')
                  .replace("<td", '<td style="border-bottom:1px solid #eee;padding:4px 10px"')
@@ -862,7 +893,7 @@ def send_email(subject: str, md: str, audio=None, to: str | None = None,
     page = f"""<html><body style="font-family:Georgia,serif;max-width:680px;margin:auto;
 line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     body = MIMEMultipart("alternative")
-    body.attach(MIMEText(md, "plain", "utf-8"))
+    body.attach(MIMEText(safe_md, "plain", "utf-8"))
     body.attach(MIMEText(page, "html", "utf-8"))
     msg = MIMEMultipart("mixed")
     msg["Subject"], msg["From"], msg["To"] = subject, user, to

@@ -71,13 +71,18 @@ def score(cands: list[dict]) -> list[dict]:
         return []
     m = re.search(r"\{.*\}", reply, re.S)
     try:
-        return json.loads(m.group(0)).get("alerts", []) if m else []
+        data = json.loads(m.group(0)) if m else {}
+        alerts = data.get("alerts", []) if isinstance(data, dict) else []
+        return alerts if isinstance(alerts, list) else []
     except json.JSONDecodeError:
         return []
 
 
 def deliver(alerts: list[dict]) -> None:
-    lines = [f"🚨 {a['headline']}\n{a['why']}\n{a['link']}" for a in alerts]
+    for a in alerts:   # only real article links from our feeds, never one the AI made up
+        if str(a.get("link", "")) not in digest.KNOWN_LINKS:
+            a["link"] = ""
+    lines = [f"🚨 {a['headline']}\n{a.get('why', '')}" + (f"\n{a['link']}" if a["link"] else "") for a in alerts]
     text = "\n\n".join(lines)
     token, chat = os.getenv("TELEGRAM_BOT_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
     if token and chat:
@@ -90,7 +95,8 @@ def deliver(alerts: list[dict]) -> None:
             print(f"  ! Telegram HTTP {r.status_code}; falling back to email")
         except Exception as exc:     # URL contains the bot token: print only the type
             print(f"  ! Telegram failed ({type(exc).__name__}); falling back to email")
-    md = "\n\n".join(f"### 🚨 {a['headline']}\n{a['why']}  \n[{a['source']}]({a['link']})"
+    md = "\n\n".join(f"### 🚨 {a['headline']}\n{a.get('why', '')}"
+                     + (f"  \n[{a.get('source', 'Source')}]({a['link']})" if a["link"] else "")
                      for a in alerts)
     digest.send_email(f"🚨 Breaking: {alerts[0]['headline']}", md)
 
@@ -110,9 +116,16 @@ def main() -> None:
     picked = []
     if cands and sent_today < cfg["max_alerts_per_day"] and os.getenv("NO_LLM") != "1":
         by_id = {c["id"]: c for c in cands}
-        for s in sorted(score(cands), key=lambda s: -s.get("score", 0)):
+        scored = []
+        for s in score(cands):             # the AI's JSON may be messy: keep only sane rows
+            try:
+                if isinstance(s, dict) and str(s.get("headline", "")).strip():
+                    scored.append({**s, "score": float(s.get("score", 0))})
+            except (TypeError, ValueError):
+                continue
+        for s in sorted(scored, key=lambda s: -s["score"]):
             c = by_id.get(s.get("id"))
-            if c and s.get("score", 0) >= cfg["min_score"]:
+            if c and s["score"] >= cfg["min_score"]:
                 picked.append({**s, "link": c["link"], "source": c["source"]})
         picked = picked[:max(0, cfg["max_alerts_per_day"] - sent_today)][:3]
 

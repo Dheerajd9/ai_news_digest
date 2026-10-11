@@ -103,7 +103,9 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
             from podcast import latest_previous_script
             # Built from the FULL fact-checked English brief (same news as the English Full
             # podcast), not from the shorter parents' letter.
-            mp3 = make_podcast(english_plain, date_str, out_dir,
+            # Drop the English "Listen" block (links/episode notes), it is not news.
+            news_only = re.sub(r"(?ms)^##\s*🎧.*?(?=^## |\Z)", "", english_plain)
+            mp3 = make_podcast(news_only, date_str, out_dir,
                                lambda s, u: digest.ask(s, u, prefer="gemini"),
                                length=("About 1,900 to 2,600 Telugu words (15 to 20 minutes spoken): the same "
                                        "full coverage as the English Full podcast. Cover every story in the "

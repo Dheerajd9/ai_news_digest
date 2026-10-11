@@ -118,7 +118,7 @@ jobs:
           fi
 
       # MP3s also kept as downloadable run artifacts for 14 days (not committed).
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: steps.ed.outputs.edition != 'skip' && steps.ed.outputs.edition != 'test'
         with:
           name: world-brief-${{ steps.ed.outputs.edition }}-podcast
