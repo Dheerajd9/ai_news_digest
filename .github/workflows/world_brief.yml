@@ -41,7 +41,7 @@ concurrency:
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 80
     defaults:
       run:
         working-directory: world_brief

@@ -60,6 +60,7 @@ PROFILES = {
         "gemini_pinned": {"RAVI": os.getenv("GEMINI_TELUGU_VOICE_A", ""),
                           "LAKSHMI": os.getenv("GEMINI_TELUGU_VOICE_B", "")},
         "lang_code": "te-IN",
+        "tts_budget": int(os.getenv("GEMINI_TELUGU_TTS_BUDGET_SEC", "1000")),   # full-length episode
         "turn_style": "Natural spoken Telugu as people talk in Hyderabad, warm and clear, calm conversational pace",
         "style": ("Read this aloud in natural, warm spoken Telugu, like a friendly Telugu news "
                   "discussion on a Hyderabad TV channel. Ravi and Lakshmi are two Telugu news hosts "
@@ -280,7 +281,7 @@ def gemini_podcast(turns, work: Path, profile: dict, tts_pref: str) -> list[Path
             try:
                 parts = []
                 for n, chunk in enumerate(chunk_turns(turns)):
-                    if time.time() - start > TTS_BUDGET_SEC:
+                    if time.time() - start > profile.get("tts_budget", TTS_BUDGET_SEC):
                         raise RuntimeError("Gemini TTS too slow today; switching to backup voices")
                     p = work / f"g{n:02d}.mp3"
                     gemini_speak_chunk(chunk, key, model, p, work, profile, voices)

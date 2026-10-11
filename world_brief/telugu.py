@@ -1,6 +1,7 @@
 """
 Parents' edition: the same fact-checked morning news as a short, simple ENGLISH email,
-plus a Ravi & Lakshmi podcast in Telugu (Telangana yaasa, straight to the news).
+plus a FULL Ravi & Lakshmi podcast in Telugu (Telangana yaasa, straight to the news),
+built from the full English brief, same coverage as the English Full podcast.
 
 Delivery (all optional, all free):
   PARENTS_EMAIL      one or more addresses, comma-separated -> English email + Telugu MP3
@@ -100,10 +101,14 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
         mp3 = None
         if os.getenv("PODCAST", "1") == "1":
             from podcast import latest_previous_script
-            mp3 = make_podcast(letter.replace("{{LISTEN}}", ""), date_str, out_dir,
+            # Built from the FULL fact-checked English brief (same news as the English Full
+            # podcast), not from the shorter parents' letter.
+            mp3 = make_podcast(english_plain, date_str, out_dir,
                                lambda s, u: digest.ask(s, u, prefer="gemini"),
-                               length=("About 1,500 to 2,100 Telugu words (12 to 15 minutes spoken). Cover every "
-                                       "important story with real explanation; do not stop early."),
+                               length=("About 1,900 to 2,600 Telugu words (15 to 20 minutes spoken): the same "
+                                       "full coverage as the English Full podcast. Cover every story in the "
+                                       "brief that matters, with real explanation; shorter only on a "
+                                       "genuinely quiet news day. Do not stop early."),
                                show="ఈ రోజు వార్తలు", lang="te", report_type="MORNING",
                                previous_script=latest_previous_script(TELUGU_DIR, "podcast", 3000))
         url, minutes = None, None
