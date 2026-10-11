@@ -569,7 +569,13 @@ def episode_notes(brief: str, meta: dict) -> str:
     topics = [t.strip() for t in meta.get("PODCAST_TOPICS", "").split(";") if t.strip()]
     if not topics:
         sec = re.search(r"^## 1\..*?(?=^## )", brief, re.S | re.M)
-        topics = re.findall(r"^- .*?\*\*(.+?)\*\*", sec.group(0) if sec else brief, re.M)[:5]
+        topics = []
+        for line in re.findall(r"^- .+$", sec.group(0) if sec else brief, re.M):
+            bolds = [b for b in re.findall(r"\*\*(.+?)\*\*", line)
+                     if b.strip(" :") not in ("Update", "Previously", "New") and len(b) > 3]
+            if bolds:
+                topics.append(bolds[0].strip(" :"))
+        topics = topics[:5]
     notes = (one.group(1).strip() + "\n\n" if one else "") + "\n".join(f"• {t}" for t in topics)
     return re.sub(r"\s*\[S\d+\]", "", notes)[:1500]
 

@@ -56,7 +56,11 @@ def get_file(repo: str, path: str, token: str) -> tuple[str | None, str | None]:
     if r.status_code == 404:
         return None, None
     j = r.json()
-    return base64.b64decode(j["content"]).decode(), j["sha"]
+    raw = base64.b64decode(j.get("content", ""))
+    try:
+        return raw.decode(), j["sha"]
+    except UnicodeDecodeError:          # binary file (cover.png): only the sha matters
+        return None, j["sha"]
 
 
 def put_file(repo: str, path: str, data: bytes, token: str, msg: str) -> None:
