@@ -1067,6 +1067,12 @@ def audio_minutes(audio: Path) -> int | None:
         return None
 
 
+def play_link(url: str) -> str:
+    """Web player page for an uploaded MP3 (plays in the browser, no download prompt)."""
+    import podfeed
+    return podfeed.player_url(url.rsplit("/", 1)[-1]) or url
+
+
 def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
     """🎧 block near the top of the email: one line per podcast + real topic titles."""
     if not episodes:
@@ -1075,7 +1081,8 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
     for ep in episodes:
         mins = audio_minutes(ep["file"])
         when = f" (about {mins} min)" if mins else ""
-        play = f"[Play or download]({ep['url']})" if ep.get("url") else "attached to this email"
+        play = (f"[▶️ Play]({play_link(ep['url'])})" if ep.get("url")
+                else "attached to this email")
         lines.append(f"**{ep['label']}{when}:** {play}")
     topics = [t.lstrip("• ").strip() for t in episode_notes(brief, meta).split("\n\n")[-1].split("\n")]
     topics = [t for t in topics if t]

@@ -132,6 +132,8 @@ def run(english_final: str, markets_plain: str, date_str: str, now: datetime,
                         print(f"  ! Telugu prune failed: {type(exc).__name__}")
             elif not podfeed.configured():
                 print("  Telugu audio: no public podcast repo configured, email attachment only")
+        if url:
+            url = digest.play_link(url)        # web player page instead of a download link
         letter = letter.replace("{{LISTEN}}", listen_block(url, minutes))
         letter = re.sub(r"\n{3,}", "\n\n", letter)
 

@@ -176,6 +176,81 @@ def configured() -> tuple[str, str] | None:
     return None
 
 
+PLAYER_HTML = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>World Brief player</title>
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--fg:#17202e;--muted:#5a6475;--accent:#c2620a}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141c;--card:#18202c;--fg:#e8ebf0;--muted:#9aa4b5;--accent:#f0a052}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Telugu",sans-serif;
+display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px}
+.card{background:var(--card);border-radius:18px;padding:28px 22px;width:100%;max-width:520px;
+box-shadow:0 6px 30px rgba(0,0,0,.08);text-align:center}
+img{width:132px;height:132px;border-radius:16px;object-fit:cover}
+h1{font-size:22px;margin:16px 0 4px}p{margin:0 0 18px;color:var(--muted)}
+audio{width:100%;margin:6px 0 14px}
+.speeds{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+button{font:600 15px system-ui,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid var(--muted);
+background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.err{color:#b3261e}
+</style></head><body><main class="card">
+<img src="cover.png" alt="" onerror="this.remove()">
+<h1 id="t">World Brief</h1><p id="d"></p>
+<audio id="a" controls preload="metadata"></audio>
+<div class="speeds" id="s"></div>
+</main><script>
+(function(){
+  var f=new URLSearchParams(location.search).get("f")||"";
+  var a=document.getElementById("a"),t=document.getElementById("t"),d=document.getElementById("d");
+  if(!/^[A-Za-z0-9._-]+\\.mp3$/.test(f)){t.textContent="Episode not found";d.className="err";return;}
+  var m=f.match(/^(\\d{4})-(\\d{2})-(\\d{2})-?(.*)\\.mp3$/), kind=m?m[4]:"";
+  var names={"telugu":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu)",
+    "morning":"Morning Brief: Full","morning-quick":"Morning Brief: Quick","evening":"Evening Update",
+    "evening-quick":"Evening Update","weekly":"Weekly Report"};
+  t.textContent=names[kind]||"World Brief";
+  if(m){d.textContent=new Date(+m[1],+m[2]-1,+m[3]).toDateString();}
+  document.title=t.textContent;
+  a.src="https://github.com/__REPO__/releases/download/episodes/"+encodeURIComponent(f);
+  var key="pos:"+f;
+  a.addEventListener("loadedmetadata",function(){try{var p=+localStorage.getItem(key);if(p>5&&p<a.duration-10)a.currentTime=p;}catch(e){}});
+  a.addEventListener("timeupdate",function(){try{localStorage.setItem(key,Math.floor(a.currentTime));}catch(e){}});
+  a.addEventListener("error",function(){d.textContent="Could not load the audio. It may be older than 3 weeks.";d.className="err";});
+  [0.75,1,1.25,1.5].forEach(function(r){var b=document.createElement("button");b.textContent=r+"x";
+    if(r===1)b.className="on";b.onclick=function(){a.playbackRate=r;
+    [].forEach.call(document.querySelectorAll("button"),function(x){x.className="";});b.className="on";};
+    document.getElementById("s").appendChild(b);});
+})();
+</script></body></html>
+"""
+_PLAYER_READY = False
+
+
+def player_url(asset_name: str) -> str | None:
+    """A simple web page that PLAYS the episode (GitHub release links only offer a download)."""
+    cfg = configured()
+    if not cfg or not re.fullmatch(r"[\w.-]+\.mp3", asset_name):
+        return None
+    owner, name = cfg[0].split("/")
+    return f"https://{owner.lower()}.github.io/{name}/play.html?f={asset_name}"
+
+
+def ensure_player() -> None:
+    """Publish/refresh play.html in the public podcast repo (only when it changed)."""
+    global _PLAYER_READY
+    if _PLAYER_READY:
+        return
+    repo, token = configured()
+    html_page = PLAYER_HTML.replace("__REPO__", repo)
+    current, _ = get_file(repo, "play.html", token)
+    if current != html_page:
+        put_file(repo, "play.html", html_page.encode(), token, "Update web player")
+        print("  web player page updated")
+    _PLAYER_READY = True
+
+
 def upload_asset(path: Path, asset_name: str) -> str:
     """Upload (or replace) one MP3 on the 'episodes' release; return its public URL."""
     repo, token = configured()
@@ -186,6 +261,10 @@ def upload_asset(path: Path, asset_name: str) -> str:
     upload_url = rel["upload_url"].split("{")[0]
     asset = gh("POST", upload_url, token, params={"name": asset_name},
                headers={"Content-Type": "audio/mpeg"}, data=path.read_bytes()).json()
+    try:
+        ensure_player()
+    except Exception as exc:
+        print(f"  ! web player page not updated: {type(exc).__name__}")
     return asset["browser_download_url"]
 
 
