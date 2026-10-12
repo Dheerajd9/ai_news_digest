@@ -1088,7 +1088,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
 DONE_DIR = ROOT / "state" / "done"   # markers so backup schedule slots don't resend
 
 
-EDITION_WINDOWS = {"morning": range(7, 13), "weekly": range(9, 15), "evening": range(18, 23)}
+EDITION_WINDOWS = {"morning": range(7, 13), "weekly": range(7, 15), "evening": range(18, 23)}
 
 
 def token_reminder(edition: str) -> None:
