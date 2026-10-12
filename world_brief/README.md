@@ -82,13 +82,14 @@ Every morning ONE email goes to everyone. It has the full news in English and a 
 Links open a small web player (no download prompts, speed buttons, remembers where you stopped).
 Evening and weekly editions are English only (`LANG_EDITIONS`, `PODCAST_LANGUAGES` change this).
 
-**Who gets it** (repo → Settings → Secrets and variables → Actions → Secrets): put addresses in `TO_EMAIL`
-and/or `PARENTS_EMAIL`, separated by commas, e.g. `me@gmail.com,amma@gmail.com,friend@yahoo.com`.
-Everyone is BCC'd, so nobody sees the others' addresses.
+**Who gets it** (repo → Settings → Secrets and variables → Actions → Secrets): `TO_EMAIL` is only
+you (it also receives your private portfolio emails). Put everyone else in `PARENTS_EMAIL`, separated by
+commas, e.g. `amma@gmail.com,friend@yahoo.com`. Everyone is BCC'd, so nobody sees the others' addresses.
 
 | Secret | Value | Result |
 |---|---|---|
-| `TO_EMAIL` / `PARENTS_EMAIL` | comma-separated addresses | the daily email |
+| `TO_EMAIL` | only your own address | the daily email + your private portfolio emails |
+| `PARENTS_EMAIL` | comma-separated addresses of family/friends | the daily news email only |
 | `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the Telugu/Hindi play links + 3 headlines |
 
 **WhatsApp (free, via CallMeBot) — one-time setup on each parent's phone:**

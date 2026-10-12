@@ -6,7 +6,7 @@ on:
   workflow_dispatch:           # click "Run workflow" to get a report anytime
   push:                        # code/portfolio changes trigger a test run that does NOT send email
     branches: [main]
-    paths: ["portfolio_report.py", "portfolio_analytics.py", "report_sections.py", "portfolio.json", ".github/workflows/portfolio.yml"]
+    paths: ["portfolio_report.py", "portfolio_analytics.py", "report_sections.py", ".github/workflows/portfolio.yml"]
 
 permissions:
   contents: read
@@ -26,6 +26,16 @@ jobs:
           cache: pip
 
       - run: pip install -r requirements.txt
+
+      - name: Load private portfolio (from the PORTFOLIO_JSON secret, never stored in the repo)
+        env:
+          PORTFOLIO_JSON: ${{ secrets.PORTFOLIO_JSON }}
+        run: |
+          if [ -n "$PORTFOLIO_JSON" ]; then
+            printf '%s' "$PORTFOLIO_JSON" > portfolio.json
+            python -c "import json; json.load(open('portfolio.json'))" || { echo "PORTFOLIO_JSON is not valid JSON"; rm -f portfolio.json; }
+          fi
+
 
       - name: Build and send portfolio report
         env:

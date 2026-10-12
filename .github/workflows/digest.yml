@@ -35,6 +35,23 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Load private portfolio (from the PORTFOLIO_JSON secret, never stored in the repo)
+        env:
+          PORTFOLIO_JSON: ${{ secrets.PORTFOLIO_JSON }}
+        run: |
+          if [ -n "$PORTFOLIO_JSON" ]; then
+            printf '%s' "$PORTFOLIO_JSON" > portfolio.json
+            python -c "import json; json.load(open('portfolio.json'))" || { echo "PORTFOLIO_JSON is not valid JSON"; rm -f portfolio.json; }
+          fi
+
+      # Portfolio alert memory lives in the Actions cache, not the (public) repo.
+      - uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: alerts.json
+          key: portfolio-alerts-${{ github.run_id }}
+          restore-keys: portfolio-alerts-
+
+
       - name: Build and send digest
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
@@ -57,11 +74,17 @@ jobs:
       - name: Remember sent stories
         if: github.event_name != 'push' || contains(github.event.head_commit.message, '[send digest]')
         run: |
-          if [ -n "$(git status --porcelain sent.json alerts.json digest_done.json 2>/dev/null)" ]; then
+          if [ -n "$(git status --porcelain sent.json digest_done.json 2>/dev/null)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-            for f in sent.json alerts.json digest_done.json; do [ -f "$f" ] && git add "$f"; done
+            for f in sent.json digest_done.json; do [ -f "$f" ] && git add "$f"; done
             git commit -m "Update sent stories and alert state"
             git pull --rebase --quiet
             git push
           fi
+
+      - uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        if: always() && hashFiles('alerts.json') != ''
+        with:
+          path: alerts.json
+          key: portfolio-alerts-${{ github.run_id }}
