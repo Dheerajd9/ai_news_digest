@@ -196,10 +196,15 @@ audio{width:100%;margin:6px 0 14px}
 button{font:600 15px system-ui,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid var(--muted);
 background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .err{color:#b3261e}
+.chaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0 0 16px}
+.chaps button{border-radius:12px;padding:11px 8px;text-align:left;font-size:15px}
+.chaps button small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.chaps button.now{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
 </style></head><body><main class="card">
 <img src="cover.png" alt="" onerror="this.remove()">
 <h1 id="t">World Brief</h1><p id="d"></p>
 <audio id="a" controls preload="metadata"></audio>
+<div class="chaps" id="c"></div>
 <div class="speeds" id="s"></div>
 </main><script>
 (function(){
@@ -209,6 +214,10 @@ background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(-
   var m=f.match(/^(\\d{4})-(\\d{2})-(\\d{2})-?(.*)\\.mp3$/), kind=m?m[4]:"";
   var names={"telugu":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu)",
     "hindi":"\\u0906\\u091c \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi)",
+    "telugu-evening":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c38\\u0c3e\\u0c2f\\u0c02\\u0c24\\u0c4d\\u0c30\\u0c02 (Telugu evening)",
+    "telugu-weekly":"\\u0c08 \\u0c35\\u0c3e\\u0c30\\u0c02 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu weekly)",
+    "hindi-evening":"\\u0906\\u091c \\u0936\\u093e\\u092e \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi evening)",
+    "hindi-weekly":"\\u0907\\u0938 \\u0939\\u092b\\u094d\\u0924\\u0947 \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi weekly)",
     "morning":"Morning Brief: Full","morning-quick":"Morning Brief: Quick","evening":"Evening Update",
     "evening-quick":"Evening Update","weekly":"Weekly Report"};
   t.textContent=names[kind]||"World Brief";
@@ -221,8 +230,26 @@ background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(-
   a.addEventListener("error",function(){d.textContent="Could not load the audio. It may be older than 3 weeks.";d.className="err";});
   [0.75,1,1.25,1.5].forEach(function(r){var b=document.createElement("button");b.textContent=r+"x";
     if(r===1)b.className="on";b.onclick=function(){a.playbackRate=r;
-    [].forEach.call(document.querySelectorAll("button"),function(x){x.className="";});b.className="on";};
+    [].forEach.call(document.querySelectorAll("#s button"),function(x){x.className="";});b.className="on";};
     document.getElementById("s").appendChild(b);});
+  var icons={"Top stories":"\\u2b50 Most important","India":"\\ud83c\\uddee\\ud83c\\uddf3 India",
+    "USA":"\\ud83c\\uddfa\\ud83c\\uddf8 USA","World":"\\ud83c\\udf0d World","Money":"\\ud83d\\udcb0 Money",
+    "Wrap-up":"\\u2705 Wrap-up"};
+  fetch("chapters/"+encodeURIComponent(f)+".json").then(function(r){return r.ok?r.json():[];})
+  .then(function(list){
+    if(!Array.isArray(list)||list.length<2)return;
+    var box=document.getElementById("c"),btns=[];
+    list.forEach(function(ch){
+      if(typeof ch.t!=="number")return;
+      var b=document.createElement("button"),m=Math.floor(ch.t/60),sec=("0"+Math.floor(ch.t%60)).slice(-2);
+      b.textContent=icons[ch.title]||String(ch.title).slice(0,30);
+      var sm=document.createElement("small");sm.textContent=m+":"+sec;b.appendChild(sm);
+      b.onclick=function(){a.currentTime=ch.t;a.play();};
+      box.appendChild(b);btns.push([ch.t,b]);});
+    a.addEventListener("timeupdate",function(){var cur=null;
+      btns.forEach(function(x){x[1].classList.remove("now");if(a.currentTime>=x[0]-0.5)cur=x[1];});
+      if(cur)cur.classList.add("now");});
+  }).catch(function(){});
 })();
 </script></body></html>
 """
@@ -266,6 +293,13 @@ def upload_asset(path: Path, asset_name: str) -> str:
         ensure_player()
     except Exception as exc:
         print(f"  ! web player page not updated: {type(exc).__name__}")
+    chapters = path.parent / f"chapters_{path.stem}.json"     # skip buttons for the player
+    if chapters.exists():
+        try:
+            put_file(repo, f"chapters/{asset_name}.json", chapters.read_bytes(), token,
+                     f"Chapters {asset_name}")
+        except Exception as exc:
+            print(f"  ! chapters not published: {type(exc).__name__}")
     return asset["browser_download_url"]
 
 

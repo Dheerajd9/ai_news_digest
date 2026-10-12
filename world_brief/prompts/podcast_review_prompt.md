@@ -6,6 +6,7 @@ Hard rules:
 - Do NOT add any new facts, names, numbers or stories. Only reorder, cut, merge, clarify wording and improve the conversation.
 - Keep the same language, style and dialect as the input script (if it is Telugu Telangana yaasa, keep Telangana yaasa in Telugu script).
 - Keep the same speaker labels, exactly as they appear at the start of lines.
+- Keep every `CHAPTER:` marker line exactly as written (in English), each still placed right before the first line of its chapter.
 - Stay within this length: {LENGTH}
 
-Output ONLY the final script: one line per turn, each line starting with the speaker label and a colon. Nothing else.
+Output ONLY the final script: the `CHAPTER:` marker lines plus one line per turn, each turn line starting with the speaker label and a colon. Nothing else.

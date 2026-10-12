@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import json
 import os
 import re
 import shutil
@@ -117,6 +118,76 @@ def parse_script(script: str, hosts: tuple[str, str] = ("KARTIK", "PRIYA")) -> l
             if said:
                 turns.append((speaker, said))
     return turns
+
+
+CHAPTER_NAMES = ["Top stories", "India", "USA", "World", "Money", "Wrap-up"]
+CHAPTER_RULES = """
+
+## CHAPTERS (for the listener's skip buttons)
+Arrange the conversation into these chapters, in this order, skipping any chapter with nothing
+meaningful today: Top stories (the 1-3 most important stories of the day, any country), India,
+USA (includes India-USA, visas and immigration), World, Money (markets, economy, gold, rupee,
+jobs, tax), Wrap-up (what to watch, the three takeaways, the ending). Before the first line of
+each chapter write ONE marker line exactly like `CHAPTER: India` (marker names always in English,
+never translated). Each story appears once, in its best chapter. Keep natural spoken transitions
+between chapters; never say the word "chapter" aloud.
+"""
+
+
+def _chapter_name(raw: str) -> str | None:
+    r = raw.strip().strip("*`#[]: ").lower()
+    for key, name in (("top", "Top stories"), ("most", "Top stories"), ("headline", "Top stories"),
+                      ("india", "India"), ("usa", "USA"), ("america", "USA"), ("u.s", "USA"),
+                      ("world", "World"), ("global", "World"), ("money", "Money"),
+                      ("market", "Money"), ("econom", "Money"), ("wrap", "Wrap-up"),
+                      ("takeaway", "Wrap-up"), ("watch", "Wrap-up")):
+        if key in r:
+            return name
+    return None
+
+
+def parse_chapters(script: str, hosts: tuple[str, str]) -> list[tuple[int, str]]:
+    """(index of the first turn, chapter name) for each CHAPTER: marker line."""
+    out, n = [], 0
+    names = "|".join(hosts)
+    for line in script.splitlines():
+        m = re.match(r"\s*[*#`\[]*\s*CHAPTER\s*[:\-]\s*(.+)", line, re.I)
+        if m:
+            name = _chapter_name(m.group(1))
+            if name and (not out or out[-1][1] != name):
+                if out and out[-1][0] == n:          # empty chapter: replace it
+                    out[-1] = (n, name)
+                else:
+                    out.append((n, name))
+            continue
+        hm = re.match(r"\s*\**\s*(" + names + r")\s*\**\s*:\s*(.+)", line, re.I)
+        if hm and parse_script(line, hosts):
+            n += 1
+    return out
+
+
+def _duration(path: Path) -> float:
+    try:
+        return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                     "-of", "csv=p=0", str(path)], capture_output=True,
+                                    text=True, timeout=30).stdout.strip() or 0)
+    except Exception:
+        return 0.0
+
+
+def chapter_times(chapters, turns, parts, groups, pause: float = 0.35) -> list[dict]:
+    """Start time (seconds) of each chapter. `groups` = the turns inside each audio part
+    (stitch() adds a short pause after every part); inside a multi-turn part, time is
+    shared out by text length."""
+    starts, t = [], 0.0
+    for part, group in zip(parts, groups):
+        d = _duration(part)
+        total = sum(len(x[1]) for x in group) or 1
+        for turn in group:
+            starts.append(t)
+            t += d * len(turn[1]) / total
+        t += pause
+    return [{"t": round(starts[i], 1), "title": name} for i, name in chapters if i < len(starts)]
 
 
 async def _speak(text: str, voice: str, out: Path, rate: str) -> None:
@@ -367,7 +438,8 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     profile = PROFILES[lang]
     system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
               .replace("{LENGTH}", length).replace("{SHOW}", show)
-              + (ROOT / "prompts" / "intelligence_layer_short.md").read_text())
+              + (ROOT / "prompts" / "intelligence_layer_short.md").read_text()
+              + CHAPTER_RULES)
     user = f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n\nBRIEF:\n{clean_brief_for_script(brief_md)}"
     if previous_script:
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
@@ -376,6 +448,7 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         script = review_script(script, llm, length, profile["hosts"],
                                min_ratio=0.85 if lang in ("te", "hi") else 0.5)
     turns = parse_script(script or "", profile["hosts"])
+    chapters = parse_chapters(script or "", profile["hosts"])
     if len(turns) < 6:
         print(f"  ! {lang} podcast script too short or missing; skipping audio")
         return None
@@ -387,6 +460,7 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     work.mkdir(parents=True)
     tts_pref = os.getenv({"te": "TELUGU_TTS", "hi": "HINDI_TTS"}.get(lang, "PODCAST_TTS"), "gemini")
     parts = gemini_podcast(turns, work, profile, tts_pref)
+    groups = chunk_turns(turns) if parts else []
     if not parts:
         print(f"  voices: edge-tts ({lang})")
         parts = []
@@ -394,10 +468,22 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
             p = work / f"{n:03d}.mp3"
             speak_line(said, speaker, p, profile)
             parts.append(p)
+        groups = [[t] for t in turns]
 
     out_mp3 = out_dir / (out_name or profile["file"])
     stitch(parts, out_mp3, work)
     (out_dir / f"script_{tag}.txt").write_text(
         "\n".join(f"{s}: {t}" for s, t in turns))
+    chap_file = out_dir / f"chapters_{tag}.json"
+    chap_file.unlink(missing_ok=True)
+    if chapters and len(groups) == len(parts):
+        try:
+            times = chapter_times(chapters, turns, parts, groups)
+            if len(times) >= 2:
+                chap_file.write_text(json.dumps(times, ensure_ascii=False))
+                print(f"  chapters: " + ", ".join(f"{c['title']} {int(c['t']) // 60}:{int(c['t']) % 60:02d}"
+                                                  for c in times))
+        except Exception as exc:
+            print(f"  ! chapters skipped: {type(exc).__name__}")
     print(f"  {tag} podcast ready: {out_mp3.stat().st_size / 1e6:.1f} MB")
     return out_mp3

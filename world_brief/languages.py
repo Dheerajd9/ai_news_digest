@@ -3,7 +3,7 @@ Telugu and Hindi podcasts of the same full, fact-checked brief, so ONE email can
 the news in English, Telugu and Hindi (everyone picks their language and taps play).
 
   PODCAST_LANGUAGES   which extra languages, comma-separated (default "te,hi")
-  LANG_EDITIONS       editions that get them (default "morning")
+  LANG_EDITIONS       editions that get them (default "morning,evening,weekly")
   PARENTS_WHATSAPP    optional "phone:apikey" pairs: WhatsApp message with the play links
                       via CallMeBot (free; each phone activates it once, see README)
 """
@@ -30,9 +30,15 @@ LANGS = {
            "hosts": "Arjun & Meera", "archive": ROOT / "briefs" / "hindi"},
 }
 
-LENGTH = ("About 1,900 to 2,600 words (15 to 20 minutes spoken): the same full coverage as the "
-          "English Full podcast. Cover every story in the brief that matters, with real "
-          "explanation; shorter only on a genuinely quiet news day. Do not stop early.")
+LENGTHS = {
+    "MORNING": ("About 1,900 to 2,600 words (15 to 20 minutes spoken): the same full coverage as "
+                "the English Full podcast. Cover every story in the brief that matters, with real "
+                "explanation; shorter only on a genuinely quiet news day. Do not stop early."),
+    "EVENING": ("About 500 to 900 words (4 to 7 minutes spoken): only what changed since the "
+                "morning, biggest change first. Shorter if little changed."),
+    "WEEKLY": ("About 1,900 to 2,600 words (15 to 20 minutes spoken): the week's big patterns, "
+               "same coverage as the English weekly podcast. Do not stop early."),
+}
 
 
 def _redact(text: str) -> str:
@@ -40,7 +46,7 @@ def _redact(text: str) -> str:
 
 
 def wanted(edition: str) -> list[str]:
-    if edition not in os.getenv("LANG_EDITIONS", "morning").split(","):
+    if edition not in os.getenv("LANG_EDITIONS", "morning,evening,weekly").split(","):
         return []
     return [c.strip() for c in os.getenv("PODCAST_LANGUAGES", "te,hi").split(",")
             if c.strip() in LANGS]
@@ -55,10 +61,12 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
     episodes = []
     for code in langs:
         info = LANGS[code]
+        sfx = "" if report_type == "MORNING" else f"-{report_type.lower()}"
         try:
             mp3 = make_podcast(news, date_str, out_dir,
                                lambda s, u: digest.ask(s, u, prefer="gemini"),
-                               length=LENGTH, show=info["show"], lang=code,
+                               length=LENGTHS.get(report_type, LENGTHS["MORNING"]),
+                               show=info["show"], lang=code,
                                report_type=report_type,
                                out_name=f"{info['name']}_podcast.mp3",
                                previous_script=latest_previous_script(info["archive"], "podcast", 3000))
@@ -72,7 +80,7 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
         if podfeed.configured() and not dry:
             for attempt in (1, 2):
                 try:
-                    url = podfeed.upload_asset(mp3, f"{now:%Y-%m-%d}-{info['name']}.mp3")
+                    url = podfeed.upload_asset(mp3, f"{now:%Y-%m-%d}-{info['name']}{sfx}.mp3")
                     print(f"  {info['name']} audio uploaded ({mp3.stat().st_size / 1e6:.1f} MB)")
                     break
                 except Exception as exc:
@@ -80,7 +88,7 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
                           f"{type(exc).__name__}: {_redact(str(exc))[:200]}")
             if url:
                 try:
-                    podfeed.prune_extra(f"-{info['name']}.mp3", keep=21)
+                    podfeed.prune_extra(f"-{info['name']}{sfx}.mp3", keep=21)
                 except Exception as exc:
                     print(f"  ! {info['name']} prune failed: {type(exc).__name__}")
         episodes.append({"kind": code, "label": info["label"], "file": str(mp3), "url": url,
@@ -89,7 +97,7 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
             info["archive"].mkdir(parents=True, exist_ok=True)
             script = out_dir / f"script_{info['name']}_podcast.txt"
             if script.exists():
-                (info["archive"] / f"{now:%Y-%m-%d}-podcast.txt").write_text(script.read_text())
+                (info["archive"] / f"{now:%Y-%m-%d}{sfx}-podcast.txt").write_text(script.read_text())
     return episodes
 
 
