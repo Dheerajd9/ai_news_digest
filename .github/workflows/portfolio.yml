@@ -1,4 +1,5 @@
 name: Portfolio Report
+# Holdings come from the PORTFOLIO_JSON secret (never stored in this repo).
 
 on:
   schedule:
