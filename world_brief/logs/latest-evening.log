@@ -1,110 +1,79 @@
-  ! feed failed: https://indianexpress.com/section/india/feed/ (403 Client Error: Forbidden for url: https://indianexpress.com/section/india/feed/)
-  ! feed failed: https://www.bls.gov/feed/bls_latest.rss (403 Client Error: Forbidden for url: https://www.bls.gov/feed/bls_latest.rss)
-  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
-  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
-  ! Gemini gemini-3.8-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
-  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
-  ! Gemini gemini-3.8-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! GitHub Models openai/gpt-4.1-mini: Expecting value: line 1 column 1 (char 0)
-  ! GitHub Models openai/gpt-4o-mini: Expecting value: line 1 column 1 (char 0)
-  ! Gemini gemini-3.8-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.7-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.6-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! Gemini gemini-3.8-flash: daily free quota used up
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! Gemini gemini-3.7-flash: daily free quota used up
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash: daily free quota used up
+  ! Gemini gemini-3.5-flash: daily free quota used up
+  Gemini busy everywhere; waiting 60s and trying again
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
 Edition: evening
 Fetching feeds...
-   28 items  india                        Top stories
-   31 items  india                        India
+   25 items  india                        Top stories
+   10 items  india                        India
    60 items  india                        The Hindu
-   58 items  india                        Hindustan Times
-   44 items  india                        Times of India
-    1 items  india                        BBC
-   20 items  india_economy                Business
+   39 items  india                        "site:indianexpress.com India 
+   23 items  india                        Hindustan Times
+   41 items  india                        Times of India
+    0 items  india                        BBC
+    9 items  india_economy                Business
     1 items  india_economy                Mint
-   37 items  india_economy                Economic Times
-    0 items  india_economy                The Hindu
-   38 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   29 items  india_economy                "Sensex OR Nifty closing when:
-   15 items  india_economy                "FII OR FPI OR DII selling OR 
-   10 items  india_economy                "RBI repo OR "CPI inflation" O
-   19 items  telangana_hyderabad          The Hindu
-   13 items  telangana_hyderabad          The Hindu
-   99 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-   19 items  usa                          U.S.
-    8 items  usa                          NPR
-    3 items  usa                          NPR
-   90 items  usa                          "Texas OR Dallas when:1d"
-   17 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+   32 items  india_economy                Economic Times
+    1 items  india_economy                The Hindu
+   34 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   26 items  india_economy                "Sensex OR Nifty closing when:
+    8 items  india_economy                "FII OR FPI OR DII selling OR 
+   11 items  india_economy                "RBI repo OR "CPI inflation" O
+   11 items  telangana_hyderabad          The Hindu
+    9 items  telangana_hyderabad          The Hindu
+   74 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
+   41 items  usa                          U.S.
+    1 items  usa                          NPR
+    0 items  usa                          NPR
+   95 items  usa                          "Texas OR Dallas when:1d"
+   24 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
     1 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   15 items  india_us_visa_trade          "India US trade OR tariff OR "
-   17 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   18 items  india_us_visa_trade          "India exports OR imports when
-    8 items  world                        BBC
+    5 items  india_us_visa_trade          "India US trade OR tariff OR "
+   19 items  india_us_visa_trade          "rupee dollar OR remittance wh
+   13 items  india_us_visa_trade          "India exports OR imports when
+   10 items  world                        BBC
    25 items  world                        Al Jazeera
-   25 items  world                        The Guardian
-    2 items  world                        DW
-   20 items  world                        The Hindu
-   22 items  world                        DW
-    1 items  global_economy               BBC
-   15 items  global_economy               Business
-   53 items  global_economy               "oil prices OR shipping OR san
-    0 items  tech_ai                      Ars Technica
+   21 items  world                        The Guardian
+    3 items  world                        DW
+    7 items  world                        The Hindu
+   24 items  world                        DW
+    8 items  global_economy               BBC
+   29 items  global_economy               Business
+   83 items  global_economy               "oil prices OR shipping OR san
+    2 items  tech_ai                      Ars Technica
     0 items  tech_ai                      MIT Tech Review
-    1 items  tech_ai                      Hacker News
-   12 items  tech_ai                      Technology
-   59 items  tech_ai                      ""artificial intelligence" whe
+    2 items  tech_ai                      Hacker News
+   16 items  tech_ai                      Technology
+   52 items  tech_ai                      ""artificial intelligence" whe
     0 items  science_health_climate       Nature
-    2 items  science_health_climate       ScienceDaily
-   22 items  science_health_climate       Science
-    6 items  science_health_climate       "ISRO OR monsoon when:2d"
+    0 items  science_health_climate       ScienceDaily
+    7 items  science_health_climate       Science
+   15 items  science_health_climate       "ISRO OR monsoon when:2d"
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
     0 items  official                     Federal Reserve (official)
+   43 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
-    6 items  us_markets_economy           CNBC
+    8 items  us_markets_economy           CNBC
     0 items  us_markets_economy           CNBC
-   23 items  us_markets_economy           ""stock market" today S&P Nasd
-   10 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-    8 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   16 items  jobs_tax_housing             ""income tax" OR "GST council"
-   12 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-1099 raw -> 270 items after dedupe/cap; 0 history events; memory 9,000 chars
-  brief prompt ~54,568 tokens
-  written by Gemini gemini-3.8-flash
+   15 items  us_markets_economy           ""stock market" today S&P Nasd
+    6 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+    9 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   11 items  jobs_tax_housing             ""income tax" OR "GST council"
+   11 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+1080 raw -> 282 items after dedupe/cap; 0 history events; memory 9,000 chars
+  brief prompt ~56,733 tokens
   written by Gemini gemini-3.7-flash
-  ! fact-check removed too much; keeping the draft
-  meta: {'REPORT_TYPE': 'EVENING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Trump claims energy ceasefire; Nvidia chip smuggling guilty plea; Middle East airport strikes; IndiGo Hyderabad emergency landing', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '2', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  written by Gemini gemini-3.7-flash
-  written by Gemini gemini-3.5-flash
-  script reviewed: 478 -> 384 words
-  en podcast script: 15 turns, 384 words
-  ! Gemini TTS gemini-3.8-flash-tts failed: HTTP 400: {
-  "error": {
-    "code": 400,
-    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
-  ! Gemini TTS gemini-3.8-flash-lite-tts failed: HTTP 400: {
-  "error": {
-    "code": 400,
-    "message": "Multi-speaker generation requests must specify speech_metadata.speaker for each text part in the conte
-  voices: edge-tts (en)
-  world_brief_quick podcast ready: 1.5 MB
-  ! podcast feed failed: RuntimeError: GET /repos/Dheerajd9/world-brief-podcast/releases/tags/episodes -> 401: {
-  "message": "Bad credentials",
-  "documentation_url": "https://docs.githu
+  ! fact-check unavailable; sending the unchecked draft
+  meta: {'REPORT_TYPE': 'EVENING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Hyderabad casualty in Riyadh airport attack; MEA clarifies US PERM freeze on H-1Bs; Ukraine energy ceasefire updates; Amazon $7B AI acquisition talks', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '2', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  ! en podcast script too short or missing; skipping audio
   email sent (1 recipient(s))
   story ledger: 4 stories updated

@@ -5,21 +5,29 @@
    {
     "date": "2026-10-11",
     "text": "Watch for formal statements from Moscow and Kyiv"
+   },
+   {
+    "date": "2026-10-11",
+    "text": "Monitor official diplomatic communiques from Moscow"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-11",
     "event": "Ceasefire announced by Trump; Yandex data center struck again"
+   },
+   {
+    "date": "2026-10-11",
+    "event": "Zelenskyy confirms truce talks as attacks persist"
    }
   ],
   "title": "Trump announces Russia-Ukraine energy ceasefire",
   "status": "DEVELOPING",
-  "stage": "ANNOUNCED",
-  "summary": "Donald Trump claimed an immediate energy ceasefire between Russia and Ukraine, though neither government has verified the agreement.",
+  "stage": "NEGOTIATIONS",
+  "summary": "Kyiv expressed conditional support for an energy truce, but infrastructure strikes continued in Kyiv and Kharkiv.",
   "open_questions": [
-   "Will Russia and Ukraine officially confirm and honour the energy ceasefire?",
-   "Will the US offer sanctions relief in exchange?"
+   "Will Russia halt strikes on Ukrainian energy infrastructure?",
+   "Will the US halt weapons supplies to enforce conditions?"
   ],
   "last_seen": "2026-10-11"
  },
@@ -43,19 +51,29 @@
  },
  "middle-east-escalation": {
   "first_seen": "2026-10-11",
-  "expectations": [],
+  "expectations": [
+   {
+    "date": "2026-10-11",
+    "text": "Watch for Saudi military counter-operations"
+   }
+  ],
   "timeline": [
    {
     "date": "2026-10-11",
     "event": "Airstrikes reported on Sanaa airport"
+   },
+   {
+    "date": "2026-10-11",
+    "event": "Hyderabad resident killed in Riyadh airport strike"
    }
   ],
   "title": "Saudi-Houthi airport strikes escalate regional tensions",
-  "status": "DEVELOPING",
+  "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Retaliatory airstrikes hit Sanaa airport following Houthi drone strikes on Riyadh, keeping oil shipping routes at high risk.",
+  "summary": "A Hyderabad pilgrim was killed and several Indians were injured in Houthi strikes on Riyadh airport, expanding direct regional casualties.",
   "open_questions": [
-   "Will shipping disruptions in the Red Sea and Gulf of Oman worsen?"
+   "Will Saudi Arabia launch retaliatory airstrikes?",
+   "Will commercial air travel to Gulf hubs face widespread suspensions?"
   ],
   "last_seen": "2026-10-11"
  },
@@ -73,6 +91,54 @@
   "stage": "REAL-WORLD EFFECT",
   "summary": "A Delhi-Chennai IndiGo flight diverted safely to Hyderabad after a malfunctioning power bank sparked in an overhead bin.",
   "open_questions": [],
+  "last_seen": "2026-10-11"
+ },
+ "us-perm-h1b-freeze": {
+  "first_seen": "2026-10-11",
+  "expectations": [
+   {
+    "date": "2026-10-11",
+    "text": "Watch for Department of Labor guidance on pending labor certifications"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-11",
+    "event": "MEA clarifies H-1B status remains protected"
+   }
+  ],
+  "title": "US PERM freeze impact on H-1B holders",
+  "status": "DEVELOPING",
+  "stage": "IMPLEMENTED",
+  "summary": "India's MEA clarified that the US suspension of PERM processing does not impact the legal validity of existing H-1B visas.",
+  "open_questions": [
+   "How long will the Department of Labor PERM freeze last?",
+   "Will corporate green card sponsorships be delayed into 2027?"
+  ],
+  "last_seen": "2026-10-11"
+ },
+ "amazon-decart-acquisition": {
+  "first_seen": "2026-10-11",
+  "expectations": [
+   {
+    "date": "2026-10-11",
+    "text": "Formal deal announcement expected within weeks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-11",
+    "event": "Acquisition talks reported by WSJ"
+   }
+  ],
+  "title": "Amazon in talks to acquire AI startup Decart",
+  "status": "NEW",
+  "stage": "NEGOTIATIONS",
+  "summary": "Amazon is in advanced talks to purchase AI platform Decart for approximately $7 billion to expand AI infrastructure.",
+  "open_questions": [
+   "Will antitrust regulators review the $7B transaction?",
+   "When will the acquisition finalize?"
+  ],
   "last_seen": "2026-10-11"
  }
 }

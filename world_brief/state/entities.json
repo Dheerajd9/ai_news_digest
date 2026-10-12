@@ -2,7 +2,7 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "russia-ukraine-energy-truce"
 ],
@@ -18,7 +18,7 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "russia-ukraine-energy-truce"
 ],
@@ -26,7 +26,7 @@
 },
 "Russia": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "russia-ukraine-energy-truce"
 ],
@@ -66,7 +66,7 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "middle-east-escalation"
 ],
@@ -74,7 +74,7 @@
 },
 "Houthis": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "middle-east-escalation"
 ],
@@ -111,6 +111,55 @@
 "indigo-hyderabad-emergency"
 ],
 "last_seen": "2026-10-11"
+},
+"India MEA": {
+"first_seen": "2026-10-11",
+"count": 2,
+"stories": [
+"middle-east-escalation",
+"us-perm-h1b-freeze"
+],
+"last_seen": "2026-10-11"
+},
+"US Department of Labor": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-perm-h1b-freeze"
+],
+"last_seen": "2026-10-11"
+},
+"USCIS": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"us-perm-h1b-freeze"
+],
+"last_seen": "2026-10-11"
+},
+"Volodymyr Zelenskyy": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"russia-ukraine-energy-truce"
+],
+"last_seen": "2026-10-11"
+},
+"Amazon": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"amazon-decart-acquisition"
+],
+"last_seen": "2026-10-11"
+},
+"Decart": {
+"first_seen": "2026-10-11",
+"count": 1,
+"stories": [
+"amazon-decart-acquisition"
+],
+"last_seen": "2026-10-11"
 }
 },
 "connections": [
@@ -128,6 +177,30 @@
 },
 {
 "text": "Middle East escalation -> oil prices above $104 -> Indian import bill pressure",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "Middle East escalation -> Indian diaspora safety -> aviation risk",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "US immigration policy -> Indian tech workers -> green card backlogs",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "Energy ceasefire -> crude prices -> global inflation",
+"first_seen": "2026-10-11",
+"last_seen": "2026-10-11",
+"count": 1
+},
+{
+"text": "Big Tech AI spending -> data center capabilities -> M&A trends",
 "first_seen": "2026-10-11",
 "last_seen": "2026-10-11",
 "count": 1
