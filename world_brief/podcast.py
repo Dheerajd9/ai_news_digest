@@ -28,7 +28,8 @@ from pathlib import Path
 
 import requests
 
-# Two voice profiles share one engine: English (Kartik & Priya) and Telugu (Ravi & Lakshmi).
+# Voice profiles share one engine: English (Kartik & Priya), Telugu (Ravi & Lakshmi),
+# Hindi (Arjun & Meera).
 PROFILES = {
     "en": {
         "hosts": ("KARTIK", "PRIYA"),
@@ -67,6 +68,24 @@ PROFILES = {
                   "from Hyderabad. Speak clearly at a calm, unhurried pace with "
                   "a natural Telangana (Hyderabad) accent and Telangana yaasa expressions, warm and "
                   "homely like family talking, never robotic or bookish:"),
+    },
+    "hi": {
+        "hosts": ("ARJUN", "MEERA"),
+        "prompt": "hindi_podcast_prompt.md",
+        "file": "hindi_podcast.mp3",
+        "edge": {"ARJUN": os.getenv("HINDI_VOICE_A", "hi-IN-MadhurNeural"),
+                 "MEERA": os.getenv("HINDI_VOICE_B", "hi-IN-SwaraNeural")},
+        "edge_fallback": {},
+        "edge_rate": os.getenv("HINDI_RATE", "+0%"),
+        "gemini": {"ARJUN": "Charon", "MEERA": "Sulafat"},
+        "gemini_pinned": {"ARJUN": os.getenv("GEMINI_HINDI_VOICE_A", ""),
+                          "MEERA": os.getenv("GEMINI_HINDI_VOICE_B", "")},
+        "lang_code": "hi-IN",
+        "tts_budget": int(os.getenv("GEMINI_HINDI_TTS_BUDGET_SEC", "1000")),
+        "turn_style": "Natural everyday spoken Hindi, warm and clear, relaxed conversational pace",
+        "style": ("Read this aloud in natural, warm everyday spoken Hindi, like a friendly Hindi "
+                  "news discussion. Arjun and Meera are two Indian news hosts. Speak clearly at a "
+                  "relaxed pace, warm and expressive, never robotic or bookish:"),
     },
 }
 
@@ -355,7 +374,7 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     script = llm(system, user)
     if script and os.getenv("PODCAST_REVIEW", "1") == "1":
         script = review_script(script, llm, length, profile["hosts"],
-                               min_ratio=0.85 if lang == "te" else 0.5)
+                               min_ratio=0.85 if lang in ("te", "hi") else 0.5)
     turns = parse_script(script or "", profile["hosts"])
     if len(turns) < 6:
         print(f"  ! {lang} podcast script too short or missing; skipping audio")
@@ -366,7 +385,7 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     work = out_dir / f"parts_{tag}"
     shutil.rmtree(work, ignore_errors=True)
     work.mkdir(parents=True)
-    tts_pref = os.getenv("TELUGU_TTS" if lang == "te" else "PODCAST_TTS", "gemini")
+    tts_pref = os.getenv({"te": "TELUGU_TTS", "hi": "HINDI_TTS"}.get(lang, "PODCAST_TTS"), "gemini")
     parts = gemini_podcast(turns, work, profile, tts_pref)
     if not parts:
         print(f"  voices: edge-tts ({lang})")

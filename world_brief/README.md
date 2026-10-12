@@ -46,7 +46,7 @@ If any piece fails, the rest still runs: no AI → headline list; no voice → e
 ## Files
 
 - `digest.py` main pipeline (editions: `EDITION=morning|evening|weekly`)
-- `markets.py` exact numbers · `podcast.py` audio (English + Telugu) · `podfeed.py` podcast feed + public MP3 links · `telugu.py` parents' edition · `alerts.py` breaking alerts
+- `markets.py` exact numbers · `podcast.py` audio (English, Telugu, Hindi) · `podfeed.py` podcast feed, public MP3 links + web player · `languages.py` Telugu & Hindi podcasts · `alerts.py` breaking alerts
 - `feeds.yaml` news sources · `watchlist.yaml` alert keywords and thresholds
 - `prompts/` brief, evening, weekly, fact-check, podcast, alert prompts (edit READER PROFILE to tune)
 - `briefs/` archive (also the story memory) · `state/seen.json` what was already sent
@@ -72,19 +72,24 @@ This repo is private and podcast apps can't log in, so episodes go to a tiny **p
 
 The feed is marked hidden from podcast directories; only people with the URL can subscribe.
 
-## Telugu edition for parents (Amma & Nanna)
+## One email, three languages (English · తెలుగు · हिंदी)
 
-Every morning, after your English brief, the same fact-checked news goes to the parents as a **simple English email** with a **Telugu podcast**:
-- An English email (simple words, key words in bold): top 5, India, Telangana & Hyderabad (with weather), **gold 24K/22K per gram and per 10 g, silver per kg, dollar rate**, Sensex/Nifty & mutual funds, America & our children there (visas, jobs), world, health, history.
-- A **Ravi & Lakshmi** Telugu podcast in Telangana yaasa, straight to the news (no greetings), about 5-8 min. Gemini Telugu voice first, Microsoft Telugu voices (`te-IN-MohanNeural`, `te-IN-ShrutiNeural`) as backup.
-- Arrives at the same time as your morning brief (about 6 PM in India).
+Every morning ONE email goes to everyone. It has the full news in English and a 🎧 Listen block with play links for:
+- 🔵 English: Kartik & Priya, Quick (5-7 min) and Full (10-15 min)
+- 🟠 Telugu: Ravi & Lakshmi, Telangana yaasa, full coverage (15-20 min)
+- 🟢 Hindi: Arjun & Meera, everyday spoken Hindi, full coverage (15-20 min)
 
-Turn it on (repo → Settings → Secrets and variables → Actions → Secrets):
+Links open a small web player (no download prompts, speed buttons, remembers where you stopped).
+Evening and weekly editions are English only (`LANG_EDITIONS`, `PODCAST_LANGUAGES` change this).
+
+**Who gets it** (repo → Settings → Secrets and variables → Actions → Secrets): put addresses in `TO_EMAIL`
+and/or `PARENTS_EMAIL`, separated by commas, e.g. `me@gmail.com,amma@gmail.com,friend@yahoo.com`.
+Everyone is BCC'd, so nobody sees the others' addresses.
 
 | Secret | Value | Result |
 |---|---|---|
-| `PARENTS_EMAIL` | `amma@gmail.com,nanna@gmail.com` | English email with the Telugu podcast link and MP3 attached |
-| `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the play link + 3 headlines |
+| `TO_EMAIL` / `PARENTS_EMAIL` | comma-separated addresses | the daily email |
+| `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the Telugu/Hindi play links + 3 headlines |
 
 **WhatsApp (free, via CallMeBot) — one-time setup on each parent's phone:**
 1. Open callmebot.com → WhatsApp API, and save the CallMeBot phone number shown there in the parent's contacts.

@@ -208,6 +208,7 @@ background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(-
   if(!/^[A-Za-z0-9._-]+\\.mp3$/.test(f)){t.textContent="Episode not found";d.className="err";return;}
   var m=f.match(/^(\\d{4})-(\\d{2})-(\\d{2})-?(.*)\\.mp3$/), kind=m?m[4]:"";
   var names={"telugu":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu)",
+    "hindi":"\\u0906\\u091c \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi)",
     "morning":"Morning Brief: Full","morning-quick":"Morning Brief: Quick","evening":"Evening Update",
     "evening-quick":"Evening Update","weekly":"Weekly Report"};
   t.textContent=names[kind]||"World Brief";

@@ -902,9 +902,13 @@ def link_citations(md: str, items: list[dict]) -> str:
 
 # ---------------------------------------------------------------- deliver
 def send_email(subject: str, md: str, audio=None, to: str | None = None,
-               audio_name: str | None = None) -> None:
+               audio_name: str | None = None, everyone: bool = False) -> None:
+    """everyone=True: the daily brief goes to TO_EMAIL + PARENTS_EMAIL (comma-separated lists).
+    Recipients are BCC'd, so nobody sees anyone else's address."""
     user, pwd = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
     to = to or os.getenv("TO_EMAIL")
+    if everyone:
+        to = ",".join(x for x in (os.getenv("TO_EMAIL", ""), os.getenv("PARENTS_EMAIL", "")) if x)
     if not (user and pwd and to):
         print("  (email skipped: GMAIL_USER / GMAIL_APP_PASSWORD / recipient not set)")
         return
@@ -928,7 +932,12 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     body.attach(MIMEText(safe_md, "plain", "utf-8"))
     body.attach(MIMEText(page, "html", "utf-8"))
     msg = MIMEMultipart("mixed")
-    msg["Subject"], msg["From"], msg["To"] = subject, user, to
+    recipients = list(dict.fromkeys(a.strip() for a in to.split(",") if "@" in a))
+    if not recipients:
+        print("  (email skipped: no valid recipient)")
+        return
+    msg["Subject"], msg["From"] = subject, user
+    msg["To"] = recipients[0] if len(recipients) == 1 else user     # others are BCC
     msg.attach(body)
     files = [audio] if isinstance(audio, Path) else list(audio or [])
     total = 0
@@ -947,7 +956,6 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
         msg.attach(part)
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
         s.login(user, pwd)
-        recipients = [a.strip() for a in to.split(",") if a.strip()]
         s.sendmail(user, recipients, msg.as_string())
     print(f"  email sent ({len(recipients)} recipient(s))")
 
@@ -1083,10 +1091,12 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
         when = f" (about {mins} min)" if mins else ""
         play = (f"[▶️ Play]({play_link(ep['url'])})" if ep.get("url")
                 else "attached to this email")
-        lines.append(f"**{ep['label']}{when}:** {play}")
+        label = ep["label"] if ep.get("hosts") else f"🔵 English {ep['label']}"
+        who = f" · {ep.get('hosts') or 'Kartik & Priya'}"
+        lines.append(f"**{label}{when}:** {play}{who}")
     topics = [t.lstrip("• ").strip() for t in episode_notes(brief, meta).split("\n\n")[-1].split("\n")]
     topics = [t for t in topics if t]
-    out = "## 🎧 Listen to Kartik & Priya\n\n" + "  \n".join(lines) + "\n"
+    out = "## 🎧 Listen: English · తెలుగు · हिंदी\n\n" + "  \n".join(lines) + "\n"
     if topics:
         out += "\n**Today's topics:**\n" + "\n".join(f"- {t}" for t in topics[:7]) + "\n"
     return out
@@ -1311,85 +1321,36 @@ def main() -> None:
     elif not wants_podcast:
         print("  podcast skipped: AI says nothing meaningful new")
 
-    listen = listen_section(episodes, meta, brief)
+    # Same news as Telugu and Hindi podcasts, so ONE email serves every listener.
+    import languages
+    langs = languages.wanted(edition) if (items and not no_llm and wants_podcast
+                                          and os.getenv("PODCAST", "1") == "1") else []
+    lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
+                                       langs, dry) if langs else []
+
+    listen = listen_section(episodes + lang_eps, meta, brief)
     if "{{LISTEN}}" in final:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:
         final = insert_box(final, listen)
     final = re.sub(r"\n{3,}", "\n\n", final)
-    audio_files = [Path(e["file"]) for e in episodes]
+    # Attach only what has no play link (upload failed or no podcast repo); the links play
+    # in the browser, so the email stays small.
+    audio_files = [Path(e["file"]) for e in episodes + lang_eps if not e.get("url")]
 
     urgent = meta.get("URGENT_ALERT", "").upper().startswith("T")
-    subject = ("🚨 " if urgent else "") + title + (" 🎧" if episodes else "")
-    telugu_on = (edition in os.getenv("TELUGU_EDITIONS", "morning").split(",")
-                 and not no_llm and items)
+    subject = ("🚨 " if urgent else "") + title + (" 🎧" if episodes or lang_eps else "")
     if dry:
         print(f"\nSUBJECT: {subject}\n\n" + final)
-        for f in audio_files:
-            print(f"\n[podcast saved at {f}]")
-        if telugu_on and os.getenv("TELUGU_DRY_RUN") == "1":
-            import telugu
-            telugu.run(final, markets_plain, date_str, now, ROOT / "out", dry=True)
+        for f in episodes + lang_eps:
+            print(f"\n[podcast saved at {f['file']}]")
         return
 
-    send_email(subject, final, audio_files)
+    send_email(subject, final, audio_files, everyone=True)
     mark_done(now, edition)            # email is out: backup slots must not resend it
-    send_telegram(final, audio_files[0] if audio_files else None)
+    send_telegram(final, Path(episodes[0]["file"]) if episodes else None)
+    languages.send_whatsapp(final, lang_eps)
     token_reminder(edition)
-
-    # Telugu edition for parents (only if PARENTS_EMAIL / PARENTS_WHATSAPP is set).
-    if telugu_on:
-        import telugu
-        if telugu.parents_configured():
-            telugu.run(final, markets_plain, date_str, now, ROOT / "out", dry=False)
-
-    ARCHIVE_DIR.mkdir(exist_ok=True)
-    (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)
-    # Keep podcast scripts as memory for tomorrow's episode ("Yesterday we talked about...").
-    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
-    for ep in episodes:
-        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
-        if script.exists():
-            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
-                script.read_text())
-    (ROOT / "state").mkdir(exist_ok=True)
-    if new_stories:
-        ENTITIES_FILE.write_text(json.dumps(update_entities(entities, new_stories, today_iso),
-                                            indent=0, ensure_ascii=False))
-    if edition == "weekly" and new_beliefs:
-        BELIEFS_FILE.write_text(json.dumps(update_beliefs(beliefs, new_beliefs, today_iso),
-                                           indent=1, ensure_ascii=False))
-        print(f"  beliefs updated: {len(new_beliefs)}")
-    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
-    run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
-               email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
-               podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0 for e in episodes),
-               corrections=final.count("CORRECTION"),
-               action_required=attention.count("ACTION REQUIRED"),
-               quiet=int((re.findall(r"\d+", str(meta.get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
-               warnings=len(warnings), llm_calls=sum(LLM_CALLS.values()),
-               stories_tracked=len(new_stories))
-    SCORECARD_FILE.write_text(json.dumps(record_run(load_json(SCORECARD_FILE, {}), run,
-                                                    edition == "weekly"), indent=0))
-    if items:
-        TRENDS_FILE.parent.mkdir(exist_ok=True)
-        TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,
-                                          sort_keys=True))
-        cited = set(re.findall(r"\[(S\d+)\]", brief))
-        SOURCES_FILE.parent.mkdir(exist_ok=True)
-        SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
-                                           indent=1, ensure_ascii=False, sort_keys=True))
-    if new_stories:
-        STORIES_FILE.parent.mkdir(exist_ok=True)
-        STORIES_FILE.write_text(json.dumps(update_stories(stories, new_stories, today_iso),
-                                           indent=1, ensure_ascii=False))
-        print(f"  story ledger: {len(new_stories)} stories updated")
-    if items:
-        stamp = datetime.now(timezone.utc).isoformat()
-        for it in items:
-            seen[key_of(it)] = stamp
-        STATE_FILE.parent.mkdir(exist_ok=True)
-        STATE_FILE.write_text(json.dumps(seen, indent=0))
 
 
 if __name__ == "__main__":
