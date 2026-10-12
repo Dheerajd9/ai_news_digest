@@ -2,11 +2,12 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
-"russia-ukraine-energy-truce"
+"russia-ukraine-energy-truce",
+"russia-diesel-sanctions"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-12"
 },
 "Yandex": {
 "first_seen": "2026-10-11",
@@ -18,19 +19,21 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
-"russia-ukraine-energy-truce"
+"russia-ukraine-energy-truce",
+"russia-diesel-sanctions"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-12"
 },
 "Russia": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
-"russia-ukraine-energy-truce"
+"russia-ukraine-energy-truce",
+"russia-diesel-sanctions"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-12"
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
@@ -68,7 +71,7 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "middle-east-escalation"
 ],
@@ -76,7 +79,7 @@
 },
 "Houthis": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "middle-east-escalation"
 ],
@@ -125,15 +128,15 @@
 },
 "US Department of Labor": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
 "us-perm-h1b-freeze"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-12"
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit"
@@ -199,7 +202,7 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
 "middle-east-escalation"
 ],
@@ -226,6 +229,78 @@
 "count": 1,
 "stories": [
 "microsoft-maia-chip"
+],
+"last_seen": "2026-10-12"
+},
+"FAA": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-12"
+},
+"Meta": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"meta-muse-wonder"
+],
+"last_seen": "2026-10-12"
+},
+"OpenAI": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"meta-muse-wonder"
+],
+"last_seen": "2026-10-12"
+},
+"Anthropic": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"meta-muse-wonder"
+],
+"last_seen": "2026-10-12"
+},
+"Delhi Police": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"delhi-jantar-mantar-protests"
+],
+"last_seen": "2026-10-12"
+},
+"Supreme Court of India": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"delhi-jantar-mantar-protests"
+],
+"last_seen": "2026-10-12"
+},
+"Surya Kant": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"delhi-jantar-mantar-protests"
+],
+"last_seen": "2026-10-12"
+},
+"Infosys": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"us-perm-h1b-freeze"
+],
+"last_seen": "2026-10-12"
+},
+"TCS": {
+"first_seen": "2026-10-12",
+"count": 1,
+"stories": [
+"us-perm-h1b-freeze"
 ],
 "last_seen": "2026-10-12"
 }
@@ -257,6 +332,36 @@
 },
 {
 "text": "AI infrastructure demand -> cloud custom silicon -> reduced Nvidia dependency",
+"first_seen": "2026-10-12",
+"last_seen": "2026-10-12",
+"count": 1
+},
+{
+"text": "Middle East escalation -> aviation risk -> oil prices near $106 -> Indian import costs",
+"first_seen": "2026-10-12",
+"last_seen": "2026-10-12",
+"count": 1
+},
+{
+"text": "AI agent capabilities -> enterprise adoption -> developer workflow shifts",
+"first_seen": "2026-10-12",
+"last_seen": "2026-10-12",
+"count": 1
+},
+{
+"text": "Russian fuel imports -> global diesel supply -> US energy price dynamics",
+"first_seen": "2026-10-12",
+"last_seen": "2026-10-12",
+"count": 1
+},
+{
+"text": "Voter roll dispute -> public protests -> urban security restrictions",
+"first_seen": "2026-10-12",
+"last_seen": "2026-10-12",
+"count": 1
+},
+{
+"text": "PERM slowdown -> employment green card backlog -> Indian tech worker retention",
 "first_seen": "2026-10-12",
 "last_seen": "2026-10-12",
 "count": 1

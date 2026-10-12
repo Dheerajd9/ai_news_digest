@@ -59,6 +59,10 @@
    {
     "date": "2026-10-12",
     "text": "Watch for Saudi military action and US naval response in the Red Sea"
+   },
+   {
+    "date": "2026-10-12",
+    "text": "Watch for Saudi counter-strikes and airline route changes"
    }
   ],
   "timeline": [
@@ -73,15 +77,19 @@
    {
     "date": "2026-10-12",
     "event": "Saudi vows response; Hyderabad victim confirmed; crude tops $105"
+   },
+   {
+    "date": "2026-10-12",
+    "event": "FAA flight warning issued; Saudi vows military retaliation"
    }
   ],
-  "title": "Saudi-Houthi conflict expands to commercial airports",
+  "title": "FAA issues Saudi airspace alert as conflict expands",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Houthi strikes on Riyadh airport killed 13 people, including an Indian national from Hyderabad, pushing Brent crude above $105.",
+  "summary": "The FAA warned US airlines of flight hazards over Saudi Arabia following Houthi drone strikes on Riyadh, keeping Brent crude near $106.",
   "open_questions": [
-   "Will Saudi Arabia launch major retaliatory strikes in Yemen?",
-   "Will tanker traffic through the Strait of Hormuz face sustained halts?"
+   "Will Saudi Arabia launch retaliatory strikes against Houthi targets?",
+   "Will commercial airlines suspend flights into Riyadh?"
   ],
   "last_seen": "2026-10-12"
  },
@@ -107,23 +115,31 @@
    {
     "date": "2026-10-11",
     "text": "Watch for Department of Labor guidance on pending labor certifications"
+   },
+   {
+    "date": "2026-10-12",
+    "text": "Department of Labor quarterly disclosure on processing backlogs"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-11",
     "event": "MEA clarifies H-1B status remains protected"
+   },
+   {
+    "date": "2026-10-12",
+    "event": "PERM filings drop to 607 across top 13 firms"
    }
   ],
-  "title": "US PERM freeze impact on H-1B holders",
+  "title": "US PERM labor certifications drop across tech consultancies",
   "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "India's MEA clarified that the US suspension of PERM processing does not impact the legal validity of existing H-1B visas.",
+  "summary": "Permanent labor certification approvals for major IT consulting firms dropped by over 60% over nine months, slowing green card filing pipelines.",
   "open_questions": [
-   "How long will the Department of Labor PERM freeze last?",
-   "Will corporate green card sponsorships be delayed into 2027?"
+   "When will Department of Labor PERM processing times normalize?",
+   "Will major IT firms revise green card sponsorship policies?"
   ],
-  "last_seen": "2026-10-11"
+  "last_seen": "2026-10-12"
  },
  "amazon-decart-acquisition": {
   "first_seen": "2026-10-11",
@@ -242,6 +258,78 @@
   "open_questions": [
    "What is the production scale of Maia 300 chips in Azure data centers?",
    "How does price-performance compare with Nvidia Blackwell architectures?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "meta-muse-wonder": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Benchmark results and developer adoption in Q4 2026"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "Muse Wonder launched for paid agent workflows"
+   }
+  ],
+  "title": "Meta releases paid frontier model Muse Wonder",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Meta introduced Muse Wonder and Muse Wonder Full, frontier AI models built for agent workflows accessible via paid subscriptions.",
+  "open_questions": [
+   "Will Meta offer an open-weights version of Muse Wonder?",
+   "How does Muse Wonder perform compared to Claude 3.5 Sonnet and GPT-4o?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "russia-diesel-sanctions": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Congressional hearings on Russia sanctions policy"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "Sanctions temporarily lifted on Russian fuel"
+   }
+  ],
+  "title": "Trump defends Russian diesel imports under sanctions relief",
+  "status": "DEVELOPING",
+  "stage": "IMPLEMENTED",
+  "summary": "President Trump defended importing Russian diesel by temporarily lifting fuel sanctions, drawing bipartisan congressional criticism.",
+  "open_questions": [
+   "Will Congress attempt to block the sanctions waiver?",
+   "How much diesel will Russia export to US markets?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "delhi-jantar-mantar-protests": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Supreme Court review of protest site guidelines"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "Jantar Mantar de-notified by Delhi Police"
+   }
+  ],
+  "title": "Delhi Police de-notifies Jantar Mantar as protest site",
+  "status": "DEVELOPING",
+  "stage": "IMPLEMENTED",
+  "summary": "Delhi Police de-notified Jantar Mantar as an official demonstration venue and redirected protests to Ramlila Ground as opposition groups marched to the Supreme Court.",
+  "open_questions": [
+   "Will the Supreme Court accept petitions challenging the protest zoning changes?",
+   "How will political parties adapt demonstration venues?"
   ],
   "last_seen": "2026-10-12"
  }
