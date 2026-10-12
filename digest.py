@@ -617,7 +617,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="write preview.html instead of emailing")
     args = parser.parse_args()
 
-    if os.getenv("GITHUB_EVENT_NAME") == "schedule":
+    if os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("DUE_ONLY") == "1":
         edition = due_edition()
         if edition is None:
             print(f"[info] {datetime.now(LOCAL_TZ):%H:%M %Z}: nothing due (or already sent). Skipping.",

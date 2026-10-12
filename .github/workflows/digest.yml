@@ -48,6 +48,8 @@ jobs:
         run: |
           if [ "$EVENT_NAME" = "push" ] && [ "$RUN_REQUEST" != "true" ]; then
             python digest.py --dry-run
+          elif [ "$RUN_REQUEST" = "true" ]; then
+            DUE_ONLY=1 python digest.py      # backup trigger: send only what's due and unsent
           else
             python digest.py
           fi

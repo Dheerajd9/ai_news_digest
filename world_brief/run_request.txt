@@ -1,2 +1,3 @@
 2026-10-11T14:09:37Z run all editions (requested by Dji to verify emails)
 2026-10-11T15:21:25Z run: morning force (verify new PODCAST_TOKEN, Gemini voices, longer Telugu)
+2026-10-12T21:29:48Z run: morning (GitHub cron skipped today's morning slots)

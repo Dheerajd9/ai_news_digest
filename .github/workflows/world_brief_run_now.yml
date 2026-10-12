@@ -70,7 +70,7 @@ jobs:
             if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
               echo "== weekly: not Sunday, running anyway as a test =="
             fi
-            if [ "$FORCE" = 0 ] && [ "$ED" != evening ] && [ -e "state/done/$D-$ED" ]; then
+            if [ "$FORCE" = 0 ] && [ -e "state/done/$D-$ED" ]; then
               echo "== $ED already sent today, skipping =="; continue
             fi
             echo "================ $ED ================"
