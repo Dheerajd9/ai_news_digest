@@ -62,9 +62,10 @@ jobs:
           mkdir -p logs
           # Last line of run_request.txt may say e.g. "run: morning force" (default: all three).
           REQ=$(tail -n 1 run_request.txt | tr 'A-Z' 'a-z')
-          EDS=$(echo "$REQ" | grep -oE '\b(morning|weekly|evening)\b' | tr '\n' ' ')
+          CMD=$(echo "$REQ" | sed -n 's/.*run:\([^(]*\).*/\1/p')    # only the words after "run:", before any "(note)"
+          EDS=$(echo "$CMD" | grep -oE '\b(morning|weekly|evening)\b' | awk '!seen[$0]++' | tr '\n' ' ')
           [ -z "$EDS" ] && EDS="morning weekly evening"
-          FORCE=$(echo "$REQ" | grep -qw force && echo 1 || echo 0)
+          FORCE=$(echo "$CMD" | grep -qw force && echo 1 || echo 0)
           echo "Requested: $EDS (force=$FORCE)"
           for ED in $EDS; do
             if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
@@ -79,6 +80,8 @@ jobs:
             if ! EDITION=$ED python digest.py 2>&1 | tee "logs/latest-$ED.log"; then
               echo "!! $ED failed"; FAILED="$FAILED $ED"
               EDITION="$ED (run-now)" python3 notify_failure.py || true
+            elif [ "$FORCE" = 0 ]; then
+              mkdir -p state/done; date -u +%FT%TZ > "state/done/$D-$ED"   # sent: never again today
             fi
             for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
                      state/entities.json state/beliefs.json state/scorecard.json state/done briefs logs; do
