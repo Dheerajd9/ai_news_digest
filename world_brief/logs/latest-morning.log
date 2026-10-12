@@ -1,137 +1,107 @@
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.7-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.6-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.5-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models openai/gpt-4.1-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! GitHub Models openai/gpt-4o-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! GitHub Models gpt-4o-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.7-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.6-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.5-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
+  ! feed failed: https://hnrss.org/frontpage?points=300 (HTTPSConnectionPool(host='hnrss.org', port=443): Max retries exceeded with url: /frontpage?points=300 (Caused by ConnectTimeoutError(<HTTPSConnection(host='hnrss.org', port=443) at 0x7fcaa3df9e20>, 'Connection to hnrss.org timed out. (connect timeout=20)')))
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
   ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models openai/gpt-4.1-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! GitHub Models openai/gpt-4o-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! GitHub Models gpt-4o-mini: HTTPSConnectionPool(host='models.inference.ai.azure.com', port=443): Max retries exceeded with url: /chat/completions (Caused by NameResolutionError("
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.7-flash HTTP 503: {
-  "error": {
-    "code": 503,
-    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try a
-  ! Gemini gemini-3.8-flash: daily free quota used up
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
 Edition: morning
 Fetching feeds...
-   33 items  india                        Top stories
+   36 items  india                        Top stories
    42 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
-   96 items  india                        Hindustan Times
-   45 items  india                        Times of India
+  100 items  india                        Hindustan Times
+   43 items  india                        Times of India
     1 items  india                        BBC
-   28 items  india_economy                Business
-    2 items  india_economy                Mint
-   44 items  india_economy                Economic Times
-    1 items  india_economy                The Hindu
-   70 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   40 items  india_economy                "Sensex OR Nifty closing when:
-   17 items  india_economy                "FII OR FPI OR DII selling OR 
-   22 items  india_economy                "RBI repo OR "CPI inflation" O
-   45 items  telangana_hyderabad          The Hindu
+   48 items  india_economy                Business
+    8 items  india_economy                Mint
+   45 items  india_economy                Economic Times
+    7 items  india_economy                The Hindu
+  100 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   62 items  india_economy                "Sensex OR Nifty closing when:
+   36 items  india_economy                "FII OR FPI OR DII selling OR 
+   31 items  india_economy                "RBI repo OR "CPI inflation" O
+   41 items  telangana_hyderabad          The Hindu
    33 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-   57 items  usa                          U.S.
+   54 items  usa                          U.S.
    10 items  usa                          NPR
-    4 items  usa                          NPR
+    5 items  usa                          NPR
   100 items  usa                          "Texas OR Dallas when:1d"
-   42 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-    5 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   41 items  india_us_visa_trade          "India US trade OR tariff OR "
-   34 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   40 items  india_us_visa_trade          "India exports OR imports when
-   18 items  world                        BBC
+   71 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+    6 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   74 items  india_us_visa_trade          "India US trade OR tariff OR "
+  100 items  india_us_visa_trade          "rupee dollar OR remittance wh
+   65 items  india_us_visa_trade          "India exports OR imports when
+   23 items  world                        BBC
    25 items  world                        Al Jazeera
-   27 items  world                        The Guardian
-    4 items  world                        DW
-   32 items  world                        The Hindu
-   39 items  world                        DW
-    3 items  global_economy               BBC
-   38 items  global_economy               Business
+   28 items  world                        The Guardian
+    9 items  world                        DW
+   27 items  world                        The Hindu
+   35 items  world                        DW
+   15 items  global_economy               BBC
+   62 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
-    0 items  tech_ai                      Ars Technica
-    0 items  tech_ai                      MIT Tech Review
-    3 items  tech_ai                      Hacker News
-   26 items  tech_ai                      Technology
+    5 items  tech_ai                      Ars Technica
+    3 items  tech_ai                      MIT Tech Review
+   47 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
-    0 items  science_health_climate       Nature
-    7 items  science_health_climate       ScienceDaily
-   36 items  science_health_climate       Science
-   25 items  science_health_climate       "ISRO OR monsoon when:2d"
+   11 items  science_health_climate       Nature
+    4 items  science_health_climate       ScienceDaily
+   44 items  science_health_climate       Science
+   78 items  science_health_climate       "ISRO OR monsoon when:2d"
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
     0 items  official                     Federal Reserve (official)
-   54 items  official                     ""Bureau of Labor Statistics" 
+   97 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
-   11 items  us_markets_economy           CNBC
-    0 items  us_markets_economy           CNBC
-   47 items  us_markets_economy           ""stock market" today S&P Nasd
-   13 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   19 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   30 items  jobs_tax_housing             ""income tax" OR "GST council"
-   23 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-1852 raw -> 275 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~59,213 tokens
-  meta: {}
-  ! en podcast script too short or missing; skipping audio
+   30 items  us_markets_economy           CNBC
+    3 items  us_markets_economy           CNBC
+   37 items  us_markets_economy           ""stock market" today S&P Nasd
+   43 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   42 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   68 items  jobs_tax_housing             ""income tax" OR "GST council"
+   57 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+2431 raw -> 302 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~64,106 tokens
   written by Gemini gemini-3.7-flash
   written by Gemini gemini-3.7-flash
-  script reviewed: 2318 -> 2477 words
-  en podcast script: 57 turns, 2477 words
-  voice library for en-IN: ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (neutral, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (female, Indian English, prebuilt); ? (male, Indian English, prebuilt); ? (female, Indian English, prebuilt)
-  ! Gemini TTS gemini-3.8-flash-tts {'KARTIK': '', 'PRIYA': ''} failed: HTTP 400: {
-  "error": {
-    "code": 400,
-    "message": "Received empty voice name.",
-    "status": "INVALID_ARGUMENT"
-  }
-}
-
-  ! Gemini TTS daily free quota used up; using backup voices
-  voices: edge-tts (en)
-  world_brief_full podcast ready: 9.1 MB
+  fact-check done (0 bullet(s) removed)
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'India inflation jumps to 5.54%; Rupee rebounds on RBI dollar curbs; Riyadh airport strike lifts oil above $105; US appeals block on $100k H-1B fee; Microsoft unveils Maia 300 AI chip', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '4', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 934 -> 912 words
+  en podcast script: 29 turns, 912 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (2 part(s))
+  world_brief_quick podcast ready: 2.8 MB
+  podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 2494 -> 2624 words
+  en podcast script: 63 turns, 2624 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (6 part(s))
+  world_brief_full podcast ready: 8.4 MB
   podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
   email sent (1 recipient(s))
-  written by Gemini gemini-3.7-flash
-  written by Gemini gemini-3.6-flash
-  written by Gemini gemini-3.7-flash
-  script reviewed: 931 -> 1911 words
-  te podcast script: 50 turns, 1911 words
-  voices: edge-tts (te)
-  telugu_podcast podcast ready: 9.6 MB
-  Telugu audio uploaded (9.6 MB)
+  podcast key check: ok, expires in 364 days
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 2063 -> 2579 words
+  te podcast script: 44 turns, 2579 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for te-IN: te-in-advisor-1 (female, Telugu, prebuilt); te-in-advisor-3 (female, Telugu, prebuilt); te-in-advisor-7 (male, Telugu, prebuilt); te-in-advisor-8 (male, Telugu, prebuilt); te-in-assistant-2 (male, Telugu, prebuilt); te-in-assistant-5 (female, Telugu, prebuilt); te-in-assistant-6 (neutral, Telugu, prebuilt); te-in-assistant-7 (male, Telugu, prebuilt); te-in-assistant-8 (male, Telugu, prebuilt); te-in-concierge-2 (male, Telugu, prebuilt); te-in-concierge-5 (male, Telugu, prebuilt); te-in-concierge-7 (female, Telugu, prebuilt); te-in-csagent-1 (female, Telugu, prebuilt); te-in-csagent-4 (male, Telugu, prebuilt); te-in-csagent-5 (female, Telugu, prebuilt); te-in-csagent-7 (neutral, Telugu, prebuilt); te-in-csagent-8 (female, Telugu, prebuilt); te-in-techagent-1 (female, Telugu, prebuilt); te-in-techagent-3 (female, Telugu, prebuilt); te-in-techagent-4 (male, Telugu, prebuilt)
+  ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
+  voices: Gemini gemini-3.8-flash-lite-tts {'RAVI': 'te-in-advisor-7', 'LAKSHMI': 'te-in-advisor-1'} (7 part(s))
+  telugu_podcast podcast ready: 11.6 MB
+  Telugu audio uploaded (11.6 MB)
   email sent (1 recipient(s))
+  story ledger: 5 stories updated

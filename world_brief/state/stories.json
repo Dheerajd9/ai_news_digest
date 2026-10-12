@@ -55,6 +55,10 @@
    {
     "date": "2026-10-11",
     "text": "Watch for Saudi military counter-operations"
+   },
+   {
+    "date": "2026-10-12",
+    "text": "Watch for Saudi military action and US naval response in the Red Sea"
    }
   ],
   "timeline": [
@@ -65,17 +69,21 @@
    {
     "date": "2026-10-11",
     "event": "Hyderabad resident killed in Riyadh airport strike"
+   },
+   {
+    "date": "2026-10-12",
+    "event": "Saudi vows response; Hyderabad victim confirmed; crude tops $105"
    }
   ],
-  "title": "Saudi-Houthi airport strikes escalate regional tensions",
+  "title": "Saudi-Houthi conflict expands to commercial airports",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "A Hyderabad pilgrim was killed and several Indians were injured in Houthi strikes on Riyadh airport, expanding direct regional casualties.",
+  "summary": "Houthi strikes on Riyadh airport killed 13 people, including an Indian national from Hyderabad, pushing Brent crude above $105.",
   "open_questions": [
-   "Will Saudi Arabia launch retaliatory airstrikes?",
-   "Will commercial air travel to Gulf hubs face widespread suspensions?"
+   "Will Saudi Arabia launch major retaliatory strikes in Yemen?",
+   "Will tanker traffic through the Strait of Hormuz face sustained halts?"
   ],
-  "last_seen": "2026-10-11"
+  "last_seen": "2026-10-12"
  },
  "indigo-hyderabad-emergency": {
   "first_seen": "2026-10-11",
@@ -140,5 +148,101 @@
    "When will the acquisition finalize?"
   ],
   "last_seen": "2026-10-11"
+ },
+ "india-cpi-inflation": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "RBI expected to keep repo rate on hold"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "September CPI data released at 5.54%"
+   }
+  ],
+  "title": "India September CPI inflation jumps to 5.54%",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "India's retail inflation accelerated to 5.54% in September led by a sharp rise in food prices, diminishing expectations of an imminent RBI rate cut.",
+  "open_questions": [
+   "Will RBI maintain its pause at the next policy meeting?",
+   "Will food prices cool with the arrival of the kharif harvest?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "rbi-rupee-defense": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Watch forex reserve levels in upcoming RBI weekly data"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "Rupee rises 96 paise to 95.76"
+   }
+  ],
+  "title": "RBI introduces dollar curbs to defend rupee",
+  "status": "DEVELOPING",
+  "stage": "EFFECTIVE",
+  "summary": "The rupee gained 1% to 95.76 after the RBI opened a dedicated dollar window for oil PSUs and curbed speculative currency trades.",
+  "open_questions": [
+   "How long will the special oil PSU dollar window remain open?",
+   "Will Brent crude above $105 overwhelm central bank interventions?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "us-h1b-fee-lawsuit": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Injunction remains in place pending appellate review"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "DOJ files formal appeal in federal appeals court"
+   }
+  ],
+  "title": "Trump administration appeals court order blocking $100k H-1B fee",
+  "status": "DEVELOPING",
+  "stage": "COURT CASE",
+  "summary": "The US government appealed a district court decision that enjoined the implementation of a $100,000 fee for H-1B visas.",
+  "open_questions": [
+   "Will the appeals court grant an emergency stay of the injunction?",
+   "When will appellate oral arguments take place?"
+  ],
+  "last_seen": "2026-10-12"
+ },
+ "microsoft-maia-chip": {
+  "first_seen": "2026-10-12",
+  "expectations": [
+   {
+    "date": "2026-10-12",
+    "text": "Enterprise customer deployment in Azure early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-12",
+    "event": "Maia 300 architecture unveiled"
+   }
+  ],
+  "title": "Microsoft introduces custom Azure Maia 300 AI processor",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Microsoft unveiled its Azure Maia 300 AI chip to power internal LLM workloads and decrease dependence on Nvidia hardware.",
+  "open_questions": [
+   "What is the production scale of Maia 300 chips in Azure data centers?",
+   "How does price-performance compare with Nvidia Blackwell architectures?"
+  ],
+  "last_seen": "2026-10-12"
  }
 }
