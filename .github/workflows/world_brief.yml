@@ -32,7 +32,6 @@ on:
 
 permissions:
   contents: write              # save world_brief/state + briefs archive (story memory)
-  models: read                 # GitHub Models free backup brain
 
 concurrency:
   group: world-brief
@@ -95,7 +94,9 @@ jobs:
         env:
           EDITION: ${{ steps.ed.outputs.edition }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
@@ -135,7 +136,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
-                   state/entities.json state/beliefs.json state/scorecard.json state/done briefs logs; do
+                   state/entities.json state/beliefs.json state/scorecard.json state/tts_usage.json state/done briefs logs; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then

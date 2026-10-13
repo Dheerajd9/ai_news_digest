@@ -66,7 +66,7 @@ def score(cands: list[dict]) -> list[dict]:
     system = (ROOT / "prompts" / "alert_prompt.md").read_text()
     payload = [{"id": c["id"], "source": c["source"], "coverage": c["coverage"],
                 "title": c["title"]} for c in cands]
-    reply = digest.ask(system, json.dumps(payload, ensure_ascii=False), prefer="github")
+    reply = digest.ask(system, json.dumps(payload, ensure_ascii=False), prefer="backup")
     if not reply:
         return []
     m = re.search(r"\{.*\}", reply, re.S)

@@ -430,6 +430,79 @@ def latest_previous_script(archive: Path, kind: str, max_chars: int = 4000) -> s
     return files[-1].read_text()[-max_chars:] if files else ""
 
 
+# ---------------------------------------------------------------- Google Cloud TTS (free tier)
+CLOUD_TTS_USAGE = ROOT / "state" / "tts_usage.json"
+CLOUD_VOICES = {"en": ("Charon", "Kore"), "te": ("Charon", "Kore"), "hi": ("Charon", "Kore")}
+
+
+def _cloud_usage() -> dict:
+    try:
+        return json.loads(CLOUD_TTS_USAGE.read_text())
+    except Exception:
+        return {}
+
+
+def cloud_tts_podcast(turns, work: Path, profile: dict, lang: str) -> list[Path] | None:
+    """Chirp 3 HD voices (natural, support en-IN, hi-IN, te-IN). Free up to 1M characters a
+    month; we stop well below that (GOOGLE_TTS_MONTHLY_CHARS, default 900,000), so it can
+    never cost money. Needs GOOGLE_TTS_API_KEY."""
+    key = os.getenv("GOOGLE_TTS_API_KEY", "").strip()
+    if not key or not shutil.which("ffmpeg"):
+        return None
+    month = time.strftime("%Y-%m")
+    usage = _cloud_usage()
+    used = int(usage.get(month, 0))
+    need = sum(len(t) for _, t in turns)
+    limit = int(os.getenv("GOOGLE_TTS_MONTHLY_CHARS", "900000"))
+    if used + need > limit:
+        print(f"  Google Cloud voices: monthly free allowance nearly used ({used:,} chars); skipping")
+        return None
+    a, b = profile["hosts"]
+    male, female = CLOUD_VOICES.get(lang, ("Charon", "Kore"))
+    lc = profile.get("lang_code", "en-IN")
+    voices = {a: os.getenv(f"CLOUD_VOICE_{lang.upper()}_A", male),
+              b: os.getenv(f"CLOUD_VOICE_{lang.upper()}_B", female)}
+    parts, spent = [], 0
+    try:
+        for n, (speaker, said) in enumerate(turns):
+            pieces, cur = [], ""
+            for sent in re.split(r"(?<=[.!?।])\s+", said):          # max 5,000 bytes per request
+                if len((cur + " " + sent).encode()) > 4200 and cur:
+                    pieces.append(cur)
+                    cur = sent
+                else:
+                    cur = (cur + " " + sent).strip()
+            if cur:
+                pieces.append(cur)
+            audio = b""
+            for piece in pieces:
+                r = requests.post("https://texttospeech.googleapis.com/v1/text:synthesize",
+                                  headers={"X-Goog-Api-Key": key}, timeout=60,
+                                  json={"input": {"text": piece},
+                                        "voice": {"languageCode": lc,
+                                                  "name": f"{lc}-Chirp3-HD-{voices[speaker]}"},
+                                        "audioConfig": {"audioEncoding": "MP3"}})
+                if r.status_code >= 400:
+                    raise RuntimeError(f"HTTP {r.status_code}: {_redact(r.text[:200])}")
+                audio += base64.b64decode(r.json()["audioContent"])
+                spent += len(piece)
+            p = work / f"c{n:03d}.mp3"
+            p.write_bytes(audio)
+            parts.append(p)
+    except Exception as exc:
+        print(f"  ! Google Cloud voices failed: {_redact(str(exc))[:200]}")
+        parts = None
+    finally:
+        if spent:
+            usage[month] = used + spent
+            usage = {k: v for k, v in usage.items() if k >= time.strftime("%Y-%m", time.gmtime(time.time() - 100 * 86400))}
+            CLOUD_TTS_USAGE.parent.mkdir(parents=True, exist_ok=True)
+            CLOUD_TTS_USAGE.write_text(json.dumps(usage))
+    if parts:
+        print(f"  voices: Google Cloud Chirp 3 HD {voices} ({used + spent:,} chars used this month)")
+    return parts or None
+
+
 def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                  length: str = "About 1,500 to 2,300 words (10 to 15 minutes spoken).",
                  show: str = "The Morning Brief", lang: str = "en",
@@ -472,6 +545,9 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     tts_pref = os.getenv({"te": "TELUGU_TTS", "hi": "HINDI_TTS"}.get(lang, "PODCAST_TTS"), "gemini")
     parts = gemini_podcast(turns, work, profile, tts_pref)
     groups = chunk_turns(turns) if parts else []
+    if not parts and tts_pref != "edge":
+        parts = cloud_tts_podcast(turns, work, profile, lang)
+        groups = [[t] for t in turns] if parts else []
     if not parts:
         print(f"  voices: edge-tts ({lang})")
         parts = []

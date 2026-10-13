@@ -21,7 +21,8 @@ Pipeline (morning/evening):
 
 Env vars:
   GEMINI_API_KEY        free Google AI Studio key (GEMINI_MODEL optional, auto-picked)
-  GITHUB_TOKEN          built-in in Actions; GitHub Models = free second brain
+  MISTRAL_API_KEY       free backup brain (Mistral free plan); OPENROUTER_API_KEY = last free backup
+  GOOGLE_TTS_API_KEY    optional free natural-voice backup (Chirp 3 HD, capped under the free tier)
   GMAIL_USER, GMAIL_APP_PASSWORD, TO_EMAIL     email delivery
   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID         optional
   EDITION               morning (default) | evening | weekly
@@ -620,9 +621,9 @@ def update_stories(stories: dict[str, dict], new: list[dict], today: str) -> dic
 
 
 # ---------------------------------------------------------------- LLM
-# All providers are free: Gemini free tier (your key) and GitHub Models (built-in
-# GITHUB_TOKEN). Quota plan: Gemini (big context) writes the main brief; GitHub Models
-# (small context, separate quota) does fact-check and podcast script when they fit.
+# All providers are free: Gemini free tier (several models + Gemma, each with its own
+# quota), then Mistral's free plan, then OpenRouter's free models. Fact-check and alerts
+# try Mistral first to save Gemini's quota for the brief and the podcasts.
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
 GH_MODELS_MAX_TOKENS = 7000      # free tier caps input near 8k tokens
 
@@ -632,14 +633,13 @@ def est_tokens(*texts: str) -> int:
 
 
 def ask(system: str, user: str, prefer: str = "gemini") -> str | None:
-    """Free LLM call. prefer='github' saves Gemini quota for small jobs."""
-    fits_gh = est_tokens(system, user) < GH_MODELS_MAX_TOKENS
-    order = [call_gemini, call_github_models]
-    if prefer == "github" and fits_gh:
-        order.reverse()
+    """Free AI chain: Gemini (several free models + Gemma) -> Mistral free tier ->
+    OpenRouter free models. prefer='backup' tries Mistral first for small jobs
+    (fact-check, alerts) to save Gemini's daily quota for the brief and podcasts."""
+    order = [call_gemini, call_mistral, call_openrouter]
+    if prefer in ("backup", "github"):
+        order = [call_mistral, call_gemini, call_openrouter]
     for fn in order:
-        if fn is call_github_models and not fits_gh:
-            continue
         text = fn(system, user)
         if text:
             return text
@@ -705,11 +705,14 @@ def write_brief(system: str, items, history, date_str, markets, memory,
                 ledger: str = "", system_core: str | None = None) -> str | None:
     full = build_user(items, history, date_str, markets, memory, ledger=ledger)
     print(f"  brief prompt ~{est_tokens(system, full):,} tokens")
-    # Backup brain has a small (~8k token) window: core rules only, no add-on layers.
+    # Free backups (Mistral 128k+ context, OpenRouter free 1M-context models) get the
+    # full input; core rules only if a smaller window is needed.
     return (call_gemini(system, full)
-            or call_github_models(system_core or system,
-                                  build_user(items, history, date_str, markets, memory,
-                                             compact=True, ledger=ledger)))
+            or call_mistral(system, full)
+            or call_openrouter(system, full)
+            or call_openrouter(system_core or system,
+                               build_user(items, history, date_str, markets, memory,
+                                          compact=True, ledger=ledger)))
 
 
 def fact_check(draft: str, items: list[dict]) -> str:
@@ -723,7 +726,7 @@ def fact_check(draft: str, items: list[dict]) -> str:
            for i in items if i["id"] in cited]
     system = (ROOT / "prompts" / "factcheck_prompt.md").read_text()
     user = f"SOURCE_ITEMS:\n{json.dumps(src, ensure_ascii=False)}\n\nDRAFT:\n{draft}"
-    checked = ask(system, user, prefer="github")
+    checked = ask(system, user, prefer="backup")
     if not checked:
         print("  ! fact-check unavailable; sending the unchecked draft")
         return draft
@@ -739,14 +742,14 @@ def fact_check(draft: str, items: list[dict]) -> str:
 
 
 def write_script(system: str, user: str) -> str | None:
-    """Podcast script writer (GitHub Models first, to save Gemini quota)."""
-    return ask(system, user, prefer="github")
+    """Podcast script writer (Gemini first for the best Indian-English conversation)."""
+    return ask(system, user, prefer="gemini")
 
 
 def gemini_models(key: str) -> list[str]:
     """Free Flash text models, newest first (names change often, so ask the API)."""
     preferred = os.getenv("GEMINI_MODEL", "").strip()
-    names = []
+    names, gemma = [], []
     try:
         r = requests.get(f"{GEMINI_API}/models", headers={"x-goog-api-key": key},
                          params={"pageSize": 200}, timeout=20)
@@ -757,6 +760,9 @@ def gemini_models(key: str) -> list[str]:
                     and "flash" in name
                     and not re.search(r"image|tts|audio|live|thinking|exp|transcribe", name)):
                 names.append(name)
+            elif ("generateContent" in m.get("supportedGenerationMethods", [])
+                  and re.match(r"gemma-\d", name) and re.search(r"\d{2,}b", name)):
+                gemma.append(name)              # Gemma: its own free quota, last resort
     except Exception as exc:
         print(f"  ! couldn't list Gemini models: {redact(str(exc))}", file=sys.stderr)
 
@@ -764,8 +770,9 @@ def gemini_models(key: str) -> list[str]:
         nums = re.findall(r"\d+(?:\.\d+)?", n)
         return float(nums[0]) if nums else 0.0
     names.sort(key=lambda n: (-version(n), "lite" in n, "preview" in n, n))
+    gemma.sort(key=lambda n: (-version(n), -max(map(int, re.findall(r"(\d+)b", n) or ["0"]))))
     order = ([preferred] if preferred else []) + names + ["gemini-flash-latest"]
-    return list(dict.fromkeys(order))[:6]
+    return list(dict.fromkeys(order))[:6] + gemma[:1]
 
 
 GEMINI_DAY_LIMIT: set[str] = set()     # models whose free daily quota is used up this run
@@ -791,9 +798,12 @@ def call_gemini(system: str, user: str) -> str | None:
                 r = requests.post(
                     f"{GEMINI_API}/models/{model}:generateContent",
                     headers={"x-goog-api-key": key},
-                    json={"system_instruction": {"parts": [{"text": system}]},
-                          "contents": [{"role": "user", "parts": [{"text": user}]}],
-                          "generationConfig": {"temperature": 0.4, "maxOutputTokens": 16384}},
+                    json=({"system_instruction": {"parts": [{"text": system}]},
+                           "contents": [{"role": "user", "parts": [{"text": user}]}],
+                           "generationConfig": {"temperature": 0.4, "maxOutputTokens": 16384}}
+                          if not model.startswith("gemma") else      # Gemma: no system field
+                          {"contents": [{"role": "user", "parts": [{"text": system + "\n\n" + user}]}],
+                           "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}}),
                     timeout=180)
                 if r.status_code == 429:          # free-tier limit
                     if "PerDay" in r.text or "per day" in r.text.lower():
@@ -826,49 +836,98 @@ def call_gemini(system: str, user: str) -> str | None:
     return None
 
 
-GH_ENDPOINTS = ["https://models.github.ai/inference/chat/completions"]
+# GitHub Models (the old backup) was retired by GitHub on 30 July 2026.
 
-
-def call_github_models(system: str, user: str) -> str | None:
-    token = os.getenv("GITHUB_TOKEN", "").strip()
-    if not token:
+def _openai_style(url: str, key: str, model: str, system: str, user: str, name: str,
+                  extra_headers: dict | None = None, timeout: int = 240) -> str | None:
+    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+               **(extra_headers or {})}
+    body = {"model": model, "temperature": 0.4, "max_tokens": 16000,
+            "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
+    for attempt in (1, 2):
+        try:
+            r = requests.post(url, headers=headers, json=body, timeout=timeout)
+        except Exception as exc:
+            print(f"  ! {name} {model}: {type(exc).__name__}", file=sys.stderr)
+            return None
+        if r.status_code == 429 or r.status_code >= 500:
+            if attempt == 1:
+                time.sleep(20)
+                continue
+        if r.status_code >= 400:
+            print(f"  ! {name} {model}: HTTP {r.status_code} {redact(r.text[:150])}", file=sys.stderr)
+            return None
+        try:
+            text = r.json()["choices"][0]["message"]["content"]
+        except Exception:
+            print(f"  ! {name} {model}: unexpected reply", file=sys.stderr)
+            return None
+        if text and text.strip():
+            LLM_CALLS["backup"] = LLM_CALLS.get("backup", 0) + 1
+            print(f"  written by {name} {model}")
+            return text
         return None
-    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json",
-               "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
-    room = (GH_MODELS_MAX_TOKENS - est_tokens(system)) * 4      # free tier: ~8k tokens input
-    if room < 2000:
-        print(f"  ! GitHub Models skipped: instructions alone are ~{est_tokens(system):,} tokens",
-              file=sys.stderr)
-        return None
-    if len(user) > room:
-        user = user[:room] + "\n\n(input shortened to fit)"
-    for url in GH_ENDPOINTS:
-        for model in ("openai/gpt-4.1-mini", "openai/gpt-4o-mini", "gpt-4o-mini"):
-            try:
-                body = {"model": model, "temperature": 0.4, "max_tokens": 4000,
-                        "messages": [{"role": "system", "content": system},
-                                     {"role": "user", "content": user}]}
-                r = requests.post(url, headers=headers, timeout=180, json=body,
-                                  allow_redirects=False)
-                if 300 <= r.status_code < 400 and r.headers.get("location", "").startswith("https://"):
-                    print(f"  GitHub Models redirect {r.status_code} -> {r.headers['location'].split('?')[0]}",
-                          file=sys.stderr)       # follow it as a POST (requests would switch to GET)
-                    r = requests.post(r.headers["location"], headers=headers, timeout=180,
-                                      json=body, allow_redirects=False)
-                if r.status_code >= 400 or "json" not in r.headers.get("content-type", ""):
-                    print(f"  ! GitHub Models {url.split('/')[2]} {model}: HTTP {r.status_code} "
-                          f"{r.headers.get('content-type', '')} {redact(r.text[:120])!r}",
-                          file=sys.stderr)
-                    continue
-                LLM_CALLS["github"] += 1
-                text = r.json()["choices"][0]["message"]["content"]
-                if text and text.strip():
-                    print(f"  written by GitHub Models {model}")
-                    return text
-            except Exception as exc:
-                print(f"  ! GitHub Models {model}: {redact(str(exc))[:150]}", file=sys.stderr)
     return None
 
+
+def call_mistral(system: str, user: str) -> str | None:
+    """Mistral free 'Experiment' plan: no card, ~1B tokens/month per model."""
+    key = os.getenv("MISTRAL_API_KEY", "").strip()
+    if not key:
+        return None
+    models = [m for m in os.getenv("MISTRAL_MODELS", "mistral-large-latest,mistral-medium-latest,"
+                                   "mistral-small-latest").split(",") if m.strip()]
+    for model in models:
+        text = _openai_style("https://api.mistral.ai/v1/chat/completions", key, model.strip(),
+                             system, user, "Mistral")
+        if text:
+            return text
+        time.sleep(2)                         # free plan: 1 request per second
+    return None
+
+
+_OR_MODELS: list[str] | None = None
+
+
+def openrouter_models(key: str) -> list[str]:
+    """Free (':free', $0) OpenRouter models with big context, biggest first."""
+    global _OR_MODELS
+    if _OR_MODELS is None:
+        pinned = [m.strip() for m in os.getenv("OPENROUTER_MODELS", "").split(",") if m.strip()]
+        found = []
+        try:
+            r = requests.get("https://openrouter.ai/api/v1/models", timeout=30,
+                             headers={"Authorization": f"Bearer {key}"})
+            for m in r.json().get("data", []):
+                price = m.get("pricing", {})
+                if (str(price.get("prompt")) in ("0", "0.0") and str(price.get("completion")) in ("0", "0.0")
+                        and (m.get("context_length") or 0) >= 100_000
+                        and "text" in str(m.get("architecture", {}).get("output_modalities", ["text"]))):
+                    found.append((m.get("context_length") or 0, m["id"]))
+        except Exception as exc:
+            print(f"  ! OpenRouter model list failed: {type(exc).__name__}", file=sys.stderr)
+        found.sort(reverse=True)
+        _OR_MODELS = list(dict.fromkeys(pinned + [mid for _, mid in found]))[:4]
+    return _OR_MODELS
+
+
+def call_openrouter(system: str, user: str) -> str | None:
+    """OpenRouter free models: no card, about 50 requests/day (enough as a last backup)."""
+    key = os.getenv("OPENROUTER_API_KEY", "").strip()
+    if not key:
+        return None
+    for model in openrouter_models(key):
+        text = _openai_style("https://openrouter.ai/api/v1/chat/completions", key, model,
+                             system, user, "OpenRouter",
+                             {"HTTP-Referer": "https://github.com/Dheerajd9/ai_news_digest",
+                              "X-Title": "World Brief"})
+        if text:
+            return text
+    return None
+
+
+def call_github_models(system: str, user: str) -> str | None:     # kept for old callers
+    return None
 
 
 def fallback_brief(items: list[dict], date_str: str) -> str:

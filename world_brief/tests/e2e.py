@@ -97,7 +97,13 @@ def fake_gemini(system, user):
         return user.split("DRAFT:", 1)[1].strip()
     return BRIEF
 digest.call_gemini = fake_gemini
-digest.call_github_models = lambda s, u: None          # backup brain "down": must not matter
+digest.call_github_models = lambda s, u: None
+digest.call_mistral = lambda s, u: None                # backup brains "down": must not matter
+digest.call_openrouter = lambda s, u: None
+podcast.cloud_tts_podcast = lambda *a, **k: None
+if os.environ.get("GEMINI_DOWN") == "1":              # drill: Gemini fully down
+    digest.call_mistral = fake_gemini
+    digest.call_gemini = lambda s, u: None
 
 def silent(text, speaker, out, profile=None):
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
@@ -142,7 +148,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     env = {**os.environ, "EDITION": edition, "PODCAST": "1", "PODCAST_REVIEW": "1",
            "GITHUB_EVENT_NAME": "push", "PODCAST_LANGUAGES": "te,hi",
            "LANG_EDITIONS": "morning,evening,weekly", "WB_ASSUME_PLAYER": "1"}
-    for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN"):
+    for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN", "MISTRAL_API_KEY",
+              "OPENROUTER_API_KEY", "GOOGLE_TTS_API_KEY"):
         env.pop(k, None)
     (work / "runner.py").write_text(RUNNER)
     p = subprocess.run([sys.executable, "runner.py"], cwd=work, env=env,
@@ -202,7 +209,8 @@ def main() -> int:
         env = {**os.environ, "EDITION": "morning", "FAIL_HOST": "RAVI",
                "PODCAST_LANGUAGES": "te,hi", "LANG_EDITIONS": "morning", "GITHUB_EVENT_NAME": "push",
                "WB_ASSUME_PLAYER": "1"}
-        for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN"):
+        for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN", "MISTRAL_API_KEY",
+              "OPENROUTER_API_KEY", "GOOGLE_TTS_API_KEY"):
             env.pop(k, None)
         import time as _t
         p = subprocess.run([sys.executable, "-c",
@@ -213,6 +221,56 @@ def main() -> int:
         check(len(res["emails"]) == 1, "Telugu down: email still sent", errors)
         check("could not be made" in md and "Telugu" in md, "Telugu down: email says Telugu audio is missing", errors)
         check("hindi.mp3" in md, "Telugu down: Hindi still delivered", errors)
+
+        # Drill 2: Gemini completely down -> free backup brain writes everything.
+        print("\n=== morning, Gemini down (Mistral backup) ===")
+        env2 = {**env, "GEMINI_DOWN": "1"}
+        env2.pop("FAIL_HOST", None)
+        p = subprocess.run([sys.executable, "-c",
+                            "import time; time.sleep=lambda s: None; exec(open('runner.py').read())"],
+                           cwd=work, env=env2, capture_output=True, text=True, timeout=600)
+        res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
+        md = res["emails"][0]["md"] if res["emails"] else ""
+        check(len(res["emails"]) == 1 and "LLM unavailable" not in md,
+              "Gemini down: full brief still written by the backup brain", errors)
+        check(md.count("play.html?f=") >= 3, "Gemini down: podcasts still made", errors)
+
+        # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
+        print("\n=== Google Cloud voices + free-tier cap ===")
+        drill = r"""
+import base64, json, os, subprocess, sys, types
+sys.path.insert(0, os.getcwd())
+import podcast
+from pathlib import Path
+os.environ["GOOGLE_TTS_API_KEY"] = "k"
+silent = Path("s.mp3")
+subprocess.run(["ffmpeg","-y","-loglevel","error","-f","lavfi","-i","anullsrc=r=24000:cl=mono","-t","1","-q:a","9",str(silent)],check=True)
+class R:
+    status_code = 200
+    def json(self): return {"audioContent": base64.b64encode(silent.read_bytes()).decode()}
+calls = []
+podcast.requests.post = lambda url, **kw: (calls.append(kw["json"]["voice"]["name"]), R())[1]
+work = Path("cw"); work.mkdir(exist_ok=True)
+turns = [("RAVI", "నమస్తే " * 50), ("LAKSHMI", "ఇది పరీక్ష. " * 900)]
+parts = podcast.cloud_tts_podcast(turns, work, podcast.PROFILES["te"], "te")
+used = json.loads(podcast.CLOUD_TTS_USAGE.read_text())
+os.environ["GOOGLE_TTS_MONTHLY_CHARS"] = "10"
+blocked = podcast.cloud_tts_podcast(turns, work, podcast.PROFILES["te"], "te")
+print(json.dumps({"parts": len(parts or []), "voices": sorted(set(calls)), "used": sum(used.values()),
+                  "blocked": blocked is None, "split": len(calls)}))
+"""
+        p = subprocess.run([sys.executable, "-c", drill], cwd=work, capture_output=True, text=True, timeout=120)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-1500:], p.stderr[-1500:])
+            r = {}
+        check(r.get("parts") == 2, "Cloud voices: one audio file per line", errors)
+        check(r.get("voices") == ["te-IN-Chirp3-HD-Charon", "te-IN-Chirp3-HD-Kore"],
+              "Cloud voices: Telugu male + female Chirp 3 HD voices", errors)
+        check((r.get("split") or 0) > 2, "Cloud voices: long lines split under the size limit", errors)
+        check((r.get("used") or 0) > 0 and r.get("blocked") is True,
+              "Cloud voices: usage counted, stops before the free limit (never charges)", errors)
     print("\nRESULT:", "ALL CHECKS PASSED" if not errors else f"{len(errors)} FAILED")
     return 1 if errors else 0
 
