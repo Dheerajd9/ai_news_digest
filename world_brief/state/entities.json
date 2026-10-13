@@ -71,11 +71,12 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"middle-east-oil"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -136,12 +137,12 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -169,12 +170,12 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "Ministry of Statistics": {
 "first_seen": "2026-10-12",
@@ -186,11 +187,11 @@
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
 "rbi-rupee-defense"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "US Dollar": {
 "first_seen": "2026-10-12",
@@ -202,11 +203,12 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"middle-east-oil"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -242,11 +244,11 @@
 },
 "Meta": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
 "meta-muse-wonder"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
@@ -290,22 +292,61 @@
 },
 "Infosys": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
 "us-perm-h1b-freeze"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "TCS": {
 "first_seen": "2026-10-12",
+"count": 3,
+"stories": [
+"us-perm-h1b-freeze",
+"india-it-rally"
+],
+"last_seen": "2026-10-13"
+},
+"HCLTech": {
+"first_seen": "2026-10-13",
 "count": 1,
 "stories": [
-"us-perm-h1b-freeze"
+"india-it-rally"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 }
 },
 "connections": [
+{
+"text": "IT earnings -> Nifty 50 rally",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "RBI intervention -> rupee stabilization",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "Saudi export pledge -> oil price easing",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "PERM slowdown -> green card backlog",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "AI agent capabilities -> enterprise adoption",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
 {
 "text": "Food inflation spike -> higher CPI -> RBI interest rate pause",
 "first_seen": "2026-10-12",

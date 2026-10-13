@@ -119,6 +119,10 @@
    {
     "date": "2026-10-12",
     "text": "Department of Labor quarterly disclosure on processing backlogs"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Review PERM timelines with counsel"
    }
   ],
   "timeline": [
@@ -134,12 +138,11 @@
   "title": "US PERM labor certifications drop across tech consultancies",
   "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "Permanent labor certification approvals for major IT consulting firms dropped by over 60% over nine months, slowing green card filing pipelines.",
+  "summary": "PERM processing remains slow for major IT firms, extending green card timelines.",
   "open_questions": [
-   "When will Department of Labor PERM processing times normalize?",
-   "Will major IT firms revise green card sponsorship policies?"
+   "When will processing normalize?"
   ],
-  "last_seen": "2026-10-12"
+  "last_seen": "2026-10-13"
  },
  "amazon-decart-acquisition": {
   "first_seen": "2026-10-11",
@@ -195,23 +198,30 @@
    {
     "date": "2026-10-12",
     "text": "Watch forex reserve levels in upcoming RBI weekly data"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Monitor forex reserve data"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-12",
     "event": "Rupee rises 96 paise to 95.76"
+   },
+   {
+    "date": "2026-10-13",
+    "event": "Rupee gains 1% to 95.76"
    }
   ],
-  "title": "RBI introduces dollar curbs to defend rupee",
+  "title": "RBI intervention stabilizes rupee",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "The rupee gained 1% to 95.76 after the RBI opened a dedicated dollar window for oil PSUs and curbed speculative currency trades.",
+  "summary": "The rupee gained 1% to 95.76 against the dollar following RBI's dedicated oil-importer dollar window.",
   "open_questions": [
-   "How long will the special oil PSU dollar window remain open?",
-   "Will Brent crude above $105 overwhelm central bank interventions?"
+   "Will RBI maintain the dollar window if oil prices spike again?"
   ],
-  "last_seen": "2026-10-12"
+  "last_seen": "2026-10-13"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -267,23 +277,30 @@
    {
     "date": "2026-10-12",
     "text": "Benchmark results and developer adoption in Q4 2026"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Monitor developer adoption"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-12",
     "event": "Muse Wonder launched for paid agent workflows"
+   },
+   {
+    "date": "2026-10-13",
+    "event": "Model launch"
    }
   ],
   "title": "Meta releases paid frontier model Muse Wonder",
   "status": "NEW",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Meta introduced Muse Wonder and Muse Wonder Full, frontier AI models built for agent workflows accessible via paid subscriptions.",
+  "summary": "Meta launched Muse Wonder for agent workflows, signaling a shift toward task-based AI.",
   "open_questions": [
-   "Will Meta offer an open-weights version of Muse Wonder?",
-   "How does Muse Wonder perform compared to Claude 3.5 Sonnet and GPT-4o?"
+   "How will enterprise adoption compare to competitors?"
   ],
-  "last_seen": "2026-10-12"
+  "last_seen": "2026-10-13"
  },
  "russia-diesel-sanctions": {
   "first_seen": "2026-10-12",
@@ -332,5 +349,51 @@
    "How will political parties adapt demonstration venues?"
   ],
   "last_seen": "2026-10-12"
+ },
+ "india-it-rally": {
+  "first_seen": "2026-10-13",
+  "expectations": [
+   {
+    "date": "2026-10-13",
+    "text": "Watch for further Q2 results from the IT sector"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-13",
+    "event": "HCLTech earnings release"
+   }
+  ],
+  "title": "Indian IT stocks rally on strong HCLTech earnings",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "HCLTech earnings fueled a 5-7% rally in IT stocks, driving the Nifty 50 up 1.60%.",
+  "open_questions": [
+   "Will IT sector earnings sustain this momentum?"
+  ],
+  "last_seen": "2026-10-13"
+ },
+ "middle-east-oil": {
+  "first_seen": "2026-10-13",
+  "expectations": [
+   {
+    "date": "2026-10-13",
+    "text": "Monitor oil price volatility"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-13",
+    "event": "Saudi export pledge"
+   }
+  ],
+  "title": "Oil prices ease as Saudi pledges export stability",
+  "status": "MAJOR CHANGE",
+  "stage": "EFFECTIVE",
+  "summary": "Brent crude eased to $105.65 after Saudi Arabia promised to maintain export flows despite regional conflict.",
+  "open_questions": [
+   "Will regional conflict escalate further?"
+  ],
+  "last_seen": "2026-10-13"
  }
 }

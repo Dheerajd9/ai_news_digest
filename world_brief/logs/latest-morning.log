@@ -2,169 +2,174 @@
   ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  Gemini busy everywhere; waiting 60s and trying again
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  Gemini busy everywhere; waiting 60s and trying again
-  ! Gemini gemini-3.8-flash busy (HTTP 500)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash: daily free quota used up
-  Gemini busy everywhere; waiting 60s and trying again
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
-  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash: daily free quota used up
-  Gemini busy everywhere; waiting 60s and trying again
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
   ! Gemini gemini-3.6-flash: daily free quota used up
   ! Gemini gemini-3.5-flash: daily free quota used up
-  Gemini busy everywhere; waiting 60s and trying again
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
   ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.8-flash: daily free quota used up
   ! Gemini gemini-3.7-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
   ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
   ! Gemini gemini-3.7-flash: daily free quota used up
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
   ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
   ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.1-flash-lite busy (HTTP 503)
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash: daily free quota used up
+  ! Gemini gemini-3.7-flash: daily free quota used up
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash: daily free quota used up
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.1-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.1-flash-lite busy (HTTP 503)
+  Gemini busy everywhere; waiting 60s and trying again
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash: daily free quota used up
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.1-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.1-flash-lite busy (HTTP 503)
+  ! GitHub Models models.github.ai openai/gpt-4.1-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai openai/gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! GitHub Models models.github.ai gpt-4o-mini: HTTP 200 text/plain 'OK\r\n'
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
 Edition: morning
 Fetching feeds...
-   35 items  india                        Top stories
-   50 items  india                        India
+   36 items  india                        Top stories
+   55 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
   100 items  india                        Hindustan Times
    42 items  india                        Times of India
     3 items  india                        BBC
-   49 items  india_economy                Business
-   15 items  india_economy                Mint
+   54 items  india_economy                Business
+   11 items  india_economy                Mint
    40 items  india_economy                Economic Times
-   12 items  india_economy                The Hindu
+   10 items  india_economy                The Hindu
   100 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   39 items  india_economy                "Sensex OR Nifty closing when:
-   36 items  india_economy                "FII OR FPI OR DII selling OR 
+   45 items  india_economy                "Sensex OR Nifty closing when:
+   37 items  india_economy                "FII OR FPI OR DII selling OR 
    24 items  india_economy                "RBI repo OR "CPI inflation" O
-   43 items  telangana_hyderabad          The Hindu
-   34 items  telangana_hyderabad          The Hindu
+   49 items  telangana_hyderabad          The Hindu
+   40 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-   56 items  usa                          U.S.
+   55 items  usa                          U.S.
    10 items  usa                          NPR
-    8 items  usa                          NPR
+    7 items  usa                          NPR
   100 items  usa                          "Texas OR Dallas when:1d"
-   86 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+   87 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
     6 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   63 items  india_us_visa_trade          "India US trade OR tariff OR "
+    0 items  india_us_visa_trade          "India US trade OR tariff OR "
   100 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   47 items  india_us_visa_trade          "India exports OR imports when
-   30 items  world                        BBC
+   45 items  india_us_visa_trade          "India exports OR imports when
+   21 items  world                        BBC
    25 items  world                        Al Jazeera
    31 items  world                        The Guardian
     8 items  world                        DW
-   42 items  world                        The Hindu
-   46 items  world                        DW
+   39 items  world                        The Hindu
+   47 items  world                        DW
    17 items  global_economy               BBC
-   61 items  global_economy               Business
+   63 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
    10 items  tech_ai                      Ars Technica
     4 items  tech_ai                      MIT Tech Review
-    6 items  tech_ai                      Hacker News
+    7 items  tech_ai                      Hacker News
    57 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
-    8 items  science_health_climate       Nature
+   10 items  science_health_climate       Nature
    10 items  science_health_climate       ScienceDaily
-   51 items  science_health_climate       Science
-   65 items  science_health_climate       "ISRO OR monsoon when:2d"
+   47 items  science_health_climate       Science
+   61 items  science_health_climate       "ISRO OR monsoon when:2d"
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
     0 items  official                     Federal Reserve (official)
-   88 items  official                     ""Bureau of Labor Statistics" 
+   83 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
    30 items  us_markets_economy           CNBC
     5 items  us_markets_economy           CNBC
-   34 items  us_markets_economy           ""stock market" today S&P Nasd
+   35 items  us_markets_economy           ""stock market" today S&P Nasd
    42 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   60 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   60 items  jobs_tax_housing             ""income tax" OR "GST council"
-   79 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-2487 raw -> 302 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~66,929 tokens
-  meta: {}
-  written by Gemini gemini-3.6-flash
-  written by Gemini gemini-3.8-flash
-  script reviewed: 571 -> 537 words
-  en podcast script: 19 turns, 537 words
+   62 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   61 items  jobs_tax_housing             ""income tax" OR "GST council"
+   73 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+2424 raw -> 302 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~66,634 tokens
+  written by Gemini gemini-3.1-flash-lite
+  written by Gemini gemini-3.1-flash-lite
+  fact-check done (9 bullet(s) removed)
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Indian Market IT Rally; Oil Prices and Saudi Exports; RBI Rupee Intervention; Zoho Salary Freeze; AI Agent Models', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '3', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  written by Gemini gemini-3.1-flash-lite
+  written by Gemini gemini-3.5-flash-lite
+  script reviewed: 609 -> 447 words
+  en podcast script: 17 turns, 447 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (1 part(s))
+  chapters: Top stories 0:00, World 1:02, India 1:21, USA 1:46
+  world_brief_quick podcast ready: 1.4 MB
+  podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
+  written by Gemini gemini-3.1-flash-lite
+  written by Gemini gemini-3.5-flash-lite
+  script reviewed: 679 -> 608 words
+  en podcast script: 22 turns, 608 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
   voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (2 part(s))
-  chapters: Top stories 0:00, India 0:44, Money 1:24, Wrap-up 2:45
-  world_brief_quick podcast ready: 1.7 MB
-  web player page updated
-  podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
-  written by Gemini gemini-3.7-flash
-  ! script review unusable; keeping the first draft
-  en podcast script: 58 turns, 2681 words
-  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (6 part(s))
-  chapters: Top stories 0:00, India 4:42, USA 7:35, World 10:20, Money 12:01, Wrap-up 15:42
-  world_brief_full podcast ready: 8.7 MB
+  chapters: India 0:00, Money 2:31, Wrap-up 2:57
+  world_brief_full podcast ready: 1.8 MB
   podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
   ! te podcast script too short or missing; skipping audio
-  ! hi podcast script too short or missing; skipping audio
+  telugu script failed; retrying in 90s
+  written by Gemini gemini-3.1-flash-lite
+  written by Gemini gemini-3.5-flash-lite
+  script reviewed: 442 -> 446 words
+  te podcast script: 18 turns, 446 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for te-IN: te-in-advisor-1 (female, Telugu, prebuilt); te-in-advisor-3 (female, Telugu, prebuilt); te-in-advisor-7 (male, Telugu, prebuilt); te-in-advisor-8 (male, Telugu, prebuilt); te-in-assistant-2 (male, Telugu, prebuilt); te-in-assistant-5 (female, Telugu, prebuilt); te-in-assistant-6 (neutral, Telugu, prebuilt); te-in-assistant-7 (male, Telugu, prebuilt); te-in-assistant-8 (male, Telugu, prebuilt); te-in-concierge-2 (male, Telugu, prebuilt); te-in-concierge-5 (male, Telugu, prebuilt); te-in-concierge-7 (female, Telugu, prebuilt); te-in-csagent-1 (female, Telugu, prebuilt); te-in-csagent-4 (male, Telugu, prebuilt); te-in-csagent-5 (female, Telugu, prebuilt); te-in-csagent-7 (neutral, Telugu, prebuilt); te-in-csagent-8 (female, Telugu, prebuilt); te-in-techagent-1 (female, Telugu, prebuilt); te-in-techagent-3 (female, Telugu, prebuilt); te-in-techagent-4 (male, Telugu, prebuilt)  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+  ! Gemini gemini-3.5-flash-lite busy (HTTP 503)
+
+  ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
+  voices: Gemini gemini-3.8-flash-lite-tts {'RAVI': 'te-in-advisor-7', 'LAKSHMI': 'te-in-advisor-1'} (2 part(s))
+  chapters: Top stories 0:00, India 1:30, World 2:59, Wrap-up 3:22
+  telugu_podcast podcast ready: 2.0 MB
+  telugu audio uploaded (2.0 MB)
+  written by Gemini gemini-3.1-flash-lite
+  written by Gemini gemini-3.1-flash-lite
+  script reviewed: 651 -> 734 words
+  hi podcast script: 15 turns, 734 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for hi-IN: hi-in-advisor-1 (female, Awadhi Hindi, prebuilt); hi-in-advisor-10 (male, Haryanvi Hindi, prebuilt); hi-in-advisor-11 (male, Urdu, prebuilt); hi-in-advisor-12 (female, Urdu, prebuilt); hi-in-advisor-2 (male, Bhojpuri Hindi, prebuilt); hi-in-advisor-3 (female, Haryanvi Hindi, prebuilt); hi-in-advisor-4 (male, Bundeli Hindi, prebuilt); hi-in-advisor-5 (female, Awadhi Hindi, prebuilt); hi-in-advisor-6 (male, Bundeli Hindi, prebuilt); hi-in-advisor-7 (female, Bhojpuri Hindi, prebuilt); hi-in-advisor-8 (female, Haryanvi Hindi, prebuilt); hi-in-advisor-9 (male, Bhojpuri Hindi, prebuilt); hi-in-assistant-1 (male, Urdu, prebuilt); hi-in-assistant-10 (male, Bundeli Hindi, prebuilt); hi-in-assistant-11 (male, Awadhi Hindi, prebuilt); hi-in-assistant-12 (female, Urdu, prebuilt); hi-in-assistant-2 (female, Awadhi Hindi, prebuilt); hi-in-assistant-3 (female, Haryanvi Hindi, prebuilt); hi-in-assistant-4 (male, Bhojpuri Hindi, prebuilt); hi-in-assistant-5 (female, Awadhi Hindi, prebuilt)
+  voices: Gemini gemini-3.8-flash-lite-tts {'ARJUN': 'hi-in-advisor-10', 'MEERA': 'hi-in-advisor-1'} (2 part(s))
+  chapters: India 1:50, World 2:41, Money 3:02
+  hindi_podcast podcast ready: 2.0 MB
+  hindi audio uploaded (2.0 MB)
   email sent (1 recipient(s))
   podcast key check: ok, expires in 363 days
+  story ledger: 5 stories updated

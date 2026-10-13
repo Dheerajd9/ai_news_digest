@@ -1,0 +1,22 @@
+KARTIK: Good morning. It is Tuesday, October 13th. The biggest story today is coming from the markets in India.
+PRIYA: That’s right. While global markets are reacting to ongoing tensions in the Middle East, the Indian Sensex surged over 1,100 points.
+KARTIK: Why the jump? Is this just a rebound, or is there something specific driving it?
+PRIYA: It’s being driven by strong quarterly earnings from IT majors like TCS and HCLTech. The market is betting heavily on Indian IT services as global companies prioritize AI-driven workflow automation. Essentially, the "AI-for-work" trend is translating into actual revenue.
+KARTIK: And that connects to the broader economic picture, because we’re also seeing the rupee strengthen against the dollar today.
+PRIYA: Exactly. The rupee is holding up better than expected, which is a relief for anyone sending money home. But we have to keep an eye on oil. Brent crude is hovering around $105, though prices eased slightly today because Saudi Arabia pledged to keep exports flowing despite Houthi missile attacks on their capital.
+KARTIK: So supply lines are stable for now, which is the most important thing for India’s import bill.
+PRIYA: Sticking with domestic updates, for those following the cost of living, food inflation is hitting hard at 7.74%, with onion prices specifically rising over 100% year-on-year, putting real pressure on household budgets.
+KARTIK: And on the corporate side, Zoho founder Sridhar Vembu confirmed they are freezing salary hikes this year, citing the massive cost of building out their own AI infrastructure.
+PRIYA: He explicitly stated they are doing this to avoid mass layoffs, which is a different approach than what we’ve seen from some other tech firms.
+KARTIK: Meanwhile, for anyone in Hyderabad, Persistent Systems has opened a third facility there, showing continued growth in that tech hub.
+PRIYA: Turning to the US, the housing market remains a point of frustration. Existing home sales rose in September, but with mortgage rates staying stubbornly above 7%, it’s still a very difficult environment for buyers.
+KARTIK: And for our listeners in the US, we have to address the immigration question again. We’ve been tracking the PERM labor certification slowdown for major IT consultancies. Has anything changed today?
+PRIYA: No. The suspension of processing for those specific consultancies remains in effect. Your current H-1B status is completely secure, but if you are in the middle of a green card process, you should coordinate with your employer’s counsel to manage your long-term expectations. Nothing has changed for your legal status today.
+KARTIK: In global tech, Character.AI has filed for bankruptcy and is selling some assets to Disney for $20 million, a reminder of how quickly the landscape is shifting for these AI chatbot platforms.
+PRIYA: And one important security alert for those who manage IT systems: there is a maximum-severity vulnerability in ZCS servers that allows for remote code execution. If you manage these systems, you need to patch them immediately.
+KARTIK: Before we go, the IMD says the Northeast monsoon is expected to reach Southern India by October 15th, which should bring some much-needed rain to Tamil Nadu and Kerala.
+PRIYA: Alright, Kartik. What should people watch right now?
+KARTIK: Watch the onset of the Northeast monsoon in South India on the 15th, as it’s vital for the region's water security and agriculture.
+PRIYA: If someone remembers only three things from today, what should they be?
+KARTIK: First, Indian markets rallied on strong IT earnings, showing a clear focus on AI-driven growth. Second, oil prices eased slightly as Saudi Arabia committed to maintaining supply, providing stability. And third, food inflation in India is now at 7.74%, with onion prices doubling, which is the real pressure point for households right now.
+PRIYA: That’s everything that matters this morning. We’ll be back with you tomorrow.

@@ -1,0 +1,17 @@
+KARTIK: Good morning. It is Tuesday, October 13th. Let’s jump straight into the biggest story: Indian markets had a massive day, with the Sensex jumping over 1,100 points.
+PRIYA: That’s right. Investors gained about 4 trillion rupees in value, driven almost entirely by strong quarterly earnings from IT giants like TCS and HCLTech.
+KARTIK: Is this just a random bounce, or is there a real reason for the optimism?
+PRIYA: It’s a sign that Indian IT is successfully moving up the value chain. These companies are seeing real demand as businesses shift from simple chatbots to complex AI-driven workflows.
+KARTIK: But that massive push into AI brings us to a tougher reality. Zoho, one of India’s biggest software success stories, just announced they are freezing salary hikes this year.
+PRIYA: Founder Sridhar Vembu was very clear about why: the cost of building AI infrastructure is surging. They’re choosing to freeze raises rather than resort to mass layoffs, showing just how expensive the AI arms race has become.
+KARTIK: Meanwhile, the global energy situation is getting a bit of a breather today.
+PRIYA: Yes, oil prices eased slightly as Saudi Arabia pledged to keep exports flowing, despite Houthi missiles targeting Riyadh. For now, the market is reacting to the promise of steady supply rather than the threat of disruption.
+KARTIK: Closer to home, people are feeling a very real-world pressure point: food inflation has hit 7.74%.
+PRIYA: And the biggest culprit is onions, with prices up over 100% compared to this last year—a direct hit to household budgets. Also, keep an eye on the weather if you are in South India: the Northeast monsoon is expected around October 15th, bringing heavy rain to Tamil Nadu and Kerala.
+KARTIK: And for our listeners here in Dallas, the US housing market remains stuck. Mortgage rates are staying stubbornly above 7%, so don’t expect a quick shift in borrowing costs anytime soon.
+PRIYA: Quick heads-up on tech security too: if you manage ZCS servers, there is a maximum-severity vulnerability allowing remote code execution, so patch those systems immediately. And for those tracking residency, the suspension of PERM labor certifications for major IT consultancies is still in effect, so coordinate your green card timeline with your employer’s legal team.
+KARTIK: Alright Priya, what to watch next?
+PRIYA: Watch for the arrival of the Northeast monsoon in South India around October 15th.
+KARTIK: And if someone remembers only three things from today, what should they be?
+PRIYA: First, Indian markets rallied on strong IT earnings, even as Zoho freezes salaries to cover surging AI costs. Second, oil prices are easing for now despite Middle East tensions. And third, food inflation in India is at 7.74%, driven largely by soaring onion prices.
+KARTIK: That’s all for today. We’ll see you tomorrow.
