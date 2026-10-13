@@ -223,11 +223,15 @@ background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(-
   t.textContent=names[kind]||"World Brief";
   if(m){d.textContent=new Date(+m[1],+m[2]-1,+m[3]).toDateString();}
   document.title=t.textContent;
-  a.src="https://github.com/__REPO__/releases/download/episodes/"+encodeURIComponent(f);
+  // Same-site copy (correct audio type, plays on iPhone); GitHub release file as fallback.
+  var fallback="https://github.com/__REPO__/releases/download/episodes/"+encodeURIComponent(f), tried=false;
+  a.src="audio/"+encodeURIComponent(f);
   var key="pos:"+f;
   a.addEventListener("loadedmetadata",function(){try{var p=+localStorage.getItem(key);if(p>5&&p<a.duration-10)a.currentTime=p;}catch(e){}});
   a.addEventListener("timeupdate",function(){try{localStorage.setItem(key,Math.floor(a.currentTime));}catch(e){}});
-  a.addEventListener("error",function(){d.textContent="Could not load the audio. It may be older than 3 weeks.";d.className="err";});
+  a.addEventListener("error",function(){
+    if(!tried){tried=true;a.src=fallback;a.load();return;}
+    d.textContent="Could not load the audio. Older episodes are removed after about 10 days.";d.className="err";});
   [0.75,1,1.25,1.5].forEach(function(r){var b=document.createElement("button");b.textContent=r+"x";
     if(r===1)b.className="on";b.onclick=function(){a.playbackRate=r;
     [].forEach.call(document.querySelectorAll("#s button"),function(x){x.className="";});b.className="on";};
@@ -298,6 +302,59 @@ def ensure_player() -> None:
         put_file(repo, "play.html", html_page.encode(), token, "Update web player")
         print("  web player page updated")
     _PLAYER_READY = True
+
+
+SITE_KEEP_DAYS = int(os.getenv("SITE_AUDIO_DAYS", "10"))
+
+
+def sync_site_audio(mp3s: list[tuple[Path, str]]) -> bool:
+    """Put the MP3s on the GitHub Pages site (audio/<name>), served as real audio (iPhone
+    Safari refuses GitHub release downloads inside a player). Approved by Dji: the podcast
+    repo's branch is replaced by ONE fresh commit each time (it only holds generated files),
+    keeping the last SITE_AUDIO_DAYS days of audio, so the repo never grows. Never raises."""
+    cfg = configured()
+    if not cfg or not mp3s:
+        return False
+    repo, token = cfg
+    import shutil
+    import tempfile
+    try:
+        branch = gh("GET", f"/repos/{repo}", token).json().get("default_branch") or "main"
+        auth = base64.b64encode(f"x-access-token:{token}".encode()).decode()
+        git = ["git", "-c", f"http.extraHeader=Authorization: Basic {auth}"]
+        url = os.getenv("PODCAST_GIT_URL") or f"https://github.com/{repo}.git"   # override: tests only
+        with tempfile.TemporaryDirectory() as tmp:
+            site = Path(tmp) / "site"
+            r = subprocess.run(git + ["clone", "-q", "--depth", "1", "--branch", branch, url, str(site)],
+                               capture_output=True, text=True, timeout=600)
+            if r.returncode != 0:
+                raise RuntimeError(_redact(r.stderr)[-300:])
+            audio = site / "audio"
+            audio.mkdir(exist_ok=True)
+            for path, name in mp3s:
+                shutil.copyfile(path, audio / name)
+            cutoff = datetime.now(timezone.utc).timestamp() - SITE_KEEP_DAYS * 86400
+            for old in audio.glob("*.mp3"):
+                m = re.match(r"(\d{4}-\d{2}-\d{2})", old.name)
+                if m and datetime.strptime(m.group(1), "%Y-%m-%d").replace(
+                        tzinfo=timezone.utc).timestamp() < cutoff:
+                    old.unlink()
+            run = lambda *a: subprocess.run(list(a), cwd=site, capture_output=True, text=True,
+                                            timeout=600, check=True)
+            run("git", "checkout", "-q", "--orphan", "fresh")
+            run("git", "add", "-A")
+            run("git", "-c", "user.name=github-actions[bot]", "-c",
+                "user.email=41898283+github-actions[bot]@users.noreply.github.com",
+                "commit", "-q", "-m", "Podcast site (latest episodes)")
+            r = subprocess.run(git + ["push", "-q", "-f", "origin", f"fresh:{branch}"], cwd=site,
+                               capture_output=True, text=True, timeout=900)
+            if r.returncode != 0:
+                raise RuntimeError(_redact(r.stderr)[-300:])
+        print(f"  podcast site updated with {len(mp3s)} audio file(s)")
+        return True
+    except Exception as exc:
+        print(f"  ! podcast site audio not updated: {type(exc).__name__}: {_redact(str(exc))[:200]}")
+        return False
 
 
 def upload_asset(path: Path, asset_name: str) -> str:

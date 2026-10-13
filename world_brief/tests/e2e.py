@@ -121,6 +121,8 @@ def fake_upload(path, name):
     return f"https://github.com/Owner/world-brief-podcast/releases/download/episodes/{name}"
 podfeed.upload_asset = fake_upload
 podfeed.prune_extra = lambda *a, **k: None
+SYNCED = []
+podfeed.sync_site_audio = lambda mp3s: SYNCED.extend(n for _, n in mp3s) or True
 podfeed.publish_episode = lambda ep: fake_upload(Path(ep["file"]),
                                                 f"2026-10-13-{ep['edition']}.mp3")
 
@@ -133,7 +135,7 @@ digest.token_reminder = lambda *a, **k: None
 languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
-Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS}))
+Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED}))
 '''
 
 
@@ -174,6 +176,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    check(len(res.get("synced", [])) >= 3, f"{edition}: audio copied to the player site "
+                                            f"({len(res.get('synced', []))} files)", errors)
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,
           f"{edition}: chapter files published", errors)
     import datetime
@@ -234,6 +238,46 @@ def main() -> int:
         check(len(res["emails"]) == 1 and "LLM unavailable" not in md,
               "Gemini down: full brief still written by the backup brain", errors)
         check(md.count("play.html?f=") >= 3, "Gemini down: podcasts still made", errors)
+
+        # Drill: player-site audio sync with a local git repo (fresh single commit, prune old).
+        print("\n=== player site audio sync ===")
+        bare = Path(tmp) / "site.git"
+        seed = Path(tmp) / "seed"
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "MASTER", str(bare)], check=True)
+        subprocess.run(["git", "init", "-q", "-b", "MASTER", str(seed)], check=True)
+        (seed / "audio").mkdir()
+        (seed / "play.html").write_text("World Brief")
+        (seed / "audio" / "2020-01-01-old.mp3").write_bytes(b"old")
+        g = ["git", "-C", str(seed), "-c", "user.name=t", "-c", "user.email=t@t"]
+        subprocess.run(g + ["add", "-A"], check=True)
+        subprocess.run(g + ["commit", "-qm", "c1"], check=True)
+        subprocess.run(g + ["commit", "-q", "--allow-empty", "-m", "c2"], check=True)
+        subprocess.run(g + ["push", "-q", str(bare), "MASTER"], check=True)
+        mp3 = Path(tmp) / "x.mp3"
+        mp3.write_bytes(b"ID3audio")
+        drill2 = f"""
+import os, sys, json
+sys.path.insert(0, os.getcwd())
+import podfeed
+podfeed.configured = lambda: ("Owner/site", "tok")
+class J:
+    def json(self): return {{"default_branch": "MASTER"}}
+podfeed.gh = lambda *a, **k: J()
+os.environ["PODCAST_GIT_URL"] = {str(bare)!r}
+from pathlib import Path
+ok = podfeed.sync_site_audio([(Path({str(mp3)!r}), "2099-01-01-telugu.mp3")])
+print(json.dumps({{"ok": ok}}))
+"""
+        p = subprocess.run([sys.executable, "-c", drill2], cwd=work, capture_output=True, text=True, timeout=120)
+        files = subprocess.run(["git", "-C", str(bare), "ls-tree", "-r", "--name-only", "MASTER"],
+                               capture_output=True, text=True).stdout.split()
+        commits = subprocess.run(["git", "-C", str(bare), "rev-list", "--count", "MASTER"],
+                                 capture_output=True, text=True).stdout.strip()
+        check('"ok": true' in p.stdout, "site sync: push succeeded", errors)
+        check("audio/2099-01-01-telugu.mp3" in files and "play.html" in files,
+              "site sync: new audio added, player page kept", errors)
+        check("audio/2020-01-01-old.mp3" not in files, "site sync: old audio removed", errors)
+        check(commits == "1", f"site sync: history stays one commit (got {commits})", errors)
 
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
         print("\n=== Google Cloud voices + free-tier cap ===")

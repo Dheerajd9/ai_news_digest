@@ -1393,6 +1393,12 @@ def main() -> None:
     lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
                                        langs, dry) if langs else []
 
+    # Copy every uploaded episode onto the player site (real audio type: plays on iPhone).
+    uploaded = [(Path(e["file"]), e["url"].rsplit("/", 1)[-1]) for e in episodes + lang_eps
+                if e.get("url")]
+    if uploaded and not dry:
+        import podfeed
+        podfeed.sync_site_audio(uploaded)
     listen = listen_section(episodes + lang_eps, meta, brief)
     # Be honest when a language could not be made (e.g. the free AI was overloaded).
     missing = [languages.LANGS[c]["label"] for c in langs
