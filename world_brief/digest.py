@@ -765,7 +765,7 @@ def gemini_models(key: str) -> list[str]:
         return float(nums[0]) if nums else 0.0
     names.sort(key=lambda n: (-version(n), "lite" in n, "preview" in n, n))
     order = ([preferred] if preferred else []) + names + ["gemini-flash-latest"]
-    return list(dict.fromkeys(order))[:4]
+    return list(dict.fromkeys(order))[:6]
 
 
 GEMINI_DAY_LIMIT: set[str] = set()     # models whose free daily quota is used up this run
@@ -845,10 +845,16 @@ def call_github_models(system: str, user: str) -> str | None:
     for url in GH_ENDPOINTS:
         for model in ("openai/gpt-4.1-mini", "openai/gpt-4o-mini", "gpt-4o-mini"):
             try:
-                r = requests.post(url, headers=headers, timeout=180,
-                                  json={"model": model, "temperature": 0.4, "max_tokens": 4000,
-                                        "messages": [{"role": "system", "content": system},
-                                                     {"role": "user", "content": user}]})
+                body = {"model": model, "temperature": 0.4, "max_tokens": 4000,
+                        "messages": [{"role": "system", "content": system},
+                                     {"role": "user", "content": user}]}
+                r = requests.post(url, headers=headers, timeout=180, json=body,
+                                  allow_redirects=False)
+                if 300 <= r.status_code < 400 and r.headers.get("location", "").startswith("https://"):
+                    print(f"  GitHub Models redirect {r.status_code} -> {r.headers['location'].split('?')[0]}",
+                          file=sys.stderr)       # follow it as a POST (requests would switch to GET)
+                    r = requests.post(r.headers["location"], headers=headers, timeout=180,
+                                      json=body, allow_redirects=False)
                 if r.status_code >= 400 or "json" not in r.headers.get("content-type", ""):
                     print(f"  ! GitHub Models {url.split('/')[2]} {model}: HTTP {r.status_code} "
                           f"{r.headers.get('content-type', '')} {redact(r.text[:120])!r}",
@@ -1351,6 +1357,54 @@ def main() -> None:
     send_telegram(final, Path(episodes[0]["file"]) if episodes else None)
     languages.send_whatsapp(final, lang_eps)
     token_reminder(edition)
+
+    ARCHIVE_DIR.mkdir(exist_ok=True)
+    (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)
+    # Keep podcast scripts as memory for tomorrow's episode ("Yesterday we talked about...").
+    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    for ep in episodes:
+        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
+        if script.exists():
+            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
+                script.read_text())
+    (ROOT / "state").mkdir(exist_ok=True)
+    if new_stories:
+        ENTITIES_FILE.write_text(json.dumps(update_entities(entities, new_stories, today_iso),
+                                            indent=0, ensure_ascii=False))
+    if edition == "weekly" and new_beliefs:
+        BELIEFS_FILE.write_text(json.dumps(update_beliefs(beliefs, new_beliefs, today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  beliefs updated: {len(new_beliefs)}")
+    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
+    run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
+               email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
+               podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0 for e in episodes + lang_eps),
+               corrections=final.count("CORRECTION"),
+               action_required=attention.count("ACTION REQUIRED"),
+               quiet=int((re.findall(r"\d+", str(meta.get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
+               warnings=len(warnings), llm_calls=sum(LLM_CALLS.values()),
+               stories_tracked=len(new_stories))
+    SCORECARD_FILE.write_text(json.dumps(record_run(load_json(SCORECARD_FILE, {}), run,
+                                                    edition == "weekly"), indent=0))
+    if items:
+        TRENDS_FILE.parent.mkdir(exist_ok=True)
+        TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,
+                                          sort_keys=True))
+        cited = set(re.findall(r"\[(S\d+)\]", brief))
+        SOURCES_FILE.parent.mkdir(exist_ok=True)
+        SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
+                                           indent=1, ensure_ascii=False, sort_keys=True))
+    if new_stories:
+        STORIES_FILE.parent.mkdir(exist_ok=True)
+        STORIES_FILE.write_text(json.dumps(update_stories(stories, new_stories, today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  story ledger: {len(new_stories)} stories updated")
+    if items:
+        stamp = datetime.now(timezone.utc).isoformat()
+        for it in items:
+            seen[key_of(it)] = stamp
+        STATE_FILE.parent.mkdir(exist_ok=True)
+        STATE_FILE.write_text(json.dumps(seen, indent=0))
 
 
 if __name__ == "__main__":

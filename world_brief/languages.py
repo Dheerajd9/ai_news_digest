@@ -13,6 +13,7 @@ from __future__ import annotations
 import os
 import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -62,18 +63,24 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
     for code in langs:
         info = LANGS[code]
         sfx = "" if report_type == "MORNING" else f"-{report_type.lower()}"
-        try:
-            mp3 = make_podcast(news, date_str, out_dir,
-                               lambda s, u: digest.ask(s, u, prefer="gemini"),
-                               length=LENGTHS.get(report_type, LENGTHS["MORNING"]),
-                               show=info["show"], lang=code,
-                               report_type=report_type,
-                               out_name=f"{info['name']}_podcast.mp3",
-                               previous_script=latest_previous_script(info["archive"], "podcast", 3000))
-        except Exception as exc:
-            print(f"  ! {info['name']} podcast failed: {type(exc).__name__}: {_redact(str(exc))[:200]}",
-                  file=sys.stderr)
-            continue
+        mp3 = None
+        for attempt in (1, 2):           # AI busy? wait a bit and try once more
+            try:
+                mp3 = make_podcast(news, date_str, out_dir,
+                                   lambda s, u: digest.ask(s, u, prefer="gemini"),
+                                   length=LENGTHS.get(report_type, LENGTHS["MORNING"]),
+                                   show=info["show"], lang=code,
+                                   report_type=report_type,
+                                   out_name=f"{info['name']}_podcast.mp3",
+                                   previous_script=latest_previous_script(info["archive"], "podcast", 3000))
+            except Exception as exc:
+                print(f"  ! {info['name']} podcast failed: {type(exc).__name__}: "
+                      f"{_redact(str(exc))[:200]}", file=sys.stderr)
+            if mp3:
+                break
+            if attempt == 1:
+                print(f"  {info['name']} script failed; retrying in 90s")
+                time.sleep(90)
         if not mp3:
             continue
         url = None
