@@ -80,11 +80,11 @@
 },
 "Houthis": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "middle-east-escalation"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "Yemen": {
 "first_seen": "2026-10-11",
@@ -137,7 +137,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit"
@@ -170,7 +170,7 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense"
@@ -212,11 +212,12 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
-"us-h1b-fee-lawsuit"
+"us-h1b-fee-lawsuit",
+"us-perm-h1b-freeze"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-13"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -314,6 +315,30 @@
 "india-it-rally"
 ],
 "last_seen": "2026-10-13"
+},
+"Saudi Aramco": {
+"first_seen": "2026-10-13",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-13"
+},
+"S Jaishankar": {
+"first_seen": "2026-10-13",
+"count": 1,
+"stories": [
+"india-us-trade-talks"
+],
+"last_seen": "2026-10-13"
+},
+"Piyush Goyal": {
+"first_seen": "2026-10-13",
+"count": 1,
+"stories": [
+"india-us-trade-talks"
+],
+"last_seen": "2026-10-13"
 }
 },
 "connections": [
@@ -343,6 +368,30 @@
 },
 {
 "text": "AI agent capabilities -> enterprise adoption",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "US immigration policy -> Indian tech workers -> increased compliance costs",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "Middle East escalation -> oil prices -> Indian import bill pressure",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "India-US trade deal -> tariff landscape -> export opportunities",
+"first_seen": "2026-10-13",
+"last_seen": "2026-10-13",
+"count": 1
+},
+{
+"text": "RBI intervention -> rupee stabilization -> import costs",
 "first_seen": "2026-10-13",
 "last_seen": "2026-10-13",
 "count": 1

@@ -63,6 +63,10 @@
    {
     "date": "2026-10-12",
     "text": "Watch for Saudi counter-strikes and airline route changes"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Monitor Brent crude price volatility."
    }
   ],
   "timeline": [
@@ -81,17 +85,21 @@
    {
     "date": "2026-10-12",
     "event": "FAA flight warning issued; Saudi vows military retaliation"
+   },
+   {
+    "date": "2026-10-13",
+    "event": "Aramco HQ strike"
    }
   ],
-  "title": "FAA issues Saudi airspace alert as conflict expands",
+  "title": "Houthi attacks hit Saudi Aramco HQ",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "The FAA warned US airlines of flight hazards over Saudi Arabia following Houthi drone strikes on Riyadh, keeping Brent crude near $106.",
+  "summary": "Houthi strikes hit Saudi Aramco headquarters and fuel depots, escalating regional conflict and threatening energy infrastructure.",
   "open_questions": [
-   "Will Saudi Arabia launch retaliatory strikes against Houthi targets?",
-   "Will commercial airlines suspend flights into Riyadh?"
+   "Will Saudi Arabia launch retaliatory strikes?",
+   "Will oil exports be disrupted despite pledges?"
   ],
-  "last_seen": "2026-10-12"
+  "last_seen": "2026-10-13"
  },
  "indigo-hyderabad-emergency": {
   "first_seen": "2026-10-11",
@@ -123,6 +131,10 @@
    {
     "date": "2026-10-13",
     "text": "Review PERM timelines with counsel"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Monitor DHS official rulemaking portal for public comment periods."
    }
   ],
   "timeline": [
@@ -133,14 +145,19 @@
    {
     "date": "2026-10-12",
     "event": "PERM filings drop to 607 across top 13 firms"
+   },
+   {
+    "date": "2026-10-13",
+    "event": "DHS proposal announced"
    }
   ],
-  "title": "US PERM labor certifications drop across tech consultancies",
+  "title": "DHS proposes tighter H-1B and OPT scrutiny",
   "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "PERM processing remains slow for major IT firms, extending green card timelines.",
+  "stage": "PROPOSED",
+  "summary": "DHS proposed ending automatic H-1B extension renewals and a new OPT fee, increasing scrutiny on international tech workers.",
   "open_questions": [
-   "When will processing normalize?"
+   "When will the final rule take effect?",
+   "How will the new OPT fee be structured?"
   ],
   "last_seen": "2026-10-13"
  },
@@ -202,6 +219,10 @@
    {
     "date": "2026-10-13",
     "text": "Monitor forex reserve data"
+   },
+   {
+    "date": "2026-10-13",
+    "text": "Monitor forex reserve data."
    }
   ],
   "timeline": [
@@ -212,14 +233,18 @@
    {
     "date": "2026-10-13",
     "event": "Rupee gains 1% to 95.76"
+   },
+   {
+    "date": "2026-10-13",
+    "event": "Rupee 1-month high"
    }
   ],
   "title": "RBI intervention stabilizes rupee",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "The rupee gained 1% to 95.76 against the dollar following RBI's dedicated oil-importer dollar window.",
+  "summary": "The rupee rallied to a one-month high following RBI's intervention, though banks remain cautious.",
   "open_questions": [
-   "Will RBI maintain the dollar window if oil prices spike again?"
+   "Will RBI maintain the dollar window?"
   ],
   "last_seen": "2026-10-13"
  },
@@ -393,6 +418,30 @@
   "summary": "Brent crude eased to $105.65 after Saudi Arabia promised to maintain export flows despite regional conflict.",
   "open_questions": [
    "Will regional conflict escalate further?"
+  ],
+  "last_seen": "2026-10-13"
+ },
+ "india-us-trade-talks": {
+  "first_seen": "2026-10-13",
+  "expectations": [
+   {
+    "date": "2026-10-13",
+    "text": "Watch for official joint announcement."
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-13",
+    "event": "Jaishankar statement"
+   }
+  ],
+  "title": "India-US trade deal nearing landing point",
+  "status": "DEVELOPING",
+  "stage": "NEGOTIATIONS",
+  "summary": "EAM Jaishankar confirmed that India-US trade deal negotiations are nearing a final agreement.",
+  "open_questions": [
+   "When will the deal be signed?",
+   "Which sectors will see tariff reductions?"
   ],
   "last_seen": "2026-10-13"
  }
