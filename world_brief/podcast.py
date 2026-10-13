@@ -444,6 +444,17 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     if previous_script:
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
     script = llm(system, user)
+    # Length guard: weaker/backup models often write far too short. Ask once more.
+    nums = [int(n.replace(",", "")) for n in re.findall(r"\d[\d,]{2,}", length)]
+    target = nums[0] if nums and "at most" not in length.lower() else 0
+    got = sum(len(t.split()) for _, t in parse_script(script or "", profile["hosts"]))
+    if script and target and got < 0.7 * target:
+        print(f"  script too short ({got} words, want {target}+); asking for the full version")
+        longer = llm(system, user + f"\n\nIMPORTANT: your previous draft had only {got} words. "
+                     f"Write the FULL episode now: at least {target} words, covering every "
+                     f"important story in the brief with real explanation. Same rules and format.")
+        if sum(len(t.split()) for _, t in parse_script(longer or "", profile["hosts"])) > got:
+            script = longer
     if script and os.getenv("PODCAST_REVIEW", "1") == "1":
         script = review_script(script, llm, length, profile["hosts"],
                                min_ratio=0.85 if lang in ("te", "hi") else 0.5)
