@@ -176,87 +176,7 @@ def configured() -> tuple[str, str] | None:
     return None
 
 
-PLAYER_HTML = """<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>World Brief player</title>
-<style>
-:root{--bg:#f4f6fa;--card:#fff;--fg:#17202e;--muted:#5a6475;--accent:#c2620a}
-@media (prefers-color-scheme:dark){:root{--bg:#0f141c;--card:#18202c;--fg:#e8ebf0;--muted:#9aa4b5;--accent:#f0a052}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
-font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Telugu",sans-serif;
-display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px}
-.card{background:var(--card);border-radius:18px;padding:28px 22px;width:100%;max-width:520px;
-box-shadow:0 6px 30px rgba(0,0,0,.08);text-align:center}
-img{width:132px;height:132px;border-radius:16px;object-fit:cover}
-h1{font-size:22px;margin:16px 0 4px}p{margin:0 0 18px;color:var(--muted)}
-audio{width:100%;margin:6px 0 14px}
-.speeds{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-button{font:600 15px system-ui,sans-serif;padding:9px 14px;border-radius:999px;border:1px solid var(--muted);
-background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.err{color:#b3261e}
-.chaps{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0 0 16px}
-.chaps button{border-radius:12px;padding:11px 8px;text-align:left;font-size:15px}
-.chaps button small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
-.chaps button.now{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
-</style></head><body><main class="card">
-<img src="cover.png" alt="" onerror="this.remove()">
-<h1 id="t">World Brief</h1><p id="d"></p>
-<audio id="a" controls preload="metadata"></audio>
-<div class="chaps" id="c"></div>
-<div class="speeds" id="s"></div>
-</main><script>
-(function(){
-  var f=new URLSearchParams(location.search).get("f")||"";
-  var a=document.getElementById("a"),t=document.getElementById("t"),d=document.getElementById("d");
-  if(!/^[A-Za-z0-9._-]+\\.mp3$/.test(f)){t.textContent="Episode not found";d.className="err";return;}
-  var m=f.match(/^(\\d{4})-(\\d{2})-(\\d{2})-?(.*)\\.mp3$/), kind=m?m[4]:"";
-  var names={"telugu":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu)",
-    "hindi":"\\u0906\\u091c \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi)",
-    "telugu-evening":"\\u0c08 \\u0c30\\u0c4b\\u0c1c\\u0c41 \\u0c38\\u0c3e\\u0c2f\\u0c02\\u0c24\\u0c4d\\u0c30\\u0c02 (Telugu evening)",
-    "telugu-weekly":"\\u0c08 \\u0c35\\u0c3e\\u0c30\\u0c02 \\u0c35\\u0c3e\\u0c30\\u0c4d\\u0c24\\u0c32\\u0c41 (Telugu weekly)",
-    "hindi-evening":"\\u0906\\u091c \\u0936\\u093e\\u092e \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi evening)",
-    "hindi-weekly":"\\u0907\\u0938 \\u0939\\u092b\\u094d\\u0924\\u0947 \\u0915\\u0940 \\u0916\\u092c\\u0930\\u0947\\u0902 (Hindi weekly)",
-    "morning":"Morning Brief: Full","morning-quick":"Morning Brief: Quick","evening":"Evening Update",
-    "evening-quick":"Evening Update","weekly":"Weekly Report"};
-  t.textContent=names[kind]||"World Brief";
-  if(m){d.textContent=new Date(+m[1],+m[2]-1,+m[3]).toDateString();}
-  document.title=t.textContent;
-  // Same-site copy (correct audio type, plays on iPhone); GitHub release file as fallback.
-  var fallback="https://github.com/__REPO__/releases/download/episodes/"+encodeURIComponent(f), tried=false;
-  a.src="audio/"+encodeURIComponent(f);
-  var key="pos:"+f;
-  a.addEventListener("loadedmetadata",function(){try{var p=+localStorage.getItem(key);if(p>5&&p<a.duration-10)a.currentTime=p;}catch(e){}});
-  a.addEventListener("timeupdate",function(){try{localStorage.setItem(key,Math.floor(a.currentTime));}catch(e){}});
-  a.addEventListener("error",function(){
-    if(!tried){tried=true;a.src=fallback;a.load();return;}
-    d.textContent="Could not load the audio. Older episodes are removed after about 10 days.";d.className="err";});
-  [0.75,1,1.25,1.5].forEach(function(r){var b=document.createElement("button");b.textContent=r+"x";
-    if(r===1)b.className="on";b.onclick=function(){a.playbackRate=r;
-    [].forEach.call(document.querySelectorAll("#s button"),function(x){x.className="";});b.className="on";};
-    document.getElementById("s").appendChild(b);});
-  var icons={"Top stories":"\\u2b50 Most important","India":"\\ud83c\\uddee\\ud83c\\uddf3 India",
-    "USA":"\\ud83c\\uddfa\\ud83c\\uddf8 USA","World":"\\ud83c\\udf0d World","Money":"\\ud83d\\udcb0 Money",
-    "Wrap-up":"\\u2705 Wrap-up"};
-  fetch("chapters/"+encodeURIComponent(f)+".json").then(function(r){return r.ok?r.json():[];})
-  .then(function(list){
-    if(!Array.isArray(list)||list.length<2)return;
-    var box=document.getElementById("c"),btns=[];
-    list.forEach(function(ch){
-      if(typeof ch.t!=="number")return;
-      var b=document.createElement("button"),m=Math.floor(ch.t/60),sec=("0"+Math.floor(ch.t%60)).slice(-2);
-      b.textContent=icons[ch.title]||String(ch.title).slice(0,30);
-      var sm=document.createElement("small");sm.textContent=m+":"+sec;b.appendChild(sm);
-      b.onclick=function(){a.currentTime=ch.t;a.play();};
-      box.appendChild(b);btns.push([ch.t,b]);});
-    a.addEventListener("timeupdate",function(){var cur=null;
-      btns.forEach(function(x){x[1].classList.remove("now");if(a.currentTime>=x[0]-0.5)cur=x[1];});
-      if(cur)cur.classList.add("now");});
-  }).catch(function(){});
-})();
-</script></body></html>
-"""
+PLAYER_HTML = (Path(__file__).parent / "player.html").read_text(encoding="utf-8")
 _PLAYER_READY = False
 
 
@@ -339,6 +259,8 @@ def sync_site_audio(mp3s: list[tuple[Path, str]]) -> bool:
                 if m and datetime.strptime(m.group(1), "%Y-%m-%d").replace(
                         tzinfo=timezone.utc).timestamp() < cutoff:
                     old.unlink()
+            # List of available episodes for the player's language tabs and episode list.
+            (audio / "index.json").write_text(json.dumps(sorted(p.name for p in audio.glob("*.mp3"))))
             run = lambda *a: subprocess.run(list(a), cwd=site, capture_output=True, text=True,
                                             timeout=600, check=True)
             run("git", "checkout", "-q", "--orphan", "fresh")
