@@ -8,12 +8,18 @@ user, pwd, to = (os.getenv(k, "") for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", 
 edition = os.getenv("EDITION", "?")
 url = os.getenv("RUN_URL", "")
 if user and pwd and to:
-    body = (f"The {edition} World Brief run failed.\n\n"
-            "Nothing to do: the next scheduled slot will retry automatically "
-            "(morning until about 1 PM, evening until about 11 PM Dallas time).\n\n"
-            f"Run details: {url}\n")
+    if edition == "test":
+        body = ("A code change just failed the automatic end-to-end test (fake news, fake AI). "
+                "Tell Claude about this email so it is fixed before the next edition.\n\n"
+                f"Run details: {url}\n")
+    else:
+        body = (f"The {edition} World Brief run failed.\n\n"
+                "Nothing to do: the next scheduled slot will retry automatically "
+                "(morning until about 1 PM, evening until about 11 PM Dallas time).\n\n"
+                f"Run details: {url}\n")
     msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = f"⚠️ World Brief ({edition}) run failed — retrying automatically"
+    msg["Subject"] = ("⚠️ World Brief code test failed" if edition == "test" else
+                      f"⚠️ World Brief ({edition}) run failed — retrying automatically")
     msg["From"], msg["To"] = user, to
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:

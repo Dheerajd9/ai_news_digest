@@ -1329,12 +1329,22 @@ def main() -> None:
 
     # Same news as Telugu and Hindi podcasts, so ONE email serves every listener.
     import languages
-    langs = languages.wanted(edition) if (items and not no_llm and wants_podcast
+    langs = languages.wanted(edition) if ((items or edition == "weekly") and not no_llm and wants_podcast
                                           and os.getenv("PODCAST", "1") == "1") else []
     lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
                                        langs, dry) if langs else []
 
     listen = listen_section(episodes + lang_eps, meta, brief)
+    # Be honest when a language could not be made (e.g. the free AI was overloaded).
+    missing = [languages.LANGS[c]["label"] for c in langs
+               if c not in {e["kind"] for e in lang_eps}]
+    if wants_podcast and os.getenv("PODCAST", "1") == "1" and not no_llm and not episodes:
+        missing.insert(0, "🔵 English")
+    if missing:
+        note = (f"_{', '.join(missing)}: audio could not be made this time (the free AI "
+                f"service was busy). It will be back in the next edition._")
+        listen = (listen + "\n" + note + "\n") if listen else f"## 🎧 Listen\n\n{note}\n"
+        print(f"  ! audio missing: {', '.join(missing)}")
     if "{{LISTEN}}" in final:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:

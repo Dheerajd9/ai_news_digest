@@ -107,8 +107,9 @@ jobs:
           PARENTS_WHATSAPP: ${{ secrets.PARENTS_WHATSAPP }}
         run: |
           if [ "$EDITION" = "test" ]; then
-            EDITION=morning DRY_RUN=1 NO_LLM=1 python digest.py | tail -60
-            python -c "import markets; b, p = markets.numbers_box(); print(b or 'numbers box: no data'); print(p)"
+            # Full end-to-end test (fake news + fake AI + silent audio): every edition must
+            # produce one email with English, Telugu and Hindi play links and save its memory.
+            python tests/e2e.py
             DRY_RUN=1 NO_LLM=1 python alerts.py
           else
             set -o pipefail
@@ -145,7 +146,7 @@ jobs:
 
       # If anything broke, email a short alert (the next slot also retries automatically).
       - name: Tell me if this run failed
-        if: failure() && steps.ed.outputs.edition != 'test'
+        if: failure()
         env:
           EDITION: ${{ steps.ed.outputs.edition }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
