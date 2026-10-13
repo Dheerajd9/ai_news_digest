@@ -67,6 +67,10 @@ jobs:
           EDS=$(echo "$CMD" | grep -oE '\b(morning|weekly|evening)\b' | awk '!seen[$0]++' | tr '\n' ' ')
           [ -z "$EDS" ] && EDS="morning weekly evening"
           FORCE=$(echo "$CMD" | grep -qw force && echo 1 || echo 0)
+          if echo "$CMD" | grep -qw keycheck; then
+            python keycheck.py
+            exit 0
+          fi
           echo "Requested: $EDS (force=$FORCE)"
           for ED in $EDS; do
             if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
