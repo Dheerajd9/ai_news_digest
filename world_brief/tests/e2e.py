@@ -141,7 +141,7 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     print(f"\n=== {edition} ===")
     env = {**os.environ, "EDITION": edition, "PODCAST": "1", "PODCAST_REVIEW": "1",
            "GITHUB_EVENT_NAME": "push", "PODCAST_LANGUAGES": "te,hi",
-           "LANG_EDITIONS": "morning,evening,weekly"}
+           "LANG_EDITIONS": "morning,evening,weekly", "WB_ASSUME_PLAYER": "1"}
     for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN"):
         env.pop(k, None)
     (work / "runner.py").write_text(RUNNER)
@@ -200,7 +200,8 @@ def main() -> int:
         # Failure drill: Telugu script can't be written -> email still goes out, says so.
         print("\n=== morning, Telugu AI down ===")
         env = {**os.environ, "EDITION": "morning", "FAIL_HOST": "RAVI",
-               "PODCAST_LANGUAGES": "te,hi", "LANG_EDITIONS": "morning", "GITHUB_EVENT_NAME": "push"}
+               "PODCAST_LANGUAGES": "te,hi", "LANG_EDITIONS": "morning", "GITHUB_EVENT_NAME": "push",
+               "WB_ASSUME_PLAYER": "1"}
         for k in ("DRY_RUN", "NO_LLM", "GEMINI_API_KEY", "GITHUB_TOKEN"):
             env.pop(k, None)
         import time as _t

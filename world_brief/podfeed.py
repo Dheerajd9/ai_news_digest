@@ -256,13 +256,34 @@ background:transparent;color:var(--fg);cursor:pointer}button.on{background:var(-
 _PLAYER_READY = False
 
 
+_PLAYER_LIVE: bool | None = None
+
+
+def player_live(base: str) -> bool:
+    """Is the web player actually online (GitHub Pages switched on)? Checked once per run;
+    if not, emails use the direct MP3 link instead of a link that would show 404."""
+    global _PLAYER_LIVE
+    if os.getenv("WB_ASSUME_PLAYER") == "1":
+        return True
+    if _PLAYER_LIVE is None:
+        try:
+            r = requests.get(base + "play.html", timeout=15)
+            _PLAYER_LIVE = r.status_code == 200 and "World Brief" in r.text
+        except Exception:
+            _PLAYER_LIVE = False
+        if not _PLAYER_LIVE:
+            print("  ! web player not reachable (is GitHub Pages on?); using direct MP3 links")
+    return _PLAYER_LIVE
+
+
 def player_url(asset_name: str) -> str | None:
     """A simple web page that PLAYS the episode (GitHub release links only offer a download)."""
     cfg = configured()
     if not cfg or not re.fullmatch(r"[\w.-]+\.mp3", asset_name):
         return None
     owner, name = cfg[0].split("/")
-    return f"https://{owner.lower()}.github.io/{name}/play.html?f={asset_name}"
+    base = f"https://{owner.lower()}.github.io/{name}/"
+    return f"{base}play.html?f={asset_name}" if player_live(base) else None
 
 
 def ensure_player() -> None:
