@@ -2,16 +2,18 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 14 Oct 2026 (new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
+_Last updated: 14 Oct 2026 (📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
 
 ## What you get, and when (Dallas time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
-| **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat). Podcasts in English, Telugu and Hindi (4–7 min) |
+| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
+| **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–7 min) |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
+
+**Podcast language**: Telugu is spoken Telangana Telugu and Hindi is everyday Hindi, both mixed with simple English the way Hyderabad/city families talk: numbers, prices, dates and hard words (inflation, interest rate, tariff, AI…) are said in English, never pure/bookish Telugu or Hindi.
 
 One email per edition goes to everyone (BCC). Each email has a 🎧 **Listen** box with ▶️ Play links for every language. If a language's audio could not be made (for example the free AI was overloaded), the email says so instead of hiding it.
 

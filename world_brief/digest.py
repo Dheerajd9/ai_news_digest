@@ -948,6 +948,45 @@ def fallback_brief(items: list[dict], date_str: str) -> str:
     return "\n".join(lines)
 
 
+CATEGORY_LABELS = {
+    "india": "🇮🇳 India", "india_economy": "🇮🇳 India economy", "telangana_hyderabad": "🏙️ Telangana & Hyderabad",
+    "usa": "🇺🇸 USA", "india_us_visa_trade": "🛂 India–USA, visas & trade", "canada": "🇨🇦 Canada",
+    "world": "🌍 World", "global_economy": "📦 Global economy", "us_markets_economy": "📈 Markets",
+    "business_jobs": "💼 Business & jobs", "personal_finance_housing": "💵 Money & housing",
+    "jobs_tax_housing": "💵 Jobs, tax & housing", "ai_robotics": "🤖 AI & robotics", "tech_ai": "💻 Tech",
+    "frontier_companies": "🚀 Frontier companies", "chips_energy_future": "⚡ Chips, energy, future tech & space",
+    "science_health_climate": "🔬 Science & health", "official": "🏛️ Official announcements",
+    "fact_check": "🔍 Fact checks"}
+
+
+def more_headlines(brief: str, items: list[dict], per_cat: int = 6, total: int = 60) -> str:
+    """Every remaining story the AI did not cover, as one-line headlines with links, so the
+    reader never misses anything. Ranked by trust and how many outlets carried it."""
+    cited = set(re.findall(r"\[(S\d+)\]", brief))
+    rest = [it for it in items if it.get("id") not in cited and re.match(r"https?://", it.get("link", ""))]
+    if not rest:
+        return ""
+    tier_rank = {"official": 0, "major": 1, "other": 2}
+    rest.sort(key=lambda i: (tier_rank.get(source_tier(i["source"]), 3), -i.get("coverage", 1)))
+    groups: dict[str, list[dict]] = {}
+    shown = 0
+    for it in rest:
+        g = groups.setdefault(it["category"], [])
+        if len(g) < per_cat and shown < total:
+            g.append(it)
+            shown += 1
+    order = list(CATEGORY_LABELS)
+    lines = ["", "## 📰 More headlines (not covered above)",
+             "_Everything else from today's sources, one line each, so you miss nothing._", ""]
+    for cat in sorted(groups, key=lambda c: order.index(c) if c in order else 99):
+        lines.append(f"**{CATEGORY_LABELS.get(cat, cat.replace('_', ' ').title())}**")
+        for it in groups[cat]:
+            title = re.sub(r"[\[\]]", "", it["title"])
+            lines.append(f"- [{title}]({it['link']}) · {it['source']}")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def link_citations(md: str, items: list[dict]) -> str:
     """[S12] -> [[Source]](link); one link per outlet per line, max 3 per line."""
     by_id = {it["id"]: it for it in items}
@@ -1386,6 +1425,7 @@ def main() -> None:
 
     brief = insert_box(brief, box)
     final = link_citations(brief, items)
+    more_news = more_headlines(brief, items)    # nothing silently dropped (added after podcasts)
 
     title = f"{cfg['title']} — {date_str}"
     warnings = [w.strip() for w in meta.get("VERIFICATION_WARNINGS", "").split(";")
@@ -1460,7 +1500,7 @@ def main() -> None:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:
         final = insert_box(final, listen)
-    final = re.sub(r"\n{3,}", "\n\n", final)
+    final = re.sub(r"\n{3,}", "\n\n", final + more_news)
     # Attach only what has no play link (upload failed or no podcast repo); the links play
     # in the browser, so the email stays small.
     audio_files = [Path(e["file"]) for e in episodes + lang_eps if not e.get("url")]

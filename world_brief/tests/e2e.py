@@ -38,7 +38,10 @@ def fake_items(feeds):
         link = f"https://news.example.com/{EDITION}/{n}"
         digest.KNOWN_LINKS.add(link)
         out.append({"category": cats[n % len(cats)], "source": "The Hindu",
-                    "title": f"{EDITION} test headline number {n} about topic {n * 7}",
+                    "title": f"{EDITION} test headline: " + " ".join(
+                        ["monsoon", "senate", "rupee", "chips", "robots", "tariff", "election",
+                         "satellite", "vaccine", "housing", "jobs", "oil", "court", "visa",
+                         "startup"][(n + k) % 15] for k in (0, 3, 7)),
                     "summary": "Something happened.", "published": "2026-10-13T06:00:00+00:00",
                     "link": link})
     return out
@@ -186,6 +189,14 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    if edition != "weekly":
+        tail = md.split("More headlines (not covered above)")[-1]
+        check("More headlines (not covered above)" in md and "](http" in tail,
+              f"{edition}: '📰 More headlines' lists every other story with links", errors)
+        check("More headlines" not in "".join(
+            p.read_text() for p in (work / "briefs" / "podcasts").glob("*.txt")) if
+            (work / "briefs" / "podcasts").exists() else True,
+            f"{edition}: podcasts don't read out the extra headline list", errors)
     langs_fed = sorted({f[0] for f in res.get("feeds", [])})
     check(langs_fed == ["hi", "te"], f"{edition}: Telugu + Hindi podcast-app feeds updated ({langs_fed})", errors)
     tg = res.get("telegram", [])
@@ -237,6 +248,12 @@ def main() -> int:
             check(bool(groups.get(g)), f"feeds: {g}", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
+        te_p = (SRC / "prompts" / "telugu_podcast_prompt.md").read_text()
+        hi_p = (SRC / "prompts" / "hindi_podcast_prompt.md").read_text()
+        check("Tenglish" in te_p and "Telangana yaasa" in te_p and "numbers" in te_p.lower() or "number, price" in te_p,
+              "Telugu: Telangana Telugu + numbers/hard words in simple English", errors)
+        check("Hinglish" in hi_p and "number, price" in hi_p and "Telugu" not in hi_p,
+              "Hindi: Hinglish + numbers/hard words in simple English, no Telugu leftovers", errors)
         for name in ("evening_prompt.md", "weekly_prompt.md"):
             check("EXTRA TOPICS" in (SRC / "prompts" / name).read_text(), f"{name}: extra topics", errors)
 
@@ -262,6 +279,7 @@ def main() -> int:
 
         # Drill 2: Gemini completely down -> free backup brain writes everything.
         print("\n=== morning, Gemini down (Mistral backup) ===")
+        (work / "state" / "seen.json").unlink(missing_ok=True)   # fresh news for this drill
         env2 = {**env, "GEMINI_DOWN": "1"}
         env2.pop("FAIL_HOST", None)
         p = subprocess.run([sys.executable, "-c",
@@ -269,6 +287,8 @@ def main() -> int:
                            cwd=work, env=env2, capture_output=True, text=True, timeout=600)
         res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
         md = res["emails"][0]["md"] if res["emails"] else ""
+        if not res["emails"]:
+            print(p.stdout[-1500:], p.stderr[-1500:])
         check(len(res["emails"]) == 1 and "LLM unavailable" not in md,
               "Gemini down: full brief still written by the backup brain", errors)
         check(md.count("play.html?f=") >= 3, "Gemini down: podcasts still made", errors)
