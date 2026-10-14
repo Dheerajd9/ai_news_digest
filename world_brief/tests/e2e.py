@@ -437,6 +437,48 @@ print(json.dumps({"parts": len(parts or []), "voices": sorted(set(calls)), "used
         check((r.get("split") or 0) > 2, "Cloud voices: long lines split under the size limit", errors)
         check((r.get("used") or 0) > 0 and r.get("blocked") is True,
               "Cloud voices: usage counted, stops before the free limit (never charges)", errors)
+
+        # Drill 4: lite model writes too short -> retry, then expand the draft; the editor pass
+        # may not cut a script that is already short.
+        print("\n=== short scripts get expanded, never cut ===")
+        drill = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+os.environ["WEATHER"] = "0"
+import podcast
+from pathlib import Path
+def lines(n):
+    return "\n".join(("KARTIK: " if i % 2 == 0 else "PRIYA: ") + "word " * 20 for i in range(n))
+asked = []
+def llm(system, user):
+    if user.startswith("SCRIPT:"):
+        asked.append("review")
+        return lines(30)                       # editor tries to cut 60 lines -> 30
+    if "YOUR DRAFT" in user:
+        asked.append("expand")
+        return lines(80)                       # 1600 words
+    asked.append("write")
+    return lines(30)                           # 600 words, far under target
+got = []
+class Stop(Exception): pass
+def tts(turns, *a, **k):
+    got.append(sum(len(x.split()) for _, x in turns)); raise Stop()
+podcast.gemini_podcast = tts
+try:
+    podcast.make_podcast("brief", "d", Path("sx"), llm, length="About 1,500 to 2,300 words.")
+except Stop:
+    pass
+print(json.dumps({"asked": asked, "words": got}))
+"""
+        p = subprocess.run([sys.executable, "-c", drill], cwd=work, capture_output=True, text=True, timeout=120)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-1500:], p.stderr[-1500:])
+            r = {}
+        check(r.get("asked") == ["write", "write", "expand", "review"],
+              f"short script: retried, then draft expanded ({r.get('asked')})", errors)
+        check(r.get("words") == [1600], f"short script: editor pass did not cut it ({r.get('words')})", errors)
     print("\nRESULT:", "ALL CHECKS PASSED" if not errors else f"{len(errors)} FAILED")
     return 1 if errors else 0
 

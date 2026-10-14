@@ -542,9 +542,23 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                      f"important story in the brief with real explanation. Same rules and format.")
         if sum(len(t.split()) for _, t in parse_script(longer or "", profile["hosts"])) > got:
             script = longer
+        got = sum(len(t.split()) for _, t in parse_script(script or "", profile["hosts"]))
+        if got < 0.7 * target:
+            # Small models stop early when writing from scratch, but expand an existing
+            # draft well: keep every line, add depth and the stories that were skipped.
+            print(f"  still short ({got} words); asking to expand the draft")
+            expanded = llm(system, user + f"\n\nYOUR DRAFT ({got} words) is too short. Rewrite it "
+                           f"as the full episode of at least {target} words: keep every story and "
+                           f"line that is there, explain each one more (what happened, why, what it "
+                           f"means for the family, what next), and add the important stories from "
+                           f"the brief that the draft skipped. Same rules and format.\n\nDRAFT:\n{script}")
+            if sum(len(t.split()) for _, t in parse_script(expanded or "", profile["hosts"])) > got:
+                script = expanded
     if script and os.getenv("PODCAST_REVIEW", "1") == "1":
+        got = sum(len(t.split()) for _, t in parse_script(script, profile["hosts"]))
+        # The editor pass must not cut a script that is already at or under the target length.
         script = review_script(script, llm, length, profile["hosts"],
-                               min_ratio=0.85 if lang in ("te", "hi") else 0.5)
+                               min_ratio=0.95 if target and got < target * 1.1 else 0.85)
     turns = parse_script(script or "", profile["hosts"])
     chapters = parse_chapters(script or "", profile["hosts"])
     if len(turns) < 6:

@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 14 Oct 2026 (podcasts explain better: listener-question host, money in family terms, "remember…" bridges, chapter recaps, good-news ending, Hyderabad + Dallas weather; 📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
+_Last updated: 14 Oct 2026 (short-script fix: expand pass + editor can't cut; podcasts explain better: listener-question host, money in family terms, "remember…" bridges, chapter recaps, good-news ending, Hyderabad + Dallas weather; 📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
 
 ## What you get, and when (Dallas time)
 
@@ -66,7 +66,7 @@ Each edition posts a short headline message plus every podcast as an audio messa
 | Writing (brief, fact-check, scripts) | Gemini free tier (several Flash models, each with its own daily limit) | Gemma (same key) → Mistral free "Experiment" plan (`MISTRAL_API_KEY`, optional) → OpenRouter free models (`OPENROUTER_API_KEY`) |
 | Voices | Gemini 2-speaker TTS (2 models, Indian-English / Telugu / Hindi library voices) | Google Cloud Chirp 3 HD (`GOOGLE_TTS_API_KEY`, optional, capped at 900k characters/month so it stays in the free tier) → Microsoft voices (free, unlimited) |
 
-If a script comes back far too short, the system asks once more for the full-length version. If Telugu or Hindi fails, it waits 90 s and retries. GitHub Models (the old backup) was retired by GitHub on 30 July 2026 and is no longer used.
+If a script comes back far too short, the system asks once more for the full-length version, and if it is still short it asks the AI to expand that draft (keep every line, explain more, add skipped stories). The editor pass is never allowed to cut a script that is already at or under its target length. If Telugu or Hindi fails, it waits 90 s and retries. GitHub Models (the old backup) was retired by GitHub on 30 July 2026 and is no longer used.
 
 ## Never misses an edition
 
