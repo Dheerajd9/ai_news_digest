@@ -102,6 +102,7 @@ jobs:
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           PODCAST_REPO: ${{ vars.PODCAST_REPO }}
           PODCAST_TOKEN: ${{ secrets.PODCAST_TOKEN }}
           PARENTS_EMAIL: ${{ secrets.PARENTS_EMAIL }}

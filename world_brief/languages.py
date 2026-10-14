@@ -94,6 +94,12 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
                     print(f"  ! {info['name']} upload attempt {attempt} failed: "
                           f"{type(exc).__name__}: {_redact(str(exc))[:200]}")
             if url:
+                try:                         # its own podcast-app feed (feed-te.xml / feed-hi.xml)
+                    podfeed.publish_language_episode(
+                        code, mp3, url.rsplit("/", 1)[-1],
+                        f"{info['show']} · {date_str}", f"{info['hosts']} · {report_type.title()}")
+                except Exception as exc:
+                    print(f"  ! {info['name']} feed not updated: {type(exc).__name__}")
                 try:
                     podfeed.prune_extra(f"-{info['name']}{sfx}.mp3", keep=21)
                 except Exception as exc:

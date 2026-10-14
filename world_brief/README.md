@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 13 Oct 2026._
+_Last updated: 13 Oct 2026 (podcast-app feeds for all languages, Telegram channel)._
 
 ## What you get, and when (Dallas time)
 
@@ -25,7 +25,23 @@ Every ▶️ Play link opens `https://dheerajd9.github.io/world-brief-podcast/pl
 - Recent episodes (last 10 days)
 - Lock-screen / notification / headphone / car / keyboard media controls (title, chapter, cover; next/previous = chapters)
 
-Audio is served from the player site itself (correct audio type, so iPhone plays it). That site branch is replaced by one fresh commit each run and keeps 10 days of audio, so the podcast repo never grows. English episodes are also in a podcast feed: `https://dheerajd9.github.io/world-brief-podcast/feed.xml`.
+Audio is served from the player site itself (correct audio type, so iPhone plays it). That site branch is replaced by one fresh commit each run and keeps 10 days of audio, so the podcast repo never grows.
+
+## Podcast apps (Apple Podcasts, Spotify, Pocket Casts, AntennaPod)
+
+Each language has its own feed; add it once ("Follow a show by URL" / "Add by URL") and new episodes download by themselves:
+
+| Language | Feed URL |
+|---|---|
+| 🔵 English | `https://dheerajd9.github.io/world-brief-podcast/feed.xml` |
+| 🟠 Telugu | `https://dheerajd9.github.io/world-brief-podcast/feed-te.xml` |
+| 🟢 Hindi | `https://dheerajd9.github.io/world-brief-podcast/feed-hi.xml` |
+
+Feeds list the last 10 days (audio older than that is removed from the site). They are hidden from podcast directories; only people with the URL can follow.
+
+## Telegram family channel
+
+Each edition posts a short headline message plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather (`TELEGRAM_BOT_TOKEN`), create a channel, add the bot as an **admin**, and save the channel's `@username` (or `-100…` id) as `TELEGRAM_CHANNEL_ID`. `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
 
 ## How it works
 
@@ -96,7 +112,8 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 | `MISTRAL_API_KEY` | optional | free backup writer |
 | `GOOGLE_TTS_API_KEY` | optional | natural backup voices (Google asks for a card; skipped) |
 | `PARENTS_EMAIL`, `PARENTS_WHATSAPP` | optional | more readers |
-| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | optional | alerts/brief on Telegram |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHANNEL_ID` | optional | family Telegram channel with every podcast |
+| `TELEGRAM_CHAT_ID` | optional | your personal Telegram chat (breaking alerts + brief) |
 | `PORTFOLIO_JSON` | for the portfolio report | your holdings (kept only as a secret, never in this public repo) |
 
 ## Files

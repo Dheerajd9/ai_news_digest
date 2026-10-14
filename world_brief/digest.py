@@ -1057,6 +1057,45 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
     print(f"  telegram sent ({len(chunks)} message(s){' + audio' if audio else ''})")
 
 
+def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
+    """Family Telegram channel: a short headline message, then every podcast as an audio
+    message that plays right inside Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID
+    (the bot must be an admin of the channel). Never fails the run."""
+    token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), os.getenv("TELEGRAM_CHANNEL_ID", "").strip()
+    if not (token and chat and eps):
+        return
+    import languages
+    heads = languages.headlines(md, 5)
+    first = next((play_link(e["url"]) for e in eps if e.get("url")), "")
+    text = (f"🌏 {title}\n\n" + "\n".join(f"• {h}" for h in heads)
+            + ("\n\n🎧 Player: " + first if first else "")
+            + "\n\n👇 Tap a podcast below to listen")
+    api = f"https://api.telegram.org/bot{token}"
+    sent = 0
+    try:
+        r = requests.post(f"{api}/sendMessage", json={"chat_id": chat, "text": text[:4000],
+                          "disable_web_page_preview": True}, timeout=30)
+        if r.status_code != 200:
+            print(f"  ! Telegram channel: HTTP {r.status_code} (is the bot an admin of the channel?)")
+            return
+        for e in eps:
+            f = Path(e["file"])
+            if not f.exists() or f.stat().st_size > 49_000_000:
+                continue
+            label = e["label"] if e.get("hosts") else f"🔵 English {e['label']}"
+            with f.open("rb") as fh:
+                r = requests.post(f"{api}/sendAudio", timeout=300,
+                                  data={"chat_id": chat, "title": f"{label} · {title}"[:120],
+                                        "performer": e.get("hosts") or "Kartik & Priya",
+                                        "caption": label},
+                                  files={"audio": (f.name, fh, "audio/mpeg")})
+            sent += r.status_code == 200
+    except Exception as exc:          # the URL holds the bot token: print only the error type
+        print(f"  ! Telegram channel failed: {type(exc).__name__}")
+        return
+    print(f"  Telegram channel: message + {sent} podcast(s)")
+
+
 # ---------------------------------------------------------------- main
 QUICK = ("podcast_quick_prompt.md", "quick")
 FULL = ("podcast_prompt.md", "full")
@@ -1431,6 +1470,7 @@ def main() -> None:
     mark_done(now, edition)            # email is out: backup slots must not resend it
     send_telegram(final, Path(episodes[0]["file"]) if episodes else None)
     languages.send_whatsapp(final, lang_eps)
+    send_telegram_channel(title, final, episodes + lang_eps)
     token_reminder(edition)
 
     ARCHIVE_DIR.mkdir(exist_ok=True)

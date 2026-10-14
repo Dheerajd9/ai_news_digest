@@ -114,15 +114,32 @@ def make_cover(path: Path) -> bool:
     return True
 
 
-def build_feed(repo: str, episodes: list[dict]) -> str:
+FEEDS = {
+    "en": {"feed": "feed.xml", "list": "episodes.json", "title": "World Brief",
+           "lang": "en-in", "desc": "Daily India-first news podcast: India, USA and the world, with Kartik and Priya."},
+    "te": {"feed": "feed-te.xml", "list": "episodes-te.json", "title": "ఈ రోజు వార్తలు · World Brief Telugu",
+           "lang": "te", "desc": "రోజువారీ వార్తలు తెలుగులో: భారత్, తెలంగాణ, అమెరికా, ప్రపంచం. రవి, లక్ష్మి."},
+    "hi": {"feed": "feed-hi.xml", "list": "episodes-hi.json", "title": "आज की खबरें · World Brief Hindi",
+           "lang": "hi", "desc": "रोज़ की खबरें हिंदी में: भारत, अमेरिका और दुनिया। अर्जुन और मीरा।"},
+}
+
+
+def build_feed(repo: str, episodes: list[dict], lang: str = "en") -> str:
     owner, name = repo.split("/")
     site = f"https://{owner.lower()}.github.io/{name}"
+    meta = FEEDS[lang]
+    cutoff = datetime.now(timezone.utc).timestamp() - SITE_KEEP_DAYS * 86400
     items = []
     for e in episodes:
+        m = re.match(r"(\d{4}-\d{2}-\d{2})", e["id"])
+        if m and datetime.strptime(m.group(1), "%Y-%m-%d").replace(
+                tzinfo=timezone.utc).timestamp() < cutoff:
+            continue                       # audio no longer on the site
+        url = f"{site}/audio/{e['id']}"     # served as real audio (podcast apps + iPhone)
         items.append(f"""    <item>
       <title>{escape(e['title'])}</title>
       <description>{escape(e['description'])}</description>
-      <enclosure url="{escape(e['url'])}" length="{e['bytes']}" type="audio/mpeg"/>
+      <enclosure url="{escape(url)}" length="{e['bytes']}" type="audio/mpeg"/>
       <guid isPermaLink="false">{escape(e['id'])}</guid>
       <pubDate>{e['pubDate']}</pubDate>
       <itunes:duration>{e['duration']}</itunes:duration>
@@ -131,10 +148,10 @@ def build_feed(repo: str, episodes: list[dict]) -> str:
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
-    <title>World Brief</title>
-    <link>{site}</link>
-    <description>Daily India-first news podcast: India, USA and the world, with Kartik and Priya.</description>
-    <language>en-in</language>
+    <title>{escape(meta['title'])}</title>
+    <link>{site}/play.html</link>
+    <description>{escape(meta['desc'])}</description>
+    <language>{meta['lang']}</language>
     <itunes:author>World Brief bot</itunes:author>
     <itunes:image href="{site}/cover.png"/>
     <itunes:category text="News"/>
@@ -144,6 +161,26 @@ def build_feed(repo: str, episodes: list[dict]) -> str:
   </channel>
 </rss>
 """
+
+
+def publish_language_episode(lang: str, mp3: Path, asset_name: str, title: str,
+                             description: str) -> None:
+    """Add a Telugu/Hindi episode to its own podcast feed (feed-te.xml / feed-hi.xml)."""
+    repo, token = configured()
+    meta = FEEDS[lang]
+    text, _ = get_file(repo, meta["list"], token)
+    episodes = [e for e in (json.loads(text) if text else []) if e["id"] != asset_name]
+    episodes.insert(0, {"id": asset_name, "title": title, "description": description,
+                        "url": "", "bytes": mp3.stat().st_size,
+                        "pubDate": format_datetime(datetime.now(timezone.utc)),
+                        "duration": duration_seconds(mp3)})
+    episodes = episodes[:KEEP]
+    put_file(repo, meta["list"], json.dumps(episodes, indent=1, ensure_ascii=False).encode(),
+             token, f"Episode {asset_name}")
+    put_file(repo, meta["feed"], build_feed(repo, episodes, lang).encode(), token,
+             f"Feed {asset_name}")
+    owner, name = repo.split("/")
+    print(f"  {lang} podcast feed updated: https://{owner.lower()}.github.io/{name}/{meta['feed']}")
 
 
 def token_status() -> tuple[str, int | None]:
@@ -338,7 +375,7 @@ def publish_episode(meta: dict) -> str:
             put_file(repo, "cover.png", cover.read_bytes(), token, "Add cover art")
     put_file(repo, "episodes.json", json.dumps(keep, indent=1, ensure_ascii=False).encode(),
              token, f"Episode {asset_name}")
-    put_file(repo, "feed.xml", build_feed(repo, keep).encode(), token, f"Feed {asset_name}")
+    put_file(repo, "feed.xml", build_feed(repo, keep, "en").encode(), token, f"Feed {asset_name}")
     owner, name = repo.split("/")
     print(f"  podcast feed updated: https://{owner.lower()}.github.io/{name}/feed.xml")
     return url

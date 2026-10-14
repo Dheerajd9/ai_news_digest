@@ -121,6 +121,15 @@ def fake_upload(path, name):
     return f"https://github.com/Owner/world-brief-podcast/releases/download/episodes/{name}"
 podfeed.upload_asset = fake_upload
 podfeed.prune_extra = lambda *a, **k: None
+FEEDS_PUB = []
+podfeed.publish_language_episode = lambda lang, mp3, name, title, desc: FEEDS_PUB.append([lang, name])
+TG = []
+class _R:
+    status_code = 200
+digest.requests.post = lambda url, **kw: (TG.append(url.rsplit("/", 1)[-1]), _R())[1]
+os.environ["TELEGRAM_BOT_TOKEN"] = "123:abc"
+os.environ["TELEGRAM_CHANNEL_ID"] = "@family"
+os.environ.pop("TELEGRAM_CHAT_ID", None)
 SYNCED = []
 podfeed.sync_site_audio = lambda mp3s: SYNCED.extend(n for _, n in mp3s) or True
 podfeed.publish_episode = lambda ep: fake_upload(Path(ep["file"]),
@@ -135,7 +144,8 @@ digest.token_reminder = lambda *a, **k: None
 languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
-Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED}))
+Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
+                                           "feeds": FEEDS_PUB, "telegram": TG}))
 '''
 
 
@@ -176,6 +186,11 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    langs_fed = sorted({f[0] for f in res.get("feeds", [])})
+    check(langs_fed == ["hi", "te"], f"{edition}: Telugu + Hindi podcast-app feeds updated ({langs_fed})", errors)
+    tg = res.get("telegram", [])
+    check(tg.count("sendMessage") == 1 and tg.count("sendAudio") >= 3,
+          f"{edition}: Telegram family channel gets the message + every podcast ({tg.count('sendAudio')} audios)", errors)
     check(len(res.get("synced", [])) >= 3, f"{edition}: audio copied to the player site "
                                             f"({len(res.get('synced', []))} files)", errors)
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,
@@ -278,6 +293,30 @@ print(json.dumps({{"ok": ok}}))
               "site sync: new audio added, player page kept", errors)
         check("audio/2020-01-01-old.mp3" not in files, "site sync: old audio removed", errors)
         check(commits == "1", f"site sync: history stays one commit (got {commits})", errors)
+
+        # Feed XML: all three languages, enclosures on the site, old episodes left out.
+        print("\n=== podcast feeds ===")
+        feed_py = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+import podfeed
+from datetime import datetime, timezone, timedelta
+today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+old = (datetime.now(timezone.utc) - timedelta(days=40)).strftime("%Y-%m-%d")
+eps = [{"id": today + "-telugu.mp3", "title": "T & <x>", "description": "d", "bytes": 10, "pubDate": "x", "duration": 60},
+       {"id": old + "-telugu.mp3", "title": "old", "description": "d", "bytes": 10, "pubDate": "x", "duration": 60}]
+out = {l: podfeed.build_feed("Owner/world-brief-podcast", eps, l) for l in ("en", "te", "hi")}
+print(json.dumps({"te_has_today": "audio/" + today + "-telugu.mp3" in out["te"], "old_dropped": old not in out["te"],
+                  "escaped": "&amp;" in out["te"] and "<x>" not in out["te"], "te_lang": "<language>te</language>" in out["te"],
+                  "hi_title": "Hindi" in out["hi"], "en_title": "<title>World Brief</title>" in out["en"]}))
+"""
+        p = subprocess.run([sys.executable, "-c", feed_py], cwd=work, capture_output=True, text=True, timeout=60)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-800:], p.stderr[-800:])
+            r = {}
+        check(bool(r) and all(r.values()), f"feeds: three language feeds valid, site audio links, old items dropped {r}", errors)
 
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
         print("\n=== Google Cloud voices + free-tier cap ===")
