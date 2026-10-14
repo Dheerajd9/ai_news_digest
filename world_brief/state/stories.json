@@ -53,10 +53,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-11",
-    "text": "Watch for Saudi military counter-operations"
-   },
-   {
     "date": "2026-10-12",
     "text": "Watch for Saudi military action and US naval response in the Red Sea"
    },
@@ -71,6 +67,10 @@
    {
     "date": "2026-10-14",
     "text": "Brent crude price volatility and refinery margin squeeze"
+   },
+   {
+    "date": "2026-10-14",
+    "text": "Brent crude staying above $105/bbl"
    }
   ],
   "timeline": [
@@ -97,15 +97,18 @@
    {
     "date": "2026-10-14",
     "event": "Aramco headquarters struck by Houthi drone/missile attack"
+   },
+   {
+    "date": "2026-10-14",
+    "event": "Two commercial ships sunk near Strait of Hormuz"
    }
   ],
-  "title": "Houthi strikes hit Saudi Aramco oil facilities",
+  "title": "Two container vessels sunk near Strait of Hormuz",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Direct Houthi drone and missile strikes hit Saudi Aramco headquarters and Riyadh, pushing Brent crude to $106 per barrel and raising global supply concerns.",
+  "summary": "Iranian missile strikes sank two container ships in the Strait of Hormuz as maritime shipping disruption worsened.",
   "open_questions": [
-   "Will Saudi Arabia launch military retaliation?",
-   "Will Strait of Hormuz tanker traffic face total blockade?"
+   "Will US or allied naval convoys intervene directly in Hormuz?"
   ],
   "last_seen": "2026-10-14"
  },
@@ -475,20 +478,28 @@
    {
     "date": "2026-10-14",
     "text": "US Treasury yields respond to hot inflation data"
+   },
+   {
+    "date": "2026-10-14",
+    "text": "Fed policy meeting interest rate pause or hike debate"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-14",
     "event": "September CPI print published at 3.7%"
+   },
+   {
+    "date": "2026-10-14",
+    "event": "US equity indices tumble at market close"
    }
   ],
   "title": "US CPI inflation accelerates to 3.7% in September",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "US Consumer Price Index inflation rose to 3.7% annually in September due to surging energy costs, pushing Treasury yields higher.",
+  "summary": "September US inflation jumped to 3.7% driven by higher fuel prices, driving the Nasdaq down 1.88% on rate-hike concerns.",
   "open_questions": [
-   "Will the Federal Reserve pause rate cuts at the next meeting?"
+   "Will the Fed deliver another interest rate increase this year?"
   ],
   "last_seen": "2026-10-14"
  },
@@ -512,6 +523,76 @@
   "summary": "The Indian Cabinet approved the sale of a 60.72% stake in IDBI Bank to Canada's Fairfax Financial Holdings for ₹52,878 crore.",
   "open_questions": [
    "When will the transaction formally close?"
+  ],
+  "last_seen": "2026-10-14"
+ },
+ "openai-state-lawsuits": {
+  "first_seen": "2026-10-14",
+  "expectations": [
+   {
+    "date": "2026-10-14",
+    "text": "Pre-trial motions in early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-14",
+    "event": "Lawsuits filed across state courts"
+   }
+  ],
+  "title": "Eight US states sue OpenAI alleging child safety harms",
+  "status": "NEW",
+  "stage": "COURT CASE",
+  "summary": "A bipartisan group of eight US state attorneys general sued OpenAI, alleging ChatGPT harms minors and fails safety standards.",
+  "open_questions": [
+   "Will other state attorneys general join the coalition?",
+   "Will OpenAI settle or litigate state consumer-protection claims?"
+  ],
+  "last_seen": "2026-10-14"
+ },
+ "netflix-layoffs-2026": {
+  "first_seen": "2026-10-14",
+  "expectations": [
+   {
+    "date": "2026-10-14",
+    "text": "Earnings commentary on restructuring costs"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-14",
+    "event": "1,000 workers notified of layoffs"
+   }
+  ],
+  "title": "Netflix lays off 1,000 employees in major restructuring",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Netflix cut roughly 6% of its global workforce (about 1,000 positions), impacting studio, tech, and product roles.",
+  "open_questions": [
+   "Will cuts expand to international operational hubs?"
+  ],
+  "last_seen": "2026-10-14"
+ },
+ "sc-railway-ticket-insurance": {
+  "first_seen": "2026-10-14",
+  "expectations": [
+   {
+    "date": "2026-10-14",
+    "text": "Implementation by Ministry of Railways on Oct 27"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-14",
+    "event": "Supreme Court ruling delivered"
+   }
+  ],
+  "title": "Supreme Court mandates insurance for offline railway tickets",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "The Supreme Court ruled that Indian Railways must extend passenger insurance to counter-bought tickets from October 27.",
+  "open_questions": [
+   "What will be the premium deduction per ticket?"
   ],
   "last_seen": "2026-10-14"
  }

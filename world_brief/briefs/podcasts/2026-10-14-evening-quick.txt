@@ -1,0 +1,17 @@
+KARTIK: Good evening. Since this morning, Wall Street took a sharp hit as hot US inflation stoked rate-hike worries, Netflix announced major layoffs, and eight US states sued OpenAI over child safety.
+PRIYA: And just a quick note on the weather before we dive in: in Dallas, it's cloudy and warm at 32 degrees Celsius, while in Hyderabad, tomorrow brings cloudy skies with a high of 34 and a 33 percent chance of rain.
+KARTIK: Priya, let's start with what changed since this morning, especially on Wall Street and in the tech world.
+PRIYA: Right, the big story coming out of the afternoon session is that US tech stocks sank after that hot inflation report we talked about this morning. The Nasdaq fell nearly 1.9 percent and the S&P 500 dropped over 1 percent as markets started pricing in a potential Federal Reserve rate hike.
+KARTIK: And that market nervousness ties right into some major corporate and legal news today, doesn't it?
+PRIYA: It does. Netflix just announced it is cutting roughly 1,000 jobs—about 6 percent of its global workforce—marking its largest headcount reduction in years. At the same time, a coalition of eight US state attorneys general filed lawsuits against OpenAI, alleging that ChatGPT harms children and demanding stricter safety measures.
+KARTIK: Meanwhile, the geopolitical situation in the Middle East took another sharp turn today. What actually happened with shipping?
+PRIYA: Missile strikes sank two container ships near the Strait of Hormuz, significantly escalating regional maritime risks and keeping oil markets on edge.
+KARTIK: Let's bring it back to India. Is there a new court mandate that travelers need to know about?
+PRIYA: Yes, the Supreme Court of India directed Indian Railways to provide mandatory passenger travel insurance for all counter-purchased tickets starting October 27. So if you are buying tickets at the station counter, insurance will automatically be included.
+KARTIK: And before we leave the tech world, is there anything urgent our listeners need to do right now?
+PRIYA: Yes, a very quick action item: CERT-In and Google flagged critical vulnerabilities in the Chrome browser, so please make sure your desktop and mobile browsers are fully updated immediately.
+KARTIK: Alright Priya, if someone remembers only three things from today, what should they remember?
+PRIYA: First, US stock markets fell sharply as hot inflation data raised fears of a Federal Reserve rate hike. Second, Netflix is cutting 1,000 jobs across its global workforce, and eight US states have sued OpenAI over child safety. And third, Indian Railways will mandate passenger travel insurance for counter tickets starting October 27.
+KARTIK: And what is one thing to watch next?
+PRIYA: Keep an eye on tomorrow's Reserve Bank of India Variable Rate Reverse Repo auction to see how liquidity is moving.
+KARTIK: That is really what matters this evening. We'll see what changes by tomorrow morning.

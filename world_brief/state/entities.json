@@ -80,7 +80,7 @@
 },
 "Houthis": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "middle-east-escalation"
 ],
@@ -253,11 +253,12 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
-"meta-muse-wonder"
+"meta-muse-wonder",
+"openai-state-lawsuits"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-14"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -277,11 +278,12 @@
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
-"delhi-jantar-mantar-protests"
+"delhi-jantar-mantar-protests",
+"sc-railway-ticket-insurance"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-14"
 },
 "Surya Kant": {
 "first_seen": "2026-10-12",
@@ -318,7 +320,7 @@
 },
 "Saudi Aramco": {
 "first_seen": "2026-10-13",
-"count": 2,
+"count": 3,
 "stories": [
 "middle-east-escalation"
 ],
@@ -342,7 +344,7 @@
 },
 "US Bureau of Labor Statistics": {
 "first_seen": "2026-10-14",
-"count": 1,
+"count": 2,
 "stories": [
 "us-cpi-inflation-sept"
 ],
@@ -350,7 +352,7 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 1,
+"count": 2,
 "stories": [
 "us-cpi-inflation-sept"
 ],
@@ -404,6 +406,30 @@
 "india-us-trade-talks"
 ],
 "last_seen": "2026-10-14"
+},
+"ChatGPT": {
+"first_seen": "2026-10-14",
+"count": 1,
+"stories": [
+"openai-state-lawsuits"
+],
+"last_seen": "2026-10-14"
+},
+"Netflix": {
+"first_seen": "2026-10-14",
+"count": 1,
+"stories": [
+"netflix-layoffs-2026"
+],
+"last_seen": "2026-10-14"
+},
+"Indian Railways": {
+"first_seen": "2026-10-14",
+"count": 1,
+"stories": [
+"sc-railway-ticket-insurance"
+],
+"last_seen": "2026-10-14"
 }
 },
 "connections": [
@@ -433,6 +459,36 @@
 },
 {
 "text": "Crude oil spike -> dollar demand -> RBI intervention -> rupee stabilization",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-14",
+"count": 1
+},
+{
+"text": "State AG scrutiny -> AI safety regulation -> compliance costs for LLM developers",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-14",
+"count": 1
+},
+{
+"text": "Tech hiring slowdown -> streaming media margin focus -> workforce cuts",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-14",
+"count": 1
+},
+{
+"text": "Hot inflation print -> rising bond yields -> tech stock sell-off",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-14",
+"count": 1
+},
+{
+"text": "Hormuz shipping attacks -> maritime insurance spikes -> sustained high oil prices -> India import costs",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-14",
+"count": 1
+},
+{
+"text": "Court mandate -> passenger welfare parity for offline ticket buyers",
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-14",
 "count": 1
