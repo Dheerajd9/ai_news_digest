@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 14 Oct 2026 (📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
+_Last updated: 14 Oct 2026 (podcasts explain better: listener-question host, money in family terms, "remember…" bridges, chapter recaps, good-news ending, Hyderabad + Dallas weather; 📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
 
 ## What you get, and when (Dallas time)
 
@@ -12,6 +12,8 @@ _Last updated: 14 Oct 2026 (📰 More headlines so no story is missed; Telugu/Hi
 | **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–7 min) |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
+
+**How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things plus a one-line Hyderabad and Dallas weather (free Open-Meteo, no key; `WEATHER_PLACES` to change cities, `WEATHER=0` to switch off); short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
 
 **Podcast language**: Telugu is spoken Telangana Telugu and Hindi is everyday Hindi, both mixed with simple English the way Hyderabad/city families talk: numbers, prices, dates and hard words (inflation, interest rate, tariff, AI…) are said in English, never pure/bookish Telugu or Hindi.
 
@@ -86,7 +88,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 |---|---|
 | `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
 | `run: morning force` | Sends it again even if already sent |
-| `run: keycheck` | Tests every key and emails a ✅/❌ report |
+| `run: keycheck` | Tests every key (and the weather source) and emails a ✅/❌ report |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
 | `run: tgsetup` | Finds the family Telegram channel, saves it, posts a test message |
 
@@ -123,7 +125,7 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 
 - `digest.py` main pipeline (`EDITION=morning|evening|weekly`)
 - `languages.py` Telugu and Hindi podcasts · `podcast.py` scripts, chapters, voices · `podfeed.py` uploads, feed, player site · `player.html` the web player
-- `markets.py` exact numbers · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
+- `markets.py` exact numbers · `weather.py` podcast weather line · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
 - `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, rule layers)
 - `briefs/` archive and podcast scripts (memory) · `state/` seen list, story ledger, trends, entities, beliefs, scorecard, done markers · `logs/` last run logs (secrets redacted)
 - `tests/e2e.py` the end-to-end test

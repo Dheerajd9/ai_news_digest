@@ -25,7 +25,11 @@ RUNNER = r'''
 import json, os, re, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, os.getcwd())
-import digest, markets, podcast, podfeed, languages
+import digest, markets, podcast, podfeed, languages, weather
+weather.fetch = lambda lat, lon: {"current": {"temperature_2m": 28.4, "weather_code": 61},
+    "daily": {"temperature_2m_max": [31, 32], "temperature_2m_min": [22, 23],
+              "precipitation_probability_max": [60, 40], "weather_code": [63, 2]}}
+STYLE = {"wx": 0, "style": 0}
 
 EDITION = os.environ["EDITION"]
 digest.on_this_day = lambda today: [{"year": 1947, "text": "Test history event"}]
@@ -87,6 +91,9 @@ VERIFICATION_WARNINGS: NONE
 CALLS = []
 def fake_gemini(system, user):
     CALLS.append(system[:80])
+    if "EXPLAINING STYLE" in system:
+        STYLE["style"] += 1
+        STYLE["wx"] += "WEATHER (local days): Hyderabad: now 28°C, light rain; today 22–31°C, rain, rain chance 60%" in user
     if user.startswith("SCRIPT:"):
         return user[len("SCRIPT:"):].strip()
     if "FINAL OUTPUT REMINDER" in system:              # the news brief itself
@@ -148,7 +155,7 @@ languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
 Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
-                                           "feeds": FEEDS_PUB, "telegram": TG}))
+                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE}))
 '''
 
 
@@ -189,6 +196,9 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    st = res.get("style", {})
+    check(st.get("style", 0) >= 3 and st.get("wx", 0) == st.get("style"),
+          f"{edition}: every podcast gets the explaining style + Hyderabad/Dallas weather {st}", errors)
     if edition != "weekly":
         tail = md.split("More headlines (not covered above)")[-1]
         check("More headlines (not covered above)" in md and "](http" in tail,

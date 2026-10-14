@@ -517,8 +517,17 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
               .replace("{LENGTH}", length).replace("{SHOW}", show)
               + (ROOT / "prompts" / "intelligence_layer_short.md").read_text()
+              + (ROOT / "prompts" / "explain_style.md").read_text()
               + CHAPTER_RULES)
-    user = f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n\nBRIEF:\n{clean_brief_for_script(brief_md)}"
+    user = f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n"
+    try:                                   # free Open-Meteo, cached once per run, "" if down
+        import weather
+        wx = weather.line()
+    except Exception:
+        wx = ""
+    if wx:
+        user += f"WEATHER (local days): {wx}\n"
+    user += f"\nBRIEF:\n{clean_brief_for_script(brief_md)}"
     if previous_script:
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
     script = llm(system, user)
