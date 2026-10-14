@@ -318,6 +318,40 @@ print(json.dumps({"te_has_today": "audio/" + today + "-telugu.mp3" in out["te"],
             r = {}
         check(bool(r) and all(r.values()), f"feeds: three language feeds valid, site audio links, old items dropped {r}", errors)
 
+        # Telegram setup: finds the channel from the bot's updates, saves it, digest uses it.
+        print("\n=== Telegram auto-setup ===")
+        tg_py = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+os.environ["TELEGRAM_BOT_TOKEN"] = "1:x"; os.environ.pop("TELEGRAM_CHANNEL_ID", None)
+import tgsetup, digest
+class G:
+    status_code = 200
+    def json(self): return {"result": [{"my_chat_member": {"chat": {"id": -1009876, "type": "channel", "title": "Family News"}}}]}
+posts = []
+tgsetup.requests.get = lambda *a, **k: G()
+tgsetup.requests.post = lambda url, **k: (posts.append(k["json"]["chat_id"]), G())[1]
+mails = []
+digest.send_email = lambda s, m, *a, **k: mails.append(m)
+tgsetup.main()
+saved = json.loads(tgsetup.STATE.read_text())
+sent = []
+digest.requests.post = lambda url, **k: (sent.append((url.rsplit("/",1)[-1], (k.get("json") or k.get("data") or {}).get("chat_id"))), G())[1]
+open("e.mp3","wb").write(b"x")
+digest.send_telegram_channel("T", "## 1. Top 5\n- a\n", [{"file": "e.mp3", "url": None, "label": "L", "hosts": "H"}])
+print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" in mails[0], "used": sent}))
+"""
+        p = subprocess.run([sys.executable, "-c", tg_py], cwd=work, capture_output=True, text=True, timeout=60)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-800:], p.stderr[-800:])
+            r = {}
+        check(r.get("saved") == -1009876 and r.get("test_post") == [-1009876] and r.get("mail_ok"),
+              "Telegram setup: channel found, saved, test posted, email sent", errors)
+        check(r.get("used") and all(c in (-1009876, "-1009876") for _, c in r["used"]),
+              "Telegram setup: editions use the saved channel automatically", errors)
+
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
         print("\n=== Google Cloud voices + free-tier cap ===")
         drill = r"""

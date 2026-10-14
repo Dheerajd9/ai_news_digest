@@ -68,6 +68,14 @@ jobs:
           EDS=$(echo "$CMD" | grep -oE '\b(morning|weekly|evening)\b' | awk '!seen[$0]++' | tr '\n' ' ')
           [ -z "$EDS" ] && EDS="morning weekly evening"
           FORCE=$(echo "$CMD" | grep -qw force && echo 1 || echo 0)
+          if echo "$CMD" | grep -qw tgsetup; then
+            python tgsetup.py
+            if [ -e state/telegram_channel.json ]; then
+              git add state/telegram_channel.json
+              git diff --cached --quiet || { git commit -m "Telegram channel found"; git pull --rebase --quiet && git push; }
+            fi
+            exit 0
+          fi
           if echo "$CMD" | grep -qw sitesync; then
             python sitesync.py
             exit 0
@@ -94,7 +102,7 @@ jobs:
               mkdir -p state/done; date -u +%FT%TZ > "state/done/$D-$ED"   # sent: never again today
             fi
             for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
-                     state/entities.json state/beliefs.json state/scorecard.json state/tts_usage.json state/done briefs logs; do
+                     state/entities.json state/beliefs.json state/scorecard.json state/tts_usage.json state/telegram_channel.json state/done briefs logs; do
               if [ -e "$f" ]; then git add "$f"; fi
             done
             if ! git diff --cached --quiet; then

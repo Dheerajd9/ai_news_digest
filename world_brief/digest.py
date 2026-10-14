@@ -1062,6 +1062,11 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
     message that plays right inside Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID
     (the bot must be an admin of the channel). Never fails the run."""
     token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), os.getenv("TELEGRAM_CHANNEL_ID", "").strip()
+    if not chat:                         # found automatically by "run: tgsetup"
+        try:
+            chat = str(json.loads((ROOT / "state" / "telegram_channel.json").read_text())["id"])
+        except Exception:
+            chat = ""
     if not (token and chat and eps):
         return
     import languages

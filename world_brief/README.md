@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 13 Oct 2026 (podcast-app feeds for all languages, Telegram channel)._
+_Last updated: 13 Oct 2026 (podcast-app feeds for all languages, Telegram channel with auto-setup)._
 
 ## What you get, and when (Dallas time)
 
@@ -41,7 +41,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts a short headline message plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather (`TELEGRAM_BOT_TOKEN`), create a channel, add the bot as an **admin**, and save the channel's `@username` (or `-100…` id) as `TELEGRAM_CHANNEL_ID`. `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
+Each edition posts a short headline message plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
 
 ## How it works
 
@@ -86,6 +86,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 | `run: morning force` | Sends it again even if already sent |
 | `run: keycheck` | Tests every key and emails a ✅/❌ report |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
+| `run: tgsetup` | Finds the family Telegram channel, saves it, posts a test message |
 
 For the older AI News Digest, push `digest_run_request.txt` with `[send digest]` in the commit message.
 
@@ -120,7 +121,7 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 
 - `digest.py` main pipeline (`EDITION=morning|evening|weekly`)
 - `languages.py` Telugu and Hindi podcasts · `podcast.py` scripts, chapters, voices · `podfeed.py` uploads, feed, player site · `player.html` the web player
-- `markets.py` exact numbers · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `notify_failure.py` failure emails
+- `markets.py` exact numbers · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
 - `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, rule layers)
 - `briefs/` archive and podcast scripts (memory) · `state/` seen list, story ledger, trends, entities, beliefs, scorecard, done markers · `logs/` last run logs (secrets redacted)
 - `tests/e2e.py` the end-to-end test

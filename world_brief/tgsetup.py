@@ -1,0 +1,67 @@
+"""Find the family Telegram channel automatically (no ID needed from Dji).
+
+Triggered by a run_request.txt line "run: tgsetup". Reads the bot's recent updates (Telegram
+keeps them ~24 h: the "bot was added as admin" event or any post in the channel), picks the
+channel/group where the bot is an admin, saves its id to state/telegram_channel.json, posts a
+test message there and emails a short confirmation. Never prints the bot token."""
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+
+import requests
+
+import digest
+
+STATE = Path(__file__).parent / "state" / "telegram_channel.json"
+
+
+def find_chats(token: str) -> dict[int, str]:
+    r = requests.get(f"https://api.telegram.org/bot{token}/getUpdates",
+                     params={"allowed_updates": json.dumps(["my_chat_member", "channel_post", "message"])},
+                     timeout=30)
+    chats: dict[int, str] = {}
+    for u in r.json().get("result", []):
+        for key in ("my_chat_member", "channel_post", "message"):
+            chat = (u.get(key) or {}).get("chat") or {}
+            if chat.get("type") in ("channel", "supergroup", "group") and chat.get("id"):
+                chats[chat["id"]] = chat.get("title", "")
+    return chats
+
+
+def main() -> None:
+    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    if not token:
+        digest.send_email("📱 Telegram setup", "# 📱 Telegram setup\n\n❌ `TELEGRAM_BOT_TOKEN` is not saved yet.\n")
+        return
+    try:
+        chats = find_chats(token)
+    except Exception as exc:
+        print(f"getUpdates failed: {type(exc).__name__}")
+        chats = {}
+    ok = []
+    for cid, title in chats.items():
+        r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage", timeout=30,
+                          json={"chat_id": cid, "text": "✅ World Brief is connected. Daily news and "
+                                "podcasts (English, తెలుగు, हिंदी) will arrive here."})
+        if r.status_code == 200:
+            ok.append((cid, title))
+    if ok:
+        STATE.parent.mkdir(exist_ok=True)
+        STATE.write_text(json.dumps({"id": ok[0][0], "title": ok[0][1]}))
+        body = (f"✅ Found **{ok[0][1] or 'your channel'}** and posted a test message there. "
+                "Every edition will now also go to this channel.")
+    elif chats:
+        body = ("❌ Found the channel but the bot can't post. Make the bot an **admin** with "
+                "**Post messages** on, then ask Claude to run the setup again.")
+    else:
+        body = ("❌ No channel found. Post any message (e.g. `hi`) in the Family News channel, "
+                "then ask Claude to run the setup again (Telegram keeps these events ~24 hours).")
+    print(body)
+    digest.send_email("📱 Telegram setup", "# 📱 Telegram setup\n\n" + body + "\n")
+
+
+if __name__ == "__main__":
+    main()
