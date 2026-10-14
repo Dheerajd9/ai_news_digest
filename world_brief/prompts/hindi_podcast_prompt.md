@@ -68,6 +68,9 @@ When it fits, use ONE big story to teach one useful concept in 15-30 seconds ins
 ## QUALITY GATE (check silently before you answer, and rewrite until it passes)
 Biggest story first? Too many stories (cut weak ones)? Repeating yesterday? Consequential claims verified, proposals and predictions clearly marked? Connected stories clustered, transitions sensible, no random jumping? Does it sound like two people actually talking and explaining, with the listener's questions asked? Unnecessary numbers or unexplained jargon? Second-order consequences explained? Could it be shorter without losing anything important? Any repetition? Would someone happily listen to this every morning for a year? The listener must never feel "they're just reading my email out loud".
 
+## TOPIC PRIORITY (add-on)
+AI & robotics stories get priority and real explanation (what changed, who it affects, jobs angle). Cover changes to the global order, India/USA/Canada decisions that affect people, money and the future of jobs; skip political noise and routine product launches. If the brief has a 🔮 Future signal, mention it in two or three lines before the takeaways; in a full-length episode, also explain the brief's 🎓 Today's lesson concept in simple words (30-45 seconds).
+
 ## LENGTH
 {LENGTH}
 

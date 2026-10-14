@@ -32,19 +32,21 @@ INDICES = [
     ("🇺🇸 Nasdaq Composite", "^IXIC", "^ndq", "index"),
     ("🇺🇸 Dow Jones", "^DJI", "^dji", "index"),
     ("💵 USD/INR", "INR=X", "usdinr", "fx"),
+    ("🇨🇦 USD/CAD", "CAD=X", "usdcad", "fx4"),
 ]
 TAIL = [
     ("🛢️ Brent crude ($/bbl)", "BZ=F", "cb.f", "usd"),
     ("₿ Bitcoin", "BTC-USD", "btcusd", "usd0"),
+    ("Ξ Ethereum", "ETH-USD", "ethusd", "usd0"),
     ("🇺🇸 US 10-year Treasury yield", "^TNX", None, "yield"),
 ]
 # Given to the AI only; it mentions them when something meaningful happened.
 EXTRA = [
     ("Russell 2000", "^RUT", None, "index"), ("WTI oil ($/bbl)", "CL=F", "cl.f", "usd"),
-    ("Ethereum", "ETH-USD", "ethusd", "usd0"), ("US VIX (fear index)", "^VIX", None, "index2"),
+    ("US VIX (fear index)", "^VIX", None, "index2"),
     ("India VIX", "^INDIAVIX", None, "index2"), ("US Dollar Index (DXY)", "DX-Y.NYB", None, "index2"),
     ("EUR/USD", "EURUSD=X", "eurusd", "fx4"), ("GBP/USD", "GBPUSD=X", "gbpusd", "fx4"),
-    ("USD/CAD", "CAD=X", "usdcad", "fx4"), ("USD/CNY", "CNY=X", "usdcny", "fx4"),
+    ("USD/CNY", "CNY=X", "usdcny", "fx4"),
     ("US natural gas", "NG=F", "ng.f", "usd"), ("Nikkei (Japan)", "^N225", "^nkx", "index"),
     ("Shanghai (China)", "000001.SS", None, "index"), ("Nifty IT", "^CNXIT", None, "index"),
 ]

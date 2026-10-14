@@ -65,7 +65,7 @@ h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute
     "telugu-weekly":"ఈ వారం వార్తలు (Telugu weekly)","hindi":"आज की खबरें (Hindi)",
     "hindi-evening":"आज शाम की खबरें (Hindi evening)","hindi-weekly":"इस हफ्ते की खबरें (Hindi weekly)"};
   var ICONS={"Top stories":"⭐ Most important","India":"🇮🇳 India","USA":"🇺🇸 USA","World":"🌍 World",
-    "Money":"💰 Money","Wrap-up":"✅ Wrap-up"};
+    "Tech":"🤖 Tech & future","Money":"💰 Money","Wrap-up":"✅ Wrap-up"};
   // Which files belong to the same edition (for the language tabs).
   function edition(kind){ if(/weekly/.test(kind))return "weekly"; if(/evening/.test(kind))return "evening"; return "morning"; }
   function parse(f){var m=f.match(/^(\d{4})-(\d{2})-(\d{2})-?(.*)\.mp3$/);return m?{date:m[1]+"-"+m[2]+"-"+m[3],kind:m[4],y:+m[1],mo:+m[2],da:+m[3]}:null;}

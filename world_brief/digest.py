@@ -111,7 +111,9 @@ MAX_PER_CATEGORY = int(os.getenv("MAX_PER_CATEGORY", "25"))
 # India gets more room than the default; everything else uses MAX_PER_CATEGORY.
 CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 12,
                  "usa": 30, "india_us_visa_trade": 25, "world": 30, "official": 15,
-                 "jobs_tax_housing": 20}
+                 "jobs_tax_housing": 20, "canada": 15, "business_jobs": 20,
+                 "personal_finance_housing": 15, "fact_check": 10, "ai_robotics": 30,
+                 "frontier_companies": 10, "chips_energy_future": 25}
 SUMMARY_CHARS = 280
 SEEN_TTL_DAYS = 7
 UA = {"User-Agent": "world-brief/1.0 (personal news digest)"}

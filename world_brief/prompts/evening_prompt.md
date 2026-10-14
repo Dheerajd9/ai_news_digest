@@ -58,6 +58,9 @@ Only if something new (with immigration labels and agency).
 ## 📅 What to watch tomorrow
 Up to 3 items with dates.
 
+## EXTRA TOPICS (add-on; earlier rules still apply)
+Same priorities as the morning brief: AI & robotics first, then changes to the global order, India/USA/Canada policy that affects people, economy and money, future of jobs, chips, energy, space and future technology. Skip ordinary political noise and routine product news. When something changed today in these areas, include it in the matching section (Canada, Government & politics, Personal finance, Housing & cost of living, Business & future of work, AI & robotics, Musk & frontier companies, Chips & computing, Energy, Future technology, Space, Truth check). End with a short **🔮 Future signal** (one development that could become huge) if the day had one.
+
 <!--META
 REPORT_TYPE: EVENING
 PODCAST_REQUIRED: TRUE or FALSE (FALSE if there is not enough meaningful new information)

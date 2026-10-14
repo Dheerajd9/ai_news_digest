@@ -221,6 +221,25 @@ def main() -> int:
         work = Path(tmp) / "wb"
         shutil.copytree(SRC, work, ignore=shutil.ignore_patterns(
             "briefs", "state", "logs", "out", "tests", "__pycache__"))
+        # Topic coverage: every requested section, feed group and money row is wired in.
+        print("\n=== topic coverage ===")
+        bp = (SRC / "prompts" / "brief_prompt.md").read_text()
+        for sec in ["What actually matters today", "Canada", "AI & robotics (highest priority)",
+                    "Musk & frontier companies", "Chips & computing", "Major world changes",
+                    "Government & politics", "Personal finance", "Housing & cost of living",
+                    "Business, jobs & the future of work", "Energy revolution", "Future technology",
+                    "Space", "Truth check", "Future signal", "Today's lesson", "Why markets moved"]:
+            check(f"## " in bp and sec in bp, f"brief has section: {sec}", errors)
+        import yaml
+        groups = yaml.safe_load((SRC / "feeds.yaml").read_text())
+        for g in ["canada", "business_jobs", "personal_finance_housing", "fact_check",
+                  "ai_robotics", "frontier_companies", "chips_energy_future"]:
+            check(bool(groups.get(g)), f"feeds: {g}", errors)
+        mk = (SRC / "markets.py").read_text()
+        check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
+        for name in ("evening_prompt.md", "weekly_prompt.md"):
+            check("EXTRA TOPICS" in (SRC / "prompts" / name).read_text(), f"{name}: extra topics", errors)
+
         for edition in ("morning", "evening", "weekly"):
             run_edition(work, edition, errors)
         # Failure drill: Telugu script can't be written -> email still goes out, says so.

@@ -82,3 +82,46 @@ jobs_tax_housing:
   - https://news.google.com/rss/search?q=IRS+OR+%22capital+gains+tax%22+OR+%22tax+deadline%22+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=%22income+tax%22+OR+%22GST+council%22+OR+NRI+tax+when:2d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+loan+rates%22+when:2d&hl=en-US&gl=US&ceid=US:en
+
+canada:   # Canadian government, Bank of Canada, economy, housing, immigration/PR/students
+  - https://www.cbc.ca/webfeed/rss/rss-canada
+  - https://www.cbc.ca/webfeed/rss/rss-business
+  - https://news.google.com/rss/search?q=%22Bank+of+Canada%22+OR+%22Statistics+Canada%22+when:2d&hl=en-CA&gl=CA&ceid=CA:en
+  - https://news.google.com/rss/search?q=IRCC+OR+%22Express+Entry%22+OR+%22study+permit%22+OR+%22permanent+residence%22+Canada+when:3d&hl=en-CA&gl=CA&ceid=CA:en
+  - https://news.google.com/rss/search?q=Canada+housing+OR+rent+OR+%22federal+budget%22+OR+Carney+OR+Parliament+when:2d&hl=en-CA&gl=CA&ceid=CA:en
+
+business_jobs:   # earnings, layoffs/hiring, M&A, IPOs, bankruptcies, labour market, remote work
+  - https://news.google.com/rss/search?q=earnings+results+OR+%22quarterly+results%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=layoffs+OR+%22job+cuts%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=acquisition+OR+merger+OR+IPO+OR+bankruptcy+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22remote+work%22+OR+%22return+to+office%22+OR+%22in-demand+skills%22+when:3d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=IPO+OR+layoffs+OR+%22quarterly+results%22+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+
+personal_finance_housing:   # taxes, credit, loans, insurance, retirement, ETFs, rents, food & energy prices
+  - https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+prices%22+OR+rent+prices+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22credit+card%22+OR+401k+OR+IRA+OR+%22Social+Security%22+OR+ETF+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22grocery+prices%22+OR+%22food+prices%22+OR+%22gas+prices%22+OR+%22electricity+bills%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22home+loan%22+OR+%22FD+rates%22+OR+%22mutual+fund%22+OR+SIP+OR+%22income+tax%22+OR+insurance+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+
+fact_check:   # viral claims checked by fact-checkers (for the Truth check section)
+  - https://www.politifact.com/rss/all/
+  - https://www.altnews.in/feed/
+  - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+misleading+OR+false+claim+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+fake+OR+misleading+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+
+ai_robotics:   # highest priority: models, agents, humanoid robots, autonomy, AI jobs, regulation, AGI
+  - https://news.google.com/rss/search?q=OpenAI+OR+Anthropic+OR+%22Google+DeepMind%22+OR+xAI+OR+%22Meta+AI%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22humanoid+robot%22+OR+%22AI+agents%22+OR+%22autonomous+vehicles%22+OR+robotaxi+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22AI+regulation%22+OR+%22AI+jobs%22+OR+AGI+OR+%22AI+adoption%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://techcrunch.com/category/artificial-intelligence/feed/
+  - https://spectrum.ieee.org/feeds/topic/robotics.rss
+
+frontier_companies:   # Musk companies: only consequential news is used
+  - https://news.google.com/rss/search?q=Tesla+OR+SpaceX+OR+Starship+OR+Neuralink+OR+xAI+OR+Starlink+when:1d&hl=en-US&gl=US&ceid=US:en
+
+chips_energy_future:   # chips, data centres, AI power demand, nuclear/fusion/batteries, quantum, biotech, space
+  - https://news.google.com/rss/search?q=NVIDIA+OR+TSMC+OR+AMD+OR+Intel+OR+semiconductor+OR+%22data+center%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=fusion+OR+%22nuclear+power%22+OR+%22battery+breakthrough%22+OR+%22grid+storage%22+OR+%22AI+electricity%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22quantum+computing%22+OR+%22gene+editing%22+OR+CRISPR+OR+%22brain-computer+interface%22+OR+longevity+when:3d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=NASA+OR+ISRO+OR+%22Moon+mission%22+OR+Mars+OR+%22rocket+launch%22+when:2d&hl=en-US&gl=US&ceid=US:en
+

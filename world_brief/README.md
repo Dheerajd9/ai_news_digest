@@ -2,13 +2,13 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 13 Oct 2026 (podcast-app feeds for all languages, Telegram channel with auto-setup)._
+_Last updated: 14 Oct 2026 (new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
 
 ## What you get, and when (Dallas time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, India, USA, World, money table, economy, immigration, AI/tech, science, what to watch. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
+| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
 | **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat). Podcasts in English, Telugu and Hindi (4–7 min) |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
@@ -20,7 +20,7 @@ One email per edition goes to everyone (BCC). Each email has a 🎧 **Listen** b
 Every ▶️ Play link opens `https://dheerajd9.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
 
 - Language tabs for the same edition (English Full / Quick · తెలుగు · हिंदी); switching keeps your current chapter
-- Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA · 🌍 World · 💰 Money · ✅ Wrap-up
+- Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA (+ Canada) · 🌍 World · 🤖 Tech & future · 💰 Money · ✅ Wrap-up
 - ⏪ 15 s / 30 s ⏩, speed 0.75x–2x, ⬇️ Download, remembers where you stopped
 - Recent episodes (last 10 days)
 - Lock-screen / notification / headphone / car / keyboard media controls (title, chapter, cover; next/previous = chapters)
@@ -46,7 +46,7 @@ Each edition posts a short headline message plus every podcast as an audio messa
 ## How it works
 
 ```
-~57 RSS feeds ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
+~80 RSS feeds (India, Telangana, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
    ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
    ─> story memory (last briefs, story ledger, trends, entities, beliefs)
    ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links

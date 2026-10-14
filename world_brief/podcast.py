@@ -120,14 +120,15 @@ def parse_script(script: str, hosts: tuple[str, str] = ("KARTIK", "PRIYA")) -> l
     return turns
 
 
-CHAPTER_NAMES = ["Top stories", "India", "USA", "World", "Money", "Wrap-up"]
+CHAPTER_NAMES = ["Top stories", "India", "USA", "World", "Tech", "Money", "Wrap-up"]
 CHAPTER_RULES = """
 
 ## CHAPTERS (for the listener's skip buttons)
 Arrange the conversation into these chapters, in this order, skipping any chapter with nothing
 meaningful today: Top stories (the 1-3 most important stories of the day, any country), India,
-USA (includes India-USA, visas and immigration), World, Money (markets, economy, gold, rupee,
-jobs, tax), Wrap-up (what to watch, the three takeaways, the ending). Before the first line of
+USA (includes India-USA, visas and immigration; Canada too), World, Tech (AI & robotics, chips,
+energy, space, future technology, future of jobs), Money (markets, economy, gold, rupee, tax,
+personal finance, cost of living), Wrap-up (what to watch, the three takeaways, the ending). Before the first line of
 each chapter write ONE marker line exactly like `CHAPTER: India` (marker names always in English,
 never translated). Each story appears once, in its best chapter. Keep natural spoken transitions
 between chapters; never say the word "chapter" aloud.
@@ -136,9 +137,13 @@ between chapters; never say the word "chapter" aloud.
 
 def _chapter_name(raw: str) -> str | None:
     r = raw.strip().strip("*`#[]: ").lower()
+    if re.match(r"ai\b", r):
+        return "Tech"
     for key, name in (("top", "Top stories"), ("most", "Top stories"), ("headline", "Top stories"),
-                      ("india", "India"), ("usa", "USA"), ("america", "USA"), ("u.s", "USA"),
-                      ("world", "World"), ("global", "World"), ("money", "Money"),
+                      ("india", "India"), ("usa", "USA"), ("america", "USA"), ("canada", "USA"), ("u.s", "USA"),
+                      ("world", "World"), ("global", "World"), ("tech", "Tech"),
+                      ("robot", "Tech"), ("science", "Tech"), ("space", "Tech"),
+                      ("money", "Money"),
                       ("market", "Money"), ("econom", "Money"), ("wrap", "Wrap-up"),
                       ("takeaway", "Wrap-up"), ("watch", "Wrap-up")):
         if key in r:
