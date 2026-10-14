@@ -18,12 +18,27 @@ import digest
 STATE = Path(__file__).parent / "state" / "telegram_channel.json"
 
 
+DIAG: list[str] = []
+
+
 def find_chats(token: str) -> dict[int, str]:
-    r = requests.get(f"https://api.telegram.org/bot{token}/getUpdates",
+    api = f"https://api.telegram.org/bot{token}"
+    me = requests.get(f"{api}/getMe", timeout=30).json()
+    who = me.get("result") if isinstance(me.get("result"), dict) else {}
+    DIAG.append(f"bot token valid: {bool(me.get('ok'))}" + (f" (@{who.get('username')})" if who else ""))
+    info = requests.get(f"{api}/getWebhookInfo", timeout=30).json().get("result")
+    hook = info.get("url") if isinstance(info, dict) else None
+    if hook:                              # a webhook blocks getUpdates
+        requests.post(f"{api}/deleteWebhook", timeout=30)
+        DIAG.append("removed an old webhook")
+    r = requests.get(f"{api}/getUpdates",
                      params={"allowed_updates": json.dumps(["my_chat_member", "channel_post", "message"])},
                      timeout=30)
+    res = r.json().get("result", [])
+    kinds = sorted({k for u in res for k in u if k != "update_id"})
+    DIAG.append(f"updates seen: {len(res)} ({', '.join(kinds) or 'none'})")
     chats: dict[int, str] = {}
-    for u in r.json().get("result", []):
+    for u in res:
         for key in ("my_chat_member", "channel_post", "message"):
             chat = (u.get(key) or {}).get("chat") or {}
             if chat.get("type") in ("channel", "supergroup", "group") and chat.get("id"):
@@ -59,6 +74,7 @@ def main() -> None:
     else:
         body = ("❌ No channel found. Post any message (e.g. `hi`) in the Family News channel, "
                 "then ask Claude to run the setup again (Telegram keeps these events ~24 hours).")
+    body += "\n\nDetails: " + "; ".join(DIAG + [f"chats found: {len(chats)}"])
     print(body)
     digest.send_email("📱 Telegram setup", "# 📱 Telegram setup\n\n" + body + "\n")
 
