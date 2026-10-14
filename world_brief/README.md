@@ -1,148 +1,123 @@
 # World Brief
 
-India first, USA second, then the world. A daily news email plus a two-host audio podcast, fully automated on GitHub Actions and **100% free**.
+India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-## What you get, and when (Dallas time, summer; one hour earlier in winter)
+_Last updated: 13 Oct 2026._
 
-| When | What | Why that time |
-|---|---|---|
-| **7:37 AM daily** | **World Brief**: Top 5 + attention + money first, full detail below; **⚡ Quick podcast (5–7 min)** + **📻 Full podcast (10–15 min)** | India's day is done (~6 PM IST), US overnight news in, before US markets open |
-| **6:07 PM daily** | **Evening Update**: only what changed since morning, ~3 min + ⚡ 3–4 min podcast (skipped on quiet days) | US day and markets closed; India early morning |
-| **Sunday 9:07 AM** | **Weekly Deep Dive**: the week's 5 big stories and their arc, what to watch next week, ~14 min podcast | Built from the week's briefs |
-| **Every 2 h, 7 AM-11 PM** | **Breaking alert** only if something truly big (visa rule, crash, disaster, war) | Usually silent |
+## What you get, and when (Dallas time)
 
-Accuracy: every item carries a source trust level (official / major / other); extraordinary claims need an official source or two major outlets, otherwise they're marked ⚠️ NOT YET VERIFIED and listed under Verification notes. Every email has an **exact money dashboard** (USD→INR, Nifty, Sensex, S&P 500, Nasdaq, Brent, gold per gram and per ounce in India (IBJA 24K/22K, ₹) and USA ($), Dallas + Hyderabad weather) from data APIs, never from AI. Text is very simple English with the key words in **bold** for quick skimming, plus a daily Sensex/Nifty/mutual-fund update.
+| When | What |
+|---|---|
+| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, India, USA, World, money table, economy, immigration, AI/tech, science, what to watch. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
+| **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat). Podcasts in English, Telugu and Hindi (4–7 min) |
+| **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
+| **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
 
-## Fully automatic, self-healing
+One email per edition goes to everyone (BCC). Each email has a 🎧 **Listen** box with ▶️ Play links for every language. If a language's audio could not be made (for example the free AI was overloaded), the email says so instead of hiding it.
 
-GitHub sometimes delays or drops scheduled runs, so every edition has several backup slots (about hourly). Each run checks Dallas local time and `state/done/` markers: the first slot that runs sends the edition, later ones stop in seconds. A failed run is retried by the next slot, and you get a short "⚠️ run failed — retrying automatically" email. Summer/winter time is handled automatically. You never need to click "Run workflow".
+## The web player
+
+Every ▶️ Play link opens `https://dheerajd9.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
+
+- Language tabs for the same edition (English Full / Quick · తెలుగు · हिंदी); switching keeps your current chapter
+- Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA · 🌍 World · 💰 Money · ✅ Wrap-up
+- ⏪ 15 s / 30 s ⏩, speed 0.75x–2x, ⬇️ Download, remembers where you stopped
+- Recent episodes (last 10 days)
+- Lock-screen / notification / headphone / car / keyboard media controls (title, chapter, cover; next/previous = chapters)
+
+Audio is served from the player site itself (correct audio type, so iPhone plays it). That site branch is replaced by one fresh commit each run and keeps 10 days of audio, so the podcast repo never grows. English episodes are also in a podcast feed: `https://dheerajd9.github.io/world-brief-podcast/feed.xml`.
 
 ## How it works
 
 ```
-RSS (~45 feeds) ─> last 26h/12h ─> skip already-sent, merge duplicates (count outlets)
-      ─> numbers box (markets.py) ─> story memory (last 3 days of briefs/)
-      ─> Gemini writes brief, every bullet cites [S12]
-      ─> fact-check pass (GitHub Models) drops anything sources don't support
-      ─> ids become links ─> podcast.py: Kartik & Priya script ─> Gemini 2-voice TTS (edge-tts backup) ─> MP3
-      ─> Gmail (+ Telegram) ─> archive in briefs/ ─> podfeed.py ─> your podcast app
+~57 RSS feeds ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
+   ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
+   ─> story memory (last briefs, story ledger, trends, entities, beliefs)
+   ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links
+   ─> podcast scripts (English Quick/Full, Telugu, Hindi) with chapter markers ─> review pass
+   ─> voices ─> MP3 + chapter times ─> GitHub release + player site
+   ─> one email (BCC) ─> memory saved (briefs/, state/)
 ```
 
-Story memory: yesterday's stories are not repeated; continuing ones come as short "Update:" bullets.
+## Free AI chain (no card, no payment)
 
-## Free stack and daily usage
-
-| Piece | Free source | Use per day |
+| Job | Main | Free backups, in order |
 |---|---|---|
-| Main brief | Gemini free tier (`GEMINI_API_KEY`) | 2 calls (+1 on Sunday) |
-| Fact-check, podcast script, alert scoring | GitHub Models (built-in `GITHUB_TOKEN`) | ~4-12 small calls |
-| Voices | Gemini 2-speaker TTS (free tier, natural Indian-English news-anchor style); edge-tts Indian voices as backup | ~5 TTS calls |
-| Markets / weather / history | Yahoo + Stooq + ECB, Open-Meteo, Wikipedia | few requests |
-| Running it | GitHub Actions | ~15 min (private repo free tier: 2,000 min/month) |
-| Delivery | Gmail SMTP app password, optional Telegram | 2-3 emails |
+| Writing (brief, fact-check, scripts) | Gemini free tier (several Flash models, each with its own daily limit) | Gemma (same key) → Mistral free "Experiment" plan (`MISTRAL_API_KEY`, optional) → OpenRouter free models (`OPENROUTER_API_KEY`) |
+| Voices | Gemini 2-speaker TTS (2 models, Indian-English / Telugu / Hindi library voices) | Google Cloud Chirp 3 HD (`GOOGLE_TTS_API_KEY`, optional, capped at 900k characters/month so it stays in the free tier) → Microsoft voices (free, unlimited) |
 
-If any piece fails, the rest still runs: no AI → headline list; no voice → email without audio; no market data → box skipped.
+If a script comes back far too short, the system asks once more for the full-length version. If Telugu or Hindi fails, it waits 90 s and retries. GitHub Models (the old backup) was retired by GitHub on 30 July 2026 and is no longer used.
+
+## Never misses an edition
+
+- **Several triggers**: GitHub's own timer (backup slots about hourly) **plus** scheduled tasks at 7:50 AM and 6:20 PM, and safety checks at 10:25 AM and 8:25 PM that send the edition only if it has not gone out yet.
+- **Sent once**: `state/done/<date>-<edition>` markers stop duplicates.
+- **AI down?** A scheduled run retries in the next slot instead of sending a headlines-only email.
+- **Failures email you**: "⚠️ run failed — retrying automatically" or "⚠️ code test failed".
+- **Podcast key reminder**: an email 14 days before `PODCAST_TOKEN` expires (or as soon as it stops working).
+
+## Automatic test before every change
+
+`tests/e2e.py` runs on every code push (fake news, fake AI, silent audio, no network). It checks morning, evening and weekly: exactly one email, English + Telugu + Hindi play links, chapters, audio copied to the player site, memory saved; plus drills for "Telugu fails", "Gemini completely down", the player-site sync and the Google Cloud voice cap. Run it locally with `python tests/e2e.py` (needs ffmpeg).
+
+## Run something now (no clicking in GitHub)
+
+Add a line to `world_brief/run_request.txt` and push; the **World Brief - run all editions now** workflow reads only the words after `run:`:
+
+| Line | Does |
+|---|---|
+| `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
+| `run: morning force` | Sends it again even if already sent |
+| `run: keycheck` | Tests every key and emails a ✅/❌ report |
+| `run: sitesync` | Copies the last 10 days of audio onto the player site |
+
+For the older AI News Digest, push `digest_run_request.txt` with `[send digest]` in the commit message.
+
+## Who gets it
+
+Repo → Settings → Secrets and variables → Actions:
+
+| Secret | Value |
+|---|---|
+| `TO_EMAIL` | only your own address (it also receives private portfolio emails) |
+| `PARENTS_EMAIL` | everyone else, comma-separated, e.g. `amma@gmail.com,friend@yahoo.com` |
+| `PARENTS_WHATSAPP` | optional `phone:apikey` for a WhatsApp message with play links (CallMeBot) |
+
+Gmail limits: about 100 recipients per email and about 500 per day, so keep the list at about 100 people.
+
+## All secrets
+
+| Secret / variable | Needed? | What for |
+|---|---|---|
+| `GEMINI_API_KEY` | yes | main AI + voices (aistudio.google.com/apikey) |
+| `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `TO_EMAIL` | yes | sending email |
+| `PODCAST_TOKEN` (secret), `PODCAST_REPO` (variable) | yes | uploading audio to `Dheerajd9/world-brief-podcast` (fine-grained token, Contents read/write, that repo only; renew yearly) |
+| `OPENROUTER_API_KEY` | recommended | free backup writer |
+| `MISTRAL_API_KEY` | optional | free backup writer |
+| `GOOGLE_TTS_API_KEY` | optional | natural backup voices (Google asks for a card; skipped) |
+| `PARENTS_EMAIL`, `PARENTS_WHATSAPP` | optional | more readers |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | optional | alerts/brief on Telegram |
+| `PORTFOLIO_JSON` | for the portfolio report | your holdings (kept only as a secret, never in this public repo) |
 
 ## Files
 
-- `digest.py` main pipeline (editions: `EDITION=morning|evening|weekly`)
-- `markets.py` exact numbers · `podcast.py` audio (English, Telugu, Hindi) · `podfeed.py` podcast feed, public MP3 links + web player · `languages.py` Telugu & Hindi podcasts · `alerts.py` breaking alerts
-- `feeds.yaml` news sources · `watchlist.yaml` alert keywords and thresholds
-- `prompts/` brief, evening, weekly, fact-check, podcast, alert prompts (edit READER PROFILE to tune)
-- `briefs/` archive (also the story memory) · `state/seen.json` what was already sent
+- `digest.py` main pipeline (`EDITION=morning|evening|weekly`)
+- `languages.py` Telugu and Hindi podcasts · `podcast.py` scripts, chapters, voices · `podfeed.py` uploads, feed, player site · `player.html` the web player
+- `markets.py` exact numbers · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `notify_failure.py` failure emails
+- `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, rule layers)
+- `briefs/` archive and podcast scripts (memory) · `state/` seen list, story ledger, trends, entities, beliefs, scorecard, done markers · `logs/` last run logs (secrets redacted)
+- `tests/e2e.py` the end-to-end test
 
-## Setup
+## Security
 
-Already live in this repo, reusing secrets `GEMINI_API_KEY`, `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `TO_EMAIL`. Optional: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (alerts then go to your phone instead of email).
-
-Run any edition now: Actions → **World Brief + Podcast** → Run workflow → pick edition.
-
-### Optional: podcast in your podcast app (5 minutes, one time)
-
-This repo is private and podcast apps can't log in, so episodes go to a tiny **public** repo (public news audio only):
-
-1. Create a new **public** repo named `world-brief-podcast` (tick "Add a README").
-2. In that repo: Settings → Pages → Source: *Deploy from a branch* → `main` / root → Save.
-3. GitHub → Settings → Developer settings → Fine-grained tokens → Generate: repository access *Only* `world-brief-podcast`, permission *Contents: Read and write*.
-4. In **this** repo: Settings → Secrets and variables → Actions:
-   - Secret `PODCAST_TOKEN` = that token
-   - Variable `PODCAST_REPO` = `Dheerajd9/world-brief-podcast`
-5. After the next run, in Apple Podcasts (Library → ⋯ → Follow a Show by URL) or Pocket Casts (Search → paste URL) add:
-   `https://dheerajd9.github.io/world-brief-podcast/feed.xml`
-
-The feed is marked hidden from podcast directories; only people with the URL can subscribe.
-
-## One email, three languages (English · తెలుగు · हिंदी)
-
-Every morning ONE email goes to everyone. It has the full news in English and a 🎧 Listen block with play links for:
-- 🔵 English: Kartik & Priya, Quick (5-7 min) and Full (10-15 min)
-- 🟠 Telugu: Ravi & Lakshmi, Telangana yaasa, full coverage (15-20 min)
-- 🟢 Hindi: Arjun & Meera, everyday spoken Hindi, full coverage (15-20 min)
-
-Links open a small web player (no download prompts, speed buttons, remembers where you stopped).
-Evening and weekly editions are English only (`LANG_EDITIONS`, `PODCAST_LANGUAGES` change this).
-
-**Who gets it** (repo → Settings → Secrets and variables → Actions → Secrets): `TO_EMAIL` is only
-you (it also receives your private portfolio emails). Put everyone else in `PARENTS_EMAIL`, separated by
-commas, e.g. `amma@gmail.com,friend@yahoo.com`. Everyone is BCC'd, so nobody sees the others' addresses.
-
-| Secret | Value | Result |
-|---|---|---|
-| `TO_EMAIL` | only your own address | the daily email + your private portfolio emails |
-| `PARENTS_EMAIL` | comma-separated addresses of family/friends | the daily news email only |
-| `PARENTS_WHATSAPP` | `919876543210:1234567` (phone with country code `:` CallMeBot key; comma-separate for two phones) | WhatsApp message with the Telugu/Hindi play links + 3 headlines |
-
-**WhatsApp (free, via CallMeBot) — one-time setup on each parent's phone:**
-1. Open callmebot.com → WhatsApp API, and save the CallMeBot phone number shown there in the parent's contacts.
-2. From the parent's WhatsApp, send that contact the message shown on the site (`I allow callmebot to send me messages`).
-3. CallMeBot replies with an API key. Put `phone:apikey` into `PARENTS_WHATSAPP`.
-
-WhatsApp needs the public podcast feed (`PODCAST_REPO` + `PODCAST_TOKEN`) because it sends a link. The message text passes through CallMeBot's service; it only contains public news headlines and the link.
-
-## Security notes
-
-- Secrets live only in GitHub Actions secrets; nothing secret is in the code. Logs never print email addresses, phone numbers, API keys or bot tokens (errors are redacted).
-- Workflow inputs go through environment variables, never pasted into shell scripts (no script injection); the edition value is whitelisted.
-- Email HTML: raw HTML from feeds or the AI is escaped, and only `http(s)` links are kept.
-- `PODCAST_TOKEN` is a fine-grained token limited to the one public podcast repo (Contents only). Only public news audio goes there.
-- The AI only rewrites fetched headlines; a fact-check pass removes unsupported claims; market numbers never come from the AI.
+- The repo is public; secrets live only in GitHub Actions secrets. Logs never print keys, emails or phone numbers. Your portfolio is read from the `PORTFOLIO_JSON` secret and its history was removed from the repo.
+- Emails only contain links we trust (real article links from our feeds, the podcast site, this repo). Links the AI or a feed tries to sneak in are dropped; HTML is escaped; no tracking images; subject lines are sanitised.
+- GitHub Actions are pinned to exact commits and Python packages to exact versions.
+- Workflow inputs are passed as environment variables (no script injection).
 
 ## Tuning
 
-- Voices: Gemini `GEMINI_VOICE_A` / `GEMINI_VOICE_B` (default Charon / Sulafat), force backup voices with `PODCAST_TTS=edge` (`PODCAST_VOICE_A` / `PODCAST_VOICE_B`, `PODCAST_RATE`), audio off `PODCAST=0`.
-- Alerts: `watchlist.yaml` → keywords, `min_score`, `max_alerts_per_day`.
-- Length: `MAX_PER_CATEGORY`, `CATEGORY_CAPS` in digest.py.
-
-## Bonus: manual prompt for ChatGPT / Claude chat (no code)
-
-Paste this into a chat that has web search turned on. Good for testing what you like before automating. The automated version above is more reliable because it controls the sources.
-
-```
-Act as the chief editor of my private daily brief. Search the web for news from the last 24 hours only. Priority: India first, USA second, then the rest of the world. Use at least 12 reputable outlets: Indian (The Hindu, Indian Express, Hindustan Times, Mint, Economic Times), American (AP, NPR, Reuters), and global (BBC, Al Jazeera, DW, Nature, Ars Technica).
-
-About me: Indian citizen working as a data/MLOps engineer in Dallas, USA. Family in Hyderabad, Telangana. I care about Indian politics, economy and policy; Telangana/Hyderabad; US politics; India-US relations; H-1B, green card, OPT and Canada Express Entry rules; trade, tariffs, imports/exports, the rupee and remittances; AI/tech; science; history. No celebrity or film news; cricket only if historic.
-
-Rules:
-- Rank by real impact (people affected, money involved, irreversibility, precedent), not drama.
-- India and USA each get their own section daily, but never drop a truly major world story.
-- Neutral on politics in both countries: what happened, what each side says. No opinions.
-- Every bullet ends with a source link. If you can't verify something, leave it out. Never invent numbers or quotes. Keep rupee amounts as reported (crore/lakh).
-- Each story appears once. Merge the same story from several outlets.
-- Simple English, short sentences, explain jargon briefly. Max ~1,400 words. If a section is quiet, write "Quiet day."
-
-Format:
-**In one line:** the single most important development for me.
-1. Top 5 must-know — bold headline, 1–2 sentences, "Why it matters:" one line.
-2. India — 4–8 bullets (Politics / Economy / States).
-3. Telangana & Hyderabad — 1–3 bullets.
-4. USA — 3–6 bullets.
-5. India-US, visas & trade — 2–6 bullets.
-6. World — 3–6 bullets by region, note India's angle where relevant.
-7. Global economy & markets — 2–4 bullets.
-8. Tech & AI (incl. Indian IT) — 3–5 bullets.
-9. Science, health & climate (incl. ISRO, monsoon) — 2–4 bullets.
-10. Coming up in the next 7 days — up to 5 bullets.
-11. On this day in history — 2–3 events, at least one Indian if possible.
-12. One idea to understand today — one concept, 3–4 sentences, everyday example.
-13. For me — 2–3 bullets linking today's news to my career, money, family or visa.
-```
+- Voices: pin with variables `GEMINI_VOICE_A/B` (English), `GEMINI_TELUGU_VOICE_A/B`, `GEMINI_HINDI_VOICE_A/B`; force Microsoft voices with `PODCAST_TTS=edge` / `TELUGU_TTS=edge` / `HINDI_TTS=edge`.
+- Languages: `PODCAST_LANGUAGES` (default `te,hi`), `LANG_EDITIONS` (default `morning,evening,weekly`).
+- Player site audio days: `SITE_AUDIO_DAYS` (default 10).
+- Alerts: `watchlist.yaml` keywords, `min_score`, `max_alerts_per_day`.

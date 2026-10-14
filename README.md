@@ -1,8 +1,22 @@
+# Dji's automations
+
+This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 13 Oct 2026._
+
+| Job | What | Where |
+|---|---|---|
+| 🌏 **World Brief** | Morning, evening and Sunday news email (India → USA → World) with podcasts in **English, Telugu and Hindi**, web player with chapters | [`world_brief/README.md`](world_brief/README.md) |
+| 🤖 **AI News Digest** | Top 5 AI stories, morning and evening | below |
+| 📈 **Portfolio Report** | Mutual fund review on the 1st and 16th + daily portfolio line and alerts | below (holdings stay private in a secret) |
+
+Everything is free: GitHub Actions (unlimited for public repos), Gemini free tier, free backups (OpenRouter, Mistral), Gmail.
+
+---
+
 # 🤖 AI News Digest
 
 Emails you the top 5 AI stories every morning and evening. 100% free:
-GitHub Actions runs it, free RSS feeds supply the news, GitHub Models (free tier)
-picks and summarizes the stories, and Gmail sends the email.
+GitHub Actions runs it, free RSS feeds supply the news, Gemini's free tier picks and
+summarizes the stories, and Gmail sends the email.
 
 ## How it works
 
@@ -13,7 +27,7 @@ picks and summarizes the stories, and Gmail sends the email.
 2. **Clean** — drops old items, merges the same story from different outlets (keeping the
    publisher's own link over a Google News redirect), and skips anything already emailed
    in the last 5 days, so the evening digest doesn't repeat the morning one.
-3. **Pick** — Google Gemini's free tier (falling back to GitHub Models) chooses the
+3. **Pick** — Google Gemini's free tier chooses the
    5 most important stories and writes a summary + "why it matters" for each.
    Links always come straight from the feeds, never from the AI.
 4. **Send** — a clean HTML email to your inbox. If the AI step ever fails,
@@ -46,7 +60,7 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 |---|---|
 | `GMAIL_USER` | your Gmail address (the sender) |
 | `GMAIL_APP_PASSWORD` | the 16-character app password |
-| `TO_EMAIL` | where to send it (can be the same address; comma-separate for several) |
+| `TO_EMAIL` | your own address only (private portfolio emails also go here) |
 | `GEMINI_API_KEY` | free key from https://aistudio.google.com/apikey (writes the summaries) |
 
 ### 4. Test it
@@ -56,13 +70,11 @@ mark it "Not spam").
 
 ## Schedule
 
-Emails arrive at about **7:07 AM and 6:07 PM Texas time, all year**. GitHub cron only
-understands UTC, so the workflow has two slots per edition (one for daylight time, one
-for standard time); `digest.py` sends on the slot that matches today and quietly skips
-the other. GitHub can start scheduled runs a few minutes late when it's busy.
-
-To change the times, edit `TARGET_HOURS` in `digest.py` and the `cron:` lines in
-`.github/workflows/digest.yml` (one UTC slot for each offset, -5 and -6).
+Morning edition from about **7:07 AM** and evening from about **6:07 PM** Dallas time. GitHub's
+timer is unreliable, so there are backup slots every hour (morning until 1:59 PM, evening
+until 9:59 PM); `digest.py` sends an edition only once per day (`digest_done.json`). The
+World Brief scheduled tasks (7:50 AM, 6:20 PM, plus safety checks) also nudge this digest.
+To send now, push `digest_run_request.txt` with `[send digest]` in the commit message.
 
 ## Memory (sent.json)
 
@@ -75,17 +87,15 @@ never pauses the schedule for inactivity. Delete the file to reset the memory.
 Set these as environment variables in the workflow's `env:` block:
 
 - `TOP_N` — number of stories (default 5)
-- `MODEL` — preferred GitHub Models model (default `openai/gpt-4o-mini`); if it is unavailable the script automatically tries other free OpenAI models from the catalog
 - `LOOKBACK_HOURS` — how far back to look (default 14)
 
 Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
 
 ## Good to know
 
-- **Cost:** free. Each run takes about 1 minute, so ~60 minutes a month, well inside
-  GitHub's free 2,000 minutes for private repos (public repos are unlimited).
-- **Free AI limits:** GitHub Models' free tier has daily request limits that are far
-  above the 2 calls a day this uses.
+- **Cost:** free. The repo is public, so GitHub Actions minutes are unlimited.
+- **Free AI limits:** Gemini's free tier is far above the 2 calls a day this uses.
+  (GitHub Models was retired by GitHub on 30 July 2026.)
 - **Preview locally:** `pip install -r requirements.txt && python digest.py --dry-run`
   writes `preview.html` without sending anything.
 
@@ -95,7 +105,9 @@ Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
 
 `portfolio_report.py` emails a mutual fund portfolio review on the **1st and 16th of
 every month** (and anytime via **Actions → Portfolio Report → Run workflow**).
-Holdings live in `portfolio.json`; keep this repo **private**.
+Holdings live only in the **`PORTFOLIO_JSON` repository secret** (this repo is public; the
+file was removed from the repo and its history). The workflow writes it to `portfolio.json`
+at run time only.
 
 What's in the report:
 
@@ -119,6 +131,7 @@ lookalike scheme can't slip in.
 month-to-date change, plus a separate **alert email** if the portfolio falls 7%+ in a
 week or a fund falls 15%+ from its 3-month high (at most once a week per alert).
 
-**Keeping it current:** after any buy/sell, update `portfolio.json` (or send a new
-statement export to whoever maintains it). Funds without `transactions` use their
+**Keeping it current:** after any buy/sell, update the `PORTFOLIO_JSON` secret (Settings →
+Secrets and variables → Actions → PORTFOLIO_JSON → pencil → paste the new JSON). Never add
+`portfolio.json` back to the repo (it is git-ignored). Funds without `transactions` use their
 snapshot value and don't get XIRR/tax-lot detail.
