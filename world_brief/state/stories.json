@@ -67,6 +67,10 @@
    {
     "date": "2026-10-13",
     "text": "Monitor Brent crude price volatility."
+   },
+   {
+    "date": "2026-10-14",
+    "text": "Brent crude price volatility and refinery margin squeeze"
    }
   ],
   "timeline": [
@@ -89,17 +93,21 @@
    {
     "date": "2026-10-13",
     "event": "Aramco HQ strike"
+   },
+   {
+    "date": "2026-10-14",
+    "event": "Aramco headquarters struck by Houthi drone/missile attack"
    }
   ],
-  "title": "Houthi attacks hit Saudi Aramco HQ",
+  "title": "Houthi strikes hit Saudi Aramco oil facilities",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Houthi strikes hit Saudi Aramco headquarters and fuel depots, escalating regional conflict and threatening energy infrastructure.",
+  "summary": "Direct Houthi drone and missile strikes hit Saudi Aramco headquarters and Riyadh, pushing Brent crude to $106 per barrel and raising global supply concerns.",
   "open_questions": [
-   "Will Saudi Arabia launch retaliatory strikes?",
-   "Will oil exports be disrupted despite pledges?"
+   "Will Saudi Arabia launch military retaliation?",
+   "Will Strait of Hormuz tanker traffic face total blockade?"
   ],
-  "last_seen": "2026-10-13"
+  "last_seen": "2026-10-14"
  },
  "indigo-hyderabad-emergency": {
   "first_seen": "2026-10-11",
@@ -223,6 +231,10 @@
    {
     "date": "2026-10-13",
     "text": "Monitor forex reserve data."
+   },
+   {
+    "date": "2026-10-14",
+    "text": "Forex reserve level adjustments"
    }
   ],
   "timeline": [
@@ -237,16 +249,20 @@
    {
     "date": "2026-10-13",
     "event": "Rupee 1-month high"
+   },
+   {
+    "date": "2026-10-14",
+    "event": "Rupee reaches ₹95.14 per dollar"
    }
   ],
-  "title": "RBI intervention stabilizes rupee",
+  "title": "RBI intervention pushes rupee to one-month high",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "The rupee rallied to a one-month high following RBI's intervention, though banks remain cautious.",
+  "summary": "The Indian rupee strengthened to ₹95.14 per dollar following aggressive central bank market intervention.",
   "open_questions": [
-   "Will RBI maintain the dollar window?"
+   "Will RBI maintain dollar liquidity support amid surging oil prices?"
   ],
-  "last_seen": "2026-10-13"
+  "last_seen": "2026-10-14"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -427,22 +443,76 @@
    {
     "date": "2026-10-13",
     "text": "Watch for official joint announcement."
+   },
+   {
+    "date": "2026-10-14",
+    "text": "Bilateral trade agreement announcement"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-13",
     "event": "Jaishankar statement"
+   },
+   {
+    "date": "2026-10-14",
+    "event": "Jaishankar statement on trade deal progress"
    }
   ],
-  "title": "India-US trade deal nearing landing point",
+  "title": "India and US trade negotiations near landing point",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "EAM Jaishankar confirmed that India-US trade deal negotiations are nearing a final agreement.",
+  "summary": "EAM S. Jaishankar confirmed that India and the US are ironing out tariff differences and nearing a final trade agreement landing point.",
   "open_questions": [
-   "When will the deal be signed?",
-   "Which sectors will see tariff reductions?"
+   "When will the trade pact be formally signed?",
+   "Which tariff lines will see reductions?"
   ],
-  "last_seen": "2026-10-13"
+  "last_seen": "2026-10-14"
+ },
+ "us-cpi-inflation-sept": {
+  "first_seen": "2026-10-14",
+  "expectations": [
+   {
+    "date": "2026-10-14",
+    "text": "US Treasury yields respond to hot inflation data"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-14",
+    "event": "September CPI print published at 3.7%"
+   }
+  ],
+  "title": "US CPI inflation accelerates to 3.7% in September",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "US Consumer Price Index inflation rose to 3.7% annually in September due to surging energy costs, pushing Treasury yields higher.",
+  "open_questions": [
+   "Will the Federal Reserve pause rate cuts at the next meeting?"
+  ],
+  "last_seen": "2026-10-14"
+ },
+ "fairfax-idbi-bank-stake": {
+  "first_seen": "2026-10-14",
+  "expectations": [
+   {
+    "date": "2026-10-14",
+    "text": "Largest FDI in India's financial sector"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-14",
+    "event": "Cabinet approval for IDBI Bank stake sale"
+   }
+  ],
+  "title": "Canada's Fairfax acquires 60.72% stake in IDBI Bank",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "The Indian Cabinet approved the sale of a 60.72% stake in IDBI Bank to Canada's Fairfax Financial Holdings for ₹52,878 crore.",
+  "open_questions": [
+   "When will the transaction formally close?"
+  ],
+  "last_seen": "2026-10-14"
  }
 }

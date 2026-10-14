@@ -1,0 +1,44 @@
+KARTIK: Good morning. There are really four things worth understanding today, starting in Washington and the Middle East, alongside massive economic shifts back home in India.
+PRIYA: That's right. The US just dropped its latest inflation numbers for September, with headline CPI jumping to 3.7% annually, driven largely by surging gasoline and energy costs. And that's directly connected to global energy markets.
+KARTIK: Exactly. Fresh attacks by Houthi forces struck Saudi Aramco infrastructure and Riyadh itself, pushing oil prices higher and keeping Brent crude above $106. The International Energy Agency is even warning that global diesel shortages could persist well into 2027.
+PRIYA: For anyone in the US, that hot inflation print means Treasury yields are climbing—the 10-year yield touched 5.29%—and mortgage rates are staying stubbornly high near 7.5%.
+KARTIK: So just to be clear, has any Federal Reserve policy actually changed today?
+PRIYA: No. Markets are just recalibrating expectations. The hotter inflation report means the Fed is likely to keep interest rates elevated for longer to cool things down, keeping the financial environment tight.
+KARTIK: That brings us to the second massive story: Canada's Fairfax Financial Holdings just received Cabinet approval to acquire a majority stake in IDBI Bank for over 52,000 crore rupees.
+PRIYA: This is a landmark deal—the largest-ever foreign direct investment in India's financial sector—signaling a major shift in how foreign capital is entering core Indian banking institutions.
+KARTIK: Meanwhile, External Affairs Minister S. Jaishankar announced that India and the US are ironing out their final differences and nearing a landing point on their long-running trade pact.
+PRIYA: It’s a proposed agreement, so it's not official law yet, but the fact that both sides are talking about a final landing point is a significant step forward.
+KARTIK: And the Indian rupee actually strengthened to close at 95.17 per dollar today, following reports of RBI intervention to curb speculative bets.
+PRIYA: The RBI is stepping in to keep things stable as global crude prices climb and import bills rise.
+KARTIK: Looking closer at India's domestic economy, wholesale inflation, or WPI, surged to 11.39% in September.
+PRIYA: That is a sharp jump, driven by climbing food, fuel, and manufacturing costs at the wholesale level, meaning essential living expenses and business input costs will remain sticky.
+KARTIK: On the regulatory side, SEBI is moving to tighten rules for Small and Medium Enterprise IPOs by proposing a 3-crore-rupee profit threshold and a 1,000-crore-rupee market-cap requirement.
+PRIYA: Why is SEBI doing that? Because over the last year, we've seen a massive retail frenzy in smaller SME stocks with wild valuations, and SEBI wants to protect retail investors from extreme volatility.
+KARTIK: Turning to corporate news, BHEL reported a massive 120% year-on-year surge in net profit to 810 crore rupees, sending its stock to a record high on strong domestic infrastructure spending.
+PRIYA: In the ongoing Tata Trusts leadership row, Noel Tata and his son Neville have filed caveats in the Bombay High Court against opposing trustees to protect their position.
+KARTIK: Locally in Hyderabad, GMR Aero Technic signed an MoU with a French firm to establish an Integrated Cabin Excellence Centre, boosting regional aviation manufacturing. And in sports, T Natarajan has officially returned to Sunrisers Hyderabad for IPL 2027.
+KARTIK: Looking at US markets, Wall Street futures were subdued as investors digested that 3.7% inflation print alongside major bank earnings.
+PRIYA: One major casualty was Bank of America, whose shares fell 7% after missing revenue estimates and absorbing a hefty 1.2-billion-dollar US Treasury fine.
+KARTIK: On the trade side, US oil and gas supplies to India fell 43% as Indian refiners shifted back toward West Asian imports due to pricing and shipping realities.
+KARTIK: Globally, tanker traffic through the Strait of Hormuz is facing severe disruptions as Iran steps up surveillance and mine deployment, directly threatening global petroleum supply lines.
+PRIYA: Moving to Europe, Russian missile strikes pounded Kyiv and regional energy facilities, leaving 600,000 people without power just as President Zelenskyy visited the UK to secure fresh military support.
+KARTIK: And in East Asia, Russia arrested a Japanese journalist on espionage charges relating to Moscow's defense capabilities, adding diplomatic tension.
+KARTIK: On the economic policy front, the International Monetary Fund's chief is urging rich nations to curb their massive sovereign debt as global bond yields climb.
+PRIYA: High government debt in major economies pushes up global borrowing costs for everyone else, which is a big reason why US Treasury yields are sitting at 5.29%.
+KARTIK: Closer to home for taxpayers in India, the 57th GST Council meeting just approved major administrative relief: ending tax officers' arrest powers and introducing much faster tax refunds.
+PRIYA: That's a welcome move for businesses that have long complained about harassment and delayed liquidity due to aggressive tax enforcement.
+KARTIK: Let's talk about technology and security. Anthropic executives warned that smaller open-source AI models could soon spawn self-replicating IoT botnets capable of compromising connected devices.
+PRIYA: That means bad actors could use lightweight models to automate cyberattacks across smart home devices and industrial sensors at an unprecedented scale.
+KARTIK: Google also highlighted growing power-grid constraints as its primary bottleneck for scaling AI data centers, as local grids struggle to keep up with electricity demand.
+PRIYA: On the jobs front, a new workplace report showed India's employee attrition rising to 18% in 2026, up from 16.2% last year, as companies restructure talent pools around AI integration.
+KARTIK: If you're building a tech career right now, the skills to watch are multi-agent AI workflow orchestration, cloud energy management, and MLOps security hardening.
+PRIYA: And there is an urgent security alert for internet users: Google released an urgent Chrome update—version 155—patching 37 vulnerabilities, including 7 critical flaws.
+KARTIK: What do people need to do?
+PRIYA: Update your desktop and mobile browsers immediately. If you have automatic updates turned on, make sure it has actually restarted and applied version 155.
+KARTIK: In space exploration, Indian spacetech startup HEX20 has teamed up with the UAE to develop spacecraft for an ambitious multi-asteroid exploration mission.
+PRIYA: That's a significant leap for private Indian space firms collaborating internationally. In public health, Delhi reported over 100 new dengue cases within a week, prompting health authorities to advise continued vector prevention as the monsoon withdraws.
+KARTIK: Alright Priya, if someone remembers only three things from today, what should they be?
+PRIYA: First, US inflation jumped to 3.7% on soaring energy costs, pushing Treasury yields higher and keeping mortgage rates near 7.5%. Second, Canada's Fairfax Financial received approval to acquire a majority stake in IDBI Bank for over 52,000 crore rupees, marking a massive FDI milestone for India's banking sector. And third, Middle East conflict escalation drove oil prices higher, while India's wholesale inflation surged to 11.39%.
+KARTIK: And what is one thing to watch next?
+PRIYA: Watch the ongoing final negotiations on the India-US trade pact as both nations look for a landing point to resolve tariff friction.
+KARTIK: That's all for this morning. Have a great day.
