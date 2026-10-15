@@ -112,22 +112,6 @@
   ],
   "last_seen": "2026-10-14"
  },
- "indigo-hyderabad-emergency": {
-  "first_seen": "2026-10-11",
-  "expectations": [],
-  "timeline": [
-   {
-    "date": "2026-10-11",
-    "event": "Flight safely diverted and landed in Hyderabad"
-   }
-  ],
-  "title": "IndiGo flight makes emergency landing in Hyderabad due to power bank fire",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "A Delhi-Chennai IndiGo flight diverted safely to Hyderabad after a malfunctioning power bank sparked in an overhead bin.",
-  "open_questions": [],
-  "last_seen": "2026-10-11"
- },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
   "expectations": [
@@ -450,6 +434,10 @@
    {
     "date": "2026-10-14",
     "text": "Bilateral trade agreement announcement"
+   },
+   {
+    "date": "2026-10-15",
+    "text": "Legal text release and operational timeline announcement"
    }
   ],
   "timeline": [
@@ -460,17 +448,21 @@
    {
     "date": "2026-10-14",
     "event": "Jaishankar statement on trade deal progress"
+   },
+   {
+    "date": "2026-10-15",
+    "event": "First tranche finalised; legal drafting underway"
    }
   ],
-  "title": "India and US trade negotiations near landing point",
-  "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "EAM S. Jaishankar confirmed that India and the US are ironing out tariff differences and nearing a final trade agreement landing point.",
+  "title": "India and US finalise first phase of bilateral trade pact",
+  "status": "MAJOR CHANGE",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "Commerce Minister Piyush Goyal confirmed the first tranche of the India-US trade deal is finalised and undergoing legal drafting.",
   "open_questions": [
-   "When will the trade pact be formally signed?",
-   "Which tariff lines will see reductions?"
+   "When will the legal drafting conclude and text be signed?",
+   "Which exact tariff lines are modified in phase one?"
   ],
-  "last_seen": "2026-10-14"
+  "last_seen": "2026-10-15"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -595,5 +587,101 @@
    "What will be the premium deduction per ticket?"
   ],
   "last_seen": "2026-10-14"
+ },
+ "us-ppi-inflation-sept": {
+  "first_seen": "2026-10-15",
+  "expectations": [
+   {
+    "date": "2026-10-15",
+    "text": "Fed officials to signal cautious rate stance"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-15",
+    "event": "September PPI reported at 6.3%"
+   }
+  ],
+  "title": "US wholesale inflation surges 6.3% in September",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "US Producer Price Index rose 6.3% year-over-year in September, exceeding consensus expectations of 5.5% and exacerbating inflation concerns.",
+  "open_questions": [
+   "Will high wholesale costs force consumer CPI higher in October?",
+   "How will the Federal Reserve adjust its policy rate path?"
+  ],
+  "last_seen": "2026-10-15"
+ },
+ "anthropic-ipo-prep": {
+  "first_seen": "2026-10-15",
+  "expectations": [
+   {
+    "date": "2026-10-15",
+    "text": "S-1 filing and valuation details in coming weeks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-15",
+    "event": "Q3 revenue of $16.8B disclosed"
+   }
+  ],
+  "title": "Anthropic discloses $16.8B quarterly revenue ahead of planned IPO",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Anthropic reported Q3 revenue expanded nearly 50% to $16.8 billion and generated an adjusted profit as it prepares for an initial public offering.",
+  "open_questions": [
+   "Will the SEC approve the IPO registration timeline?",
+   "How will the NYC Comptroller's call for a pause affect underwriters?"
+  ],
+  "last_seen": "2026-10-15"
+ },
+ "tsmc-q3-texas-fab": {
+  "first_seen": "2026-10-15",
+  "expectations": [
+   {
+    "date": "2026-10-15",
+    "text": "Capital expenditure guidance at year-end call"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-15",
+    "event": "Record Q3 EPS of NT$29.43; Texas expansion talks"
+   }
+  ],
+  "title": "TSMC delivers record Q3 profits and weighs Texas chip expansion",
+  "status": "NEW",
+  "stage": "DISCUSSION",
+  "summary": "TSMC reported record quarterly net profit driven by relentless AI processor demand and acknowledged discussions regarding manufacturing in Texas.",
+  "open_questions": [
+   "Will TSMC formally commit capital to a new Texas fab?",
+   "What subsidies will be allocated under the CHIPS framework?"
+  ],
+  "last_seen": "2026-10-15"
+ },
+ "jio-platforms-mega-ipo": {
+  "first_seen": "2026-10-15",
+  "expectations": [
+   {
+    "date": "2026-10-15",
+    "text": "SEBI review and clearance of red herring prospectus"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-15",
+    "event": "Updated IPO filings submitted to raise $3.2 billion"
+   }
+  ],
+  "title": "Reliance's Jio Platforms files for record $3.2B IPO",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Jio Platforms initiated paperwork to raise up to $3.2 billion in India's largest initial public offering, lifting domestic equity benchmarks.",
+  "open_questions": [
+   "What will be the final valuation and price band?",
+   "When will the issue open for public subscription?"
+  ],
+  "last_seen": "2026-10-15"
  }
 }

@@ -1,20 +1,4 @@
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
+  ! feed failed: https://www.politifact.com/rss/all/ (404 Client Error: Not Found for url: https://politifact.com/rss/all/)
   ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
@@ -30,156 +14,166 @@
   ! Gemini gemini-3.6-flash busy (HTTP 503)
   ! Gemini gemini-3.6-flash busy (HTTP 503)
   ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
   ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.5-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash: daily free quota used up
-  ! Gemini gemini-3.5-flash: daily free quota used up
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.6-flash: daily free quota used up
-  ! Gemini gemini-3.5-flash: daily free quota used up
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash busy (HTTP 503)
 Edition: morning
 Fetching feeds...
-   33 items  india                        Top stories
-   50 items  india                        India
+   37 items  india                        Top stories
+   39 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
   100 items  india                        Hindustan Times
    45 items  india                        Times of India
-    1 items  india                        BBC
-   43 items  india_economy                Business
-    6 items  india_economy                Mint
-   43 items  india_economy                Economic Times
-    8 items  india_economy                The Hindu
+    3 items  india                        BBC
+   44 items  india_economy                Business
+    5 items  india_economy                Mint
+   44 items  india_economy                Economic Times
+    6 items  india_economy                The Hindu
   100 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   52 items  india_economy                "Sensex OR Nifty closing when:
-   26 items  india_economy                "FII OR FPI OR DII selling OR 
-   16 items  india_economy                "RBI repo OR "CPI inflation" O
-   42 items  telangana_hyderabad          The Hindu
-   39 items  telangana_hyderabad          The Hindu
+   43 items  india_economy                "Sensex OR Nifty closing when:
+   33 items  india_economy                "FII OR FPI OR DII selling OR 
+   15 items  india_economy                "RBI repo OR "CPI inflation" O
+   35 items  telangana_hyderabad          The Hindu
+   30 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-   64 items  usa                          U.S.
+   62 items  usa                          U.S.
    10 items  usa                          NPR
-   10 items  usa                          NPR
+    3 items  usa                          NPR
   100 items  usa                          "Texas OR Dallas when:1d"
-   86 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-   12 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   97 items  india_us_visa_trade          "India US trade OR tariff OR "
-   87 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   63 items  india_us_visa_trade          "India exports OR imports when
-   26 items  world                        BBC
+   79 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+   14 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   91 items  india_us_visa_trade          "India US trade OR tariff OR "
+   86 items  india_us_visa_trade          "rupee dollar OR remittance wh
+  100 items  india_us_visa_trade          "India exports OR imports when
+   23 items  world                        BBC
    25 items  world                        Al Jazeera
    31 items  world                        The Guardian
-   10 items  world                        DW
-   33 items  world                        The Hindu
-   47 items  world                        DW
-   21 items  global_economy               BBC
-   64 items  global_economy               Business
+   11 items  world                        DW
+   29 items  world                        The Hindu
+   43 items  world                        DW
+   19 items  global_economy               BBC
+   57 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
-   14 items  tech_ai                      Ars Technica
-    3 items  tech_ai                      MIT Tech Review
-    5 items  tech_ai                      Hacker News
-   50 items  tech_ai                      Technology
+   15 items  tech_ai                      Ars Technica
+    5 items  tech_ai                      MIT Tech Review
+    6 items  tech_ai                      Hacker News
+   46 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
     2 items  science_health_climate       Nature
-   12 items  science_health_climate       ScienceDaily
-   37 items  science_health_climate       Science
-   53 items  science_health_climate       "ISRO OR monsoon when:2d"
+    6 items  science_health_climate       ScienceDaily
+   49 items  science_health_climate       Science
+   70 items  science_health_climate       "ISRO OR monsoon when:2d"
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
-    1 items  official                     Federal Reserve (official)
-  100 items  official                     ""Bureau of Labor Statistics" 
-   20 items  official                     PIB (official)
+    0 items  official                     Federal Reserve (official)
+   96 items  official                     ""Bureau of Labor Statistics" 
+    0 items  official                     PIB (official)
    30 items  us_markets_economy           CNBC
-    5 items  us_markets_economy           CNBC
+    9 items  us_markets_economy           CNBC
    33 items  us_markets_economy           ""stock market" today S&P Nasd
-   28 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   64 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   60 items  jobs_tax_housing             ""income tax" OR "GST council"
-   69 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-2476 raw -> 302 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~67,044 tokens
-  written by Gemini gemini-3.5-flash-lite
+   34 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   82 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   66 items  jobs_tax_housing             ""income tax" OR "GST council"
+   54 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+   18 items  canada                       Canada News
+    3 items  canada                       Business News
+   48 items  canada                       ""Bank of Canada" OR "Statisti
+   26 items  canada                       "IRCC OR "Express Entry" OR "s
+   46 items  canada                       "Canada housing OR rent OR "fe
+  100 items  business_jobs                "earnings results OR "quarterl
+   97 items  business_jobs                "layoffs OR "job cuts" OR "hir
+  100 items  business_jobs                "acquisition OR merger OR IPO 
+   19 items  business_jobs                ""remote work" OR "return to o
+  100 items  business_jobs                "IPO OR layoffs OR "quarterly 
+   48 items  personal_finance_housing     ""mortgage rates" OR "home pri
+  100 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
+   97 items  personal_finance_housing     ""grocery prices" OR "food pri
+  100 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
+    2 items  fact_check                   Alt News
+   32 items  fact_check                   ""fact check" viral OR mislead
+   30 items  fact_check                   ""fact check" viral OR fake OR
+  100 items  ai_robotics                  "OpenAI OR Anthropic OR "Googl
+   98 items  ai_robotics                  ""humanoid robot" OR "AI agent
+   60 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
+   13 items  ai_robotics                  TechCrunch
+    0 items  ai_robotics                  IEEE Spectrum
+  100 items  frontier_companies           "Tesla OR SpaceX OR Starship O
+  100 items  chips_energy_future          "NVIDIA OR TSMC OR AMD OR Inte
+   76 items  chips_energy_future          "fusion OR "nuclear power" OR 
+   82 items  chips_energy_future          ""quantum computing" OR "gene 
+   90 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
+4150 raw -> 427 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~82,225 tokens
   written by Gemini gemini-3.8-flash
-  fact-check done (5 bullet(s) removed)
-  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'US September inflation jumps to 3.7%; Middle East conflict hits Saudi oil facilities; Fairfax buys majority stake in IDBI Bank; India-US trade deal nears landing point; RBI rupee defense and currency trends', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '4', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  written by Gemini gemini-3.8-flash
+  ! fact-check removed too much; keeping the draft
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'India-US Trade Deal Finalised; US Wholesale Inflation Jumps 6.3%; Anthropic $16.8B Revenue Pre-IPO; TSMC Record Profit & Texas Fab; Jio Platforms $3.2B IPO', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
   written by Gemini gemini-3.5-flash-lite
-  written by Gemini gemini-3.5-flash-lite
-  script reviewed: 564 -> 450 words
-  en podcast script: 23 turns, 450 words
+  written by Gemini gemini-3.5-flash
+  script reviewed: 744 -> 725 words
+  en podcast script: 26 turns, 725 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (1 part(s))
-  chapters: Top stories 0:19, India 1:08, Money 2:08, Wrap-up 2:20
-  world_brief_quick podcast ready: 1.5 MB
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (2 part(s))
+  chapters: USA 0:35, India 2:14, Tech 3:11
+  world_brief_quick podcast ready: 2.4 MB
   podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
-  written by Gemini gemini-3.5-flash-lite
-  script too short (825 words, want 1500+); asking for the full version
-  written by Gemini gemini-3.5-flash-lite
-  written by Gemini gemini-3.5-flash-lite
-  script reviewed: 1449 -> 1120 words
-  en podcast script: 44 turns, 1120 words
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 2732 -> 2579 words
+  en podcast script: 60 turns, 2579 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (3 part(s))
-  chapters: Top stories 0:00, India 2:17, USA 3:42, World 4:11, Money 4:45, Wrap-up 7:15
-  world_brief_full podcast ready: 3.9 MB
-  podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
-  written by Gemini gemini-3.5-flash-lite
-  script too short (662 words, want 1900+); asking for the full version
-  written by Gemini gemini-3.5-flash-lite
-  written by Gemini gemini-3.5-flash-lite
-  script reviewed: 1402 -> 1396 words
-  te podcast script: 50 turns, 1396 words
-  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for te-IN: te-in-advisor-1 (female, Telugu, prebuilt); te-in-advisor-3 (female, Telugu, prebuilt); te-in-advisor-7 (male, Telugu, prebuilt); te-in-advisor-8 (male, Telugu, prebuilt); te-in-assistant-2 (male, Telugu, prebuilt); te-in-assistant-5 (female, Telugu, prebuilt); te-in-assistant-6 (neutral, Telugu, prebuilt); te-in-assistant-7 (male, Telugu, prebuilt); te-in-assistant-8 (male, Telugu, prebuilt); te-in-concierge-2 (male, Telugu, prebuilt); te-in-concierge-5 (male, Telugu, prebuilt); te-in-concierge-7 (female, Telugu, prebuilt); te-in-csagent-1 (female, Telugu, prebuilt); te-in-csagent-4 (male, Telugu, prebuilt); te-in-csagent-5 (female, Telugu, prebuilt); te-in-csagent-7 (neutral, Telugu, prebuilt); te-in-csagent-8 (female, Telugu, prebuilt); te-in-techagent-1 (female, Telugu, prebuilt); te-in-techagent-3 (female, Telugu, prebuilt); te-in-techagent-4 (male, Telugu, prebuilt)  ! Gemini gemini-3.8-flash busy (HTTP 503)
-  ! Gemini gemini-3.8-flash: daily free quota used up
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash: daily free quota used up
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.7-flash busy (HTTP 503)
+  ! Gemini gemini-3.7-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash busy (HTTP 503)
+  ! Gemini gemini-3.5-flash: daily free quota used up
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.7-flash busy (HTTP 503)
 
-  voices: Gemini gemini-3.8-flash-tts {'RAVI': 'te-in-advisor-7', 'LAKSHMI': 'te-in-advisor-1'} (4 part(s))
-  chapters: World 0:00, India 2:51, USA 6:20, World 7:55, Money 8:59, Wrap-up 9:50
-  telugu_podcast podcast ready: 6.3 MB
-  telugu audio uploaded (6.3 MB)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (6 part(s))
+  chapters: Top stories 0:00, India 3:25, USA 6:45, World 9:31, Tech 10:55, Money 13:46, Wrap-up 16:12
+  world_brief_full podcast ready: 8.9 MB
+  podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed.xml
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.8-flash
+  script reviewed: 2090 -> 2276 words
+  te podcast script: 56 turns, 2276 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for te-IN: te-in-advisor-1 (female, Telugu, prebuilt); te-in-advisor-3 (female, Telugu, prebuilt); te-in-advisor-7 (male, Telugu, prebuilt); te-in-advisor-8 (male, Telugu, prebuilt); te-in-assistant-2 (male, Telugu, prebuilt); te-in-assistant-5 (female, Telugu, prebuilt); te-in-assistant-6 (neutral, Telugu, prebuilt); te-in-assistant-7 (male, Telugu, prebuilt); te-in-assistant-8 (male, Telugu, prebuilt); te-in-concierge-2 (male, Telugu, prebuilt); te-in-concierge-5 (male, Telugu, prebuilt); te-in-concierge-7 (female, Telugu, prebuilt); te-in-csagent-1 (female, Telugu, prebuilt); te-in-csagent-4 (male, Telugu, prebuilt); te-in-csagent-5 (female, Telugu, prebuilt); te-in-csagent-7 (neutral, Telugu, prebuilt); te-in-csagent-8 (female, Telugu, prebuilt); te-in-techagent-1 (female, Telugu, prebuilt); te-in-techagent-3 (female, Telugu, prebuilt); te-in-techagent-4 (male, Telugu, prebuilt)
+  ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
+  voices: Gemini gemini-3.8-flash-lite-tts {'RAVI': 'te-in-advisor-7', 'LAKSHMI': 'te-in-advisor-1'} (7 part(s))
+  chapters: Top stories 0:00, India 6:06, USA 10:07, World 12:53, Tech 13:58, Money 16:09, Wrap-up 18:19
+  telugu_podcast podcast ready: 9.7 MB
+  telugu audio uploaded (9.7 MB)
   te podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed-te.xml
   written by Gemini gemini-3.5-flash-lite
-  script too short (837 words, want 1900+); asking for the full version
+  script too short (1255 words, want 1900+); asking for the full version
   written by Gemini gemini-3.5-flash-lite
-  written by Gemini gemini-3.5-flash-lite
-  script reviewed: 1509 -> 1507 words
-  hi podcast script: 27 turns, 1507 words
+  written by Gemini gemini-3.7-flash
+  script reviewed: 2707 -> 2397 words
+  hi podcast script: 54 turns, 2397 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for hi-IN: hi-in-advisor-1 (female, Awadhi Hindi, prebuilt); hi-in-advisor-10 (male, Haryanvi Hindi, prebuilt); hi-in-advisor-11 (male, Urdu, prebuilt); hi-in-advisor-12 (female, Urdu, prebuilt); hi-in-advisor-2 (male, Bhojpuri Hindi, prebuilt); hi-in-advisor-3 (female, Haryanvi Hindi, prebuilt); hi-in-advisor-4 (male, Bundeli Hindi, prebuilt); hi-in-advisor-5 (female, Awadhi Hindi, prebuilt); hi-in-advisor-6 (male, Bundeli Hindi, prebuilt); hi-in-advisor-7 (female, Bhojpuri Hindi, prebuilt); hi-in-advisor-8 (female, Haryanvi Hindi, prebuilt); hi-in-advisor-9 (male, Bhojpuri Hindi, prebuilt); hi-in-assistant-1 (male, Urdu, prebuilt); hi-in-assistant-10 (male, Bundeli Hindi, prebuilt); hi-in-assistant-11 (male, Awadhi Hindi, prebuilt); hi-in-assistant-12 (female, Urdu, prebuilt); hi-in-assistant-2 (female, Awadhi Hindi, prebuilt); hi-in-assistant-3 (female, Haryanvi Hindi, prebuilt); hi-in-assistant-4 (male, Bhojpuri Hindi, prebuilt); hi-in-assistant-5 (female, Awadhi Hindi, prebuilt)
-  ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
-  voices: Gemini gemini-3.8-flash-lite-tts {'ARJUN': 'hi-in-advisor-10', 'MEERA': 'hi-in-advisor-1'} (3 part(s))
-  chapters: Top stories 0:00, India 1:54, World 4:29, Money 5:11, Wrap-up 7:20
-  hindi_podcast podcast ready: 4.1 MB
-  hindi audio uploaded (4.1 MB)
+  voices: Gemini gemini-3.8-flash-lite-tts {'ARJUN': 'hi-in-advisor-10', 'MEERA': 'hi-in-advisor-1'} (4 part(s))
+  chapters: Top stories 0:00, India 3:01, USA 5:54, Tech 6:50, World 8:45, Money 10:22, Wrap-up 11:50
+  hindi_podcast podcast ready: 6.4 MB
+  hindi audio uploaded (6.4 MB)
   hi podcast feed updated: https://dheerajd9.github.io/world-brief-podcast/feed-hi.xml
   podcast site updated with 4 audio file(s)
   email sent (1 recipient(s))
   Telegram channel: message + 4 podcast(s)
-  podcast key check: ok, expires in 362 days
+  podcast key check: ok, expires in 361 days
   story ledger: 5 stories updated

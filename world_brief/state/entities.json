@@ -37,12 +37,13 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
 "us-china-chip-smuggling",
-"microsoft-maia-chip"
+"microsoft-maia-chip",
+"tsmc-q3-texas-fab"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-15"
 },
 "Super Micro": {
 "first_seen": "2026-10-11",
@@ -262,11 +263,12 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 1,
+"count": 2,
 "stories": [
-"meta-muse-wonder"
+"meta-muse-wonder",
+"anthropic-ipo-prep"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-15"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -336,27 +338,29 @@
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
-"count": 1,
+"count": 2,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-15"
 },
 "US Bureau of Labor Statistics": {
 "first_seen": "2026-10-14",
-"count": 2,
+"count": 3,
 "stories": [
-"us-cpi-inflation-sept"
+"us-cpi-inflation-sept",
+"us-ppi-inflation-sept"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 2,
+"count": 3,
 "stories": [
-"us-cpi-inflation-sept"
+"us-cpi-inflation-sept",
+"us-ppi-inflation-sept"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "IEA": {
 "first_seen": "2026-10-14",
@@ -384,12 +388,12 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 2,
+"count": 3,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -401,11 +405,11 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 1,
+"count": 2,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -430,9 +434,87 @@
 "sc-railway-ticket-insurance"
 ],
 "last_seen": "2026-10-14"
+},
+"SEC": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"anthropic-ipo-prep"
+],
+"last_seen": "2026-10-15"
+},
+"TSMC": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"tsmc-q3-texas-fab"
+],
+"last_seen": "2026-10-15"
+},
+"AMD": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"tsmc-q3-texas-fab"
+],
+"last_seen": "2026-10-15"
+},
+"Jio Platforms": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"jio-platforms-mega-ipo"
+],
+"last_seen": "2026-10-15"
+},
+"Reliance": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"jio-platforms-mega-ipo"
+],
+"last_seen": "2026-10-15"
+},
+"SEBI": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"jio-platforms-mega-ipo"
+],
+"last_seen": "2026-10-15"
 }
 },
 "connections": [
+{
+"text": "India-US trade deal -> tariff reduction -> export opportunities",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-15",
+"count": 2
+},
+{
+"text": "Hot wholesale inflation -> consumer price pressure -> sticky Fed interest rates",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
+{
+"text": "Enterprise AI adoption -> LLM revenue growth -> public market IPO",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
+{
+"text": "AI computing demand -> semiconductor fab capacity -> US onshore chip investment",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
+{
+"text": "Domestic retail investor expansion -> mega IPO filings -> Nifty and Sensex rallies",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
 {
 "text": "US inflation -> Treasury yields -> global market sentiment",
 "first_seen": "2026-10-14",
@@ -447,12 +529,6 @@
 },
 {
 "text": "FDI approval -> banking sector consolidation",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-14",
-"count": 1
-},
-{
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-14",
 "count": 1
