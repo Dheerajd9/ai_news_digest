@@ -171,12 +171,13 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 5,
+"count": 6,
 "stories": [
 "india-cpi-inflation",
-"rbi-rupee-defense"
+"rbi-rupee-defense",
+"yes-bank-at1-verdict"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "Ministry of Statistics": {
 "first_seen": "2026-10-12",
@@ -254,16 +255,16 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep"
@@ -280,12 +281,13 @@
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
 "delhi-jantar-mantar-protests",
-"sc-railway-ticket-insurance"
+"sc-railway-ticket-insurance",
+"yes-bank-at1-verdict"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "Surya Kant": {
 "first_seen": "2026-10-12",
@@ -338,7 +340,7 @@
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
-"count": 2,
+"count": 3,
 "stories": [
 "india-us-trade-talks"
 ],
@@ -346,7 +348,7 @@
 },
 "US Bureau of Labor Statistics": {
 "first_seen": "2026-10-14",
-"count": 3,
+"count": 4,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept"
@@ -355,7 +357,7 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 3,
+"count": 4,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept"
@@ -388,7 +390,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 3,
+"count": 4,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks"
@@ -405,7 +407,7 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 2,
+"count": 3,
 "stories": [
 "india-us-trade-talks"
 ],
@@ -413,11 +415,11 @@
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
-"count": 1,
+"count": 2,
 "stories": [
 "openai-state-lawsuits"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-15"
 },
 "Netflix": {
 "first_seen": "2026-10-14",
@@ -437,7 +439,7 @@
 },
 "SEC": {
 "first_seen": "2026-10-15",
-"count": 1,
+"count": 2,
 "stories": [
 "anthropic-ipo-prep"
 ],
@@ -482,6 +484,14 @@
 "jio-platforms-mega-ipo"
 ],
 "last_seen": "2026-10-15"
+},
+"Kotak Mutual Fund": {
+"first_seen": "2026-10-15",
+"count": 1,
+"stories": [
+"yes-bank-at1-verdict"
+],
+"last_seen": "2026-10-15"
 }
 },
 "connections": [
@@ -489,13 +499,13 @@
 "text": "India-US trade deal -> tariff reduction -> export opportunities",
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-15",
-"count": 2
+"count": 3
 },
 {
 "text": "Hot wholesale inflation -> consumer price pressure -> sticky Fed interest rates",
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-15",
-"count": 1
+"count": 2
 },
 {
 "text": "Enterprise AI adoption -> LLM revenue growth -> public market IPO",
@@ -511,6 +521,24 @@
 },
 {
 "text": "Domestic retail investor expansion -> mega IPO filings -> Nifty and Sensex rallies",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
+{
+"text": "State AG scrutiny -> AI safety regulation -> compliance costs for LLM developers",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-15",
+"count": 2
+},
+{
+"text": "Court ruling -> bank capital adjustments -> mutual fund NAV revaluations",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-15",
+"count": 1
+},
+{
+"text": "Slowing AI revenue growth -> tempered public market valuation expectations",
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-15",
 "count": 1
@@ -535,12 +563,6 @@
 },
 {
 "text": "Crude oil spike -> dollar demand -> RBI intervention -> rupee stabilization",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-14",
-"count": 1
-},
-{
-"text": "State AG scrutiny -> AI safety regulation -> compliance costs for LLM developers",
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-14",
 "count": 1

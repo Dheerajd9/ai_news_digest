@@ -438,6 +438,10 @@
    {
     "date": "2026-10-15",
     "text": "Legal text release and operational timeline announcement"
+   },
+   {
+    "date": "2026-10-15",
+    "text": "Official signing and release of text within weeks"
    }
   ],
   "timeline": [
@@ -452,15 +456,19 @@
    {
     "date": "2026-10-15",
     "event": "First tranche finalised; legal drafting underway"
+   },
+   {
+    "date": "2026-10-15",
+    "event": "First tranche finalised; legal text drafting initiated"
    }
   ],
-  "title": "India and US finalise first phase of bilateral trade pact",
+  "title": "India-US trade pact first phase finalised",
   "status": "MAJOR CHANGE",
   "stage": "SIGNED/FINALIZED",
-  "summary": "Commerce Minister Piyush Goyal confirmed the first tranche of the India-US trade deal is finalised and undergoing legal drafting.",
+  "summary": "Commerce Minister Piyush Goyal announced the first phase of the India-US trade agreement is finalised and undergoing formal legal drafting.",
   "open_questions": [
-   "When will the legal drafting conclude and text be signed?",
-   "Which exact tariff lines are modified in phase one?"
+   "When will the formal signing ceremony take place?",
+   "Which specific tariff lines are reduced in phase one?"
   ],
   "last_seen": "2026-10-15"
  },
@@ -524,23 +532,31 @@
    {
     "date": "2026-10-14",
     "text": "Pre-trial motions in early 2027"
+   },
+   {
+    "date": "2026-10-15",
+    "text": "OpenAI formal legal response and preliminary motions in early 2027"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-14",
     "event": "Lawsuits filed across state courts"
+   },
+   {
+    "date": "2026-10-15",
+    "event": "Eight state AGs filed formal state court complaints"
    }
   ],
-  "title": "Eight US states sue OpenAI alleging child safety harms",
-  "status": "NEW",
+  "title": "Eight US states sue OpenAI over minor safety",
+  "status": "DEVELOPING",
   "stage": "COURT CASE",
-  "summary": "A bipartisan group of eight US state attorneys general sued OpenAI, alleging ChatGPT harms minors and fails safety standards.",
+  "summary": "A coalition of eight state attorneys general filed lawsuits against OpenAI alleging deceptive practices and harm to minors.",
   "open_questions": [
    "Will other state attorneys general join the coalition?",
-   "Will OpenAI settle or litigate state consumer-protection claims?"
+   "Will the FTC or federal regulators file coordinated actions?"
   ],
-  "last_seen": "2026-10-14"
+  "last_seen": "2026-10-15"
  },
  "netflix-layoffs-2026": {
   "first_seen": "2026-10-14",
@@ -600,15 +616,19 @@
    {
     "date": "2026-10-15",
     "event": "September PPI reported at 6.3%"
+   },
+   {
+    "date": "2026-10-15",
+    "event": "PPI rose 6.3% annually in September"
    }
   ],
   "title": "US wholesale inflation surges 6.3% in September",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "US Producer Price Index rose 6.3% year-over-year in September, exceeding consensus expectations of 5.5% and exacerbating inflation concerns.",
+  "summary": "US September Producer Price Index climbed 6.3% year-over-year, sparking fears of persistent inflation and higher-for-longer Fed rates.",
   "open_questions": [
-   "Will high wholesale costs force consumer CPI higher in October?",
-   "How will the Federal Reserve adjust its policy rate path?"
+   "Will the Federal Reserve pause rate cuts or debate a rate hike?",
+   "Will surging wholesale energy costs feed directly into October CPI?"
   ],
   "last_seen": "2026-10-15"
  },
@@ -624,15 +644,19 @@
    {
     "date": "2026-10-15",
     "event": "Q3 revenue of $16.8B disclosed"
+   },
+   {
+    "date": "2026-10-15",
+    "event": "Valuation target lowered by investors; METR audit access granted"
    }
   ],
-  "title": "Anthropic discloses $16.8B quarterly revenue ahead of planned IPO",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic reported Q3 revenue expanded nearly 50% to $16.8 billion and generated an adjusted profit as it prepares for an initial public offering.",
+  "title": "Anthropic faces IPO valuation pressure and safety scrutiny",
+  "status": "DEVELOPING",
+  "stage": "DISCUSSION",
+  "summary": "Investors pushed Anthropic to cut its IPO target valuation to $1.5 trillion as the NYC Comptroller urged an IPO delay over safety concerns.",
   "open_questions": [
-   "Will the SEC approve the IPO registration timeline?",
-   "How will the NYC Comptroller's call for a pause affect underwriters?"
+   "Will Anthropic delay filing its public S-1 registration?",
+   "Will underwriters accept the reduced $1.5T valuation target?"
   ],
   "last_seen": "2026-10-15"
  },
@@ -681,6 +705,30 @@
   "open_questions": [
    "What will be the final valuation and price band?",
    "When will the issue open for public subscription?"
+  ],
+  "last_seen": "2026-10-15"
+ },
+ "yes-bank-at1-verdict": {
+  "first_seen": "2026-10-15",
+  "expectations": [
+   {
+    "date": "2026-10-15",
+    "text": "RBI and Yes Bank compliance plan announcement"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-15",
+    "event": "Supreme Court quashed Bombay HC AT-1 write-off"
+   }
+  ],
+  "title": "Supreme Court voids Yes Bank $880M AT-1 bond write-off",
+  "status": "NEW",
+  "stage": "COURT CASE",
+  "summary": "The Supreme Court invalidated Yes Bank's ₹8,400 crore AT-1 bond write-off, criticizing the RBI and triggering subscription halts at mutual funds.",
+  "open_questions": [
+   "How will Yes Bank reconstitute its Tier-1 capital ratios?",
+   "Which mutual funds will mark up or adjust NAVs?"
   ],
   "last_seen": "2026-10-15"
  }

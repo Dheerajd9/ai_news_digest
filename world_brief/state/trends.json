@@ -81,20 +81,23 @@
 "tech layoffs": 20
 },
 "2026-10-15": {
-"AI agents / automation": 7,
-"Canada immigration": 2,
-"Fed & US rates": 1,
-"India-US trade & tariffs": 10,
-"Middle East conflict": 13,
-"Russia-Ukraine": 14,
-"US immigration (H-1B, green card)": 3,
-"cyber attacks & scams": 3,
-"data centers & AI infrastructure": 5,
-"energy & power grids": 1,
-"oil": 12,
+"AI agents / automation": 19,
+"AI models & capability": 1,
+"Canada immigration": 6,
+"Fed & US rates": 7,
+"India manufacturing & PLI": 1,
+"India-US trade & tariffs": 20,
+"Middle East conflict": 23,
+"Russia-Ukraine": 25,
+"US immigration (H-1B, green card)": 8,
+"US-China tension": 3,
+"cyber attacks & scams": 8,
+"data centers & AI infrastructure": 11,
+"energy & power grids": 6,
+"oil": 18,
 "rupee": 7,
-"semiconductors": 13,
+"semiconductors": 20,
 "tech hiring": 1,
-"tech layoffs": 6
+"tech layoffs": 14
 }
 }
