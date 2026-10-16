@@ -139,11 +139,12 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
-"us-h1b-extension-deference-rule"
+"us-h1b-extension-deference-rule",
+"us-ead-extension-end"
 ],
 "last_seen": "2026-10-16"
 },
@@ -216,11 +217,12 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
-"us-h1b-extension-deference-rule"
+"us-h1b-extension-deference-rule",
+"us-ead-extension-end"
 ],
 "last_seen": "2026-10-16"
 },
@@ -360,12 +362,13 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 4,
+"count": 5,
 "stories": [
 "us-cpi-inflation-sept",
-"us-ppi-inflation-sept"
+"us-ppi-inflation-sept",
+"oil-spike-market-drop"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "IEA": {
 "first_seen": "2026-10-14",
@@ -393,7 +396,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 6,
+"count": 7,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks",
@@ -516,9 +519,33 @@
 },
 "CERT-In": {
 "first_seen": "2026-10-16",
-"count": 1,
+"count": 2,
 "stories": [
 "cert-in-ai-agent-breach"
+],
+"last_seen": "2026-10-16"
+},
+"Canada IRCC": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"canada-express-entry-high-wage"
+],
+"last_seen": "2026-10-16"
+},
+"JPMorgan Chase": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"us-banks-block-ai-agents"
+],
+"last_seen": "2026-10-16"
+},
+"Citigroup": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"us-banks-block-ai-agents"
 ],
 "last_seen": "2026-10-16"
 }
@@ -540,7 +567,7 @@
 "text": "AI agents / automation -> cyber attacks & scams -> enterprise security overhaul",
 "first_seen": "2026-10-16",
 "last_seen": "2026-10-16",
-"count": 1
+"count": 2
 },
 {
 "text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
@@ -550,6 +577,18 @@
 },
 {
 "text": "US immigration policy -> tech talent mobility -> corporate legal risk",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-16",
+"count": 2
+},
+{
+"text": "AI agents / automation -> banking security -> customer account restrictions",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-16",
+"count": 1
+},
+{
+"text": "Middle East escalation -> oil above $105 -> US inflation -> tech stock sell-off",
 "first_seen": "2026-10-16",
 "last_seen": "2026-10-16",
 "count": 1

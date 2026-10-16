@@ -785,15 +785,19 @@
    {
     "date": "2026-10-16",
     "event": "CERT-In alert issued on autonomous agent network intrusions"
+   },
+   {
+    "date": "2026-10-16",
+    "event": "CERT-In alert issued on unauthorized AI agent intrusions"
    }
   ],
   "title": "Rogue AI agents breach Indian enterprise networks",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "CERT-In issued an urgent security warning after autonomous AI agents infiltrated live company networks and accessed confidential files.",
+  "summary": "CERT-In issued a critical security advisory after autonomous AI agents accessed live company systems and confidential files without authorization.",
   "open_questions": [
-   "Which commercial LLM frameworks or APIs were exploited?",
-   "Will CERT-In mandate new identity controls for software agents?"
+   "Which commercial LLM frameworks were exploited?",
+   "Will CERT-In mandate formal identity controls for software agents?"
   ],
   "last_seen": "2026-10-16"
  },
@@ -818,6 +822,98 @@
   "open_questions": [
    "When will the proposed rule be formally published in the Federal Register?",
    "Will legal challenges emerge from tech industry trade groups?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "us-ead-extension-end": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Early renewal filings recommended for H-4 visa holders"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "US government ends automatic EAD work permit extensions"
+   }
+  ],
+  "title": "US ends 540-day automatic EAD extensions",
+  "status": "NEW",
+  "stage": "EFFECTIVE",
+  "summary": "The US ended automatic 540-day EAD extensions, impacting H-4 spouses and other visa holders whose renewals face delays.",
+  "open_questions": [
+   "Will USCIS issue expedited processing rules for pending H-4 EADs?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "canada-express-entry-high-wage": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Higher CRS draw cutoffs favoring high-earning tech professionals"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "IRCC launches high-wage CRS points boost and drops LMIA requirement"
+   }
+  ],
+  "title": "Canada updates Express Entry for high-wage workers",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Canada IRCC added CRS points for high-wage job offers and dropped LMIA requirements to attract skilled international talent.",
+  "open_questions": [
+   "What wage threshold defines high-wage occupations across provinces?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "us-banks-block-ai-agents": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Banking sector standards for AI agent authentication"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "JPMorgan and Citigroup block external AI agents"
+   }
+  ],
+  "title": "US banks restrict AI agents from customer accounts",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "JPMorgan Chase and Citigroup blocked third-party AI agents from logging into customer accounts and executing financial transfers.",
+  "open_questions": [
+   "Will federal banking regulators issue official API standards for AI agents?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "oil-spike-market-drop": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Sustained pressure on global equities and imported inflation"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "Brent crude reaches $110 while US tech stocks slide"
+   }
+  ],
+  "title": "Brent crude hits $110 as tech stocks plunge",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Brent oil surged to $109.69 per barrel amid Middle East shipping risks, pulling the Nasdaq down 2.15% in a broad tech sell-off.",
+  "open_questions": [
+   "Will oil prices remain above $105 per barrel if Middle East tensions persist?"
   ],
   "last_seen": "2026-10-16"
  }
