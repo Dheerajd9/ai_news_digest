@@ -10,7 +10,7 @@ The feed is marked <itunes:block>, so it never appears in podcast directories;
 only someone with the URL can subscribe.
 
 Needs (skips quietly if missing):
-  PODCAST_REPO   e.g. Dheerajd9/world-brief-podcast   (repo variable)
+  PODCAST_REPO   e.g. Daily-World-Brief/world-brief-podcast   (repo variable)
   PODCAST_TOKEN  fine-grained token, that repo only, Contents: Read and write  (secret)
 """
 

@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 
@@ -37,7 +37,7 @@ Built for reading on a phone without missing anything (`email_style.py`):
 
 ## The web player
 
-Every ▶️ Play link opens `https://dheerajd9.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
+Every ▶️ Play link opens `https://daily-world-brief.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
 
 - Language tabs for the same edition (English Full / Quick · Telugu · Hindi); switching keeps your current chapter
 - Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA (+ Canada) · 🌍 World · 🤖 Tech & future · 💰 Money · ✅ Wrap-up
@@ -53,9 +53,9 @@ Each language has its own feed; add it once ("Follow a show by URL" / "Add by UR
 
 | Language | Feed URL |
 |---|---|
-| 🔵 English | `https://dheerajd9.github.io/world-brief-podcast/feed.xml` |
-| 🟠 Telugu | `https://dheerajd9.github.io/world-brief-podcast/feed-te.xml` |
-| 🟢 Hindi | `https://dheerajd9.github.io/world-brief-podcast/feed-hi.xml` |
+| 🔵 English | `https://daily-world-brief.github.io/world-brief-podcast/feed.xml` |
+| 🟠 Telugu | `https://daily-world-brief.github.io/world-brief-podcast/feed-te.xml` |
+| 🟢 Hindi | `https://daily-world-brief.github.io/world-brief-podcast/feed-hi.xml` |
 
 Feeds list the last 10 days (audio older than that is removed from the site). They are hidden from podcast directories; only people with the URL can follow.
 
@@ -142,7 +142,7 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 |---|---|---|
 | `GEMINI_API_KEY` | yes | main AI + voices (aistudio.google.com/apikey) |
 | `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `TO_EMAIL` | yes | sending email |
-| `PODCAST_TOKEN` (secret), `PODCAST_REPO` (variable) | yes | uploading audio to `Dheerajd9/world-brief-podcast` (fine-grained token, Contents read/write, that repo only; renew yearly) |
+| `PODCAST_TOKEN` (secret), `PODCAST_REPO` (variable) | yes | uploading audio to `Daily-World-Brief/world-brief-podcast` (fine-grained token, Contents read/write, that repo only; renew yearly) |
 | `OPENROUTER_API_KEY` | recommended | free backup writer |
 | `MISTRAL_API_KEY` | optional | free backup writer |
 | `GOOGLE_TTS_API_KEY` | optional | natural backup voices (Google asks for a card; skipped) |
