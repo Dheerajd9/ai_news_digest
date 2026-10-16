@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (new email look: story cards, colour sections, play buttons, market strip, Top 5 in Telugu + Hindi, headline subject; Hyderabad & Telangana section; every world region; 'More headlines' up to 100; no fixed podcast time limit; same full episode in all languages; free cron-job.org timer)._
+_Last updated: 16 Oct 2026 (new email look: story cards, colour sections, play buttons, market strip, headline subject; Hyderabad & Telangana section; every world region; 'More headlines' up to 100; no fixed podcast time limit; same full episode in all languages; free cron-job.org timer)._
 
 ## What you get, and when (Dallas time)
 
@@ -26,7 +26,7 @@ One email per edition goes to everyone (BCC). Each email has a 🎧 **Listen** b
 Built for reading on a phone without missing anything (`email_style.py`):
 
 - **Subject** shows the top 3 stories, e.g. `🌏 World Brief · Fri 16 Oct: RBI cuts rate · Gold hits record… 🎧`
-- **Top 5** in a highlighted box, then the same top stories **in Telugu and in Hindi** (one small AI call; skipped if it fails)
+- **Top 5** in a highlighted box (the email text is English only; Telugu and Hindi are in the podcasts)
 - **Big coloured ▶️ buttons** for every podcast (🔵 English, 🟠 Telugu, 🟢 Hindi) with length and hosts
 - **📈 Markets now**: one line with Nifty, Sensex, S&P 500, Dow, $→₹, gold (10 g), silver, Brent, Bitcoin, green ▲ / red ▼ (full table further down)
 - Every story is a **card**; each section has its **own colour** and a **read time**; sources are small grey chips

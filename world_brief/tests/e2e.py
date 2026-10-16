@@ -209,8 +209,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
-    check("తెలుగులో ముఖ్యాంశాలు" in md and "हिंदी में मुख्य खबरें" in md,
-          f"{edition}: Top stories also in Telugu + Hindi", errors)
+    check("తెలుగులో ముఖ్యాంశాలు" not in md and "हिंदी में मुख्य खबरें" not in md,
+          f"{edition}: email text is English only", errors)
     check("Markets now:** " in md and "Nifty 50 23,146 ▲0.65%" in md and "Gold 10g ₹1,46,430" in md,
           f"{edition}: one-line market strip", errors)
     check("India story one" in emails[0]["subject"], f"{edition}: subject shows the top stories "

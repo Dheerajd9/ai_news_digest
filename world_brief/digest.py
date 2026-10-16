@@ -1221,36 +1221,6 @@ def episode_notes(brief: str, meta: dict) -> str:
     return re.sub(r"\s*\[S\d+\]", "", notes)[:1500]
 
 
-def local_headlines(md: str) -> str:
-    """The Top 5 in Telugu and Hindi (spoken style, simple English for numbers and hard
-    words), so parents get the gist at a glance. One small AI call; empty if it fails."""
-    import languages
-    heads = [h for h in languages.headlines(md, 5) if h]
-    if not heads:
-        return ""
-    system = ("LOCAL_HEADLINES task. Translate each English news headline into (a) Telugu as people "
-              "in Hyderabad speak (Telangana style, Telugu script) and (b) everyday Hindi (Devanagari). "
-              "Keep numbers, money amounts, dates and hard words (AI, GDP, tariff, inflation, visa) in "
-              "simple English words written in that script. Keep every fact; one short line each. "
-              "Output exactly these lines and nothing else:\nTE1: ...\nTE2: ...\n(one per headline)"
-              "\nHI1: ...\nHI2: ...")
-    tag = r"^[^A-Za-z0-9₹$]*(NEW|UPDATE|PROPOSED|CONFIRMED|DEVELOPING)?\s*[—–-]\s*"
-    user = "\n".join(f"{i}. " + re.sub(tag, "", h) for i, h in enumerate(heads, 1))
-    try:
-        out = ask(system, user, prefer="gemini") or ""
-    except Exception:
-        return ""
-    te = [l.split(":", 1)[1].strip() for l in out.splitlines() if re.match(r"\s*TE\d+\s*:", l)]
-    hi = [l.split(":", 1)[1].strip() for l in out.splitlines() if re.match(r"\s*HI\d+\s*:", l)]
-    te, hi = [x for x in te if x][:len(heads)], [x for x in hi if x][:len(heads)]
-    block = ""
-    if len(te) >= max(1, len(heads) - 1):
-        block += "## 🟠 తెలుగులో ముఖ్యాంశాలు\n\n" + "\n".join(f"- {x}" for x in te) + "\n\n"
-    if len(hi) >= max(1, len(heads) - 1):
-        block += "## 🟢 हिंदी में मुख्य खबरें\n\n" + "\n".join(f"- {x}" for x in hi) + "\n"
-    return block
-
-
 def insert_box(md: str, box: str) -> str:
     """Put the market snapshot where the AI left {{MARKET_SNAPSHOT}}, else after the summary."""
     if "{{MARKET_SNAPSHOT}}" in md:
@@ -1556,7 +1526,6 @@ def main() -> None:
     elif listen:
         final = insert_box(final, listen)
     import email_style
-    final = email_style.insert_after(final, "Top 5|Top stories", local_headlines(final))
     strip = email_style.market_strip(box)
     final = (email_style.insert_after(final, "Listen", strip) if "## 🎧" in final
              else email_style.insert_after(final, "Top 5|Top stories", strip))
