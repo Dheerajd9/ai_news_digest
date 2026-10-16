@@ -512,8 +512,13 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                  length: str = "About 1,500 to 2,300 words (10 to 15 minutes spoken).",
                  show: str = "The Morning Brief", lang: str = "en",
                  prompt_file: str | None = None, out_name: str | None = None,
-                 report_type: str = "MORNING", previous_script: str = "") -> Path | None:
+                 report_type: str = "MORNING", previous_script: str = "",
+                 base_script: str = "") -> Path | None:
+    """base_script: today's finished English script (with CHAPTER lines). When given for
+    Telugu/Hindi, the episode is that same English episode spoken in the other language, so
+    every language carries exactly the same news; if that fails, it is written from the brief."""
     profile = PROFILES[lang]
+    tag = (out_name or profile["file"]).rsplit(".", 1)[0]
     system = ((ROOT / "prompts" / (prompt_file or profile["prompt"])).read_text()
               .replace("{LENGTH}", length).replace("{SHOW}", show)
               + (ROOT / "prompts" / "intelligence_layer_short.md").read_text()
@@ -530,11 +535,33 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
     user += f"\nBRIEF:\n{clean_brief_for_script(brief_md)}"
     if previous_script:
         user += f"\n\nPREVIOUS_PODCAST (what the listener already heard):\n{previous_script}"
-    script = llm(system, user)
+    count = lambda s: sum(len(x.split()) for _, x in parse_script(s or "", profile["hosts"]))
+    script, translated = None, False
+    if base_script and lang != "en":
+        en_words = sum(len(x.split()) for _, x in parse_script(base_script, PROFILES["en"]["hosts"]))
+        a, b = profile["hosts"]
+        en_a, en_b = PROFILES["en"]["hosts"]
+        t_system = (system + (ROOT / "prompts" / "translate_mode.md").read_text()
+                    .replace("{EN_A}", en_a).replace("{EN_B}", en_b).replace("{A}", a).replace("{B}", b))
+        t_user = (f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n"
+                  + (f"WEATHER (local days): {wx}\n" if wx else "")
+                  + f"\nENGLISH_SCRIPT:\n{base_script}")
+        for attempt in (1, 2):
+            out = llm(t_system, t_user if attempt == 1 else t_user + (
+                f"\n\nIMPORTANT: your previous version had only {count(out)} words for a "
+                f"{en_words}-word English script, so lines were dropped. Give EVERY line."))
+            if out and en_words and count(out) >= 0.55 * en_words and len(parse_script(out, profile["hosts"])) >= 6:
+                script, translated = out, True
+                print(f"  {lang}: same episode as English ({en_words} English words -> {count(out)})")
+                break
+        if not translated:
+            print(f"  ! {lang}: could not convert the English script; writing from the brief instead")
+    if not translated:
+        script = llm(system, user)
     # Length guard: weaker/backup models often write far too short. Ask once more.
     nums = [int(n.replace(",", "")) for n in re.findall(r"\d[\d,]{2,}", length)]
-    target = nums[0] if nums and "at most" not in length.lower() else 0
-    got = sum(len(t.split()) for _, t in parse_script(script or "", profile["hosts"]))
+    target = nums[0] if nums and "at most" not in length.lower() and not translated else 0
+    got = count(script)
     if script and target and got < 0.7 * target:
         print(f"  script too short ({got} words, want {target}+); asking for the full version")
         longer = llm(system, user + f"\n\nIMPORTANT: your previous draft had only {got} words. "
@@ -554,19 +581,21 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
                            f"the brief that the draft skipped. Same rules and format.\n\nDRAFT:\n{script}")
             if sum(len(t.split()) for _, t in parse_script(expanded or "", profile["hosts"])) > got:
                 script = expanded
-    if script and os.getenv("PODCAST_REVIEW", "1") == "1":
+    if script and not translated and os.getenv("PODCAST_REVIEW", "1") == "1":
         got = sum(len(t.split()) for _, t in parse_script(script, profile["hosts"]))
         # The editor pass must not cut a script that is already at or under the target length.
         script = review_script(script, llm, length, profile["hosts"],
                                min_ratio=0.95 if target and got < target * 1.1 else 0.85)
     turns = parse_script(script or "", profile["hosts"])
     chapters = parse_chapters(script or "", profile["hosts"])
+    if script:                             # with CHAPTER lines: Telugu/Hindi are made from this
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / f"rawscript_{tag}.txt").write_text(script)
     if len(turns) < 6:
         print(f"  ! {lang} podcast script too short or missing; skipping audio")
         return None
     print(f"  {lang} podcast script: {len(turns)} turns, {sum(len(t.split()) for _, t in turns)} words")
 
-    tag = (out_name or profile["file"]).rsplit(".", 1)[0]
     work = out_dir / f"parts_{tag}"
     shutil.rmtree(work, ignore_errors=True)
     work.mkdir(parents=True)

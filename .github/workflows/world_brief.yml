@@ -15,16 +15,18 @@ name: World Brief + Podcast
 
 on:
   schedule:
-    - cron: "37 12-17 * * *"   # morning (+ Sunday weekly) slots: CDT 7:37-12:37 / CST 6:37-11:37
-    - cron: "37 18,19 * * 0"   # extra Sunday slots for the weekly report
-    - cron: "7 23 * * *"       # evening: CDT 6:07 PM
-    - cron: "7 0-2 * * *"      # evening backups: CDT 7-9 PM / CST 6-8 PM
+    # GitHub runs these late or drops many of them, so there are many slots; the free
+    # cron-job.org timer (see world_brief/README.md) calls "due" on time every day.
+    - cron: "7,37 12-17 * * *" # morning (+ Sunday weekly) slots: CDT 7:07-12:37 / CST 6:07-11:37
+    - cron: "7,37 18,19 * * 0" # extra Sunday slots for the weekly report
+    - cron: "7,37 23 * * *"    # evening: CDT 6:07 PM
+    - cron: "7,37 0-2 * * *"   # evening backups: CDT 7-9 PM / CST 6-8 PM
   workflow_dispatch:
     inputs:
       edition:
         description: "Send this edition now (normally not needed: everything is automatic)"
         type: choice
-        options: [auto, morning, evening, weekly]
+        options: [auto, due, morning, evening, weekly]   # due = only what is due now (used by the free timer)
         default: auto
   push:                        # code changes: quick test run, no AI, no email
     branches: [main]
@@ -69,6 +71,7 @@ jobs:
             workflow_dispatch)
               case "$INPUT_EDITION" in
                 morning|evening|weekly) ED="$INPUT_EDITION" ;;
+                due) ED=$(due) ;;
                 *) ED=$(due); [ "$ED" = skip ] && ED=morning ;;
               esac ;;
             *) ED=$(due) ;;
@@ -93,6 +96,7 @@ jobs:
         if: steps.ed.outputs.edition != 'skip'
         env:
           EDITION: ${{ steps.ed.outputs.edition }}
+          WB_SCHEDULED: ${{ (github.event_name == 'schedule' || inputs.edition == 'due') && '1' || '0' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}

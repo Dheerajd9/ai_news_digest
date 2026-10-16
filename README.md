@@ -1,6 +1,6 @@
 # Dji's automations
 
-This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 13 Oct 2026._
+This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 16 Oct 2026 (no Claude scheduled tasks: free cron-job.org timer instead)._
 
 | Job | What | Where |
 |---|---|---|
@@ -73,7 +73,7 @@ mark it "Not spam").
 Morning edition from about **7:07 AM** and evening from about **6:07 PM** Dallas time. GitHub's
 timer is unreliable, so there are backup slots every hour (morning until 1:59 PM, evening
 until 9:59 PM); `digest.py` sends an edition only once per day (`digest_done.json`). The
-World Brief scheduled tasks (7:50 AM, 6:20 PM, plus safety checks) also nudge this digest.
+The free cron-job.org timer (see `world_brief/README.md`, "On-time timer") also calls it with `due=true` so it arrives on time.
 To send now, push `digest_run_request.txt` with `[send digest]` in the commit message.
 
 ## Memory (sent.json)

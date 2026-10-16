@@ -29,7 +29,7 @@ import digest, markets, podcast, podfeed, languages, weather
 weather.fetch = lambda lat, lon: {"current": {"temperature_2m": 28.4, "weather_code": 61},
     "daily": {"temperature_2m_max": [31, 32], "temperature_2m_min": [22, 23],
               "precipitation_probability_max": [60, 40], "weather_code": [63, 2]}}
-STYLE = {"wx": 0, "style": 0}
+STYLE = {"wx": 0, "style": 0, "tr": 0}
 
 EDITION = os.environ["EDITION"]
 digest.on_this_day = lambda today: [{"year": 1947, "text": "Test history event"}]
@@ -91,6 +91,9 @@ VERIFICATION_WARNINGS: NONE
 CALLS = []
 def fake_gemini(system, user):
     CALLS.append(system[:80])
+    if ("TRANSLATION MODE" in system and "ENGLISH_SCRIPT:" in user and "KARTIK:" in user
+            and "CHAPTER:" in user):
+        STYLE["tr"] += 1
     if "EXPLAINING STYLE" in system:
         STYLE["style"] += 1
         STYLE["wx"] += "WEATHER (local days): Hyderabad: now 28°C, light rain; today 22–31°C, rain, rain chance 60%" in user
@@ -136,7 +139,9 @@ podfeed.publish_language_episode = lambda lang, mp3, name, title, desc: FEEDS_PU
 TG = []
 class _R:
     status_code = 200
-digest.requests.post = lambda url, **kw: (TG.append(url.rsplit("/", 1)[-1]), _R())[1]
+TG_TEXT = []
+digest.requests.post = lambda url, **kw: (TG.append(url.rsplit("/", 1)[-1]),
+                                          TG_TEXT.append((kw.get("json") or {}).get("text", "")), _R())[2]
 os.environ["TELEGRAM_BOT_TOKEN"] = "123:abc"
 os.environ["TELEGRAM_CHANNEL_ID"] = "@family"
 os.environ.pop("TELEGRAM_CHAT_ID", None)
@@ -155,7 +160,7 @@ languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
 Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
-                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE}))
+                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT)}))
 '''
 
 
@@ -212,6 +217,11 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     tg = res.get("telegram", [])
     check(tg.count("sendMessage") == 1 and tg.count("sendAudio") >= 3,
           f"{edition}: Telegram family channel gets the message + every podcast ({tg.count('sendAudio')} audios)", errors)
+    check(st.get("tr") == 2, f"{edition}: Telugu + Hindi made from the same English episode "
+          f"(same stories and details; {st.get('tr')} conversions)", errors)
+    tgt = res.get("tg_text", "")
+    check(tgt.count('▶️ <a href="https://') >= 3 and ">https://" not in tgt,
+          f"{edition}: Telegram shows named play links (no bare URLs)", errors)
     check(len(res.get("synced", [])) >= 3, f"{edition}: audio copied to the player site "
                                             f"({len(res.get('synced', []))} files)", errors)
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,

@@ -54,7 +54,8 @@ def wanted(edition: str) -> list[str]:
 
 
 def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
-                  report_type: str, langs: list[str], dry: bool) -> list[dict]:
+                  report_type: str, langs: list[str], dry: bool,
+                  base_script: str = "") -> list[dict]:
     """Build (and upload) one podcast per language. Never raises."""
     from podcast import make_podcast, latest_previous_script
     news = digest.strip_links(final_md.replace("{{LISTEN}}", ""))
@@ -72,7 +73,8 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
                                    show=info["show"], lang=code,
                                    report_type=report_type,
                                    out_name=f"{info['name']}_podcast.mp3",
-                                   previous_script=latest_previous_script(info["archive"], "podcast", 3000))
+                                   previous_script=latest_previous_script(info["archive"], "podcast", 3000),
+                                   base_script=base_script)
             except Exception as exc:
                 print(f"  ! {info['name']} podcast failed: {type(exc).__name__}: "
                       f"{_redact(str(exc))[:200]}", file=sys.stderr)

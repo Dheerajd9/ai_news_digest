@@ -9,6 +9,10 @@ on:
     - cron: "7 23 * * *"      # evening: CDT 6:07 PM
     - cron: "7 0-2 * * *"     # evening backups: CDT 7-9 PM / CST 6-8 PM
   workflow_dispatch:        # lets you click "Run workflow" to test anytime
+    inputs:
+      due:                  # the free cron-job.org timer sends due=true: only what's due and unsent
+        type: boolean
+        default: false
   push:                     # code changes trigger a test run that does NOT send email
     branches: [main]
     paths: ["digest.py", "portfolio_analytics.py", "requirements.txt", ".github/workflows/digest.yml",
@@ -61,7 +65,7 @@ jobs:
           SCHEDULE: ${{ github.event.schedule }}
           REPO_PRIVATE: ${{ github.event.repository.private }}
           EVENT_NAME: ${{ github.event_name }}
-          RUN_REQUEST: ${{ contains(github.event.head_commit.message, '[send digest]') }}
+          RUN_REQUEST: ${{ contains(github.event.head_commit.message, '[send digest]') || format('{0}', inputs.due) == 'true' }}
         run: |
           if [ "$EVENT_NAME" = "push" ] && [ "$RUN_REQUEST" != "true" ]; then
             python digest.py --dry-run

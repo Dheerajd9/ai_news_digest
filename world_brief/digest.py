@@ -1111,16 +1111,25 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
     if not (token and chat and eps):
         return
     import languages
+    import html as _html
     heads = languages.headlines(md, 5)
-    first = next((play_link(e["url"]) for e in eps if e.get("url")), "")
-    text = (f"🌏 {title}\n\n" + "\n".join(f"• {h}" for h in heads)
-            + ("\n\n🎧 Player: " + first if first else "")
-            + "\n\n👇 Tap a podcast below to listen")
+    # Named links ("▶️ English Full"), not bare URLs: the address stays hidden behind the text.
+    links = []
+    for e in eps:
+        if not e.get("url"):
+            continue
+        name = e["label"] if e.get("hosts") else f"🔵 English {e['label']}"
+        links.append(f'▶️ <a href="{_html.escape(play_link(e["url"]), quote=True)}">'
+                     f'{_html.escape(name)}</a>')
+    text = (f"🌏 <b>{_html.escape(title)}</b>\n\n"
+            + "\n".join(f"• {_html.escape(h)}" for h in heads)
+            + ("\n\n🎧 <b>Listen in the player</b>\n" + "\n".join(links) if links else "")
+            + "\n\n👇 Or tap a podcast below to play it right here")
     api = f"https://api.telegram.org/bot{token}"
     sent = 0
     try:
         r = requests.post(f"{api}/sendMessage", json={"chat_id": chat, "text": text[:4000],
-                          "disable_web_page_preview": True}, timeout=30)
+                          "parse_mode": "HTML", "disable_web_page_preview": True}, timeout=30)
         if r.status_code != 200:
             print(f"  ! Telegram channel: HTTP {r.status_code} (is the bot an admin of the channel?)")
             return
@@ -1154,22 +1163,25 @@ EDITIONS = {
                     (*QUICK, "⚡ Quick", "The Morning Brief: Quick",
                      "At most about 1,000 words (5 to 7 minutes MAXIMUM). A 4-minute episode is completely fine."),
                     (*FULL, "📻 Full", "The Morning Brief: Full",
-                     "About 1,500 to 2,300 words (10 to 15 minutes): shorter on a quiet day, "
-                     "longer on a big news day."),
+                     "About 1,900 to 2,600 words (15 to 20 minutes spoken): the full news with all "
+                     "the details, every story in the brief that matters, real explanation for each. "
+                     "Shorter only on a genuinely quiet news day. Do not stop early."),
                 ]},
     "evening": {"title": "Evening Update", "prompt": "evening_prompt.md", "lookback": 12,
                 "memory_days": 1, "memory_chars": 9000, "fact_check": True,
                 "file_suffix": "-evening", "top5_intro": "",
                 "podcasts": [
                     (*QUICK, "⚡ Quick", "The Evening Update",
-                     "At most about 600 words (3 to 4 minutes MAXIMUM). Shorter if little changed."),
+                     "About 500 to 900 words (4 to 7 minutes spoken): everything that changed since "
+                     "the morning, with the details, biggest change first. Shorter only if little changed."),
                 ]},
     "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
                "memory_days": 7, "memory_chars": 120000, "fact_check": False,
                "file_suffix": "-weekly", "top5_intro": "",
                "podcasts": [
                    (*FULL, "📻 Weekly", "The Weekly Deep Dive",
-                    "At most about 2,300 words (12 to 15 minutes MAXIMUM). Shorter is fine."),
+                    "About 1,900 to 2,600 words (15 to 20 minutes spoken): the week's big patterns "
+                    "with all the details. Do not stop early."),
                ]},
 }
 GENERIC_TOPICS = {"update", "updates", "latest", "news", "breaking", "story", "new", "previously"}
@@ -1403,7 +1415,7 @@ def main() -> None:
             return
         brief = None if no_llm else write_brief(system, items, history, date_str,
                                                 markets_plain, memory, ledger, system_core)
-        if (not brief and not no_llm and os.getenv("GITHUB_EVENT_NAME") == "schedule"
+        if (not brief and not no_llm and (os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1")
                 and os.getenv("DRY_RUN") != "1"):
             # Every AI was down or out of quota. Don't send a headlines-only email yet: fail
             # this slot (no done marker) so the next backup slot tries again. Second failure
@@ -1442,6 +1454,8 @@ def main() -> None:
         from podcast import make_podcast, latest_previous_script
         import podfeed
         source_text = strip_links(final.replace("{{LISTEN}}", ""))
+        for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
+            old_raw.unlink()
         for prompt_file, kind, label, show, length in cfg["podcasts"]:
             try:
                 mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
@@ -1476,8 +1490,15 @@ def main() -> None:
     import languages
     langs = languages.wanted(edition) if ((items or edition == "weekly") and not no_llm and wants_podcast
                                           and os.getenv("PODCAST", "1") == "1") else []
+    # Telugu and Hindi = the same English episode in that language (same stories, same details).
+    base_script = ""
+    for kind in ("full", "quick") if edition == "evening" else ("full",):
+        raw = ROOT / "out" / f"rawscript_world_brief_{kind}.txt"
+        if raw.exists():
+            base_script = raw.read_text()
+            break
     lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
-                                       langs, dry) if langs else []
+                                       langs, dry, base_script=base_script) if langs else []
 
     # Copy every uploaded episode onto the player site (real audio type: plays on iPhone).
     uploaded = [(Path(e["file"]), e["url"].rsplit("/", 1)[-1]) for e in episodes + lang_eps

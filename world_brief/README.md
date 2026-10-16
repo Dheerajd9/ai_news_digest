@@ -2,16 +2,18 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 14 Oct 2026 (short-script fix: expand pass + editor can't cut; podcasts explain better: listener-question host, money in family terms, "remember…" bridges, chapter recaps, good-news ending, Hyderabad + Dallas weather; 📰 More headlines so no story is missed; Telugu/Hindi now mix simple English for numbers and hard words; new topics: AI & robotics first, Canada, future tech, truth check, daily lesson, future signal)._
+_Last updated: 16 Oct 2026 (Telugu + Hindi are now the same full episode as English; English Full 15–20 min; Telegram shows named links; Claude scheduled tasks removed, free cron-job.org timer instead)._
 
 ## What you get, and when (Dallas time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:50 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English ⚡ Quick (5–7 min) + 📻 Full (10–15 min), 🟠 Telugu (15–20 min), 🟢 Hindi (15–20 min) |
-| **Evening, ~6:20 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–7 min) |
+| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–20 min) + ⚡ Quick (5–7 min, short version), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
+| **Evening, ~6:10 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–7 min, the same episode in all three) |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
+
+**Same news in every language**: the English Full episode is written first (evening: the evening episode); Telugu and Hindi are that same episode spoken in Telugu / Hindi (same stories, order, numbers and details, same chapters; `prompts/translate_mode.md`). Only if that conversion fails is the language episode written straight from the brief, so audio still goes out.
 
 **How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things plus a one-line Hyderabad and Dallas weather (free Open-Meteo, no key; `WEATHER_PLACES` to change cities, `WEATHER=0` to switch off); short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
 
@@ -45,7 +47,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts a short headline message plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
+Each edition posts a short headline message with named play links ("▶️ 🔵 English 📻 Full", "▶️ 🟠 తెలుగు (Telugu)" …, the web address stays hidden behind the name) plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
 
 ## How it works
 
@@ -70,11 +72,25 @@ If a script comes back far too short, the system asks once more for the full-len
 
 ## Never misses an edition
 
-- **Several triggers**: GitHub's own timer (backup slots about hourly) **plus** scheduled tasks at 7:50 AM and 6:20 PM, and safety checks at 10:25 AM and 8:25 PM that send the edition only if it has not gone out yet.
+- **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning and evening windows; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
 - **Sent once**: `state/done/<date>-<edition>` markers stop duplicates.
 - **AI down?** A scheduled run retries in the next slot instead of sending a headlines-only email.
 - **Failures email you**: "⚠️ run failed — retrying automatically" or "⚠️ code test failed".
 - **Podcast key reminder**: an email 14 days before `PODCAST_TOKEN` expires (or as soon as it stops working).
+
+## On-time timer (free, 5 minutes, recommended)
+
+GitHub's own timer often starts runs hours late (a morning run at noon) or skips them. cron-job.org (free, no card) can press "run" on time every day:
+
+1. **GitHub token** (only allowed to start workflows): github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name `news timer`, expiration 1 year, Repository access **Only select repositories → ai_news_digest**, Permissions → Repository → **Actions: Read and write** (nothing else). Generate and copy it.
+2. **cron-job.org** → sign up (free) → **Create cronjob**:
+   - Title `World Brief`, URL `https://api.github.com/repos/Dheerajd9/ai_news_digest/actions/workflows/world_brief.yml/dispatches`
+   - Schedule: **Custom**, minute `10`, hours `7,8,9,10,18,19,20`, every day, time zone **America/Chicago**
+   - Advanced: Request method **POST**; Headers `Accept: application/vnd.github+json`, `Authorization: Bearer <your token>`, `X-GitHub-Api-Version: 2022-11-28`; Request body `{"ref":"main","inputs":{"edition":"due"}}`
+   - Save. "Test run" should show HTTP **204** (= started).
+3. Same again for the AI News Digest: title `AI Digest`, URL `…/actions/workflows/digest.yml/dispatches`, same schedule and headers, body `{"ref":"main","inputs":{"due":"true"}}`.
+
+`due` means "send only what is due now and not sent yet", so extra calls are harmless (they stop in seconds). Renew the token yearly (cron-job.org emails you if calls start failing).
 
 ## Automatic test before every change
 
