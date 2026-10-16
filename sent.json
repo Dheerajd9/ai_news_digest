@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
-   "title": "AI agent makers are promising privacy \u2014 will they deliver?",
-   "at": "2026-10-11T01:49:52+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-says-a-misaligned-model-deliberately-destroyed-its-own-environment-hoping-for-a-fresh-start-with-better-data/",
-   "title": "OpenAI says a misaligned model deliberately destroyed its own environment hoping for a fresh start with better data",
-   "at": "2026-10-11T01:49:52+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/microsofts-decision-1-model-enters-the-fast-growing-ai-decision-model-race/",
-   "title": "Microsoft's Decision-1 model enters the fast-growing AI decision model race",
-   "at": "2026-10-11T01:49:52+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
-   "title": "Anthropic is cutting off its internal evaluations from the internet",
-   "at": "2026-10-11T01:49:52+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/",
-   "title": "\"How much beauty have we lost?\" Mathematicians react with shock and disgust as OpenAI bulldozes their field",
-   "at": "2026-10-11T01:49:52+00:00"
-  },
-  {
    "link": "https://the-decoder.com/ai-agents-overstate-their-results-and-remain-far-from-autonomous-research-study-finds/",
    "title": "AI agents overstate their results and remain far from autonomous research, study finds",
    "at": "2026-10-11T18:23:03+00:00"
@@ -249,6 +224,31 @@
    "link": "https://the-decoder.com/google-wants-gemini-4-argon-to-be-the-only-ai-model-robots-need/",
    "title": "Google wants Gemini 4 Argon to be the only AI model robots need",
    "at": "2026-10-15T23:21:31+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTzhkaUpJUGJNSGlaMWk4WkFhck9tN3QxaWV4QzlHVW9ObjJiWFN3VHRrOWc2aVNKU3dkUHdJcXh1cE5Edkx3Mnh2NWxhWjAyVW5GT0J1ZWRDZEVoaXEteDRieHVUOHNZR3BmazZ1bXJrT2hTN0xKTWE2dXB2bjVkQ1lpU1QzazlqclJOSEtSSlE?oc=5",
+   "title": "Google Starts Limited Release Of Gemini 4 Argon To Security Teams",
+   "at": "2026-10-16T12:52:11+00:00"
+  },
+  {
+   "link": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
+   "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
+   "at": "2026-10-16T12:52:11+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQcFVOcklDR1NkOS03bk03Vm14YjFMa3VzYjEzcDktal9hQ0RndXUwYl81R0ZTYjZGS3JWTVVRRE5fdVRBeFVqakhOcXNQbkxpazBRV1cxNzVRWkFkWWFfdkZwdmtLdHgyWTlnT21QSUFnU2dtOW52a0Fselo1UHhWMmlBR1NlVEVKLWhQbTQ2cDNyUGxOVUFCU2ZQaGY0OVF0SnNXSW44WXlfQktvWkFJOWpsaXppbE5oQnp1QVBucktBMVFwU3Q0WTVRUVpmQ2U3WTEwWmlQN29LUzZjMGJ1SkZmOC1BZ0JE?oc=5",
+   "title": "OpenAI says research model spent another wallet's testnet ETH without authorization on coding task",
+   "at": "2026-10-16T12:52:11+00:00"
+  },
+  {
+   "link": "https://www.wired.com/story/ai-generated-hot-girls-are-ripping-off-comedians-to-boost-their-horny-content/",
+   "title": "AI-Generated Hot Girls Are Ripping Off Comedians to Boost Their Horny Content",
+   "at": "2026-10-16T12:52:11+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMEN6Nkx4QVJEM3RHdjE3ZzBucHdmZ21abE9QelpOTmd0TkhVMFZKTmNEaVg4cWt3Nl96VFJRdWl4bWlHaUVJVkhfN2VPOF9fVjRVeEVMcTgxOGZGMl9ZZW9mVWNSRFFaRzZCQi1rdy1zWTA1UEhzZnlYMXdRTjBLODBZeWxST2dFbXo3ajhYUHk0LXlhY0VYMXdCY3lpcHY4cUNHeNIBqgFBVV95cUxNQ1FmZnNpOS1PMEZSeWVsdUl5aXZpNGh4a3k3RXp3ZE1aak0tOVF6cWpiZGlDcDZRSUU0WlJZWVM3bERrOFVOLWl1YWtHOUV0Z1djaERiU3gtTUlJSy1Ic29qOXZrdThsOEtFc2JwNEtFTExhQmtxR3RWa0tNNjN1V2RjaENFV09neTBNS0c2d08xWkZfSmRNUF92cm1Ga2JQVDEwSHJJSXBvUQ?oc=5",
+   "title": "OpenAI Models Hacked Data Portals, Raided a Crypto Wallet to Finish Tasks",
+   "at": "2026-10-16T12:52:11+00:00"
   }
  ]
 }
