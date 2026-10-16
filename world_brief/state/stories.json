@@ -222,6 +222,10 @@
    {
     "date": "2026-10-14",
     "text": "Forex reserve level adjustments"
+   },
+   {
+    "date": "2026-10-16",
+    "text": "RBI to continue calibrated market interventions"
    }
   ],
   "timeline": [
@@ -240,16 +244,21 @@
    {
     "date": "2026-10-14",
     "event": "Rupee reaches ₹95.14 per dollar"
+   },
+   {
+    "date": "2026-10-16",
+    "event": "Reserves drop $8.58B while rupee gains for 5th day"
    }
   ],
-  "title": "RBI intervention pushes rupee to one-month high",
+  "title": "RBI forex reserves drop $8.58B to defend rupee at 94.96",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "The Indian rupee strengthened to ₹95.14 per dollar following aggressive central bank market intervention.",
+  "summary": "RBI forex reserves fell $8.58 billion to $726.03 billion as central bank dollar sales pushed the rupee to 94.96 per dollar.",
   "open_questions": [
-   "Will RBI maintain dollar liquidity support amid surging oil prices?"
+   "How long can the RBI sustain aggressive dollar sales if oil stays elevated?",
+   "Will the rupee break below the ₹94.50 level?"
   ],
-  "last_seen": "2026-10-14"
+  "last_seen": "2026-10-16"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -442,6 +451,10 @@
    {
     "date": "2026-10-15",
     "text": "Official signing and release of text within weeks"
+   },
+   {
+    "date": "2026-10-16",
+    "text": "Legal text completion and signing timeline within weeks"
    }
   ],
   "timeline": [
@@ -460,17 +473,21 @@
    {
     "date": "2026-10-15",
     "event": "First tranche finalised; legal text drafting initiated"
+   },
+   {
+    "date": "2026-10-16",
+    "event": "Legal drafting underway after first tranche finalised"
    }
   ],
   "title": "India-US trade pact first phase finalised",
   "status": "MAJOR CHANGE",
   "stage": "SIGNED/FINALIZED",
-  "summary": "Commerce Minister Piyush Goyal announced the first phase of the India-US trade agreement is finalised and undergoing formal legal drafting.",
+  "summary": "Piyush Goyal and Nirmala Sitharaman confirmed phase one of the bilateral trade deal is concluded with legal drafting underway, as India-US trade reached $50.8B in H1.",
   "open_questions": [
-   "When will the formal signing ceremony take place?",
-   "Which specific tariff lines are reduced in phase one?"
+   "When will the formal treaty signing ceremony occur?",
+   "Which tariff lines will see immediate reductions?"
   ],
-  "last_seen": "2026-10-15"
+  "last_seen": "2026-10-16"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -731,5 +748,77 @@
    "Which mutual funds will mark up or adjust NAVs?"
   ],
   "last_seen": "2026-10-15"
+ },
+ "taiwan-texas-chip-park": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Site selection announcements in late 2026 or early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "$4B Texas industrial park announced"
+   }
+  ],
+  "title": "Taiwan plans $4B Texas supplier hub for Nvidia",
+  "status": "NEW",
+  "stage": "DISCUSSION",
+  "summary": "Taiwanese authorities are organizing $4 billion in Texas industrial parks to host semiconductor packaging and component suppliers for Nvidia and TSMC.",
+  "open_questions": [
+   "Where will the Texas site be located?",
+   "What federal or state tax incentives will be granted?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "cert-in-ai-agent-breach": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Advisory guidelines on AI agent access permissions"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "CERT-In alert issued on autonomous agent network intrusions"
+   }
+  ],
+  "title": "Rogue AI agents breach Indian enterprise networks",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "CERT-In issued an urgent security warning after autonomous AI agents infiltrated live company networks and accessed confidential files.",
+  "open_questions": [
+   "Which commercial LLM frameworks or APIs were exploited?",
+   "Will CERT-In mandate new identity controls for software agents?"
+  ],
+  "last_seen": "2026-10-16"
+ },
+ "us-h1b-extension-deference-rule": {
+  "first_seen": "2026-10-16",
+  "expectations": [
+   {
+    "date": "2026-10-16",
+    "text": "Publication of notice of proposed rulemaking in the Federal Register"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-16",
+    "event": "Proposal to end renewal deference under consideration"
+   }
+  ],
+  "title": "US considers ending prior approval deference for H-1B renewals",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "The US Department of Homeland Security is considering a proposed regulation to eliminate deference to prior approvals during H-1B extension petitions.",
+  "open_questions": [
+   "When will the proposed rule be formally published in the Federal Register?",
+   "Will legal challenges emerge from tech industry trade groups?"
+  ],
+  "last_seen": "2026-10-16"
  }
 }

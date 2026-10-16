@@ -37,13 +37,14 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
-"tsmc-q3-texas-fab"
+"tsmc-q3-texas-fab",
+"taiwan-texas-chip-park"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "Super Micro": {
 "first_seen": "2026-10-11",
@@ -138,12 +139,13 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "us-perm-h1b-freeze",
-"us-h1b-fee-lawsuit"
+"us-h1b-fee-lawsuit",
+"us-h1b-extension-deference-rule"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-16"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -171,13 +173,13 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 6,
+"count": 7,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
 "yes-bank-at1-verdict"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "Ministry of Statistics": {
 "first_seen": "2026-10-12",
@@ -189,11 +191,11 @@
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "rbi-rupee-defense"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-16"
 },
 "US Dollar": {
 "first_seen": "2026-10-12",
@@ -214,12 +216,13 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
 "us-h1b-fee-lawsuit",
-"us-perm-h1b-freeze"
+"us-perm-h1b-freeze",
+"us-h1b-extension-deference-rule"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-16"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -340,11 +343,11 @@
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
-"count": 3,
+"count": 4,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "US Bureau of Labor Statistics": {
 "first_seen": "2026-10-14",
@@ -390,12 +393,13 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 4,
+"count": 6,
 "stories": [
 "fairfax-idbi-bank-stake",
-"india-us-trade-talks"
+"india-us-trade-talks",
+"cert-in-ai-agent-breach"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -407,11 +411,11 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 3,
+"count": 4,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -447,11 +451,12 @@
 },
 "TSMC": {
 "first_seen": "2026-10-15",
-"count": 1,
+"count": 2,
 "stories": [
-"tsmc-q3-texas-fab"
+"tsmc-q3-texas-fab",
+"taiwan-texas-chip-park"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-16"
 },
 "AMD": {
 "first_seen": "2026-10-15",
@@ -492,14 +497,62 @@
 "yes-bank-at1-verdict"
 ],
 "last_seen": "2026-10-15"
+},
+"Nirmala Sitharaman": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"india-us-trade-talks"
+],
+"last_seen": "2026-10-16"
+},
+"Texas": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"taiwan-texas-chip-park"
+],
+"last_seen": "2026-10-16"
+},
+"CERT-In": {
+"first_seen": "2026-10-16",
+"count": 1,
+"stories": [
+"cert-in-ai-agent-breach"
+],
+"last_seen": "2026-10-16"
 }
 },
 "connections": [
 {
 "text": "India-US trade deal -> tariff reduction -> export opportunities",
 "first_seen": "2026-10-14",
-"last_seen": "2026-10-15",
-"count": 3
+"last_seen": "2026-10-16",
+"count": 4
+},
+{
+"text": "AI computing demand -> semiconductor fab capacity -> US onshore chip investment",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-16",
+"count": 2
+},
+{
+"text": "AI agents / automation -> cyber attacks & scams -> enterprise security overhaul",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-16",
+"count": 1
+},
+{
+"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-16",
+"count": 1
+},
+{
+"text": "US immigration policy -> tech talent mobility -> corporate legal risk",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-16",
+"count": 1
 },
 {
 "text": "Hot wholesale inflation -> consumer price pressure -> sticky Fed interest rates",
@@ -509,12 +562,6 @@
 },
 {
 "text": "Enterprise AI adoption -> LLM revenue growth -> public market IPO",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 1
-},
-{
-"text": "AI computing demand -> semiconductor fab capacity -> US onshore chip investment",
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-15",
 "count": 1
