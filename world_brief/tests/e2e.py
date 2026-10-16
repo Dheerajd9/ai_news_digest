@@ -12,6 +12,7 @@ chapter files, brief archive, podcast-script memory, seen list and story ledger 
 from __future__ import annotations
 
 import json
+import re
 import os
 import shutil
 import subprocess
@@ -222,7 +223,7 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
           f"{edition}: email has play buttons, story cards, Top 5 box, green/red arrows", errors)
     st = res.get("style", {})
     check(st.get("style", 0) >= 3 and st.get("wx", 0) == st.get("style"),
-          f"{edition}: every podcast gets the explaining style + Hyderabad/Dallas weather {st}", errors)
+          f"{edition}: every podcast gets the explaining style + Hyderabad weather {st}", errors)
     if edition != "weekly":
         tail = md.split("More headlines (not covered above)")[-1]
         check("More headlines (not covered above)" in md and "](http" in tail,
@@ -246,7 +247,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,
           f"{edition}: chapter files published", errors)
     import datetime
-    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5))).strftime("%Y-%m-%d")
+    from zoneinfo import ZoneInfo
+    today = datetime.datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
     arch = work / "briefs" / f"{today}{'' if edition == 'morning' else '-' + edition}.md"
     check(arch.exists(), f"{edition}: brief archived for tomorrow's memory", errors)
     for lang in ("telugu", "hindi"):
@@ -279,15 +281,26 @@ def main() -> int:
                     "Government & politics", "Personal finance", "Housing & cost of living",
                     "Business, jobs & the future of work", "Energy revolution", "Future technology",
                     "Space", "Truth check", "Future signal", "Today's lesson", "Why markets moved",
-                    "Hyderabad & Telangana", "Around the world (region by region)"]:
+                    "Hyderabad & Telangana", "Around the world (region by region)",
+                    "NRI money corner", "Hyderabad land & real estate", "Students, work visas & the tech job market",
+                    "Travel India ↔ USA", "Severe weather & disasters", "Cricket & big sports",
+                    "Scams & safety alerts", "Good news"]:
             check(f"## " in bp and sec in bp, f"brief has section: {sec}", errors)
         import yaml
         groups = yaml.safe_load((SRC / "feeds.yaml").read_text())
         for g in ["canada", "business_jobs", "personal_finance_housing", "fact_check",
-                  "ai_robotics", "frontier_companies", "chips_energy_future", "world_regions"]:
+                  "ai_robotics", "frontier_companies", "chips_energy_future", "world_regions",
+                  "students_visas_jobs", "nri_money", "scams_safety", "weather_disasters",
+                  "hyderabad_realestate", "travel_india_us", "sports", "good_news"]:
             check(bool(groups.get(g)), f"feeds: {g}", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
+        everywhere = "".join((SRC.parent / f).read_text() for f in
+                             ["digest.py", "portfolio_report.py", "portfolio_analytics.py"]) + "".join(
+            f.read_text() for f in list(SRC.glob("*.py")) + list(SRC.glob("prompts/*.md"))
+            + list((SRC.parent / ".github" / "workflows").glob("*.yml")) + [SRC / "feeds.yaml"])
+        check(not re.search(r"Dallas|Texas|America/Chicago", everywhere),
+              "location: no Dallas/Texas; times are US Eastern", errors)
         te_p = (SRC / "prompts" / "telugu_podcast_prompt.md").read_text()
         hi_p = (SRC / "prompts" / "hindi_podcast_prompt.md").read_text()
         check("Tenglish" in te_p and "Telangana yaasa" in te_p and "numbers" in te_p.lower() or "number, price" in te_p,

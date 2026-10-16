@@ -246,7 +246,7 @@ def gemini_json(prompt, use_search=False, temperature=0.3):
 # -------------------------------------------------- portfolio manager review --
 
 PM_PROMPT = """You are acting as an experienced Indian mutual fund portfolio manager reviewing the
-portfolio of an NRI client (lives in Texas, USA; invests via NRO and external folios; long horizon,
+portfolio of an NRI client (lives in the USA; invests via NRO and external folios; long horizon,
 10+ years; goals include buying agricultural land in India). Use the DATA below (including the recent
 news headlines about each fund), and if Google Search is available, use it to research each fund's
 current situation: fund manager changes, AUM size, expense ratio (Direct vs

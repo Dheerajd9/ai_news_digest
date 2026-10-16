@@ -104,7 +104,7 @@ def item_flags(it: dict) -> list[str]:
     return flags
 ARCHIVE_DIR = ROOT / "briefs"
 PODCAST_ARCHIVE = ARCHIVE_DIR / "podcasts"   # subfolder: not part of the brief memory
-TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/Chicago"))
+TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/New_York"))
 
 LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))
 MAX_PER_CATEGORY = int(os.getenv("MAX_PER_CATEGORY", "25"))
@@ -113,7 +113,10 @@ CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 25, "w
                  "usa": 30, "india_us_visa_trade": 25, "world": 30, "official": 15,
                  "jobs_tax_housing": 20, "canada": 15, "business_jobs": 20,
                  "personal_finance_housing": 15, "fact_check": 10, "ai_robotics": 30,
-                 "frontier_companies": 10, "chips_energy_future": 25}
+                 "frontier_companies": 10, "chips_energy_future": 25,
+                 "students_visas_jobs": 20, "nri_money": 10, "scams_safety": 12,
+                 "weather_disasters": 15, "hyderabad_realestate": 8, "travel_india_us": 8,
+                 "sports": 8, "good_news": 6}
 SUMMARY_CHARS = 280
 SEEN_TTL_DAYS = 7
 UA = {"User-Agent": "world-brief/1.0 (personal news digest)"}
@@ -956,7 +959,10 @@ CATEGORY_LABELS = {
     "jobs_tax_housing": "💵 Jobs, tax & housing", "ai_robotics": "🤖 AI & robotics", "tech_ai": "💻 Tech",
     "frontier_companies": "🚀 Frontier companies", "chips_energy_future": "⚡ Chips, energy, future tech & space",
     "science_health_climate": "🔬 Science & health", "official": "🏛️ Official announcements",
-    "fact_check": "🔍 Fact checks"}
+    "fact_check": "🔍 Fact checks", "students_visas_jobs": "🎓 Students, visas & tech jobs",
+    "nri_money": "💸 NRI money", "scams_safety": "🛡️ Scams & safety", "weather_disasters": "🌪️ Weather & disasters",
+    "hyderabad_realestate": "🏡 Hyderabad real estate", "travel_india_us": "✈️ Travel India–USA",
+    "sports": "🏏 Sports", "good_news": "🌱 Good news"}
 
 
 def more_headlines(brief: str, items: list[dict], per_cat: int = 8, total: int = 100) -> str:

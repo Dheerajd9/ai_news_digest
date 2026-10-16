@@ -2,9 +2,9 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (new email look: story cards, colour sections, play buttons, market strip, headline subject; Hyderabad & Telangana section; every world region; 'More headlines' up to 100; no fixed podcast time limit; same full episode in all languages; free cron-job.org timer)._
+_Last updated: 16 Oct 2026 (new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
-## What you get, and when (Dallas time)
+## What you get, and when (US Eastern time)
 
 | When | What |
 |---|---|
@@ -15,7 +15,7 @@ _Last updated: 16 Oct 2026 (new email look: story cards, colour sections, play b
 
 **Same news in every language**: the English Full episode is written first (evening: the evening episode); Telugu and Hindi are that same episode spoken in Telugu / Hindi (same stories, order, numbers and details, same chapters; `prompts/translate_mode.md`). Only if that conversion fails is the language episode written straight from the brief, so audio still goes out.
 
-**How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things plus a one-line Hyderabad and Dallas weather (free Open-Meteo, no key; `WEATHER_PLACES` to change cities, `WEATHER=0` to switch off); short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
+**How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things plus a one-line Hyderabad weather (free Open-Meteo, no key; `WEATHER_PLACES` to change cities, `WEATHER=0` to switch off); short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
 
 **Podcast language**: Telugu is spoken Telangana Telugu and Hindi is everyday Hindi, both mixed with simple English the way Hyderabad/city families talk: numbers, prices, dates and hard words (inflation, interest rate, tariff, AI…) are said in English, never pure/bookish Telugu or Hindi.
 
@@ -31,6 +31,7 @@ Built for reading on a phone without missing anything (`email_style.py`):
 - **📈 Markets now**: one line with Nifty, Sensex, S&P 500, Dow, $→₹, gold (10 g), silver, Brent, Bitcoin, green ▲ / red ▼ (full table further down)
 - Every story is a **card**; each section has its **own colour** and a **read time**; sources are small grey chips
 - Sections include **🏙️ Hyderabad & Telangana** and **🗺️ Around the world (region by region)**: Asia-Pacific, Middle East, Europe, Russia & Central Asia, Africa, Latin America, Global
+- Also: **💸 NRI money corner**, **🏡 Hyderabad land & real estate**, **🎓 Students, work visas & the tech job market**, **✈️ Travel India ↔ USA**, **🌪️ Severe weather & disasters**, **🏏 Cricket & big sports**, **🛡️ Scams & safety alerts**, **🌱 Good news** (each appears when there is real news for it; new sources were added for every one)
 - **📰 More headlines** at the end: every other story from the day's ~100 sources (up to 100 one-liners), so nothing is silently dropped
 - Readers can simply reply to the email with feedback
 
@@ -65,7 +66,7 @@ Each edition posts a short headline message with named play links ("▶️ 🔵 
 ## How it works
 
 ```
-~95 RSS feeds (India, Hyderabad & Telangana, every world region, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
+~115 RSS feeds (India, Hyderabad & Telangana, every world region, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
    ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
    ─> story memory (last briefs, story ledger, trends, entities, beliefs)
    ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links
@@ -98,7 +99,7 @@ GitHub's own timer often starts runs hours late (a morning run at noon) or skips
 1. **GitHub token** (only allowed to start workflows): github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name `news timer`, expiration 1 year, Repository access **Only select repositories → ai_news_digest**, Permissions → Repository → **Actions: Read and write** (nothing else). Generate and copy it.
 2. **cron-job.org** → sign up (free) → **Create cronjob**:
    - Title `World Brief`, URL `https://api.github.com/repos/Dheerajd9/ai_news_digest/actions/workflows/world_brief.yml/dispatches`
-   - Schedule: **Custom**, minute `10`, hours `7,8,9,10,18,19,20`, every day, time zone **America/Chicago**
+   - Schedule: **Custom**, minute `10`, crontab expression `10 7-10,18-20 * * *`, every day, time zone **America/New_York**
    - Advanced: Request method **POST**; Headers `Accept: application/vnd.github+json`, `Authorization: Bearer <your token>`, `X-GitHub-Api-Version: 2022-11-28`; Request body `{"ref":"main","inputs":{"edition":"due"}}`
    - Save. "Test run" should show HTTP **204** (= started).
 3. Same again for the AI News Digest: title `AI Digest`, URL `…/actions/workflows/digest.yml/dispatches`, same schedule and headers, body `{"ref":"main","inputs":{"due":"true"}}`.

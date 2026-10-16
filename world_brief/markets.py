@@ -52,7 +52,6 @@ EXTRA = [
 ]
 
 CITIES = [
-    ("Dallas", 32.78, -96.80, "America/Chicago", "F"),
     ("Hyderabad", 17.39, 78.49, "Asia/Kolkata", "C"),
 ]
 WMO = {0: "clear", 1: "mostly clear", 2: "partly cloudy", 3: "cloudy", 45: "fog", 48: "fog",
@@ -302,7 +301,7 @@ def numbers_box(weekly: bool = False) -> tuple[str, str]:
     if not (rows or weather):
         return "", ""
 
-    stamp = datetime.now(ZoneInfo("America/Chicago")).strftime("%d %b %Y, %I:%M %p CT")
+    stamp = datetime.now(ZoneInfo("America/New_York")).strftime("%d %b %Y, %I:%M %p ET")
     head = "1-week change" if weekly else "Change"
     md = ["## 📊 Money & markets", "", f"| Asset | Latest | {head} | Status |",
           "|---|---:|---:|---|"]

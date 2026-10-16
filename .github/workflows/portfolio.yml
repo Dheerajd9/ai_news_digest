@@ -3,7 +3,7 @@ name: Portfolio Report
 
 on:
   schedule:
-    - cron: "7 13 1,16 * *"   # 1st and 16th of every month, ~8 AM CDT / ~7 AM CST
+    - cron: "7 13 1,16 * *"   # 1st and 16th of every month, ~9 AM EDT / ~8 AM EST
   workflow_dispatch:           # click "Run workflow" to get a report anytime
   push:                        # code/portfolio changes trigger a test run that does NOT send email
     branches: [main]

@@ -1,4 +1,4 @@
-# Breaking-alert watchlist. Runs every 2 hours (7 AM - 11 PM Dallas time).
+# Breaking-alert watchlist. Runs every 2 hours (about 8 AM - midnight US Eastern time).
 # A headline becomes a candidate if it matches a keyword below OR many outlets
 # ran it within the last few hours. Then the AI scores importance 1-10 and only
 # sends 8+ (min_score). Most days you get nothing; that's the point.

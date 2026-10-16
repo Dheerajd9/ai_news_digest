@@ -4,23 +4,23 @@ name: World Brief + Podcast
 # Gemini free tier, GitHub Models backup (built-in token), edge-tts voices, Gmail SMTP.
 #
 # Self-healing schedule: GitHub sometimes delays or DROPS scheduled runs, so each
-# edition has several backup slots. Every run decides what is due from Dallas local time
+# edition has several backup slots. Every run decides what is due from US Eastern time (Ohio)
 # (summer or winter, no manual DST changes) and from the "done" markers in
 # world_brief/state/done/. The first slot that runs sends the edition; later slots see
 # the marker and stop in seconds. A failed run is retried by the next slot automatically.
 #
-#   Morning brief      due 7:30 AM - 12:59 PM Dallas  (normally sent ~7:37 AM)
-#   Sunday weekly      due 9:00 AM -  2:59 PM Dallas  (normally sent ~9:37 AM)
-#   Evening update     due 6:00 PM - 10:59 PM Dallas  (normally sent ~6:07 PM)
+#   Morning brief      due 7:00 AM - 12:59 PM ET  (normally sent ~7:10 AM by the free timer)
+#   Sunday weekly      due 9:00 AM -  2:59 PM ET
+#   Evening update     due 6:00 PM - 10:59 PM ET  (normally sent ~6:10 PM by the free timer)
 
 on:
   schedule:
     # GitHub runs these late or drops many of them, so there are many slots; the free
     # cron-job.org timer (see world_brief/README.md) calls "due" on time every day.
-    - cron: "7,37 12-17 * * *" # morning (+ Sunday weekly) slots: CDT 7:07-12:37 / CST 6:07-11:37
+    - cron: "7,37 11-17 * * *" # morning (+ Sunday weekly) slots: EDT 7:07-1:37 / EST 6:07-12:37
     - cron: "7,37 18,19 * * 0" # extra Sunday slots for the weekly report
-    - cron: "7,37 23 * * *"    # evening: CDT 6:07 PM
-    - cron: "7,37 0-2 * * *"   # evening backups: CDT 7-9 PM / CST 6-8 PM
+    - cron: "7,37 22,23 * * *" # evening: EDT 6:07 PM / EST 5:07 PM (skips until 6 PM)
+    - cron: "7,37 0-3 * * *"   # evening backups: EDT 8-11 PM / EST 7-10 PM
   workflow_dispatch:
     inputs:
       edition:
@@ -55,9 +55,9 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           INPUT_EDITION: ${{ inputs.edition }}
         run: |
-          D=$(TZ=America/Chicago date +%F)
-          H=$((10#$(TZ=America/Chicago date +%H)))
-          DOW=$(TZ=America/Chicago date +%u)          # 7 = Sunday
+          D=$(TZ=America/New_York date +%F)
+          H=$((10#$(TZ=America/New_York date +%H)))
+          DOW=$(TZ=America/New_York date +%u)          # 7 = Sunday
           is_done() { [ -e "state/done/$D-$1" ]; }
           due() {
             if [ "$H" -ge 7 ] && [ "$H" -le 12 ] && ! is_done morning; then echo morning
@@ -77,7 +77,7 @@ jobs:
             *) ED=$(due) ;;
           esac
           echo "edition=$ED" >> "$GITHUB_OUTPUT"
-          echo "Dallas time: $D ${H}h (day $DOW) -> edition: $ED"
+          echo "US Eastern time: $D ${H}h (day $DOW) -> edition: $ED"
 
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         if: steps.ed.outputs.edition != 'skip'

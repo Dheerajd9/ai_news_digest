@@ -358,7 +358,7 @@ def rule_flags(funds):
 
 
 EXPERT_PROMPT = """You are an experienced Indian mutual fund analyst writing a fortnightly review for
-an NRI investor (invests via NRO account, lives in Texas, long-term goals). Use ONLY the data below.
+an NRI investor (invests via NRO account, lives in the USA, long-term goals). Use ONLY the data below.
 
 Write 6-8 short bullet points (max 45 words each), plain English, covering:
 how the portfolio did recently, which funds are leading/lagging and why that matters,

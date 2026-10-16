@@ -1,7 +1,7 @@
-"""Short weather line for the podcasts (Hyderabad + Dallas by default), from the free
+"""Short weather line for the podcasts (Hyderabad by default), from the free
 Open-Meteo API (no key, no sign-up). Never raises: returns "" if anything fails.
 
-  WEATHER_PLACES   "Name:lat:lon;Name:lat:lon" (default Hyderabad and Dallas, city level only)
+  WEATHER_PLACES   "Name:lat:lon;Name:lat:lon" (default Hyderabad, city level only)
   WEATHER          set to 0 to switch it off
 """
 
@@ -11,7 +11,7 @@ import os
 
 import requests
 
-DEFAULT_PLACES = "Hyderabad:17.385:78.487;Dallas:32.777:-96.797"
+DEFAULT_PLACES = "Hyderabad:17.385:78.487"
 URL = "https://api.open-meteo.com/v1/forecast"
 
 CODES = {0: "clear sky", 1: "mostly clear", 2: "partly cloudy", 3: "cloudy", 45: "fog", 48: "fog",
@@ -56,7 +56,7 @@ def _place(name: str, d: dict) -> str:
 
 
 def line() -> str:
-    """e.g. 'Hyderabad: now 28°C, light rain; today 22–31°C, ... | Dallas: ...' (local days)."""
+    """e.g. 'Hyderabad: now 28°C, light rain; today 22–31°C, ... ' (local days)."""
     if os.getenv("WEATHER", "1") == "0":
         return ""
     if "line" in _CACHE:

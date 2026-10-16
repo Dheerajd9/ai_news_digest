@@ -60,7 +60,7 @@ jobs:
           FAILED=""
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          D=$(TZ=America/Chicago date +%F)
+          D=$(TZ=America/New_York date +%F)
           mkdir -p logs
           # Last line of run_request.txt may say e.g. "run: morning force" (default: all three).
           REQ=$(tail -n 1 run_request.txt | tr 'A-Z' 'a-z')
@@ -86,7 +86,7 @@ jobs:
           fi
           echo "Requested: $EDS (force=$FORCE)"
           for ED in $EDS; do
-            if [ "$ED" = weekly ] && [ "$(TZ=America/Chicago date +%u)" != 7 ]; then
+            if [ "$ED" = weekly ] && [ "$(TZ=America/New_York date +%u)" != 7 ]; then
               echo "== weekly: not Sunday, running anyway as a test =="
             fi
             if [ "$FORCE" = 0 ] && [ -e "state/done/$D-$ED" ]; then
