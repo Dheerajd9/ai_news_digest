@@ -301,6 +301,9 @@ def main() -> int:
                              ["digest.py", "portfolio_report.py", "portfolio_analytics.py"]) + "".join(
             f.read_text() for f in list(SRC.glob("*.py")) + list(SRC.glob("prompts/*.md"))
             + list((SRC.parent / ".github" / "workflows").glob("*.yml")) + [SRC / "feeds.yaml"])
+        wf = (SRC.parent / ".github" / "workflows" / "world_brief.yml").read_text()
+        check("echo evening" not in wf and "7,37 22,23" not in wf,
+              "schedule: evening edition switched off (morning + Sunday weekly only)", errors)
         check(not re.search(r"Dallas|Texas|America/Chicago", everywhere),
               "location: no Dallas/Texas; times are US Eastern", errors)
         te_p = (SRC / "prompts" / "telugu_podcast_prompt.md").read_text()

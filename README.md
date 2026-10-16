@@ -4,7 +4,7 @@ This public repo runs three free, fully automatic jobs on GitHub Actions. _Last 
 
 | Job | What | Where |
 |---|---|---|
-| 🌏 **World Brief** | Morning, evening and Sunday news email (India → USA → World) with podcasts in **English, Telugu and Hindi**, web player with chapters | [`world_brief/README.md`](world_brief/README.md) |
+| 🌏 **World Brief** | Morning and Sunday news email (India → USA → World) with podcasts in **English, Telugu and Hindi**, web player with chapters | [`world_brief/README.md`](world_brief/README.md) |
 | 🤖 **AI News Digest** | Top 5 AI stories, morning and evening | below |
 | 📈 **Portfolio Report** | Mutual fund review on the 1st and 16th + daily portfolio line and alerts | below (holdings stay private in a secret) |
 

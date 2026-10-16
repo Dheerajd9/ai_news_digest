@@ -2,14 +2,14 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 
 | When | What |
 |---|---|
 | **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day) + ⚡ Quick (5–7 min, short version), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
-| **Evening, ~6:10 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–10 min, the same episode in all three) |
+| **Evening** | Switched off (16 Oct 2026). Can still be sent by hand with `run: evening`. |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
 
@@ -86,7 +86,7 @@ If a script comes back far too short, the system asks once more for the full-len
 
 ## Never misses an edition
 
-- **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning and evening windows; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
+- **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning window; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
 - **Sent once**: `state/done/<date>-<edition>` markers stop duplicates.
 - **AI down?** A scheduled run retries in the next slot instead of sending a headlines-only email.
 - **Failures email you**: "⚠️ run failed — retrying automatically" or "⚠️ code test failed".
@@ -99,7 +99,7 @@ GitHub's own timer often starts runs hours late (a morning run at noon) or skips
 1. **GitHub token** (only allowed to start workflows): github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name `news timer`, expiration 1 year, Repository access **Only select repositories → ai_news_digest**, Permissions → Repository → **Actions: Read and write** (nothing else). Generate and copy it.
 2. **cron-job.org** → sign up (free) → **Create cronjob**:
    - Title `World Brief`, URL `https://api.github.com/repos/Dheerajd9/ai_news_digest/actions/workflows/world_brief.yml/dispatches`
-   - Schedule: **Custom**, minute `10`, crontab expression `10 7-10,18-20 * * *`, every day, time zone **America/New_York**
+   - Schedule: **Custom**, minute `10`, crontab expression `10 7-10 * * *`, every day, time zone **America/New_York**
    - Advanced: Request method **POST**; Headers `Accept: application/vnd.github+json`, `Authorization: Bearer <your token>`, `X-GitHub-Api-Version: 2022-11-28`; Request body `{"ref":"main","inputs":{"edition":"due"}}`
    - Save. "Test run" should show HTTP **204** (= started).
 3. Same again for the AI News Digest: title `AI Digest`, URL `…/actions/workflows/digest.yml/dispatches`, same schedule and headers, body `{"ref":"main","inputs":{"due":"true"}}`.

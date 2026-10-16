@@ -15,7 +15,7 @@ if user and pwd and to:
     else:
         body = (f"The {edition} World Brief run failed.\n\n"
                 "Nothing to do: the next scheduled slot will retry automatically "
-                "(morning until about 1 PM, evening until about 11 PM US Eastern time).\n\n"
+                "(morning until about 1 PM US Eastern time).\n\n"
                 f"Run details: {url}\n")
     msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = ("⚠️ World Brief code test failed" if edition == "test" else

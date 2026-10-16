@@ -11,7 +11,7 @@ name: World Brief + Podcast
 #
 #   Morning brief      due 7:00 AM - 12:59 PM ET  (normally sent ~7:10 AM by the free timer)
 #   Sunday weekly      due 9:00 AM -  2:59 PM ET
-#   Evening update     due 6:00 PM - 10:59 PM ET  (normally sent ~6:10 PM by the free timer)
+#   (Evening update switched off on 16 Oct 2026; run it by hand with "run: evening".)
 
 on:
   schedule:
@@ -19,8 +19,6 @@ on:
     # cron-job.org timer (see world_brief/README.md) calls "due" on time every day.
     - cron: "7,37 11-17 * * *" # morning (+ Sunday weekly) slots: EDT 7:07-1:37 / EST 6:07-12:37
     - cron: "7,37 18,19 * * 0" # extra Sunday slots for the weekly report
-    - cron: "7,37 22,23 * * *" # evening: EDT 6:07 PM / EST 5:07 PM (skips until 6 PM)
-    - cron: "7,37 0-3 * * *"   # evening backups: EDT 8-11 PM / EST 7-10 PM
   workflow_dispatch:
     inputs:
       edition:
@@ -62,7 +60,6 @@ jobs:
           due() {
             if [ "$H" -ge 7 ] && [ "$H" -le 12 ] && ! is_done morning; then echo morning
             elif [ "$DOW" = 7 ] && [ "$H" -ge 9 ] && [ "$H" -le 14 ] && ! is_done weekly; then echo weekly
-            elif [ "$H" -ge 18 ] && [ "$H" -le 22 ] && ! is_done evening; then echo evening
             else echo skip
             fi
           }
