@@ -60,7 +60,7 @@ def main() -> None:
     for cid, title in chats.items():
         r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage", timeout=30,
                           json={"chat_id": cid, "text": "✅ World Brief is connected. Daily news and "
-                                "podcasts (English, తెలుగు, हिंदी) will arrive here."})
+                                "podcasts (English, Telugu, Hindi) will arrive here."})
         if r.status_code == 200:
             ok.append((cid, title))
     if ok:

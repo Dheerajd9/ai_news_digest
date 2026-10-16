@@ -212,6 +212,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
     check("తెలుగులో ముఖ్యాంశాలు" not in md and "हिंदी में मुख्य खबरें" not in md,
           f"{edition}: email text is English only", errors)
+    check("Listen: English · Telugu · Hindi" in md and not re.search(r"[\u0C00-\u0C7F\u0900-\u097F]", md),
+          f"{edition}: language names in English (no Telugu/Hindi script in the email)", errors)
     check("Markets now:** " in md and "Nifty 50 23,146 ▲0.65%" in md and "Gold 10g ₹1,46,430" in md,
           f"{edition}: one-line market strip", errors)
     check("India story one" in emails[0]["subject"], f"{edition}: subject shows the top stories "

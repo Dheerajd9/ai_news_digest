@@ -1268,7 +1268,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
             lines.append(f"**{label}{when}:** attached to this email{who}")
     topics = [t.lstrip("• ").strip() for t in episode_notes(brief, meta).split("\n\n")[-1].split("\n")]
     topics = [t for t in topics if t]
-    out = "## 🎧 Listen: English · తెలుగు · हिंदी\n\n" + "  \n".join(lines) + "\n"
+    out = "## 🎧 Listen: English · Telugu · Hindi\n\n" + "  \n".join(lines) + "\n"
     if topics:
         out += "\n**Today's topics:**\n\n" + "\n".join(f"- {t}" for t in topics[:7]) + "\n"
     return out

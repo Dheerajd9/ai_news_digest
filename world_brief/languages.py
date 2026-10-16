@@ -25,9 +25,9 @@ import podfeed
 ROOT = Path(__file__).parent
 
 LANGS = {
-    "te": {"name": "telugu", "label": "🟠 తెలుగు (Telugu)", "show": "ఈ రోజు వార్తలు",
+    "te": {"name": "telugu", "label": "🟠 Telugu", "show": "ఈ రోజు వార్తలు",
            "hosts": "Ravi & Lakshmi", "archive": ROOT / "briefs" / "telugu"},
-    "hi": {"name": "hindi", "label": "🟢 हिंदी (Hindi)", "show": "आज की खबरें",
+    "hi": {"name": "hindi", "label": "🟢 Hindi", "show": "आज की खबरें",
            "hosts": "Arjun & Meera", "archive": ROOT / "briefs" / "hindi"},
 }
 

@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 
@@ -39,7 +39,7 @@ Built for reading on a phone without missing anything (`email_style.py`):
 
 Every ▶️ Play link opens `https://dheerajd9.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
 
-- Language tabs for the same edition (English Full / Quick · తెలుగు · हिंदी); switching keeps your current chapter
+- Language tabs for the same edition (English Full / Quick · Telugu · Hindi); switching keeps your current chapter
 - Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA (+ Canada) · 🌍 World · 🤖 Tech & future · 💰 Money · ✅ Wrap-up
 - ⏪ 15 s / 30 s ⏩, speed 0.75x–2x, ⬇️ Download, remembers where you stopped
 - Recent episodes (last 10 days)
@@ -61,7 +61,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts a short headline message with named play links ("▶️ 🔵 English 📻 Full", "▶️ 🟠 తెలుగు (Telugu)" …, the web address stays hidden behind the name) plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
+Each edition posts a short headline message with named play links ("▶️ 🔵 English 📻 Full", "▶️ 🟠 Telugu" …, the web address stays hidden behind the name) plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
 
 ## How it works
 
