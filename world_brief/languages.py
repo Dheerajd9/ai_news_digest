@@ -55,7 +55,7 @@ def wanted(edition: str) -> list[str]:
 
 def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
                   report_type: str, langs: list[str], dry: bool,
-                  base_script: str = "") -> list[dict]:
+                  base_script: str = "", over_time=None) -> list[dict]:
     """Build (and upload) one podcast per language. Never raises."""
     from podcast import make_podcast, latest_previous_script
     news = digest.strip_links(final_md.replace("{{LISTEN}}", ""))
@@ -63,6 +63,8 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
     episodes = []
     for code in langs:
         info = LANGS[code]
+        if over_time and over_time(f"{info['name'].title()} podcast"):
+            continue
         sfx = "" if report_type == "MORNING" else f"-{report_type.lower()}"
         mp3 = None
         for attempt in (1, 2):           # AI busy? wait a bit and try once more
@@ -81,6 +83,8 @@ def make_episodes(final_md: str, date_str: str, now: datetime, out_dir: Path,
             if mp3:
                 break
             if attempt == 1:
+                if over_time and over_time(f"{info['name'].title()} retry"):
+                    break
                 print(f"  {info['name']} script failed; retrying in 90s")
                 time.sleep(90)
         if not mp3:

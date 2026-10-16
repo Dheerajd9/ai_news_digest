@@ -46,6 +46,8 @@ jobs:
         working-directory: world_brief
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main   # latest main when the job STARTS (a queued run must see "already sent")
 
       - name: Pick edition (what is due right now?)
         id: ed
@@ -117,7 +119,7 @@ jobs:
           else
             set -o pipefail
             mkdir -p logs
-            # Redacted run log kept in this private repo for debugging (no secrets are printed).
+            # Redacted run log kept in this repo for debugging (public repo: no secrets or addresses are printed).
             python digest.py 2>&1 | tee "logs/latest-$EDITION.log"
           fi
 
@@ -156,4 +158,6 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 notify_failure.py

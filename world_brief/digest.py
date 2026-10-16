@@ -63,7 +63,9 @@ TRENDS_FILE = ROOT / "state" / "trends.json"            # daily topic counters (
 ENTITIES_FILE = ROOT / "state" / "entities.json"        # lightweight entity + connection memory
 BELIEFS_FILE = ROOT / "state" / "beliefs.json"          # long-term conclusions (weekly)
 SCORECARD_FILE = ROOT / "state" / "scorecard.json"      # how well the system itself is doing
-LLM_CALLS = {"gemini": 0, "github": 0}
+LLM_CALLS = {"gemini": 0}
+MODELS_USED: list[str] = []     # which AI wrote each piece (for the health alert)
+HEALTH: list[str] = []          # quality problems in this run (lite model, robot voices, ...)
 TREND_TOPICS = {
     "AI agents / automation": r"\bAI agents?\b|agentic|automat(e|ion) .{0,20}jobs",
     "AI models & capability": r"\b(LLM|large language model|AI model|frontier model|reasoning model)s?\b",
@@ -172,7 +174,7 @@ def redact(text: str) -> str:
     """Remove anything that looks like a secret (bot tokens, api keys) before logging."""
     text = re.sub(r"bot\d+:[\w-]+", "bot***", text)
     text = re.sub(r"(apikey|key|token)=[^&\s]+", r"\1=***", text, flags=re.I)
-    return re.sub(r"github_pat_\w+|gh[pousr]_\w+|AIza[\w-]{20,}", "***", text)
+    return re.sub(r"github_pat_\w+|gh[pousr]_\w+|AIza[\w-]{20,}|sk-or-[\w-]+|sk-[\w-]{20,}", "***", text)
 
 
 def short_source(name: str) -> str:
@@ -833,6 +835,7 @@ def call_gemini(system: str, user: str) -> str | None:
                 text = "".join(p.get("text", "") for p in parts)
                 if text.strip():
                     print(f"  written by Gemini {model}")
+                    MODELS_USED.append(model)
                     return text
             except Exception as exc:
                 busy = True
@@ -870,6 +873,7 @@ def _openai_style(url: str, key: str, model: str, system: str, user: str, name: 
         if text and text.strip():
             LLM_CALLS["backup"] = LLM_CALLS.get("backup", 0) + 1
             print(f"  written by {name} {model}")
+            MODELS_USED.append(f"{name} {model}")
             return text
         return None
     return None
@@ -1071,7 +1075,7 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
             f"World-Brief-{datetime.now(TZ):%Y-%m-%d}-{f.stem.split('_')[-1]}.mp3"
         part.add_header("Content-Disposition", "attachment", filename=name)
         msg.attach(part)
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
         s.login(user, pwd)
         s.sendmail(user, recipients, msg.as_string())
     print(f"  email sent ({len(recipients)} recipient(s))")
@@ -1170,9 +1174,7 @@ EDITIONS = {
                 "memory_days": 3, "memory_chars": 14000, "fact_check": True, "file_suffix": "",
                 "top5_intro": ("Frame this as 🌅 what happened while I was sleeping: India, overnight "
                                "world events, the previous US market close, Asian markets."),
-                "podcasts": [
-                    (*QUICK, "⚡ Quick", "The Morning Brief: Quick",
-                     "At most about 1,000 words (5 to 7 minutes MAXIMUM). A 4-minute episode is completely fine."),
+                "podcasts": [      # Full only: the Quick episode repeated it and used free voice quota
                     (*FULL, "📻 Full", "The Morning Brief: Full",
                      "About 1,900 to 4,000 words (15 to 30 minutes spoken): the full news with all the details, every story in the brief that matters, real explanation for each. Length follows the news: about 15 minutes on a normal day, up to 30 minutes on a big news day; never cut a story short to save time, never pad. Do not stop early."),
                 ]},
@@ -1327,6 +1329,67 @@ def mark_done(now: datetime, edition: str) -> None:
             old.unlink()
 
 
+RUN_START = time.monotonic()
+SEND_BY_SEC = float(os.getenv("WB_SEND_BY_MIN", "75")) * 60   # the job is killed at 100 min
+
+
+def over_time(what: str) -> bool:
+    """True when the run is so long that the email must go out now (skip `what`)."""
+    if time.monotonic() - RUN_START > SEND_BY_SEC:
+        print(f"  ! {what} skipped: run is at {(time.monotonic() - RUN_START) / 60:.0f} min, "
+              f"sending the email now so it never misses")
+        HEALTH.append(f"{what} skipped (run too long)")
+        return True
+    return False
+
+
+def health_alert(edition: str, missing: list[str]) -> None:
+    """The edition went out, but tell Dji (only him, by email + personal Telegram) when quality
+    dropped: robot voices, missing languages, skipped steps, backup AI, short scripts.
+    Silent on a good day. Never fails the run."""
+    try:
+        import podcast
+        notes = list(dict.fromkeys(HEALTH + [f"{m}: audio missing" for m in missing]
+                                   + getattr(podcast, "QUALITY", [])))
+    except Exception:
+        notes = list(dict.fromkeys(HEALTH))
+    if not notes or os.getenv("DRY_RUN") == "1":
+        return
+    used = ", ".join(dict.fromkeys(MODELS_USED)) or "none"
+    body = (f"# 🩺 World Brief ({edition}) went out, with {len(notes)} quality issue(s)\n\n"
+            + "\n".join(f"- {n}" for n in notes)
+            + f"\n\nAI used this run: {used}.\n\nUsually the free quota; it resets daily. "
+              "If the same issue repeats for several days, tell Claude.\n")
+    print(f"  health: {len(notes)} issue(s): " + "; ".join(notes)[:300])
+    try:
+        send_email(f"🩺 World Brief health: {len(notes)} issue(s) today", body, styled=False)
+    except Exception as exc:
+        print(f"  ! health email failed: {type(exc).__name__}")
+    token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    if token and chat:
+        try:
+            requests.post(f"https://api.telegram.org/bot{token}/sendMessage", timeout=30,
+                          json={"chat_id": chat, "text": re.sub(r"[#*]", "", body)[:3900]})
+        except Exception as exc:
+            print(f"  ! health Telegram failed: {type(exc).__name__}")
+
+
+def sent_elsewhere(now: datetime, edition: str) -> bool:
+    """Last guard against duplicates: another run may have sent this edition while this one
+    was working. Checks the 'done' marker on GitHub (scheduled runs only; never fails)."""
+    if os.getenv("GITHUB_ACTIONS") != "true" or not (
+            os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1"):
+        return False
+    try:
+        subprocess.run(["git", "fetch", "-q", "origin", "main"], cwd=ROOT, timeout=60, check=True)
+        r = subprocess.run(["git", "cat-file", "-e",
+                            f"origin/main:world_brief/state/done/{now:%Y-%m-%d}-{edition}"],
+                           cwd=ROOT, timeout=30)
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
 def main() -> None:
     global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT, ENTITY_TEXT, BELIEFS_TEXT
     edition = os.getenv("EDITION", "morning").strip() or "morning"
@@ -1349,11 +1412,9 @@ def main() -> None:
               .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
               .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
     system_core = system
-    system = (system + "\n\n" + (ROOT / "prompts" / "intelligence_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "advanced_tracking.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "trust_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "human_intelligence_layer.md").read_text()
-              + "\n\n" + (ROOT / "prompts" / "decision_layer.md").read_text()
+    # One condensed rules file (was ~80 KB of overlapping "layer" prompts): saves free quota
+    # on every call and keeps small backup models on track.
+    system = (system + "\n\n" + (ROOT / "prompts" / "core_rules.md").read_text()
               + "\n\n## FINAL OUTPUT REMINDER (most important)\n"
                 "Write the brief exactly in the OUTPUT FORMAT given at the top. Keep "
                 "{{LISTEN}} and {{MARKET_SNAPSHOT}} exactly once each. Your answer MUST end with "
@@ -1423,6 +1484,7 @@ def main() -> None:
             print("Nothing new. Exiting.")
             mark_done(now, edition)
             return
+        n_before = len(MODELS_USED)
         brief = None if no_llm else write_brief(system, items, history, date_str,
                                                 markets_plain, memory, ledger, system_core)
         if (not brief and not no_llm and (os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1")
@@ -1442,6 +1504,10 @@ def main() -> None:
             brief, new_stories = extract_stories(brief)
             if cfg["fact_check"]:
                 brief = fact_check(brief, items)
+        if not brief and not no_llm:
+            HEALTH.append("every free AI was down: the email had headlines only")
+        elif brief and len(MODELS_USED) > n_before and not MODELS_USED[n_before].startswith("gemini-"):
+            HEALTH.append(f"brief written by the backup AI ({MODELS_USED[n_before]})")
         brief = brief or fallback_brief(items, date_str)
     print(f"  meta: {meta}")
 
@@ -1467,6 +1533,8 @@ def main() -> None:
         for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
             old_raw.unlink()
         for prompt_file, kind, label, show, length in cfg["podcasts"]:
+            if over_time(f"English {kind} podcast"):
+                continue
             try:
                 mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
                                    length=length, show=show, prompt_file=prompt_file,
@@ -1508,7 +1576,8 @@ def main() -> None:
             base_script = raw.read_text()
             break
     lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
-                                       langs, dry, base_script=base_script) if langs else []
+                                       langs, dry, base_script=base_script,
+                                       over_time=over_time) if langs else []
 
     # Copy every uploaded episode onto the player site (real audio type: plays on iPhone).
     uploaded = [(Path(e["file"]), e["url"].rsplit("/", 1)[-1]) for e in episodes + lang_eps
@@ -1548,12 +1617,16 @@ def main() -> None:
             print(f"\n[podcast saved at {f['file']}]")
         return
 
+    if sent_elsewhere(now, edition):
+        print(f"  {edition} was already sent by another run while this one worked; not sending again")
+        return
     send_email(subject, final, audio_files, everyone=True)
     mark_done(now, edition)            # email is out: backup slots must not resend it
     send_telegram(final, Path(episodes[0]["file"]) if episodes else None)
     languages.send_whatsapp(final, lang_eps)
     send_telegram_channel(title, final, episodes + lang_eps)
     token_reminder(edition)
+    health_alert(edition, missing)
 
     ARCHIVE_DIR.mkdir(exist_ok=True)
     (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)

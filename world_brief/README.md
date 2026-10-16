@@ -2,13 +2,13 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day) + ⚡ Quick (5–7 min, short version), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
+| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
 | **Evening** | Switched off (16 Oct 2026). Can still be sent by hand with `run: evening`. |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
@@ -39,7 +39,7 @@ Built for reading on a phone without missing anything (`email_style.py`):
 
 Every ▶️ Play link opens `https://daily-world-brief.github.io/world-brief-podcast/play.html` (works on iPhone, Android and Windows):
 
-- Language tabs for the same edition (English Full / Quick · Telugu · Hindi); switching keeps your current chapter
+- Language tabs for the same edition (English · Telugu · Hindi); switching keeps your current chapter
 - Chapter buttons: ⭐ Most important · 🇮🇳 India · 🇺🇸 USA (+ Canada) · 🌍 World · 🤖 Tech & future · 💰 Money · ✅ Wrap-up
 - ⏪ 15 s / 30 s ⏩, speed 0.75x–2x, ⬇️ Download, remembers where you stopped
 - Recent episodes (last 10 days)
@@ -70,7 +70,7 @@ Each edition posts a short headline message with named play links ("▶️ 🔵 
    ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
    ─> story memory (last briefs, story ledger, trends, entities, beliefs)
    ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links
-   ─> podcast scripts (English Quick/Full, Telugu, Hindi) with chapter markers ─> review pass
+   ─> podcast scripts (English Full first, then the same episode in Telugu and Hindi) with chapter markers ─> review pass
    ─> voices ─> MP3 + chapter times ─> GitHub release + player site
    ─> one email (BCC) ─> memory saved (briefs/, state/)
 ```
@@ -85,6 +85,11 @@ Each edition posts a short headline message with named play links ("▶️ 🔵 
 If a script comes back far too short, the system asks once more for the full-length version, and if it is still short it asks the AI to expand that draft (keep every line, explain more, add skipped stories). The editor pass is never allowed to cut a script that is already at or under its target length. If Telugu or Hindi fails, it waits 90 s and retries. GitHub Models (the old backup) was retired by GitHub on 30 July 2026 and is no longer used.
 
 ## Never misses an edition
+
+- **Never twice**: every run checks out the latest code when it starts (`ref: main`), and just before sending it checks GitHub again for today's "sent" marker, so a run that waited behind another one can't resend.
+- **Never too late**: after 75 minutes (`WB_SEND_BY_MIN`) the run skips any podcast it hasn't made yet and sends the email, so GitHub's 100-minute limit can't swallow an edition.
+- **Health alerts (only you)**: when an edition went out but quality dropped (robot voices, a language missing, a podcast skipped, backup AI wrote the brief, a script came out short), you get a short 🩺 email (and a Telegram message if `TELEGRAM_CHAT_ID` is set). Silent on good days.
+- **Failure alerts** go by email **and** Telegram (`TELEGRAM_CHAT_ID`), so a Gmail problem can't hide a failure.
 
 - **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning window; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
 - **Sent once**: `state/done/<date>-<edition>` markers stop duplicates.
@@ -156,7 +161,7 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 - `digest.py` main pipeline (`EDITION=morning|evening|weekly`)
 - `languages.py` Telugu and Hindi podcasts · `podcast.py` scripts, chapters, voices · `podfeed.py` uploads, feed, player site · `player.html` the web player
 - `markets.py` exact numbers · `weather.py` podcast weather line · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
-- `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, rule layers)
+- `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, `core_rules.md` = the one condensed set of thinking/trust rules)
 - `briefs/` archive and podcast scripts (memory) · `state/` seen list, story ledger, trends, entities, beliefs, scorecard, done markers · `logs/` last run logs (secrets redacted)
 - `tests/e2e.py` the end-to-end test
 

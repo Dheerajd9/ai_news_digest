@@ -241,9 +241,10 @@ class QuotaExhausted(Exception):
     pass
 
 
-TTS_BUDGET_SEC = int(os.getenv("GEMINI_TTS_BUDGET_SEC", "480"))   # then fall back to edge-tts
+TTS_BUDGET_SEC = int(os.getenv("GEMINI_TTS_BUDGET_SEC", "1200"))   # then fall back to edge-tts
 _TTS_DAY_LIMIT: set[str] = set()   # TTS models whose daily free quota is used up
 _GEMINI_TTS_OFF = False   # set once the daily quota is gone, so later episodes skip straight to backup
+QUALITY: list[str] = []   # problems worth telling Dji about (robot voices, short scripts)
 
 
 def gemini_tts_models(key: str) -> list[str]:
@@ -595,6 +596,9 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         print(f"  ! {lang} podcast script too short or missing; skipping audio")
         return None
     print(f"  {lang} podcast script: {len(turns)} turns, {sum(len(t.split()) for _, t in turns)} words")
+    words_now = sum(len(t.split()) for _, t in turns)
+    if target and words_now < 0.7 * target:
+        QUALITY.append(f"{tag}: script shorter than wanted ({words_now} of {target}+ words)")
 
     work = out_dir / f"parts_{tag}"
     shutil.rmtree(work, ignore_errors=True)
@@ -607,6 +611,8 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         groups = [[t] for t in turns] if parts else []
     if not parts:
         print(f"  voices: edge-tts ({lang})")
+        if tts_pref != "edge":
+            QUALITY.append(f"{tag}: Microsoft backup voices (Gemini voices unavailable or over quota)")
         parts = []
         for n, (speaker, said) in enumerate(turns):
             p = work / f"{n:03d}.mp3"

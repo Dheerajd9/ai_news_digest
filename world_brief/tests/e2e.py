@@ -160,16 +160,21 @@ podfeed.publish_episode = lambda ep: fake_upload(Path(ep["file"]),
                                                 f"2026-10-13-{ep['edition']}.mp3")
 
 EMAILS = []
-digest.send_email = lambda subject, md, audio=None, to=None, audio_name=None, everyone=False: \
+HEALTH_MAILS = []
+def fake_send(subject, md, audio=None, to=None, audio_name=None, everyone=False, styled=None):
+    if subject.startswith("🩺"):
+        HEALTH_MAILS.append({"subject": subject, "md": md, "everyone": everyone})
+        return
     EMAILS.append({"subject": subject, "md": md, "everyone": everyone,
                    "audio": [str(a) for a in (audio or [])]})
+digest.send_email = fake_send
 digest.send_telegram = lambda *a, **k: None
 digest.token_reminder = lambda *a, **k: None
 languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
 Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
-                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT)}))
+                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT), "health": HEALTH_MAILS}))
 '''
 
 
@@ -210,6 +215,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    if edition == "morning":
+        check("-quick" not in md and "Quick" not in md, "morning: one Full English episode (no Quick copy)", errors)
     check("తెలుగులో ముఖ్యాంశాలు" not in md and "हिंदी में मुख्य खबरें" not in md,
           f"{edition}: email text is English only", errors)
     check("Listen: English · Telugu · Hindi" in md and not re.search(r"[\u0C00-\u0C7F\u0900-\u097F]", md),
@@ -301,6 +308,9 @@ def main() -> int:
                              ["digest.py", "portfolio_report.py", "portfolio_analytics.py"]) + "".join(
             f.read_text() for f in list(SRC.glob("*.py")) + list(SRC.glob("prompts/*.md"))
             + list((SRC.parent / ".github" / "workflows").glob("*.yml")) + [SRC / "feeds.yaml"])
+        size = len((SRC / "prompts" / "brief_prompt.md").read_bytes()) + len((SRC / "prompts" / "core_rules.md").read_bytes())
+        check(size < 40000 and not (SRC / "prompts" / "trust_layer.md").exists(),
+              f"prompt: brief rules kept small ({size // 1000} KB; was ~100 KB)", errors)
         wf = (SRC.parent / ".github" / "workflows" / "world_brief.yml").read_text()
         check("echo evening" not in wf and "7,37 22,23" not in wf,
               "schedule: evening edition switched off (morning + Sunday weekly only)", errors)
@@ -334,6 +344,23 @@ def main() -> int:
         check(len(res["emails"]) == 1, "Telugu down: email still sent", errors)
         check("could not be made" in md and "Telugu" in md, "Telugu down: email says Telugu audio is missing", errors)
         check("hindi.mp3" in md, "Telugu down: Hindi still delivered", errors)
+        hm = res.get("health", [])
+        check(len(hm) == 1 and not hm[0]["everyone"] and "Telugu" in hm[0]["md"],
+              "Telugu down: private health alert to Dji only says Telugu audio is missing", errors)
+
+        # Drill: run too long -> podcasts skipped, the email still goes out, Dji is told.
+        print("\n=== morning, run too long (send before the job time limit) ===")
+        (work / "state" / "seen.json").unlink(missing_ok=True)
+        env_t = {**env, "WB_SEND_BY_MIN": "0"}
+        env_t.pop("FAIL_HOST", None)
+        p = subprocess.run([sys.executable, "-c",
+                            "import time; time.sleep=lambda s: None; exec(open('runner.py').read())"],
+                           cwd=work, env=env_t, capture_output=True, text=True, timeout=600)
+        res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
+        md = res["emails"][0]["md"] if res["emails"] else ""
+        check(len(res["emails"]) == 1 and "## " in md, "too long: news email still sent", errors)
+        check(any("skipped" in h["md"] for h in res.get("health", [])),
+              "too long: health alert says which podcasts were skipped", errors)
 
         # Drill 2: Gemini completely down -> free backup brain writes everything.
         print("\n=== morning, Gemini down (Mistral backup) ===")
