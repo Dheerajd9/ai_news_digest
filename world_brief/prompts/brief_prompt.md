@@ -36,7 +36,7 @@ Keep a story only if it materially affects India, the USA, Indian citizens, Indi
 - Say what it means in real life ("so home-loan EMIs may rise").
 
 ## LENGTH
-Busy day: full detail where it matters (about 10-15 minutes of reading). Quiet day: shorter. Never pad. **Omit any section with nothing meaningful** (do not write "Quiet day"), except Top 5, attention, the money section, 🔮 Future signal and 🎓 Today's lesson, which always appear. Never explain the same story twice: once a story is covered in "What actually matters today" or a higher section, later sections only add genuinely new angles.
+Busy day: full detail where it matters, as long as needed so nothing important is missed. Quiet day: shorter. Never pad. **Omit any section with nothing meaningful** (do not write "Quiet day"), except Top 5, attention, the money section, 🔮 Future signal and 🎓 Today's lesson, which always appear. Never explain the same story twice: once a story is covered in "What actually matters today" or a higher section, later sections only add genuinely new angles.
 
 PRIORITY OF TOPICS (when choosing what gets space): 1) AI & robotics (highest), 2) changes to the global order, India/USA/Canada policy that affects people, 3) economy, markets and money, 4) future of jobs, 5) chips, energy, space and future technology. Ordinary political noise, celebrity, routine product launches and every Elon Musk post are NOT news: include only developments with real consequences.
 
@@ -62,7 +62,9 @@ After processing everything, the 5-10 developments a normal person genuinely sho
 
 ## 🇮🇳 India
 Government, economy (GDP, inflation, RBI, taxes, GST, banking), jobs, infrastructure, energy, defence, agriculture, tech, education, major court decisions, regulation, foreign relations. For big stories: what happened → why it matters to ordinary Indians → what happens next.
-Add a **Telangana & Hyderabad:** line or two ONLY for genuinely important local news (major government decision, infrastructure, serious weather or emergency, big investment, transport change, policy affecting residents). Otherwise leave Telangana out.
+
+## 🏙️ Hyderabad & Telangana
+Family lives here, so cover local news that matters to people living in Hyderabad and Telangana: state government decisions and schemes, GHMC / HYDRAA, Metro, roads and traffic changes, water and power supply, rain, flood or heat alerts, prices (vegetables, petrol, gold locally), big investments, IT and pharma jobs, hospitals, schools and exams, safety. 2-6 stories when the sources have them; skip only on a day with genuinely nothing local.
 
 ## 🇺🇸 USA + 🇮🇳🤝🇺🇸 India–USA
 US federal government, economy, Fed, inflation, jobs, taxes, housing, energy, regulation, courts, emergencies: how it affects someone living in America. Then India–USA (trade, tariffs, tech, AI, chips, defence, energy, investment, diplomacy): for important stories add *For India:* and *For Indians in America:*.
@@ -81,6 +83,9 @@ NVIDIA/AMD/Intel, TSMC, AI accelerators, semiconductor manufacturing and export 
 
 ## 🌍 World & geopolitics
 Only events that affect India, the USA, the global economy, oil, gold, trade, markets, technology, security, supply chains or immigration. Group by region. Add India's angle where the items mention it.
+
+## 🗺️ Around the world (region by region)
+So that no country's important news is missed: one short line per significant event that is not already covered above, grouped under bold region labels in this order: **Asia-Pacific**, **Middle East**, **Europe**, **Russia & Central Asia**, **Africa**, **Latin America**, **Global** (UN, climate deals, pandemics). 1-3 lines per region; skip a region only when nothing significant happened there. Name the country first ("**Japan:** ...").
 
 ## 🌎 Major world changes
 Only developments that could change the global order: major wars, US–China competition, India's rise as an economic power, big elections or policy shifts, trade wars, demographic shifts, serious geopolitical crises. Explain the long-term significance in plain words. Skip ordinary political news.

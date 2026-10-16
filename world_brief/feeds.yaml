@@ -25,6 +25,10 @@ telangana_hyderabad:
   - https://www.thehindu.com/news/national/telangana/feeder/default.rss
   - https://www.thehindu.com/news/cities/Hyderabad/feeder/default.rss
   - https://news.google.com/rss/search?q=Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://telanganatoday.com/feed
+  - https://news.google.com/rss/search?q=site:telanganatoday.com+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=GHMC+OR+HYDRAA+OR+%22Hyderabad+Metro%22+OR+%22Telangana+government%22+OR+%22Revanth+Reddy%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=Hyderabad+rain+OR+flood+OR+traffic+OR+water+OR+power+cut+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
 usa:
   - https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US:en
@@ -125,3 +129,14 @@ chips_energy_future:   # chips, data centres, AI power demand, nuclear/fusion/ba
   - https://news.google.com/rss/search?q=%22quantum+computing%22+OR+%22gene+editing%22+OR+CRISPR+OR+%22brain-computer+interface%22+OR+longevity+when:3d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=NASA+OR+ISRO+OR+%22Moon+mission%22+OR+Mars+OR+%22rocket+launch%22+when:2d&hl=en-US&gl=US&ceid=US:en
 
+# Every region of the world, so no country's important news is missed.
+world_regions:
+  - https://feeds.bbci.co.uk/news/world/asia/rss.xml
+  - https://feeds.bbci.co.uk/news/world/middle_east/rss.xml
+  - https://feeds.bbci.co.uk/news/world/europe/rss.xml
+  - https://feeds.bbci.co.uk/news/world/africa/rss.xml
+  - https://feeds.bbci.co.uk/news/world/latin_america/rss.xml
+  - https://www.france24.com/en/rss
+  - https://news.un.org/feed/subscribe/en/news/all/rss.xml
+  - https://news.google.com/rss/search?q=Russia+OR+Ukraine+OR+Kazakhstan+OR+%22Central+Asia%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=Pakistan+OR+Bangladesh+OR+%22Sri+Lanka%22+OR+Nepal+OR+China+OR+Japan+when:1d&hl=en-IN&gl=IN&ceid=IN:en

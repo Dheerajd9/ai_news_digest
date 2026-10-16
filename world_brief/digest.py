@@ -109,7 +109,7 @@ TZ = ZoneInfo(os.getenv("BRIEF_TZ", "America/Chicago"))
 LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))
 MAX_PER_CATEGORY = int(os.getenv("MAX_PER_CATEGORY", "25"))
 # India gets more room than the default; everything else uses MAX_PER_CATEGORY.
-CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 12,
+CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 25, "world_regions": 40,
                  "usa": 30, "india_us_visa_trade": 25, "world": 30, "official": 15,
                  "jobs_tax_housing": 20, "canada": 15, "business_jobs": 20,
                  "personal_finance_housing": 15, "fact_check": 10, "ai_robotics": 30,
@@ -951,7 +951,7 @@ def fallback_brief(items: list[dict], date_str: str) -> str:
 CATEGORY_LABELS = {
     "india": "🇮🇳 India", "india_economy": "🇮🇳 India economy", "telangana_hyderabad": "🏙️ Telangana & Hyderabad",
     "usa": "🇺🇸 USA", "india_us_visa_trade": "🛂 India–USA, visas & trade", "canada": "🇨🇦 Canada",
-    "world": "🌍 World", "global_economy": "📦 Global economy", "us_markets_economy": "📈 Markets",
+    "world": "🌍 World", "world_regions": "🗺️ Around the world", "global_economy": "📦 Global economy", "us_markets_economy": "📈 Markets",
     "business_jobs": "💼 Business & jobs", "personal_finance_housing": "💵 Money & housing",
     "jobs_tax_housing": "💵 Jobs, tax & housing", "ai_robotics": "🤖 AI & robotics", "tech_ai": "💻 Tech",
     "frontier_companies": "🚀 Frontier companies", "chips_energy_future": "⚡ Chips, energy, future tech & space",
@@ -959,7 +959,7 @@ CATEGORY_LABELS = {
     "fact_check": "🔍 Fact checks"}
 
 
-def more_headlines(brief: str, items: list[dict], per_cat: int = 6, total: int = 60) -> str:
+def more_headlines(brief: str, items: list[dict], per_cat: int = 8, total: int = 100) -> str:
     """Every remaining story the AI did not cover, as one-line headlines with links, so the
     reader never misses anything. Ranked by trust and how many outlets carried it."""
     cited = set(re.findall(r"\[(S\d+)\]", brief))
@@ -1008,7 +1008,8 @@ def link_citations(md: str, items: list[dict]) -> str:
 
 # ---------------------------------------------------------------- deliver
 def send_email(subject: str, md: str, audio=None, to: str | None = None,
-               audio_name: str | None = None, everyone: bool = False) -> None:
+               audio_name: str | None = None, everyone: bool = False,
+               styled: bool | None = None) -> None:
     """everyone=True: the daily brief goes to TO_EMAIL + PARENTS_EMAIL (comma-separated lists).
     Recipients are BCC'd, so nobody sees anyone else's address."""
     user, pwd = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
@@ -1032,7 +1033,11 @@ def send_email(subject: str, md: str, audio=None, to: str | None = None,
                  .replace("<table>", '<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">')
                  .replace("<td", '<td style="border-bottom:1px solid #eee;padding:4px 10px"')
                  .replace("<th", '<th style="border-bottom:2px solid #ccc;padding:4px 10px"'))
-    page = f"""<html><body style="font-family:Georgia,serif;max-width:680px;margin:auto;
+    if styled if styled is not None else everyone:      # the daily brief: cards, colours, buttons
+        import email_style
+        page = email_style.page(body_html)
+    else:
+        page = f"""<html><body style="font-family:Georgia,serif;max-width:680px;margin:auto;
 line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     body = MIMEMultipart("alternative")
     body.attach(MIMEText(safe_md, "plain", "utf-8"))
@@ -1216,6 +1221,36 @@ def episode_notes(brief: str, meta: dict) -> str:
     return re.sub(r"\s*\[S\d+\]", "", notes)[:1500]
 
 
+def local_headlines(md: str) -> str:
+    """The Top 5 in Telugu and Hindi (spoken style, simple English for numbers and hard
+    words), so parents get the gist at a glance. One small AI call; empty if it fails."""
+    import languages
+    heads = [h for h in languages.headlines(md, 5) if h]
+    if not heads:
+        return ""
+    system = ("LOCAL_HEADLINES task. Translate each English news headline into (a) Telugu as people "
+              "in Hyderabad speak (Telangana style, Telugu script) and (b) everyday Hindi (Devanagari). "
+              "Keep numbers, money amounts, dates and hard words (AI, GDP, tariff, inflation, visa) in "
+              "simple English words written in that script. Keep every fact; one short line each. "
+              "Output exactly these lines and nothing else:\nTE1: ...\nTE2: ...\n(one per headline)"
+              "\nHI1: ...\nHI2: ...")
+    tag = r"^[^A-Za-z0-9₹$]*(NEW|UPDATE|PROPOSED|CONFIRMED|DEVELOPING)?\s*[—–-]\s*"
+    user = "\n".join(f"{i}. " + re.sub(tag, "", h) for i, h in enumerate(heads, 1))
+    try:
+        out = ask(system, user, prefer="gemini") or ""
+    except Exception:
+        return ""
+    te = [l.split(":", 1)[1].strip() for l in out.splitlines() if re.match(r"\s*TE\d+\s*:", l)]
+    hi = [l.split(":", 1)[1].strip() for l in out.splitlines() if re.match(r"\s*HI\d+\s*:", l)]
+    te, hi = [x for x in te if x][:len(heads)], [x for x in hi if x][:len(heads)]
+    block = ""
+    if len(te) >= max(1, len(heads) - 1):
+        block += "## 🟠 తెలుగులో ముఖ్యాంశాలు\n\n" + "\n".join(f"- {x}" for x in te) + "\n\n"
+    if len(hi) >= max(1, len(heads) - 1):
+        block += "## 🟢 हिंदी में मुख्य खबरें\n\n" + "\n".join(f"- {x}" for x in hi) + "\n"
+    return block
+
+
 def insert_box(md: str, box: str) -> str:
     """Put the market snapshot where the AI left {{MARKET_SNAPSHOT}}, else after the summary."""
     if "{{MARKET_SNAPSHOT}}" in md:
@@ -1249,16 +1284,17 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
     for ep in episodes:
         mins = audio_minutes(ep["file"])
         when = f" (about {mins} min)" if mins else ""
-        play = (f"[▶️ Play]({play_link(ep['url'])})" if ep.get("url")
-                else "attached to this email")
         label = ep["label"] if ep.get("hosts") else f"🔵 English {ep['label']}"
         who = f" · {ep.get('hosts') or 'Kartik & Priya'}"
-        lines.append(f"**{label}{when}:** {play}{who}")
+        if ep.get("url"):                    # one big button per podcast in the email
+            lines.append(f"[▶️ {label}{when}{who}]({play_link(ep['url'])})")
+        else:
+            lines.append(f"**{label}{when}:** attached to this email{who}")
     topics = [t.lstrip("• ").strip() for t in episode_notes(brief, meta).split("\n\n")[-1].split("\n")]
     topics = [t for t in topics if t]
     out = "## 🎧 Listen: English · తెలుగు · हिंदी\n\n" + "  \n".join(lines) + "\n"
     if topics:
-        out += "\n**Today's topics:**\n" + "\n".join(f"- {t}" for t in topics[:7]) + "\n"
+        out += "\n**Today's topics:**\n\n" + "\n".join(f"- {t}" for t in topics[:7]) + "\n"
     return out
 
 
@@ -1519,13 +1555,18 @@ def main() -> None:
         final = final.replace("{{LISTEN}}", listen)
     elif listen:
         final = insert_box(final, listen)
+    import email_style
+    final = email_style.insert_after(final, "Top 5|Top stories", local_headlines(final))
+    strip = email_style.market_strip(box)
+    final = (email_style.insert_after(final, "Listen", strip) if "## 🎧" in final
+             else email_style.insert_after(final, "Top 5|Top stories", strip))
     final = re.sub(r"\n{3,}", "\n\n", final + more_news)
     # Attach only what has no play link (upload failed or no podcast repo); the links play
     # in the browser, so the email stays small.
     audio_files = [Path(e["file"]) for e in episodes + lang_eps if not e.get("url")]
 
     urgent = meta.get("URGENT_ALERT", "").upper().startswith("T")
-    subject = ("🚨 " if urgent else "") + title + (" 🎧" if episodes or lang_eps else "")
+    subject = email_style.subject_line(title, final, urgent, bool(episodes or lang_eps))
     if dry:
         print(f"\nSUBJECT: {subject}\n\n" + final)
         for f in episodes + lang_eps:

@@ -20,6 +20,7 @@ import tempfile
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(SRC))
 
 RUNNER = r'''
 import json, os, re, subprocess, sys
@@ -33,7 +34,10 @@ STYLE = {"wx": 0, "style": 0, "tr": 0}
 
 EDITION = os.environ["EDITION"]
 digest.on_this_day = lambda today: [{"year": 1947, "text": "Test history event"}]
-markets.numbers_box = lambda weekly=False: ("| Asset | Latest |\n|---|---|\n| Nifty | 1 |", "Nifty 1")
+markets.numbers_box = lambda weekly=False: (
+    "## 📊 Money & markets\n\n| Asset | Latest | Change | Status |\n|---|---:|---:|---|\n"
+    "| 🇮🇳 Nifty 50 | 23,146 | ▲ +0.65% | PREVIOUS CLOSE |\n| 💵 USD/INR | ₹94.96 | ▼ -0.20% | DELAYED |\n"
+    "| 🪙 Gold 24K India (₹/10 grams) | ₹1,46,430 | — | IBJA |\n", "Nifty 1")
 
 def fake_items(feeds):
     cats = ["india", "usa", "world", "india_economy", "tech_ai"]
@@ -91,6 +95,10 @@ VERIFICATION_WARNINGS: NONE
 CALLS = []
 def fake_gemini(system, user):
     CALLS.append(system[:80])
+    if "LOCAL_HEADLINES" in system:
+        n = len([l for l in user.splitlines() if l.strip()])
+        return "\n".join([f"TE{i}: తెలుగు వార్త {i}" for i in range(1, n + 1)]
+                         + [f"HI{i}: हिंदी खबर {i}" for i in range(1, n + 1)])
     if ("TRANSLATION MODE" in system and "ENGLISH_SCRIPT:" in user and "KARTIK:" in user
             and "CHAPTER:" in user):
         STYLE["tr"] += 1
@@ -201,6 +209,17 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(md.count("play.html?f=") >= 3, f"{edition}: English + Telugu + Hindi play links "
                                             f"({md.count('play.html?f=')} found)", errors)
     check(not emails[0]["audio"], f"{edition}: no big attachments when links work", errors)
+    check("తెలుగులో ముఖ్యాంశాలు" in md and "हिंदी में मुख्य खबरें" in md,
+          f"{edition}: Top stories also in Telugu + Hindi", errors)
+    check("Markets now:** " in md and "Nifty 50 23,146 ▲0.65%" in md and "Gold 10g ₹1,46,430" in md,
+          f"{edition}: one-line market strip", errors)
+    check("India story one" in emails[0]["subject"], f"{edition}: subject shows the top stories "
+          f"({emails[0]['subject'][:80]})", errors)
+    import markdown as _mdlib, email_style
+    page = email_style.page(_mdlib.markdown(md, extensions=["extra"]))
+    check(page.count("border-radius:24px") >= 3 and "border-left:4px solid" in page
+          and "#fff7e6" in page and 'color:#16a34a">▲' in page,
+          f"{edition}: email has play buttons, story cards, Top 5 box, green/red arrows", errors)
     st = res.get("style", {})
     check(st.get("style", 0) >= 3 and st.get("wx", 0) == st.get("style"),
           f"{edition}: every podcast gets the explaining style + Hyderabad/Dallas weather {st}", errors)
@@ -259,12 +278,13 @@ def main() -> int:
                     "Musk & frontier companies", "Chips & computing", "Major world changes",
                     "Government & politics", "Personal finance", "Housing & cost of living",
                     "Business, jobs & the future of work", "Energy revolution", "Future technology",
-                    "Space", "Truth check", "Future signal", "Today's lesson", "Why markets moved"]:
+                    "Space", "Truth check", "Future signal", "Today's lesson", "Why markets moved",
+                    "Hyderabad & Telangana", "Around the world (region by region)"]:
             check(f"## " in bp and sec in bp, f"brief has section: {sec}", errors)
         import yaml
         groups = yaml.safe_load((SRC / "feeds.yaml").read_text())
         for g in ["canada", "business_jobs", "personal_finance_housing", "fact_check",
-                  "ai_robotics", "frontier_companies", "chips_energy_future"]:
+                  "ai_robotics", "frontier_companies", "chips_energy_future", "world_regions"]:
             check(bool(groups.get(g)), f"feeds: {g}", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)

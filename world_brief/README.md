@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (no fixed time limit: Full episode 15–30 min depending on the news, evening 4–10 min; Telugu + Hindi are the same full episode as English; Telegram named links; free cron-job.org timer instead of Claude scheduled tasks)._
+_Last updated: 16 Oct 2026 (new email look: story cards, colour sections, play buttons, market strip, Top 5 in Telugu + Hindi, headline subject; Hyderabad & Telangana section; every world region; 'More headlines' up to 100; no fixed podcast time limit; same full episode in all languages; free cron-job.org timer)._
 
 ## What you get, and when (Dallas time)
 
@@ -20,6 +20,19 @@ _Last updated: 16 Oct 2026 (no fixed time limit: Full episode 15–30 min depend
 **Podcast language**: Telugu is spoken Telangana Telugu and Hindi is everyday Hindi, both mixed with simple English the way Hyderabad/city families talk: numbers, prices, dates and hard words (inflation, interest rate, tariff, AI…) are said in English, never pure/bookish Telugu or Hindi.
 
 One email per edition goes to everyone (BCC). Each email has a 🎧 **Listen** box with ▶️ Play links for every language. If a language's audio could not be made (for example the free AI was overloaded), the email says so instead of hiding it.
+
+## How the email looks
+
+Built for reading on a phone without missing anything (`email_style.py`):
+
+- **Subject** shows the top 3 stories, e.g. `🌏 World Brief · Fri 16 Oct: RBI cuts rate · Gold hits record… 🎧`
+- **Top 5** in a highlighted box, then the same top stories **in Telugu and in Hindi** (one small AI call; skipped if it fails)
+- **Big coloured ▶️ buttons** for every podcast (🔵 English, 🟠 Telugu, 🟢 Hindi) with length and hosts
+- **📈 Markets now**: one line with Nifty, Sensex, S&P 500, Dow, $→₹, gold (10 g), silver, Brent, Bitcoin, green ▲ / red ▼ (full table further down)
+- Every story is a **card**; each section has its **own colour** and a **read time**; sources are small grey chips
+- Sections include **🏙️ Hyderabad & Telangana** and **🗺️ Around the world (region by region)**: Asia-Pacific, Middle East, Europe, Russia & Central Asia, Africa, Latin America, Global
+- **📰 More headlines** at the end: every other story from the day's ~100 sources (up to 100 one-liners), so nothing is silently dropped
+- Readers can simply reply to the email with feedback
 
 ## The web player
 
@@ -52,7 +65,7 @@ Each edition posts a short headline message with named play links ("▶️ 🔵 
 ## How it works
 
 ```
-~80 RSS feeds (India, Telangana, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
+~95 RSS feeds (India, Hyderabad & Telangana, every world region, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
    ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
    ─> story memory (last briefs, story ledger, trends, entities, beliefs)
    ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links
