@@ -66,6 +66,7 @@ SCORECARD_FILE = ROOT / "state" / "scorecard.json"      # how well the system it
 LLM_CALLS = {"gemini": 0}
 MODELS_USED: list[str] = []     # which AI wrote each piece (for the health alert)
 HEALTH: list[str] = []          # quality problems in this run (lite model, robot voices, ...)
+FEED_FAILS: list[str] = []      # news sources that could not be read this run
 TREND_TOPICS = {
     "AI agents / automation": r"\bAI agents?\b|agentic|automat(e|ion) .{0,20}jobs",
     "AI models & capability": r"\b(LLM|large language model|AI model|frontier model|reasoning model)s?\b",
@@ -241,6 +242,7 @@ def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
             got = downloaded.get(url)
             if isinstance(got, Exception) or got is None:
                 print(f"  ! feed failed: {url} ({redact(str(got))})", file=sys.stderr)
+                FEED_FAILS.append(url.split("/")[2])
                 continue
             try:
                 parsed = feedparser.parse(got)
@@ -1392,10 +1394,11 @@ def sent_elsewhere(now: datetime, edition: str) -> bool:
             os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1"):
         return False
     try:
-        subprocess.run(["git", "fetch", "-q", "origin", "main"], cwd=ROOT, timeout=60, check=True)
+        subprocess.run(["git", "fetch", "-q", "origin", "main"], cwd=ROOT, timeout=60, check=True,
+                       capture_output=True)
         r = subprocess.run(["git", "cat-file", "-e",
                             f"origin/main:world_brief/state/done/{now:%Y-%m-%d}-{edition}"],
-                           cwd=ROOT, timeout=30)
+                           cwd=ROOT, timeout=30, capture_output=True)
         return r.returncode == 0
     except Exception:
         return False
@@ -1496,6 +1499,23 @@ def finish_email(final: str, brief: str, meta: dict, box: str, more_news: str,
     return re.sub(r"\n{3,}", "\n\n", final + more_news)
 
 
+def step_summary(edition: str, eps: list[dict], missing: list[str]) -> None:
+    """One glance on the GitHub run page: what went out and how (no secrets, no addresses)."""
+    path = os.getenv("GITHUB_STEP_SUMMARY")
+    if not path:
+        return
+    import podcast
+    lines = [f"## World Brief ({edition}) sent",
+             f"- Run time: {(time.monotonic() - RUN_START) / 60:.0f} min",
+             f"- AI used: {', '.join(dict.fromkeys(MODELS_USED)) or 'none'}",
+             "- Podcasts: " + (", ".join(f"{e.get('label', e.get('kind'))} "
+                                         f"({audio_minutes(Path(e['file'])) or '?'} min)" for e in eps) or "none"),
+             f"- Missing: {', '.join(missing) or 'nothing'}",
+             "- Quality issues: " + ("; ".join(dict.fromkeys(HEALTH + podcast.QUALITY)) or "none")]
+    with open(path, "a", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+
 def after_send(edition: str, title: str, final: str, episodes: list[dict],
                lang_eps: list[dict], missing: list[str]) -> None:
     """Extras after the email: each one isolated, so none can break another (or memory)."""
@@ -1504,7 +1524,8 @@ def after_send(edition: str, title: str, final: str, episodes: list[dict],
              ("whatsapp", lambda: languages.send_whatsapp(final, lang_eps)),
              ("telegram channel", lambda: send_telegram_channel(title, final, episodes + lang_eps)),
              ("token reminder", lambda: token_reminder(edition)),
-             ("health alert", lambda: health_alert(edition, missing))]
+             ("health alert", lambda: health_alert(edition, missing)),
+             ("run summary", lambda: step_summary(edition, episodes + lang_eps, missing))]
     for name, step in steps:
         try:
             step()
@@ -1636,6 +1657,10 @@ def main() -> None:
         feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
         print("Fetching feeds...")
         raw = fetch_items(feeds)
+        n_feeds = sum(len(v) for v in feeds.values())
+        if len(FEED_FAILS) >= max(5, n_feeds // 10):      # one or two flaky feeds are normal
+            HEALTH.append(f"{len(FEED_FAILS)} of {n_feeds} news sources failed: "
+                          + ", ".join(sorted(set(FEED_FAILS)))[:300])
         deduped = dedupe(raw, seen)
         items = cap_per_category(deduped)
         run.update(raw=len(raw), after_dedupe=len(deduped), items_to_ai=len(items))

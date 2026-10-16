@@ -177,6 +177,10 @@ Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS,
 '''
 
 
+AID_DRILL = 'import sys, os, json, datetime\nsys.path.insert(0, os.environ["ROOTDIR"]); sys.argv=["digest.py","--dry-run"]\nimport digest\nnow=datetime.datetime.now(datetime.timezone.utc)\ndigest.fetch_items=lambda: [{"title":f"OpenAI releases model {i}","summary":"s","link":f"https://example.com/{i}","source":"OpenAI","official":True,"tier":0,"published":now} for i in range(8)]\nclass R:\n    def __init__(s,code,data): s.status_code=code; s._d=data; s.text=json.dumps(data)\n    def json(s): return s._d\n    def raise_for_status(s): pass\ndef post(url, **k):\n    if "generativelanguage" in url: return R(503, {"error":"busy"})\n    return R(200, {"choices":[{"message":{"content":json.dumps({"stories":[{"id":1,"headline":"H","summary":"S","why":"W"}]})}}]})\ndef get(url, **k):\n    if "openrouter" in url: return R(200, {"data":[{"id":"x/y:free","context_length":100000}]})\n    return R(200, {"models":[]})\ndigest.requests.post=post; digest.requests.get=get\nos.environ["GEMINI_API_KEY"]="k"; os.environ["OPENROUTER_API_KEY"]="k"\ndigest.portfolio_morning=lambda *a, **k: ""\ndigest.main()\nprint("PREVIEW", open("preview.html").read().count("example.com/1"))\n'
+PF_DRILL = 'import sys, os, json, datetime\nsys.path.insert(0, os.environ["ROOTDIR"])\nfor k in ("GEMINI_API_KEY", "OPENROUTER_API_KEY", "GMAIL_USER"): os.environ.pop(k, None)\nimport requests\ntoday = datetime.date.today()\nhist = [{"date": (today - datetime.timedelta(days=d)).strftime("%d-%m-%Y"), "nav": f"{100 + (4000 - d) * 0.05:.4f}"} for d in range(0, 4000, 3)]\nclass R:\n    status_code = 200\n    def __init__(s, d, text=""): s._d = d; s.text = text; s.content = text.encode()\n    def json(s): return s._d\n    def raise_for_status(s): pass\ndef get(url, **k):\n    if "mfapi" in url:\n        return R({"meta": {"scheme_name": "Test Flexi Cap Fund - Direct Plan - Growth", "scheme_category": "Equity Scheme - Flexi Cap Fund"}, "data": hist})\n    return R({}, "<rss><channel></channel></rss>")\nrequests.get = get\nrequests.post = lambda *a, **k: R({}, "")\njson.dump({"snapshot_date": str(today - datetime.timedelta(days=30)), "monthly_sip": 5000,\n           "funds": [{"name": "Test Flexi Cap Fund", "scheme_code": 100001, "category": "flexi", "units": 100, "invested": 15000}]},\n          open("pf.json", "w"))\nsys.argv = ["portfolio_report.py", "--dry-run", "--config", "pf.json"]\nimport portfolio_report\nportfolio_report.main()\nh = open("portfolio_preview.html").read()\nprint("OK", "Test Flexi Cap" in h, len(h))\n'
+
+
 def check(cond: bool, msg: str, errors: list[str]) -> None:
     print(("  ok    " if cond else "  FAIL  ") + msg)
     if not cond:
@@ -553,6 +557,136 @@ print(json.dumps({"asked": asked, "words": got}))
         check(r.get("asked") == ["write", "write", "expand", "review"],
               f"short script: retried, then draft expanded ({r.get('asked')})", errors)
         check(r.get("words") == [1600], f"short script: editor pass did not cut it ({r.get('words')})", errors)
+        # ---------------------------------------------------------------- workflow logic
+        print("\n=== schedule logic (which edition is due, no duplicates) ===")
+        import yaml as _yaml
+        wfdir = SRC.parent / ".github" / "workflows"
+        wfy = _yaml.safe_load((wfdir / "world_brief.yml").read_text())
+        steps = wfy["jobs"]["brief"]["steps"]
+        check(steps[0].get("with", {}).get("ref") == "main", "world_brief.yml: checks out latest main at job start", errors)
+        dig = _yaml.safe_load((wfdir / "digest.yml").read_text())
+        check(any(s.get("with", {}).get("ref") == "main" for s in dig["jobs"]["digest"]["steps"]),
+              "digest.yml: checks out latest main at job start", errors)
+        pick = next(s["run"] for s in steps if s.get("id") == "ed")
+        fake = Path(tmp) / "fakebin"
+        fake.mkdir(exist_ok=True)
+        (fake / "date").write_text('#!/bin/sh\ncase "$1" in +%F) echo "$FAKE_D";; +%H) echo "$FAKE_H";; +%u) echo "$FAKE_DOW";; *) /bin/date "$@";; esac\n')
+        (fake / "date").chmod(0o755)
+
+        def due(h, dow, done=(), event="schedule", inp=""):
+            d = Path(tempfile.mkdtemp(dir=tmp))
+            (d / "state" / "done").mkdir(parents=True)
+            for x in done:
+                (d / "state" / "done" / f"2026-10-18-{x}").write_text("x")
+            out = d / "out.txt"
+            env = {**os.environ, "PATH": f"{fake}:{os.environ['PATH']}", "FAKE_D": "2026-10-18",
+                   "FAKE_H": f"{h:02d}", "FAKE_DOW": str(dow), "EVENT_NAME": event,
+                   "INPUT_EDITION": inp, "GITHUB_OUTPUT": str(out)}
+            subprocess.run(["bash", "-e", "-c", pick], cwd=d, env=env, capture_output=True, text=True)
+            return out.read_text().strip().split("=")[-1] if out.exists() else "?"
+        cases = [((7, 3), "morning"), ((8, 3, ["morning"]), "skip"), ((19, 3), "skip"),
+                 ((9, 7, ["morning"]), "weekly"), ((8, 7, ["morning"]), "skip"),
+                 ((10, 7, ["morning", "weekly"]), "skip"), ((15, 3, [], "workflow_dispatch", "due"), "skip"),
+                 ((15, 3, [], "workflow_dispatch", "auto"), "morning"), ((7, 3, [], "push"), "test")]
+        for args, want in cases:
+            got = due(*args)
+            check(got == want, f"schedule: {args} -> {want} (got {got})", errors)
+
+        summ = Path(tmp) / "summary.md"
+        r = subprocess.run([sys.executable, "-c",
+            "import os,sys; sys.path.insert(0, os.getcwd()); import digest; digest.MODELS_USED.append('gemini-x'); "
+            "digest.step_summary('morning', [], ['🟠 Telugu'])"], cwd=work, capture_output=True, text=True,
+            env={**os.environ, "GITHUB_STEP_SUMMARY": str(summ)}, timeout=60)
+        s = summ.read_text() if summ.exists() else ""
+        check("gemini-x" in s and "Telugu" in s, "run page summary: AI used, podcasts, missing, issues", errors)
+
+        print("\n=== last-second duplicate guard (sent by another run) ===")
+        origin = Path(tmp) / "origin.git"
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(origin)], check=True)
+        clone = Path(tmp) / "clone"
+        subprocess.run(["git", "clone", "-q", str(origin), str(clone)], check=True, capture_output=True)
+        (clone / "world_brief" / "state" / "done").mkdir(parents=True)
+        (clone / "world_brief" / "state" / "done" / "2026-10-18-morning").write_text("x")
+        for cmd in (["add", "-A"], ["-c", "user.email=t@t", "-c", "user.name=t", "commit", "-q", "-m", "x"],
+                    ["push", "-q", "origin", "HEAD:main"]):
+            subprocess.run(["git", *cmd], cwd=clone, check=True, capture_output=True)
+        guard = (
+            "import os, sys, datetime\n"
+            f"sys.path.insert(0, {str(work)!r})\n"
+            "import digest\n"
+            f"digest.ROOT = __import__('pathlib').Path({str(clone / 'world_brief')!r})\n"
+            "os.environ.update(GITHUB_ACTIONS='true', WB_SCHEDULED='1')\n"
+            "d = datetime.datetime(2026, 10, 18, 9)\n"
+            "print(digest.sent_elsewhere(d, 'morning'), digest.sent_elsewhere(d, 'weekly'))\n")
+        r = subprocess.run([sys.executable, "-c", guard], capture_output=True, text=True, timeout=120)
+        check(r.stdout.strip().endswith("True False"),
+              "duplicate guard: sees 'sent' on GitHub, ignores other editions" + ("" if r.stdout.strip().endswith("True False") else f" ({r.stdout[-200:]} {r.stderr[-300:]})"), errors)
+
+        # ---------------------------------------------------------------- small units
+        print("\n=== small units (links, strip, subject, redaction, feeds) ===")
+        unit = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+import digest, email_style
+out = {}
+digest.KNOWN_LINKS.add("https://news.example.com/a")
+out["links"] = [digest.link_allowed("https://news.example.com/a"), digest.link_allowed("https://evil.example/x"),
+                digest.link_allowed("javascript:alert(1)")]
+box = "| Asset | Latest | Change | Status |\n|---|---:|---:|---|\n| 🇮🇳 Nifty 50 | 23,146 | ▲ +0.65% | X |\n| 💵 USD/INR | ₹94.96 | ▼ -0.20% | X |"
+out["strip"] = email_style.market_strip(box)
+out["strip_empty"] = email_style.market_strip("")
+out["subject"] = email_style.subject_line("World Brief — Saturday, 17 October 2026",
+    "## 🚨 Top 5\n- 🟡 **NEW** — **RBI cuts repo rate by 25 basis points today**\n- b\n## x\n", True, False)
+out["redact"] = digest.redact("key=abc sk-or-v1-123abc github_pat_11AAbb AIzaSyA1234567890123456789012 bot123:ABC-def")
+items = [{"id": "S1", "category": "india", "source": "The Hindu", "title": "Cited", "link": "https://a/1"},
+         {"id": "S2", "category": "india", "source": "The Hindu", "title": "Not cited", "link": "https://a/2"}]
+out["more"] = digest.more_headlines("story [S1]", items)
+rss = b'<?xml version="1.0"?><rss version="2.0"><channel><title>T</title><item><title>Fresh story here</title><link>https://n.example/1</link><pubDate>' + \
+      __import__("email.utils").utils.formatdate(usegmt=True).encode() + b'</pubDate></item></channel></rss>'
+class R:
+    content = rss
+    def raise_for_status(self): pass
+def get(url, **k):
+    if "bad" in url:
+        raise RuntimeError("down")
+    return R()
+digest.requests.get = get
+got = digest.fetch_items({"india": ["https://ok.example/rss", "https://bad.example/rss"], "usa": ["https://ok2.example/rss"]})
+out["fetch"] = [(i["category"], i["title"]) for i in got]
+print(json.dumps(out, ensure_ascii=False))
+"""
+        r = subprocess.run([sys.executable, "-c", unit], cwd=work, capture_output=True, text=True, timeout=120)
+        try:
+            u = json.loads(r.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(r.stdout[-800:], r.stderr[-800:])
+            u = {}
+        check(u.get("links") == [True, False, False], "links: only known article links survive", errors)
+        check("Nifty 50 23,146 ▲0.65%" in u.get("strip", "") and "$1 = ₹94.96 ▼−0.20%" in u.get("strip", "")
+              and u.get("strip_empty") == "", f"market strip format ({u.get('strip')})", errors)
+        check(u.get("subject", "").startswith("🚨 World Brief · Sat 17 Oct: RBI cuts repo rate"),
+              f"subject: urgent flag, short date, top story ({u.get('subject')})", errors)
+        red = u.get("redact", "")
+        check(not any(s in red for s in ("abc", "sk-or-v1", "github_pat_11", "AIzaSy", "ABC-def")),
+              f"logs: secrets scrubbed ({red})", errors)
+        check("Not cited" in u.get("more", "") and "Cited](" not in u.get("more", ""),
+              "More headlines: lists only stories the brief did not cover", errors)
+        check(u.get("fetch") == [["india", "Fresh story here"], ["usa", "Fresh story here"]],
+              f"feeds: downloaded in parallel, a dead feed is skipped, order kept ({u.get('fetch')})", errors)
+
+        # ---------------------------------------------------------------- other jobs
+        print("\n=== AI News Digest (Gemini down -> OpenRouter) and Portfolio report ===")
+        for name, code in (("aid", AID_DRILL), ("pf", PF_DRILL)):
+            d = Path(tmp) / name
+            d.mkdir(exist_ok=True)
+            r = subprocess.run([sys.executable, "-c", code], cwd=d, capture_output=True, text=True, timeout=180,
+                               env={**os.environ, "ROOTDIR": str(SRC.parent)})
+            last = (r.stdout.strip().splitlines() or [""])[-1]
+            if name == "aid":
+                check(last == "PREVIEW 2", "AI News Digest: Gemini down -> OpenRouter picks the stories" + ("" if last == "PREVIEW 2" else f" ({last} {r.stderr[-300:]})"), errors)
+            else:
+                check(last.startswith("OK True"), "Portfolio report: builds from fake NAVs" + ("" if last.startswith("OK True") else f" ({last} {r.stderr[-300:]})"), errors)
+
     print("\nRESULT:", "ALL CHECKS PASSED" if not errors else f"{len(errors)} FAILED")
     return 1 if errors else 0
 

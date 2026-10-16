@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (feeds downloaded 10 at a time, one shared weather request, main pipeline split into small steps with memory saved right after the email; audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (tests for schedule logic, duplicate guard, units, AI Digest and Portfolio; run summary on GitHub; alert when many news sources fail; feeds downloaded 10 at a time, one shared weather request, main pipeline split into small steps with memory saved right after the email; audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 
@@ -88,7 +88,7 @@ If a script comes back far too short, the system asks once more for the full-len
 
 - **Never twice**: every run checks out the latest code when it starts (`ref: main`), and just before sending it checks GitHub again for today's "sent" marker, so a run that waited behind another one can't resend.
 - **Never too late**: after 75 minutes (`WB_SEND_BY_MIN`) the run skips any podcast it hasn't made yet and sends the email, so GitHub's 100-minute limit can't swallow an edition.
-- **Health alerts (only you)**: when an edition went out but quality dropped (robot voices, a language missing, a podcast skipped, backup AI wrote the brief, a script came out short), you get a short 🩺 email (and a Telegram message if `TELEGRAM_CHAT_ID` is set). Silent on good days.
+- **Health alerts (only you)**: when an edition went out but quality dropped (robot voices, a language missing, a podcast skipped, backup AI wrote the brief, a script came out short, many news sources failed), you get a short 🩺 email (and a Telegram message if `TELEGRAM_CHAT_ID` is set). Silent on good days.
 - **Failure alerts** go by email **and** Telegram (`TELEGRAM_CHAT_ID`), so a Gmail problem can't hide a failure.
 
 - **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning window; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
@@ -113,7 +113,15 @@ GitHub's own timer often starts runs hours late (a morning run at noon) or skips
 
 ## Automatic test before every change
 
-`tests/e2e.py` runs on every code push (fake news, fake AI, silent audio, no network). It checks morning, evening and weekly: exactly one email, English + Telugu + Hindi play links, chapters, audio copied to the player site, memory saved; plus drills for "Telugu fails", "Gemini completely down", the player-site sync and the Google Cloud voice cap. Run it locally with `python tests/e2e.py` (needs ffmpeg).
+`tests/e2e.py` runs on every code push to this repo (fake news, fake AI, silent audio, no network) and must print **ALL CHECKS PASSED** (about 170 checks):
+
+- **Editions**: morning, evening (manual only) and weekly: exactly one email, play links for every language, chapters, audio on the player site, podcast-app feeds, Telegram, memory saved, Telugu/Hindi made from the English episode, email design, English-only text.
+- **Drills**: Telugu fails; Gemini completely down; run too long (podcasts skipped, email still sent, health alert); player-site sync; Google Cloud voice cap; Telegram auto-setup; short scripts expanded, never cut.
+- **Schedule logic**: which edition is due at each hour and day (with "already sent" markers), latest code checked out at job start, and the last-second "already sent on GitHub" guard.
+- **Small units**: link filtering, market strip, subject line, secret scrubbing, More headlines, parallel feed download with a dead feed.
+- **Other jobs**: AI News Digest (Gemini down, so OpenRouter picks) and the Portfolio report (fake NAVs).
+
+Run it locally with `python tests/e2e.py` (needs ffmpeg). Each run also writes a short summary (AI used, podcasts, anything missing) on the GitHub run page.
 
 ## Run something now (no clicking in GitHub)
 

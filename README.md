@@ -1,6 +1,6 @@
 # Dji's automations
 
-This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 16 Oct 2026 (times now US Eastern; no Claude scheduled tasks: free cron-job.org timer)._
+This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 16 Oct 2026 (audit fixes; AI Digest falls back to OpenRouter; all jobs covered by the automatic test)._
 
 | Job | What | Where |
 |---|---|---|
