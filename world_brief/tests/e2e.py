@@ -557,6 +557,40 @@ print(json.dumps({"asked": asked, "words": got}))
         check(r.get("asked") == ["write", "write", "expand", "review"],
               f"short script: retried, then draft expanded ({r.get('asked')})", errors)
         check(r.get("words") == [1600], f"short script: editor pass did not cut it ({r.get('words')})", errors)
+        print("\n=== Hindi drops lines -> asked again for every line ===")
+        drill = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+os.environ["WEATHER"] = "0"
+import podcast
+from pathlib import Path
+en = "\n".join(("KARTIK: " if i % 2 == 0 else "PRIYA: ") + "word " * 20 for i in range(40))
+calls = []
+def llm(system, user):
+    calls.append("TRANSLATION MODE" in system)
+    n = 15 if len(calls) == 1 else 40          # first answer drops most lines
+    return "\n".join(("ARJUN: " if i % 2 == 0 else "MEERA: ") + "शब्द " * 20 for i in range(n))
+got = []
+class Stop(Exception): pass
+def tts(turns, *a, **k):
+    got.append(len(turns)); raise Stop()
+podcast.gemini_podcast = tts
+try:
+    podcast.make_podcast("brief", "d", Path("hx"), llm, lang="hi", base_script=en,
+                         length="About 1,900 to 4,000 words.")
+except Stop:
+    pass
+print(json.dumps({"calls": calls, "turns": got}))
+"""
+        p = subprocess.run([sys.executable, "-c", drill], cwd=work, capture_output=True, text=True, timeout=120)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-800:], p.stderr[-800:])
+            r = {}
+        check(r.get("calls") == [True, True] and r.get("turns") == [40],
+              f"Hindi: dropped lines are caught and every line is asked for again ({r})", errors)
+
         # ---------------------------------------------------------------- workflow logic
         print("\n=== schedule logic (which edition is due, no duplicates) ===")
         import yaml as _yaml

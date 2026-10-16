@@ -547,14 +547,28 @@ def make_podcast(brief_md: str, date_str: str, out_dir: Path, llm,
         t_user = (f"REPORT_TYPE: {report_type}\nDATE: {date_str}\n"
                   + (f"WEATHER (local days): {wx}\n" if wx else "")
                   + f"\nENGLISH_SCRIPT:\n{base_script}")
+        min_ratio = {"te": 0.75, "hi": 0.85}.get(lang, 0.75)   # Telugu packs more per word
+        en_turns = len(parse_script(base_script, PROFILES["en"]["hosts"]))
+        best, out = None, None
         for attempt in (1, 2):
             out = llm(t_system, t_user if attempt == 1 else t_user + (
-                f"\n\nIMPORTANT: your previous version had only {count(out)} words for a "
-                f"{en_words}-word English script, so lines were dropped. Give EVERY line."))
-            if out and en_words and count(out) >= 0.55 * en_words and len(parse_script(out, profile["hosts"])) >= 6:
+                f"\n\nIMPORTANT: your previous version had only {count(out)} words and "
+                f"{len(parse_script(out or '', profile['hosts']))} lines for a {en_words}-word, "
+                f"{en_turns}-line English script, so stories were dropped. Give EVERY line."))
+            got_turns = len(parse_script(out or "", profile["hosts"]))
+            if out and count(out) > count(best or ""):
+                best = out
+            # Fewer words or far fewer lines than the English means stories were dropped.
+            if out and en_words and count(out) >= min_ratio * en_words and got_turns >= max(6, 0.75 * en_turns):
                 script, translated = out, True
                 print(f"  {lang}: same episode as English ({en_words} English words -> {count(out)})")
                 break
+        if not translated and best and count(best) >= 0.55 * en_words \
+                and len(parse_script(best, profile["hosts"])) >= 6:
+            # Still the same stories, just tighter: better than a different episode.
+            script, translated = best, True
+            QUALITY.append(f"{lang}: same episode as English but shorter ({count(best)} of {en_words} words)")
+            print(f"  {lang}: same episode as English, shorter ({en_words} -> {count(best)} words)")
         if not translated:
             print(f"  ! {lang}: could not convert the English script; writing from the brief instead")
     if not translated:
