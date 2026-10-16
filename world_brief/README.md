@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 16 Oct 2026 (feeds downloaded 10 at a time, one shared weather request, main pipeline split into small steps with memory saved right after the email; audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
 
 ## What you get, and when (US Eastern time)
 

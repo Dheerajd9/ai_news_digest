@@ -94,8 +94,7 @@ Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
 ## Good to know
 
 - **Cost:** free. The repo is public, so GitHub Actions minutes are unlimited.
-- **Free AI limits:** Gemini's free tier is far above the 2 calls a day this uses.
-  (GitHub Models was retired by GitHub on 30 July 2026.)
+- **Free AI limits:** Gemini's free tier is far above the 2 calls a day this uses; if Gemini is down, OpenRouter's free models pick the stories (`OPENROUTER_API_KEY`). Only if both fail does it send plain headlines.
 - **Preview locally:** `pip install -r requirements.txt && python digest.py --dry-run`
   writes `preview.html` without sending anything.
 

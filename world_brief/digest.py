@@ -222,14 +222,30 @@ def link_allowed(url: str) -> bool:
 def fetch_items(feeds: dict[str, list[str]]) -> list[dict]:
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     items = []
+
+    def download(url: str):
+        try:
+            resp = requests.get(url, headers=UA, timeout=20)
+            resp.raise_for_status()
+            return resp.content
+        except Exception as exc:  # one bad feed must not kill the run
+            return exc
+
+    # ~115 feeds: download 10 at a time (was one by one), then parse in the usual order.
+    from concurrent.futures import ThreadPoolExecutor
+    urls_all = list(dict.fromkeys(u for urls in feeds.values() for u in urls))
+    with ThreadPoolExecutor(max_workers=int(os.getenv("FEED_WORKERS", "10"))) as pool:
+        downloaded = dict(zip(urls_all, pool.map(download, urls_all)))
     for category, urls in feeds.items():
         for url in urls:
+            got = downloaded.get(url)
+            if isinstance(got, Exception) or got is None:
+                print(f"  ! feed failed: {url} ({redact(str(got))})", file=sys.stderr)
+                continue
             try:
-                resp = requests.get(url, headers=UA, timeout=20)
-                resp.raise_for_status()
-                parsed = feedparser.parse(resp.content)
-            except Exception as exc:  # one bad feed must not kill the run
-                print(f"  ! feed failed: {url} ({redact(str(exc))})", file=sys.stderr)
+                parsed = feedparser.parse(got)
+            except Exception as exc:
+                print(f"  ! feed unreadable: {url} ({type(exc).__name__})", file=sys.stderr)
                 continue
             host = url.split("/")[2]
             source = next((n for h, n in HOST_NAMES.items() if h in host), None) \
@@ -632,7 +648,6 @@ def update_stories(stories: dict[str, dict], new: list[dict], today: str) -> dic
 # quota), then Mistral's free plan, then OpenRouter's free models. Fact-check and alerts
 # try Mistral first to save Gemini's quota for the brief and the podcasts.
 GEMINI_API = "https://generativelanguage.googleapis.com/v1beta"
-GH_MODELS_MAX_TOKENS = 7000      # free tier caps input near 8k tokens
 
 
 def est_tokens(*texts: str) -> int:
@@ -932,10 +947,6 @@ def call_openrouter(system: str, user: str) -> str | None:
                               "X-Title": "World Brief"})
         if text:
             return text
-    return None
-
-
-def call_github_models(system: str, user: str) -> str | None:     # kept for old callers
     return None
 
 
@@ -1390,6 +1401,175 @@ def sent_elsewhere(now: datetime, edition: str) -> bool:
         return False
 
 
+def build_system(cfg: dict, edition: str, date_str: str, monthly: bool) -> tuple[str, str]:
+    """System prompt for the brief: the edition prompt + one condensed rules file (was ~80 KB
+    of overlapping "layer" prompts; smaller saves free quota and keeps backup models on track).
+    Returns (full, core-only for small-context backups)."""
+    core = ((ROOT / "prompts" / cfg["prompt"]).read_text()
+            .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
+            .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
+    system = (core + "\n\n" + (ROOT / "prompts" / "core_rules.md").read_text()
+              + "\n\n## FINAL OUTPUT REMINDER (most important)\n"
+                "Write the brief exactly in the OUTPUT FORMAT given at the top. Keep "
+                "{{LISTEN}} and {{MARKET_SNAPSHOT}} exactly once each. Your answer MUST end with "
+                "the <!--META ... --> block and then the <!--STORIES [...] --> JSON block"
+              + (" and then the <!--BELIEFS [...] --> JSON block" if edition == "weekly" else "")
+              + ". These hidden blocks keep the system's memory; never skip them.")
+    # First weekly report of the month also answers "what changed our understanding?"
+    system = system.replace("{MONTHLY_BLOCK}", (
+        "## 🧭 This month: what changed our understanding?\n"
+        "3-5 points on what we learned this month that changed our understanding of where "
+        "things are heading (not a list of headlines): AI capability, jobs and skills, India's "
+        "and America's long-term direction (announcements vs implementation vs measurable "
+        "results), risks that rose or fell, expectations that proved right or wrong. Use "
+        "PREVIOUS_WEEKLY_REPORTS, STORY_MEMORY and TREND_COUNTERS.") if monthly else "")
+    return system, core
+
+
+def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: str,
+                          date_str: str, now: datetime, edition: str, dry: bool) -> list[dict]:
+    """Kartik & Priya episode(s) for this edition, uploaded before the email goes out."""
+    from podcast import make_podcast, latest_previous_script
+    import podfeed
+    episodes: list[dict] = []
+    source_text = strip_links(final.replace("{{LISTEN}}", ""))
+    (ROOT / "out").mkdir(exist_ok=True)
+    for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
+        old_raw.unlink()
+    for prompt_file, kind, label, show, length in cfg["podcasts"]:
+        if over_time(f"English {kind} podcast"):
+            continue
+        try:
+            mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
+                               length=length, show=show, prompt_file=prompt_file,
+                               out_name=f"world_brief_{kind}.mp3",
+                               report_type=edition.upper(),
+                               previous_script=latest_previous_script(PODCAST_ARCHIVE, kind))
+        except Exception as exc:
+            print(f"  ! {kind} podcast failed: {redact(str(exc))[:200]}", file=sys.stderr)
+            continue
+        if not mp3:
+            continue
+        tag = edition if kind == "full" else f"{edition}-{kind}"
+        ep = {"edition": tag, "title": f"{title} ({label.split(' ', 1)[-1]})",
+              "date": now.isoformat(), "file": str(mp3), "label": label,
+              "description": episode_notes(brief, meta), "url": None}
+        if podfeed.configured() and not dry:      # publish BEFORE emailing: links must work
+            try:
+                ep["url"] = podfeed.publish_episode(ep)
+            except Exception as exc:
+                print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
+        ep["kind"] = kind
+        episodes.append(ep)
+    if episodes:
+        (ROOT / "out" / "episodes.json").write_text(
+            json.dumps(episodes, ensure_ascii=False, default=str))
+    return episodes
+
+
+def english_script_for_languages(edition: str) -> str:
+    """Telugu and Hindi = the same English episode in that language (same stories, details)."""
+    for kind in ("full", "quick") if edition == "evening" else ("full",):
+        raw = ROOT / "out" / f"rawscript_world_brief_{kind}.txt"
+        if raw.exists():
+            return raw.read_text()
+    return ""
+
+
+def finish_email(final: str, brief: str, meta: dict, box: str, more_news: str,
+                 episodes: list[dict], lang_eps: list[dict], missing: list[str]) -> str:
+    """Listen box (with an honest note for missing audio), market strip, More headlines."""
+    listen = listen_section(episodes + lang_eps, meta, brief)
+    if missing:
+        note = (f"_{', '.join(missing)}: audio could not be made this time (the free AI "
+                f"service was busy). It will be back in the next edition._")
+        listen = (listen + "\n" + note + "\n") if listen else f"## 🎧 Listen\n\n{note}\n"
+        print(f"  ! audio missing: {', '.join(missing)}")
+    if "{{LISTEN}}" in final:
+        final = final.replace("{{LISTEN}}", listen)
+    elif listen:
+        final = insert_box(final, listen)
+    import email_style
+    strip = email_style.market_strip(box)
+    final = (email_style.insert_after(final, "Listen", strip) if "## 🎧" in final
+             else email_style.insert_after(final, "Top 5|Top stories", strip))
+    return re.sub(r"\n{3,}", "\n\n", final + more_news)
+
+
+def after_send(edition: str, title: str, final: str, episodes: list[dict],
+               lang_eps: list[dict], missing: list[str]) -> None:
+    """Extras after the email: each one isolated, so none can break another (or memory)."""
+    import languages
+    steps = [("telegram", lambda: send_telegram(final, Path(episodes[0]["file"]) if episodes else None)),
+             ("whatsapp", lambda: languages.send_whatsapp(final, lang_eps)),
+             ("telegram channel", lambda: send_telegram_channel(title, final, episodes + lang_eps)),
+             ("token reminder", lambda: token_reminder(edition)),
+             ("health alert", lambda: health_alert(edition, missing))]
+    for name, step in steps:
+        try:
+            step()
+        except Exception as exc:
+            print(f"  ! {name} failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
+
+
+def save_memory(ctx: dict) -> None:
+    """Everything tomorrow's edition remembers: archive, podcast scripts, stories, entities,
+    beliefs, scorecard, trends, source quality, seen list."""
+    now, edition, final, brief, items = ctx["now"], ctx["edition"], ctx["final"], ctx["brief"], ctx["items"]
+    today_iso = now.strftime("%Y-%m-%d")
+    new_stories, episodes = ctx["new_stories"], ctx["episodes"]
+    ARCHIVE_DIR.mkdir(exist_ok=True)
+    (ARCHIVE_DIR / f"{now:%Y-%m-%d}{ctx['cfg']['file_suffix']}.md").write_text(final)
+    # Keep podcast scripts as memory for tomorrow's episode ("Yesterday we talked about...").
+    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    for ep in episodes:
+        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
+        if script.exists():
+            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
+                script.read_text())
+    (ROOT / "state").mkdir(exist_ok=True)
+    if new_stories:
+        ENTITIES_FILE.write_text(json.dumps(update_entities(ctx["entities"], new_stories, today_iso),
+                                            indent=0, ensure_ascii=False))
+    if edition == "weekly" and ctx["new_beliefs"]:
+        BELIEFS_FILE.write_text(json.dumps(update_beliefs(ctx["beliefs"], ctx["new_beliefs"], today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  beliefs updated: {len(ctx['new_beliefs'])}")
+    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
+    run = ctx["run"]
+    run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
+               email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
+               podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0
+                                   for e in episodes + ctx["lang_eps"]),
+               corrections=final.count("CORRECTION"),
+               action_required=attention.count("ACTION REQUIRED"),
+               quiet=int((re.findall(r"\d+", str(ctx["meta"].get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
+               warnings=len(ctx["warnings"]), llm_calls=sum(LLM_CALLS.values()),
+               stories_tracked=len(new_stories))
+    SCORECARD_FILE.write_text(json.dumps(record_run(load_json(SCORECARD_FILE, {}), run,
+                                                    edition == "weekly"), indent=0))
+    if items:
+        TRENDS_FILE.parent.mkdir(exist_ok=True)
+        TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,
+                                          sort_keys=True))
+        cited = set(re.findall(r"\[(S\d+)\]", brief))
+        SOURCES_FILE.parent.mkdir(exist_ok=True)
+        SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
+                                           indent=1, ensure_ascii=False, sort_keys=True))
+    if new_stories:
+        STORIES_FILE.parent.mkdir(exist_ok=True)
+        STORIES_FILE.write_text(json.dumps(update_stories(ctx["stories"], new_stories, today_iso),
+                                           indent=1, ensure_ascii=False))
+        print(f"  story ledger: {len(new_stories)} stories updated")
+    if items:
+        seen = ctx["seen"]
+        stamp = datetime.now(timezone.utc).isoformat()
+        for it in items:
+            seen[key_of(it)] = stamp
+        STATE_FILE.parent.mkdir(exist_ok=True)
+        STATE_FILE.write_text(json.dumps(seen, indent=0))
+
+
 def main() -> None:
     global LOOKBACK_HOURS, SOURCE_QUALITY, TREND_TEXT, ENTITY_TEXT, BELIEFS_TEXT
     edition = os.getenv("EDITION", "morning").strip() or "morning"
@@ -1408,19 +1588,8 @@ def main() -> None:
         box, markets_plain = "", ""
     memory = previous_briefs(cfg["memory_days"], cfg["memory_chars"],
                              keep_links=(edition == "weekly"))
-    system = ((ROOT / "prompts" / cfg["prompt"]).read_text()
-              .replace("{DATE}", date_str).replace("{EDITION}", edition.upper())
-              .replace("{TITLE}", cfg["title"]).replace("{TOP5_INTRO}", cfg["top5_intro"]))
-    system_core = system
-    # One condensed rules file (was ~80 KB of overlapping "layer" prompts): saves free quota
-    # on every call and keeps small backup models on track.
-    system = (system + "\n\n" + (ROOT / "prompts" / "core_rules.md").read_text()
-              + "\n\n## FINAL OUTPUT REMINDER (most important)\n"
-                "Write the brief exactly in the OUTPUT FORMAT given at the top. Keep "
-                "{{LISTEN}} and {{MARKET_SNAPSHOT}} exactly once each. Your answer MUST end with "
-                "the <!--META ... --> block and then the <!--STORIES [...] --> JSON block"
-              + (" and then the <!--BELIEFS [...] --> JSON block" if edition == "weekly" else "")
-              + ". These hidden blocks keep the system's memory; never skip them.")
+    monthly = edition == "weekly" and now.day <= 7
+    system, system_core = build_system(cfg, edition, date_str, monthly)
     SOURCE_QUALITY = load_source_quality()
     today_iso = now.strftime("%Y-%m-%d")
     try:
@@ -1433,20 +1602,13 @@ def main() -> None:
     ENTITY_TEXT = entity_memory_text(entities) if entities else ""
     BELIEFS_TEXT = json.dumps(beliefs, ensure_ascii=False) if beliefs else ""
     run = {"date": today_iso, "edition": edition}
-    # First weekly report of the month also answers "what changed our understanding?"
-    monthly = edition == "weekly" and now.day <= 7
-    system = system.replace("{MONTHLY_BLOCK}", (
-        "## 🧭 This month: what changed our understanding?\n"
-        "3-5 points on what we learned this month that changed our understanding of where "
-        "things are heading (not a list of headlines): AI capability, jobs and skills, India's "
-        "and America's long-term direction (announcements vs implementation vs measurable "
-        "results), risks that rose or fell, expectations that proved right or wrong. Use "
-        "PREVIOUS_WEEKLY_REPORTS, STORY_MEMORY and TREND_COUNTERS.") if monthly else "")
     stories = load_stories(today_iso)
     ledger = story_memory(stories)
 
     items: list[dict] = []
     meta: dict = {}
+    new_stories: list[dict] = []
+    new_beliefs: list = []
     seen = load_seen()
     if edition == "weekly":
         if not memory:
@@ -1487,8 +1649,8 @@ def main() -> None:
         n_before = len(MODELS_USED)
         brief = None if no_llm else write_brief(system, items, history, date_str,
                                                 markets_plain, memory, ledger, system_core)
-        if (not brief and not no_llm and (os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1")
-                and os.getenv("DRY_RUN") != "1"):
+        if (not brief and not no_llm and os.getenv("DRY_RUN") != "1"
+                and (os.getenv("GITHUB_EVENT_NAME") == "schedule" or os.getenv("WB_SCHEDULED") == "1")):
             # Every AI was down or out of quota. Don't send a headlines-only email yet: fail
             # this slot (no done marker) so the next backup slot tries again. Second failure
             # in a day falls through to the headlines-only email, so you always get something.
@@ -1498,7 +1660,6 @@ def main() -> None:
                 flag.write_text(datetime.now(timezone.utc).isoformat())
                 print("  ! every AI failed; will retry in the next scheduled slot")
                 sys.exit(1)
-        new_stories: list[dict] = []
         if brief:
             brief, meta = extract_meta(brief)
             brief, new_stories = extract_stories(brief)
@@ -1523,60 +1684,17 @@ def main() -> None:
                   + "\n".join(f"- {w}" for w in warnings[:5])
                   + "\n\n_These claims could not be fully verified from strong sources yet._\n")
 
-    # Podcasts (Kartik & Priya): Quick and/or Full, unless the AI says nothing is worth it.
-    episodes: list[dict] = []
+    # Podcasts: English first, then the same episode in Telugu and Hindi.
     wants_podcast = meta.get("PODCAST_REQUIRED", "TRUE").upper().startswith("T")
-    if os.getenv("PODCAST", "1") == "1" and not no_llm and wants_podcast:
-        from podcast import make_podcast, latest_previous_script
-        import podfeed
-        source_text = strip_links(final.replace("{{LISTEN}}", ""))
-        for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
-            old_raw.unlink()
-        for prompt_file, kind, label, show, length in cfg["podcasts"]:
-            if over_time(f"English {kind} podcast"):
-                continue
-            try:
-                mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
-                                   length=length, show=show, prompt_file=prompt_file,
-                                   out_name=f"world_brief_{kind}.mp3",
-                                   report_type=edition.upper(),
-                                   previous_script=latest_previous_script(PODCAST_ARCHIVE, kind))
-            except Exception as exc:
-                print(f"  ! {kind} podcast failed: {redact(str(exc))[:200]}", file=sys.stderr)
-                continue
-            if not mp3:
-                continue
-            tag = edition if kind == "full" else f"{edition}-{kind}"
-            ep = {"edition": tag, "title": f"{title} ({label.split(' ', 1)[-1]})",
-                  "date": now.isoformat(), "file": str(mp3), "label": label,
-                  "description": episode_notes(brief, meta), "url": None}
-            # Publish BEFORE emailing so the links in the email already work.
-            if podfeed.configured() and not dry:
-                try:
-                    ep["url"] = podfeed.publish_episode(ep)
-                except Exception as exc:
-                    print(f"  ! podcast feed failed: {type(exc).__name__}: {redact(str(exc))[:150]}")
-            ep["kind"] = kind
-            episodes.append(ep)
-        if episodes:
-            (ROOT / "out" / "episodes.json").write_text(
-                json.dumps(episodes, ensure_ascii=False, default=str))
-    elif not wants_podcast:
+    podcasts_on = os.getenv("PODCAST", "1") == "1" and not no_llm and wants_podcast
+    if not wants_podcast:
         print("  podcast skipped: AI says nothing meaningful new")
-
-    # Same news as Telugu and Hindi podcasts, so ONE email serves every listener.
+    episodes = make_english_podcasts(cfg, final, brief, meta, title, date_str, now,
+                                     edition, dry) if podcasts_on else []
     import languages
-    langs = languages.wanted(edition) if ((items or edition == "weekly") and not no_llm and wants_podcast
-                                          and os.getenv("PODCAST", "1") == "1") else []
-    # Telugu and Hindi = the same English episode in that language (same stories, same details).
-    base_script = ""
-    for kind in ("full", "quick") if edition == "evening" else ("full",):
-        raw = ROOT / "out" / f"rawscript_world_brief_{kind}.txt"
-        if raw.exists():
-            base_script = raw.read_text()
-            break
+    langs = languages.wanted(edition) if podcasts_on and (items or edition == "weekly") else []
     lang_eps = languages.make_episodes(final, date_str, now, ROOT / "out", edition.upper(),
-                                       langs, dry, base_script=base_script,
+                                       langs, dry, base_script=english_script_for_languages(edition),
                                        over_time=over_time) if langs else []
 
     # Copy every uploaded episode onto the player site (real audio type: plays on iPhone).
@@ -1585,30 +1703,17 @@ def main() -> None:
     if uploaded and not dry:
         import podfeed
         podfeed.sync_site_audio(uploaded)
-    listen = listen_section(episodes + lang_eps, meta, brief)
     # Be honest when a language could not be made (e.g. the free AI was overloaded).
     missing = [languages.LANGS[c]["label"] for c in langs
                if c not in {e["kind"] for e in lang_eps}]
-    if wants_podcast and os.getenv("PODCAST", "1") == "1" and not no_llm and not episodes:
+    if podcasts_on and not episodes:
         missing.insert(0, "🔵 English")
-    if missing:
-        note = (f"_{', '.join(missing)}: audio could not be made this time (the free AI "
-                f"service was busy). It will be back in the next edition._")
-        listen = (listen + "\n" + note + "\n") if listen else f"## 🎧 Listen\n\n{note}\n"
-        print(f"  ! audio missing: {', '.join(missing)}")
-    if "{{LISTEN}}" in final:
-        final = final.replace("{{LISTEN}}", listen)
-    elif listen:
-        final = insert_box(final, listen)
-    import email_style
-    strip = email_style.market_strip(box)
-    final = (email_style.insert_after(final, "Listen", strip) if "## 🎧" in final
-             else email_style.insert_after(final, "Top 5|Top stories", strip))
-    final = re.sub(r"\n{3,}", "\n\n", final + more_news)
+    final = finish_email(final, brief, meta, box, more_news, episodes, lang_eps, missing)
     # Attach only what has no play link (upload failed or no podcast repo); the links play
     # in the browser, so the email stays small.
     audio_files = [Path(e["file"]) for e in episodes + lang_eps if not e.get("url")]
 
+    import email_style
     urgent = meta.get("URGENT_ALERT", "").upper().startswith("T")
     subject = email_style.subject_line(title, final, urgent, bool(episodes or lang_eps))
     if dry:
@@ -1622,59 +1727,12 @@ def main() -> None:
         return
     send_email(subject, final, audio_files, everyone=True)
     mark_done(now, edition)            # email is out: backup slots must not resend it
-    send_telegram(final, Path(episodes[0]["file"]) if episodes else None)
-    languages.send_whatsapp(final, lang_eps)
-    send_telegram_channel(title, final, episodes + lang_eps)
-    token_reminder(edition)
-    health_alert(edition, missing)
-
-    ARCHIVE_DIR.mkdir(exist_ok=True)
-    (ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md").write_text(final)
-    # Keep podcast scripts as memory for tomorrow's episode ("Yesterday we talked about...").
-    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
-    for ep in episodes:
-        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
-        if script.exists():
-            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(
-                script.read_text())
-    (ROOT / "state").mkdir(exist_ok=True)
-    if new_stories:
-        ENTITIES_FILE.write_text(json.dumps(update_entities(entities, new_stories, today_iso),
-                                            indent=0, ensure_ascii=False))
-    if edition == "weekly" and new_beliefs:
-        BELIEFS_FILE.write_text(json.dumps(update_beliefs(beliefs, new_beliefs, today_iso),
-                                           indent=1, ensure_ascii=False))
-        print(f"  beliefs updated: {len(new_beliefs)}")
-    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
-    run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
-               email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
-               podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0 for e in episodes + lang_eps),
-               corrections=final.count("CORRECTION"),
-               action_required=attention.count("ACTION REQUIRED"),
-               quiet=int((re.findall(r"\d+", str(meta.get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
-               warnings=len(warnings), llm_calls=sum(LLM_CALLS.values()),
-               stories_tracked=len(new_stories))
-    SCORECARD_FILE.write_text(json.dumps(record_run(load_json(SCORECARD_FILE, {}), run,
-                                                    edition == "weekly"), indent=0))
-    if items:
-        TRENDS_FILE.parent.mkdir(exist_ok=True)
-        TRENDS_FILE.write_text(json.dumps(update_trends(items, today_iso), indent=0,
-                                          sort_keys=True))
-        cited = set(re.findall(r"\[(S\d+)\]", brief))
-        SOURCES_FILE.parent.mkdir(exist_ok=True)
-        SOURCES_FILE.write_text(json.dumps(update_source_quality(SOURCE_QUALITY, items, cited),
-                                           indent=1, ensure_ascii=False, sort_keys=True))
-    if new_stories:
-        STORIES_FILE.parent.mkdir(exist_ok=True)
-        STORIES_FILE.write_text(json.dumps(update_stories(stories, new_stories, today_iso),
-                                           indent=1, ensure_ascii=False))
-        print(f"  story ledger: {len(new_stories)} stories updated")
-    if items:
-        stamp = datetime.now(timezone.utc).isoformat()
-        for it in items:
-            seen[key_of(it)] = stamp
-        STATE_FILE.parent.mkdir(exist_ok=True)
-        STATE_FILE.write_text(json.dumps(seen, indent=0))
+    save_memory({"now": now, "edition": edition, "cfg": cfg, "final": final, "brief": brief,
+                 "items": items, "new_stories": new_stories, "new_beliefs": new_beliefs,
+                 "episodes": episodes, "lang_eps": lang_eps, "entities": entities,
+                 "beliefs": beliefs, "stories": stories, "seen": seen, "run": run,
+                 "meta": meta, "warnings": warnings})
+    after_send(edition, title, final, episodes, lang_eps, missing)
 
 
 if __name__ == "__main__":

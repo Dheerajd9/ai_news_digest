@@ -119,7 +119,6 @@ def fake_gemini(system, user):
         return user.split("DRAFT:", 1)[1].strip()
     return BRIEF
 digest.call_gemini = fake_gemini
-digest.call_github_models = lambda s, u: None
 digest.call_mistral = lambda s, u: None                # backup brains "down": must not matter
 digest.call_openrouter = lambda s, u: None
 podcast.cloud_tts_podcast = lambda *a, **k: None

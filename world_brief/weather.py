@@ -11,7 +11,7 @@ import os
 
 import requests
 
-DEFAULT_PLACES = "Hyderabad:17.385:78.487"
+DEFAULT_PLACES = "Hyderabad:17.39:78.49"   # same point as markets.CITIES: one shared request
 URL = "https://api.open-meteo.com/v1/forecast"
 
 CODES = {0: "clear sky", 1: "mostly clear", 2: "partly cloudy", 3: "cloudy", 45: "fog", 48: "fog",
@@ -24,13 +24,21 @@ CODES = {0: "clear sky", 1: "mostly clear", 2: "partly cloudy", 3: "cloudy", 45:
 _CACHE: dict[str, str] = {}
 
 
+_FETCHED: dict[tuple, dict] = {}
+
+
 def fetch(lat: float, lon: float) -> dict:
+    """Open-Meteo forecast (current + 2 days, local time zone). Cached per run: the email's
+    weather line and the podcasts share one request."""
+    if (lat, lon) in _FETCHED:
+        return _FETCHED[(lat, lon)]
     r = requests.get(URL, timeout=10, params={
         "latitude": lat, "longitude": lon, "timezone": "auto", "forecast_days": 2,
         "current": "temperature_2m,weather_code",
         "daily": "temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code"})
     r.raise_for_status()
-    return r.json()
+    _FETCHED[(lat, lon)] = r.json()
+    return _FETCHED[(lat, lon)]
 
 
 def _place(name: str, d: dict) -> str:

@@ -1,10 +1,10 @@
 """
 AI News Digest — collects the latest AI news from free RSS feeds, picks the
-top 5 stories with a free AI model (GitHub Models), and emails them to you.
+top 5 stories with a free AI model (Gemini, OpenRouter as backup), and emails them to you.
 
 Runs on GitHub Actions twice a day. Everything used here is free:
   - RSS feeds (no API keys)
-  - GitHub Models (free tier, uses the built-in GITHUB_TOKEN)
+  - Gemini free tier (GEMINI_API_KEY), OpenRouter free models as backup (OPENROUTER_API_KEY)
   - Gmail SMTP with an App Password
 
 If the AI step fails for any reason, the email still goes out with the top
@@ -34,7 +34,6 @@ import requests
 
 LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "14"))  # a little over 12h so cron delays don't leave gaps
 TOP_N = int(os.getenv("TOP_N", "5"))
-MODEL = os.getenv("MODEL", "openai/gpt-4o-mini")
 LOCAL_TZ = ZoneInfo(os.getenv("LOCAL_TZ", "America/New_York"))
 MAX_CANDIDATES = 40  # keeps the prompt inside the free tier's input limit
 
@@ -75,8 +74,6 @@ STATE_FILE = os.getenv("STATE_FILE", "sent.json")
 STATE_DAYS = 5  # remember sent stories this long so they aren't repeated
 BIG_NAMES = ["openai", "anthropic", "claude", "google", "gemini", "deepmind",
              "apple", "meta", "microsoft", "copilot", "nvidia", "gpt"]
-API_HEADERS = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
-               "Content-Type": "application/json"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (ai-news-digest; +https://github.com)"}
 
 
@@ -230,70 +227,6 @@ Reply with JSON only, in this exact shape:
 </news_items>"""
 
 
-# GitHub Models has served chat completions from two addresses; the working one is
-# detected at runtime by find_endpoint().
-ENDPOINTS = [
-    "https://models.github.ai/inference/chat/completions",
-    "https://models.inference.ai.azure.com/chat/completions",
-]
-ENDPOINT = ENDPOINTS[0]
-
-
-def find_endpoint(token):
-    """Return the first endpoint that answers a tiny request with real JSON."""
-    global ENDPOINT
-    notes = []
-    for url in ENDPOINTS:
-        for model in ("openai/gpt-4o-mini", "gpt-4o-mini", "openai/gpt-4.1-mini"):
-            try:
-                r = requests.post(url, headers={**API_HEADERS, "Authorization": f"Bearer {token}"},
-                                  json={"model": model, "max_tokens": 5,
-                                        "messages": [{"role": "user", "content": "Say hi"}]},
-                                  timeout=30)
-                r.json()["choices"]
-                ENDPOINT = url
-                gh_annotate("notice", f"AI endpoint OK: {url} ({model})")
-                return model
-            except Exception:
-                notes.append(f"{url.split('/')[2]} {model}: HTTP {getattr(r, 'status_code', '?')} "
-                             f"{(getattr(r, 'text', '') or '')[:60]!r}")
-    gh_annotate("warning", "No AI endpoint answered: " + " | ".join(notes))
-    return None
-
-
-PREFERRED_MODELS = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini", "openai/gpt-5-mini",
-                    "openai/gpt-4.1", "openai/gpt-4o"]
-
-
-def available_models(token):
-    """Model IDs currently offered by GitHub Models (empty list if the catalog can't be read)."""
-    try:
-        resp = requests.get("https://models.github.ai/catalog/models",
-                            headers={**API_HEADERS, "Authorization": f"Bearer {token}"}, timeout=20)
-        resp.raise_for_status()
-        try:
-            return [m["id"] for m in resp.json()]
-        except ValueError:
-            gh_annotate("warning", f"Catalog HTTP {resp.status_code}, non-JSON "
-                        f"({resp.headers.get('content-type')}): {resp.text[:150]!r}")
-            return []
-    except Exception as exc:
-        gh_annotate("warning", f"Couldn't read GitHub Models catalog: {exc}")
-        return []
-
-
-def model_candidates(token):
-    catalog = available_models(token)
-    order = [MODEL] + [m for m in PREFERRED_MODELS if m != MODEL]
-    if not catalog:
-        return order
-    picks = [m for m in order if m in catalog]
-    # Anything else from OpenAI in the catalog, smallest first, as a last resort
-    extras = sorted((m for m in catalog if m.startswith("openai/") and m not in picks),
-                    key=lambda m: ("mini" not in m and "nano" not in m, m))
-    return picks + extras[:3]
-
-
 def parse_stories(content, items):
     """Turn the model's JSON reply into stories; links always come from the feeds."""
     match = re.search(r"\{.*\}", content, re.S)  # tolerate ```json fences or extra text
@@ -375,67 +308,38 @@ def pick_with_ai(items):
     stories = pick_with_gemini(prompt, items)
     if stories:
         return stories
-    token = os.getenv("GITHUB_TOKEN")
-    if not token:
-        print("[info] No AI key available, skipping AI step", file=sys.stderr)
-        return None
-    if not os.getenv("GEMINI_API_KEY"):
-        gh_annotate("notice", "No GEMINI_API_KEY secret yet, trying GitHub Models")
-    last_error = ""
-    working = find_endpoint(token)
-    if not working:
-        return None
-    candidates = model_candidates(token)
-    if "azure.com" in ENDPOINT:  # this endpoint uses bare model names
-        candidates = [m.split("/", 1)[-1] for m in candidates]
-    candidates = [working] + [m for m in candidates if m != working]
-    for model in candidates[:4]:
-        stories, last_error = call_model(token, model, prompt, items)
-        if stories:
-            gh_annotate("notice", f"Stories picked by {model}")
-            return stories
-    gh_annotate("warning", f"AI step failed, sent plain headlines instead. Last error: {last_error}")
-    return None
+    return pick_with_openrouter(prompt, items)
 
 
-def call_model(token, model, prompt, items):
-    body = {
-        "model": model,
-        "temperature": 0.2,
-        "messages": [{"role": "user", "content": prompt}],
-    }
-    error = ""
-    for attempt in range(2):
+def pick_with_openrouter(prompt, items):
+    """Free backup when Gemini is down or out of quota: OpenRouter's free models."""
+    key = os.getenv("OPENROUTER_API_KEY", "").strip()
+    if not key:
+        print("[info] Gemini failed and no OPENROUTER_API_KEY: plain headlines", file=sys.stderr)
+        return None
+    try:
+        models = requests.get("https://openrouter.ai/api/v1/models", timeout=30).json()["data"]
+        free = [m["id"] for m in models if m["id"].endswith(":free")
+                and int(m.get("context_length") or 0) >= 32000][:3]
+    except Exception as exc:
+        gh_annotate("warning", f"OpenRouter model list failed: {type(exc).__name__}")
+        return None
+    for model in free:
         try:
-            resp = requests.post(
-                ENDPOINT,
-                headers={**API_HEADERS, "Authorization": f"Bearer {token}"},
-                json=body, timeout=90,
-            )
-            if resp.status_code >= 400:
-                error = f"{model} HTTP {resp.status_code}: {resp.text[:200]}"
-                if resp.status_code in (400, 401, 403, 404):  # not worth retrying this model
-                    return None, error
-                raise RuntimeError(error)
-            try:
-                content = resp.json()["choices"][0]["message"]["content"]
-            except ValueError:
-                return None, (f"{model} HTTP {resp.status_code}, non-JSON reply "
-                              f"({resp.headers.get('content-type')}): {resp.text[:150]!r}")
-            match = re.search(r"\{.*\}", content, re.S)  # tolerate ```json fences or extra text
-            stories = []
-            for s in json.loads(match.group(0) if match else content)["stories"][:TOP_N]:
-                idx = int(s["id"])
-                if 0 <= idx < len(items):  # links always come from the feeds, never the model
-                    stories.append({**s, "link": items[idx]["link"], "source": items[idx]["source"]})
+            r = requests.post("https://openrouter.ai/api/v1/chat/completions", timeout=120,
+                              headers={"Authorization": f"Bearer {key}"},
+                              json={"model": model, "temperature": 0.2,
+                                    "messages": [{"role": "user", "content": prompt}]})
+            if r.status_code >= 400:
+                continue
+            stories = parse_stories(r.json()["choices"][0]["message"]["content"], items)
             if stories:
-                return stories, ""
-            error = f"{model}: no usable stories in reply"
-        except Exception as exc:
-            error = error or f"{model}: {type(exc).__name__}: {exc}"
-            print(f"[warn] AI attempt {attempt + 1} failed: {exc}", file=sys.stderr)
-            time.sleep(5 * (attempt + 1))
-    return None, error
+                gh_annotate("notice", f"Stories picked by OpenRouter {model}")
+                return stories
+        except Exception:
+            continue
+    gh_annotate("warning", "AI step failed (Gemini and OpenRouter), sent plain headlines instead")
+    return None
 
 
 def fallback_stories(items):

@@ -266,16 +266,13 @@ def metal_rows(weekly: bool) -> list[dict]:
 
 # ---------------------------------------------------------------- weather
 def weather_rows() -> list[dict]:
+    """One line per city for the email's money section (data from weather.py, shared with the
+    podcasts, so Open-Meteo is asked only once per city per run)."""
+    import weather
     rows = []
     for city, lat, lon, tz, unit in CITIES:
         try:
-            r = requests.get("https://api.open-meteo.com/v1/forecast", params={
-                "latitude": lat, "longitude": lon, "timezone": tz, "forecast_days": 2,
-                "daily": "weather_code,temperature_2m_max,temperature_2m_min,"
-                         "precipitation_probability_max",
-                "temperature_unit": "fahrenheit" if unit == "F" else "celsius"}, timeout=15)
-            r.raise_for_status()
-            d = r.json()["daily"]
+            d = weather.fetch(lat, lon)["daily"]
             i = 1 if datetime.now(ZoneInfo(tz)).hour >= 15 else 0   # late in their day -> tomorrow
             day = datetime.fromisoformat(d["time"][i]).strftime("%a %d %b")
             rows.append({"city": city, "day": day, "text": (
