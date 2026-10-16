@@ -2,14 +2,14 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (Telugu + Hindi are now the same full episode as English; English Full 15–20 min; Telegram shows named links; Claude scheduled tasks removed, free cron-job.org timer instead)._
+_Last updated: 16 Oct 2026 (no fixed time limit: Full episode 15–30 min depending on the news, evening 4–10 min; Telugu + Hindi are the same full episode as English; Telegram named links; free cron-job.org timer instead of Claude scheduled tasks)._
 
 ## What you get, and when (Dallas time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–20 min) + ⚡ Quick (5–7 min, short version), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
-| **Evening, ~6:10 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–7 min, the same episode in all three) |
+| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day) + ⚡ Quick (5–7 min, short version), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
+| **Evening, ~6:10 PM** | **Evening Update**: only what changed since the morning (not a repeat), plus 📰 More headlines. Podcasts in English, Telugu and Hindi (4–10 min, the same episode in all three) |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
 | **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
 

@@ -32,12 +32,12 @@ LANGS = {
 }
 
 LENGTHS = {
-    "MORNING": ("About 1,900 to 2,600 words (15 to 20 minutes spoken): the same full coverage as "
+    "MORNING": ("About 1,900 to 4,000 words (15 to 30 minutes spoken, up to 30 on a big news day): the same full coverage as "
                 "the English Full podcast. Cover every story in the brief that matters, with real "
                 "explanation; shorter only on a genuinely quiet news day. Do not stop early."),
-    "EVENING": ("About 500 to 900 words (4 to 7 minutes spoken): only what changed since the "
+    "EVENING": ("About 500 to 1,500 words (4 to 10 minutes spoken): only what changed since the "
                 "morning, biggest change first. Shorter if little changed."),
-    "WEEKLY": ("About 1,900 to 2,600 words (15 to 20 minutes spoken): the week's big patterns, "
+    "WEEKLY": ("About 1,900 to 4,000 words (15 to 30 minutes spoken): the week's big patterns, "
                "same coverage as the English weekly podcast. Do not stop early."),
 }
 

@@ -802,7 +802,7 @@ def call_gemini(system: str, user: str) -> str | None:
                     headers={"x-goog-api-key": key},
                     json=({"system_instruction": {"parts": [{"text": system}]},
                            "contents": [{"role": "user", "parts": [{"text": user}]}],
-                           "generationConfig": {"temperature": 0.4, "maxOutputTokens": 16384}}
+                           "generationConfig": {"temperature": 0.4, "maxOutputTokens": 32768}}
                           if not model.startswith("gemma") else      # Gemma: no system field
                           {"contents": [{"role": "user", "parts": [{"text": system + "\n\n" + user}]}],
                            "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192}}),
@@ -1163,25 +1163,23 @@ EDITIONS = {
                     (*QUICK, "⚡ Quick", "The Morning Brief: Quick",
                      "At most about 1,000 words (5 to 7 minutes MAXIMUM). A 4-minute episode is completely fine."),
                     (*FULL, "📻 Full", "The Morning Brief: Full",
-                     "About 1,900 to 2,600 words (15 to 20 minutes spoken): the full news with all "
-                     "the details, every story in the brief that matters, real explanation for each. "
-                     "Shorter only on a genuinely quiet news day. Do not stop early."),
+                     "About 1,900 to 4,000 words (15 to 30 minutes spoken): the full news with all the details, every story in the brief that matters, real explanation for each. Length follows the news: about 15 minutes on a normal day, up to 30 minutes on a big news day; never cut a story short to save time, never pad. Do not stop early."),
                 ]},
     "evening": {"title": "Evening Update", "prompt": "evening_prompt.md", "lookback": 12,
                 "memory_days": 1, "memory_chars": 9000, "fact_check": True,
                 "file_suffix": "-evening", "top5_intro": "",
                 "podcasts": [
                     (*QUICK, "⚡ Quick", "The Evening Update",
-                     "About 500 to 900 words (4 to 7 minutes spoken): everything that changed since "
-                     "the morning, with the details, biggest change first. Shorter only if little changed."),
+                     "About 500 to 1,500 words (4 to 10 minutes spoken): everything that changed since "
+                     "the morning, with the details, biggest change first. Longer on a big news day, "
+                     "shorter only if little changed."),
                 ]},
     "weekly": {"title": "Weekly Deep Dive", "prompt": "weekly_prompt.md", "lookback": 0,
                "memory_days": 7, "memory_chars": 120000, "fact_check": False,
                "file_suffix": "-weekly", "top5_intro": "",
                "podcasts": [
                    (*FULL, "📻 Weekly", "The Weekly Deep Dive",
-                    "About 1,900 to 2,600 words (15 to 20 minutes spoken): the week's big patterns "
-                    "with all the details. Do not stop early."),
+                    "About 1,900 to 4,000 words (15 to 30 minutes spoken): the week's big patterns with all the details; up to 30 minutes in a big week. Do not stop early."),
                ]},
 }
 GENERIC_TOPICS = {"update", "updates", "latest", "news", "breaking", "story", "new", "previously"}
