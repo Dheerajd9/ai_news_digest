@@ -1,8 +1,8 @@
 # World Brief
 
-India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
+India first, USA second, then the world. One daily email with the full news **plus podcasts in English and Telugu** (Hindi is switched off; one setting brings it back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 17 Oct 2026 (third free voice backup: if Microsoft voices are blocked, Google's basic voice reads Telugu/Hindi/English so audio is never missing; edge-tts 7.3.1)._
+_Last updated: 17 Oct 2026 (Hindi switched off: English + Telugu only; English gets the natural Gemini voices first; Google basic voice as last free backup)._
 
 ## What you get, and when (US Eastern time)
 
@@ -55,7 +55,7 @@ Each language has its own feed; add it once ("Follow a show by URL" / "Add by UR
 |---|---|
 | 🔵 English | `https://daily-world-brief.github.io/world-brief-podcast/feed.xml` |
 | 🟠 Telugu | `https://daily-world-brief.github.io/world-brief-podcast/feed-te.xml` |
-| 🟢 Hindi | `https://daily-world-brief.github.io/world-brief-podcast/feed-hi.xml` |
+| 🟢 Hindi (off for now) | `https://daily-world-brief.github.io/world-brief-podcast/feed-hi.xml` |
 
 Feeds list the last 10 days (audio older than that is removed from the site). They are hidden from podcast directories; only people with the URL can follow.
 
@@ -183,6 +183,6 @@ Gmail limits: about 100 recipients per email and about 500 per day, so keep the 
 ## Tuning
 
 - Voices: pin with variables `GEMINI_VOICE_A/B` (English), `GEMINI_TELUGU_VOICE_A/B`, `GEMINI_HINDI_VOICE_A/B`; force Microsoft voices with `PODCAST_TTS=edge` / `TELUGU_TTS=edge` / `HINDI_TTS=edge`.
-- Languages: `PODCAST_LANGUAGES` (default `te,hi`), `LANG_EDITIONS` (default `morning,evening,weekly`).
+- Languages: `PODCAST_LANGUAGES` (default `te`; set the variable to `te,hi` to bring Hindi back), `LANG_EDITIONS` (default `morning,evening,weekly`).
 - Player site audio days: `SITE_AUDIO_DAYS` (default 10).
 - Alerts: `watchlist.yaml` keywords, `min_score`, `max_alerts_per_day`.

@@ -222,7 +222,7 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
         check("-quick" not in md and "Quick" not in md, "morning: one Full English episode (no Quick copy)", errors)
     check("తెలుగులో ముఖ్యాంశాలు" not in md and "हिंदी में मुख्य खबरें" not in md,
           f"{edition}: email text is English only", errors)
-    check("Listen: English · Telugu · Hindi" in md and not re.search(r"[\u0C00-\u0C7F\u0900-\u097F]", md),
+    check(re.search(r"Listen: English · (Telugu|Hindi)", md) is not None and not re.search(r"[\u0C00-\u0C7F\u0900-\u097F]", md),
           f"{edition}: language names in English (no Telugu/Hindi script in the email)", errors)
     check("Markets now:** " in md and "Nifty 50 23,146 ▲0.65%" in md and "Gold 10g ₹1,46,430" in md,
           f"{edition}: one-line market strip", errors)
@@ -307,6 +307,11 @@ def main() -> int:
             check(bool(groups.get(g)), f"feeds: {g}", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
+        import importlib, os as _os
+        _os.environ.pop("PODCAST_LANGUAGES", None)
+        sys.path.insert(0, str(SRC))
+        import languages as _lg
+        check(_lg.wanted("morning") == ["te"], f"languages: Telugu only by default, Hindi off ({_lg.wanted('morning')})", errors)
         everywhere = "".join((SRC.parent / f).read_text() for f in
                              ["digest.py", "portfolio_report.py", "portfolio_analytics.py"]) + "".join(
             f.read_text() for f in list(SRC.glob("*.py")) + list(SRC.glob("prompts/*.md"))

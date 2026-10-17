@@ -2,7 +2,7 @@
 Telugu and Hindi podcasts of the same full, fact-checked brief, so ONE email can offer
 the news in English, Telugu and Hindi (everyone picks their language and taps play).
 
-  PODCAST_LANGUAGES   which extra languages, comma-separated (default "te,hi")
+  PODCAST_LANGUAGES   which extra languages, comma-separated (default "te"; add ",hi" for Hindi)
   LANG_EDITIONS       editions that get them (default "morning,evening,weekly")
   PARENTS_WHATSAPP    optional "phone:apikey" pairs: WhatsApp message with the play links
                       via CallMeBot (free; each phone activates it once, see README)
@@ -49,7 +49,7 @@ def _redact(text: str) -> str:
 def wanted(edition: str) -> list[str]:
     if edition not in os.getenv("LANG_EDITIONS", "morning,evening,weekly").split(","):
         return []
-    return [c.strip() for c in os.getenv("PODCAST_LANGUAGES", "te,hi").split(",")
+    return [c.strip() for c in os.getenv("PODCAST_LANGUAGES", "te").split(",")
             if c.strip() in LANGS]
 
 
