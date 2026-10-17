@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcTJSaTZIUWN0aGhNSzV3Umt3cGpxcmxTSnVPMGNZdGprNXJGNm1jMVBuVk5iakF5Z09jb3hURDRpTmhnRFlDNDJramJZbnRocTQ2bEZLYk5BUkVONVRNSFZTbjVUNi1MMDM3SFlVT25XZGdvN3UtRW1ZUWsyTHV6bU45QU1pWlo2ZHh5Z1EwRXV3MmthZmlEZA?oc=5",
-   "title": "Gemini 4 Argon: our next era of frontier intelligence",
-   "at": "2026-10-12T02:17:19+00:00"
-  },
-  {
-   "link": "https://www.engadget.com/2281289/openai-dot-vs-meta-muse-ai-agents-comparison/",
-   "title": "OpenAI Dot vs. Meta Muse: How do these AI agents compare?",
-   "at": "2026-10-12T02:17:19+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPaVU1Ml9FOWw2czlWaVR3U2hQbVZLSG1uMVZlLURVTnVwTVdqVjg4LUUzM2djNlQ3bkFycW1nanlIcjZvREJLbTNQWEI5Rk5OSUczOUJBdVJEYkJrUi02eS10QWxSUGlGT3hJVU1zcmRJUzZIeVkyYS13RjlXREZrTGt1ME9PZDdGNE9GVFRYdHh5a3VSMENvYW1LUVZCZnBmOEU3ZkJ3MlRGTEs0QVd1NU8tWnFtMnJ5ZFE0cmZoOTM3N2pRblVFeTBjZHpJRlZrRWU0VV9hd1gyMnN2SlZmMFRkUkhrU0RNa0N6QWRJQ2FCMTg?oc=5",
-   "title": "Anthropic Shut Down Live Internet for All AI Agent Evaluations After Models Exploited Government Systems and Submitted a False Homicide Tip",
-   "at": "2026-10-12T02:17:19+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQczFMU2xmekthNXFOUjkxZTNBYi00QzVoclNxVVBScVRvbFNtcGhNQlZLdm5SdmphUTBKSGJxS3NuVm9sVF9aYVBveXhtbDdPQ3IzYko2LUM3czJnWjEyc08tSGdpOTluQ25SZ0hPNGhtOVNCRnpkWjhCQzhNSTA2WFBWZEdDWTdRUF9RUG95SDJPRDJtLS1mMTllb1Rqdm0wR2pCZDd0eWxRTExJU3J3RTE2TVFwcmRTU21pc00xY3dlSU1MWFE?oc=5",
-   "title": "OpenAI fires 3 safety researchers in dispute over AI risks",
-   "at": "2026-10-12T02:17:19+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaTlNblJmR2h0SkQydXZtQzExWnVZaWw5YlV6LTZJdXBsaGMtZm1SQl84X21EMVo5bzVEQjNtbUkybWFBY2xBc3ZiVnJPNzFJV1ZxdHpWeVM3SGJBRXNXQnA1Rm9aejlqNEk2emtfODdKVW9RVjMtWHZJQkRpUTRYXzJ0eW56Sy1ta3hmTkdwYzlFcU9wMXhMY2pIWFpfbGcxR0E?oc=5",
-   "title": "White House restores UK access to frontier AI models after 17 day freeze",
-   "at": "2026-10-12T02:17:19+00:00"
-  },
-  {
    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaDhHTGhScjZQSk1aWEw0MWgwOVN1OWdiLW9qVE5WM1pEbWc0T0ZvekVxMFJHRkxIQ1dOM3drakZfalZTZzNhdWpDdV93SkZ0RllwelN1b0RoMnBsR1QxWXB1eUdsM2hTNkdJd21EZUhBUVdzLS01UnJrRHZnSlEtUjZRY1Y4RVdZZ29uRW5Ob19QaG1ROW9MQlVYY3JYcmVJc1ZBbjgyWFBhMm95MlExVmZMUEJzQmV3Mkdkbw?oc=5",
    "title": "Google holds big lead over Anthropic, Meta, OpenAI in race for best October AI model (GOOG:NASDAQ)",
    "at": "2026-10-12T23:31:56+00:00"
@@ -249,6 +224,31 @@
    "link": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
    "title": "Replit is no longer working with Anthropic, CEO says",
    "at": "2026-10-16T23:10:58+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/ai-models-hide-mistakes-in-their-own-work-reports-but-one-sentence-in-your-prompt-can-help/",
+   "title": "AI models hide mistakes in their own work reports, but one sentence in your prompt can help",
+   "at": "2026-10-17T12:11:23+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/mathematicians-say-openai-doesnt-understand-its-own-navier-stokes-proof/",
+   "title": "Mathematicians say OpenAI doesn't understand its own Navier-Stokes proof",
+   "at": "2026-10-17T12:11:23+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/deepseek-v4-1-flash-1017-beats-larger-rivals-in-agentic-tasks-while-once-again-massively-cutting-per-task-costs/",
+   "title": "Deepseek V4.1 Flash 1017 beats larger rivals in agentic tasks while once again massively cutting per-task costs",
+   "at": "2026-10-17T12:11:23+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQX3ZqRkZfWUw5X3dBbVVkUzh3NGVXTXdrOEIwOVRGUHdTeTRaaURSWS1DYVA3aXdUREVFeTM1ZnF0Mm91bzJTb0R6OWR3a0VwaFBPQmFqeVRuQjdrUFZSSFpmbjMzSGZEX2xCeE84c3A2Q3dpRnlEcVZ5MFhLVUE5b0lwUml2eWFacWZDVHJsaVh5VVJMZjZRdmlNSWlkQW1Wa2Rkb3Jn0gGrAUFVX3lxTE9RRnJFaXBvLVJUT0NMMXRtN0JscFBCQTIzRHlQUFdYMjJ2bnZkQ080WGZQYUtqTGNaZTZidWljbFhnNklKVGFaWXBLbXdtV0xkOTlYcnhFOUxMYU1vUnJMclpyR21nYTBLUDh5UURFTy1MbGRUQThiWXNLSVVMWkZJQlpwWTNJQUpGM3dyVGNHZmp6Y0E0R29FaWtkd25sczZ0RktJRTRXcGVkNA?oc=5",
+   "title": "Anthropic says its AI models hacked 3 organizations on their own during tests - ABC News",
+   "at": "2026-10-17T12:11:23+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPcDU5NkpYXy1WM0tsV2xnWWI5YjAzODhXYy0zRGROVnJyazRsbkdXa2hqUTE5VkR3aDg3c0c4MU1OcnRyM0plOUF3UWw2YlBDcU9LS3gwLXBFNTNreVlibkozUmx5UGJwZndUbGpsUGlsTGxQS3FzYTVtRlZhQW9jOGkzZ2lINEdXOTF5ZzlpcVlyUk1vSExoaFQxd1l6Yi1EVVJybHl2MXVTMWZUVUgyOGpBcWU1ZGlJdzFlX0pXWE15X0x1YjJNQk5RSUFRR1lsSkFTbEdB0gHbAUFVX3lxTFB0Y3daeEg5YnQydmozWTB6cDQxUmZTdXc0a1Q0NkpEdHZxYnpEdWpvVjVTdkhSOGt4TklranFhQjBhcGJIaDRBSDdBTGpXa2p4M2tnalY2RTA1dzFKRVprYWVSaDBMdDd4M1ZyNEhhaUwzSWVxeVpoN3JQbV96V09PVmJPOFlzS0NrYm5vZ3ExeEFkUzVWRlFmQXc3RTN0RFpaNEFFSHEwTVNuaDg4UE5kUmlIcXBLUG9KcVFkblRQWGJXS3dfRHJzU2otSXF0eVZGNXY5MnJtN0ZzWQ?oc=5",
+   "title": "Harvard, Anthropic, and QuEra Use LLMs to Discover Quantum Circuits with Up to 9,100x Lower Resource Costs",
+   "at": "2026-10-17T12:11:23+00:00"
   }
  ]
 }
