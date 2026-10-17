@@ -2,12 +2,13 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "russia-ukraine-energy-truce",
-"russia-diesel-sanctions"
+"russia-diesel-sanctions",
+"russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-17"
 },
 "Yandex": {
 "first_seen": "2026-10-11",
@@ -73,20 +74,22 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "middle-east-escalation",
-"middle-east-oil"
+"middle-east-oil",
+"air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-17"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
-"count": 7,
+"count": 8,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"oil-spike-market-drop"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-10-17"
 },
 "Yemen": {
 "first_seen": "2026-10-11",
@@ -174,13 +177,13 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 7,
+"count": 8,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
 "yes-bank-at1-verdict"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
 "Ministry of Statistics": {
 "first_seen": "2026-10-12",
@@ -192,11 +195,11 @@
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
-"count": 4,
+"count": 5,
 "stories": [
 "rbi-rupee-defense"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
 "US Dollar": {
 "first_seen": "2026-10-12",
@@ -208,12 +211,13 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "middle-east-escalation",
-"middle-east-oil"
+"middle-east-oil",
+"oil-spike-market-drop"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-17"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -260,12 +264,13 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "meta-muse-wonder",
-"openai-state-lawsuits"
+"openai-state-lawsuits",
+"us-banks-block-ai-agents"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-17"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -362,13 +367,13 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 5,
+"count": 6,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept",
 "oil-spike-market-drop"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
 "IEA": {
 "first_seen": "2026-10-14",
@@ -396,13 +401,14 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 7,
+"count": 8,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks",
-"cert-in-ai-agent-breach"
+"cert-in-ai-agent-breach",
+"russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -527,30 +533,122 @@
 },
 "Canada IRCC": {
 "first_seen": "2026-10-16",
+"count": 2,
+"stories": [
+"canada-express-entry-high-wage"
+],
+"last_seen": "2026-10-17"
+},
+"JPMorgan Chase": {
+"first_seen": "2026-10-16",
+"count": 2,
+"stories": [
+"us-banks-block-ai-agents"
+],
+"last_seen": "2026-10-17"
+},
+"Citigroup": {
+"first_seen": "2026-10-16",
+"count": 2,
+"stories": [
+"us-banks-block-ai-agents"
+],
+"last_seen": "2026-10-17"
+},
+"Lindsey Graham": {
+"first_seen": "2026-10-17",
+"count": 1,
+"stories": [
+"russia-oil-sanctions-waiver"
+],
+"last_seen": "2026-10-17"
+},
+"Crude Oil": {
+"first_seen": "2026-10-17",
+"count": 1,
+"stories": [
+"russia-oil-sanctions-waiver"
+],
+"last_seen": "2026-10-17"
+},
+"Jamie Dimon": {
+"first_seen": "2026-10-17",
+"count": 1,
+"stories": [
+"us-banks-block-ai-agents"
+],
+"last_seen": "2026-10-17"
+},
+"Nasdaq": {
+"first_seen": "2026-10-17",
+"count": 1,
+"stories": [
+"oil-spike-market-drop"
+],
+"last_seen": "2026-10-17"
+},
+"Mark Carney": {
+"first_seen": "2026-10-17",
 "count": 1,
 "stories": [
 "canada-express-entry-high-wage"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
-"JPMorgan Chase": {
-"first_seen": "2026-10-16",
+"Air India": {
+"first_seen": "2026-10-17",
 "count": 1,
 "stories": [
-"us-banks-block-ai-agents"
+"air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 },
-"Citigroup": {
-"first_seen": "2026-10-16",
+"Air India Express": {
+"first_seen": "2026-10-17",
 "count": 1,
 "stories": [
-"us-banks-block-ai-agents"
+"air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-17"
 }
 },
 "connections": [
+{
+"text": "Trump sanctions waiver -> India oil imports protected -> lower fuel import bill",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
+{
+"text": "AI agents -> financial transfer attempts -> bank account security blockades",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
+{
+"text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> tech sell-off",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
+{
+"text": "Canada Express Entry revamp -> bonus points for tech workers -> faster PR pathways",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
+{
+"text": "High global crude oil -> dollar demand -> RBI foreign reserve sales -> rupee stabilizes at 94.96",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
+{
+"text": "Middle East conflict -> civil aviation threats -> flight suspensions between India and Gulf",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-17",
+"count": 1
+},
 {
 "text": "India-US trade deal -> tariff reduction -> export opportunities",
 "first_seen": "2026-10-14",

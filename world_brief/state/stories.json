@@ -208,10 +208,6 @@
   "first_seen": "2026-10-12",
   "expectations": [
    {
-    "date": "2026-10-12",
-    "text": "Watch forex reserve levels in upcoming RBI weekly data"
-   },
-   {
     "date": "2026-10-13",
     "text": "Monitor forex reserve data"
    },
@@ -226,6 +222,10 @@
    {
     "date": "2026-10-16",
     "text": "RBI to continue calibrated market interventions"
+   },
+   {
+    "date": "2026-10-17",
+    "text": "Calibrated RBI intervention to maintain the rupee near 94.50-95.20"
    }
   ],
   "timeline": [
@@ -248,17 +248,20 @@
    {
     "date": "2026-10-16",
     "event": "Reserves drop $8.58B while rupee gains for 5th day"
+   },
+   {
+    "date": "2026-10-17",
+    "event": "Weekly forex reserves print shows $8.58 billion decline to $726.03 billion"
    }
   ],
   "title": "RBI forex reserves drop $8.58B to defend rupee at 94.96",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "RBI forex reserves fell $8.58 billion to $726.03 billion as central bank dollar sales pushed the rupee to 94.96 per dollar.",
+  "summary": "RBI weekly foreign exchange reserves declined by $8.58 billion to $726.03 billion as central bank interventions stabilized the rupee at 94.96 per dollar.",
   "open_questions": [
-   "How long can the RBI sustain aggressive dollar sales if oil stays elevated?",
-   "Will the rupee break below the ₹94.50 level?"
+   "How long can the RBI sustain dollar sales if crude oil remains near $110?"
   ],
-  "last_seen": "2026-10-16"
+  "last_seen": "2026-10-17"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -854,22 +857,30 @@
    {
     "date": "2026-10-16",
     "text": "Higher CRS draw cutoffs favoring high-earning tech professionals"
+   },
+   {
+    "date": "2026-10-17",
+    "text": "Higher CRS cutoffs favoring high-earning foreign tech professionals from November 3"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-16",
     "event": "IRCC launches high-wage CRS points boost and drops LMIA requirement"
+   },
+   {
+    "date": "2026-10-17",
+    "event": "Details announced for November 3 launch of high-wage Express Entry boost"
    }
   ],
   "title": "Canada updates Express Entry for high-wage workers",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "Canada IRCC added CRS points for high-wage job offers and dropped LMIA requirements to attract skilled international talent.",
+  "status": "DEVELOPING",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "IRCC announced that high-wage occupations will receive up to 100 extra CRS points without requiring LMIA clearance starting November 3.",
   "open_questions": [
-   "What wage threshold defines high-wage occupations across provinces?"
+   "What exact wage thresholds will apply to tech occupations across Canadian provinces?"
   ],
-  "last_seen": "2026-10-16"
+  "last_seen": "2026-10-17"
  },
  "us-banks-block-ai-agents": {
   "first_seen": "2026-10-16",
@@ -877,22 +888,31 @@
    {
     "date": "2026-10-16",
     "text": "Banking sector standards for AI agent authentication"
+   },
+   {
+    "date": "2026-10-17",
+    "text": "Banking industry task forces to establish zero-knowledge proof authentication protocols"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-16",
     "event": "JPMorgan and Citigroup block external AI agents"
+   },
+   {
+    "date": "2026-10-17",
+    "event": "Top commercial banks ban autonomous AI agent access to customer dashboards"
    }
   ],
   "title": "US banks restrict AI agents from customer accounts",
-  "status": "NEW",
+  "status": "MAJOR CHANGE",
   "stage": "IMPLEMENTED",
-  "summary": "JPMorgan Chase and Citigroup blocked third-party AI agents from logging into customer accounts and executing financial transfers.",
+  "summary": "JPMorgan Chase, Citigroup, and other major US financial institutions blocked external AI agents from logging into customer accounts after unauthorized payment attempts.",
   "open_questions": [
-   "Will federal banking regulators issue official API standards for AI agents?"
+   "When will federal regulators release official API authentication standards for financial AI agents?",
+   "How will fintech developers verify agent permissions securely?"
   ],
-  "last_seen": "2026-10-16"
+  "last_seen": "2026-10-17"
  },
  "oil-spike-market-drop": {
   "first_seen": "2026-10-16",
@@ -900,21 +920,77 @@
    {
     "date": "2026-10-16",
     "text": "Sustained pressure on global equities and imported inflation"
+   },
+   {
+    "date": "2026-10-17",
+    "text": "Sustained pressure on global inflation and central bank interest rates"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-16",
     "event": "Brent crude reaches $110 while US tech stocks slide"
+   },
+   {
+    "date": "2026-10-17",
+    "event": "Brent crude touches $110 and Nasdaq drops 2.15%"
    }
   ],
   "title": "Brent crude hits $110 as tech stocks plunge",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Brent oil surged to $109.69 per barrel amid Middle East shipping risks, pulling the Nasdaq down 2.15% in a broad tech sell-off.",
+  "summary": "Brent crude climbed to $109.86 per barrel amid Middle East shipping strikes, while tech stocks dropped heavily with the Nasdaq falling 2.15%.",
   "open_questions": [
-   "Will oil prices remain above $105 per barrel if Middle East tensions persist?"
+   "Will oil prices stabilize below $105 if shipping lanes normalize?",
+   "Will Big Tech earnings reverse the recent equity downturn?"
   ],
-  "last_seen": "2026-10-16"
+  "last_seen": "2026-10-17"
+ },
+ "russia-oil-sanctions-waiver": {
+  "first_seen": "2026-10-17",
+  "expectations": [
+   {
+    "date": "2026-10-17",
+    "text": "Congressional hearings and bipartisan pushback in Washington"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-17",
+    "event": "Executive order signed exempting buyers of Russian oil from secondary tariffs"
+   }
+  ],
+  "title": "Trump waives broad Russia energy sanctions and tariffs",
+  "status": "MAJOR CHANGE",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "President Trump signed an executive order waiving new sanctions and secondary tariffs enacted under the Lindsey Graham Act, shielding major buyers like India from trade penalties.",
+  "open_questions": [
+   "How will US congressional hawks react to the waiver?",
+   "Will India expand Russian crude purchases or maintain current import levels?"
+  ],
+  "last_seen": "2026-10-17"
+ },
+ "air-india-saudi-suspension": {
+  "first_seen": "2026-10-17",
+  "expectations": [
+   {
+    "date": "2026-10-17",
+    "text": "Airline reassessment of Gulf airspace security ahead of October 24"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-17",
+    "event": "Flight cancellations extended through October 24"
+   }
+  ],
+  "title": "Air India extends Saudi flight suspension to October 24",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Air India and Air India Express extended flight cancellations to Riyadh, Jeddah, and Dammam through October 24 amid regional missile and drone threats.",
+  "open_questions": [
+   "Will flights resume on October 25 or face further regional extensions?"
+  ],
+  "last_seen": "2026-10-17"
  }
 }
