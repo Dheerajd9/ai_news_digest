@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English, Telugu and Hindi**, fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 16 Oct 2026 (Telugu/Hindi must keep every line of the English episode or are asked again; tests for schedule logic, duplicate guard, units, AI Digest and Portfolio; run summary on GitHub; alert when many news sources fail; feeds downloaded 10 at a time, one shared weather request, main pipeline split into small steps with memory saved right after the email; audit fixes: no duplicate emails from queued runs, email always sent before the job time limit, English voice time limit 20 min, Quick episode removed, one short rules prompt instead of 5 layers, health alerts; evening edition switched off: morning + Sunday weekly only; podcast site moved to the Daily-World-Brief organization: links no longer show a personal name; language names shown in English: Telugu, Hindi; new sections: NRI money, Hyderabad land, students/visas/tech jobs, travel India↔USA, severe weather, cricket, scams & safety, good news; all times US Eastern; no Dallas/Texas focus; new email look; English-only email text)._
+_Last updated: 17 Oct 2026 (third free voice backup: if Microsoft voices are blocked, Google's basic voice reads Telugu/Hindi/English so audio is never missing; edge-tts 7.3.1)._
 
 ## What you get, and when (US Eastern time)
 
@@ -80,7 +80,7 @@ Each edition posts a short headline message with named play links ("▶️ 🔵 
 | Job | Main | Free backups, in order |
 |---|---|---|
 | Writing (brief, fact-check, scripts) | Gemini free tier (several Flash models, each with its own daily limit) | Gemma (same key) → Mistral free "Experiment" plan (`MISTRAL_API_KEY`, optional) → OpenRouter free models (`OPENROUTER_API_KEY`) |
-| Voices | Gemini 2-speaker TTS (2 models, Indian-English / Telugu / Hindi library voices) | Google Cloud Chirp 3 HD (`GOOGLE_TTS_API_KEY`, optional, capped at 900k characters/month so it stays in the free tier) → Microsoft voices (free, unlimited) |
+| Voices | Gemini 2-speaker TTS (2 models, Indian-English / Telugu / Hindi library voices) | Google Cloud Chirp 3 HD (`GOOGLE_TTS_API_KEY`, optional, capped at 900k characters/month so it stays in the free tier) → Microsoft voices (free) → Google Translate basic voice (free, one voice; used only if Microsoft blocks the free service) |
 
 If a script comes back far too short, the system asks once more for the full-length version, and if it is still short it asks the AI to expand that draft (keep every line, explain more, add skipped stories). The editor pass is never allowed to cut a script that is already at or under its target length. If Telugu or Hindi fails, it waits 90 s and retries. GitHub Models (the old backup) was retired by GitHub on 30 July 2026 and is no longer used.
 

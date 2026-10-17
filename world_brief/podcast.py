@@ -40,6 +40,7 @@ PROFILES = {
                  "PRIYA": os.getenv("PODCAST_VOICE_B", "en-IN-NeerjaExpressiveNeural")},
         "edge_fallback": {"PRIYA": "en-IN-NeerjaNeural"},
         "edge_rate": os.getenv("PODCAST_RATE", "+4%"),
+        "gtts": ("en", "co.in"),
         "gemini": {"KARTIK": "Charon", "PRIYA": "Sulafat"},
         "gemini_pinned": {"KARTIK": os.getenv("GEMINI_VOICE_A", ""),
                           "PRIYA": os.getenv("GEMINI_VOICE_B", "")},
@@ -58,6 +59,7 @@ PROFILES = {
                  "LAKSHMI": os.getenv("TELUGU_VOICE_B", "te-IN-ShrutiNeural")},
         "edge_fallback": {},
         "edge_rate": os.getenv("TELUGU_RATE", "-4%"),     # a little slower for elders
+        "gtts": ("te", "co.in"),
         "gemini": {"RAVI": "Charon", "LAKSHMI": "Sulafat"},
         "gemini_pinned": {"RAVI": os.getenv("GEMINI_TELUGU_VOICE_A", ""),
                           "LAKSHMI": os.getenv("GEMINI_TELUGU_VOICE_B", "")},
@@ -78,6 +80,7 @@ PROFILES = {
                  "MEERA": os.getenv("HINDI_VOICE_B", "hi-IN-SwaraNeural")},
         "edge_fallback": {},
         "edge_rate": os.getenv("HINDI_RATE", "+0%"),
+        "gtts": ("hi", "co.in"),
         "gemini": {"ARJUN": "Charon", "MEERA": "Sulafat"},
         "gemini_pinned": {"ARJUN": os.getenv("GEMINI_HINDI_VOICE_A", ""),
                           "MEERA": os.getenv("GEMINI_HINDI_VOICE_B", "")},
@@ -200,10 +203,16 @@ async def _speak(text: str, voice: str, out: Path, rate: str) -> None:
     await edge_tts.Communicate(text, voice, rate=rate).save(str(out))
 
 
+_EDGE_DOWN = False   # Microsoft voices refused this run: go straight to the last backup
+
+
 def speak_line(text: str, speaker: str, out: Path, profile: dict | None = None) -> None:
+    """Microsoft voices (free); if Microsoft refuses (it sometimes blocks the free service),
+    Google's basic free voice, so a language's audio is never missing."""
+    global _EDGE_DOWN
     profile = profile or PROFILES["en"]
     voice = profile["edge"][speaker]
-    for attempt in range(3):
+    for attempt in range(0 if _EDGE_DOWN else 3):
         try:
             asyncio.run(_speak(text, voice, out, profile["edge_rate"]))
             if out.exists() and out.stat().st_size > 0:
@@ -211,7 +220,29 @@ def speak_line(text: str, speaker: str, out: Path, profile: dict | None = None) 
         except Exception as exc:
             print(f"  ! tts retry {attempt + 1} ({voice}): {type(exc).__name__}")
             voice = profile["edge_fallback"].get(speaker, voice)   # missing voice -> plain one
-    raise RuntimeError(f"TTS failed for line: {text[:60]}")
+    if not _EDGE_DOWN:
+        _EDGE_DOWN = True
+        print("  ! Microsoft voices unavailable; using Google's basic free voice for the rest")
+        QUALITY.append("Microsoft voices refused: Google basic voice used (one voice, plainer)")
+    try:
+        basic_voice(text, out, profile)
+    except Exception as exc:
+        raise RuntimeError(f"TTS failed for line: {text[:60]} ({type(exc).__name__})")
+
+
+def basic_voice(text: str, out: Path, profile: dict) -> None:
+    """Last-resort free voice (Google Translate's voice via gTTS): Telugu, Hindi and English."""
+    from gtts import gTTS
+    lang, tld = profile.get("gtts", ("en", "co.in"))
+    for attempt in range(3):
+        try:
+            gTTS(text, lang=lang, tld=tld).save(str(out))
+            if out.exists() and out.stat().st_size > 0:
+                return
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(5 * (attempt + 1))
 
 
 def stitch(parts: list[Path], out_mp3: Path, workdir: Path) -> None:

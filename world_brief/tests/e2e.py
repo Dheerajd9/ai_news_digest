@@ -591,6 +591,35 @@ print(json.dumps({"calls": calls, "turns": got}))
         check(r.get("calls") == [True, True] and r.get("turns") == [40],
               f"Hindi: dropped lines are caught and every line is asked for again ({r})", errors)
 
+        print("\n=== Microsoft voices blocked -> Google basic voice (audio never missing) ===")
+        drill = r"""
+import json, os, sys
+sys.path.insert(0, os.getcwd())
+import podcast
+from pathlib import Path
+edge_calls, basic_calls = [], []
+async def broken(*a, **k):
+    edge_calls.append(1); raise ConnectionError("WSServerHandshakeError")
+podcast._speak = broken
+def basic(text, out, profile):
+    basic_calls.append(profile["gtts"][0]); Path(out).write_bytes(b"ID3fake")
+podcast.basic_voice = basic
+d = Path("vx"); d.mkdir(exist_ok=True)
+podcast.speak_line("నమస్తే", "RAVI", d / "a.mp3", podcast.PROFILES["te"])
+podcast.speak_line("రెండో లైన్", "LAKSHMI", d / "b.mp3", podcast.PROFILES["te"])
+print(json.dumps({"edge": len(edge_calls), "basic": basic_calls, "files": (d / "b.mp3").exists(),
+                  "quality": podcast.QUALITY}))
+"""
+        p = subprocess.run([sys.executable, "-c", drill], cwd=work, capture_output=True, text=True, timeout=120)
+        try:
+            r = json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(p.stdout[-800:], p.stderr[-800:])
+            r = {}
+        check(r.get("edge") == 3 and r.get("basic") == ["te", "te"] and r.get("files")
+              and any("Google basic voice" in q for q in r.get("quality", [])),
+              f"voices: Microsoft blocked -> Telugu still voiced by Google, Microsoft not retried per line ({r})", errors)
+
         # ---------------------------------------------------------------- workflow logic
         print("\n=== schedule logic (which edition is due, no duplicates) ===")
         import yaml as _yaml
