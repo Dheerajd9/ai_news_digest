@@ -130,6 +130,10 @@
    {
     "date": "2026-10-13",
     "text": "Monitor DHS official rulemaking portal for public comment periods."
+   },
+   {
+    "date": "2026-10-18",
+    "text": "Extended processing delays and early filing requirements for visa holders"
    }
   ],
   "timeline": [
@@ -144,17 +148,21 @@
    {
     "date": "2026-10-13",
     "event": "DHS proposal announced"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Administrative tightening advanced across extensions and work permit rules"
    }
   ],
-  "title": "DHS proposes tighter H-1B and OPT scrutiny",
+  "title": "DHS tightens H-1B renewal scrutiny and ends 540-day EAD extensions",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "DHS proposed ending automatic H-1B extension renewals and a new OPT fee, increasing scrutiny on international tech workers.",
+  "summary": "US DHS proposed ending deference to prior approvals for H-1B renewals and ended 540-day automatic EAD extensions, while the government appealed an injunction against the $100k fee.",
   "open_questions": [
-   "When will the final rule take effect?",
-   "How will the new OPT fee be structured?"
+   "When will the proposed rule on prior approval deference be published in the Federal Register?",
+   "Will the appeals court grant an emergency stay on the $100k fee injunction?"
   ],
-  "last_seen": "2026-10-13"
+  "last_seen": "2026-10-18"
  },
  "amazon-decart-acquisition": {
   "first_seen": "2026-10-11",
@@ -252,16 +260,20 @@
    {
     "date": "2026-10-17",
     "event": "Weekly forex reserves print shows $8.58 billion decline to $726.03 billion"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Rupee stabilized at 94.95 through active central bank foreign exchange sales"
    }
   ],
-  "title": "RBI forex reserves drop $8.58B to defend rupee at 94.96",
+  "title": "RBI forex reserves drop $8.58B to defend rupee at 94.95",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "RBI weekly foreign exchange reserves declined by $8.58 billion to $726.03 billion as central bank interventions stabilized the rupee at 94.96 per dollar.",
+  "summary": "RBI foreign exchange reserves fell $8.58 billion to $726.03 billion as active dollar sales stabilized the rupee at 94.95 despite heavy FII equity outflows.",
   "open_questions": [
    "How long can the RBI sustain dollar sales if crude oil remains near $110?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-18"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -440,10 +452,6 @@
   "first_seen": "2026-10-13",
   "expectations": [
    {
-    "date": "2026-10-13",
-    "text": "Watch for official joint announcement."
-   },
-   {
     "date": "2026-10-14",
     "text": "Bilateral trade agreement announcement"
    },
@@ -458,6 +466,10 @@
    {
     "date": "2026-10-16",
     "text": "Legal text completion and signing timeline within weeks"
+   },
+   {
+    "date": "2026-10-18",
+    "text": "Official signing and release of legal text within weeks"
    }
   ],
   "timeline": [
@@ -480,17 +492,21 @@
    {
     "date": "2026-10-16",
     "event": "Legal drafting underway after first tranche finalised"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "First phase finalized and moved to legal drafting"
    }
   ],
   "title": "India-US trade pact first phase finalised",
   "status": "MAJOR CHANGE",
   "stage": "SIGNED/FINALIZED",
-  "summary": "Piyush Goyal and Nirmala Sitharaman confirmed phase one of the bilateral trade deal is concluded with legal drafting underway, as India-US trade reached $50.8B in H1.",
+  "summary": "Officials confirmed phase one of the bilateral trade deal is concluded with legal drafting underway, as India-US trade reached $50.8B in H1.",
   "open_questions": [
    "When will the formal treaty signing ceremony occur?",
    "Which tariff lines will see immediate reductions?"
   ],
-  "last_seen": "2026-10-16"
+  "last_seen": "2026-10-18"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -724,12 +740,16 @@
    {
     "date": "2026-10-18",
     "event": "Final red herring filings prepared for Dalal Street listing"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Red herring prospectuses prepared for Dalal Street listing"
    }
   ],
   "title": "Reliance's Jio Platforms files for record IPO",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Jio Platforms readies India's biggest ₹30,213 crore IPO as domestic indices brace for heavy trading amid FII outflows.",
+  "summary": "Jio Platforms readied India's biggest ₹30,213 crore IPO as Dalal Street braces for trading amidst heavy domestic participation.",
   "open_questions": [
    "What will be the final valuation and retail price band?"
   ],
@@ -882,12 +902,16 @@
    {
     "date": "2026-10-18",
     "event": "IRCC finalizes implementation timeline for high-wage Express Entry points"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "IRCC finalized implementation timeline for November 3 rollout"
    }
   ],
   "title": "Canada updates Express Entry for high-wage workers",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "IRCC confirmed high-wage tech positions will qualify for up to 100 bonus CRS points starting November 3 without LMIA clearance.",
+  "summary": "IRCC confirmed high-wage tech positions qualify for up to 100 bonus CRS points starting November 3 without LMIA clearance.",
   "open_questions": [
    "What exact provincial wage thresholds will apply to tech occupations?"
   ],
@@ -913,17 +937,20 @@
    {
     "date": "2026-10-17",
     "event": "Top commercial banks ban autonomous AI agent access to customer dashboards"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Top commercial banks instituted account blockades against external AI agents"
    }
   ],
   "title": "US banks restrict AI agents from customer accounts",
   "status": "MAJOR CHANGE",
   "stage": "IMPLEMENTED",
-  "summary": "JPMorgan Chase, Citigroup, and other major US financial institutions blocked external AI agents from logging into customer accounts after unauthorized payment attempts.",
+  "summary": "JPMorgan Chase and Citigroup blocked external autonomous AI agents from customer accounts after unauthorized payment attempts were detected.",
   "open_questions": [
-   "When will federal regulators release official API authentication standards for financial AI agents?",
-   "How will fintech developers verify agent permissions securely?"
+   "When will federal regulators release official API authentication standards for financial AI agents?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-18"
  },
  "oil-spike-market-drop": {
   "first_seen": "2026-10-16",
@@ -949,14 +976,19 @@
    {
     "date": "2026-10-18",
     "event": "Brent crude tests $110 amid Saint Petersburg strikes"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Brent reached $109.86 as Russian fuel infrastructure took drone damage"
    }
   ],
   "title": "Brent crude near $110 as tech stocks plunge",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Brent crude remained elevated at $109.86 following Russian refinery strikes and Gulf tensions, pressuring US tech stocks and keeping yields above 5%.",
+  "summary": "Brent crude climbed to $109.86 and WTI touched $99 following Ukrainian drone strikes on a Saint Petersburg refinery and Strait of Hormuz tensions, keeping US 10-year yields above 5% and pressuring tech equities.",
   "open_questions": [
-   "Will US Treasury yields remain above 5.10% if energy prices stay elevated?"
+   "Will US Treasury yields remain above 5.10% if energy prices stay elevated?",
+   "Will diplomatic frameworks reopen Hormuz commercial transit?"
   ],
   "last_seen": "2026-10-18"
  },
@@ -1066,20 +1098,29 @@
    {
     "date": "2026-10-18",
     "text": "Tech firms revising 2027 college recruitment targets"
+   },
+   {
+    "date": "2026-10-18",
+    "text": "Enterprise software engineering teams revising 2027 college recruitment targets"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-18",
     "event": "Anthropic junior technical hiring plunges to single digits"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Junior engineering share fell to single digits inside leading AI lab"
    }
   ],
   "title": "Anthropic cuts junior tech hiring as AI agents expand",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Anthropic reported junior tech headcount dropped to 9% as internal AI systems work six times as many hours as entry-level human developers.",
+  "summary": "Anthropic reported its junior tech headcount fell to 9% as internal autonomous agents now do six times as many hours of work as human junior developers.",
   "open_questions": [
-   "Will traditional tech enterprises mirror Anthropic's sharp reduction in junior engineering roles?"
+   "Will traditional tech enterprises mirror Anthropic's sharp reduction in junior engineering roles?",
+   "How will universities adapt computer science curricula?"
   ],
   "last_seen": "2026-10-18"
  }
