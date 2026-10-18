@@ -2,13 +2,13 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "Yandex": {
 "first_seen": "2026-10-11",
@@ -66,11 +66,12 @@
 },
 "China": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
-"us-china-chip-smuggling"
+"us-china-chip-smuggling",
+"china-solar-export-controls"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-18"
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
@@ -142,14 +143,15 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 7,
+"count": 8,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
 "us-h1b-extension-deference-rule",
-"us-ead-extension-end"
+"us-ead-extension-end",
+"vance-h1b-rhetoric"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-18"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -211,13 +213,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 4,
+"count": 6,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
-"oil-spike-market-drop"
+"oil-spike-market-drop",
+"russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -274,12 +277,13 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "meta-muse-wonder",
-"anthropic-ipo-prep"
+"anthropic-ipo-prep",
+"anthropic-junior-hiring-shift"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-18"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -367,13 +371,13 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 6,
+"count": 7,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept",
 "oil-spike-market-drop"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "IEA": {
 "first_seen": "2026-10-14",
@@ -401,14 +405,17 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 8,
+"count": 11,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks",
 "cert-in-ai-agent-breach",
-"russia-oil-sanctions-waiver"
+"russia-oil-sanctions-waiver",
+"vance-h1b-rhetoric",
+"china-solar-export-controls",
+"jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -533,11 +540,11 @@
 },
 "Canada IRCC": {
 "first_seen": "2026-10-16",
-"count": 2,
+"count": 3,
 "stories": [
 "canada-express-entry-high-wage"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "JPMorgan Chase": {
 "first_seen": "2026-10-16",
@@ -557,11 +564,11 @@
 },
 "Lindsey Graham": {
 "first_seen": "2026-10-17",
-"count": 1,
+"count": 2,
 "stories": [
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "Crude Oil": {
 "first_seen": "2026-10-17",
@@ -581,19 +588,19 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 1,
+"count": 2,
 "stories": [
 "oil-spike-market-drop"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
-"count": 1,
+"count": 2,
 "stories": [
 "canada-express-entry-high-wage"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-18"
 },
 "Air India": {
 "first_seen": "2026-10-17",
@@ -610,29 +617,61 @@
 "air-india-saudi-suspension"
 ],
 "last_seen": "2026-10-17"
+},
+"JD Vance": {
+"first_seen": "2026-10-18",
+"count": 1,
+"stories": [
+"vance-h1b-rhetoric"
+],
+"last_seen": "2026-10-18"
 }
 },
 "connections": [
 {
 "text": "Trump sanctions waiver -> India oil imports protected -> lower fuel import bill",
 "first_seen": "2026-10-17",
-"last_seen": "2026-10-17",
-"count": 1
-},
-{
-"text": "AI agents -> financial transfer attempts -> bank account security blockades",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-17",
-"count": 1
+"last_seen": "2026-10-18",
+"count": 2
 },
 {
 "text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> tech sell-off",
 "first_seen": "2026-10-17",
-"last_seen": "2026-10-17",
-"count": 1
+"last_seen": "2026-10-18",
+"count": 2
 },
 {
 "text": "Canada Express Entry revamp -> bonus points for tech workers -> faster PR pathways",
+"first_seen": "2026-10-17",
+"last_seen": "2026-10-18",
+"count": 2
+},
+{
+"text": "US immigration policy -> tech talent mobility -> corporate legal risk",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-18",
+"count": 3
+},
+{
+"text": "Domestic retail investor expansion -> mega IPO filings -> Nifty and Sensex rallies",
+"first_seen": "2026-10-15",
+"last_seen": "2026-10-18",
+"count": 2
+},
+{
+"text": "China solar export curbs -> India domestic manufacturing costs -> clean energy delays",
+"first_seen": "2026-10-18",
+"last_seen": "2026-10-18",
+"count": 1
+},
+{
+"text": "AI agents -> junior tech displacement -> software engineering skill pivot",
+"first_seen": "2026-10-18",
+"last_seen": "2026-10-18",
+"count": 1
+},
+{
+"text": "AI agents -> financial transfer attempts -> bank account security blockades",
 "first_seen": "2026-10-17",
 "last_seen": "2026-10-17",
 "count": 1
@@ -674,12 +713,6 @@
 "count": 1
 },
 {
-"text": "US immigration policy -> tech talent mobility -> corporate legal risk",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-16",
-"count": 2
-},
-{
 "text": "AI agents / automation -> banking security -> customer account restrictions",
 "first_seen": "2026-10-16",
 "last_seen": "2026-10-16",
@@ -699,12 +732,6 @@
 },
 {
 "text": "Enterprise AI adoption -> LLM revenue growth -> public market IPO",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 1
-},
-{
-"text": "Domestic retail investor expansion -> mega IPO filings -> Nifty and Sensex rallies",
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-15",
 "count": 1

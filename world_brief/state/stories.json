@@ -710,23 +710,30 @@
    {
     "date": "2026-10-15",
     "text": "SEBI review and clearance of red herring prospectus"
+   },
+   {
+    "date": "2026-10-18",
+    "text": "Subscription opening dates announced by underwriters"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-15",
     "event": "Updated IPO filings submitted to raise $3.2 billion"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Final red herring filings prepared for Dalal Street listing"
    }
   ],
-  "title": "Reliance's Jio Platforms files for record $3.2B IPO",
-  "status": "NEW",
+  "title": "Reliance's Jio Platforms files for record IPO",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Jio Platforms initiated paperwork to raise up to $3.2 billion in India's largest initial public offering, lifting domestic equity benchmarks.",
+  "summary": "Jio Platforms readies India's biggest ₹30,213 crore IPO as domestic indices brace for heavy trading amid FII outflows.",
   "open_questions": [
-   "What will be the final valuation and price band?",
-   "When will the issue open for public subscription?"
+   "What will be the final valuation and retail price band?"
   ],
-  "last_seen": "2026-10-15"
+  "last_seen": "2026-10-18"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -871,16 +878,20 @@
    {
     "date": "2026-10-17",
     "event": "Details announced for November 3 launch of high-wage Express Entry boost"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "IRCC finalizes implementation timeline for high-wage Express Entry points"
    }
   ],
   "title": "Canada updates Express Entry for high-wage workers",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "IRCC announced that high-wage occupations will receive up to 100 extra CRS points without requiring LMIA clearance starting November 3.",
+  "summary": "IRCC confirmed high-wage tech positions will qualify for up to 100 bonus CRS points starting November 3 without LMIA clearance.",
   "open_questions": [
-   "What exact wage thresholds will apply to tech occupations across Canadian provinces?"
+   "What exact provincial wage thresholds will apply to tech occupations?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-18"
  },
  "us-banks-block-ai-agents": {
   "first_seen": "2026-10-16",
@@ -934,17 +945,20 @@
    {
     "date": "2026-10-17",
     "event": "Brent crude touches $110 and Nasdaq drops 2.15%"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Brent crude tests $110 amid Saint Petersburg strikes"
    }
   ],
-  "title": "Brent crude hits $110 as tech stocks plunge",
+  "title": "Brent crude near $110 as tech stocks plunge",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Brent crude climbed to $109.86 per barrel amid Middle East shipping strikes, while tech stocks dropped heavily with the Nasdaq falling 2.15%.",
+  "summary": "Brent crude remained elevated at $109.86 following Russian refinery strikes and Gulf tensions, pressuring US tech stocks and keeping yields above 5%.",
   "open_questions": [
-   "Will oil prices stabilize below $105 if shipping lanes normalize?",
-   "Will Big Tech earnings reverse the recent equity downturn?"
+   "Will US Treasury yields remain above 5.10% if energy prices stay elevated?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-18"
  },
  "russia-oil-sanctions-waiver": {
   "first_seen": "2026-10-17",
@@ -952,23 +966,30 @@
    {
     "date": "2026-10-17",
     "text": "Congressional hearings and bipartisan pushback in Washington"
+   },
+   {
+    "date": "2026-10-18",
+    "text": "Congressional hearings on presidential sanctions authority"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-17",
     "event": "Executive order signed exempting buyers of Russian oil from secondary tariffs"
+   },
+   {
+    "date": "2026-10-18",
+    "event": "Ukraine drone strikes ignite Saint Petersburg refinery amid Washington waiver backlash"
    }
   ],
-  "title": "Trump waives broad Russia energy sanctions and tariffs",
-  "status": "MAJOR CHANGE",
+  "title": "Trump waives broad Russia energy sanctions as strikes escalate",
+  "status": "DEVELOPING",
   "stage": "SIGNED/FINALIZED",
-  "summary": "President Trump signed an executive order waiving new sanctions and secondary tariffs enacted under the Lindsey Graham Act, shielding major buyers like India from trade penalties.",
+  "summary": "President Trump's waiver on Russian oil tariffs drew bipartisan outrage in Congress as Ukraine struck an oil refinery in Saint Petersburg.",
   "open_questions": [
-   "How will US congressional hawks react to the waiver?",
-   "Will India expand Russian crude purchases or maintain current import levels?"
+   "Will Congress introduce legislation to overturn the sanctions waiver?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-18"
  },
  "air-india-saudi-suspension": {
   "first_seen": "2026-10-17",
@@ -992,5 +1013,74 @@
    "Will flights resume on October 25 or face further regional extensions?"
   ],
   "last_seen": "2026-10-17"
+ },
+ "vance-h1b-rhetoric": {
+  "first_seen": "2026-10-18",
+  "expectations": [
+   {
+    "date": "2026-10-18",
+    "text": "Bilateral trade negotiators to address skilled labor mobility"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-18",
+    "event": "Vance walks back anti-H-1B rhetoric"
+   }
+  ],
+  "title": "JD Vance walks back H-1B indentured servants remark",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "JD Vance acknowledged his description of H-1B visa workers as indentured servants was imperfect following protests from Indian officials.",
+  "open_questions": [
+   "Will the White House moderate proposed administrative restrictions on visa renewals?"
+  ],
+  "last_seen": "2026-10-18"
+ },
+ "china-solar-export-controls": {
+  "first_seen": "2026-10-18",
+  "expectations": [
+   {
+    "date": "2026-10-18",
+    "text": "Indian solar manufacturers seeking alternative machinery suppliers"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-18",
+    "event": "Beijing proposes export bans on advanced solar machinery"
+   }
+  ],
+  "title": "China proposes export controls on solar tech",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "China drafted export controls on solar manufacturing technologies to protect its market dominance against Indian and Western industrial expansion.",
+  "open_questions": [
+   "When will the export restrictions be formally enacted?"
+  ],
+  "last_seen": "2026-10-18"
+ },
+ "anthropic-junior-hiring-shift": {
+  "first_seen": "2026-10-18",
+  "expectations": [
+   {
+    "date": "2026-10-18",
+    "text": "Tech firms revising 2027 college recruitment targets"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-18",
+    "event": "Anthropic junior technical hiring plunges to single digits"
+   }
+  ],
+  "title": "Anthropic cuts junior tech hiring as AI agents expand",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Anthropic reported junior tech headcount dropped to 9% as internal AI systems work six times as many hours as entry-level human developers.",
+  "open_questions": [
+   "Will traditional tech enterprises mirror Anthropic's sharp reduction in junior engineering roles?"
+  ],
+  "last_seen": "2026-10-18"
  }
 }
