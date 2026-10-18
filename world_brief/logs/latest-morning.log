@@ -1,94 +1,111 @@
-  ! feed failed: https://hnrss.org/frontpage?points=300 (HTTPSConnectionPool(host='hnrss.org', port=443): Max retries exceeded with url: /frontpage?points=300 (Caused by ConnectTimeoutError(<HTTPSConnection(host='hnrss.org', port=443) at 0x7ff525c27d10>, 'Connection to hnrss.org timed out. (connect timeout=20)')))
+  ! feed failed: https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/NATION?hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/NATION?hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=site:indianexpress.com+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:indianexpress.com+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22mutual+fund%22+OR+SIP+OR+AMFI+OR+SEBI+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22mutual+fund%22+OR+SIP+OR+AMFI+OR+SEBI+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=Sensex+OR+Nifty+closing+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Sensex+OR+Nifty+closing+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=FII+OR+FPI+OR+DII+selling+OR+buying+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=FII+OR+FPI+OR+DII+selling+OR+buying+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=RBI+repo+OR+%22CPI+inflation%22+OR+%22forex+reserves%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=RBI+repo+OR+%22CPI+inflation%22+OR+%22forex+reserves%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=site:telanganatoday.com+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=site:telanganatoday.com+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=GHMC+OR+HYDRAA+OR+%22Hyderabad+Metro%22+OR+%22Telangana+government%22+OR+%22Revanth+Reddy%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=GHMC+OR+HYDRAA+OR+%22Hyderabad+Metro%22+OR+%22Telangana+government%22+OR+%22Revanth+Reddy%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=Hyderabad+rain+OR+flood+OR+traffic+OR+water+OR+power+cut+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Hyderabad+rain+OR+flood+OR+traffic+OR+water+OR+power+cut+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=Congress+OR+%22White+House%22+OR+%22Supreme+Court%22+OR+%22federal+government%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Congress+OR+%22White+House%22+OR+%22Supreme+Court%22+OR+%22federal+government%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=H-1B+OR+USCIS+OR+%22green+card%22+OR+OPT+OR+%22visa+bulletin%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=H-1B+OR+USCIS+OR+%22green+card%22+OR+OPT+OR+%22visa+bulletin%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22Express+Entry%22+OR+IRCC+when:2d&hl=en-CA&gl=CA&ceid=CA:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Express+Entry%22+OR+IRCC+when:2d&hl=en-CA&gl=CA&ceid=CA:en)
+  ! feed failed: https://news.google.com/rss/search?q=India+US+trade+OR+tariff+OR+%22India-US%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=India+US+trade+OR+tariff+OR+%22India-US%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=rupee+dollar+OR+remittance+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=rupee+dollar+OR+remittance+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=India+exports+OR+imports+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=India+exports+OR+imports+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=oil+prices+OR+shipping+OR+sanctions+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=oil+prices+OR+shipping+OR+sanctions+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22artificial+intelligence%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22artificial+intelligence%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=ISRO+OR+monsoon+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=ISRO+OR+monsoon+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22Bureau+of+Labor+Statistics%22+OR+%22jobs+report%22+OR+CPI+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Bureau+of+Labor+Statistics%22+OR+%22jobs+report%22+OR+CPI+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22stock+market%22+today+S%26P+Nasdaq+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22stock+market%22+today+S%26P+Nasdaq+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=tech+layoffs+OR+%22tech+jobs%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=tech+layoffs+OR+%22tech+jobs%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=IRS+OR+%22capital+gains+tax%22+OR+%22tax+deadline%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=IRS+OR+%22capital+gains+tax%22+OR+%22tax+deadline%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22income+tax%22+OR+%22GST+council%22+OR+NRI+tax+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22income+tax%22+OR+%22GST+council%22+OR+NRI+tax+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+loan+rates%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+loan+rates%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22Bank+of+Canada%22+OR+%22Statistics+Canada%22+when:2d&hl=en-CA&gl=CA&ceid=CA:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Bank+of+Canada%22+OR+%22Statistics+Canada%22+when:2d&hl=en-CA&gl=CA&ceid=CA:en)
+  ! feed failed: https://news.google.com/rss/search?q=IRCC+OR+%22Express+Entry%22+OR+%22study+permit%22+OR+%22permanent+residence%22+Canada+when:3d&hl=en-CA&gl=CA&ceid=CA:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=IRCC+OR+%22Express+Entry%22+OR+%22study+permit%22+OR+%22permanent+residence%22+Canada+when:3d&hl=en-CA&gl=CA&ceid=CA:en)
+  ! feed failed: https://news.google.com/rss/search?q=Canada+housing+OR+rent+OR+%22federal+budget%22+OR+Carney+OR+Parliament+when:2d&hl=en-CA&gl=CA&ceid=CA:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Canada+housing+OR+rent+OR+%22federal+budget%22+OR+Carney+OR+Parliament+when:2d&hl=en-CA&gl=CA&ceid=CA:en)
+  ! feed failed: https://news.google.com/rss/search?q=earnings+results+OR+%22quarterly+results%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=earnings+results+OR+%22quarterly+results%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=layoffs+OR+%22job+cuts%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=layoffs+OR+%22job+cuts%22+OR+%22hiring+freeze%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=acquisition+OR+merger+OR+IPO+OR+bankruptcy+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=acquisition+OR+merger+OR+IPO+OR+bankruptcy+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22remote+work%22+OR+%22return+to+office%22+OR+%22in-demand+skills%22+when:3d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22remote+work%22+OR+%22return+to+office%22+OR+%22in-demand+skills%22+when:3d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=IPO+OR+layoffs+OR+%22quarterly+results%22+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=IPO+OR+layoffs+OR+%22quarterly+results%22+India+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+prices%22+OR+rent+prices+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22mortgage+rates%22+OR+%22home+prices%22+OR+rent+prices+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22credit+card%22+OR+401k+OR+IRA+OR+%22Social+Security%22+OR+ETF+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22credit+card%22+OR+401k+OR+IRA+OR+%22Social+Security%22+OR+ETF+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22grocery+prices%22+OR+%22food+prices%22+OR+%22gas+prices%22+OR+%22electricity+bills%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22grocery+prices%22+OR+%22food+prices%22+OR+%22gas+prices%22+OR+%22electricity+bills%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22home+loan%22+OR+%22FD+rates%22+OR+%22mutual+fund%22+OR+SIP+OR+%22income+tax%22+OR+insurance+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22home+loan%22+OR+%22FD+rates%22+OR+%22mutual+fund%22+OR+SIP+OR+%22income+tax%22+OR+insurance+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
   ! feed failed: https://www.politifact.com/rss/all/ (404 Client Error: Not Found for url: https://politifact.com/rss/all/)
+  ! feed failed: https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+misleading+OR+false+claim+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+misleading+OR+false+claim+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+fake+OR+misleading+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+fake+OR+misleading+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=OpenAI+OR+Anthropic+OR+%22Google+DeepMind%22+OR+xAI+OR+%22Meta+AI%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=OpenAI+OR+Anthropic+OR+%22Google+DeepMind%22+OR+xAI+OR+%22Meta+AI%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22humanoid+robot%22+OR+%22AI+agents%22+OR+%22autonomous+vehicles%22+OR+robotaxi+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22humanoid+robot%22+OR+%22AI+agents%22+OR+%22autonomous+vehicles%22+OR+robotaxi+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22AI+regulation%22+OR+%22AI+jobs%22+OR+AGI+OR+%22AI+adoption%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22AI+regulation%22+OR+%22AI+jobs%22+OR+AGI+OR+%22AI+adoption%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=Tesla+OR+SpaceX+OR+Starship+OR+Neuralink+OR+xAI+OR+Starlink+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Tesla+OR+SpaceX+OR+Starship+OR+Neuralink+OR+xAI+OR+Starlink+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=NVIDIA+OR+TSMC+OR+AMD+OR+Intel+OR+semiconductor+OR+%22data+center%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=NVIDIA+OR+TSMC+OR+AMD+OR+Intel+OR+semiconductor+OR+%22data+center%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=fusion+OR+%22nuclear+power%22+OR+%22battery+breakthrough%22+OR+%22grid+storage%22+OR+%22AI+electricity%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=fusion+OR+%22nuclear+power%22+OR+%22battery+breakthrough%22+OR+%22grid+storage%22+OR+%22AI+electricity%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22quantum+computing%22+OR+%22gene+editing%22+OR+CRISPR+OR+%22brain-computer+interface%22+OR+longevity+when:3d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22quantum+computing%22+OR+%22gene+editing%22+OR+CRISPR+OR+%22brain-computer+interface%22+OR+longevity+when:3d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=NASA+OR+ISRO+OR+%22Moon+mission%22+OR+Mars+OR+%22rocket+launch%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=NASA+OR+ISRO+OR+%22Moon+mission%22+OR+Mars+OR+%22rocket+launch%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=Russia+OR+Ukraine+OR+Kazakhstan+OR+%22Central+Asia%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Russia+OR+Ukraine+OR+Kazakhstan+OR+%22Central+Asia%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=Pakistan+OR+Bangladesh+OR+%22Sri+Lanka%22+OR+Nepal+OR+China+OR+Japan+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Pakistan+OR+Bangladesh+OR+%22Sri+Lanka%22+OR+Nepal+OR+China+OR+Japan+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22F-1+visa%22+OR+OPT+OR+%22STEM+OPT%22+OR+SEVIS+OR+%22H-1B+lottery%22+OR+%22student+visa%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22F-1+visa%22+OR+OPT+OR+%22STEM+OPT%22+OR+SEVIS+OR+%22H-1B+lottery%22+OR+%22student+visa%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22Express+Entry%22+OR+PGWP+OR+%22study+permit%22+OR+%22CRS+score%22+when:3d&hl=en-CA&gl=CA&ceid=CA:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22Express+Entry%22+OR+PGWP+OR+%22study+permit%22+OR+%22CRS+score%22+when:3d&hl=en-CA&gl=CA&ceid=CA:en)
+  ! feed failed: https://news.google.com/rss/search?q=layoffs+OR+hiring+%22data+engineer%22+OR+%22machine+learning%22+OR+%22AI+jobs%22+OR+%22tech+jobs%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=layoffs+OR+hiring+%22data+engineer%22+OR+%22machine+learning%22+OR+%22AI+jobs%22+OR+%22tech+jobs%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=NRI+OR+remittance+OR+NRE+OR+NRO+OR+FEMA+OR+%22money+transfer+to+India%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=NRI+OR+remittance+OR+NRE+OR+NRO+OR+FEMA+OR+%22money+transfer+to+India%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=scam+OR+fraud+UPI+OR+WhatsApp+OR+%22digital+arrest%22+OR+KYC+OR+%22cyber+crime%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=scam+OR+fraud+UPI+OR+WhatsApp+OR+%22digital+arrest%22+OR+KYC+OR+%22cyber+crime%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22scam+alert%22+OR+FTC+OR+%22data+breach%22+OR+%22IRS+scam%22+OR+%22phishing%22+when:2d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22scam+alert%22+OR+FTC+OR+%22data+breach%22+OR+%22IRS+scam%22+OR+%22phishing%22+when:2d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=IMD+alert+OR+cyclone+OR+flood+OR+heatwave+OR+earthquake+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=IMD+alert+OR+cyclone+OR+flood+OR+heatwave+OR+earthquake+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=hurricane+OR+tornado+OR+blizzard+OR+wildfire+OR+%22National+Weather+Service%22+when:1d&hl=en-US&gl=US&ceid=US:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=hurricane+OR+tornado+OR+blizzard+OR+wildfire+OR+%22National+Weather+Service%22+when:1d&hl=en-US&gl=US&ceid=US:en)
+  ! feed failed: https://news.google.com/rss/search?q=Hyderabad+real+estate+OR+%22land+prices%22+OR+HMDA+OR+%22plot+prices%22+OR+Dharani+when:3d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=Hyderabad+real+estate+OR+%22land+prices%22+OR+HMDA+OR+%22plot+prices%22+OR+Dharani+when:3d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=%22visa+appointment%22+OR+%22Air+India%22+OR+%22flights+to+India%22+OR+OCI+OR+%22Indian+passport%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=%22visa+appointment%22+OR+%22Air+India%22+OR+%22flights+to+India%22+OR+OCI+OR+%22Indian+passport%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! feed failed: https://news.google.com/rss/search?q=India+cricket+OR+BCCI+OR+%22Team+India%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en (503 Server Error: Service Unavailable for url: https://news.google.com/rss/search?q=India+cricket+OR+BCCI+OR+%22Team+India%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en)
+  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  ! Gemini gemini-3.8-flash: daily free quota used up
+  ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  ! Gemini gemini-3.6-flash busy (HTTP 503)
 Edition: morning
 Fetching feeds...
-   33 items  india                        Top stories
-   31 items  india                        India
    60 items  india                        The Hindu
-  100 items  india                        "site:indianexpress.com India 
-   77 items  india                        Hindustan Times
+   76 items  india                        Hindustan Times
    44 items  india                        Times of India
     1 items  india                        BBC
-   42 items  india_economy                Business
     1 items  india_economy                Mint
    44 items  india_economy                Economic Times
-   26 items  india_economy                The Hindu
-   55 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   37 items  india_economy                "Sensex OR Nifty closing when:
-   21 items  india_economy                "FII OR FPI OR DII selling OR 
-   15 items  india_economy                "RBI repo OR "CPI inflation" O
+   22 items  india_economy                The Hindu
    60 items  telangana_hyderabad          The Hindu
    60 items  telangana_hyderabad          The Hindu
-  100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-  137 items  telangana_hyderabad          Telangana Today
-  100 items  telangana_hyderabad          "site:telanganatoday.com when:
-   41 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
-   19 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
-   57 items  usa                          U.S.
+  148 items  telangana_hyderabad          Telangana Today
     8 items  usa                          NPR
     5 items  usa                          NPR
-  100 items  usa                          "Congress OR "White House" OR 
-   52 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-   15 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   44 items  india_us_visa_trade          "India US trade OR tariff OR "
-   36 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   48 items  india_us_visa_trade          "India exports OR imports when
-   14 items  world                        BBC
+   12 items  world                        BBC
    25 items  world                        Al Jazeera
    25 items  world                        The Guardian
     5 items  world                        DW
    60 items  world                        The Hindu
-   42 items  world                        DW
     8 items  global_economy               BBC
-   42 items  global_economy               Business
-  100 items  global_economy               "oil prices OR shipping OR san
     0 items  tech_ai                      Ars Technica
     0 items  tech_ai                      MIT Tech Review
-   28 items  tech_ai                      Technology
-  100 items  tech_ai                      ""artificial intelligence" whe
+    5 items  tech_ai                      Hacker News
     0 items  science_health_climate       Nature
-   16 items  science_health_climate       ScienceDaily
-   30 items  science_health_climate       Science
-   43 items  science_health_climate       "ISRO OR monsoon when:2d"
+   14 items  science_health_climate       ScienceDaily
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
     0 items  official                     Federal Reserve (official)
-   43 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
-   15 items  us_markets_economy           CNBC
+   17 items  us_markets_economy           CNBC
     0 items  us_markets_economy           CNBC
-   42 items  us_markets_economy           ""stock market" today S&P Nasd
-   16 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   34 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   31 items  jobs_tax_housing             ""income tax" OR "GST council"
-   21 items  jobs_tax_housing             ""mortgage rates" OR "home loa
     6 items  canada                       Canada News
     1 items  canada                       Business News
-   23 items  canada                       ""Bank of Canada" OR "Statisti
-   14 items  canada                       "IRCC OR "Express Entry" OR "s
-   48 items  canada                       "Canada housing OR rent OR "fe
-  100 items  business_jobs                "earnings results OR "quarterl
-   30 items  business_jobs                "layoffs OR "job cuts" OR "hir
-  100 items  business_jobs                "acquisition OR merger OR IPO 
-    4 items  business_jobs                ""remote work" OR "return to o
-   44 items  business_jobs                "IPO OR layoffs OR "quarterly 
-   20 items  personal_finance_housing     ""mortgage rates" OR "home pri
-   84 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
-   47 items  personal_finance_housing     ""grocery prices" OR "food pri
-   84 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
     0 items  fact_check                   Alt News
-   24 items  fact_check                   ""fact check" viral OR mislead
-   20 items  fact_check                   ""fact check" viral OR fake OR
-  100 items  ai_robotics                  "OpenAI OR Anthropic OR "Googl
-   72 items  ai_robotics                  ""humanoid robot" OR "AI agent
-   36 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
     3 items  ai_robotics                  TechCrunch
     0 items  ai_robotics                  IEEE Spectrum
-  100 items  frontier_companies           "Tesla OR SpaceX OR Starship O
-  100 items  chips_energy_future          "NVIDIA OR TSMC OR AMD OR Inte
-   47 items  chips_energy_future          "fusion OR "nuclear power" OR 
-   34 items  chips_energy_future          ""quantum computing" OR "gene 
-   81 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
     2 items  world_regions                BBC
     1 items  world_regions                BBC
     6 items  world_regions                BBC
@@ -96,60 +113,36 @@ Fetching feeds...
     0 items  world_regions                BBC
    24 items  world_regions                France 24
     0 items  world_regions                UN News
-  100 items  world_regions                "Russia OR Ukraine OR Kazakhst
-  100 items  world_regions                "Pakistan OR Bangladesh OR "Sr
-   39 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
-    5 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
-    7 items  students_visas_jobs          "layoffs OR hiring "data engin
-   20 items  nri_money                    "NRI OR remittance OR NRE OR N
-   24 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
-   36 items  scams_safety                 ""scam alert" OR FTC OR "data 
    34 items  weather_disasters            GDACS RSS information
-   39 items  weather_disasters            "IMD alert OR cyclone OR flood
-  100 items  weather_disasters            "hurricane OR tornado OR blizz
-   20 items  hyderabad_realestate         "Hyderabad real estate OR "lan
-   39 items  travel_india_us              ""visa appointment" OR "Air In
-  100 items  sports                       "India cricket OR BCCI OR "Tea
     5 items  good_news                    Good News Network
     0 items  good_news                    Positive News
-4192 raw -> 566 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~84,830 tokens
+842 raw -> 234 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~47,835 tokens
+  written by Gemini gemini-3.8-flash
+  written by Gemini gemini-3.7-flash
+  fact-check done (5 bullet(s) removed)
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'US Russia Sanctions Pause; France Cost-of-Living Riots; India WPI Inflation Surge; Microsoft AI Datacenter Power Exit; Oil and Maritime Tensions', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
   written by Gemini gemini-3.8-flash
   written by Gemini gemini-3.8-flash
-  fact-check done (1 bullet(s) removed)
-  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Russia sanctions waiver backlash; Anthropic junior hiring drop; Vance H-1B clarification; Canada high-wage PR overhaul; Jio Platforms mega IPO', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '8', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  written by Gemini gemini-3.8-flash
-  written by Gemini gemini-3.8-flash
-  script reviewed: 4811 -> 4214 words
-  en podcast script: 108 turns, 4214 words
+  script reviewed: 4149 -> 4239 words
+  en podcast script: 118 turns, 4239 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
   ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
   ! Gemini TTS gemini-3.8-flash-lite-tts daily free quota used up
   Gemini TTS: all free quota used today; using backup voices
   voices: edge-tts (en)
-  chapters: Top stories 1:00, India 5:18, USA 10:25, World 14:37, Tech 17:53, Money 23:38, Wrap-up 30:23
+  chapters: Top stories 0:51, India 6:28, USA 12:42, World 17:01, Tech 19:51, Money 25:49, Wrap-up 29:31
   world_brief_full podcast ready: 16.2 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
-  written by Gemini gemini-3.8-flash
-  written by Gemini gemini-3.8-flash
-  te: same episode as English, shorter (4214 -> 3130 words)
-  te podcast script: 108 turns, 3130 words
+  written by Gemini gemini-3.7-flash
+  written by Gemini gemini-3.6-flash
+  te: same episode as English, shorter (4239 -> 3001 words)
+  te podcast script: 118 turns, 3001 words
   voices: edge-tts (te)
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 2 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 1 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 2 (te-IN-MohanNeural): NoAudioReceived
-  ! tts retry 3 (te-IN-MohanNeural): NoAudioReceived
-  ! Microsoft voices unavailable; using Google's basic free voice for the rest
-  chapters: Top stories 1:20, India 6:27, USA 12:16, World 16:38, Tech 19:46, Money 25:34, Wrap-up 32:25
-  telugu_podcast podcast ready: 17.1 MB
-  telugu audio uploaded (17.1 MB)
+  chapters: Top stories 0:56, India 7:10, USA 13:25, World 17:26, Tech 19:52, Money 24:42, Wrap-up 27:36
+  telugu_podcast podcast ready: 15.0 MB
+  telugu audio uploaded (15.0 MB)
   te podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed-te.xml
   podcast site updated with 2 audio file(s)
 Traceback (most recent call last):
