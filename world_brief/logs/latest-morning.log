@@ -1,179 +1,160 @@
   ! feed failed: https://www.politifact.com/rss/all/ (404 Client Error: Not Found for url: https://politifact.com/rss/all/)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
 Edition: morning
 Fetching feeds...
    36 items  india                        Top stories
-   40 items  india                        India
+   32 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
-   83 items  india                        Hindustan Times
-   44 items  india                        Times of India
-    2 items  india                        BBC
-   43 items  india_economy                Business
-    4 items  india_economy                Mint
-   42 items  india_economy                Economic Times
-   22 items  india_economy                The Hindu
-  100 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   48 items  india_economy                "Sensex OR Nifty closing when:
-   27 items  india_economy                "FII OR FPI OR DII selling OR 
-   18 items  india_economy                "RBI repo OR "CPI inflation" O
+   79 items  india                        Hindustan Times
+   45 items  india                        Times of India
+    1 items  india                        BBC
+   41 items  india_economy                Business
+    1 items  india_economy                Mint
+   41 items  india_economy                Economic Times
+   26 items  india_economy                The Hindu
+   51 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   32 items  india_economy                "Sensex OR Nifty closing when:
+   21 items  india_economy                "FII OR FPI OR DII selling OR 
+    5 items  india_economy                "RBI repo OR "CPI inflation" O
    60 items  telangana_hyderabad          The Hindu
    60 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-  134 items  telangana_hyderabad          Telangana Today
+  138 items  telangana_hyderabad          Telangana Today
    99 items  telangana_hyderabad          "site:telanganatoday.com when:
-   61 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
-   22 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
-   55 items  usa                          U.S.
+   42 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
+   19 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
+   53 items  usa                          U.S.
    10 items  usa                          NPR
-    8 items  usa                          NPR
+    7 items  usa                          NPR
   100 items  usa                          "Congress OR "White House" OR 
-   65 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-   47 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   75 items  india_us_visa_trade          "India US trade OR tariff OR "
-   41 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   81 items  india_us_visa_trade          "India exports OR imports when
-   21 items  world                        BBC
+   48 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+   13 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   45 items  india_us_visa_trade          "India US trade OR tariff OR "
+   34 items  india_us_visa_trade          "rupee dollar OR remittance wh
+   52 items  india_us_visa_trade          "India exports OR imports when
+   15 items  world                        BBC
    25 items  world                        Al Jazeera
-   27 items  world                        The Guardian
-   11 items  world                        DW
+   26 items  world                        The Guardian
+    5 items  world                        DW
    60 items  world                        The Hindu
-   42 items  world                        DW
-    5 items  global_economy               BBC
-   46 items  global_economy               Business
+   45 items  world                        DW
+    8 items  global_economy               BBC
+   38 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
-   11 items  tech_ai                      Ars Technica
-    2 items  tech_ai                      MIT Tech Review
-    6 items  tech_ai                      Hacker News
-   36 items  tech_ai                      Technology
+    2 items  tech_ai                      Ars Technica
+    0 items  tech_ai                      MIT Tech Review
+    4 items  tech_ai                      Hacker News
+   34 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
     0 items  science_health_climate       Nature
-    5 items  science_health_climate       ScienceDaily
-   33 items  science_health_climate       Science
-   65 items  science_health_climate       "ISRO OR monsoon when:2d"
+    4 items  science_health_climate       ScienceDaily
+   31 items  science_health_climate       Science
+   45 items  science_health_climate       "ISRO OR monsoon when:2d"
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
-    1 items  official                     Federal Reserve (official)
+    0 items  official                     Federal Reserve (official)
    42 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
-   29 items  us_markets_economy           CNBC
-    3 items  us_markets_economy           CNBC
-   45 items  us_markets_economy           ""stock market" today S&P Nasd
-   31 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   48 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   45 items  jobs_tax_housing             ""income tax" OR "GST council"
-   27 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-   12 items  canada                       Canada News
-    3 items  canada                       Business News
-   28 items  canada                       ""Bank of Canada" OR "Statisti
-   42 items  canada                       "IRCC OR "Express Entry" OR "s
-   79 items  canada                       "Canada housing OR rent OR "fe
+   12 items  us_markets_economy           CNBC
+    0 items  us_markets_economy           CNBC
+   38 items  us_markets_economy           ""stock market" today S&P Nasd
+   12 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   31 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   36 items  jobs_tax_housing             ""income tax" OR "GST council"
+   22 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+    9 items  canada                       Canada News
+    1 items  canada                       Business News
+   23 items  canada                       ""Bank of Canada" OR "Statisti
+   11 items  canada                       "IRCC OR "Express Entry" OR "s
+   44 items  canada                       "Canada housing OR rent OR "fe
   100 items  business_jobs                "earnings results OR "quarterl
-   59 items  business_jobs                "layoffs OR "job cuts" OR "hir
+   29 items  business_jobs                "layoffs OR "job cuts" OR "hir
   100 items  business_jobs                "acquisition OR merger OR IPO 
-   15 items  business_jobs                ""remote work" OR "return to o
-   50 items  business_jobs                "IPO OR layoffs OR "quarterly 
-   27 items  personal_finance_housing     ""mortgage rates" OR "home pri
-   96 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
-   73 items  personal_finance_housing     ""grocery prices" OR "food pri
-   73 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
+    8 items  business_jobs                ""remote work" OR "return to o
+   37 items  business_jobs                "IPO OR layoffs OR "quarterly 
+   19 items  personal_finance_housing     ""mortgage rates" OR "home pri
+   82 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
+   40 items  personal_finance_housing     ""grocery prices" OR "food pri
+   83 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
     0 items  fact_check                   Alt News
-   26 items  fact_check                   ""fact check" viral OR mislead
-   21 items  fact_check                   ""fact check" viral OR fake OR
+   23 items  fact_check                   ""fact check" viral OR mislead
+   20 items  fact_check                   ""fact check" viral OR fake OR
   100 items  ai_robotics                  "OpenAI OR Anthropic OR "Googl
-   91 items  ai_robotics                  ""humanoid robot" OR "AI agent
-   46 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
-    9 items  ai_robotics                  TechCrunch
-    1 items  ai_robotics                  IEEE Spectrum
+   72 items  ai_robotics                  ""humanoid robot" OR "AI agent
+   31 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
+    3 items  ai_robotics                  TechCrunch
+    0 items  ai_robotics                  IEEE Spectrum
   100 items  frontier_companies           "Tesla OR SpaceX OR Starship O
   100 items  chips_energy_future          "NVIDIA OR TSMC OR AMD OR Inte
-   70 items  chips_energy_future          "fusion OR "nuclear power" OR 
-   50 items  chips_energy_future          ""quantum computing" OR "gene 
-   81 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
+   44 items  chips_energy_future          "fusion OR "nuclear power" OR 
+   31 items  chips_energy_future          ""quantum computing" OR "gene 
+   76 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
     2 items  world_regions                BBC
     1 items  world_regions                BBC
-   12 items  world_regions                BBC
-    2 items  world_regions                BBC
-    2 items  world_regions                BBC
+    7 items  world_regions                BBC
+    0 items  world_regions                BBC
+    0 items  world_regions                BBC
    24 items  world_regions                France 24
-    6 items  world_regions                UN News
+    2 items  world_regions                UN News
   100 items  world_regions                "Russia OR Ukraine OR Kazakhst
   100 items  world_regions                "Pakistan OR Bangladesh OR "Sr
-   33 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
-   41 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
-   12 items  students_visas_jobs          "layoffs OR hiring "data engin
-   65 items  nri_money                    "NRI OR remittance OR NRE OR N
-   27 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
-   73 items  scams_safety                 ""scam alert" OR FTC OR "data 
+   40 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
+    5 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
+    9 items  students_visas_jobs          "layoffs OR hiring "data engin
+   21 items  nri_money                    "NRI OR remittance OR NRE OR N
+   21 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
+   36 items  scams_safety                 ""scam alert" OR FTC OR "data 
    41 items  weather_disasters            GDACS RSS information
-   42 items  weather_disasters            "IMD alert OR cyclone OR flood
+   41 items  weather_disasters            "IMD alert OR cyclone OR flood
   100 items  weather_disasters            "hurricane OR tornado OR blizz
-   19 items  hyderabad_realestate         "Hyderabad real estate OR "lan
-   40 items  travel_india_us              ""visa appointment" OR "Air In
+   21 items  hyderabad_realestate         "Hyderabad real estate OR "lan
+   50 items  travel_india_us              ""visa appointment" OR "Air In
   100 items  sports                       "India cricket OR BCCI OR "Tea
-    6 items  good_news                    Good News Network
+    4 items  good_news                    Good News Network
     0 items  good_news                    Positive News
-4913 raw -> 564 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~82,645 tokens
+4157 raw -> 565 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~84,372 tokens
   written by Gemini gemini-3.8-flash
   written by Gemini gemini-3.8-flash
-  fact-check done (3 bullet(s) removed)
-  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Trump waives Russian oil sanctions and tariffs; US banks ban AI agents from customer accounts; Oil tests $110 as tech stocks slump; Canada revamps Express Entry for high earners; Air India halts Saudi flights', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '4', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  fact-check done (4 bullet(s) removed)
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'US Russia Sanctions 60-Day Pause; Canada Express Entry High-Wage Overhaul; OpenAI Humanoid Robot & Anthropic Legal Agents; Brent Crude Tops $110 & St. Petersburg Drone Strike; Hyderabad MVSR College Tragedy & Safety Update', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
   written by Gemini gemini-3.8-flash
   written by Gemini gemini-3.8-flash
-  script reviewed: 4629 -> 4546 words
-  en podcast script: 123 turns, 4546 words
+  script reviewed: 3253 -> 3148 words
+  en podcast script: 69 turns, 3148 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)  ! telugu podcast failed: RuntimeError: TTS failed for line: ఈ రోజు సాటర్డే, అక్టోబర్ సెవెంటీన్త్, ట్వంటీ ట్వంటీ సిక్స్. 
-  ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  ! telugu podcast failed: RuntimeError: TTS failed for line: ఈ రోజు సాటర్డే, అక్టోబర్ సెవెన్టీన్త్, ట్వంటీ ట్వంటీ సిక్స్.
-  ! hindi podcast failed: RuntimeError: TTS failed for line: आज सैटरडे, अक्टूबर सेवेंटींथ, टू थाउज़ेंड ट्वेंटी सिक्स है. 
-  ! hindi podcast failed: RuntimeError: TTS failed for line: आज सैटरडे, अक्टूबर सेवेंटींथ, 2026 है. अगर आप हैदराबाद में फ
-
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (10 part(s))
-  chapters: Top stories 0:54, India 5:28, USA 10:35, World 14:42, Tech 18:07, Money 22:32, Wrap-up 28:05
-  world_brief_full podcast ready: 15.4 MB
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (8 part(s))
+  chapters: Top stories 0:00, India 4:21, USA 7:52, World 10:44, Tech 12:55, Money 16:54, Wrap-up 19:47
+  world_brief_full podcast ready: 10.9 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
   written by Gemini gemini-3.8-flash
-  te: same episode as English (4546 English words -> 3815)
-  te podcast script: 123 turns, 3815 words
+  te: same episode as English (3148 English words -> 2489)
+  te podcast script: 69 turns, 2489 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for te-IN: te-in-advisor-1 (female, Telugu, prebuilt); te-in-advisor-3 (female, Telugu, prebuilt); te-in-advisor-7 (male, Telugu, prebuilt); te-in-advisor-8 (male, Telugu, prebuilt); te-in-assistant-2 (male, Telugu, prebuilt); te-in-assistant-5 (female, Telugu, prebuilt); te-in-assistant-6 (neutral, Telugu, prebuilt); te-in-assistant-7 (male, Telugu, prebuilt); te-in-assistant-8 (male, Telugu, prebuilt); te-in-concierge-2 (male, Telugu, prebuilt); te-in-concierge-5 (male, Telugu, prebuilt); te-in-concierge-7 (female, Telugu, prebuilt); te-in-csagent-1 (female, Telugu, prebuilt); te-in-csagent-4 (male, Telugu, prebuilt); te-in-csagent-5 (female, Telugu, prebuilt); te-in-csagent-7 (neutral, Telugu, prebuilt); te-in-csagent-8 (female, Telugu, prebuilt); te-in-techagent-1 (female, Telugu, prebuilt); te-in-techagent-3 (female, Telugu, prebuilt); te-in-techagent-4 (male, Telugu, prebuilt)
   ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
-  ! Gemini TTS gemini-3.8-flash-lite-tts daily free quota used up
-  Gemini TTS: all free quota used today; using backup voices
-  voices: edge-tts (te)
-  ! tts retry 1 (te-IN-MohanNeural): WSServerHandshakeError
-  ! tts retry 2 (te-IN-MohanNeural): WSServerHandshakeError
-  ! tts retry 3 (te-IN-MohanNeural): WSServerHandshakeError
-  telugu script failed; retrying in 90s
-  written by Gemini gemini-3.7-flash
-  written by Gemini gemini-3.8-flash
-  te: same episode as English (4546 English words -> 3729)
-  te podcast script: 121 turns, 3729 words
-  voices: edge-tts (te)
-  ! tts retry 1 (te-IN-MohanNeural): WSServerHandshakeError
-  ! tts retry 2 (te-IN-MohanNeural): WSServerHandshakeError
-  ! tts retry 3 (te-IN-MohanNeural): WSServerHandshakeError
-  written by Gemini gemini-3.8-flash
-  hi: same episode as English (4546 English words -> 5941)
-  hi podcast script: 123 turns, 5941 words
-  voices: edge-tts (hi)
-  ! tts retry 1 (hi-IN-MadhurNeural): WSServerHandshakeError
-  ! tts retry 2 (hi-IN-MadhurNeural): WSServerHandshakeError
-  ! tts retry 3 (hi-IN-MadhurNeural): WSServerHandshakeError
-  hindi script failed; retrying in 90s
-  written by Gemini gemini-3.8-flash
-  hi: same episode as English (4546 English words -> 5665)
-  hi podcast script: 123 turns, 5665 words
-  voices: edge-tts (hi)
-  ! tts retry 1 (hi-IN-MadhurNeural): WSServerHandshakeError
-  ! tts retry 2 (hi-IN-MadhurNeural): WSServerHandshakeError
-  ! tts retry 3 (hi-IN-MadhurNeural): WSServerHandshakeError
-  podcast site updated with 1 audio file(s)
-  ! audio missing: 🟠 Telugu, 🟢 Hindi
-  email sent (1 recipient(s))
-  story ledger: 6 stories updated
-  Telegram channel: message + 1 podcast(s)
-  podcast key check: ok, expires in 365 days
-  health: 4 issue(s): 🟠 Telugu: audio missing; 🟢 Hindi: audio missing; telugu_podcast: Microsoft backup voices (Gemini voices unavailable or over quota); hindi_podcast: Microsoft backup voices (Gemini voices unavailable or over quota)
-  email sent (1 recipient(s))
+  voices: Gemini gemini-3.8-flash-lite-tts {'RAVI': 'te-in-advisor-7', 'LAKSHMI': 'te-in-advisor-1'} (7 part(s))
+  chapters: Top stories 0:00, India 4:16, USA 7:47, World 10:24, Tech 12:21, Money 16:02, Wrap-up 19:04
+  telugu_podcast podcast ready: 10.5 MB
+  telugu audio uploaded (10.5 MB)
+  te podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed-te.xml
+  podcast site updated with 2 audio file(s)
+Traceback (most recent call last):
+  File "/home/runner/work/ai_news_digest/ai_news_digest/world_brief/digest.py", line 1767, in <module>
+    main()
+  File "/home/runner/work/ai_news_digest/ai_news_digest/world_brief/digest.py", line 1756, in main
+    send_email(subject, final, audio_files, everyone=True)
+  File "/home/runner/work/ai_news_digest/ai_news_digest/world_brief/digest.py", line 1095, in send_email
+    s.sendmail(user, recipients, msg.as_string())
+                                 ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/email/message.py", line 194, in as_string
+    g.flatten(self, unixfrom=unixfrom)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/email/generator.py", line 118, in flatten
+    self._write(msg)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/email/generator.py", line 201, in _write
+    self._write_headers(msg)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/email/generator.py", line 235, in _write_headers
+    raise HeaderWriteError(
+email.errors.HeaderWriteError: folded header contains newline: 'From: World Brief <daveradheeru@gmail.com\n>\n'
