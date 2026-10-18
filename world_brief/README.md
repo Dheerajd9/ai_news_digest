@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English and Telugu** (Hindi is switched off; one setting brings it back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 17 Oct 2026 (emails show "World Brief" as the sender name; change with the `EMAIL_FROM_NAME` variable)._
+_Last updated: 18 Oct 2026 (fix: secrets with a trailing newline broke the email header after the sender-name change; email addresses are now hidden in public run logs)._
 
 ## What you get, and when (US Eastern time)
 
@@ -177,7 +177,7 @@ The email comes **from the `GMAIL_USER` account** with the sender name **World B
 
 ## Security
 
-- The repo is public; secrets live only in GitHub Actions secrets. Logs never print keys, emails or phone numbers. Your portfolio is read from the `PORTFOLIO_JSON` secret and its history was removed from the repo.
+- The repo is public; secrets live only in GitHub Actions secrets. Logs never print keys, emails or phone numbers (any email address in a run log is replaced with ***@*** before it is saved). Your portfolio is read from the `PORTFOLIO_JSON` secret and its history was removed from the repo.
 - Emails only contain links we trust (real article links from our feeds, the podcast site, this repo). Links the AI or a feed tries to sneak in are dropped; HTML is escaped; no tracking images; subject lines are sanitised.
 - GitHub Actions are pinned to exact commits and Python packages to exact versions.
 - Workflow inputs are passed as environment variables (no script injection).

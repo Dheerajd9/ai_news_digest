@@ -6,7 +6,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-user, pwd, to = (os.getenv(k, "") for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", "TO_EMAIL"))
+user, pwd, to = (os.getenv(k, "").strip() for k in ("GMAIL_USER", "GMAIL_APP_PASSWORD", "TO_EMAIL"))
 edition = os.getenv("EDITION", "?")
 url = os.getenv("RUN_URL", "")
 if edition == "test":

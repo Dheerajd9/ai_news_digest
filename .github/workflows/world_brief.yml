@@ -121,7 +121,7 @@ jobs:
             set -o pipefail
             mkdir -p logs
             # Redacted run log kept in this repo for debugging (public repo: no secrets or addresses are printed).
-            python digest.py 2>&1 | tee "logs/latest-$EDITION.log"
+            python digest.py 2>&1 | sed -u -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/***@***/g' | tee "logs/latest-$EDITION.log"
           fi
 
       # MP3s also kept as downloadable run artifacts for 14 days (not committed).

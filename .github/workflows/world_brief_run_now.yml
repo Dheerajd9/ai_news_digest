@@ -95,7 +95,7 @@ jobs:
             echo "================ $ED ================"
             rm -rf out
             set -o pipefail
-            if ! EDITION=$ED python digest.py 2>&1 | tee "logs/latest-$ED.log"; then
+            if ! EDITION=$ED python digest.py 2>&1 | sed -u -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/***@***/g' | tee "logs/latest-$ED.log"; then
               echo "!! $ED failed"; FAILED="$FAILED $ED"
               EDITION="$ED (run-now)" python3 notify_failure.py || true
             elif [ "$FORCE" = 0 ]; then

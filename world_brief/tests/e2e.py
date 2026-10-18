@@ -729,6 +729,34 @@ print(json.dumps(out, ensure_ascii=False))
         except Exception:
             print(r.stdout[-800:], r.stderr[-800:])
             u = {}
+        mail = r"""
+import os, sys, json
+sys.path.insert(0, os.getcwd())
+import digest
+os.environ.update(GMAIL_USER="news.sender@gmail.com\n", GMAIL_APP_PASSWORD="abcd efgh\n",
+                  TO_EMAIL="me@gmail.com\n", PARENTS_EMAIL="a@gmail.com, b@gmail.com\n")
+sent = {}
+class FakeSMTP:
+    def __init__(self, *a, **k): pass
+    def __enter__(self): return self
+    def __exit__(self, *a): pass
+    def login(self, u, p): sent["login"] = u
+    def sendmail(self, frm, rcpts, body): sent.update(frm=frm, rcpts=rcpts, body=body)
+digest.smtplib.SMTP_SSL = FakeSMTP
+digest.send_email("🌏 World Brief · Sun 18 Oct: test", "## 🚨 Top 5\n- one\n", everyone=True)
+b = sent.get("body", "")
+print(json.dumps({"login": sent.get("login"), "rcpts": sent.get("rcpts"),
+                  "from_ok": "From: World Brief <news.sender@gmail.com>" in b, "bcc_hidden": "a@gmail.com" not in b}))
+"""
+        r = subprocess.run([sys.executable, "-c", mail], cwd=work, capture_output=True, text=True, timeout=60)
+        try:
+            m = json.loads(r.stdout.strip().splitlines()[-1])
+        except Exception:
+            print(r.stdout[-600:], r.stderr[-900:])
+            m = {}
+        check(m.get("login") == "news.sender@gmail.com" and m.get("from_ok") and m.get("bcc_hidden")
+              and m.get("rcpts") == ["me@gmail.com", "a@gmail.com", "b@gmail.com"],
+              f"email: real message builds even with messy secrets (newlines/spaces), BCC hidden ({m})", errors)
         check(u.get("links") == [True, False, False], "links: only known article links survive", errors)
         src_d = (SRC / "digest.py").read_text()
         check('formataddr((os.getenv("EMAIL_FROM_NAME", "World Brief"), user))' in src_d,

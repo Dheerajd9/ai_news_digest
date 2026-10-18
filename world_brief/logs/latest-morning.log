@@ -168,4 +168,4 @@ Traceback (most recent call last):
     self._write_headers(msg)
   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/email/generator.py", line 235, in _write_headers
     raise HeaderWriteError(
-email.errors.HeaderWriteError: folded header contains newline: 'From: World Brief <daveradheeru@gmail.com\n>\n'
+email.errors.HeaderWriteError: folded header contains newline: 'From: World Brief <***@***\n>\n'

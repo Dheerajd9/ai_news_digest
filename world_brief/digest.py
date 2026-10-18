@@ -1035,7 +1035,8 @@ def send_email(subject: str, md: str, audio=None, to: str | None = None,
                styled: bool | None = None) -> None:
     """everyone=True: the daily brief goes to TO_EMAIL + PARENTS_EMAIL (comma-separated lists).
     Recipients are BCC'd, so nobody sees anyone else's address."""
-    user, pwd = os.getenv("GMAIL_USER"), os.getenv("GMAIL_APP_PASSWORD")
+    # .strip(): a secret pasted with a trailing newline must not break the email headers
+    user, pwd = os.getenv("GMAIL_USER", "").strip(), os.getenv("GMAIL_APP_PASSWORD", "").strip()
     to = to or os.getenv("TO_EMAIL")
     if everyone:
         to = ",".join(x for x in (os.getenv("TO_EMAIL", ""), os.getenv("PARENTS_EMAIL", "")) if x)
