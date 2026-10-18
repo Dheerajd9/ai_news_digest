@@ -11,6 +11,8 @@ Anything that fails is left out; it never breaks the email.
 
 from __future__ import annotations
 
+import os
+
 import csv
 import io
 import re
@@ -269,6 +271,8 @@ def weather_rows() -> list[dict]:
     """One line per city for the email's money section (data from weather.py, shared with the
     podcasts, so Open-Meteo is asked only once per city per run)."""
     import weather
+    if os.getenv("WEATHER", "0") != "1":      # forecast switched off (on request)
+        return []
     rows = []
     for city, lat, lon, tz, unit in CITIES:
         try:

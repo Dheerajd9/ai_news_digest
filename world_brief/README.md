@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 18 Oct 2026 (Telugu switched off too: English podcast only; dead PolitiFact feed removed)._
+_Last updated: 18 Oct 2026 (weather forecast removed from the email and podcast; turn it back on with the `WEATHER=1` variable)._
 
 ## What you get, and when (US Eastern time)
 
@@ -15,7 +15,7 @@ _Last updated: 18 Oct 2026 (Telugu switched off too: English podcast only; dead 
 
 **Same news in every language**: the English Full episode is written first (evening: the evening episode); Telugu and Hindi are that same episode spoken in Telugu / Hindi (same stories, order, numbers and details, same chapters; `prompts/translate_mode.md`). Only if that conversion fails is the language episode written straight from the brief, so audio still goes out.
 
-**How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things plus a one-line Hyderabad weather (free Open-Meteo, no key; `WEATHER_PLACES` to change cities, `WEATHER=0` to switch off); short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
+**How the podcasts explain** (`prompts/explain_style.md`, used by every podcast in every language): one host explains, the other asks the simple questions a parent would ask; numbers turned into family money ("₹1,000 grocery bill now ₹1,052"); a one-line "remember…" bridge for continuing stories; opening names the 3 big things; short recap after each long chapter; one good-news story before the takeaways; short forms spelled out; calm tone for scary news.
 
 **Podcast language**: Telugu is spoken Telangana Telugu and Hindi is everyday Hindi, both mixed with simple English the way Hyderabad/city families talk: numbers, prices, dates and hard words (inflation, interest rate, tariff, AI…) are said in English, never pure/bookish Telugu or Hindi.
 
@@ -131,7 +131,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 |---|---|
 | `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
 | `run: morning force` | Sends it again even if already sent |
-| `run: keycheck` | Tests every key (and the weather source) and emails a ✅/❌ report |
+| `run: keycheck` | Tests every key and emails a ✅/❌ report |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
 | `run: tgsetup` | Finds the family Telegram channel, saves it, posts a test message |
 
@@ -170,7 +170,7 @@ The email comes **from the `GMAIL_USER` account** with the sender name **World B
 
 - `digest.py` main pipeline (`EDITION=morning|evening|weekly`)
 - `languages.py` Telugu and Hindi podcasts · `podcast.py` scripts, chapters, voices · `podfeed.py` uploads, feed, player site · `player.html` the web player
-- `markets.py` exact numbers · `weather.py` podcast weather line · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
+- `markets.py` exact numbers · `weather.py` weather line (off; `WEATHER=1` to turn on) · `alerts.py` breaking alerts · `keycheck.py` key test · `sitesync.py` audio backfill · `tgsetup.py` Telegram channel finder · `notify_failure.py` failure emails
 - `feeds.yaml` sources · `watchlist.yaml` alert keywords · `prompts/` all writing rules (brief, evening, weekly, fact-check, podcasts in 3 languages, `core_rules.md` = the one condensed set of thinking/trust rules)
 - `briefs/` archive and podcast scripts (memory) · `state/` seen list, story ledger, trends, entities, beliefs, scorecard, done markers · `logs/` last run logs (secrets redacted)
 - `tests/e2e.py` the end-to-end test

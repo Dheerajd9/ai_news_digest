@@ -2,7 +2,7 @@
 Open-Meteo API (no key, no sign-up). Never raises: returns "" if anything fails.
 
   WEATHER_PLACES   "Name:lat:lon;Name:lat:lon" (default Hyderabad, city level only)
-  WEATHER          set to 0 to switch it off
+  WEATHER          off by default; set to 1 to switch the forecast line back on
 """
 
 from __future__ import annotations
@@ -65,7 +65,7 @@ def _place(name: str, d: dict) -> str:
 
 def line() -> str:
     """e.g. 'Hyderabad: now 28°C, light rain; today 22–31°C, ... ' (local days)."""
-    if os.getenv("WEATHER", "1") == "0":
+    if os.getenv("WEATHER", "0") != "1":
         return ""
     if "line" in _CACHE:
         return _CACHE["line"]

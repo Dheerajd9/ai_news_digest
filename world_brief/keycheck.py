@@ -31,12 +31,6 @@ def main() -> None:
                   "bad": "❌ Podcast key: rejected, regenerate PODCAST_TOKEN"}.get(state, "⚪ Podcast key: could not check"))
     lines.append("✅ Google Cloud voices: key set" if os.getenv("GOOGLE_TTS_API_KEY")
                  else "⚪ Google Cloud voices: not set (optional; free Microsoft voices are the backup)")
-    try:
-        import weather
-        wx = weather.line()
-    except Exception:
-        wx = ""
-    lines.append(f"✅ Weather (free, no key): {wx}" if wx else "❌ Weather: Open-Meteo not reachable (podcasts just skip it)")
     report = "\n".join(f"- {l}" for l in lines)
     print(report)
     digest.send_email("🔑 World Brief key check", "# 🔑 Key check\n\n" + report + "\n")

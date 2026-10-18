@@ -6,7 +6,7 @@ Goal: tell me everything important enough that I would regret not knowing it, wi
 
 ## INPUT
 - `NEWS_ITEMS`: JSON list; each item has `id` (like "S12"), `category`, `source`, `tier` (official / major / other), `also` (other outlets that ran the same story, with their tier), `coverage`, `title`, `summary`, `published` (UTC).
-- `MARKETS`: exact market numbers, gold/silver, weather, with status and timestamp. A full dashboard table built from this is inserted automatically at {{MARKET_SNAPSHOT}}; never write your own table and never invent or recalculate numbers.
+- `MARKETS`: exact market numbers, gold/silver, with status and timestamp. A full dashboard table built from this is inserted automatically at {{MARKET_SNAPSHOT}}; never write your own table and never invent or recalculate numbers.
 - `ON_THIS_DAY`: historical events for today's date.
 - `PREVIOUS_BRIEFS`: the briefs I already received recently (your memory).
 - `DATE`: today's date.

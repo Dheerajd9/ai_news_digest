@@ -234,8 +234,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
           and "#fff7e6" in page and 'color:#16a34a">▲' in page,
           f"{edition}: email has play buttons, story cards, Top 5 box, green/red arrows", errors)
     st = res.get("style", {})
-    check(st.get("style", 0) >= 3 and st.get("wx", 0) == st.get("style"),
-          f"{edition}: every podcast gets the explaining style + Hyderabad weather {st}", errors)
+    check(st.get("style", 0) >= 1 and st.get("wx", 0) == 0 and "Weather:" not in md,
+          f"{edition}: podcasts get the explaining style; no weather forecast anywhere {st}", errors)
     if edition != "weekly":
         tail = md.split("More headlines (not covered above)")[-1]
         check("More headlines (not covered above)" in md and "](http" in tail,
