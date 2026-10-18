@@ -108,7 +108,6 @@ personal_finance_housing:   # taxes, credit, loans, insurance, retirement, ETFs,
   - https://news.google.com/rss/search?q=%22home+loan%22+OR+%22FD+rates%22+OR+%22mutual+fund%22+OR+SIP+OR+%22income+tax%22+OR+insurance+when:2d&hl=en-IN&gl=IN&ceid=IN:en
 
 fact_check:   # viral claims checked by fact-checkers (for the Truth check section)
-  - https://www.politifact.com/rss/all/
   - https://www.altnews.in/feed/
   - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+misleading+OR+false+claim+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+fake+OR+misleading+when:2d&hl=en-IN&gl=IN&ceid=IN:en

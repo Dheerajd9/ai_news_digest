@@ -1,8 +1,8 @@
 # World Brief
 
-India first, USA second, then the world. One daily email with the full news **plus podcasts in English and Telugu** (Hindi is switched off; one setting brings it back), fully automated on GitHub Actions and **100% free**.
+India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 18 Oct 2026 (fix: secrets with a trailing newline broke the email header after the sender-name change; email addresses are now hidden in public run logs)._
+_Last updated: 18 Oct 2026 (Telugu switched off too: English podcast only; dead PolitiFact feed removed)._
 
 ## What you get, and when (US Eastern time)
 
@@ -185,6 +185,6 @@ The email comes **from the `GMAIL_USER` account** with the sender name **World B
 ## Tuning
 
 - Voices: pin with variables `GEMINI_VOICE_A/B` (English), `GEMINI_TELUGU_VOICE_A/B`, `GEMINI_HINDI_VOICE_A/B`; force Microsoft voices with `PODCAST_TTS=edge` / `TELUGU_TTS=edge` / `HINDI_TTS=edge`.
-- Languages: `PODCAST_LANGUAGES` (default `te`; set the variable to `te,hi` to bring Hindi back), `LANG_EDITIONS` (default `morning,evening,weekly`).
+- Languages: `PODCAST_LANGUAGES` (default empty = English only; set the repo variable to `te` or `te,hi` to bring Telugu / Hindi back), `LANG_EDITIONS` (default `morning,evening,weekly`).
 - Player site audio days: `SITE_AUDIO_DAYS` (default 10).
 - Alerts: `watchlist.yaml` keywords, `min_score`, `max_alerts_per_day`.

@@ -311,7 +311,7 @@ def main() -> int:
         _os.environ.pop("PODCAST_LANGUAGES", None)
         sys.path.insert(0, str(SRC))
         import languages as _lg
-        check(_lg.wanted("morning") == ["te"], f"languages: Telugu only by default, Hindi off ({_lg.wanted('morning')})", errors)
+        check(_lg.wanted("morning") == [], f"languages: English only by default, Telugu/Hindi off ({_lg.wanted('morning')})", errors)
         everywhere = "".join((SRC.parent / f).read_text() for f in
                              ["digest.py", "portfolio_report.py", "portfolio_analytics.py"]) + "".join(
             f.read_text() for f in list(SRC.glob("*.py")) + list(SRC.glob("prompts/*.md"))
