@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus podcasts in English and Telugu** (Hindi is switched off; one setting brings it back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 17 Oct 2026 (Hindi switched off: English + Telugu only; English gets the natural Gemini voices first; Google basic voice as last free backup)._
+_Last updated: 17 Oct 2026 (emails show "World Brief" as the sender name; change with the `EMAIL_FROM_NAME` variable)._
 
 ## What you get, and when (US Eastern time)
 
@@ -148,6 +148,8 @@ Repo → Settings → Secrets and variables → Actions:
 | `PARENTS_WHATSAPP` | optional `phone:apikey` for a WhatsApp message with play links (CallMeBot) |
 
 Gmail limits: about 100 recipients per email and about 500 per day, so keep the list at about 100 people.
+
+The email comes **from the `GMAIL_USER` account** with the sender name **World Brief** (set the `EMAIL_FROM_NAME` variable to change it). Gmail always sends as the real account, so the address itself is visible if someone taps the name; to hide your personal address completely, use a separate free Gmail for `GMAIL_USER`.
 
 ## All secrets
 

@@ -1070,7 +1070,9 @@ line-height:1.55;color:#222;padding:12px">{body_html}</body></html>"""
     if not recipients:
         print("  (email skipped: no valid recipient)")
         return
-    msg["Subject"], msg["From"] = subject, user
+    # Shown sender name (the Gmail address itself can't be hidden: Gmail only sends as you).
+    from email.utils import formataddr
+    msg["Subject"], msg["From"] = subject, formataddr((os.getenv("EMAIL_FROM_NAME", "World Brief"), user))
     msg["To"] = recipients[0] if len(recipients) == 1 else user     # others are BCC
     msg.attach(body)
     files = [audio] if isinstance(audio, Path) else list(audio or [])

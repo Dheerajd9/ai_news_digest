@@ -730,6 +730,9 @@ print(json.dumps(out, ensure_ascii=False))
             print(r.stdout[-800:], r.stderr[-800:])
             u = {}
         check(u.get("links") == [True, False, False], "links: only known article links survive", errors)
+        src_d = (SRC / "digest.py").read_text()
+        check('formataddr((os.getenv("EMAIL_FROM_NAME", "World Brief"), user))' in src_d,
+              "email: sender name shows as World Brief", errors)
         check("Nifty 50 23,146 ▲0.65%" in u.get("strip", "") and "$1 = ₹94.96 ▼−0.20%" in u.get("strip", "")
               and u.get("strip_empty") == "", f"market strip format ({u.get('strip')})", errors)
         check(u.get("subject", "").startswith("🚨 World Brief · Sat 17 Oct: RBI cuts repo rate"),
