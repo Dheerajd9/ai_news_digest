@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (~215 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
+_Last updated: 19 Oct 2026 (watchdog: 2 PM missing-email alarm + Sunday self-cleaning feeds; ~215 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -91,6 +91,9 @@ If a script comes back far too short, the system asks once more for the full-len
 - **Never too late**: after 75 minutes (`WB_SEND_BY_MIN`) the run skips any podcast it hasn't made yet and sends the email, so GitHub's 100-minute limit can't swallow an edition.
 - **Health alerts (only you)**: when an edition went out but quality dropped (robot voices, a language missing, a podcast skipped, backup AI wrote the brief, a script came out short, many news sources failed), you get a short 🩺 email (and a Telegram message if `TELEGRAM_CHAT_ID` is set). Silent on good days.
 - **Failure alerts** go by email **and** Telegram (`TELEGRAM_CHAT_ID`), so a Gmail problem can't hide a failure.
+- **Watchdog** (`watchdog.py`, `.github/workflows/watchdog.yml`): every day at 2 PM US Eastern it checks that today's morning email (and the Sunday weekly, and the AI News Digest) really went out; if not, a ⏰ alert by email + Telegram. It waits while an edition is still running, so no false alarms. This catches the silent case where nothing ran at all.
+- **Self-cleaning news sources**: every Sunday the watchdog tests every feed; a feed dead or empty two Sundays in a row is removed from `feeds.yaml` by itself (state in `state/feed_health.json`, report in `logs/feedcheck.txt`). If over a quarter look bad at once it's a network blip and nothing is removed. You get a 📰 email only when something was removed or fewer than 150 feeds still work.
+- **Once a year (the system reminds you)**: renew the cron-job.org GitHub token (if forgotten, GitHub's own timer still sends, maybe late); renew `PODCAST_TOKEN` before about Oct 2027 (reminder email comes first).
 
 - **Several triggers, all free**: GitHub's own timer (slots every 30 min in the morning window; GitHub often runs them late or drops them) **plus** the free cron-job.org timer below, which calls the workflow on time. No Claude subscription is needed for anything.
 - **Sent once**: `state/done/<date>-<edition>` markers stop duplicates.

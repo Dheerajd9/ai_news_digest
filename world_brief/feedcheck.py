@@ -52,9 +52,7 @@ def check(feeds: dict[str, list[str]], get=download, hours: int = 26) -> list[di
     return rows
 
 
-def main() -> None:
-    feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
-    rows = check(feeds)
+def report(rows: list[dict]) -> str:
     bad = [r for r in rows if r["status"] != "ok"]
     lines = [f"Feeds: {len(rows)} · ok {len(rows) - len(bad)} · problems {len(bad)} · "
              f"fresh items {sum(r['fresh'] for r in rows)}", ""]
@@ -64,7 +62,12 @@ def main() -> None:
     for r in rows:
         if r["status"] == "ok":
             lines.append(f"ok     {r['cat']:24} {r['fresh']:4}/{r['items']:<4} {r['url']}")
-    out = "\n".join(lines)
+    return "\n".join(lines)
+
+
+def main() -> None:
+    feeds = yaml.safe_load((ROOT / "feeds.yaml").read_text())
+    out = report(check(feeds))
     print(out)
     if os.getenv("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:

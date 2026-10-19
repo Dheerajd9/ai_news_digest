@@ -843,6 +843,38 @@ print(json.dumps({"login": sent.get("login"), "rcpts": sent.get("rcpts"),
             {"a": ["https://good.com/r", "https://dead.com/r"], "b": ["https://old.com/r"]}, get=_get)}
         check(fc == {"good.com": "ok", "dead.com": "dead", "old.com": "stale"},
               f"feedcheck: finds dead and stale feeds ({fc})", errors)
+        # Watchdog: missing-email alarm + weekly dead-feed removal.
+        import watchdog
+        from zoneinfo import ZoneInfo as _Z
+        wd_tmp = Path(tempfile.mkdtemp())
+        (wd_tmp / "wb" / "state" / "done").mkdir(parents=True)
+        watchdog.ROOT, watchdog.REPO = wd_tmp / "wb", wd_tmp
+        sent_alerts = []
+        watchdog.alert = lambda s, b: sent_alerts.append(s)
+        sun = datetime.datetime(2026, 10, 18, 14, 50, tzinfo=_Z("America/New_York"))
+        watchdog.check_sent(sun)
+        miss_all = list(sent_alerts)
+        (wd_tmp / "wb" / "state" / "done" / "2026-10-18-morning").write_text("x")
+        (wd_tmp / "wb" / "state" / "done" / "2026-10-18-weekly").write_text("x")
+        (wd_tmp / "digest_done.json").write_text('{"Morning": "2026-10-18"}')
+        sent_alerts.clear()
+        watchdog.check_sent(sun)
+        check(len(miss_all) == 1 and all(w in miss_all[0] for w in ("morning", "weekly", "AI News"))
+              and sent_alerts == [],
+              f"watchdog: alarm when today's emails were never sent, silent when they were ({miss_all})", errors)
+        rows = [{"url": f"https://f{i}.com/r", "status": "ok"} for i in range(10)]
+        rows[0]["status"], rows[1]["status"] = "dead", "empty"
+        ftxt = "".join(f"  - {r['url']}\n" for r in rows)
+        h1, t1, r1 = watchdog.prune_feeds(rows, {}, ftxt)
+        h2, t2, r2 = watchdog.prune_feeds(rows, h1, t1)
+        allbad = [dict(r, status="dead") for r in rows]
+        h3, t3, r3 = watchdog.prune_feeds(allbad, {}, ftxt)
+        check(r1 == [] and sorted(r2) == ["https://f0.com/r", "https://f1.com/r"] and "f0.com" not in t2
+              and "f2.com" in t2 and r3 == [] and t3 == ftxt,
+              "watchdog: feed dead two Sundays in a row removed; a network blip removes nothing", errors)
+        wf_wd = (SRC.parent / ".github" / "workflows" / "watchdog.yml").read_text()
+        check("50 18,19 * * *" in wf_wd and "START_H" in wf_wd and "in_progress" in wf_wd,
+              "watchdog: runs daily at 2 PM Eastern, waits for a running edition (no false alarm)", errors)
         fy = _y.safe_load((SRC / "feeds.yaml").read_text())
         allu = [u for us in fy.values() for u in us]
         check(len(allu) >= 200 and all(u.startswith("https://") for u in allu),

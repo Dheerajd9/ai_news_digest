@@ -1,11 +1,12 @@
 # Dji's automations
 
-This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 19 Oct 2026 (AI News Digest evening edition switched off: morning only, covering the last 26 hours)._
+This public repo runs free, fully automatic jobs on GitHub Actions. _Last updated: 19 Oct 2026 (AI News Digest morning only; new Watchdog: alarm at 2 PM Eastern if any morning email was never sent, weekly dead-feed removal)._
 
 | Job | What | Where |
 |---|---|---|
 | 🌏 **World Brief** | Morning and Sunday news email (India → USA → World) with podcasts in **English, Telugu and Hindi**, web player with chapters | [`world_brief/README.md`](world_brief/README.md) |
 | 🤖 **AI News Digest** | Top 5 AI stories, every morning | below |
+| 🐕 **Watchdog** | 2 PM Eastern daily: alarm (email + Telegram) if the World Brief or AI Digest morning email was never sent; Sundays: tests every news feed and removes ones dead two weeks in a row | [`world_brief/README.md`](world_brief/README.md) |
 | 📈 **Portfolio Report** | Mutual fund review on the 1st and 16th + daily portfolio line and alerts | below (holdings stay private in a secret) |
 
 Everything is free: GitHub Actions (unlimited for public repos), Gemini free tier, free backups (OpenRouter, Mistral), Gmail.
