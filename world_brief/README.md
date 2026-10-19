@@ -133,7 +133,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 | `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
 | `run: morning force` | Sends it again even if already sent |
 | `run: keycheck` | Tests every key and emails a ✅/❌ report |
-| `run: feedcheck` | Tests every news feed and lists dead, empty or stale ones (sends nothing) |
+| `run: feedcheck` | Tests every news feed and lists dead, empty or stale ones in `logs/feedcheck.txt` (sends nothing) |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
 | `run: tgsetup` | Finds the family Telegram channel, saves it, posts a test message |
 

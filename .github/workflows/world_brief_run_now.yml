@@ -81,7 +81,10 @@ jobs:
             exit 0
           fi
           if echo "$CMD" | grep -qw feedcheck; then
-            python feedcheck.py
+            mkdir -p logs
+            python feedcheck.py | tee logs/feedcheck.txt
+            git add logs/feedcheck.txt
+            git diff --cached --quiet || { git commit -m "Feed check report"; git pull --rebase --quiet && git push; }
             exit 0
           fi
           if echo "$CMD" | grep -qw keycheck; then
