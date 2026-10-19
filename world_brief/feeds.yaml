@@ -243,9 +243,6 @@ students_visas_jobs:
   - https://news.google.com/rss/search?q=%22F-1+visa%22+OR+OPT+OR+%22STEM+OPT%22+OR+SEVIS+OR+%22H-1B+lottery%22+OR+%22student+visa%22+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=%22Express+Entry%22+OR+PGWP+OR+%22study+permit%22+OR+%22CRS+score%22+when:3d&hl=en-CA&gl=CA&ceid=CA:en
   - https://news.google.com/rss/search?q=layoffs+OR+hiring+%22data+engineer%22+OR+%22machine+learning%22+OR+%22AI+jobs%22+OR+%22tech+jobs%22+when:2d&hl=en-US&gl=US&ceid=US:en
-nri_money:
-  - https://news.google.com/rss/search?q=NRI+OR+remittance+OR+NRE+OR+NRO+OR+FEMA+OR+%22money+transfer+to+India%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en
-  - https://news.google.com/rss/search?q=NRI+OR+%22Indian+diaspora%22+OR+%22Indians+abroad%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 scams_safety:
   - https://news.google.com/rss/search?q=scam+OR+fraud+UPI+OR+WhatsApp+OR+%22digital+arrest%22+OR+KYC+OR+%22cyber+crime%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=%22scam+alert%22+OR+FTC+OR+%22data+breach%22+OR+%22IRS+scam%22+OR+%22phishing%22+when:2d&hl=en-US&gl=US&ceid=US:en
@@ -256,10 +253,6 @@ weather_disasters:
   - https://www.gdacs.org/xml/rss.xml
   - https://news.google.com/rss/search?q=IMD+alert+OR+cyclone+OR+flood+OR+heatwave+OR+earthquake+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=hurricane+OR+tornado+OR+blizzard+OR+wildfire+OR+%22National+Weather+Service%22+when:1d&hl=en-US&gl=US&ceid=US:en
-hyderabad_realestate:
-  - https://news.google.com/rss/search?q=Hyderabad+real+estate+OR+%22land+prices%22+OR+HMDA+OR+%22plot+prices%22+OR+Dharani+when:3d&hl=en-IN&gl=IN&ceid=IN:en
-travel_india_us:
-  - https://news.google.com/rss/search?q=%22visa+appointment%22+OR+%22Air+India%22+OR+%22flights+to+India%22+OR+OCI+OR+%22Indian+passport%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en
 sports:
   - https://news.google.com/rss/search?q=India+cricket+OR+BCCI+OR+%22Team+India%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://www.espncricinfo.com/rss/content/story/feeds/0.xml

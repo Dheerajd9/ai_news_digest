@@ -9,7 +9,7 @@ For every bullet or sentence in the DRAFT that cites ids like [S12]:
 - A plan, bill, draft or proposal labelled as confirmed or official → change to 🔵 PROPOSED / 🔵 PROPOSAL.
 - The item's published date is clearly old but the draft presents it as today's news → fix the wording ("Original event: <date>") or delete.
 - A headline that is just "Update" → replace it with a short real headline taken from the bullet's own content.
-- A sentence with no id that states a news fact → delete it. These may stay if they don't contradict the items: headings, the one-line summary, "Why it matters" lines, "What actually matters" market notes, "Nothing requires your attention today.", explanations, "Why this matters to me" lines, "On this day".
+- A sentence with no id that states a news fact → delete it. These may stay if they don't contradict the items: headings, the one-line summary, "Why it matters" lines, "What actually matters" market notes, explanations, "On this day".
 - If a summary line (one-line summary, Top 5, attention) relied on a deleted item, fix or remove it.
 
 This is also the ONE final pre-send quality pass (do not ask for more passes). While checking, also fix:

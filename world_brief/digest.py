@@ -117,8 +117,8 @@ CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 25, "w
                  "jobs_tax_housing": 20, "canada": 15, "business_jobs": 20,
                  "personal_finance_housing": 15, "fact_check": 10, "ai_robotics": 30,
                  "frontier_companies": 10, "chips_energy_future": 25,
-                 "students_visas_jobs": 20, "nri_money": 10, "scams_safety": 12,
-                 "weather_disasters": 15, "hyderabad_realestate": 8, "travel_india_us": 8,
+                 "students_visas_jobs": 20, "scams_safety": 12,
+                 "weather_disasters": 15,
                  "sports": 8, "good_news": 6}
 SUMMARY_CHARS = 280
 SEEN_TTL_DAYS = 7
@@ -984,8 +984,7 @@ CATEGORY_LABELS = {
     "frontier_companies": "🚀 Frontier companies", "chips_energy_future": "⚡ Chips, energy, future tech & space",
     "science_health_climate": "🔬 Science & health", "official": "🏛️ Official announcements",
     "fact_check": "🔍 Fact checks", "students_visas_jobs": "🎓 Students, visas & tech jobs",
-    "nri_money": "💸 NRI money", "scams_safety": "🛡️ Scams & safety", "weather_disasters": "🌪️ Weather & disasters",
-    "hyderabad_realestate": "🏡 Hyderabad real estate", "travel_india_us": "✈️ Travel India–USA",
+    "scams_safety": "🛡️ Scams & safety", "weather_disasters": "🌪️ Weather & disasters",
     "sports": "🏏 Sports", "good_news": "🌱 Good news"}
 
 
@@ -1642,14 +1641,13 @@ def save_memory(ctx: dict) -> None:
         BELIEFS_FILE.write_text(json.dumps(update_beliefs(ctx["beliefs"], ctx["new_beliefs"], today_iso),
                                            indent=1, ensure_ascii=False))
         print(f"  beliefs updated: {len(ctx['new_beliefs'])}")
-    attention = final.split("## 🎯", 1)[-1].split("\n## ", 1)[0] if "## 🎯" in final else ""
     run = ctx["run"]
     run.update(cited=len(set(re.findall(r"\[(S\d+)\]", brief))),
                email_words=len(re.sub(r"\(https?://[^)]+\)", "", final).split()),
                podcast_minutes=sum(audio_minutes(Path(e["file"])) or 0
                                    for e in episodes + ctx["lang_eps"]),
                corrections=final.count("CORRECTION"),
-               action_required=attention.count("ACTION REQUIRED"),
+               action_required=final.count("ACTION NEEDED"),
                quiet=int((re.findall(r"\d+", str(ctx["meta"].get("TOP_STORY_COUNT", "5"))) or ["5"])[0]) <= 2,
                warnings=len(ctx["warnings"]), llm_calls=sum(LLM_CALLS.values()),
                stories_tracked=len(new_stories))

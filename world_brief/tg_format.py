@@ -66,13 +66,13 @@ def _inline(text: str) -> str:
 
 
 TAGS = [   # tap a tag in Telegram to see every past story on that topic
-    (r"Top 5|Top stories", "#Top5"), (r"attention", "#Attention"), (r"actually matters", "#MustKnow"),
-    (r"Hyderabad land|real estate", "#Hyderabad #RealEstate"), (r"Hyderabad|Telangana", "#Hyderabad"),
-    (r"Travel", "#Travel"), (r"USA|🇺🇸", "#USA"), (r"Canada", "#Canada"), (r"India", "#India"),
+    (r"Top 5|Top stories", "#Top5"), (r"actually matters", "#MustKnow"),
+    (r"Hyderabad|Telangana", "#Hyderabad"),
+    (r"USA|🇺🇸", "#USA"), (r"Canada", "#Canada"), (r"India", "#India"),
     (r"AI|robot", "#AI"), (r"Musk|frontier", "#AI #Tech"), (r"Chips|computing|Future tech", "#Tech"),
     (r"Space", "#Space"), (r"world|World", "#World"), (r"Government|politics", "#Politics"),
     (r"Immigration|Students|visas", "#Visa"),
-    (r"NRI", "#NRI #Money"), (r"Money|market|Economy|finance|Housing|Business|jobs", "#Money"),
+    (r"Money|market|Economy|finance|Housing|Business|jobs", "#Money"),
     (r"Energy", "#Energy"),
     (r"Severe weather|disasters", "#Weather"), (r"Science|health|climate", "#Science"),
     (r"Cricket|sports", "#Sports"), (r"Truth", "#FactCheck"), (r"Scams|safety", "#Scams"),

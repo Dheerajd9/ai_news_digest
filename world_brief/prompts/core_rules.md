@@ -46,13 +46,13 @@ After the META block, add a STORIES block with every story you covered today tha
 
 
 
-## AI-ERA RADAR & PERSONAL ACTION
+## AI-ERA RADAR & ACTION CHECK
 - These radars never add new sections to the daily email by themselves and never lengthen the podcasts. A radar finding enters only if it beats other stories on importance, inside the existing sections:
-  - AI capability shifts, skills gaining/losing value, learning signals → the "🤖 AI & robotics" and "🎓 Students, work visas & the tech job market" / "💼 Business, jobs & the future of work" sections (**💡 Skills to watch** / **🎓 Learning signal:** one line each, only with multiple credible signals).
+  - AI capability shifts, skills gaining/losing value, learning signals → the "🤖 AI & robotics" and "💼 Business, jobs & the future of work" sections (**💡 Skills to watch** / **🎓 Learning signal:** one line each, only with multiple credible signals).
   - Cybersecurity and scams that affect ordinary people → the "🛡️ Scams & safety alerts" section, with one plain "**What to do:**" line (update, change password, enable passkeys/MFA, ignore such calls, call the bank) or "No action needed."
   - Money moving (investment), energy/infrastructure, opportunity and world-risk radar → the existing India / USA / World / Economy sections, using announcement → committed → financed → construction → money spent → operational stages.
   - Science/medicine: always say the evidence level (animal study, small human study, large trial, randomized trial, regulatory approval).
-- Personal action engine: classify each important story ACTION REQUIRED / WATCH / AWARENESS / NONE. Only ACTION REQUIRED items (rare: deadlines, security, immigration status, money protection, safety) go into "🎯 Does anything need my attention?" marked **🔴 ACTION REQUIRED**; WATCH items may appear there marked **👀 WATCH** if there is room. Never invent actions.
+- Action check: when a story needs people to do something (rare: deadlines, security, immigration status, money protection, safety), mark it **🔴 ACTION NEEDED** in its own section and say who must act and what to do. Never invent actions.
 - `TREND_COUNTERS` (Python counts of how often key topics appeared per day recently) and STORY_MEMORY are evidence for trends; one day's spike is not a trend. Trend strength (WEAK SIGNAL / EMERGING / ESTABLISHED / ACCELERATING / SLOWING / REVERSING) is for your reasoning; mention it in plain words only when useful.
 - In the STORIES block you may also record important long-running signals that are not daily news (an emerging trend, a risk whose direction changed, a big investment moving stages) with an id like `trend-ai-agents`, `risk-us-china`, `invest-india-semiconductors`, using the same fields; put the direction (IMPROVING/STABLE/WORSENING/HIGH RISK or trend strength) in `stage`. Weak signals go only into memory, not into the email.
 - Weekly report: the right place for jobs/skills direction, investment patterns, long-term India and USA direction, AI adoption patterns, risk direction and expectation-vs-reality, in the existing sections and "The big picture".

@@ -328,17 +328,21 @@ def main() -> int:
                     "Business, jobs & the future of work", "Energy revolution", "Future technology",
                     "Space", "Truth check", "Future signal", "Today's lesson", "Why markets moved",
                     "Hyderabad & Telangana", "Around the world (region by region)",
-                    "NRI money corner", "Hyderabad land & real estate", "Students, work visas & the tech job market",
-                    "Travel India ↔ USA", "Severe weather & disasters", "Cricket & big sports",
+                    "Severe weather & disasters", "Cricket & big sports",
                     "Scams & safety alerts", "Good news"]:
             check(f"## " in bp and sec in bp, f"brief has section: {sec}", errors)
         import yaml
         groups = yaml.safe_load((SRC / "feeds.yaml").read_text())
         for g in ["canada", "business_jobs", "personal_finance_housing", "fact_check",
                   "ai_robotics", "frontier_companies", "chips_energy_future", "world_regions",
-                  "students_visas_jobs", "nri_money", "scams_safety", "weather_disasters",
-                  "hyderabad_realestate", "travel_india_us", "sports", "good_news"]:
+                  "students_visas_jobs", "scams_safety", "weather_disasters", "sports", "good_news"]:
             check(bool(groups.get(g)), f"feeds: {g}", errors)
+        allp = "".join(p.read_text() for p in (SRC / "prompts").glob("*.md"))
+        gone = [s for s in ("need my attention", "Why this matters to me", "NRI money corner",
+                            "Hyderabad land & real estate", "Students, work visas", "Travel India ↔ USA",
+                            "Personal Global News", "my private") if s in allp]
+        check(not gone and "anyone who wants to know what is going on" in bp,
+              f"brief is general news for everyone: personal sections removed ({gone})", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
         import importlib, os as _os

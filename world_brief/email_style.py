@@ -19,7 +19,7 @@ SECTIONS = [
     (r"Top 5|Top stories", "#d97706"),
     (r"Listen", "#2563eb"),
     (r"తెలుగు|हिंदी", "#7c3aed"),
-    (r"attention|Scams|safety", "#dc2626"),
+    (r"Scams|safety", "#dc2626"),
     (r"Good news|Cricket|sports", "#16a34a"),
     (r"Severe weather|disasters", "#0891b2"),
     (r"Students|visas|Travel", "#0369a1"),
@@ -36,7 +36,7 @@ SECTIONS = [
     (r"Immigration", "#0369a1"),
     (r"Science|health|climate", "#16a34a"),
     (r"Truth", "#be123c"),
-    (r"Future signal|lesson|watch|matters to me|On this day", "#4f46e5"),
+    (r"Future signal|lesson|watch|On this day", "#4f46e5"),
     (r"More headlines", "#6b7280"),
 ]
 BUTTON = {"🔵": "#2563eb", "🟠": "#ea580c", "🟢": "#16a34a"}
