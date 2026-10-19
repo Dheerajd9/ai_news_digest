@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 18 Oct 2026 (weather forecast removed from the email and podcast; turn it back on with the `WEATHER=1` variable)._
+_Last updated: 19 Oct 2026 (Telegram now carries the full news: pinned headline + Instant View article + section messages + podcast)._
 
 ## What you get, and when (US Eastern time)
 
@@ -61,7 +61,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts a short headline message with named play links ("▶️ 🔵 English 📻 Full", "▶️ 🟠 Telugu" …, the web address stays hidden behind the name) plus every podcast as an audio message that plays inside Telegram. Setup: create a bot with @BotFather and save its token as `TELEGRAM_BOT_TOKEN`; create a channel and add the bot as an **admin** (Post messages on). Then add `run: tgsetup` to `run_request.txt`: it finds the channel automatically, saves it to `state/telegram_channel.json`, posts a test message and emails you. (Or set `TELEGRAM_CHANNEL_ID` yourself.) `TELEGRAM_CHAT_ID` (optional) stays your personal chat for breaking alerts.
+Each edition posts the **full news, the same as the email**: (1) a pinned headline message with the top stories, **📖 Read the full news** (a free Telegraph article that opens in Telegram's Instant View, split into parts on very long days) and named play links; (2) the whole brief as silent messages, section by section, each under Telegram's 4,096-character limit (long source links shown as source names; the one-line 'More headlines' list is in the article and the email); (3) the podcast as an audio message that plays inside Telegram. `TELEGRAM_FULL=0` goes back to headlines only.
 
 ## How it works
 

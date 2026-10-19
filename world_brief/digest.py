@@ -1152,18 +1152,50 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
         name = e["label"] if e.get("hosts") else f"🔵 English {e['label']}"
         links.append(f'▶️ <a href="{_html.escape(play_link(e["url"]), quote=True)}">'
                      f'{_html.escape(name)}</a>')
+    import tg_format
+    full = os.getenv("TELEGRAM_FULL", "1") == "1"
+    pages = tg_format.telegraph_pages(title, md) if full else []
+    read = ""
+    if pages:
+        read = "\n\n📖 <b>Read the full news</b> (opens inside Telegram)\n" + "\n".join(
+            f'👉 <a href="{_html.escape(u, quote=True)}">'
+            + (f"Full news{'' if len(pages) == 1 else f' · part {i}'}") + "</a>"
+            for i, u in enumerate(pages, 1))
     text = (f"🌏 <b>{_html.escape(title)}</b>\n\n"
             + "\n".join(f"• {_html.escape(h)}" for h in heads)
+            + read
             + ("\n\n🎧 <b>Listen in the player</b>\n" + "\n".join(links) if links else "")
-            + "\n\n👇 Or tap a podcast below to play it right here")
+            + ("\n\n👇 The full news follows below, then the podcast" if full
+               else "\n\n👇 Or tap a podcast below to play it right here"))
     api = f"https://api.telegram.org/bot{token}"
     sent = 0
     try:
         r = requests.post(f"{api}/sendMessage", json={"chat_id": chat, "text": text[:4000],
-                          "parse_mode": "HTML", "disable_web_page_preview": True}, timeout=30)
+                          "parse_mode": "HTML", "disable_web_page_preview": not pages}, timeout=30)
         if r.status_code != 200:
             print(f"  ! Telegram channel: HTTP {r.status_code} (is the bot an admin of the channel?)")
             return
+        try:                                  # keep today's edition pinned at the top
+            mid = r.json()["result"]["message_id"]
+            requests.post(f"{api}/pinChatMessage", timeout=30,
+                          json={"chat_id": chat, "message_id": mid, "disable_notification": True})
+        except Exception:
+            pass
+        parts = tg_format.full_messages(md) if full else []
+        for n, part in enumerate(parts):      # the whole news, same as the email (silent)
+            r = requests.post(f"{api}/sendMessage", timeout=30, json={
+                "chat_id": chat, "text": part, "parse_mode": "HTML",
+                "disable_web_page_preview": True, "disable_notification": True})
+            if r.status_code == 429:          # Telegram rate limit: wait and retry once
+                time.sleep(int((r.json().get("parameters") or {}).get("retry_after", 20)) + 1)
+                r = requests.post(f"{api}/sendMessage", timeout=30, json={
+                    "chat_id": chat, "text": part, "parse_mode": "HTML",
+                    "disable_web_page_preview": True, "disable_notification": True})
+            if r.status_code == 400:          # formatting Telegram didn't accept: send as text
+                requests.post(f"{api}/sendMessage", timeout=30, json={
+                    "chat_id": chat, "text": re.sub(r"<[^>]+>", "", part),
+                    "disable_web_page_preview": True, "disable_notification": True})
+            time.sleep(float(os.getenv("TELEGRAM_GAP_SEC", "3")))   # channels: ~20 msgs/min
         for e in eps:
             f = Path(e["file"])
             if not f.exists() or f.stat().st_size > 49_000_000:
@@ -1179,7 +1211,8 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
     except Exception as exc:          # the URL holds the bot token: print only the error type
         print(f"  ! Telegram channel failed: {type(exc).__name__}")
         return
-    print(f"  Telegram channel: message + {sent} podcast(s)")
+    print(f"  Telegram channel: headline + {len(pages)} article page(s) + "
+          f"{len(tg_format.full_messages(md)) if full else 0} news message(s) + {sent} podcast(s)")
 
 
 # ---------------------------------------------------------------- main

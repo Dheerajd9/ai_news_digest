@@ -145,11 +145,26 @@ podfeed.prune_extra = lambda *a, **k: None
 FEEDS_PUB = []
 podfeed.publish_language_episode = lambda lang, mp3, name, title, desc: FEEDS_PUB.append([lang, name])
 TG = []
+TG_PAGES = []
 class _R:
     status_code = 200
+    def __init__(self, url=""):
+        self.url = url
+    def json(self):
+        if self.url.endswith("createAccount"):
+            return {"ok": True, "result": {"access_token": "t"}}
+        if self.url.endswith("createPage"):
+            return {"ok": True, "result": {"url": f"https://telegra.ph/World-Brief-{len(TG_PAGES)}"}}
+        return {"ok": True, "result": {"message_id": 7}}
 TG_TEXT = []
-digest.requests.post = lambda url, **kw: (TG.append(url.rsplit("/", 1)[-1]),
-                                          TG_TEXT.append((kw.get("json") or {}).get("text", "")), _R())[2]
+def fake_post(url, **kw):
+    TG.append(url.rsplit("/", 1)[-1])
+    if url.endswith("createPage"):
+        TG_PAGES.append((kw.get("data") or {}).get("content", ""))
+    TG_TEXT.append((kw.get("json") or {}).get("text", ""))
+    return _R(url)
+digest.requests.post = fake_post
+os.environ["TELEGRAM_GAP_SEC"] = "0"
 os.environ["TELEGRAM_BOT_TOKEN"] = "123:abc"
 os.environ["TELEGRAM_CHANNEL_ID"] = "@family"
 os.environ.pop("TELEGRAM_CHAT_ID", None)
@@ -173,7 +188,7 @@ languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
 Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
-                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT), "health": HEALTH_MAILS}))
+                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT), "tg_msgs": [x for x in TG_TEXT if x], "tg_pages": TG_PAGES, "health": HEALTH_MAILS}))
 '''
 
 
@@ -247,8 +262,14 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     langs_fed = sorted({f[0] for f in res.get("feeds", [])})
     check(langs_fed == ["hi", "te"], f"{edition}: Telugu + Hindi podcast-app feeds updated ({langs_fed})", errors)
     tg = res.get("telegram", [])
-    check(tg.count("sendMessage") == 1 and tg.count("sendAudio") >= 3,
-          f"{edition}: Telegram family channel gets the message + every podcast ({tg.count('sendAudio')} audios)", errors)
+    msgs = res.get("tg_msgs", [])
+    pages = res.get("tg_pages", [])
+    check(tg.count("sendMessage") >= 2 and tg.count("sendAudio") >= 3 and "pinChatMessage" in tg,
+          f"{edition}: Telegram channel: pinned headline + full news messages + every podcast "
+          f"({tg.count('sendMessage')} msgs, {tg.count('sendAudio')} audios)", errors)
+    check(bool(pages) and "telegra.ph" in msgs[0] and all(len(m) <= 4096 for m in msgs)
+          and any("Detail" in m for m in msgs[1:]) and "India story one" in "".join(pages),
+          f"{edition}: Telegram has the full news (Instant View article + in-channel messages, each under 4096)", errors)
     check(st.get("tr") == 2, f"{edition}: Telugu + Hindi made from the same English episode "
           f"(same stories and details; {st.get('tr')} conversions)", errors)
     tgt = res.get("tg_text", "")
@@ -455,7 +476,7 @@ print(json.dumps({"te_has_today": "audio/" + today + "-telugu.mp3" in out["te"],
         tg_py = r"""
 import json, os, sys
 sys.path.insert(0, os.getcwd())
-os.environ["TELEGRAM_BOT_TOKEN"] = "1:x"; os.environ.pop("TELEGRAM_CHANNEL_ID", None)
+os.environ["TELEGRAM_BOT_TOKEN"] = "1:x"; os.environ.pop("TELEGRAM_CHANNEL_ID", None); os.environ["TELEGRAM_GAP_SEC"] = "0"
 import tgsetup, digest
 class G:
     status_code = 200
@@ -481,7 +502,8 @@ print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" i
             r = {}
         check(r.get("saved") == -1009876 and r.get("test_post") == [-1009876] and r.get("mail_ok"),
               "Telegram setup: channel found, saved, test posted, email sent", errors)
-        check(r.get("used") and all(c in (-1009876, "-1009876") for _, c in r["used"]),
+        check(r.get("used") and all(c in (-1009876, "-1009876") for m, c in r["used"]
+                                    if m not in ("createAccount", "createPage")),
               "Telegram setup: editions use the saved channel automatically", errors)
 
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
