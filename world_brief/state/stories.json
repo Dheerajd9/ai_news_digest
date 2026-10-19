@@ -152,17 +152,21 @@
    {
     "date": "2026-10-18",
     "event": "Administrative tightening advanced across extensions and work permit rules"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "TCS, Infosys, and Cognizant cut H-1B lottery filings"
    }
   ],
   "title": "DHS tightens H-1B renewal scrutiny and ends 540-day EAD extensions",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "US DHS proposed ending deference to prior approvals for H-1B renewals and ended 540-day automatic EAD extensions, while the government appealed an injunction against the $100k fee.",
+  "summary": "Major Indian IT services firms cut H-1B registrations as administrative scrutiny tightened and 12,700 white-collar tech workers returned to India.",
   "open_questions": [
    "When will the proposed rule on prior approval deference be published in the Federal Register?",
    "Will the appeals court grant an emergency stay on the $100k fee injunction?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "amazon-decart-acquisition": {
   "first_seen": "2026-10-11",
@@ -264,16 +268,20 @@
    {
     "date": "2026-10-18",
     "event": "Rupee stabilized at 94.95 through active central bank foreign exchange sales"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Rupee stabilizes at 94.92 under central bank intervention"
    }
   ],
-  "title": "RBI forex reserves drop $8.58B to defend rupee at 94.95",
+  "title": "RBI forex reserves drop to defend rupee at 94.95",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "RBI foreign exchange reserves fell $8.58 billion to $726.03 billion as active dollar sales stabilized the rupee at 94.95 despite heavy FII equity outflows.",
+  "summary": "The rupee settled at 94.92 as central bank dollar intervention cushioned the currency against crude oil near $108 and FPI equity outflows of ₹52,100 crore.",
   "open_questions": [
    "How long can the RBI sustain dollar sales if crude oil remains near $110?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -496,17 +504,21 @@
    {
     "date": "2026-10-18",
     "event": "First phase finalized and moved to legal drafting"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Rubio confirms bilateral trade pact is very close ahead of Jaishankar meeting"
    }
   ],
   "title": "India-US trade pact first phase finalised",
-  "status": "MAJOR CHANGE",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "Officials confirmed phase one of the bilateral trade deal is concluded with legal drafting underway, as India-US trade reached $50.8B in H1.",
+  "status": "DEVELOPING",
+  "stage": "NEGOTIATIONS",
+  "summary": "Marco Rubio confirmed the US and India are very close to finalizing a bilateral trade pact, noting India's energy realities were accommodated in Russian oil sanctions relief.",
   "open_questions": [
    "When will the formal treaty signing ceremony occur?",
    "Which tariff lines will see immediate reductions?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -730,6 +742,10 @@
    {
     "date": "2026-10-18",
     "text": "Subscription opening dates announced by underwriters"
+   },
+   {
+    "date": "2026-10-19",
+    "text": "Public subscription opening and retail bidding this week"
    }
   ],
   "timeline": [
@@ -744,16 +760,20 @@
    {
     "date": "2026-10-18",
     "event": "Red herring prospectuses prepared for Dalal Street listing"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Anchor book oversubscribed nearly 30 times with ₹2.5 lakh crore in bids"
    }
   ],
   "title": "Reliance's Jio Platforms files for record IPO",
-  "status": "DEVELOPING",
+  "status": "MAJOR CHANGE",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Jio Platforms readied India's biggest ₹30,213 crore IPO as Dalal Street braces for trading amidst heavy domestic participation.",
+  "summary": "Jio Platforms drew ₹2.5 lakh crore in anchor bids for its ₹8,110 crore anchor book, oversubscribing the institutional portion nearly 30 times.",
   "open_questions": [
-   "What will be the final valuation and retail price band?"
+   "What will be the final retail listing premium?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -906,16 +926,20 @@
    {
     "date": "2026-10-18",
     "event": "IRCC finalized implementation timeline for November 3 rollout"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Doctor licensing fast-tracked for 4 nations as LMIA exemptions finalized"
    }
   ],
   "title": "Canada updates Express Entry for high-wage workers",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "IRCC confirmed high-wage tech positions qualify for up to 100 bonus CRS points starting November 3 without LMIA clearance.",
+  "summary": "Canada moved forward with rules granting up to 100 bonus CRS points for high-wage positions without an LMIA, while fast-tracking doctor licensing for four countries.",
   "open_questions": [
    "What exact provincial wage thresholds will apply to tech occupations?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "us-banks-block-ai-agents": {
   "first_seen": "2026-10-16",
@@ -980,17 +1004,21 @@
    {
     "date": "2026-10-18",
     "event": "Brent reached $109.86 as Russian fuel infrastructure took drone damage"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Nasdaq slides 2.15% as 10-year Treasury yield holds at 5.10%"
    }
   ],
-  "title": "Brent crude near $110 as tech stocks plunge",
+  "title": "Brent crude near $108 as tech stocks plunge",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Brent crude climbed to $109.86 and WTI touched $99 following Ukrainian drone strikes on a Saint Petersburg refinery and Strait of Hormuz tensions, keeping US 10-year yields above 5% and pressuring tech equities.",
+  "summary": "Brent crude held near $108.48 amid Red Sea and Hormuz shipping threats, keeping US 10-year yields at 5.10% and dragging Nasdaq down 2.15%.",
   "open_questions": [
    "Will US Treasury yields remain above 5.10% if energy prices stay elevated?",
    "Will diplomatic frameworks reopen Hormuz commercial transit?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  },
  "russia-oil-sanctions-waiver": {
   "first_seen": "2026-10-17",
@@ -1035,16 +1063,20 @@
    {
     "date": "2026-10-17",
     "event": "Flight cancellations extended through October 24"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Flight suspensions extended through October 24"
    }
   ],
   "title": "Air India extends Saudi flight suspension to October 24",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "Air India and Air India Express extended flight cancellations to Riyadh, Jeddah, and Dammam through October 24 amid regional missile and drone threats.",
+  "summary": "Air India and Air India Express extended flight cancellations to Riyadh, Jeddah, and Dammam through October 24 due to regional airspace risks.",
   "open_questions": [
    "Will flights resume on October 25 or face further regional extensions?"
   ],
-  "last_seen": "2026-10-17"
+  "last_seen": "2026-10-19"
  },
  "vance-h1b-rhetoric": {
   "first_seen": "2026-10-18",
@@ -1112,16 +1144,20 @@
    {
     "date": "2026-10-18",
     "event": "Junior engineering share fell to single digits inside leading AI lab"
+   },
+   {
+    "date": "2026-10-19",
+    "event": "Anthropic commits 5% equity ($48B) to public benefit fund for AI workforce impact"
    }
   ],
   "title": "Anthropic cuts junior tech hiring as AI agents expand",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Anthropic reported its junior tech headcount fell to 9% as internal autonomous agents now do six times as many hours of work as human junior developers.",
+  "summary": "Anthropic committed 5% of its equity to a public benefit fund for displaced workers as its junior technical headcount fell to 9%.",
   "open_questions": [
-   "Will traditional tech enterprises mirror Anthropic's sharp reduction in junior engineering roles?",
-   "How will universities adapt computer science curricula?"
+   "Will other AI labs establish similar public benefit endowment funds?",
+   "Will enterprise software teams replicate the junior hiring freeze?"
   ],
-  "last_seen": "2026-10-18"
+  "last_seen": "2026-10-19"
  }
 }
