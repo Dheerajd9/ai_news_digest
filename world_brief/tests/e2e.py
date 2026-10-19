@@ -161,9 +161,12 @@ def fake_post(url, **kw):
     TG.append(url.rsplit("/", 1)[-1])
     if url.endswith("createPage"):
         TG_PAGES.append((kw.get("data") or {}).get("content", ""))
-    TG_TEXT.append((kw.get("json") or {}).get("text", ""))
-    if (kw.get("json") or {}).get("reply_markup"):
-        TG_BUTTONS.append([b["text"] for row in kw["json"]["reply_markup"]["inline_keyboard"] for b in row])
+    body = kw.get("json") or kw.get("data") or {}
+    TG_TEXT.append(body.get("text") or body.get("caption") or "")
+    rm = body.get("reply_markup")
+    if rm:
+        rm = json.loads(rm) if isinstance(rm, str) else rm
+        TG_BUTTONS.append([b["text"] for row in rm["inline_keyboard"] for b in row])
     return _R(url)
 TG_BUTTONS = []
 digest.requests.post = fake_post
@@ -267,12 +270,12 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     tg = res.get("telegram", [])
     msgs = res.get("tg_msgs", [])
     pages = res.get("tg_pages", [])
-    check(tg.count("sendMessage") >= 2 and tg.count("sendAudio") >= 3 and "pinChatMessage" in tg,
-          f"{edition}: Telegram channel: pinned headline + full news messages + every podcast "
-          f"({tg.count('sendMessage')} msgs, {tg.count('sendAudio')} audios)", errors)
-    check(bool(pages) and "telegra.ph" in msgs[0] and all(len(m) <= 4096 for m in msgs)
-          and any("Detail" in m for m in msgs[1:]) and "India story one" in "".join(pages),
-          f"{edition}: Telegram has the full news (Instant View article + in-channel messages, each under 4096)", errors)
+    posts = [x for x in tg if x in ("sendMessage", "sendAudio")]
+    check(posts == ["sendAudio"] and "pinChatMessage" in tg,
+          f"{edition}: Telegram channel gets ONE message (podcast + headlines + buttons), pinned ({posts})", errors)
+    check(bool(pages) and "India story one" in "".join(pages) and "Detail" in "".join(pages)
+          and all(len(m) <= 1024 for m in msgs) and "Full news" in msgs[0],
+          f"{edition}: the full news is in the 📖 Full news article (Instant View); caption under 1024", errors)
     check(st.get("tr") == 2, f"{edition}: Telugu + Hindi made from the same English episode "
           f"(same stories and details; {st.get('tr')} conversions)", errors)
     tgt = res.get("tg_text", "")
@@ -280,8 +283,11 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(any(b.startswith("📖 Full news") for b in btns) and sum(b.startswith("▶️") for b in btns) >= 3
           and ">https://" not in tgt,
           f"{edition}: Telegram headline has buttons: Full news + Play for every episode ({btns})", errors)
-    check("#Top5" in tgt and ("#India" in tgt or "#World" in tgt),
-          f"{edition}: Telegram sections carry topic hashtags (#Top5, #India...)", errors)
+    if edition == "morning":
+        import tg_format
+        tm = "".join(tg_format.full_messages("## 1. Top 5\n- a\n## 🇮🇳 India\n- b\n"))
+        check("#Top5" in tm and "#India" in tm,
+              "Telegram (TELEGRAM_MESSAGES=1 style): sections carry topic hashtags", errors)
     check(len(res.get("synced", [])) >= 3, f"{edition}: audio copied to the player site "
                                             f"({len(res.get('synced', []))} files)", errors)
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,

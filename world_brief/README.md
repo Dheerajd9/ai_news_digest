@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (Telegram buttons + topic hashtags + breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source now always reaches the AI, and More headlines lists widely reported stories first)._
+_Last updated: 19 Oct 2026 (Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -62,7 +62,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts the **full news, the same as the email**: (1) a pinned headline message with the top stories, **📖 Read the full news** (a free Telegraph article that opens in Telegram's Instant View, split into parts on very long days) and **buttons** under it: 📖 Full news, ▶️ Play (each episode), 📰 Yesterday's news; (2) the whole brief as silent messages, section by section, each under Telegram's 4,096-character limit, every section heading tagged with a topic hashtag (#India, #USA, #Hyderabad, #AI, #Money, #Visa… tap one to see every past story on it) (long source links shown as source names; the one-line 'More headlines' list is in the article and the email); (3) the podcast as an audio message that plays inside Telegram. `TELEGRAM_FULL=0` goes back to headlines only.
+Each edition posts **one message only**, like one email: the podcast (plays right inside Telegram) with today's top headlines as its caption, pinned at the top, and buttons under it: **📖 Full news** (the whole brief, every story, the same as the email, as a free Telegraph article that opens in Telegram's Instant View; split into parts on very long days), **▶️ Play** (web player) and **📰 Yesterday's news**. If there is no podcast file that day, the same thing goes as one text message. `TELEGRAM_MESSAGES=1` also posts the whole brief as section messages with topic hashtags (#India, #USA, #Hyderabad, #AI, #Money, #Visa…).
 
 ## How it works
 

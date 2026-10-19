@@ -1157,33 +1157,20 @@ def telegram_channel_id() -> str:
 
 
 def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
-    """Family Telegram channel: a short headline message, then every podcast as an audio
-    message that plays right inside Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID
-    (the bot must be an admin of the channel). Never fails the run."""
+    """Family Telegram channel: ONE message per edition, like the email. The podcast (plays
+    right inside Telegram) with today's top headlines as its caption, and buttons under it:
+    📖 Full news (the whole brief as a Telegraph article, opens in Instant View), ▶️ Play,
+    📰 Yesterday's news. No podcast file -> the same thing as one text message.
+    TELEGRAM_MESSAGES=1 also posts the whole brief as section messages (old style).
+    Needs TELEGRAM_BOT_TOKEN + the channel (the bot must be an admin). Never fails the run."""
     token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), telegram_channel_id()
     if not (token and chat and eps):
         return
     import languages
     import html as _html
-    heads = languages.headlines(md, 5)
-    # Named links ("▶️ English Full"), not bare URLs: the address stays hidden behind the text.
-    links = []
-    for e in eps:
-        if not e.get("url"):
-            continue
-        name = e["label"] if e.get("hosts") else f"🔵 English {e['label']}"
-        links.append(f'▶️ <a href="{_html.escape(play_link(e["url"]), quote=True)}">'
-                     f'{_html.escape(name)}</a>')
     import tg_format
-    full = os.getenv("TELEGRAM_FULL", "1") == "1"
-    pages = tg_format.telegraph_pages(title, md) if full else []
-    read = ""
-    if pages:
-        read = "\n\n📖 <b>Read the full news</b> (opens inside Telegram)\n" + "\n".join(
-            f'👉 <a href="{_html.escape(u, quote=True)}">'
-            + (f"Full news{'' if len(pages) == 1 else f' · part {i}'}") + "</a>"
-            for i, u in enumerate(pages, 1))
-    # Buttons under the headline: full news, play, yesterday's news (tap, no long links).
+    heads = languages.headlines(md, 5)
+    pages = tg_format.telegraph_pages(title, md)
     last_file = ROOT / "state" / "telegram_last.json"
     today = datetime.now(TZ).strftime("%Y-%m-%d")
     try:
@@ -1201,20 +1188,44 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
                              "url": play_link(e["url"])}])
     if yesterday:
         buttons.append([{"text": "📰 Yesterday's news", "url": yesterday}])
-    text = (f"🌏 <b>{_html.escape(title)}</b>\n\n"
-            + "\n".join(f"• {_html.escape(h)}" for h in heads)
-            + read
-            + ("" if buttons else ("\n\n🎧 <b>Listen in the player</b>\n" + "\n".join(links) if links else ""))
-            + ("\n\n👇 The full news follows below, then the podcast" if full
-               else "\n\n👇 Or tap a podcast below to play it right here"))
+    tail = "\n\n👇 Tap <b>📖 Full news</b> for every story (opens inside Telegram)" if pages else ""
+
+    def body(limit: int) -> str:
+        """Title + as many top headlines as fit in Telegram's limit (caption: 1,024)."""
+        hs = list(heads)
+        while True:
+            txt = (f"🌏 <b>{_html.escape(title)}</b>\n\n"
+                   + "\n".join(f"• {_html.escape(h)}" for h in hs) + tail)
+            if len(re.sub(r"<[^>]+>", "", txt)) <= limit or not hs:
+                return txt
+            if len(hs[-1]) > 120:
+                hs[-1] = hs[-1][:100].rsplit(" ", 1)[0] + "…"
+            else:
+                hs.pop()
     api = f"https://api.telegram.org/bot{token}"
-    sent = 0
+    markup = {"inline_keyboard": buttons} if buttons else None
+    audio = next((Path(e["file"]) for e in eps if Path(e["file"]).exists()
+                  and Path(e["file"]).stat().st_size <= 49_000_000), None)
+    ep0 = next((e for e in eps if Path(e["file"]) == audio), {})
     try:
-        payload = {"chat_id": chat, "text": text[:4000], "parse_mode": "HTML",
-                   "disable_web_page_preview": not pages}
-        if buttons:
-            payload["reply_markup"] = {"inline_keyboard": buttons}
-        r = requests.post(f"{api}/sendMessage", json=payload, timeout=30)
+        r = None
+        if audio:                            # one message: the podcast + headlines + buttons
+            with audio.open("rb") as fh:
+                data = {"chat_id": chat, "caption": body(1000), "parse_mode": "HTML",
+                        "title": f"{title}"[:120],
+                        "performer": ep0.get("hosts") or "World Brief"}
+                if markup:
+                    data["reply_markup"] = json.dumps(markup)
+                r = requests.post(f"{api}/sendAudio", timeout=300, data=data,
+                                  files={"audio": (audio.name, fh, "audio/mpeg")})
+            if r.status_code != 200:
+                print(f"  ! Telegram podcast message: HTTP {r.status_code}; sending as text")
+        if r is None or r.status_code != 200:   # no podcast (or it failed): one text message
+            payload = {"chat_id": chat, "text": body(3900), "parse_mode": "HTML",
+                       "disable_web_page_preview": True}
+            if markup:
+                payload["reply_markup"] = markup
+            r = requests.post(f"{api}/sendMessage", json=payload, timeout=30)
         if pages and os.getenv("DRY_RUN") != "1":
             try:
                 last_file.parent.mkdir(exist_ok=True)
@@ -1231,38 +1242,26 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
                           json={"chat_id": chat, "message_id": mid, "disable_notification": True})
         except Exception:
             pass
-        parts = tg_format.full_messages(md) if full else []
-        for n, part in enumerate(parts):      # the whole news, same as the email (silent)
+        parts = tg_format.full_messages(md) if os.getenv("TELEGRAM_MESSAGES") == "1" else []
+        for part in parts:                    # optional old style: whole brief as messages
             r = requests.post(f"{api}/sendMessage", timeout=30, json={
                 "chat_id": chat, "text": part, "parse_mode": "HTML",
                 "disable_web_page_preview": True, "disable_notification": True})
-            if r.status_code == 429:          # Telegram rate limit: wait and retry once
+            if r.status_code == 429:
                 time.sleep(int((r.json().get("parameters") or {}).get("retry_after", 20)) + 1)
                 r = requests.post(f"{api}/sendMessage", timeout=30, json={
                     "chat_id": chat, "text": part, "parse_mode": "HTML",
                     "disable_web_page_preview": True, "disable_notification": True})
-            if r.status_code == 400:          # formatting Telegram didn't accept: send as text
+            if r.status_code == 400:
                 requests.post(f"{api}/sendMessage", timeout=30, json={
                     "chat_id": chat, "text": re.sub(r"<[^>]+>", "", part),
                     "disable_web_page_preview": True, "disable_notification": True})
-            time.sleep(float(os.getenv("TELEGRAM_GAP_SEC", "3")))   # channels: ~20 msgs/min
-        for e in eps:
-            f = Path(e["file"])
-            if not f.exists() or f.stat().st_size > 49_000_000:
-                continue
-            label = e["label"] if e.get("hosts") else f"🔵 English {e['label']}"
-            with f.open("rb") as fh:
-                r = requests.post(f"{api}/sendAudio", timeout=300,
-                                  data={"chat_id": chat, "title": f"{label} · {title}"[:120],
-                                        "performer": e.get("hosts") or "Kartik & Priya",
-                                        "caption": label},
-                                  files={"audio": (f.name, fh, "audio/mpeg")})
-            sent += r.status_code == 200
+            time.sleep(float(os.getenv("TELEGRAM_GAP_SEC", "3")))
     except Exception as exc:          # the URL holds the bot token: print only the error type
         print(f"  ! Telegram channel failed: {type(exc).__name__}")
         return
-    print(f"  Telegram channel: headline + {len(pages)} article page(s) + "
-          f"{len(tg_format.full_messages(md)) if full else 0} news message(s) + {sent} podcast(s)")
+    print(f"  Telegram channel: 1 message ({'podcast' if audio else 'text'} + {len(pages)} "
+          f"full-news page(s) as buttons)" + (f" + {len(parts)} section messages" if parts else ""))
 
 
 # ---------------------------------------------------------------- main
