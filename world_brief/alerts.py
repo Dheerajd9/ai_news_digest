@@ -84,17 +84,22 @@ def deliver(alerts: list[dict]) -> None:
             a["link"] = ""
     lines = [f"🚨 {a['headline']}\n{a.get('why', '')}" + (f"\n{a['link']}" if a["link"] else "") for a in alerts]
     text = "\n\n".join(lines)
-    token, chat = os.getenv("TELEGRAM_BOT_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
-    if token and chat:
+    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    chat, channel = os.getenv("TELEGRAM_CHAT_ID", "").strip(), digest.telegram_channel_id()
+
+    def tg(to: str, body: str, label: str) -> bool:
         try:
-            r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
-                              json={"chat_id": chat, "text": text}, timeout=30)
-            if r.status_code == 200:
-                print("  alert sent to Telegram")
-                return
-            print(f"  ! Telegram HTTP {r.status_code}; falling back to email")
+            r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage", timeout=30,
+                              json={"chat_id": to, "text": body, "disable_web_page_preview": False})
+            print(f"  alert to Telegram {label}: HTTP {r.status_code}")
+            return r.status_code == 200
         except Exception as exc:     # URL contains the bot token: print only the type
-            print(f"  ! Telegram failed ({type(exc).__name__}); falling back to email")
+            print(f"  ! Telegram {label} failed ({type(exc).__name__})")
+            return False
+    if token and channel and channel != chat:     # family channel gets every alert too
+        tg(channel, text + "\n\n#Breaking", "channel")
+    if token and chat and tg(chat, text, "chat"):
+        return
     md = "\n\n".join(f"### 🚨 {a['headline']}\n{a.get('why', '')}"
                      + (f"  \n[{a.get('source', 'Source')}]({a['link']})" if a["link"] else "")
                      for a in alerts)

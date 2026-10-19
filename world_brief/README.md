@@ -2,16 +2,16 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (Telegram now carries the full news: pinned headline + Instant View article + section messages + podcast)._
+_Last updated: 19 Oct 2026 (Telegram buttons + topic hashtags + breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source now always reaches the AI, and More headlines lists widely reported stories first)._
 
 ## What you get, and when (US Eastern time)
 
 | When | What |
 |---|---|
-| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (grouped by topic, up to 60), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
+| **Morning, ~7:10 AM** | **World Brief**: Top 5, what needs my attention, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, why it matters to me, then **📰 More headlines**: every other story from the day's sources as a one-line link (📢 widely reported by 3+ outlets first, then grouped by topic, up to 100), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
 | **Evening** | Switched off (16 Oct 2026). Can still be sent by hand with `run: evening`. |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
-| **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day) |
+| **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day): your Telegram chat (or email) **and the family Telegram channel** (#Breaking) |
 
 **Same news in every language**: the English Full episode is written first (evening: the evening episode); Telugu and Hindi are that same episode spoken in Telugu / Hindi (same stories, order, numbers and details, same chapters; `prompts/translate_mode.md`). Only if that conversion fails is the language episode written straight from the brief, so audio still goes out.
 
@@ -32,7 +32,8 @@ Built for reading on a phone without missing anything (`email_style.py`):
 - Every story is a **card**; each section has its **own colour** and a **read time**; sources are small grey chips
 - Sections include **🏙️ Hyderabad & Telangana** and **🗺️ Around the world (region by region)**: Asia-Pacific, Middle East, Europe, Russia & Central Asia, Africa, Latin America, Global
 - Also: **💸 NRI money corner**, **🏡 Hyderabad land & real estate**, **🎓 Students, work visas & the tech job market**, **✈️ Travel India ↔ USA**, **🌪️ Severe weather & disasters**, **🏏 Cricket & big sports**, **🛡️ Scams & safety alerts**, **🌱 Good news** (each appears when there is real news for it; new sources were added for every one)
-- **📰 More headlines** at the end: every other story from the day's ~100 sources (up to 100 one-liners), so nothing is silently dropped
+- **📰 More headlines** at the end: every other story from the day's ~100 sources (up to 100 one-liners, 📢 widely reported first, each showing how many outlets carried it), so nothing is silently dropped
+- **Nothing important missed**: about 5,000 items a day merge into ~3,800 stories; each topic is capped so one topic can't crowd out the rest, but **any story carried by 3+ outlets, or from an official source, always reaches the AI** past the cap (`CONSENSUS_EXTRA`, default 150), and the AI must place every such story in a section (`prompts/brief_prompt.md`, NOTHING IMPORTANT MISSED)
 - Readers can simply reply to the email with feedback
 
 ## The web player
@@ -61,7 +62,7 @@ Feeds list the last 10 days (audio older than that is removed from the site). Th
 
 ## Telegram family channel
 
-Each edition posts the **full news, the same as the email**: (1) a pinned headline message with the top stories, **📖 Read the full news** (a free Telegraph article that opens in Telegram's Instant View, split into parts on very long days) and named play links; (2) the whole brief as silent messages, section by section, each under Telegram's 4,096-character limit (long source links shown as source names; the one-line 'More headlines' list is in the article and the email); (3) the podcast as an audio message that plays inside Telegram. `TELEGRAM_FULL=0` goes back to headlines only.
+Each edition posts the **full news, the same as the email**: (1) a pinned headline message with the top stories, **📖 Read the full news** (a free Telegraph article that opens in Telegram's Instant View, split into parts on very long days) and **buttons** under it: 📖 Full news, ▶️ Play (each episode), 📰 Yesterday's news; (2) the whole brief as silent messages, section by section, each under Telegram's 4,096-character limit, every section heading tagged with a topic hashtag (#India, #USA, #Hyderabad, #AI, #Money, #Visa… tap one to see every past story on it) (long source links shown as source names; the one-line 'More headlines' list is in the article and the email); (3) the podcast as an audio message that plays inside Telegram. `TELEGRAM_FULL=0` goes back to headlines only.
 
 ## How it works
 

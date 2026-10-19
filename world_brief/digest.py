@@ -362,6 +362,13 @@ def cap_per_category(items: list[dict]) -> list[dict]:
                 if len(picked) >= limit:
                     break
         capped.extend(picked)
+    # Never let a crowded category hide a big story: anything carried by 3+ outlets (or an
+    # official source) reaches the AI even beyond the category cap.
+    chosen = {id(i) for i in capped}
+    extra = sorted((i for i in items if id(i) not in chosen
+                    and (i.get("coverage", 1) >= 3 or source_tier(i["source"]) == "official")),
+                   key=lambda i: -i.get("coverage", 1))[:int(os.getenv("CONSENSUS_EXTRA", "150"))]
+    capped.extend(extra)
     for n, it in enumerate(capped, 1):
         it["id"] = f"S{n}"
     return capped
@@ -983,29 +990,38 @@ CATEGORY_LABELS = {
 
 
 def more_headlines(brief: str, items: list[dict], per_cat: int = 8, total: int = 100) -> str:
-    """Every remaining story the AI did not cover, as one-line headlines with links, so the
-    reader never misses anything. Ranked by trust and how many outlets carried it."""
+    """Every remaining story the brief did not cover, as one-line headlines with links, so the
+    reader never misses anything. `items` is EVERY story fetched today (after merging
+    duplicates), not only the ones the AI read. Widely reported stories come first."""
     cited = set(re.findall(r"\[(S\d+)\]", brief))
     rest = [it for it in items if it.get("id") not in cited and re.match(r"https?://", it.get("link", ""))]
     if not rest:
         return ""
     tier_rank = {"official": 0, "major": 1, "other": 2}
-    rest.sort(key=lambda i: (tier_rank.get(source_tier(i["source"]), 3), -i.get("coverage", 1)))
+    rest.sort(key=lambda i: (-i.get("coverage", 1), tier_rank.get(source_tier(i["source"]), 3)))
+    wide = [it for it in rest if it.get("coverage", 1) >= 3][:15]
     groups: dict[str, list[dict]] = {}
-    shown = 0
+    shown = len(wide)
     for it in rest:
+        if it in wide:
+            continue
         g = groups.setdefault(it["category"], [])
         if len(g) < per_cat and shown < total:
             g.append(it)
             shown += 1
     order = list(CATEGORY_LABELS)
     lines = ["", "## 📰 More headlines (not covered above)",
-             "_Everything else from today's sources, one line each, so you miss nothing._", ""]
+             f"_Everything else from today's {len(items):,} stories, one line each, so you miss nothing._", ""]
+
+    def row(it):
+        title = re.sub(r"[\[\]]", "", it["title"])
+        more = f" · {it['coverage']} outlets" if it.get("coverage", 1) >= 3 else ""
+        return f"- [{title}]({it['link']}) · {it['source']}{more}"
+    if wide:
+        lines += ["**📢 Widely reported (3+ outlets)**", *map(row, wide), ""]
     for cat in sorted(groups, key=lambda c: order.index(c) if c in order else 99):
         lines.append(f"**{CATEGORY_LABELS.get(cat, cat.replace('_', ' ').title())}**")
-        for it in groups[cat]:
-            title = re.sub(r"[\[\]]", "", it["title"])
-            lines.append(f"- [{title}]({it['link']}) · {it['source']}")
+        lines += map(row, groups[cat])
         lines.append("")
     return "\n".join(lines)
 
@@ -1129,16 +1145,22 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
     print(f"  telegram sent ({len(chunks)} message(s){' + audio' if audio else ''})")
 
 
-def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
-    """Family Telegram channel: a short headline message, then every podcast as an audio
-    message that plays right inside Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID
-    (the bot must be an admin of the channel). Never fails the run."""
-    token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), os.getenv("TELEGRAM_CHANNEL_ID", "").strip()
-    if not chat:                         # found automatically by "run: tgsetup"
+def telegram_channel_id() -> str:
+    """The family channel: TELEGRAM_CHANNEL_ID, or the id found by "run: tgsetup"."""
+    chat = os.getenv("TELEGRAM_CHANNEL_ID", "").strip()
+    if not chat:
         try:
             chat = str(json.loads((ROOT / "state" / "telegram_channel.json").read_text())["id"])
         except Exception:
             chat = ""
+    return chat
+
+
+def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
+    """Family Telegram channel: a short headline message, then every podcast as an audio
+    message that plays right inside Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHANNEL_ID
+    (the bot must be an admin of the channel). Never fails the run."""
+    token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), telegram_channel_id()
     if not (token and chat and eps):
         return
     import languages
@@ -1161,17 +1183,45 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
             f'👉 <a href="{_html.escape(u, quote=True)}">'
             + (f"Full news{'' if len(pages) == 1 else f' · part {i}'}") + "</a>"
             for i, u in enumerate(pages, 1))
+    # Buttons under the headline: full news, play, yesterday's news (tap, no long links).
+    last_file = ROOT / "state" / "telegram_last.json"
+    today = datetime.now(TZ).strftime("%Y-%m-%d")
+    try:
+        last = json.loads(last_file.read_text())
+    except Exception:
+        last = {}
+    yesterday = last.get("urls", [""])[0] if last.get("date") and last.get("date") != today else \
+        last.get("previous", "")
+    buttons = [[{"text": "📖 Full news" + ("" if len(pages) == 1 else f" · part {i}"), "url": u}]
+               for i, u in enumerate(pages, 1)]
+    for e in eps:
+        if e.get("url"):
+            name = e["label"] if e.get("hosts") else f"English {e['label'].split(' ', 1)[-1]}"
+            buttons.append([{"text": f"▶️ Play {re.sub(r'^[^A-Za-z]+', '', name)}"[:60],
+                             "url": play_link(e["url"])}])
+    if yesterday:
+        buttons.append([{"text": "📰 Yesterday's news", "url": yesterday}])
     text = (f"🌏 <b>{_html.escape(title)}</b>\n\n"
             + "\n".join(f"• {_html.escape(h)}" for h in heads)
             + read
-            + ("\n\n🎧 <b>Listen in the player</b>\n" + "\n".join(links) if links else "")
+            + ("" if buttons else ("\n\n🎧 <b>Listen in the player</b>\n" + "\n".join(links) if links else ""))
             + ("\n\n👇 The full news follows below, then the podcast" if full
                else "\n\n👇 Or tap a podcast below to play it right here"))
     api = f"https://api.telegram.org/bot{token}"
     sent = 0
     try:
-        r = requests.post(f"{api}/sendMessage", json={"chat_id": chat, "text": text[:4000],
-                          "parse_mode": "HTML", "disable_web_page_preview": not pages}, timeout=30)
+        payload = {"chat_id": chat, "text": text[:4000], "parse_mode": "HTML",
+                   "disable_web_page_preview": not pages}
+        if buttons:
+            payload["reply_markup"] = {"inline_keyboard": buttons}
+        r = requests.post(f"{api}/sendMessage", json=payload, timeout=30)
+        if pages and os.getenv("DRY_RUN") != "1":
+            try:
+                last_file.parent.mkdir(exist_ok=True)
+                prev = last.get("urls", [""])[0] if last.get("date") != today else last.get("previous", "")
+                last_file.write_text(json.dumps({"date": today, "urls": pages, "previous": prev}))
+            except Exception:
+                pass
         if r.status_code != 200:
             print(f"  ! Telegram channel: HTTP {r.status_code} (is the bot an admin of the channel?)")
             return
@@ -1664,6 +1714,7 @@ def main() -> None:
     ledger = story_memory(stories)
 
     items: list[dict] = []
+    all_stories: list[dict] = []        # every story fetched today, after merging duplicates
     meta: dict = {}
     new_stories: list[dict] = []
     new_beliefs: list = []
@@ -1700,6 +1751,7 @@ def main() -> None:
                           + ", ".join(sorted(set(FEED_FAILS)))[:300])
         deduped = dedupe(raw, seen)
         items = cap_per_category(deduped)
+        all_stories = deduped
         run.update(raw=len(raw), after_dedupe=len(deduped), items_to_ai=len(items))
         history = on_this_day(now) if edition == "morning" else []
         print(f"{len(raw)} raw -> {len(items)} items after dedupe/cap; "
@@ -1736,7 +1788,7 @@ def main() -> None:
 
     brief = insert_box(brief, box)
     final = link_citations(brief, items)
-    more_news = more_headlines(brief, items)    # nothing silently dropped (added after podcasts)
+    more_news = more_headlines(brief, all_stories or items)   # nothing silently dropped
 
     title = f"{cfg['title']} — {date_str}"
     warnings = [w.strip() for w in meta.get("VERIFICATION_WARNINGS", "").split(";")

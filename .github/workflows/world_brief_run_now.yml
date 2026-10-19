@@ -102,7 +102,7 @@ jobs:
               mkdir -p state/done; date -u +%FT%TZ > "state/done/$D-$ED"   # sent: never again today
             fi
             for f in state/seen.json state/stories.json state/source_quality.json state/trends.json \
-                     state/entities.json state/beliefs.json state/scorecard.json state/tts_usage.json state/telegram_channel.json state/done briefs logs; do
+                     state/entities.json state/beliefs.json state/scorecard.json state/tts_usage.json state/telegram_channel.json state/telegram_last.json state/done briefs logs; do
               if [ -e "$f" ]; then git add "$f"; fi
             done
             if ! git diff --cached --quiet; then

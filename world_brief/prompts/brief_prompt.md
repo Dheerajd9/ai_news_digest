@@ -26,6 +26,9 @@ Goal: tell me everything important enough that I would regret not knowing it, wi
 - Never use "Update" as a headline. Every headline describes the actual story ("RBI tightens rupee trading limits"), not "Update".
 - Explain each story fully ONCE, in its best section. Top 5 may summarise it in 1-2 lines; other sections may only add a one-line cross-reference. Do not repeat the same paragraph across sections.
 
+## NOTHING IMPORTANT MISSED
+Read every item in NEWS_ITEMS before writing (you get the day's top stories from about 130 sources across India, Hyderabad, the USA, Canada and every world region). `coverage` = how many outlets ran the story: every item with coverage 3 or more is a story the world is talking about and must appear somewhere in the brief (at least one line in the right section) unless it is celebrity, sports trivia or gossip. Before finishing, check each section against the items once more: a major development in any country, market, policy or technology must not be left out.
+
 ## STORY IMPORTANCE TEST
 Keep a story only if it materially affects India, the USA, Indian citizens, Indians abroad, money or markets, immigration, jobs, technology, trade, consumer prices, national security or geopolitical stability, and I would regret not knowing it. Drop celebrity gossip, minor crime, random accidents, social-media drama, political insults without policy effect, minor corporate news, tiny stock or crypto moves, clickbait, unverified rumours. Sports only for truly major events.
 

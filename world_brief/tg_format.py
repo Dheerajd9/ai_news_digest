@@ -65,13 +65,37 @@ def _inline(text: str) -> str:
         html.escape(links[int(m.group(1))][0], quote=False)), text)
 
 
+TAGS = [   # tap a tag in Telegram to see every past story on that topic
+    (r"Top 5|Top stories", "#Top5"), (r"attention", "#Attention"), (r"actually matters", "#MustKnow"),
+    (r"Hyderabad land|real estate", "#Hyderabad #RealEstate"), (r"Hyderabad|Telangana", "#Hyderabad"),
+    (r"Travel", "#Travel"), (r"USA|🇺🇸", "#USA"), (r"Canada", "#Canada"), (r"India", "#India"),
+    (r"AI|robot", "#AI"), (r"Musk|frontier", "#AI #Tech"), (r"Chips|computing|Future tech", "#Tech"),
+    (r"Space", "#Space"), (r"world|World", "#World"), (r"Government|politics", "#Politics"),
+    (r"Immigration|Students|visas", "#Visa"),
+    (r"NRI", "#NRI #Money"), (r"Money|market|Economy|finance|Housing|Business|jobs", "#Money"),
+    (r"Energy", "#Energy"),
+    (r"Severe weather|disasters", "#Weather"), (r"Science|health|climate", "#Science"),
+    (r"Cricket|sports", "#Sports"), (r"Truth", "#FactCheck"), (r"Scams|safety", "#Scams"),
+    (r"Future signal", "#FutureSignal"), (r"lesson", "#Lesson"), (r"watch next", "#WatchNext"),
+    (r"Good news", "#GoodNews"),
+]
+
+
+def tags_for(heading: str) -> str:
+    for pat, tag in TAGS:
+        if re.search(pat, heading):
+            return tag
+    return ""
+
+
 def _line(line: str) -> str:
     s = line.rstrip()
     if not s.strip():
         return ""
     m = re.match(r"^#{1,2}\s+(.*)", s)
     if m:
-        return f"\n<b>{_inline(m.group(1))}</b>"
+        tag = tags_for(m.group(1)) if s.startswith("## ") else ""
+        return f"\n<b>{_inline(m.group(1))}</b>" + (f"  {tag}" if tag else "")
     m = re.match(r"^#{3,6}\s+(.*)", s)
     if m:
         return f"<b>{_inline(m.group(1))}</b>"

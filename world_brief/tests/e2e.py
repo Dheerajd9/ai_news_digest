@@ -162,7 +162,10 @@ def fake_post(url, **kw):
     if url.endswith("createPage"):
         TG_PAGES.append((kw.get("data") or {}).get("content", ""))
     TG_TEXT.append((kw.get("json") or {}).get("text", ""))
+    if (kw.get("json") or {}).get("reply_markup"):
+        TG_BUTTONS.append([b["text"] for row in kw["json"]["reply_markup"]["inline_keyboard"] for b in row])
     return _R(url)
+TG_BUTTONS = []
 digest.requests.post = fake_post
 os.environ["TELEGRAM_GAP_SEC"] = "0"
 os.environ["TELEGRAM_BOT_TOKEN"] = "123:abc"
@@ -188,7 +191,7 @@ languages.send_whatsapp = lambda *a, **k: None
 
 digest.main()
 Path("result.json").write_text(json.dumps({"emails": EMAILS, "uploads": UPLOADS, "synced": SYNCED,
-                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT), "tg_msgs": [x for x in TG_TEXT if x], "tg_pages": TG_PAGES, "health": HEALTH_MAILS}))
+                                           "feeds": FEEDS_PUB, "telegram": TG, "style": STYLE, "tg_text": "".join(TG_TEXT), "tg_msgs": [x for x in TG_TEXT if x], "tg_pages": TG_PAGES, "tg_buttons": TG_BUTTONS, "health": HEALTH_MAILS}))
 '''
 
 
@@ -273,8 +276,12 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(st.get("tr") == 2, f"{edition}: Telugu + Hindi made from the same English episode "
           f"(same stories and details; {st.get('tr')} conversions)", errors)
     tgt = res.get("tg_text", "")
-    check(tgt.count('▶️ <a href="https://') >= 3 and ">https://" not in tgt,
-          f"{edition}: Telegram shows named play links (no bare URLs)", errors)
+    btns = (res.get("tg_buttons") or [[]])[0]
+    check(any(b.startswith("📖 Full news") for b in btns) and sum(b.startswith("▶️") for b in btns) >= 3
+          and ">https://" not in tgt,
+          f"{edition}: Telegram headline has buttons: Full news + Play for every episode ({btns})", errors)
+    check("#Top5" in tgt and ("#India" in tgt or "#World" in tgt),
+          f"{edition}: Telegram sections carry topic hashtags (#Top5, #India...)", errors)
     check(len(res.get("synced", [])) >= 3, f"{edition}: audio copied to the player site "
                                             f"({len(res.get('synced', []))} files)", errors)
     check(sum(u.startswith("chapters:") for u in uploads) >= 3,
@@ -487,12 +494,19 @@ tgsetup.requests.post = lambda url, **k: (posts.append(k["json"]["chat_id"]), G(
 mails = []
 digest.send_email = lambda s, m, *a, **k: mails.append(m)
 tgsetup.main()
+mail0 = list(mails)
 saved = json.loads(tgsetup.STATE.read_text())
 sent = []
 digest.requests.post = lambda url, **k: (sent.append((url.rsplit("/",1)[-1], (k.get("json") or k.get("data") or {}).get("chat_id"))), G())[1]
 open("e.mp3","wb").write(b"x")
 digest.send_telegram_channel("T", "## 1. Top 5\n- a\n", [{"file": "e.mp3", "url": None, "label": "L", "hosts": "H"}])
-print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" in mails[0], "used": sent}))
+import alerts
+digest.KNOWN_LINKS.add("https://example.com/a")
+mails.clear(); sent.clear()
+alerts.deliver([{"headline": "Big quake", "why": "W", "link": "https://example.com/a", "source": "S"}])
+alert_to = [c for m, c in sent]
+print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" in str(mail0), "used": sent,
+                  "alert_to": alert_to, "alert_mail": len(mails)}))
 """
         p = subprocess.run([sys.executable, "-c", tg_py], cwd=work, capture_output=True, text=True, timeout=60)
         try:
@@ -505,6 +519,8 @@ print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" i
         check(r.get("used") and all(c in (-1009876, "-1009876") for m, c in r["used"]
                                     if m not in ("createAccount", "createPage")),
               "Telegram setup: editions use the saved channel automatically", errors)
+        check(r.get("alert_to") == ["-1009876"] and r.get("alert_mail") == 1,
+              "Breaking alerts: posted to the family Telegram channel (+ email when no personal chat)", errors)
 
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
         print("\n=== Google Cloud voices + free-tier cap ===")
@@ -731,6 +747,12 @@ out["redact"] = digest.redact("key=abc sk-or-v1-123abc github_pat_11AAbb AIzaSyA
 items = [{"id": "S1", "category": "india", "source": "The Hindu", "title": "Cited", "link": "https://a/1"},
          {"id": "S2", "category": "india", "source": "The Hindu", "title": "Not cited", "link": "https://a/2"}]
 out["more"] = digest.more_headlines("story [S1]", items)
+digest.CATEGORY_CAPS["india"] = 1
+pool = [{"category": "india", "source": "Blog", "title": f"Small {n}", "link": f"https://a/s{n}", "coverage": 1, "summary": "", "published": ""} for n in range(5)]
+pool.append({"category": "india", "source": "Blog", "title": "Big story", "link": "https://a/big", "coverage": 5, "summary": "", "published": ""})
+pool.append({"category": "india", "source": "Paper", "title": "Second big story", "link": "https://a/big2", "coverage": 4, "summary": "", "published": ""})
+out["consensus"] = [i["title"] for i in digest.cap_per_category(pool)]
+out["wide"] = digest.more_headlines("", [{**i, "id": None} for i in pool])
 rss = b'<?xml version="1.0"?><rss version="2.0"><channel><title>T</title><item><title>Fresh story here</title><link>https://n.example/1</link><pubDate>' + \
       __import__("email.utils").utils.formatdate(usegmt=True).encode() + b'</pubDate></item></channel></rss>'
 class R:
@@ -790,6 +812,10 @@ print(json.dumps({"login": sent.get("login"), "rcpts": sent.get("rcpts"),
         red = u.get("redact", "")
         check(not any(s in red for s in ("abc", "sk-or-v1", "github_pat_11", "AIzaSy", "ABC-def")),
               f"logs: secrets scrubbed ({red})", errors)
+        check({"Big story", "Second big story"} <= set(u.get("consensus", [])) and len(u.get("consensus", [])) == 2,
+              f"selection: a story carried by 3+ outlets reaches the AI even past the category cap ({u.get('consensus')})", errors)
+        check("Widely reported" in u.get("wide", "") and "5 outlets" in u.get("wide", ""),
+              "More headlines: widely reported stories listed first", errors)
         check("Not cited" in u.get("more", "") and "Cited](" not in u.get("more", ""),
               "More headlines: lists only stories the brief did not cover", errors)
         check(u.get("fetch") == [["india", "Fresh story here"], ["usa", "Fresh story here"]],
