@@ -10,15 +10,13 @@ india:
   - https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml
   - https://timesofindia.indiatimes.com/rssfeedstopstories.cms
   - https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
-  - https://indianexpress.com/section/india/feed/
   - https://feeds.feedburner.com/ndtvnews-india-news
   - https://feeds.feedburner.com/ndtvnews-top-stories
-  - https://www.news18.com/rss/india.xml
-  - https://theprint.in/feed/
-  - https://scroll.in/feed
+  - https://news.google.com/rss/search?q=site:news18.com+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=site:theprint.in+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=site:scroll.in+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://zeenews.india.com/rss/india-national-news.xml
   - https://www.indiatoday.in/rss/1206578
-  - https://news.google.com/rss/search?q=site:pti.in+OR+PTI+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
 india_economy:
   - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en
@@ -30,10 +28,10 @@ india_economy:
   - https://news.google.com/rss/search?q=FII+OR+FPI+OR+DII+selling+OR+buying+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=RBI+repo+OR+%22CPI+inflation%22+OR+%22forex+reserves%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
   - https://www.business-standard.com/rss/economy-102.rss
-  - https://www.moneycontrol.com/rss/business.xml
+  - https://news.google.com/rss/search?q=site:moneycontrol.com+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://www.livemint.com/rss/markets
   - https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
-  - https://www.financialexpress.com/feed/
+  - https://news.google.com/rss/search?q=site:financialexpress.com+economy+OR+markets+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://www.thehindubusinessline.com/feeder/default.rss
 
 telangana_hyderabad:
@@ -63,7 +61,7 @@ usa:
   - https://feeds.nbcnews.com/nbcnews/public/news
   - https://www.pbs.org/newshour/feeds/rss/headlines
   - https://thehill.com/homenews/feed/
-  - https://www.politico.com/rss/politicopicks.xml
+  - https://news.google.com/rss/search?q=site:politico.com+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://moxie.foxnews.com/google-publisher/us.xml
   - https://news.google.com/rss/search?q=site:apnews.com+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=site:reuters.com+US+when:1d&hl=en-US&gl=US&ceid=US:en
@@ -101,8 +99,7 @@ global_economy:
   - https://feeds.marketwatch.com/marketwatch/topstories/
   - https://www.cnbc.com/id/100727362/device/rss/rss.html
   - https://feeds.bloomberg.com/markets/news.rss
-  - https://feeds.a.dj.com/rss/RSSWorldNews.xml
-  - https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+  - https://news.google.com/rss/search?q=site:wsj.com+when:1d&hl=en-US&gl=US&ceid=US:en
 
 tech_ai:
   - https://feeds.arstechnica.com/arstechnica/index
@@ -139,7 +136,7 @@ official:   # straight from regulators and central banks (skipped quietly if a f
   - https://www.sec.gov/news/pressreleases.rss
   - https://www.bankofcanada.ca/content_type/press-releases/feed/
   - https://www.ecb.europa.eu/rss/press.html
-  - https://www.whitehouse.gov/feed/
+  - https://news.google.com/rss/search?q=site:whitehouse.gov+when:1d&hl=en-US&gl=US&ceid=US:en
 
 us_markets_economy:
   - https://www.cnbc.com/id/100003114/device/rss/rss.html
@@ -191,7 +188,7 @@ ai_robotics:   # highest priority: models, agents, humanoid robots, autonomy, AI
   - https://techcrunch.com/category/artificial-intelligence/feed/
   - https://spectrum.ieee.org/feeds/topic/robotics.rss
   - https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
-  - https://venturebeat.com/category/ai/feed/
+  - https://news.google.com/rss/search?q=site:venturebeat.com+AI+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://the-decoder.com/feed/
   - https://www.wired.com/feed/tag/ai/latest/rss
   - https://openai.com/news/rss.xml
@@ -221,7 +218,7 @@ world_regions:
   - https://feeds.bbci.co.uk/news/world/europe/rss.xml
   - https://feeds.bbci.co.uk/news/world/africa/rss.xml
   - https://feeds.bbci.co.uk/news/world/latin_america/rss.xml
-  - https://www.france24.com/en/rss
+  - https://news.google.com/rss/search?q=site:france24.com+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.un.org/feed/subscribe/en/news/all/rss.xml
   - https://news.google.com/rss/search?q=Russia+OR+Ukraine+OR+Kazakhstan+OR+%22Central+Asia%22+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=Pakistan+OR+Bangladesh+OR+%22Sri+Lanka%22+OR+Nepal+OR+China+OR+Japan+when:1d&hl=en-IN&gl=IN&ceid=IN:en
@@ -229,13 +226,13 @@ world_regions:
   - https://www.scmp.com/rss/2/feed
   - https://www.channelnewsasia.com/rssfeeds/8395884
   - https://www.japantimes.co.jp/feed/
-  - https://www.timesofisrael.com/feed/
-  - https://kyivindependent.com/rss/
+  - https://news.google.com/rss/search?q=site:timesofisrael.com+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=site:kyivindependent.com+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://www.dawn.com/feeds/home
   - https://www.mercopress.com/rss/
   - https://www.abc.net.au/news/feed/51120/rss.xml
   - https://www.africanews.com/feed/rss
-  - https://www.koreaherald.com/rss/020000000000.xml
+  - https://news.google.com/rss/search?q=South+Korea+OR+%22North+Korea%22+OR+Taiwan+OR+Philippines+OR+Indonesia+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=Africa+OR+Nigeria+OR+Kenya+OR+%22South+Africa%22+OR+Ethiopia+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=Brazil+OR+Mexico+OR+Argentina+OR+Venezuela+OR+Colombia+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=Iran+OR+Israel+OR+Gaza+OR+%22Saudi+Arabia%22+OR+UAE+OR+Turkey+when:1d&hl=en-US&gl=US&ceid=US:en
@@ -267,7 +264,6 @@ sports:
   - https://news.google.com/rss/search?q=India+cricket+OR+BCCI+OR+%22Team+India%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://www.espncricinfo.com/rss/content/story/feeds/0.xml
   - https://feeds.bbci.co.uk/sport/rss.xml
-  - https://www.espn.com/espn/rss/news
 good_news:
   - https://www.goodnewsnetwork.org/feed/
   - https://www.positive.news/feed/

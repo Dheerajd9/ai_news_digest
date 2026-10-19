@@ -22,3 +22,4 @@ run: keycheck   # 2026-10-14 verify weather source
 2026-10-18T15:29:34Z run: morning weekly (resend after the email-header fix)
 2026-10-19T19:17:12Z run: feedcheck (test the new feeds)
 2026-10-19T19:20:47Z run: feedcheck (save the report)
+2026-10-19T19:25:26Z run: feedcheck (after removing dead feeds)
