@@ -80,6 +80,10 @@ jobs:
             python sitesync.py
             exit 0
           fi
+          if echo "$CMD" | grep -qw feedcheck; then
+            python feedcheck.py
+            exit 0
+          fi
           if echo "$CMD" | grep -qw keycheck; then
             python keycheck.py
             exit 0

@@ -10,6 +10,15 @@ india:
   - https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml
   - https://timesofindia.indiatimes.com/rssfeedstopstories.cms
   - https://feeds.bbci.co.uk/news/world/asia/india/rss.xml
+  - https://indianexpress.com/section/india/feed/
+  - https://feeds.feedburner.com/ndtvnews-india-news
+  - https://feeds.feedburner.com/ndtvnews-top-stories
+  - https://www.news18.com/rss/india.xml
+  - https://theprint.in/feed/
+  - https://scroll.in/feed
+  - https://zeenews.india.com/rss/india-national-news.xml
+  - https://www.indiatoday.in/rss/1206578
+  - https://news.google.com/rss/search?q=site:pti.in+OR+PTI+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
 india_economy:
   - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-IN&gl=IN&ceid=IN:en
@@ -20,6 +29,12 @@ india_economy:
   - https://news.google.com/rss/search?q=Sensex+OR+Nifty+closing+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=FII+OR+FPI+OR+DII+selling+OR+buying+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=RBI+repo+OR+%22CPI+inflation%22+OR+%22forex+reserves%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.business-standard.com/rss/economy-102.rss
+  - https://www.moneycontrol.com/rss/business.xml
+  - https://www.livemint.com/rss/markets
+  - https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms
+  - https://www.financialexpress.com/feed/
+  - https://www.thehindubusinessline.com/feeder/default.rss
 
 telangana_hyderabad:
   - https://www.thehindu.com/news/national/telangana/feeder/default.rss
@@ -29,12 +44,29 @@ telangana_hyderabad:
   - https://news.google.com/rss/search?q=site:telanganatoday.com+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=GHMC+OR+HYDRAA+OR+%22Hyderabad+Metro%22+OR+%22Telangana+government%22+OR+%22Revanth+Reddy%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=Hyderabad+rain+OR+flood+OR+traffic+OR+water+OR+power+cut+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://timesofindia.indiatimes.com/rssfeeds/-2128816011.cms
+  - https://news.google.com/rss/search?q=site:siasat.com+Hyderabad+OR+Telangana+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=site:thehansindia.com+Telangana+OR+Hyderabad+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=site:deccanchronicle.com+Hyderabad+OR+Telangana+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=site:newindianexpress.com+Telangana+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.siasat.com/feed/
 
 usa:
   - https://news.google.com/rss/headlines/section/topic/NATION?hl=en-US&gl=US&ceid=US:en
   - https://feeds.npr.org/1001/rss.xml
   - https://feeds.npr.org/1014/rss.xml
   - https://news.google.com/rss/search?q=Congress+OR+%22White+House%22+OR+%22Supreme+Court%22+OR+%22federal+government%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://rss.nytimes.com/services/xml/rss/nyt/US.xml
+  - https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml
+  - https://www.cbsnews.com/latest/rss/us
+  - https://feeds.abcnews.com/abcnews/usheadlines
+  - https://feeds.nbcnews.com/nbcnews/public/news
+  - https://www.pbs.org/newshour/feeds/rss/headlines
+  - https://thehill.com/homenews/feed/
+  - https://www.politico.com/rss/politicopicks.xml
+  - https://moxie.foxnews.com/google-publisher/us.xml
+  - https://news.google.com/rss/search?q=site:apnews.com+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=site:reuters.com+US+when:1d&hl=en-US&gl=US&ceid=US:en
 
 india_us_visa_trade:
   - https://news.google.com/rss/search?q=H-1B+OR+USCIS+OR+%22green+card%22+OR+OPT+OR+%22visa+bulletin%22+when:2d&hl=en-US&gl=US&ceid=US:en
@@ -50,11 +82,27 @@ world:
   - https://rss.dw.com/rdf/rss-en-world
   - https://www.thehindu.com/news/international/feeder/default.rss
   - https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en
+  - https://rss.nytimes.com/services/xml/rss/nyt/World.xml
+  - https://www.cbsnews.com/latest/rss/world
+  - https://feeds.npr.org/1004/rss.xml
+  - https://www.independent.co.uk/news/world/rss
+  - https://www.euronews.com/rss?level=theme&name=news
+  - https://www.rfi.fr/en/rss
+  - https://www.cbc.ca/webfeed/rss/rss-world
+  - https://news.google.com/rss/search?q=site:reuters.com+world+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=site:apnews.com+world+when:1d&hl=en-US&gl=US&ceid=US:en
 
 global_economy:
   - https://feeds.bbci.co.uk/news/business/rss.xml
   - https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=oil+prices+OR+shipping+OR+sanctions+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://www.ft.com/world?format=rss
+  - https://www.economist.com/finance-and-economics/rss.xml
+  - https://feeds.marketwatch.com/marketwatch/topstories/
+  - https://www.cnbc.com/id/100727362/device/rss/rss.html
+  - https://feeds.bloomberg.com/markets/news.rss
+  - https://feeds.a.dj.com/rss/RSSWorldNews.xml
+  - https://feeds.a.dj.com/rss/RSSMarketsMain.xml
 
 tech_ai:
   - https://feeds.arstechnica.com/arstechnica/index
@@ -62,12 +110,25 @@ tech_ai:
   - https://hnrss.org/frontpage?points=300
   - https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=%22artificial+intelligence%22+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://www.theverge.com/rss/index.xml
+  - https://techcrunch.com/feed/
+  - https://www.engadget.com/rss.xml
+  - https://www.wired.com/feed/rss
+  - https://www.404media.co/rss/
 
 science_health_climate:
   - https://www.nature.com/nature.rss
   - https://www.sciencedaily.com/rss/top/science.xml
   - https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=ISRO+OR+monsoon+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.sciencenews.org/feed
+  - https://www.newscientist.com/feed/home/
+  - https://www.statnews.com/feed/
+  - https://www.who.int/rss-feeds/news-english.xml
+  - https://www.carbonbrief.org/feed/
+  - https://www.thehindu.com/sci-tech/science/feeder/default.rss
+  - https://www.space.com/feeds/all
+  - https://www.nasa.gov/news-release/feed/
 
 official:   # straight from regulators and central banks (skipped quietly if a feed is down)
   - https://www.rbi.org.in/pressreleases_rss.xml
@@ -75,6 +136,10 @@ official:   # straight from regulators and central banks (skipped quietly if a f
   - https://www.federalreserve.gov/feeds/press_all.xml
   - https://news.google.com/rss/search?q=%22Bureau+of+Labor+Statistics%22+OR+%22jobs+report%22+OR+CPI+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://www.pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3
+  - https://www.sec.gov/news/pressreleases.rss
+  - https://www.bankofcanada.ca/content_type/press-releases/feed/
+  - https://www.ecb.europa.eu/rss/press.html
+  - https://www.whitehouse.gov/feed/
 
 us_markets_economy:
   - https://www.cnbc.com/id/100003114/device/rss/rss.html
@@ -93,6 +158,10 @@ canada:   # Canadian government, Bank of Canada, economy, housing, immigration/P
   - https://news.google.com/rss/search?q=%22Bank+of+Canada%22+OR+%22Statistics+Canada%22+when:2d&hl=en-CA&gl=CA&ceid=CA:en
   - https://news.google.com/rss/search?q=IRCC+OR+%22Express+Entry%22+OR+%22study+permit%22+OR+%22permanent+residence%22+Canada+when:3d&hl=en-CA&gl=CA&ceid=CA:en
   - https://news.google.com/rss/search?q=Canada+housing+OR+rent+OR+%22federal+budget%22+OR+Carney+OR+Parliament+when:2d&hl=en-CA&gl=CA&ceid=CA:en
+  - https://globalnews.ca/feed/
+  - https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/canada/
+  - https://nationalpost.com/feed/
+  - https://www.cbc.ca/webfeed/rss/rss-politics
 
 business_jobs:   # earnings, layoffs/hiring, M&A, IPOs, bankruptcies, labour market, remote work
   - https://news.google.com/rss/search?q=earnings+results+OR+%22quarterly+results%22+when:1d&hl=en-US&gl=US&ceid=US:en
@@ -111,6 +180,9 @@ fact_check:   # viral claims checked by fact-checkers (for the Truth check secti
   - https://www.altnews.in/feed/
   - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+misleading+OR+false+claim+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=%22fact+check%22+viral+OR+fake+OR+misleading+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://factly.in/feed/
+  - https://www.snopes.com/feed/
+  - https://www.factcheck.org/feed/
 
 ai_robotics:   # highest priority: models, agents, humanoid robots, autonomy, AI jobs, regulation, AGI
   - https://news.google.com/rss/search?q=OpenAI+OR+Anthropic+OR+%22Google+DeepMind%22+OR+xAI+OR+%22Meta+AI%22+when:1d&hl=en-US&gl=US&ceid=US:en
@@ -118,6 +190,20 @@ ai_robotics:   # highest priority: models, agents, humanoid robots, autonomy, AI
   - https://news.google.com/rss/search?q=%22AI+regulation%22+OR+%22AI+jobs%22+OR+AGI+OR+%22AI+adoption%22+when:2d&hl=en-US&gl=US&ceid=US:en
   - https://techcrunch.com/category/artificial-intelligence/feed/
   - https://spectrum.ieee.org/feeds/topic/robotics.rss
+  - https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+  - https://venturebeat.com/category/ai/feed/
+  - https://the-decoder.com/feed/
+  - https://www.wired.com/feed/tag/ai/latest/rss
+  - https://openai.com/news/rss.xml
+  - https://blog.google/technology/ai/rss/
+  - https://deepmind.google/blog/rss.xml
+  - https://huggingface.co/blog/feed.xml
+  - https://www.zdnet.com/topic/artificial-intelligence/rss.xml
+  - https://www.marktechpost.com/feed/
+  - https://www.therobotreport.com/feed/
+  - https://news.mit.edu/rss/topic/artificial-intelligence2
+  - https://news.google.com/rss/search?q=site:anthropic.com+OR+Claude+Anthropic+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22AI%22+India+OR+IndiaAI+OR+%22AI+mission%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 
 frontier_companies:   # Musk companies: only consequential news is used
   - https://news.google.com/rss/search?q=Tesla+OR+SpaceX+OR+Starship+OR+Neuralink+OR+xAI+OR+Starlink+when:1d&hl=en-US&gl=US&ceid=US:en
@@ -139,6 +225,21 @@ world_regions:
   - https://news.un.org/feed/subscribe/en/news/all/rss.xml
   - https://news.google.com/rss/search?q=Russia+OR+Ukraine+OR+Kazakhstan+OR+%22Central+Asia%22+when:1d&hl=en-US&gl=US&ceid=US:en
   - https://news.google.com/rss/search?q=Pakistan+OR+Bangladesh+OR+%22Sri+Lanka%22+OR+Nepal+OR+China+OR+Japan+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.scmp.com/rss/91/feed
+  - https://www.scmp.com/rss/2/feed
+  - https://www.channelnewsasia.com/rssfeeds/8395884
+  - https://www.japantimes.co.jp/feed/
+  - https://www.timesofisrael.com/feed/
+  - https://kyivindependent.com/rss/
+  - https://www.dawn.com/feeds/home
+  - https://www.mercopress.com/rss/
+  - https://www.abc.net.au/news/feed/51120/rss.xml
+  - https://www.africanews.com/feed/rss
+  - https://www.koreaherald.com/rss/020000000000.xml
+  - https://news.google.com/rss/search?q=Africa+OR+Nigeria+OR+Kenya+OR+%22South+Africa%22+OR+Ethiopia+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=Brazil+OR+Mexico+OR+Argentina+OR+Venezuela+OR+Colombia+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=Iran+OR+Israel+OR+Gaza+OR+%22Saudi+Arabia%22+OR+UAE+OR+Turkey+when:1d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22European+Union%22+OR+Germany+OR+France+OR+UK+OR+NATO+when:1d&hl=en-US&gl=US&ceid=US:en
 
 # Topics for an Indian living in the USA, and for the family in Hyderabad.
 students_visas_jobs:
@@ -147,9 +248,13 @@ students_visas_jobs:
   - https://news.google.com/rss/search?q=layoffs+OR+hiring+%22data+engineer%22+OR+%22machine+learning%22+OR+%22AI+jobs%22+OR+%22tech+jobs%22+when:2d&hl=en-US&gl=US&ceid=US:en
 nri_money:
   - https://news.google.com/rss/search?q=NRI+OR+remittance+OR+NRE+OR+NRO+OR+FEMA+OR+%22money+transfer+to+India%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=NRI+OR+%22Indian+diaspora%22+OR+%22Indians+abroad%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
 scams_safety:
   - https://news.google.com/rss/search?q=scam+OR+fraud+UPI+OR+WhatsApp+OR+%22digital+arrest%22+OR+KYC+OR+%22cyber+crime%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
   - https://news.google.com/rss/search?q=%22scam+alert%22+OR+FTC+OR+%22data+breach%22+OR+%22IRS+scam%22+OR+%22phishing%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://feeds.feedburner.com/TheHackersNews
+  - https://krebsonsecurity.com/feed/
+  - https://www.bleepingcomputer.com/feed/
 weather_disasters:
   - https://www.gdacs.org/xml/rss.xml
   - https://news.google.com/rss/search?q=IMD+alert+OR+cyclone+OR+flood+OR+heatwave+OR+earthquake+India+when:1d&hl=en-IN&gl=IN&ceid=IN:en
@@ -160,6 +265,9 @@ travel_india_us:
   - https://news.google.com/rss/search?q=%22visa+appointment%22+OR+%22Air+India%22+OR+%22flights+to+India%22+OR+OCI+OR+%22Indian+passport%22+when:3d&hl=en-IN&gl=IN&ceid=IN:en
 sports:
   - https://news.google.com/rss/search?q=India+cricket+OR+BCCI+OR+%22Team+India%22+when:1d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://www.espncricinfo.com/rss/content/story/feeds/0.xml
+  - https://feeds.bbci.co.uk/sport/rss.xml
+  - https://www.espn.com/espn/rss/news
 good_news:
   - https://www.goodnewsnetwork.org/feed/
   - https://www.positive.news/feed/

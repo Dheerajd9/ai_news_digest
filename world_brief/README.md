@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
+_Last updated: 19 Oct 2026 (~220 news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -32,7 +32,7 @@ Built for reading on a phone without missing anything (`email_style.py`):
 - Every story is a **card**; each section has its **own colour** and a **read time**; sources are small grey chips
 - Sections include **🏙️ Hyderabad & Telangana** and **🗺️ Around the world (region by region)**: Asia-Pacific, Middle East, Europe, Russia & Central Asia, Africa, Latin America, Global
 - Also: **💸 NRI money corner**, **🏡 Hyderabad land & real estate**, **🎓 Students, work visas & the tech job market**, **✈️ Travel India ↔ USA**, **🌪️ Severe weather & disasters**, **🏏 Cricket & big sports**, **🛡️ Scams & safety alerts**, **🌱 Good news** (each appears when there is real news for it; new sources were added for every one)
-- **📰 More headlines** at the end: every other story from the day's ~100 sources (up to 100 one-liners, 📢 widely reported first, each showing how many outlets carried it), so nothing is silently dropped
+- **📰 More headlines** at the end: every other story from the day's ~220 feeds (up to 100 one-liners, 📢 widely reported first, each showing how many outlets carried it), so nothing is silently dropped
 - **Nothing important missed**: about 5,000 items a day merge into ~3,800 stories; each topic is capped so one topic can't crowd out the rest, but **any story carried by 3+ outlets, or from an official source, always reaches the AI** past the cap (`CONSENSUS_EXTRA`, default 150), and the AI must place every such story in a section (`prompts/brief_prompt.md`, NOTHING IMPORTANT MISSED)
 - Readers can simply reply to the email with feedback
 
@@ -67,7 +67,7 @@ Each edition posts **one message only**, like one email: the podcast (plays righ
 ## How it works
 
 ```
-~115 RSS feeds (India, Hyderabad & Telangana, every world region, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
+~220 RSS feeds (India: NDTV, Indian Express, ThePrint, Business Standard, Moneycontrol…; Hyderabad: TOI Hyderabad, Siasat, Hans India, Deccan Chronicle; USA: NYT, AP, Reuters, CBS, ABC, NBC, PBS, Politico, Fox; world: NYT, Reuters, FT, Bloomberg, WSJ, SCMP, CNA, Japan Times, Dawn, Africanews, Euronews; AI: OpenAI, Google, DeepMind, Hugging Face, The Verge, VentureBeat, The Decoder…; Hyderabad & Telangana, every world region, USA, Canada, world, economy, markets, business & jobs, personal finance & housing, AI & robotics, Musk companies, chips/energy/future tech/space, science, official sources, fact-checkers) ─> last 26 h (evening 12 h) ─> skip already-sent, merge duplicates, rank sources
    ─> exact numbers (markets.py: Nifty, Sensex, gold/silver India & US, rupee, Brent, …)
    ─> story memory (last briefs, story ledger, trends, entities, beliefs)
    ─> AI writes the brief (every bullet cites a source) ─> fact-check pass ─> real source links
@@ -133,6 +133,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 | `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
 | `run: morning force` | Sends it again even if already sent |
 | `run: keycheck` | Tests every key and emails a ✅/❌ report |
+| `run: feedcheck` | Tests every news feed and lists dead, empty or stale ones (sends nothing) |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
 | `run: tgsetup` | Finds the family Telegram channel, saves it, posts a test message |
 

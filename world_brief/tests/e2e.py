@@ -831,6 +831,23 @@ print(json.dumps({"login": sent.get("login"), "rcpts": sent.get("rcpts"),
         check(u.get("fetch") == [["india", "Fresh story here"], ["usa", "Fresh story here"]],
               f"feeds: downloaded in parallel, a dead feed is skipped, order kept ({u.get('fetch')})", errors)
 
+        import datetime, feedcheck, yaml as _y
+        now_rss = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
+        def _get(u):
+            if "dead" in u:
+                return ConnectionError("x")
+            if "old" in u:
+                return b"<rss><channel><item><title>a</title><link>https://x/a</link><pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate></item></channel></rss>"
+            return f"<rss><channel><item><title>a</title><link>https://x/a</link><pubDate>{now_rss}</pubDate></item></channel></rss>".encode()
+        fc = {r["url"].split("/")[2]: r["status"] for r in feedcheck.check(
+            {"a": ["https://good.com/r", "https://dead.com/r"], "b": ["https://old.com/r"]}, get=_get)}
+        check(fc == {"good.com": "ok", "dead.com": "dead", "old.com": "stale"},
+              f"feedcheck: finds dead and stale feeds ({fc})", errors)
+        fy = _y.safe_load((SRC / "feeds.yaml").read_text())
+        allu = [u for us in fy.values() for u in us]
+        check(len(allu) >= 200 and all(u.startswith("https://") for u in allu),
+              f"feeds: {len(allu)} feeds (India, Hyderabad, USA, Canada, every world region, AI...), all https", errors)
+
         # ---------------------------------------------------------------- other jobs
         print("\n=== AI News Digest (Gemini down -> OpenRouter) and Portfolio report ===")
         for name, code in (("aid", AID_DRILL), ("pf", PF_DRILL)):
