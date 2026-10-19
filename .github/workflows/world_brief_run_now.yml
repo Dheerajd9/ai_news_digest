@@ -80,6 +80,13 @@ jobs:
             python sitesync.py
             exit 0
           fi
+          if echo "$CMD" | grep -qw watchdog; then
+            mkdir -p logs
+            WATCHDOG_FORCE=1 python watchdog.py 2>&1 | sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/***@***/g' | tee logs/watchdog.txt
+            git add logs/watchdog.txt
+            git diff --cached --quiet || { git commit -m "Watchdog test"; git pull --rebase --quiet && git push; }
+            exit 0
+          fi
           if echo "$CMD" | grep -qw feedcheck; then
             mkdir -p logs
             python feedcheck.py | tee logs/feedcheck.txt
