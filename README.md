@@ -1,11 +1,11 @@
 # Dji's automations
 
-This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 16 Oct 2026 (audit fixes; AI Digest falls back to OpenRouter; all jobs covered by the automatic test)._
+This public repo runs three free, fully automatic jobs on GitHub Actions. _Last updated: 19 Oct 2026 (AI News Digest evening edition switched off: morning only, covering the last 26 hours)._
 
 | Job | What | Where |
 |---|---|---|
 | 🌏 **World Brief** | Morning and Sunday news email (India → USA → World) with podcasts in **English, Telugu and Hindi**, web player with chapters | [`world_brief/README.md`](world_brief/README.md) |
-| 🤖 **AI News Digest** | Top 5 AI stories, morning and evening | below |
+| 🤖 **AI News Digest** | Top 5 AI stories, every morning | below |
 | 📈 **Portfolio Report** | Mutual fund review on the 1st and 16th + daily portfolio line and alerts | below (holdings stay private in a secret) |
 
 Everything is free: GitHub Actions (unlimited for public repos), Gemini free tier, free backups (OpenRouter, Mistral), Gmail.
@@ -14,7 +14,7 @@ Everything is free: GitHub Actions (unlimited for public repos), Gemini free tie
 
 # 🤖 AI News Digest
 
-Emails you the top 5 AI stories every morning and evening. 100% free:
+Emails you the top 5 AI stories every morning (evening edition switched off). 100% free:
 GitHub Actions runs it, free RSS feeds supply the news, Gemini's free tier picks and
 summarizes the stories, and Gmail sends the email.
 
@@ -26,7 +26,7 @@ summarizes the stories, and Gmail sends the email.
    Engadget, popular Hacker News posts, and Google News (for Anthropic, Apple, Meta).
 2. **Clean** — drops old items, merges the same story from different outlets (keeping the
    publisher's own link over a Google News redirect), and skips anything already emailed
-   in the last 5 days, so the evening digest doesn't repeat the morning one.
+   in the last 5 days, so one morning never repeats the last.
 3. **Pick** — Google Gemini's free tier chooses the
    5 most important stories and writes a summary + "why it matters" for each.
    Links always come straight from the feeds, never from the AI.
@@ -70,9 +70,9 @@ mark it "Not spam").
 
 ## Schedule
 
-Morning edition from about **7:10 AM** and evening from about **6:10 PM** US Eastern time. GitHub's
-timer is unreliable, so there are backup slots every hour (morning until 1:59 PM, evening
-until 9:59 PM); `digest.py` sends an edition only once per day (`digest_done.json`). The
+Morning edition only, from about **7:10 AM** US Eastern time (it covers the last 26 hours, so
+nothing is missed without an evening email). GitHub's timer is unreliable, so there are backup
+slots every hour until 1:59 PM; `digest.py` sends an edition only once per day (`digest_done.json`). The
 The free cron-job.org timer (see `world_brief/README.md`, "On-time timer") also calls it with `due=true` so it arrives on time.
 To send now, push `digest_run_request.txt` with `[send digest]` in the commit message.
 
@@ -87,7 +87,7 @@ never pauses the schedule for inactivity. Delete the file to reset the memory.
 Set these as environment variables in the workflow's `env:` block:
 
 - `TOP_N` — number of stories (default 5)
-- `LOOKBACK_HOURS` — how far back to look (default 14)
+- `LOOKBACK_HOURS` — how far back to look (default 26)
 
 Add or remove news sources in the `FEEDS` dictionary at the top of `digest.py`.
 

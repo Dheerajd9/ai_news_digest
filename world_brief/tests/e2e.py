@@ -356,6 +356,10 @@ def main() -> int:
         wf = (SRC.parent / ".github" / "workflows" / "world_brief.yml").read_text()
         check("echo evening" not in wf and "7,37 22,23" not in wf,
               "schedule: evening edition switched off (morning + Sunday weekly only)", errors)
+        dwf = (SRC.parent / ".github" / "workflows" / "digest.yml").read_text()
+        dpy = (SRC.parent / "digest.py").read_text()
+        check("7 22,23" not in dwf and "7 0-2" not in dwf and '"Evening"' not in dpy,
+              "AI News Digest: evening edition switched off (morning only)", errors)
         check(not re.search(r"Dallas|Texas|America/Chicago", everywhere),
               "location: no Dallas/Texas; times are US Eastern", errors)
         te_p = (SRC / "prompts" / "telugu_podcast_prompt.md").read_text()

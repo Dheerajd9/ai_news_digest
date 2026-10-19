@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
+_Last updated: 19 Oct 2026 (timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -105,7 +105,7 @@ GitHub's own timer often starts runs hours late (a morning run at noon) or skips
 1. **GitHub token** (only allowed to start workflows): github.com → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token. Name `news timer`, expiration 1 year, Repository access **Only select repositories → ai_news_digest**, Permissions → Repository → **Actions: Read and write** (nothing else). Generate and copy it.
 2. **cron-job.org** → sign up (free) → **Create cronjob**:
    - Title `World Brief`, URL `https://api.github.com/repos/Dheerajd9/ai_news_digest/actions/workflows/world_brief.yml/dispatches`
-   - Schedule: **Custom**, minute `10`, crontab expression `10 7-10 * * *`, every day, time zone **America/New_York**
+   - Schedule: **Custom**, minute `10`, crontab expression `10 8-11 * * *` (morning only; no evening runs), every day, time zone **America/New_York**
    - Advanced: Request method **POST**; Headers `Accept: application/vnd.github+json`, `Authorization: Bearer <your token>`, `X-GitHub-Api-Version: 2022-11-28`; Request body `{"ref":"main","inputs":{"edition":"due"}}`
    - Save. "Test run" should show HTTP **204** (= started).
 3. Same again for the AI News Digest: title `AI Digest`, URL `…/actions/workflows/digest.yml/dispatches`, same schedule and headers, body `{"ref":"main","inputs":{"due":"true"}}`.

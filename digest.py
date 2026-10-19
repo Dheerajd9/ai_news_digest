@@ -32,7 +32,7 @@ import requests
 
 # ---------------------------------------------------------------- settings --
 
-LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "14"))  # a little over 12h so cron delays don't leave gaps
+LOOKBACK_HOURS = int(os.getenv("LOOKBACK_HOURS", "26"))  # morning only: a full day + margin, no gaps
 TOP_N = int(os.getenv("TOP_N", "5"))
 LOCAL_TZ = ZoneInfo(os.getenv("LOCAL_TZ", "America/New_York"))
 MAX_CANDIDATES = 40  # keeps the prompt inside the free tier's input limit
@@ -492,10 +492,10 @@ def portfolio_morning(dry_run):
 
 # ------------------------------------------------------------------- main --
 
-TARGET_HOURS = {7: "Morning", 18: "Evening"}  # local US Eastern time
+TARGET_HOURS = {7: "Morning"}  # local US Eastern time (evening edition switched off)
 # Self-healing schedule: several backup cron slots per edition. Each scheduled run sends an
 # edition only if it is due (local time window) and not already sent today (DONE_FILE).
-WINDOWS = {"Morning": range(7, 14), "Evening": range(18, 22)}
+WINDOWS = {"Morning": range(7, 14)}
 DONE_FILE = "digest_done.json"
 
 
@@ -528,7 +528,7 @@ def main():
                   file=sys.stderr)
             return
     else:
-        edition = "Morning" if datetime.now(LOCAL_TZ).hour < 15 else "Evening"
+        edition = "Morning"
     sent = load_state()
     items = rank(drop_already_sent(fetch_items(), sent))[:MAX_CANDIDATES]
     stories = pick_with_ai(items) if items else None
