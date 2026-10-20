@@ -54,10 +54,6 @@
   "expectations": [
    {
     "date": "2026-10-12",
-    "text": "Watch for Saudi military action and US naval response in the Red Sea"
-   },
-   {
-    "date": "2026-10-12",
     "text": "Watch for Saudi counter-strikes and airline route changes"
    },
    {
@@ -71,6 +67,10 @@
    {
     "date": "2026-10-14",
     "text": "Brent crude staying above $105/bbl"
+   },
+   {
+    "date": "2026-10-20",
+    "text": "Oil volatility to remain elevated above $105/bbl"
    }
   ],
   "timeline": [
@@ -101,16 +101,20 @@
    {
     "date": "2026-10-14",
     "event": "Two commercial ships sunk near Strait of Hormuz"
+   },
+   {
+    "date": "2026-10-20",
+    "event": "UK deploys RAF jets to Saudi Arabia"
    }
   ],
   "title": "Two container vessels sunk near Strait of Hormuz",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Iranian missile strikes sank two container ships in the Strait of Hormuz as maritime shipping disruption worsened.",
+  "summary": "Brent crude climbed past $111 as the UK deployed RAF jets to defend Saudi Arabia amid persistent Houthi maritime missile strikes.",
   "open_questions": [
-   "Will US or allied naval convoys intervene directly in Hormuz?"
+   "Will allied naval patrols deter further strikes along the Persian Gulf?"
   ],
-  "last_seen": "2026-10-14"
+  "last_seen": "2026-10-20"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -508,17 +512,21 @@
    {
     "date": "2026-10-19",
     "event": "Rubio confirms bilateral trade pact is very close ahead of Jaishankar meeting"
+   },
+   {
+    "date": "2026-10-20",
+    "event": "Rubio holds Mumbai summit with Jaishankar"
    }
   ],
   "title": "India-US trade pact first phase finalised",
-  "status": "DEVELOPING",
+  "status": "MAJOR CHANGE",
   "stage": "NEGOTIATIONS",
-  "summary": "Marco Rubio confirmed the US and India are very close to finalizing a bilateral trade pact, noting India's energy realities were accommodated in Russian oil sanctions relief.",
+  "summary": "US Secretary of State Marco Rubio met S. Jaishankar in Mumbai, confirming bilateral trade negotiations are entering the final stage and acknowledging India's energy diversification.",
   "open_questions": [
    "When will the formal treaty signing ceremony occur?",
    "Which tariff lines will see immediate reductions?"
   ],
-  "last_seen": "2026-10-19"
+  "last_seen": "2026-10-20"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -764,16 +772,20 @@
    {
     "date": "2026-10-19",
     "event": "Anchor book oversubscribed nearly 30 times with ₹2.5 lakh crore in bids"
+   },
+   {
+    "date": "2026-10-20",
+    "event": "Anchor book closes oversubscribed 30 times"
    }
   ],
   "title": "Reliance's Jio Platforms files for record IPO",
   "status": "MAJOR CHANGE",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Jio Platforms drew ₹2.5 lakh crore in anchor bids for its ₹8,110 crore anchor book, oversubscribing the institutional portion nearly 30 times.",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Jio Platforms' ₹8,110 crore anchor book attracted ₹2.5 lakh crore in institutional bids, marking the strongest anchor reception in Indian corporate history.",
   "open_questions": [
    "What will be the final retail listing premium?"
   ],
-  "last_seen": "2026-10-19"
+  "last_seen": "2026-10-20"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1159,5 +1171,97 @@
    "Will enterprise software teams replicate the junior hiring freeze?"
   ],
   "last_seen": "2026-10-19"
+ },
+ "alberta-independence-referendum": {
+  "first_seen": "2026-10-20",
+  "expectations": [
+   {
+    "date": "2026-10-20",
+    "text": "Federal and provincial talks to shift toward shared national energy corridor policies"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-20",
+    "event": "Voters reject independence ballot measure"
+   }
+  ],
+  "title": "Alberta voters reject independence referendum proposal",
+  "status": "RESOLVED",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Voters in Alberta overwhelmingly rejected a proposal to pursue an independence referendum, securing federal unity under Prime Minister Mark Carney.",
+  "open_questions": [
+   "How will the Carney government address Alberta's provincial resource revenue demands?"
+  ],
+  "last_seen": "2026-10-20"
+ },
+ "japan-mmx-mars-launch": {
+  "first_seen": "2026-10-20",
+  "expectations": [
+   {
+    "date": "2026-10-20",
+    "text": "Orbital cruise phase telemetry confirmation"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-20",
+    "event": "Successful launch from Tanegashima"
+   }
+  ],
+  "title": "Japan launches MMX mission to collect Phobos samples",
+  "status": "NEW",
+  "stage": "OPERATIONAL",
+  "summary": "JAXA launched its MMX spacecraft equipped with the Idefix rover to retrieve surface samples from Mars' moon Phobos and return them by 2031.",
+  "open_questions": [
+   "Will the spacecraft successfully enter Martian orbital insertion in 2027?"
+  ],
+  "last_seen": "2026-10-20"
+ },
+ "india-nz-fta": {
+  "first_seen": "2026-10-20",
+  "expectations": [
+   {
+    "date": "2026-10-20",
+    "text": "First quarterly bilateral trade volume report in early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-20",
+    "event": "FTA officially enters into force"
+   }
+  ],
+  "title": "India-New Zealand Free Trade Agreement takes effect",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "The bilateral free trade agreement entered into force on October 20, granting immediate duty-free entry for Indian exports to New Zealand.",
+  "open_questions": [
+   "What will be the annualized export surge for Indian pharma and textiles?"
+  ],
+  "last_seen": "2026-10-20"
+ },
+ "openai-spy-device-case": {
+  "first_seen": "2026-10-20",
+  "expectations": [
+   {
+    "date": "2026-10-20",
+    "text": "Formal criminal trial proceedings in early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-20",
+    "event": "Defendant held without bail in federal court"
+   }
+  ],
+  "title": "Ex-OpenAI engineer detained over bugging device and foreign contacts",
+  "status": "NEW",
+  "stage": "COURT CASE",
+  "summary": "Federal court ordered former OpenAI employee Abdulrahman Alfozan held without bail after evidence emerged of planted recording devices and foreign government communication.",
+  "open_questions": [
+   "Will additional individuals be indicted in the corporate espionage ring?"
+  ],
+  "last_seen": "2026-10-20"
  }
 }

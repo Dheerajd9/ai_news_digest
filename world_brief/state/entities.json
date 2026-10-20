@@ -57,12 +57,13 @@
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
 "us-china-chip-smuggling",
-"us-h1b-fee-lawsuit"
+"us-h1b-fee-lawsuit",
+"openai-spy-device-case"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-20"
 },
 "China": {
 "first_seen": "2026-10-11",
@@ -75,13 +76,13 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-20"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -213,14 +214,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 8,
+"count": 9,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -267,13 +268,14 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 4,
+"count": 5,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
-"us-banks-block-ai-agents"
+"us-banks-block-ai-agents",
+"openai-spy-device-case"
 ],
-"last_seen": "2026-10-17"
+"last_seen": "2026-10-20"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -354,11 +356,12 @@
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
-"count": 5,
+"count": 6,
 "stories": [
-"india-us-trade-talks"
+"india-us-trade-talks",
+"india-nz-fta"
 ],
-"last_seen": "2026-10-18"
+"last_seen": "2026-10-20"
 },
 "US Bureau of Labor Statistics": {
 "first_seen": "2026-10-14",
@@ -405,7 +408,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 13,
+"count": 15,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks",
@@ -413,25 +416,26 @@
 "russia-oil-sanctions-waiver",
 "vance-h1b-rhetoric",
 "china-solar-export-controls",
-"jio-platforms-mega-ipo"
+"jio-platforms-mega-ipo",
+"india-nz-fta"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
-"count": 2,
+"count": 3,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 5,
+"count": 6,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -484,27 +488,27 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 2,
+"count": 3,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 2,
+"count": 3,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 2,
+"count": 3,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -597,11 +601,12 @@
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
-"count": 3,
+"count": 4,
 "stories": [
-"canada-express-entry-high-wage"
+"canada-express-entry-high-wage",
+"alberta-independence-referendum"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "Air India": {
 "first_seen": "2026-10-17",
@@ -637,11 +642,11 @@
 },
 "Marco Rubio": {
 "first_seen": "2026-10-19",
-"count": 1,
+"count": 2,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-20"
 },
 "Cognizant": {
 "first_seen": "2026-10-19",
@@ -650,20 +655,118 @@
 "us-perm-h1b-freeze"
 ],
 "last_seen": "2026-10-19"
+},
+"Government of Canada": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"alberta-independence-referendum"
+],
+"last_seen": "2026-10-20"
+},
+"Alberta": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"alberta-independence-referendum"
+],
+"last_seen": "2026-10-20"
+},
+"JAXA": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"japan-mmx-mars-launch"
+],
+"last_seen": "2026-10-20"
+},
+"Japan": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"japan-mmx-mars-launch"
+],
+"last_seen": "2026-10-20"
+},
+"NASA": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"japan-mmx-mars-launch"
+],
+"last_seen": "2026-10-20"
+},
+"New Zealand": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"india-nz-fta"
+],
+"last_seen": "2026-10-20"
+},
+"United Kingdom": {
+"first_seen": "2026-10-20",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-20"
 }
 },
 "connections": [
 {
 "text": "Trump sanctions waiver -> India oil imports protected -> lower fuel import bill",
 "first_seen": "2026-10-17",
-"last_seen": "2026-10-19",
-"count": 3
+"last_seen": "2026-10-20",
+"count": 4
 },
 {
 "text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> tech sell-off",
 "first_seen": "2026-10-17",
-"last_seen": "2026-10-19",
-"count": 4
+"last_seen": "2026-10-20",
+"count": 5
+},
+{
+"text": "India-US trade deal -> tariff reduction -> export opportunities",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-20",
+"count": 7
+},
+{
+"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-20",
+"count": 2
+},
+{
+"text": "Alberta stability -> Canadian Dollar stabilization -> stable energy exports",
+"first_seen": "2026-10-20",
+"last_seen": "2026-10-20",
+"count": 1
+},
+{
+"text": "Deep space exploration -> international aerospace supply chain",
+"first_seen": "2026-10-20",
+"last_seen": "2026-10-20",
+"count": 1
+},
+{
+"text": "Trade agreements -> tariff elimination -> Indian export expansion",
+"first_seen": "2026-10-20",
+"last_seen": "2026-10-20",
+"count": 1
+},
+{
+"text": "Domestic retail investor expansion -> mega IPO filings -> Dalal Street liquidity",
+"first_seen": "2026-10-20",
+"last_seen": "2026-10-20",
+"count": 1
+},
+{
+"text": "AI capability shifts -> corporate espionage risk -> stricter enterprise access protocols",
+"first_seen": "2026-10-20",
+"last_seen": "2026-10-20",
+"count": 1
 },
 {
 "text": "Canada Express Entry revamp -> bonus points for tech workers -> faster PR pathways",
@@ -696,12 +799,6 @@
 "count": 3
 },
 {
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-19",
-"count": 6
-},
-{
 "text": "Middle East conflict -> civil aviation threats -> flight suspensions between India and Gulf",
 "first_seen": "2026-10-17",
 "last_seen": "2026-10-19",
@@ -730,12 +827,6 @@
 "first_seen": "2026-10-16",
 "last_seen": "2026-10-16",
 "count": 2
-},
-{
-"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-16",
-"count": 1
 },
 {
 "text": "AI agents / automation -> banking security -> customer account restrictions",

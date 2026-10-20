@@ -1,134 +1,229 @@
+  ! feed failed: https://hnrss.org/frontpage?points=300 (HTTPSConnectionPool(host='hnrss.org', port=443): Max retries exceeded with url: /frontpage?points=300 (Caused by ConnectTimeoutError(<HTTPSConnection(host='hnrss.org', port=443) at 0x7fcf2e45c980>, 'Connection to hnrss.org timed out. (connect timeout=20)')))
 Edition: morning
 Fetching feeds...
    37 items  india                        Top stories
-   41 items  india                        India
+   38 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
-  100 items  india                        Hindustan Times
-   44 items  india                        Times of India
+   90 items  india                        Hindustan Times
+   47 items  india                        Times of India
     1 items  india                        BBC
-   56 items  india_economy                Business
-    5 items  india_economy                Mint
+   20 items  india                        NDTV News Search Records Found
+   20 items  india                        NDTV News Search Records Found
+  100 items  india                        "site:news18.com India when:1d
+  100 items  india                        "site:theprint.in when:1d"
+   22 items  india                        "site:scroll.in when:1d"
+   20 items  india                        Zee News :India National
+   20 items  india                        India
+   50 items  india_economy                Business
+    6 items  india_economy                Mint
    44 items  india_economy                Economic Times
-   12 items  india_economy                The Hindu
-  100 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   32 items  india_economy                "Sensex OR Nifty closing when:
-   42 items  india_economy                "FII OR FPI OR DII selling OR 
-   27 items  india_economy                "RBI repo OR "CPI inflation" O
-   60 items  telangana_hyderabad          The Hindu
-   43 items  telangana_hyderabad          The Hindu
+    7 items  india_economy                The Hindu
+   84 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   30 items  india_economy                "Sensex OR Nifty closing when:
+   38 items  india_economy                "FII OR FPI OR DII selling OR 
+   13 items  india_economy                "RBI repo OR "CPI inflation" O
+    7 items  india_economy                Economy
+  100 items  india_economy                "site:moneycontrol.com when:1d
+   35 items  india_economy                Mint
+   50 items  india_economy                Economic Times
+   92 items  india_economy                "site:financialexpress.com eco
+   60 items  india_economy                The Hindu
+   11 items  telangana_hyderabad          The Hindu
+    7 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-  146 items  telangana_hyderabad          Telangana Today
-   99 items  telangana_hyderabad          "site:telanganatoday.com when:
-   31 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
-   35 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
-   58 items  usa                          U.S.
+   86 items  telangana_hyderabad          Telangana Today
+  100 items  telangana_hyderabad          "site:telanganatoday.com when:
+   30 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
+   18 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
+   20 items  telangana_hyderabad          Times of India
+   88 items  telangana_hyderabad          "site:siasat.com Hyderabad OR 
+  100 items  telangana_hyderabad          "site:thehansindia.com Telanga
+   99 items  telangana_hyderabad          "site:deccanchronicle.com Hyde
+  100 items  telangana_hyderabad          "site:newindianexpress.com Tel
+   40 items  telangana_hyderabad          The Siasat Daily
+   66 items  usa                          U.S.
    10 items  usa                          NPR
-   10 items  usa                          NPR
+    6 items  usa                          NPR
   100 items  usa                          "Congress OR "White House" OR 
-   64 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-   20 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   76 items  india_us_visa_trade          "India US trade OR tariff OR "
-   40 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   78 items  india_us_visa_trade          "India exports OR imports when
-   19 items  world                        BBC
+   24 items  usa                          NYT > U.S. News
+   19 items  usa                          NYT > U.S. > Politics
+   28 items  usa                          Us
+   15 items  usa                          ABC News
+   22 items  usa                          NBC News Top Stories
+   20 items  usa                          PBS News Hour
+   15 items  usa                          TheHill.com Just In
+   80 items  usa                          "site:politico.com when:1d"
+   11 items  usa                          U.S. News Today on Fox News
+  100 items  usa                          "site:apnews.com when:1d"
+  100 items  usa                          "site:reuters.com US when:1d"
+   90 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+   25 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   94 items  india_us_visa_trade          "India US trade OR tariff OR "
+   41 items  india_us_visa_trade          "rupee dollar OR remittance wh
+  100 items  india_us_visa_trade          "India exports OR imports when
+   27 items  world                        BBC
    25 items  world                        Al Jazeera
-   31 items  world                        The Guardian
-    5 items  world                        DW
-   60 items  world                        The Hindu
-   50 items  world                        DW
-   14 items  global_economy               BBC
-   52 items  global_economy               Business
+   33 items  world                        The Guardian
+   10 items  world                        DW
+   48 items  world                        The Hindu
+   45 items  world                        DW
+   39 items  world                        NYT > World News
+   23 items  world                        DW
+    8 items  world                        NPR
+   83 items  world                        The Independent World
+   28 items  world                        Euronews RSS
+    8 items  world                        RFI
+   11 items  world                        World News
+  100 items  world                        "site:reuters.com world when:1
+  100 items  world                        "site:apnews.com world when:1d
+   17 items  global_economy               BBC
+   61 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
-    1 items  tech_ai                      Ars Technica
-    3 items  tech_ai                      MIT Tech Review
-    3 items  tech_ai                      Hacker News
-   52 items  tech_ai                      Technology
+   25 items  global_economy               DW
+    1 items  global_economy               Finance & economics
+   10 items  global_economy               MarketWatch.com
+   29 items  global_economy               CNBC
+   20 items  global_economy               Bloomberg Markets
+   96 items  global_economy               "site:wsj.com when:1d"
+   16 items  tech_ai                      Ars Technica
+    6 items  tech_ai                      MIT Tech Review
+   50 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
-    5 items  science_health_climate       Nature
-    8 items  science_health_climate       ScienceDaily
-   37 items  science_health_climate       Science
-   64 items  science_health_climate       "ISRO OR monsoon when:2d"
+   10 items  tech_ai                      The Verge
+   20 items  tech_ai                      TechCrunch
+   20 items  tech_ai                      Engadget
+   32 items  tech_ai                      WIRED
+    5 items  tech_ai                      404 Media
+    8 items  science_health_climate       Nature
+    6 items  science_health_climate       ScienceDaily
+   56 items  science_health_climate       Science
+   43 items  science_health_climate       "ISRO OR monsoon when:2d"
+    3 items  science_health_climate       Science News
+    6 items  science_health_climate       New Scientist
+    9 items  science_health_climate       STAT
+    0 items  science_health_climate       News (English)
+    0 items  science_health_climate       Carbon Brief
+    4 items  science_health_climate       The Hindu
+   11 items  science_health_climate       Latest from Space.com
+    9 items  science_health_climate       NASA
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
     0 items  official                     Federal Reserve (official)
-   71 items  official                     ""Bureau of Labor Statistics" 
+   80 items  official                     ""Bureau of Labor Statistics" 
    20 items  official                     PIB (official)
-   20 items  us_markets_economy           CNBC
-    2 items  us_markets_economy           CNBC
-   41 items  us_markets_economy           ""stock market" today S&P Nasd
-   42 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   43 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   50 items  jobs_tax_housing             ""income tax" OR "GST council"
-   41 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-    5 items  canada                       Canada News
-    0 items  canada                       Business News
-   20 items  canada                       ""Bank of Canada" OR "Statisti
-   14 items  canada                       "IRCC OR "Express Entry" OR "s
-   95 items  canada                       "Canada housing OR rent OR "fe
+    1 items  official                     Press Releases
+    0 items  official                     Press Releases
+    1 items  official                     ECB
+   12 items  official                     "site:whitehouse.gov when:1d"
+   30 items  us_markets_economy           CNBC
+    1 items  us_markets_economy           CNBC
+   34 items  us_markets_economy           ""stock market" today S&P Nasd
+   35 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   87 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   76 items  jobs_tax_housing             ""income tax" OR "GST council"
+   76 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+   18 items  canada                       Canada News
+    6 items  canada                       Business News
+   89 items  canada                       ""Bank of Canada" OR "Statisti
+   23 items  canada                       "IRCC OR "Express Entry" OR "s
+   90 items  canada                       "Canada housing OR rent OR "fe
+   10 items  canada                       globalnews.ca
+   21 items  canada                       The Globe and Mail
+   10 items  canada                       National Post
+    8 items  canada                       Politics News
   100 items  business_jobs                "earnings results OR "quarterl
-   41 items  business_jobs                "layoffs OR "job cuts" OR "hir
+   87 items  business_jobs                "layoffs OR "job cuts" OR "hir
   100 items  business_jobs                "acquisition OR merger OR IPO 
-   22 items  business_jobs                ""remote work" OR "return to o
-   99 items  business_jobs                "IPO OR layoffs OR "quarterly 
-   52 items  personal_finance_housing     ""mortgage rates" OR "home pri
-   97 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
-   98 items  personal_finance_housing     ""grocery prices" OR "food pri
+   23 items  business_jobs                ""remote work" OR "return to o
+   90 items  business_jobs                "IPO OR layoffs OR "quarterly   ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash busy (HTTP 503)
+  ! Gemini gemini-3.7-flash busy (HTTP 503)
+
+   50 items  personal_finance_housing     ""mortgage rates" OR "home pri
+  100 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
+  100 items  personal_finance_housing     ""grocery prices" OR "food pri
   100 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
-    1 items  fact_check                   Alt News
-   37 items  fact_check                   ""fact check" viral OR mislead
-   36 items  fact_check                   ""fact check" viral OR fake OR
+    0 items  fact_check                   Alt News
+   24 items  fact_check                   ""fact check" viral OR mislead
+   37 items  fact_check                   ""fact check" viral OR fake OR
+    0 items  fact_check                   FACTLY
+    6 items  fact_check                   Snopes.com
+    0 items  fact_check                   FactCheck.org
   100 items  ai_robotics                  "OpenAI OR Anthropic OR "Googl
-   99 items  ai_robotics                  ""humanoid robot" OR "AI agent
-   43 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
-    2 items  ai_robotics                  TechCrunch
-    0 items  ai_robotics                  IEEE Spectrum
+   98 items  ai_robotics                  ""humanoid robot" OR "AI agent
+   64 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
+   14 items  ai_robotics                  TechCrunch
+    1 items  ai_robotics                  IEEE Spectrum
+    5 items  ai_robotics                  The Verge
+   12 items  ai_robotics                  "site:venturebeat.com AI when:
+    8 items  ai_robotics                  The Decoder
+    2 items  ai_robotics                  Feed
+    1 items  ai_robotics                  OpenAI News
+    0 items  ai_robotics                  AI
+    0 items  ai_robotics                  Google DeepMind News
+    1 items  ai_robotics                  Hugging Face
+    2 items  ai_robotics                  news
+    5 items  ai_robotics                  MarkTechPost
+    5 items  ai_robotics                  The Robot Report
+    1 items  ai_robotics                  MIT News
+    1 items  ai_robotics                  "site:anthropic.com OR Claude 
+  100 items  ai_robotics                  ""AI" India OR IndiaAI OR "AI 
   100 items  frontier_companies           "Tesla OR SpaceX OR Starship O
   100 items  chips_energy_future          "NVIDIA OR TSMC OR AMD OR Inte
-   58 items  chips_energy_future          "fusion OR "nuclear power" OR 
-   51 items  chips_energy_future          ""quantum computing" OR "gene 
-   95 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
-    4 items  world_regions                BBC
-    5 items  world_regions                BBC
-    9 items  world_regions                BBC
+   78 items  chips_energy_future          "fusion OR "nuclear power" OR 
+   88 items  chips_energy_future          ""quantum computing" OR "gene 
+   98 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
     1 items  world_regions                BBC
-    2 items  world_regions                BBC
-   24 items  world_regions                France 24
-    2 items  world_regions                UN News
+    4 items  world_regions                BBC
+    9 items  world_regions                BBC
+    5 items  world_regions                BBC
+    1 items  world_regions                BBC
+   99 items  world_regions                "site:france24.com when:1d"
+    7 items  world_regions                UN News
   100 items  world_regions                "Russia OR Ukraine OR Kazakhst
   100 items  world_regions                "Pakistan OR Bangladesh OR "Sr
-   47 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
-   10 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
-   15 items  students_visas_jobs          "layoffs OR hiring "data engin
-   29 items  nri_money                    "NRI OR remittance OR NRE OR N
-   39 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
-   51 items  scams_safety                 ""scam alert" OR FTC OR "data 
-   53 items  weather_disasters            GDACS RSS information
-   42 items  weather_disasters            "IMD alert OR cyclone OR flood
+   50 items  world_regions                News
+   11 items  world_regions                Hong Kong
+   20 items  world_regions                Latest News
+   30 items  world_regions                Latest articles
+   94 items  world_regions                "site:timesofisrael.com when:1
+   36 items  world_regions                "site:kyivindependent.com when
+   25 items  world_regions                Dawn
+    6 items  world_regions                MercoPress
+   25 items  world_regions                Just In
+   24 items  world_regions                Africanews RSS
+  100 items  world_regions                "South Korea OR "North Korea" 
+  100 items  world_regions                "Africa OR Nigeria OR Kenya OR
+  100 items  world_regions                "Brazil OR Mexico OR Argentina
+  100 items  world_regions                "Iran OR Israel OR Gaza OR "Sa
+  100 items  world_regions                ""European Union" OR Germany O
+   48 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
+   21 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
+   10 items  students_visas_jobs          "layoffs OR hiring "data engin
+   33 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
+  100 items  scams_safety                 ""scam alert" OR FTC OR "data 
+    9 items  scams_safety                 The Hacker News
+    1 items  scams_safety                 Krebs on Security
+   12 items  scams_safety                 BleepingComputer
+   60 items  weather_disasters            GDACS RSS information
+   44 items  weather_disasters            "IMD alert OR cyclone OR flood
   100 items  weather_disasters            "hurricane OR tornado OR blizz
-   13 items  hyderabad_realestate         "Hyderabad real estate OR "lan
-   32 items  travel_india_us              ""visa appointment" OR "Air In
   100 items  sports                       "India cricket OR BCCI OR "Tea
+   20 items  sports                       Cricket news from Cricinfo.com
+   41 items  sports                       BBC
     6 items  good_news                    Good News Network
     1 items  good_news                    Positive News
-5020 raw -> 567 items after dedupe/cap; 15 history events; memory 14,000 chars
-  brief prompt ~86,013 tokens
+8639 raw -> 613 items after dedupe/cap; 15 history events; memory 14,000 chars
+  brief prompt ~92,043 tokens
   written by Gemini gemini-3.8-flash
-  written by Gemini gemini-3.8-flash
-  fact-check done (1 bullet(s) removed)
-  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'US-India trade deal near; Jio Platforms record IPO anchor book; Anthropic $48B public fund; Indian IT cuts H-1B filings; Putin Ukraine summit proposal; Google quantum error breakthrough', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '6', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'Putin 3-way summit proposal relies on unconfirmed diplomatic reports'}
-  written by Gemini gemini-3.8-flash
-  written by Gemini gemini-3.8-flash
-  script reviewed: 3060 -> 2971 words
-  en podcast script: 76 turns, 2971 words
-  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (7 part(s))
-  chapters: Top stories 0:00, India 4:15, USA 7:30, World 11:00, Tech 13:36, Money 15:32, Wrap-up 18:56
-  world_brief_full podcast ready: 10.2 MB
-  podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
-  podcast site updated with 1 audio file(s)
+  written by Gemini gemini-3.7-flash
+  fact-check done (0 bullet(s) removed)
+  meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Alberta Rejects Independence; US-India Trade Pact Final Stages; Japan Launches MMX Mars Moon Mission; Jio Platforms Record Anchor Book; Oil Spikes as UK Deploys Jets to Gulf', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '10', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  ! English full podcast skipped: run is at 87 min, sending the email now so it never misses
+  ! audio missing: 🔵 English
   email sent (2 recipient(s))
-  story ledger: 8 stories updated
-  Telegram channel: message + 1 podcast(s)
-  podcast key check: ok, expires in 363 days
+  story ledger: 7 stories updated
+  podcast key check: ok, expires in 362 days
+  health: 2 issue(s): English full podcast skipped (run too long); 🔵 English: audio missing
+  email sent (1 recipient(s))
