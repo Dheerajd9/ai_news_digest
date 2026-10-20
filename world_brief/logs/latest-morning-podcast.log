@@ -1,0 +1,18 @@
+  [0m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [2m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+Edition: morning
+  [0m] making the podcast after the email (slow day)
+  [2m] written by Gemini gemini-3.8-flash
+  [4m] written by Gemini gemini-3.8-flash
+  script reviewed: 4478 -> 4461 words
+  en podcast script: 129 turns, 4461 words
+  voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
+  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (10 part(s))
+  chapters: Top stories 0:00, India 4:26, USA 10:48, World 14:42, Tech 18:10, Money 23:37, Wrap-up 28:42
+  world_brief_full podcast ready: 15.3 MB
+  podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
+  podcast site updated with 1 audio file(s)
+  email sent (2 recipient(s))
+  [14m] late podcast sent
+  Telegram channel: 1 message (podcast + 1 full-news page(s) as buttons)
