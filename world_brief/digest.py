@@ -735,7 +735,7 @@ def build_user(items: list[dict], history: list[dict], date_str: str,
 def write_brief(system: str, items, history, date_str, markets, memory,
                 ledger: str = "", system_core: str | None = None) -> str | None:
     full = build_user(items, history, date_str, markets, memory, ledger=ledger)
-    print(f"  brief prompt ~{est_tokens(system, full):,} tokens")
+    print(f"  {elapsed()} brief prompt ~{est_tokens(system, full):,} tokens")
     # Free backups (Mistral 128k+ context, OpenRouter free 1M-context models) get the
     # full input; core rules only if a smaller window is needed.
     return (call_gemini(system, full)
@@ -806,6 +806,36 @@ def gemini_models(key: str) -> list[str]:
     return list(dict.fromkeys(order))[:6] + gemma[:1]
 
 
+def _post_capped(cap_sec: float, *args, **kw):
+    """requests.post with a hard wall-clock limit (the normal timeout only limits the gap
+    between bytes, so a slow AI could hold a run for half an hour). Raises TimeoutError."""
+    import threading
+    box: dict = {}
+
+    def go():
+        try:
+            box["r"] = requests.post(*args, **kw)
+        except Exception as exc:
+            box["e"] = exc
+    th = threading.Thread(target=go, daemon=True)
+    th.start()
+    th.join(cap_sec)
+    if th.is_alive():
+        raise TimeoutError(f"no answer in {cap_sec / 60:.0f} min")
+    if "e" in box:
+        raise box["e"]
+    return box["r"]
+
+
+def elapsed() -> str:
+    """[12m] run time so far, for the log (so a slow step is easy to find)."""
+    return f"[{(time.monotonic() - RUN_START) / 60:.0f}m]"
+
+
+CALL_MAX_SEC = float(os.getenv("WB_AI_CALL_MAX_MIN", "8")) * 60      # one AI answer, at most
+GEMINI_MAX_SEC = float(os.getenv("WB_GEMINI_MAX_MIN", "15")) * 60    # all Gemini tries for one job
+
+
 GEMINI_DAY_LIMIT: set[str] = set()     # models whose free daily quota is used up this run
 
 
@@ -815,7 +845,13 @@ def call_gemini(system: str, user: str) -> str | None:
         return None
     models = gemini_models(key)
     busy = False
+    started = time.monotonic()
     for model in models + (["__pause__"] + models if len(models) > 0 else []):
+        if time.monotonic() - started > GEMINI_MAX_SEC:
+            print(f"  {elapsed()} Gemini too slow today ({(time.monotonic() - started) / 60:.0f} min); "
+                  f"handing over to the backup AI", file=sys.stderr)
+            HEALTH.append("Gemini too slow: the backup AI took over")
+            break
         if model == "__pause__":         # every model was busy/failed: wait and try once more
             if not busy:
                 break
@@ -826,8 +862,8 @@ def call_gemini(system: str, user: str) -> str | None:
             continue
         for attempt in range(2):
             try:
-                r = requests.post(
-                    f"{GEMINI_API}/models/{model}:generateContent",
+                r = _post_capped(
+                    CALL_MAX_SEC, f"{GEMINI_API}/models/{model}:generateContent",
                     headers={"x-goog-api-key": key},
                     json=({"system_instruction": {"parts": [{"text": system}]},
                            "contents": [{"role": "user", "parts": [{"text": user}]}],
@@ -845,7 +881,7 @@ def call_gemini(system: str, user: str) -> str | None:
                     continue
                 if r.status_code >= 500:          # "high demand": short wait, retry once
                     busy = True
-                    print(f"  ! Gemini {model} busy (HTTP {r.status_code})", file=sys.stderr)
+                    print(f"  {elapsed()} ! Gemini {model} busy (HTTP {r.status_code})", file=sys.stderr)
                     if attempt == 0:
                         time.sleep(15)
                         continue
@@ -858,12 +894,12 @@ def call_gemini(system: str, user: str) -> str | None:
                 parts = r.json()["candidates"][0]["content"]["parts"]
                 text = "".join(p.get("text", "") for p in parts)
                 if text.strip():
-                    print(f"  written by Gemini {model}")
+                    print(f"  {elapsed()} written by Gemini {model}")
                     MODELS_USED.append(model)
                     return text
             except Exception as exc:
                 busy = True
-                print(f"  ! Gemini {model}: {redact(str(exc))[:200]}", file=sys.stderr)
+                print(f"  {elapsed()} ! Gemini {model}: {redact(str(exc))[:200]}", file=sys.stderr)
                 break
     return None
 
@@ -878,7 +914,7 @@ def _openai_style(url: str, key: str, model: str, system: str, user: str, name: 
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
     for attempt in (1, 2):
         try:
-            r = requests.post(url, headers=headers, json=body, timeout=timeout)
+            r = _post_capped(CALL_MAX_SEC, url, headers=headers, json=body, timeout=timeout)
         except Exception as exc:
             print(f"  ! {name} {model}: {type(exc).__name__}", file=sys.stderr)
             return None
@@ -896,7 +932,7 @@ def _openai_style(url: str, key: str, model: str, system: str, user: str, name: 
             return None
         if text and text.strip():
             LLM_CALLS["backup"] = LLM_CALLS.get("backup", 0) + 1
-            print(f"  written by {name} {model}")
+            print(f"  {elapsed()} written by {name} {model}")
             MODELS_USED.append(f"{name} {model}")
             return text
         return None
@@ -1163,7 +1199,7 @@ def send_telegram_channel(title: str, md: str, eps: list[dict]) -> None:
     TELEGRAM_MESSAGES=1 also posts the whole brief as section messages (old style).
     Needs TELEGRAM_BOT_TOKEN + the channel (the bot must be an admin). Never fails the run."""
     token, chat = os.getenv("TELEGRAM_BOT_TOKEN", "").strip(), telegram_channel_id()
-    if not (token and chat and eps):
+    if not (token and chat):
         return
     import languages
     import html as _html
@@ -1428,7 +1464,8 @@ def mark_done(now: datetime, edition: str) -> None:
 
 
 RUN_START = time.monotonic()
-SEND_BY_SEC = float(os.getenv("WB_SEND_BY_MIN", "75")) * 60   # the job is killed at 100 min
+SEND_BY_SEC = float(os.getenv("WB_SEND_BY_MIN", "75")) * 60   # email out by then, whatever happens
+HARD_STOP_SEC = float(os.getenv("WB_HARD_STOP_MIN", "125")) * 60  # job is killed at 160 min
 
 
 def over_time(what: str) -> bool:
@@ -1514,9 +1551,14 @@ def build_system(cfg: dict, edition: str, date_str: str, monthly: bool) -> tuple
     return system, core
 
 
+LATE_PODCAST: list[str] = []      # podcasts held back so the email went out on time
+
+
 def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: str,
-                          date_str: str, now: datetime, edition: str, dry: bool) -> list[dict]:
-    """Kartik & Priya episode(s) for this edition, uploaded before the email goes out."""
+                          date_str: str, now: datetime, edition: str, dry: bool,
+                          late: bool = False) -> list[dict]:
+    """Kartik & Priya episode(s) for this edition, uploaded before the email goes out.
+    On a slow day the email goes first and the podcast is made right after it (late=True)."""
     from podcast import make_podcast, latest_previous_script
     import podfeed
     episodes: list[dict] = []
@@ -1525,7 +1567,14 @@ def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: 
     for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
         old_raw.unlink()
     for prompt_file, kind, label, show, length in cfg["podcasts"]:
-        if over_time(f"English {kind} podcast"):
+        if late:
+            if time.monotonic() - RUN_START > HARD_STOP_SEC:
+                print(f"  ! {elapsed()} no time left even for the late podcast")
+                HEALTH.append(f"English {kind} podcast skipped (run too long)")
+                continue
+        elif time.monotonic() - RUN_START > SEND_BY_SEC:
+            print(f"  {elapsed()} slow day: email goes out first, the {kind} podcast follows right after")
+            LATE_PODCAST.append(kind)
             continue
         try:
             mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
@@ -1568,6 +1617,10 @@ def finish_email(final: str, brief: str, meta: dict, box: str, more_news: str,
                  episodes: list[dict], lang_eps: list[dict], missing: list[str]) -> str:
     """Listen box (with an honest note for missing audio), market strip, More headlines."""
     listen = listen_section(episodes + lang_eps, meta, brief)
+    if LATE_PODCAST and not episodes:
+        listen = ("## 🎧 Listen\n\n_Today's podcast is still being made (the free AI was slow this "
+                  "morning). It arrives in a short follow-up email and on Telegram within about "
+                  "30 minutes._\n")
     if missing:
         note = (f"_{', '.join(missing)}: audio could not be made this time (the free AI "
                 f"service was busy). It will be back in the next edition._")
@@ -1684,6 +1737,9 @@ def main() -> None:
     now = datetime.now(TZ)
     date_str = now.strftime("%A, %d %B %Y")
     print(f"Edition: {edition}")
+    if os.getenv("PODCAST_ONLY") == "1":          # "run: podcast": today's podcast only
+        podcast_only(cfg, edition, now, date_str)
+        return
 
     from markets import numbers_box
     try:
@@ -1751,7 +1807,7 @@ def main() -> None:
         all_stories = deduped
         run.update(raw=len(raw), after_dedupe=len(deduped), items_to_ai=len(items))
         history = on_this_day(now) if edition == "morning" else []
-        print(f"{len(raw)} raw -> {len(items)} items after dedupe/cap; "
+        print(f"{elapsed()} {len(raw)} raw -> {len(items)} items after dedupe/cap; "
               f"{len(history)} history events; memory {len(memory):,} chars")
         if not items:
             print("Nothing new. Exiting.")
@@ -1781,7 +1837,7 @@ def main() -> None:
         elif brief and len(MODELS_USED) > n_before and not MODELS_USED[n_before].startswith("gemini-"):
             HEALTH.append(f"brief written by the backup AI ({MODELS_USED[n_before]})")
         brief = brief or fallback_brief(items, date_str)
-    print(f"  meta: {meta}")
+    print(f"  {elapsed()} meta: {meta}")
 
     brief = insert_box(brief, box)
     final = link_citations(brief, items)
@@ -1817,7 +1873,7 @@ def main() -> None:
     # Be honest when a language could not be made (e.g. the free AI was overloaded).
     missing = [languages.LANGS[c]["label"] for c in langs
                if c not in {e["kind"] for e in lang_eps}]
-    if podcasts_on and not episodes:
+    if podcasts_on and not episodes and not LATE_PODCAST:
         missing.insert(0, "🔵 English")
     final = finish_email(final, brief, meta, box, more_news, episodes, lang_eps, missing)
     # Attach only what has no play link (upload failed or no podcast repo); the links play
@@ -1843,7 +1899,65 @@ def main() -> None:
                  "episodes": episodes, "lang_eps": lang_eps, "entities": entities,
                  "beliefs": beliefs, "stories": stories, "seen": seen, "run": run,
                  "meta": meta, "warnings": warnings})
+    if LATE_PODCAST:
+        episodes = late_podcast(cfg, final, brief, meta, title, date_str, now, edition)
+        if not episodes:
+            missing.insert(0, "🔵 English")
     after_send(edition, title, final, episodes, lang_eps, missing)
+
+
+def podcast_only(cfg: dict, edition: str, now: datetime, date_str: str) -> None:
+    """Make (or remake) today's podcast from the email that already went out, then send it
+    as a short follow-up email + the Telegram message. Never resends the news email."""
+    path = ARCHIVE_DIR / f"{now:%Y-%m-%d}{cfg['file_suffix']}.md"
+    flag = DONE_DIR / f"{now:%Y-%m-%d}-{edition}-podcast"
+    if not path.exists():
+        print(f"  no {edition} email today yet: nothing to make a podcast from")
+        return
+    if flag.exists() and os.getenv("FORCE") != "1":
+        print("  today's podcast was already sent by 'run: podcast'")
+        return
+    final = path.read_text().split("\n## 📰 More headlines", 1)[0]
+    final = re.sub(r"(?ms)^## 🎧 Listen.*?(?=^## )", "", final)
+    title = f"{cfg['title']} — {date_str}"
+    eps = late_podcast(cfg, final, final, {}, title, date_str, now, edition)
+    if eps:
+        DONE_DIR.mkdir(parents=True, exist_ok=True)
+        flag.write_text(datetime.now(timezone.utc).isoformat())
+        try:
+            send_telegram_channel(title, final, eps)
+        except Exception as exc:
+            print(f"  ! telegram channel failed: {type(exc).__name__}")
+
+
+def late_podcast(cfg: dict, final: str, brief: str, meta: dict, title: str, date_str: str,
+                 now: datetime, edition: str) -> list[dict]:
+    """Slow day: the email already went out on time; now make the podcast, publish it, and
+    send a short follow-up email with the play link. Telegram waits for it (one message)."""
+    print(f"  {elapsed()} making the podcast after the email (slow day)")
+    eps = make_english_podcasts(cfg, final, brief, meta, title, date_str, now, edition,
+                                dry=False, late=True)
+    if not eps:
+        HEALTH.append("English podcast could not be made after the email (slow day)")
+        return []
+    uploaded = [(Path(e["file"]), e["url"].rsplit("/", 1)[-1]) for e in eps if e.get("url")]
+    if uploaded:
+        import podfeed
+        podfeed.sync_site_audio(uploaded)
+    PODCAST_ARCHIVE.mkdir(parents=True, exist_ok=True)
+    for ep in eps:
+        script = ROOT / "out" / f"script_world_brief_{ep['kind']}.txt"
+        if script.exists():
+            (PODCAST_ARCHIVE / f"{now:%Y-%m-%d}-{edition}-{ep['kind']}.txt").write_text(script.read_text())
+    md = (f"# 🎧 {title}: today's podcast\n\nThe news email came first this morning; here is "
+          f"the podcast for it.\n\n" + listen_section(eps, meta, brief))
+    try:
+        send_email(f"🎧 Podcast ready · {title}", md,
+                   [Path(e["file"]) for e in eps if not e.get("url")], everyone=True)
+        print(f"  {elapsed()} late podcast sent")
+    except Exception as exc:
+        print(f"  ! late podcast email failed: {type(exc).__name__}")
+    return eps
 
 
 if __name__ == "__main__":

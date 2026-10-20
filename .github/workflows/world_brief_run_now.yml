@@ -16,7 +16,7 @@ permissions:
 jobs:
   run-all:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     concurrency:
       group: world-brief
       cancel-in-progress: false
@@ -78,6 +78,14 @@ jobs:
           fi
           if echo "$CMD" | grep -qw sitesync; then
             python sitesync.py
+            exit 0
+          fi
+          if echo "$CMD" | grep -qw podcast; then
+            for ED in $EDS; do
+              EDITION=$ED PODCAST_ONLY=1 FORCE=$FORCE python digest.py 2>&1 | sed -u -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/***@***/g' | tee "logs/latest-$ED-podcast.log"
+            done
+            for f in state/done state/telegram_last.json briefs logs; do [ -e "$f" ] && git add "$f"; done
+            git diff --cached --quiet || { git commit -m "World brief podcast (run-now) $(date -u +%F)"; git pull --rebase --quiet && git push; }
             exit 0
           fi
           if echo "$CMD" | grep -qw watchdog; then

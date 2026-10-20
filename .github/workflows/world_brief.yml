@@ -41,7 +41,7 @@ concurrency:
 jobs:
   brief:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 160   # email by 75 min; on a slow day the podcast follows (stop at 125)
     defaults:
       run:
         working-directory: world_brief

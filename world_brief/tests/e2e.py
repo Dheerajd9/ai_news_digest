@@ -408,9 +408,38 @@ def main() -> int:
                            cwd=work, env=env_t, capture_output=True, text=True, timeout=600)
         res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
         md = res["emails"][0]["md"] if res["emails"] else ""
-        check(len(res["emails"]) == 1 and "## " in md, "too long: news email still sent", errors)
+        subs = [e["subject"] for e in res["emails"]]
+        check(len(subs) == 2 and "## " in md and "still being made" in md
+              and subs[1].startswith("🎧 Podcast ready") and "▶" in res["emails"][1]["md"],
+              f"slow day: news email goes out on time, the podcast follows in a short email ({subs})", errors)
+        tgl = res.get("telegram", [])
+        check([x for x in tgl if x in ("sendMessage", "sendAudio")] == ["sendAudio"],
+              f"slow day: Telegram waits for the podcast and still sends ONE message ({tgl})", errors)
+        check(not any("English" in h["md"] and "skipped" in h["md"] for h in res.get("health", [])),
+              "slow day: no 'English podcast skipped' alarm when it came late", errors)
+        env_p = {**env, "PODCAST_ONLY": "1", "FORCE": "1"}
+        env_p.pop("FAIL_HOST", None)
+        p = subprocess.run([sys.executable, "-c",
+                            "import time; time.sleep=lambda s: None; exec(open('runner.py').read())"],
+                           cwd=work, env=env_p, capture_output=True, text=True, timeout=600)
+        res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
+        subs = [e["subject"] for e in res["emails"]]
+        check(len(subs) == 1 and subs[0].startswith("🎧 Podcast ready") and "sendAudio" in res.get("telegram", []),
+              f"run: podcast: makes today's podcast again without resending the news ({subs})", errors)
+        print("\n=== morning, no time left at all (hard stop) ===")
+        (work / "state" / "seen.json").unlink(missing_ok=True)
+        env_h = {**env_t, "WB_HARD_STOP_MIN": "0"}
+        p = subprocess.run([sys.executable, "-c",
+                            "import time; time.sleep=lambda s: None; exec(open('runner.py').read())"],
+                           cwd=work, env=env_h, capture_output=True, text=True, timeout=600)
+        res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
+        check(len(res["emails"]) == 1 and "## " in res["emails"][0]["md"],
+              "hard stop: news email still sent", errors)
         check(any("skipped" in h["md"] for h in res.get("health", [])),
-              "too long: health alert says which podcasts were skipped", errors)
+              "hard stop: health alert says which podcasts were skipped", errors)
+        src_d = (SRC / "digest.py").read_text()
+        check("_post_capped(" in src_d and "GEMINI_MAX_SEC" in src_d and "elapsed()" in src_d,
+              "slow AI: every AI answer has a hard time limit, Gemini hands over to the backup", errors)
 
         # Drill 2: Gemini completely down -> free backup brain writes everything.
         print("\n=== morning, Gemini down (Mistral backup) ===")

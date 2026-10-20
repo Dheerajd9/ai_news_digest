@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 19 Oct 2026 (general news for everyone: personal sections removed — attention, why it matters to me, NRI corner, Hyderabad land, students/visas, travel; watchdog: 2 PM missing-email alarm + Sunday self-cleaning feeds; ~210 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
+_Last updated: 20 Oct 2026 (slow AI days: every AI answer capped at 8 min and Gemini hands over to the backup after 15 min; the email still goes by 75 min and the podcast now follows right after in a short email + the Telegram message instead of being skipped; `run: podcast`; general news for everyone: personal sections removed — attention, why it matters to me, NRI corner, Hyderabad land, students/visas, travel; watchdog: 2 PM missing-email alarm + Sunday self-cleaning feeds; ~210 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -92,6 +92,7 @@ If a script comes back far too short, the system asks once more for the full-len
 - **Never too late**: after 75 minutes (`WB_SEND_BY_MIN`) the run skips any podcast it hasn't made yet and sends the email, so GitHub's 100-minute limit can't swallow an edition.
 - **Health alerts (only you)**: when an edition went out but quality dropped (robot voices, a language missing, a podcast skipped, backup AI wrote the brief, a script came out short, many news sources failed), you get a short 🩺 email (and a Telegram message if `TELEGRAM_CHAT_ID` is set). Silent on good days.
 - **Failure alerts** go by email **and** Telegram (`TELEGRAM_CHAT_ID`), so a Gmail problem can't hide a failure.
+- **Slow AI days**: the free AI is sometimes overloaded. Every AI answer has a hard limit (8 min, `WB_AI_CALL_MAX_MIN`) and Gemini hands over to the free backup after 15 min (`WB_GEMINI_MAX_MIN`). The email always goes out by 75 min (`WB_SEND_BY_MIN`); if the podcast isn't made by then, it is made right after and arrives in a short 🎧 follow-up email and in the single Telegram message (which waits for it). Only past 125 min (`WB_HARD_STOP_MIN`) is it skipped. The log shows run minutes like `[12m]` at each step.
 - **Watchdog** (`watchdog.py`, `.github/workflows/watchdog.yml`): every day at 2 PM US Eastern it checks that today's morning email (and the Sunday weekly, and the AI News Digest) really went out; if not, a ⏰ alert by email + Telegram. It waits while an edition is still running, so no false alarms. This catches the silent case where nothing ran at all.
 - **Self-cleaning news sources**: every Sunday the watchdog tests every feed; a feed dead or empty two Sundays in a row is removed from `feeds.yaml` by itself (state in `state/feed_health.json`, report in `logs/feedcheck.txt`). If over a quarter look bad at once it's a network blip and nothing is removed. You get a 📰 email only when something was removed or fewer than 150 feeds still work.
 - **Once a year (the system reminds you)**: renew the cron-job.org GitHub token (if forgotten, GitHub's own timer still sends, maybe late); renew `PODCAST_TOKEN` before about Oct 2027 (reminder email comes first).
@@ -137,6 +138,7 @@ Add a line to `world_brief/run_request.txt` and push; the **World Brief - run al
 | `run: morning` / `run: evening` / `run: morning weekly` | Sends that edition if it was not sent today |
 | `run: morning force` | Sends it again even if already sent |
 | `run: keycheck` | Tests every key and emails a ✅/❌ report |
+| `run: podcast morning` | Makes today's podcast again from the email that already went out and sends it (short email + Telegram); never resends the news |
 | `run: watchdog` | Runs the missing-email check now (alerts only if today's emails were not sent); result in `logs/watchdog.txt` |
 | `run: feedcheck` | Tests every news feed and lists dead, empty or stale ones in `logs/feedcheck.txt` (sends nothing) |
 | `run: sitesync` | Copies the last 10 days of audio onto the player site |
