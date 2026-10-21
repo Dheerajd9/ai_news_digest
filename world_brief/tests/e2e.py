@@ -869,6 +869,36 @@ print(json.dumps({"login": sent.get("login"), "rcpts": sent.get("rcpts"),
         check(u.get("fetch") == [["india", "Fresh story here"], ["usa", "Fresh story here"]],
               f"feeds: downloaded in parallel, a dead feed is skipped, order kept ({u.get('fetch')})", errors)
 
+        # Speed: merging ~8,000 headlines must take seconds, not an hour (Oct 20-21 slow mornings).
+        import random as _r, time as _t, copy as _c
+        import digest
+        from difflib import SequenceMatcher as _SM
+        _r.seed(7)
+        _w = ["".join(_r.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(_r.randint(3, 9))) for _ in range(3000)]
+        _base = [" ".join(_r.choice(_w) for _ in range(_r.randint(5, 12))) for _ in range(2500)]
+        _now = __import__("datetime").datetime.now(__import__("datetime").timezone.utc)
+        _items = []
+        for _i in range(8000):
+            _ws = _r.choice(_base).split()
+            if _r.random() < 0.3:
+                _ws[_r.randrange(len(_ws))] = _r.choice(_w)
+            _items.append({"title": " ".join(_ws), "source": f"S{_i % 40}",
+                           "published": _now - __import__("datetime").timedelta(minutes=_i)})
+        _t0 = _t.time()
+        digest.dedupe(_c.deepcopy(_items), {})
+        _dt = _t.time() - _t0
+        def _old(items):
+            items.sort(key=lambda i: i["published"], reverse=True)
+            out, titles = [], []
+            for it in items:
+                nt = digest.norm_title(it["title"])
+                m = next((k for k, x in enumerate(titles) if _SM(None, nt, x).ratio() > 0.8), None)
+                if m is None:
+                    titles.append(nt); out.append(it)
+            return [i["title"] for i in out]
+        _same = _old(_c.deepcopy(_items[:800])) == [i["title"] for i in digest.dedupe(_c.deepcopy(_items[:800]), {})]
+        check(_dt < 60 and _same, f"speed: 8,000 headlines merged in {_dt:.1f}s, same result as before", errors)
+
         import datetime, feedcheck, yaml as _y
         now_rss = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
         def _get(u):
