@@ -29,23 +29,25 @@
 },
 "Russia": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "russia-ukraine-energy-truce",
-"russia-diesel-sanctions"
+"russia-diesel-sanctions",
+"russia-frees-hubbard"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-21"
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
-"taiwan-texas-chip-park"
+"taiwan-texas-chip-park",
+"openai-agents-disable-monitors"
 ],
-"last_seen": "2026-10-16"
+"last_seen": "2026-10-21"
 },
 "Super Micro": {
 "first_seen": "2026-10-11",
@@ -76,13 +78,13 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 7,
+"count": 8,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -198,11 +200,12 @@
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
-"count": 7,
+"count": 8,
 "stories": [
-"rbi-rupee-defense"
+"rbi-rupee-defense",
+"jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-21"
 },
 "US Dollar": {
 "first_seen": "2026-10-12",
@@ -214,14 +217,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 9,
+"count": 10,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -268,24 +271,25 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 5,
+"count": 6,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
 "us-banks-block-ai-agents",
-"openai-spy-device-case"
+"openai-spy-device-case",
+"openai-agents-disable-monitors"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 6,
+"count": 7,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-21"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -408,7 +412,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 15,
+"count": 16,
 "stories": [
 "fairfax-idbi-bank-stake",
 "india-us-trade-talks",
@@ -419,23 +423,24 @@
 "jio-platforms-mega-ipo",
 "india-nz-fta"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
-"count": 3,
+"count": 4,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 6,
+"count": 8,
 "stories": [
-"india-us-trade-talks"
+"india-us-trade-talks",
+"russia-frees-hubbard"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -488,27 +493,27 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 3,
+"count": 4,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 3,
+"count": 4,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 3,
+"count": 4,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -642,11 +647,11 @@
 },
 "Marco Rubio": {
 "first_seen": "2026-10-19",
-"count": 2,
+"count": 3,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
 },
 "Cognizant": {
 "first_seen": "2026-10-19",
@@ -706,14 +711,118 @@
 },
 "United Kingdom": {
 "first_seen": "2026-10-20",
-"count": 1,
+"count": 2,
 "stories": [
 "middle-east-escalation"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-10-21"
+},
+"Tesla": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"tesla-spacex-merger-talks"
+],
+"last_seen": "2026-10-21"
+},
+"SpaceX": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"tesla-spacex-merger-talks"
+],
+"last_seen": "2026-10-21"
+},
+"Elon Musk": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"tesla-spacex-merger-talks"
+],
+"last_seen": "2026-10-21"
+},
+"Vladimir Putin": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"russia-frees-hubbard"
+],
+"last_seen": "2026-10-21"
+},
+"Steve Witkoff": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"russia-frees-hubbard"
+],
+"last_seen": "2026-10-21"
+},
+"WHO": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"nigeria-ebola-outbreak"
+],
+"last_seen": "2026-10-21"
+},
+"Nigeria": {
+"first_seen": "2026-10-21",
+"count": 1,
+"stories": [
+"nigeria-ebola-outbreak"
+],
+"last_seen": "2026-10-21"
 }
 },
 "connections": [
+{
+"text": "India-US trade deal -> tariff reduction -> export opportunities",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-21",
+"count": 8
+},
+{
+"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity -> rupee strength",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "Diplomatic prisoner release -> trilateral ceasefire talks -> regional stability",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "Regional travel -> Ebola spread -> public health emergency",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> market pressure",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
+{
+"text": "High AI capex -> massive net losses -> public IPO liquidity requirement",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-21",
+"count": 1
+},
 {
 "text": "Trump sanctions waiver -> India oil imports protected -> lower fuel import bill",
 "first_seen": "2026-10-17",
@@ -725,12 +834,6 @@
 "first_seen": "2026-10-17",
 "last_seen": "2026-10-20",
 "count": 5
-},
-{
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-20",
-"count": 7
 },
 {
 "text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
@@ -1030,48 +1133,6 @@
 "text": "PERM slowdown -> employment green card backlog -> Indian tech worker retention",
 "first_seen": "2026-10-12",
 "last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Energy ceasefire -> lower crude risk premium -> easing oil prices",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "US export restrictions -> semiconductor smuggling enforcement -> supply chain scrutiny",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil prices above $104 -> Indian import bill pressure",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "Middle East escalation -> Indian diaspora safety -> aviation risk",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "US immigration policy -> Indian tech workers -> green card backlogs",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "Energy ceasefire -> crude prices -> global inflation",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
-"count": 1
-},
-{
-"text": "Big Tech AI spending -> data center capabilities -> M&A trends",
-"first_seen": "2026-10-11",
-"last_seen": "2026-10-11",
 "count": 1
 }
 ]
