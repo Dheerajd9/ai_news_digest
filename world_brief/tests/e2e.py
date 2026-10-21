@@ -409,14 +409,15 @@ def main() -> int:
         res = json.loads((work / "result.json").read_text()) if p.returncode == 0 else {"emails": []}
         md = res["emails"][0]["md"] if res["emails"] else ""
         subs = [e["subject"] for e in res["emails"]]
-        check(len(subs) == 2 and "## " in md and "still being made" in md
-              and subs[1].startswith("🎧 Podcast ready") and "▶" in res["emails"][1]["md"],
-              f"slow day: news email goes out on time, the podcast follows in a short email ({subs})", errors)
+        check(len(subs) == 1 and "## " in md, f"too long: still ONE news email, no separate podcast email ({subs})", errors)
+        check(any("skipped" in h["md"] for h in res.get("health", [])),
+              "too long: health alert says which podcasts were skipped", errors)
         tgl = res.get("telegram", [])
-        check([x for x in tgl if x in ("sendMessage", "sendAudio")] == ["sendAudio"],
-              f"slow day: Telegram waits for the podcast and still sends ONE message ({tgl})", errors)
-        check(not any("English" in h["md"] and "skipped" in h["md"] for h in res.get("health", [])),
-              "slow day: no 'English podcast skipped' alarm when it came late", errors)
+        check([x for x in tgl if x in ("sendMessage", "sendAudio")] == ["sendMessage"],
+              f"too long: Telegram still gets its one message ({tgl})", errors)
+        src_w = (SRC / "digest.py").read_text()
+        check('os.getenv("WB_SEND_BY_MIN", "120")' in src_w,
+              "slow day: the email waits for the podcast (one complete email, up to 2 hours)", errors)
         env_p = {**env, "PODCAST_ONLY": "1", "FORCE": "1"}
         env_p.pop("FAIL_HOST", None)
         p = subprocess.run([sys.executable, "-c",

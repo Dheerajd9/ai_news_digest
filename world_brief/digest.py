@@ -1464,7 +1464,9 @@ def mark_done(now: datetime, edition: str) -> None:
 
 
 RUN_START = time.monotonic()
-SEND_BY_SEC = float(os.getenv("WB_SEND_BY_MIN", "75")) * 60   # email out by then, whatever happens
+# One email, sent when complete (news + podcast). On a slow AI day it simply waits for the
+# podcast; only a podcast not started by WB_SEND_BY_MIN is skipped so the email still goes.
+SEND_BY_SEC = float(os.getenv("WB_SEND_BY_MIN", "120")) * 60
 HARD_STOP_SEC = float(os.getenv("WB_HARD_STOP_MIN", "125")) * 60  # job is killed at 160 min
 
 
@@ -1551,7 +1553,6 @@ def build_system(cfg: dict, edition: str, date_str: str, monthly: bool) -> tuple
     return system, core
 
 
-LATE_PODCAST: list[str] = []      # podcasts held back so the email went out on time
 
 
 def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: str,
@@ -1572,9 +1573,7 @@ def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: 
                 print(f"  ! {elapsed()} no time left even for the late podcast")
                 HEALTH.append(f"English {kind} podcast skipped (run too long)")
                 continue
-        elif time.monotonic() - RUN_START > SEND_BY_SEC:
-            print(f"  {elapsed()} slow day: email goes out first, the {kind} podcast follows right after")
-            LATE_PODCAST.append(kind)
+        elif over_time(f"English {kind} podcast"):
             continue
         try:
             mp3 = make_podcast(source_text, date_str, ROOT / "out", write_script,
@@ -1617,10 +1616,6 @@ def finish_email(final: str, brief: str, meta: dict, box: str, more_news: str,
                  episodes: list[dict], lang_eps: list[dict], missing: list[str]) -> str:
     """Listen box (with an honest note for missing audio), market strip, More headlines."""
     listen = listen_section(episodes + lang_eps, meta, brief)
-    if LATE_PODCAST and not episodes:
-        listen = ("## 🎧 Listen\n\n_Today's podcast is still being made (the free AI was slow this "
-                  "morning). It arrives in a short follow-up email and on Telegram within about "
-                  "30 minutes._\n")
     if missing:
         note = (f"_{', '.join(missing)}: audio could not be made this time (the free AI "
                 f"service was busy). It will be back in the next edition._")
@@ -1873,7 +1868,7 @@ def main() -> None:
     # Be honest when a language could not be made (e.g. the free AI was overloaded).
     missing = [languages.LANGS[c]["label"] for c in langs
                if c not in {e["kind"] for e in lang_eps}]
-    if podcasts_on and not episodes and not LATE_PODCAST:
+    if podcasts_on and not episodes:
         missing.insert(0, "🔵 English")
     final = finish_email(final, brief, meta, box, more_news, episodes, lang_eps, missing)
     # Attach only what has no play link (upload failed or no podcast repo); the links play
@@ -1899,10 +1894,6 @@ def main() -> None:
                  "episodes": episodes, "lang_eps": lang_eps, "entities": entities,
                  "beliefs": beliefs, "stories": stories, "seen": seen, "run": run,
                  "meta": meta, "warnings": warnings})
-    if LATE_PODCAST:
-        episodes = late_podcast(cfg, final, brief, meta, title, date_str, now, edition)
-        if not episodes:
-            missing.insert(0, "🔵 English")
     after_send(edition, title, final, episodes, lang_eps, missing)
 
 
