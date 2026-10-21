@@ -1658,7 +1658,7 @@ def after_send(edition: str, title: str, final: str, episodes: list[dict],
                lang_eps: list[dict], missing: list[str]) -> None:
     """Extras after the email: each one isolated, so none can break another (or memory)."""
     import languages
-    steps = [("telegram", lambda: send_telegram(final, Path(episodes[0]["file"]) if episodes else None)),
+    steps = [   # Telegram gets only the one channel message (news + podcast), nothing else
              ("whatsapp", lambda: languages.send_whatsapp(final, lang_eps)),
              ("telegram channel", lambda: send_telegram_channel(title, final, episodes + lang_eps)),
              ("token reminder", lambda: token_reminder(edition)),

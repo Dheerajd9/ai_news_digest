@@ -5,7 +5,7 @@ Breaking-news alerts. Runs every 2 hours from GitHub Actions; usually sends noth
 2. Candidates = headlines matching your watchlist keywords, or stories many outlets
    ran at once (wide coverage = something big is happening).
 3. A free LLM (GitHub Models first, Gemini backup) scores each 1-10 for *this* reader.
-4. Score >= min_score -> Telegram ping (if set up), otherwise an email.
+4. Score >= min_score -> an email (never Telegram: the channel gets only the daily message).
 State (what was already checked/sent) lives in state/alerts_seen.json, kept between
 runs by the Actions cache, so you never get the same alert twice.
 """
@@ -82,24 +82,7 @@ def deliver(alerts: list[dict]) -> None:
     for a in alerts:   # only real article links from our feeds, never one the AI made up
         if str(a.get("link", "")) not in digest.KNOWN_LINKS:
             a["link"] = ""
-    lines = [f"🚨 {a['headline']}\n{a.get('why', '')}" + (f"\n{a['link']}" if a["link"] else "") for a in alerts]
-    text = "\n\n".join(lines)
-    token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-    chat, channel = os.getenv("TELEGRAM_CHAT_ID", "").strip(), digest.telegram_channel_id()
-
-    def tg(to: str, body: str, label: str) -> bool:
-        try:
-            r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage", timeout=30,
-                              json={"chat_id": to, "text": body, "disable_web_page_preview": False})
-            print(f"  alert to Telegram {label}: HTTP {r.status_code}")
-            return r.status_code == 200
-        except Exception as exc:     # URL contains the bot token: print only the type
-            print(f"  ! Telegram {label} failed ({type(exc).__name__})")
-            return False
-    if token and channel and channel != chat:     # family channel gets every alert too
-        tg(channel, text + "\n\n#Breaking", "channel")
-    if token and chat and tg(chat, text, "chat"):
-        return
+    # Email only: the Telegram channel carries just the one daily message (news + podcast).
     md = "\n\n".join(f"### 🚨 {a['headline']}\n{a.get('why', '')}"
                      + (f"  \n[{a.get('source', 'Source')}]({a['link']})" if a["link"] else "")
                      for a in alerts)

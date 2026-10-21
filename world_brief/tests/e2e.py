@@ -545,10 +545,11 @@ open("e.mp3","wb").write(b"x")
 digest.send_telegram_channel("T", "## 1. Top 5\n- a\n", [{"file": "e.mp3", "url": None, "label": "L", "hosts": "H"}])
 import alerts
 digest.KNOWN_LINKS.add("https://example.com/a")
+used0 = list(sent)
 mails.clear(); sent.clear()
 alerts.deliver([{"headline": "Big quake", "why": "W", "link": "https://example.com/a", "source": "S"}])
 alert_to = [c for m, c in sent]
-print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" in str(mail0), "used": sent,
+print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" in str(mail0), "used": used0,
                   "alert_to": alert_to, "alert_mail": len(mails)}))
 """
         p = subprocess.run([sys.executable, "-c", tg_py], cwd=work, capture_output=True, text=True, timeout=60)
@@ -562,8 +563,11 @@ print(json.dumps({"saved": saved["id"], "test_post": posts, "mail_ok": "Found" i
         check(r.get("used") and all(c in (-1009876, "-1009876") for m, c in r["used"]
                                     if m not in ("createAccount", "createPage")),
               "Telegram setup: editions use the saved channel automatically", errors)
-        check(r.get("alert_to") == ["-1009876"] and r.get("alert_mail") == 1,
-              "Breaking alerts: posted to the family Telegram channel (+ email when no personal chat)", errors)
+        check(r.get("alert_to") == [] and r.get("alert_mail") == 1,
+              "Breaking alerts: email only, nothing extra on Telegram", errors)
+        dsrc = (SRC / "digest.py").read_text()
+        check('("telegram", lambda: send_telegram(' not in dsrc,
+              "Telegram: only the one channel message (news + podcast), no extra brief to a chat", errors)
 
         # Drill 3: free Google Cloud voices + monthly cap (no network: fake API).
         print("\n=== Google Cloud voices + free-tier cap ===")

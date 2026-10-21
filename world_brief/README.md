@@ -2,7 +2,7 @@
 
 India first, USA second, then the world. One daily email with the full news **plus an English podcast** (Telugu and Hindi are switched off for now; one setting brings them back), fully automated on GitHub Actions and **100% free**.
 
-_Last updated: 20 Oct 2026 (slow AI days: every AI answer capped at 8 min and Gemini hands over to the backup after 15 min; the email still goes by 75 min and the podcast now follows right after in a short email + the Telegram message instead of being skipped; `run: podcast`; general news for everyone: personal sections removed — attention, why it matters to me, NRI corner, Hyderabad land, students/visas, travel; watchdog: 2 PM missing-email alarm + Sunday self-cleaning feeds; ~210 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; breaking alerts in the channel; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
+_Last updated: 20 Oct 2026 (Telegram carries only the one daily message — news + podcast; breaking alerts by email only; slow AI days: every AI answer capped at 8 min and Gemini hands over to the backup after 15 min; the email still goes by 75 min and the podcast now follows right after in a short email + the Telegram message instead of being skipped; `run: podcast`; general news for everyone: personal sections removed — attention, why it matters to me, NRI corner, Hyderabad land, students/visas, travel; watchdog: 2 PM missing-email alarm + Sunday self-cleaning feeds; ~210 tested news feeds, was ~115, + `run: feedcheck`; timer: morning only `10 8-11 * * *`; Telegram: one message per edition — podcast + headlines + 📖 Full news / ▶️ Play / 📰 Yesterday buttons; coverage: every story carried by 3+ outlets or an official source always reaches the AI)._
 
 ## What you get, and when (US Eastern time)
 
@@ -11,7 +11,7 @@ _Last updated: 20 Oct 2026 (slow AI days: every AI answer capped at 8 min and Ge
 | **Morning, ~7:10 AM** | **World Brief**: Top 5, what actually matters today (5-10 stories: what/why/why it matters/who/next), India, USA + India–USA, Canada, 🤖 AI & robotics (highest priority), Musk & frontier companies, chips & computing, world & major world changes, government & politics, money table (incl. USD/CAD, Bitcoin, Ethereum) + why markets moved, economy, personal finance, housing & cost of living, business & future of work, immigration, energy revolution, future tech, space, science/health/climate, 🔍 truth check, 🔮 future signal, 🎓 today's lesson, what to watch, then **📰 More headlines**: every other story from the day's sources as a one-line link (📢 widely reported by 3+ outlets first, then grouped by topic, up to 100), so nothing is silently dropped. Podcasts: 🔵 English 📻 Full (15–30 min: about 15 on a normal day, up to 30 on a big news day), 🟠 Telugu and 🟢 Hindi = **the same Full episode** in that language |
 | **Evening** | Switched off (16 Oct 2026). Can still be sent by hand with `run: evening`. |
 | **Sunday morning** | **Weekly report**: the week's patterns and what to watch next week, in all three languages |
-| **Every 2 hours** | **Breaking alert**, only for truly big news (max 5 a day): your Telegram chat (or email) **and the family Telegram channel** (#Breaking) |
+| **Every 2 hours** | **Breaking alert** by email, only for truly big news (max 5 a day); nothing extra on Telegram |
 
 **Same news in every language**: the English Full episode is written first (evening: the evening episode); Telugu and Hindi are that same episode spoken in Telugu / Hindi (same stories, order, numbers and details, same chapters; `prompts/translate_mode.md`). Only if that conversion fails is the language episode written straight from the brief, so audio still goes out.
 
@@ -172,7 +172,7 @@ The email comes **from the `GMAIL_USER` account** with the sender name **World B
 | `GOOGLE_TTS_API_KEY` | optional | natural backup voices (Google asks for a card; skipped) |
 | `PARENTS_EMAIL`, `PARENTS_WHATSAPP` | optional | more readers |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHANNEL_ID` | optional | family Telegram channel with every podcast |
-| `TELEGRAM_CHAT_ID` | optional | your personal Telegram chat (breaking alerts + brief) |
+| `TELEGRAM_CHAT_ID` | optional | your personal Telegram chat: only failure/health/watchdog alerts (no news) |
 | `PORTFOLIO_JSON` | for the portfolio report | your holdings (kept only as a secret, never in this public repo) |
 
 ## Files

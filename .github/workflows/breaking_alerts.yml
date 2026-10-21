@@ -1,7 +1,7 @@
 name: Breaking Alerts
 
 # Every 2 hours, about 8 AM to midnight US Eastern time.
-# Checks your watchlist; sends a Telegram ping (or email) only for truly big news.
+# Checks your watchlist; sends an email only for truly big news (nothing on Telegram).
 # Free: ~1 min per run, GitHub Models scores importance.
 
 on:
@@ -50,9 +50,6 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
         run: python alerts.py
 
       - uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
