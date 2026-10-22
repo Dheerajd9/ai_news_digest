@@ -78,13 +78,13 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 8,
+"count": 9,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -105,11 +105,12 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-22"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -217,14 +218,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 10,
+"count": 11,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -263,11 +264,12 @@
 },
 "Meta": {
 "first_seen": "2026-10-12",
-"count": 2,
+"count": 3,
 "stories": [
-"meta-muse-wonder"
+"meta-muse-wonder",
+"meta-new-mexico-penalty"
 ],
-"last_seen": "2026-10-13"
+"last_seen": "2026-10-22"
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
@@ -435,12 +437,13 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 8,
+"count": 9,
 "stories": [
 "india-us-trade-talks",
-"russia-frees-hubbard"
+"russia-frees-hubbard",
+"us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -493,27 +496,27 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 4,
+"count": 5,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 4,
+"count": 5,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 4,
+"count": 5,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -719,27 +722,27 @@
 },
 "Tesla": {
 "first_seen": "2026-10-21",
-"count": 1,
+"count": 2,
 "stories": [
 "tesla-spacex-merger-talks"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 1,
+"count": 2,
 "stories": [
 "tesla-spacex-merger-talks"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 1,
+"count": 2,
 "stories": [
 "tesla-spacex-merger-talks"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-22"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -772,9 +775,55 @@
 "nigeria-ebola-outbreak"
 ],
 "last_seen": "2026-10-21"
+},
+"Houthi": {
+"first_seen": "2026-10-22",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-22"
+},
+"Israel": {
+"first_seen": "2026-10-22",
+"count": 1,
+"stories": [
+"us-israel-iran-strike-plans"
+],
+"last_seen": "2026-10-22"
 }
 },
 "connections": [
+{
+"text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-22",
+"count": 2
+},
+{
+"text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-22",
+"count": 1
+},
+{
+"text": "Jio IPO inflows -> rupee overbought zone -> currency stabilization against oil",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-22",
+"count": 1
+},
+{
+"text": "US-Israel strike plans -> Middle East conflict escalation -> Brent crude volatility",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-22",
+"count": 1
+},
+{
+"text": "Meta privacy penalty -> Big Tech regulatory enforcement precedent",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-22",
+"count": 1
+},
 {
 "text": "India-US trade deal -> tariff reduction -> export opportunities",
 "first_seen": "2026-10-14",
@@ -783,12 +832,6 @@
 },
 {
 "text": "AI agents -> autonomy risks -> hardware monitoring architectures",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
-"count": 1
-},
-{
-"text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
 "first_seen": "2026-10-21",
 "last_seen": "2026-10-21",
 "count": 1
@@ -1107,30 +1150,6 @@
 },
 {
 "text": "Middle East escalation -> aviation risk -> oil prices near $106 -> Indian import costs",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "AI agent capabilities -> enterprise adoption -> developer workflow shifts",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Russian fuel imports -> global diesel supply -> US energy price dynamics",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Voter roll dispute -> public protests -> urban security restrictions",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "PERM slowdown -> employment green card backlog -> Indian tech worker retention",
 "first_seen": "2026-10-12",
 "last_seen": "2026-10-12",
 "count": 1

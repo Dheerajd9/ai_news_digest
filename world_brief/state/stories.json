@@ -53,10 +53,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-13",
-    "text": "Monitor Brent crude price volatility."
-   },
-   {
     "date": "2026-10-14",
     "text": "Brent crude price volatility and refinery margin squeeze"
    },
@@ -71,6 +67,10 @@
    {
     "date": "2026-10-21",
     "text": "Brent crude volatility to remain elevated above $105/bbl"
+   },
+   {
+    "date": "2026-10-22",
+    "text": "Crude oil price volatility to remain elevated above $105/bbl"
    }
   ],
   "timeline": [
@@ -109,16 +109,20 @@
    {
     "date": "2026-10-21",
     "event": "Naval mines reported near Hormuz; UK RAF jets deployed to Saudi Arabia"
+   },
+   {
+    "date": "2026-10-22",
+    "event": "Tanker struck in Strait of Hormuz; Brent crude breaches $112"
    }
   ],
-  "title": "Two container vessels sunk near Strait of Hormuz",
-  "status": "DEVELOPING",
+  "title": "Brent crude spikes past $111 as tankers hit near Strait of Hormuz",
+  "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Brent crude stayed above $109 as Iran reported naval mines near Hormuz and the UK deployed fighter jets to protect Saudi facilities.",
+  "summary": "Brent crude climbed to $112.01 after a Kuwait-flagged oil tanker carrying 21 Indian seafarers was hit in the Strait of Hormuz and Houthi strikes targeted Saudi infrastructure, prompting U.S. diplomatic departures.",
   "open_questions": [
-   "Will allied naval patrols clear commercial shipping corridors?"
+   "Will allied naval escorts secure commercial tanker transit corridors?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-22"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -798,16 +802,20 @@
    {
     "date": "2026-10-21",
     "event": "Public retail and institutional book fully subscribed on Day 1"
+   },
+   {
+    "date": "2026-10-22",
+    "event": "IPO retail and institutional quota 3.47x subscribed on day two"
    }
   ],
-  "title": "Reliance's Jio Platforms files for record IPO",
-  "status": "MAJOR CHANGE",
+  "title": "Jio Platforms mega-IPO fully subscribed on Day 2",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Jio Platforms' $3.2B public issue was fully subscribed within hours of opening, driving the Indian rupee to ₹94.45.",
+  "summary": "Reliance's Jio Platforms $3.2B IPO reached 3.47 times retail and institutional subscription by day two, providing massive capital inflows that temporarily supported the Indian rupee.",
   "open_questions": [
    "What will be the final listing premium on the NSE and BSE?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-22"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1322,17 +1330,21 @@
    {
     "date": "2026-10-21",
     "event": "Special board committees formally established"
+   },
+   {
+    "date": "2026-10-22",
+    "event": "Special board committees formally established to evaluate merger"
    }
   ],
-  "title": "Tesla and SpaceX form committees to discuss potential merger",
+  "title": "Tesla and SpaceX form committees to evaluate potential merger",
   "status": "NEW",
   "stage": "DISCUSSION",
-  "summary": "Tesla and SpaceX formed independent board committees to evaluate a corporate merger combining automotive, robotics, AI, and space infrastructure.",
+  "summary": "Tesla and SpaceX established independent board committees to formally study a corporate combination uniting automotive, robotics, AI, and space infrastructure.",
   "open_questions": [
    "What valuation multiple will be assigned to privately held SpaceX?",
-   "Will Tesla shareholders or antitrust regulators challenge the combination?"
+   "Will regulatory antitrust bodies challenge the combination?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-22"
  },
  "russia-frees-hubbard": {
   "first_seen": "2026-10-21",
@@ -1380,5 +1392,51 @@
    "Will neighboring countries restrict travel?"
   ],
   "last_seen": "2026-10-21"
+ },
+ "us-israel-iran-strike-plans": {
+  "first_seen": "2026-10-22",
+  "expectations": [
+   {
+    "date": "2026-10-22",
+    "text": "Heightened geopolitical risk premium in global energy markets"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-22",
+    "event": "Military strike plans drafted for post-midterm execution"
+   }
+  ],
+  "title": "U.S. and Israel draft post-midterm strike plans against Iran",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "Intelligence sources revealed that the U.S. and Israel are actively preparing military plans for potential strikes against Iran in early November following the U.S. midterms.",
+  "open_questions": [
+   "Will diplomatic channels avert military escalation before November?"
+  ],
+  "last_seen": "2026-10-22"
+ },
+ "meta-new-mexico-penalty": {
+  "first_seen": "2026-10-22",
+  "expectations": [
+   {
+    "date": "2026-10-22",
+    "text": "Extended appellate litigation in federal and state courts"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-22",
+    "event": "$25 billion penalty ordered by state court judge"
+   }
+  ],
+  "title": "Meta ordered to pay $25 billion penalty in New Mexico privacy case",
+  "status": "MAJOR CHANGE",
+  "stage": "COURT CASE",
+  "summary": "A U.S. judge ordered Meta to pay a $25 billion penalty for deceiving users about data privacy practices in connection with the Cambridge Analytica scandal.",
+  "open_questions": [
+   "Will Meta's appeal successfully reduce or overturn the penalty?"
+  ],
+  "last_seen": "2026-10-22"
  }
 }
