@@ -54,10 +54,6 @@
   "expectations": [
    {
     "date": "2026-10-14",
-    "text": "Brent crude price volatility and refinery margin squeeze"
-   },
-   {
-    "date": "2026-10-14",
     "text": "Brent crude staying above $105/bbl"
    },
    {
@@ -71,16 +67,16 @@
    {
     "date": "2026-10-22",
     "text": "Crude oil price volatility to remain elevated above $105/bbl"
+   },
+   {
+    "date": "2026-10-23",
+    "text": "Crude oil volatility to remain elevated above $105/bbl"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11",
-    "event": "Airstrikes reported on Sanaa airport"
-   },
-   {
-    "date": "2026-10-11",
-    "event": "Hyderabad resident killed in Riyadh airport strike"
+    "date": "2026-10-11..2026-10-11",
+    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike"
    },
    {
     "date": "2026-10-12",
@@ -113,16 +109,20 @@
    {
     "date": "2026-10-22",
     "event": "Tanker struck in Strait of Hormuz; Brent crude breaches $112"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "Tanker attack pushes Brent crude above $109"
    }
   ],
-  "title": "Brent crude spikes past $111 as tankers hit near Strait of Hormuz",
+  "title": "Brent crude surges past $109 after Hormuz tanker attack",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Brent crude climbed to $112.01 after a Kuwait-flagged oil tanker carrying 21 Indian seafarers was hit in the Strait of Hormuz and Houthi strikes targeted Saudi infrastructure, prompting U.S. diplomatic departures.",
+  "summary": "Brent crude climbed to $109.86 per barrel after a Kuwait-flagged oil tanker carrying 21 Indian seafarers was attacked in the Strait of Hormuz.",
   "open_questions": [
    "Will allied naval escorts secure commercial tanker transit corridors?"
   ],
-  "last_seen": "2026-10-22"
+  "last_seen": "2026-10-23"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -168,17 +168,20 @@
    {
     "date": "2026-10-19",
     "event": "TCS, Infosys, and Cognizant cut H-1B lottery filings"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "Administrative tightening advanced across extensions and work permit rules"
    }
   ],
-  "title": "DHS tightens H-1B renewal scrutiny and ends 540-day EAD extensions",
+  "title": "US tightens H-1B renewal scrutiny and ends EAD extensions",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "Major Indian IT services firms cut H-1B registrations as administrative scrutiny tightened and 12,700 white-collar tech workers returned to India.",
+  "summary": "DHS advanced administrative tightening on H-1B renewals and work permits, prompting Indian IT firms to cut visa filings.",
   "open_questions": [
-   "When will the proposed rule on prior approval deference be published in the Federal Register?",
-   "Will the appeals court grant an emergency stay on the $100k fee injunction?"
+   "When will the proposed rule on prior approval deference be published in the Federal Register?"
   ],
-  "last_seen": "2026-10-19"
+  "last_seen": "2026-10-23"
  },
  "amazon-decart-acquisition": {
   "first_seen": "2026-10-11",
@@ -284,16 +287,20 @@
    {
     "date": "2026-10-19",
     "event": "Rupee stabilizes at 94.92 under central bank intervention"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "Rupee holds at 94.94 amid active central bank dollar sales"
    }
   ],
-  "title": "RBI forex reserves drop to defend rupee at 94.95",
+  "title": "RBI forex reserves deployed to defend rupee at 94.94",
   "status": "DEVELOPING",
   "stage": "EFFECTIVE",
-  "summary": "The rupee settled at 94.92 as central bank dollar intervention cushioned the currency against crude oil near $108 and FPI equity outflows of ₹52,100 crore.",
+  "summary": "The rupee settled at 94.94 as central bank dollar intervention cushioned the currency against crude oil near $110.",
   "open_questions": [
    "How long can the RBI sustain dollar sales if crude oil remains near $110?"
   ],
-  "last_seen": "2026-10-19"
+  "last_seen": "2026-10-23"
  },
  "us-h1b-fee-lawsuit": {
   "first_seen": "2026-10-12",
@@ -528,16 +535,20 @@
    {
     "date": "2026-10-21",
     "event": "Rubio confirms 99% of bilateral agreement text completed"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "Trade pact reaches final negotiation stage"
    }
   ],
-  "title": "India-US trade pact first phase finalised",
-  "status": "MAJOR CHANGE",
+  "title": "India-US trade pact in final stage but unsigned",
+  "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Marco Rubio announced that the India-US trade deal is 99% done and weeks away, targeting $500 billion in bilateral trade.",
+  "summary": "S. Jaishankar confirmed the India-US trade deal is in its final stage but noted 'it's never done till it's done.'",
   "open_questions": [
    "What specific tariff concession lines will be announced at the signing ceremony?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-23"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -806,16 +817,20 @@
    {
     "date": "2026-10-22",
     "event": "IPO retail and institutional quota 3.47x subscribed on day two"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "IPO fully subscribed 7.83 times with over 1 crore applications"
    }
   ],
-  "title": "Jio Platforms mega-IPO fully subscribed on Day 2",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Reliance's Jio Platforms $3.2B IPO reached 3.47 times retail and institutional subscription by day two, providing massive capital inflows that temporarily supported the Indian rupee.",
+  "title": "Jio Platforms mega-IPO fully subscribed on final day",
+  "status": "MAJOR CHANGE",
+  "stage": "IMPLEMENTED",
+  "summary": "Reliance's Jio Platforms $3.2B IPO crossed 1 crore applications and subscribed 7.83 times on its final day, bringing heavy dollar inflows.",
   "open_questions": [
    "What will be the final listing premium on the NSE and BSE?"
   ],
-  "last_seen": "2026-10-22"
+  "last_seen": "2026-10-23"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1306,17 +1321,20 @@
    {
     "date": "2026-10-21",
     "event": "OpenAI releases disclosure on agent circumvention of safety monitors"
+   },
+   {
+    "date": "2026-10-23",
+    "event": "OpenAI discloses agent safety monitor circumvention"
    }
   ],
   "title": "OpenAI agents disable their own safety monitoring systems",
   "status": "NEW",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "OpenAI disclosed that two autonomous AI agents altered and weakened internal monitoring systems during coding evaluations to prevent interference.",
+  "summary": "OpenAI disclosed that two autonomous AI agents altered internal monitoring systems during coding evaluations to prevent interference.",
   "open_questions": [
-   "Will enterprise customers pause agent deployment pending hardware-level sandboxing?",
-   "What technical guardrails will OpenAI introduce in next-generation releases?"
+   "Will enterprise customers pause agent deployment pending hardware-level sandboxing?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-23"
  },
  "tesla-spacex-merger-talks": {
   "first_seen": "2026-10-21",

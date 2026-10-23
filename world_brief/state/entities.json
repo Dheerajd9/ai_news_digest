@@ -78,13 +78,13 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 9,
+"count": 10,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -105,12 +105,12 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -147,7 +147,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 10,
+"count": 11,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -155,7 +155,7 @@
 "us-ead-extension-end",
 "vance-h1b-rhetoric"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-23"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -201,12 +201,12 @@
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
-"count": 8,
+"count": 9,
 "stories": [
 "rbi-rupee-defense",
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-23"
 },
 "US Dollar": {
 "first_seen": "2026-10-12",
@@ -218,14 +218,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 11,
+"count": 12,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -273,7 +273,7 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 6,
+"count": 7,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
@@ -281,7 +281,7 @@
 "openai-spy-device-case",
 "openai-agents-disable-monitors"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-23"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -414,36 +414,36 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 16,
+"count": 18,
 "stories": [
-"fairfax-idbi-bank-stake",
 "india-us-trade-talks",
 "cert-in-ai-agent-breach",
 "russia-oil-sanctions-waiver",
 "vance-h1b-rhetoric",
 "china-solar-export-controls",
 "jio-platforms-mega-ipo",
-"india-nz-fta"
+"india-nz-fta",
+"us-perm-h1b-freeze"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-23"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
-"count": 4,
+"count": 5,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-23"
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 9,
+"count": 10,
 "stories": [
 "india-us-trade-talks",
 "russia-frees-hubbard",
 "us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -496,27 +496,27 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 5,
+"count": 6,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 5,
+"count": 6,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 5,
+"count": 6,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -650,11 +650,11 @@
 },
 "Marco Rubio": {
 "first_seen": "2026-10-19",
-"count": 3,
+"count": 4,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-23"
 },
 "Cognizant": {
 "first_seen": "2026-10-19",
@@ -778,11 +778,11 @@
 },
 "Houthi": {
 "first_seen": "2026-10-22",
-"count": 1,
+"count": 2,
 "stories": [
 "middle-east-escalation"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-23"
 },
 "Israel": {
 "first_seen": "2026-10-22",
@@ -791,26 +791,58 @@
 "us-israel-iran-strike-plans"
 ],
 "last_seen": "2026-10-22"
+},
+"Reserve Bank of India": {
+"first_seen": "2026-10-23",
+"count": 1,
+"stories": [
+"rbi-rupee-defense"
+],
+"last_seen": "2026-10-23"
 }
 },
 "connections": [
+{
+"text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-23",
+"count": 2
+},
+{
+"text": "Jio IPO inflows -> rupee overbought zone -> currency stabilization against oil",
+"first_seen": "2026-10-22",
+"last_seen": "2026-10-23",
+"count": 2
+},
+{
+"text": "India-US trade deal -> tariff reduction -> export opportunities",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-23",
+"count": 9
+},
+{
+"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-23",
+"count": 2
+},
+{
+"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
+"first_seen": "2026-10-16",
+"last_seen": "2026-10-23",
+"count": 3
+},
+{
+"text": "US administrative visa squeeze -> H-1B renewal friction -> IT staffing adjustments",
+"first_seen": "2026-10-23",
+"last_seen": "2026-10-23",
+"count": 1
+},
 {
 "text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
 "first_seen": "2026-10-21",
 "last_seen": "2026-10-22",
 "count": 2
-},
-{
-"text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-22",
-"count": 1
-},
-{
-"text": "Jio IPO inflows -> rupee overbought zone -> currency stabilization against oil",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-22",
-"count": 1
 },
 {
 "text": "US-Israel strike plans -> Middle East conflict escalation -> Brent crude volatility",
@@ -822,18 +854,6 @@
 "text": "Meta privacy penalty -> Big Tech regulatory enforcement precedent",
 "first_seen": "2026-10-22",
 "last_seen": "2026-10-22",
-"count": 1
-},
-{
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-21",
-"count": 8
-},
-{
-"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
 "count": 1
 },
 {
@@ -877,12 +897,6 @@
 "first_seen": "2026-10-17",
 "last_seen": "2026-10-20",
 "count": 5
-},
-{
-"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-20",
-"count": 2
 },
 {
 "text": "Alberta stability -> Canadian Dollar stabilization -> stable energy exports",
@@ -1144,12 +1158,6 @@
 },
 {
 "text": "AI infrastructure demand -> cloud custom silicon -> reduced Nvidia dependency",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Middle East escalation -> aviation risk -> oil prices near $106 -> Indian import costs",
 "first_seen": "2026-10-12",
 "last_seen": "2026-10-12",
 "count": 1
