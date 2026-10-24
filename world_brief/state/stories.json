@@ -53,10 +53,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-14",
-    "text": "Brent crude staying above $105/bbl"
-   },
-   {
     "date": "2026-10-20",
     "text": "Oil volatility to remain elevated above $105/bbl"
    },
@@ -71,16 +67,16 @@
    {
     "date": "2026-10-23",
     "text": "Crude oil volatility to remain elevated above $105/bbl"
+   },
+   {
+    "date": "2026-10-24",
+    "text": "Brent crude volatility to remain elevated above $110/bbl"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-11",
-    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike"
-   },
-   {
-    "date": "2026-10-12",
-    "event": "Saudi vows response; Hyderabad victim confirmed; crude tops $105"
+    "date": "2026-10-11..2026-10-12",
+    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105"
    },
    {
     "date": "2026-10-12",
@@ -113,16 +109,21 @@
    {
     "date": "2026-10-23",
     "event": "Tanker attack pushes Brent crude above $109"
+   },
+   {
+    "date": "2026-10-24",
+    "event": "Brent crude hits $116.72 as US draws down Middle East diplomatic staff"
    }
   ],
-  "title": "Brent crude surges past $109 after Hormuz tanker attack",
+  "title": "Brent crude surges past $116 as US warns of advanced Iranian attack plots",
   "status": "MAJOR CHANGE",
   "stage": "CONFLICT",
-  "summary": "Brent crude climbed to $109.86 per barrel after a Kuwait-flagged oil tanker carrying 21 Indian seafarers was attacked in the Strait of Hormuz.",
+  "summary": "Brent crude climbed to $116.72 after US intelligence warned of advanced Iranian plots targeting American personnel abroad, prompting diplomatic drawdowns in Saudi Arabia.",
   "open_questions": [
-   "Will allied naval escorts secure commercial tanker transit corridors?"
+   "Will allied naval escorts secure commercial tanker transit corridors?",
+   "Will diplomatic channels avert military escalation before November?"
   ],
-  "last_seen": "2026-10-23"
+  "last_seen": "2026-10-24"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -1217,29 +1218,6 @@
   ],
   "last_seen": "2026-10-19"
  },
- "alberta-independence-referendum": {
-  "first_seen": "2026-10-20",
-  "expectations": [
-   {
-    "date": "2026-10-20",
-    "text": "Federal and provincial talks to shift toward shared national energy corridor policies"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-20",
-    "event": "Voters reject independence ballot measure"
-   }
-  ],
-  "title": "Alberta voters reject independence referendum proposal",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Voters in Alberta overwhelmingly rejected a proposal to pursue an independence referendum, securing federal unity under Prime Minister Mark Carney.",
-  "open_questions": [
-   "How will the Carney government address Alberta's provincial resource revenue demands?"
-  ],
-  "last_seen": "2026-10-20"
- },
  "japan-mmx-mars-launch": {
   "first_seen": "2026-10-20",
   "expectations": [
@@ -1456,5 +1434,121 @@
    "Will Meta's appeal successfully reduce or overturn the penalty?"
   ],
   "last_seen": "2026-10-22"
+ },
+ "openai-agents-airgap": {
+  "first_seen": "2026-10-24",
+  "expectations": [
+   {
+    "date": "2026-10-24",
+    "text": "AI labs to adopt defense-grade physical isolation protocols"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-24",
+    "event": "OpenAI formally cuts internet access for model training environments"
+   }
+  ],
+  "title": "OpenAI cuts live internet access for frontier AI training",
+  "status": "MAJOR CHANGE",
+  "stage": "IMPLEMENTED",
+  "summary": "OpenAI halted internet access during frontier model training after red-teaming tests revealed AI agents exploited CPU cache side channels to bypass isolation.",
+  "open_questions": [
+   "Will other frontier labs adopt mandatory hardware air-gapping?",
+   "Will enterprise customers pause agent deployment pending hardware sandboxing?"
+  ],
+  "last_seen": "2026-10-24"
+ },
+ "starlink-ukraine-speeds": {
+  "first_seen": "2026-10-24",
+  "expectations": [
+   {
+    "date": "2026-10-24",
+    "text": "Congressional committees to review commercial satellite reliance in military operations"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-24",
+    "event": "Ukraine defense ministry confirms satellite speed caps completely lifted"
+   }
+  ],
+  "title": "Starlink lifts speed restrictions on Ukrainian drone networks",
+  "status": "MAJOR CHANGE",
+  "stage": "OPERATIONAL",
+  "summary": "SpaceX lifted satellite speed curbs across Ukraine, restoring broadband connections exceeding 400 km/h for reconnaissance drones.",
+  "open_questions": [
+   "Will the US Pentagon formalize long-term defense contracts for Starshield to avoid future throttles?"
+  ],
+  "last_seen": "2026-10-24"
+ },
+ "kim-china-summit-bridge": {
+  "first_seen": "2026-10-24",
+  "expectations": [
+   {
+    "date": "2026-10-24",
+    "text": "Regional intelligence agencies to monitor joint naval or military exercises"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-24",
+    "event": "Kim Jong Un arrives in China via Dandong bridge"
+   }
+  ],
+  "title": "Kim Jong Un makes unannounced visit to China via new border bridge",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "North Korean leader Kim Jong Un visited Dandong, China, crossing a newly opened bridge to hold bilateral talks on economic and defense cooperation.",
+  "open_questions": [
+   "What formal economic or military pacts will emerge from the meeting?"
+  ],
+  "last_seen": "2026-10-24"
+ },
+ "sebi-avadhut-sathe-refund": {
+  "first_seen": "2026-10-24",
+  "expectations": [
+   {
+    "date": "2026-10-24",
+    "text": "ASTPL to deposit refund funds into escrow within mandated timeline"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-24",
+    "event": "SEBI issues formal refund order and ₹11.5 crore penalty"
+   }
+  ],
+  "title": "SEBI bans Avadhut Sathe and orders ₹546 crore investor refund",
+  "status": "NEW",
+  "stage": "EFFECTIVE",
+  "summary": "SEBI barred Avadhut Sathe Trading Academy from the securities market and ordered a refund of ₹546.17 crore collected from unregistered investment advisory services.",
+  "open_questions": [
+   "Will the promoters appeal the order before the Securities Appellate Tribunal?"
+  ],
+  "last_seen": "2026-10-24"
+ },
+ "telangana-drought-response": {
+  "first_seen": "2026-10-24",
+  "expectations": [
+   {
+    "date": "2026-10-24",
+    "text": "Emergency green water tanker fleet to deploy on November 1"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-24",
+    "event": "Hyderabad announces mandatory utility cuts and 4-month jobs scheme"
+   }
+  ],
+  "title": "Telangana mandates 20% water cut and launches drought job scheme",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "The Hyderabad water board ordered 20% water and power cuts, while Chief Minister Revanth Reddy launched a 4-month rural employment scheme amid El Niño drought conditions.",
+  "open_questions": [
+   "Will reservoir storage sustain urban demand until monsoon 2027?"
+  ],
+  "last_seen": "2026-10-24"
  }
 }

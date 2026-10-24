@@ -69,22 +69,23 @@
 },
 "China": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
 "us-china-chip-smuggling",
-"china-solar-export-controls"
+"china-solar-export-controls",
+"kim-china-summit-bridge"
 ],
-"last_seen": "2026-10-18"
+"last_seen": "2026-10-24"
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 10,
+"count": 11,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -105,12 +106,12 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -218,14 +219,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 12,
+"count": 13,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -273,25 +274,27 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 7,
+"count": 8,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
 "us-banks-block-ai-agents",
 "openai-spy-device-case",
-"openai-agents-disable-monitors"
+"openai-agents-disable-monitors",
+"openai-agents-airgap"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 7,
+"count": 8,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
-"anthropic-junior-hiring-shift"
+"anthropic-junior-hiring-shift",
+"openai-agents-airgap"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-24"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -414,18 +417,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 18,
+"count": 19,
 "stories": [
-"india-us-trade-talks",
 "cert-in-ai-agent-breach",
 "russia-oil-sanctions-waiver",
 "vance-h1b-rhetoric",
 "china-solar-export-controls",
 "jio-platforms-mega-ipo",
 "india-nz-fta",
-"us-perm-h1b-freeze"
+"us-perm-h1b-freeze",
+"sebi-avadhut-sathe-refund"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -437,13 +440,15 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 10,
+"count": 12,
 "stories": [
 "india-us-trade-talks",
 "russia-frees-hubbard",
-"us-israel-iran-strike-plans"
+"us-israel-iran-strike-plans",
+"middle-east-escalation",
+"starlink-ukraine-speeds"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -512,11 +517,12 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 6,
+"count": 7,
 "stories": [
-"jio-platforms-mega-ipo"
+"jio-platforms-mega-ipo",
+"sebi-avadhut-sathe-refund"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-24"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -730,19 +736,21 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 2,
+"count": 3,
 "stories": [
-"tesla-spacex-merger-talks"
+"tesla-spacex-merger-talks",
+"starlink-ukraine-speeds"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-24"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 2,
+"count": 3,
 "stories": [
-"tesla-spacex-merger-talks"
+"tesla-spacex-merger-talks",
+"starlink-ukraine-speeds"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-10-24"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -799,14 +807,68 @@
 "rbi-rupee-defense"
 ],
 "last_seen": "2026-10-23"
+},
+"North Korea": {
+"first_seen": "2026-10-24",
+"count": 1,
+"stories": [
+"kim-china-summit-bridge"
+],
+"last_seen": "2026-10-24"
+},
+"Telangana Government": {
+"first_seen": "2026-10-24",
+"count": 1,
+"stories": [
+"telangana-drought-response"
+],
+"last_seen": "2026-10-24"
+},
+"Hyderabad Water Board": {
+"first_seen": "2026-10-24",
+"count": 1,
+"stories": [
+"telangana-drought-response"
+],
+"last_seen": "2026-10-24"
 }
 },
 "connections": [
 {
 "text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
 "first_seen": "2026-10-22",
-"last_seen": "2026-10-23",
-"count": 2
+"last_seen": "2026-10-24",
+"count": 3
+},
+{
+"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-24",
+"count": 3
+},
+{
+"text": "Satellite communications -> drone reconnaissance -> tactical warfare",
+"first_seen": "2026-10-24",
+"last_seen": "2026-10-24",
+"count": 1
+},
+{
+"text": "Pyongyang-Beijing alignment -> regional security deterrence",
+"first_seen": "2026-10-24",
+"last_seen": "2026-10-24",
+"count": 1
+},
+{
+"text": "Unregistered financial advice -> retail investor losses -> SEBI regulatory enforcement",
+"first_seen": "2026-10-24",
+"last_seen": "2026-10-24",
+"count": 1
+},
+{
+"text": "El Nino drought -> reservoir depletion -> municipal water rationing -> rural employment relief",
+"first_seen": "2026-10-24",
+"last_seen": "2026-10-24",
+"count": 1
 },
 {
 "text": "Jio IPO inflows -> rupee overbought zone -> currency stabilization against oil",
@@ -819,12 +881,6 @@
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-23",
 "count": 9
-},
-{
-"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-23",
-"count": 2
 },
 {
 "text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
@@ -1134,30 +1190,6 @@
 },
 {
 "text": "Food inflation spike -> higher CPI -> RBI interest rate pause",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Crude oil spike -> dollar demand -> RBI intervention -> rupee rebound",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil prices above $105 -> Indian import bill pressure",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "H-1B fee litigation -> employer petition costs -> Indian IT hiring",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
-"count": 1
-},
-{
-"text": "AI infrastructure demand -> cloud custom silicon -> reduced Nvidia dependency",
 "first_seen": "2026-10-12",
 "last_seen": "2026-10-12",
 "count": 1
