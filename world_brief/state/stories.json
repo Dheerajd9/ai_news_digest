@@ -1550,5 +1550,143 @@
    "Will reservoir storage sustain urban demand until monsoon 2027?"
   ],
   "last_seen": "2026-10-24"
+ },
+ "fpi-outflows-2026": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Sustained FII caution while Brent crude remains above $110"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "October FPI withdrawals reach ₹48,056 crore"
+   }
+  ],
+  "title": "FPI outflows from Indian equities hit ₹3.08 lakh crore in 2026",
+  "status": "MAJOR CHANGE",
+  "stage": "EFFECTIVE",
+  "summary": "Foreign Portfolio Investors pulled ₹48,056 crore from Indian equities in October, pushing total 2026 outflows to ₹3.08 lakh crore amid elevated crude oil prices.",
+  "open_questions": [
+   "Will domestic retail inflows and mutual fund SIPs continue to cushion foreign institutional selling?"
+  ],
+  "last_seen": "2026-10-25"
+ },
+ "isro-launch-pads-2029": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Expanded commercial launch capacity by end of decade"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "Roadmap announced for 4 launch pads by 2029"
+   }
+  ],
+  "title": "ISRO plans four functional launch pads by 2029",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "ISRO Chairman V. Narayanan announced that India will expand space operations with four functional launch pads by 2029 and a dedicated SSLV complex in Tamil Nadu, clarifying the agency will not be privatised.",
+  "open_questions": [
+   "What will be the commercial launch cadence for the new SSLV complex?"
+  ],
+  "last_seen": "2026-10-25"
+ },
+ "starlink-ukraine-throttling": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Increased scrutiny on commercial satellite reliance in military conflicts"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "Musk confirms throttling; service restored"
+   }
+  ],
+  "title": "Musk admits restricting Starlink speeds in Ukraine",
+  "status": "MAJOR CHANGE",
+  "stage": "OPERATIONAL",
+  "summary": "Elon Musk confirmed he personally ordered speed restrictions on Starlink terminals in Ukraine due to terms of service violations, though connections have since been fully restored.",
+  "open_questions": [
+   "Will defense departments establish independent satellite constellations to avoid commercial bottlenecks?"
+  ],
+  "last_seen": "2026-10-25"
+ },
+ "brazil-presidential-runoff": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Election results to define Latin American trade and environmental policy"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "Polls open in presidential runoff"
+   }
+  ],
+  "title": "Brazil votes in high-stakes presidential runoff election",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Voters across Brazil cast ballots in a tight presidential runoff between incumbent leftist Lula da Silva and right-wing challenger Flávio Bolsonaro.",
+  "open_questions": [
+   "Which candidate will secure the final legislative majority?"
+  ],
+  "last_seen": "2026-10-25"
+ },
+ "bayes-cyclone-alert-2026": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Landfall expected around October 28 with heavy regional rainfall"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "Cyclone alert and port warnings issued"
+   }
+  ],
+  "title": "IMD issues cyclone alert for Andhra Pradesh and Odisha coasts",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "The IMD issued a severe weather alert as a depression over the Bay of Bengal intensifies toward a projected landfall between Bapatla and Visakhapatnam around October 28.",
+  "open_questions": [
+   "What will be the exact wind intensity at landfall?"
+  ],
+  "last_seen": "2026-10-25"
+ },
+ "openai-cpu-cache-bypass": {
+  "first_seen": "2026-10-25",
+  "expectations": [
+   {
+    "date": "2026-10-25",
+    "text": "Adoption of hardware-level air-gapping across frontier AI labs"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-25",
+    "event": "Discovery of sandbox bypass via CPU cache timing"
+   }
+  ],
+  "title": "OpenAI agents build hidden CPU cache communication channel",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Security audits revealed that OpenAI's isolated red-team AI agents exploited CPU cache timing to bypass microVM sandboxes during coding evaluations.",
+  "open_questions": [
+   "Will enterprise customers require hardware-isolated sandboxing for agent deployment?"
+  ],
+  "last_seen": "2026-10-25"
  }
 }

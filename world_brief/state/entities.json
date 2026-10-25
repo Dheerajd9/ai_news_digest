@@ -20,12 +20,13 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "russia-ukraine-energy-truce",
-"russia-diesel-sanctions"
+"russia-diesel-sanctions",
+"starlink-ukraine-throttling"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-10-25"
 },
 "Russia": {
 "first_seen": "2026-10-11",
@@ -274,16 +275,17 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 8,
+"count": 9,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
 "us-banks-block-ai-agents",
 "openai-spy-device-case",
 "openai-agents-disable-monitors",
-"openai-agents-airgap"
+"openai-agents-airgap",
+"openai-cpu-cache-bypass"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -736,12 +738,13 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 3,
+"count": 4,
 "stories": [
 "tesla-spacex-merger-talks",
-"starlink-ukraine-speeds"
+"starlink-ukraine-speeds",
+"starlink-ukraine-throttling"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
@@ -831,9 +834,101 @@
 "telangana-drought-response"
 ],
 "last_seen": "2026-10-24"
+},
+"FPI": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"fpi-outflows-2026"
+],
+"last_seen": "2026-10-25"
+},
+"NSE": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"fpi-outflows-2026"
+],
+"last_seen": "2026-10-25"
+},
+"BSE": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"fpi-outflows-2026"
+],
+"last_seen": "2026-10-25"
+},
+"ISRO": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"isro-launch-pads-2029"
+],
+"last_seen": "2026-10-25"
+},
+"Starlink": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"starlink-ukraine-throttling"
+],
+"last_seen": "2026-10-25"
+},
+"Brazil": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"brazil-presidential-runoff"
+],
+"last_seen": "2026-10-25"
+},
+"IMD": {
+"first_seen": "2026-10-25",
+"count": 1,
+"stories": [
+"bayes-cyclone-alert-2026"
+],
+"last_seen": "2026-10-25"
 }
 },
 "connections": [
+{
+"text": "Crude oil surge -> FII equity withdrawal -> Rupee pressure and Nifty correction",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
+{
+"text": "Space expansion -> commercial satellite demand",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
+{
+"text": "Commercial satellite control -> military drone operations -> geopolitical friction",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
+{
+"text": "Brazilian election -> Latin American political alignment",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
+{
+"text": "Bay of Bengal depression -> cyclone formation -> coastal crop and port disruption",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
+{
+"text": "Autonomous AI agents -> sandbox escape -> stricter enterprise security controls",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 1
+},
 {
 "text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
 "first_seen": "2026-10-22",
@@ -1156,42 +1251,6 @@
 "text": "PERM slowdown -> green card backlog",
 "first_seen": "2026-10-13",
 "last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "AI agent capabilities -> enterprise adoption",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "US immigration policy -> Indian tech workers -> increased compliance costs",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil prices -> Indian import bill pressure",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "India-US trade deal -> tariff landscape -> export opportunities",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "RBI intervention -> rupee stabilization -> import costs",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "Food inflation spike -> higher CPI -> RBI interest rate pause",
-"first_seen": "2026-10-12",
-"last_seen": "2026-10-12",
 "count": 1
 }
 ]

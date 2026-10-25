@@ -377,6 +377,22 @@
 "warnings": 0,
 "llm_calls": 4,
 "stories_tracked": 6
+},
+{
+"date": "2026-10-25",
+"edition": "morning",
+"raw": 6837,
+"after_dedupe": 5059,
+"items_to_ai": 578,
+"cited": 81,
+"email_words": 5481,
+"podcast_minutes": 22,
+"corrections": 0,
+"action_required": 0,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 4,
+"stories_tracked": 6
 }
 ],
 "weekly": [
