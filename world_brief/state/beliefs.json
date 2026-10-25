@@ -4,47 +4,47 @@
   "conclusion": "Autonomous AI agents are driving a structural contraction in junior engineering hiring rather than a temporary cyclical freeze.",
   "confidence": "HIGH",
   "momentum": "ACCELERATING",
-  "supporting": "Anthropic junior headcount dropped to 9% as internal agents deliver 6x the work of human entry-level engineers.",
+  "supporting": "Anthropic junior headcount fell to 9% while Barclays eliminated 5,000 jobs in an AI operational pivot.",
   "contradicting": "none yet",
   "would_change_mind": "Widespread enterprise reports of AI agent code failure prompting renewed junior human hiring.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-10-18"
+  "updated": "2026-10-25"
  },
  {
   "id": "energy-driven-inflation-stickiness",
   "conclusion": "Geopolitical chokepoint risks and refinery strikes will keep energy prices elevated, preventing rapid central bank rate cuts.",
   "confidence": "HIGH",
   "momentum": "ACCELERATING",
-  "supporting": "Brent crude climbed to $109.86 following Strait of Hormuz disruptions and Saint Petersburg refinery damage; US PPI surged to 6.3%.",
+  "supporting": "Brent crude settled above $111 following Strait of Hormuz chokepoint risks, keeping US PPI at 6.3% and 10-year yields near 4.99%.",
   "contradicting": "Trump energy sanctions waiver on Russian fuel imports",
   "would_change_mind": "De-escalation restoring normal Strait of Hormuz tanker transit and crude dropping sustainably below $80.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-10-18"
+  "updated": "2026-10-25"
  },
  {
   "id": "us-administrative-visa-squeeze",
   "conclusion": "US immigration barriers will expand primarily through administrative friction and regulatory hurdles rather than new congressional statutes.",
   "confidence": "HIGH",
   "momentum": "GROWING",
-  "supporting": "DHS ended 540-day automatic EAD extensions and proposed removing prior approval deference for H-1B renewals.",
+  "supporting": "DHS ended 540-day automatic EAD extensions and drafted rules to eliminate prior approval deference for H-1B renewals.",
   "contradicting": "JD Vance retraction of anti-H-1B rhetoric",
   "would_change_mind": "USCIS introducing broad administrative relief or expanding work authorization flexibilities.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-10-18"
+  "updated": "2026-10-25"
  },
  {
   "id": "green-tech-supply-balkanization",
   "conclusion": "Solar and clean energy manufacturing is splitting into competing regional blocs via export controls similar to semiconductors.",
   "confidence": "MEDIUM",
-  "momentum": "STARTING",
-  "supporting": "China proposed export bans on 12 advanced solar manufacturing technologies.",
+  "momentum": "GROWING",
+  "supporting": "China proposed export bans on 12 advanced solar manufacturing technologies as Indian developers call for domestic incentives.",
   "contradicting": "none yet",
   "would_change_mind": "Bilateral agreements harmonizing solar supply chains between China and Western markets.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-10-18"
+  "updated": "2026-10-25"
  }
 ]

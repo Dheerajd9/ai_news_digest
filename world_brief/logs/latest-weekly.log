@@ -1,36 +1,28 @@
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.8-flash: daily free quota used up
-  ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [5m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [8m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [9m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [9m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [9m] ! Gemini gemini-3.5-flash busy (HTTP 503)
+  [13m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [13m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+  ! Gemini gemini-3.7-flash: daily free quota used up
 Edition: weekly
-  written by Gemini gemini-3.7-flash
-  meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Brent crude near $110 and refinery strikes; Anthropic junior hiring collapse and AI agents; US immigration scrutiny and JD Vance retraction; RBI $8.58B forex intervention defending rupee; US banks block autonomous AI agents', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  written by Gemini gemini-3.7-flash
-  written by Gemini gemini-3.7-flash
-  script reviewed: 3704 -> 3726 words
-  en podcast script: 85 turns, 3726 words
+  [2m] written by Gemini gemini-3.8-flash
+  [2m] meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Brent Crude Sustained Above $111; Record ₹3.08 Lakh Crore FPI Capital Flight; AI Agent Hardware Escapes and Air-Gapping; US H-1B and EAD Administrative Rules Tightening; Starlink Ukraine Throttling Fallout', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  [10m] written by Gemini gemini-3.5-flash
+  [14m] written by Gemini gemini-3.6-flash
+  script reviewed: 3410 -> 3417 words
+  en podcast script: 97 turns, 3417 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
   ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
-  ! Gemini TTS gemini-3.8-flash-lite-tts daily free quota used up
-  Gemini TTS: all free quota used today; using backup voices
-  voices: edge-tts (en)
-  chapters: Top stories 0:00, India 7:55, USA 12:32, World 16:33, Tech 19:25, Money 22:54, Wrap-up 26:41
-  world_brief_full podcast ready: 14.3 MB
+  voices: Gemini gemini-3.8-flash-lite-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (8 part(s))
+  chapters: Top stories 0:00, India 5:45, USA 9:50, World 12:25, Tech 14:27, Money 17:28, Wrap-up 19:28
+  world_brief_full podcast ready: 11.2 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
-  written by Gemini gemini-3.6-flash
-  written by Gemini gemini-3.7-flash
-  te: same episode as English (3726 English words -> 3103)
-  te podcast script: 85 turns, 3103 words
-  voices: edge-tts (te)
-  chapters: Top stories 0:00, India 8:51, USA 13:37, World 17:34, Tech 20:27, Money 23:48, Wrap-up 27:52
-  telugu_podcast podcast ready: 14.9 MB
-  telugu audio uploaded (14.9 MB)
-  te podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed-te.xml
-  podcast site updated with 2 audio file(s)
+  podcast site updated with 1 audio file(s)
   email sent (2 recipient(s))
   beliefs updated: 4
-  weekly system scorecard: {'week_ending': '2026-10-18', 'runs': 18, 'avg_items_to_ai': 334.9, 'avg_stories_cited': 63.4, 'avg_email_words': 2751.7, 'avg_podcast_minutes': 21.8, 'corrections': 0, 'action_required': 6, 'quiet_days': 0, 'verification_warnings': 0, 'llm_calls': 97}
+  weekly system scorecard: {'week_ending': '2026-10-25', 'runs': 10, 'avg_items_to_ai': 472.5, 'avg_stories_cited': 107.0, 'avg_email_words': 5639.3, 'avg_podcast_minutes': 23.9, 'corrections': 0, 'action_required': 4, 'quiet_days': 0, 'verification_warnings': 1, 'llm_calls': 34}
   story ledger: 8 stories updated
-  Telegram channel: message + 2 podcast(s)
-  health: 2 issue(s): world_brief_full: Microsoft backup voices (Gemini voices unavailable or over quota); telugu_podcast: Microsoft backup voices (Gemini voices unavailable or over quota)
-  email sent (1 recipient(s))
+  Telegram channel: 1 message (podcast + 1 full-news page(s) as buttons)

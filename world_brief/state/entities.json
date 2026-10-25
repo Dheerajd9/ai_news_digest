@@ -20,7 +20,7 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
@@ -80,13 +80,13 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 11,
+"count": 12,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "air-india-saudi-suspension"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -107,12 +107,12 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 4,
+"count": 5,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -149,7 +149,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 11,
+"count": 12,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -157,7 +157,7 @@
 "us-ead-extension-end",
 "vance-h1b-rhetoric"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-25"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -220,14 +220,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 13,
+"count": 14,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -275,7 +275,7 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 9,
+"count": 10,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
@@ -419,38 +419,39 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 19,
+"count": 22,
 "stories": [
-"cert-in-ai-agent-breach",
-"russia-oil-sanctions-waiver",
-"vance-h1b-rhetoric",
 "china-solar-export-controls",
 "jio-platforms-mega-ipo",
 "india-nz-fta",
 "us-perm-h1b-freeze",
-"sebi-avadhut-sathe-refund"
+"sebi-avadhut-sathe-refund",
+"fpi-outflows-2026",
+"isro-launch-pads-2029",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
-"count": 5,
+"count": 6,
 "stories": [
 "india-us-trade-talks"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-25"
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 12,
+"count": 15,
 "stories": [
 "india-us-trade-talks",
 "russia-frees-hubbard",
 "us-israel-iran-strike-plans",
 "middle-east-escalation",
-"starlink-ukraine-speeds"
+"starlink-ukraine-speeds",
+"us-perm-h1b-freeze"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -503,28 +504,28 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 6,
+"count": 7,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-25"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 6,
+"count": 7,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-25"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 7,
+"count": 8,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -738,7 +739,7 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 4,
+"count": 5,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
@@ -748,12 +749,13 @@
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 3,
+"count": 4,
 "stories": [
 "tesla-spacex-merger-talks",
-"starlink-ukraine-speeds"
+"starlink-ukraine-speeds",
+"starlink-ukraine-throttling"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-25"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -837,7 +839,7 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 1,
+"count": 2,
 "stories": [
 "fpi-outflows-2026"
 ],
@@ -845,7 +847,7 @@
 },
 "NSE": {
 "first_seen": "2026-10-25",
-"count": 1,
+"count": 2,
 "stories": [
 "fpi-outflows-2026"
 ],
@@ -853,7 +855,7 @@
 },
 "BSE": {
 "first_seen": "2026-10-25",
-"count": 1,
+"count": 2,
 "stories": [
 "fpi-outflows-2026"
 ],
@@ -861,7 +863,7 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 1,
+"count": 2,
 "stories": [
 "isro-launch-pads-2029"
 ],
@@ -869,7 +871,7 @@
 },
 "Starlink": {
 "first_seen": "2026-10-25",
-"count": 1,
+"count": 2,
 "stories": [
 "starlink-ukraine-throttling"
 ],
@@ -897,19 +899,19 @@
 "text": "Crude oil surge -> FII equity withdrawal -> Rupee pressure and Nifty correction",
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
-"count": 1
+"count": 2
 },
 {
 "text": "Space expansion -> commercial satellite demand",
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
-"count": 1
+"count": 2
 },
 {
 "text": "Commercial satellite control -> military drone operations -> geopolitical friction",
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
-"count": 1
+"count": 2
 },
 {
 "text": "Brazilian election -> Latin American political alignment",
@@ -925,6 +927,30 @@
 },
 {
 "text": "Autonomous AI agents -> sandbox escape -> stricter enterprise security controls",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-25",
+"count": 2
+},
+{
+"text": "India-US trade deal -> tariff reduction -> export opportunities",
+"first_seen": "2026-10-14",
+"last_seen": "2026-10-25",
+"count": 10
+},
+{
+"text": "US administrative visa squeeze -> H-1B renewal friction -> IT staffing adjustments",
+"first_seen": "2026-10-23",
+"last_seen": "2026-10-25",
+"count": 2
+},
+{
+"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity -> rupee strength",
+"first_seen": "2026-10-21",
+"last_seen": "2026-10-25",
+"count": 2
+},
+{
+"text": "Middle East escalation -> oil above $110 -> India import costs -> RBI dollar sales -> rupee stabilization",
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
 "count": 1
@@ -972,22 +998,10 @@
 "count": 2
 },
 {
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-23",
-"count": 9
-},
-{
 "text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
 "first_seen": "2026-10-16",
 "last_seen": "2026-10-23",
 "count": 3
-},
-{
-"text": "US administrative visa squeeze -> H-1B renewal friction -> IT staffing adjustments",
-"first_seen": "2026-10-23",
-"last_seen": "2026-10-23",
-"count": 1
 },
 {
 "text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
@@ -1005,12 +1019,6 @@
 "text": "Meta privacy penalty -> Big Tech regulatory enforcement precedent",
 "first_seen": "2026-10-22",
 "last_seen": "2026-10-22",
-"count": 1
-},
-{
-"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity -> rupee strength",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
 "count": 1
 },
 {
@@ -1243,12 +1251,6 @@
 },
 {
 "text": "Saudi export pledge -> oil price easing",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "PERM slowdown -> green card backlog",
 "first_seen": "2026-10-13",
 "last_seen": "2026-10-13",
 "count": 1
