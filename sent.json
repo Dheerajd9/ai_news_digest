@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9jQWhkclNlSmV2TEZzY19JYW8wQ3pkZVhFNzFLaElxdHh2bFprTGwyYWxIVmtMd2tEMEw3bjVaMFJfQU9xU0lVQ2Q1S2owb185YXFpdElfZzVxTnJ6b1FMSWdZaFJSTFFWb1dTRzBqbjJjcngyb0E?oc=5",
-   "title": "Meta launches Muse Wonder, catching OpenAI, Anthropic: How to try it, benchmark results",
-   "at": "2026-10-19T12:11:38+00:00"
-  },
-  {
-   "link": "https://www.engadget.com/2289944/google-gemini-4-agents-just-beat-minecraft-with-no-human-intervention/",
-   "title": "Google Gemini 4 agents just beat Minecraft with no human intervention",
-   "at": "2026-10-19T12:11:38+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-plans-fund-for-workers-threatened-by-ai-musk-counters-with-spacex-shares-for-children/",
-   "title": "Anthropic plans fund for workers threatened by AI, Musk counters with SpaceX shares for children",
-   "at": "2026-10-19T12:11:38+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOVmVQUG9mN25fVkF0b2NzQW1IcnhIdVJyR0dyaW5kTTlNM3d5cXN5WW02YkJOMnRYZzZkY0REbm5EejZLS2FlWHd2RG1qdFV4a0wwMHZRWHNvOUhSNEYySnNrQUlJTW03RXJuUFhjRzhQWi1mMFY0YVM4NHdnRUlkbTVuSElFSGpwMVJSZXpoXy1sLTY3RjY4TFhSbmhUaXhkem1oTG1HbnhQcEY3QnB3Q1ZvY1lpSENkWUNQSmZCc29ORnlxalRRTkM0b3BucWUxZTBMLUlMYlpoWWNrN3c?oc=5",
-   "title": "Anthropic pitches Congress its own frontier-AI bill: models could only be halted above 50 deaths or $1B in damage",
-   "at": "2026-10-19T12:11:38+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOc1pjNXZCN0RPYVVkZlpaa1JLX09lMjNxbHE5T2N1S0g4cGVlVDhSdjRqVE5TWW5QZEMtWXhvNHE5WVlUVnFZNTNXOVBGZ0R5dkJQVkR4LXFNTDliUzJ1SXpWb2lCa2loMU5ZRExCcGgtMm1JZnhvbnhWRVhHSDI1NGJDRmJiSC16cHphcG5GOWQybEtrQlptX25hUkZqay1aSERJaXBfaUZqMERwMDMyVy1B?oc=5",
-   "title": "Multiple states suing OpenAI, claiming its ChatGPT harms children, deceives adults",
-   "at": "2026-10-19T12:11:38+00:00"
-  },
-  {
    "link": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
    "title": "Nvidia launches new open models to run agents in the enterprise and on PCs",
    "at": "2026-10-20T12:13:53+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.engadget.com/2296124/meta-delaying-controversial-business-terms-scraping-concerns/",
    "title": "Meta is delaying its controversial new business terms amid scraping concerns",
    "at": "2026-10-24T12:14:13+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
+   "title": "OpenAI's isolated AI agents found ways to talk to each other through CPU cache",
+   "at": "2026-10-25T12:12:39+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaURKclZiTXFBamI0c05icXZaamhMeFRBRjNBMjNDX3FHMnVoRFl1YzNhOWF6ekVGdGJnWGx5LWZZcGhYTFJmb0pSYVk0MU5aSzlhVWdMcEhqZlRBYldVN3hPS1pxb1RWT1ZEdjBfb3UtbnNjS19ud25SMTV6ZnNKUDhFMDZHLU1tRFcxQlJqUWFkZ0RicEhLdA?oc=5",
+   "title": "Anthropic unveils Claude Duet, its answer to AI agents like Dots",
+   "at": "2026-10-25T12:12:39+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
+   "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
+   "at": "2026-10-25T12:12:39+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
+   "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
+   "at": "2026-10-25T12:12:39+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/blocks-new-ai-model-dessa-was-trained-entirely-on-human-speech-to-catch-emotions-text-based-models-miss/",
+   "title": "Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss",
+   "at": "2026-10-25T12:12:39+00:00"
   }
  ]
 }
