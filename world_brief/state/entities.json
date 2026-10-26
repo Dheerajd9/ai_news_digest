@@ -40,15 +40,16 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
-"openai-agents-disable-monitors"
+"openai-agents-disable-monitors",
+"spacex-apollo-ai-compute"
 ],
-"last_seen": "2026-10-21"
+"last_seen": "2026-10-26"
 },
 "Super Micro": {
 "first_seen": "2026-10-11",
@@ -419,18 +420,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 22,
+"count": 24,
 "stories": [
-"china-solar-export-controls",
-"jio-platforms-mega-ipo",
 "india-nz-fta",
 "us-perm-h1b-freeze",
 "sebi-avadhut-sathe-refund",
 "fpi-outflows-2026",
 "isro-launch-pads-2029",
-"india-us-trade-talks"
+"india-us-trade-talks",
+"india-defence-procurement-2026",
+"bayes-cyclone-alert-2026"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -504,28 +505,28 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 7,
+"count": 8,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 7,
+"count": 8,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 8,
+"count": 9,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -739,23 +740,25 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
+"count": 6,
+"stories": [
+"tesla-spacex-merger-talks",
+"starlink-ukraine-speeds",
+"starlink-ukraine-throttling",
+"spacex-apollo-ai-compute"
+],
+"last_seen": "2026-10-26"
+},
+"Elon Musk": {
+"first_seen": "2026-10-21",
 "count": 5,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
-"starlink-ukraine-throttling"
+"starlink-ukraine-throttling",
+"spacex-apollo-ai-compute"
 ],
-"last_seen": "2026-10-25"
-},
-"Elon Musk": {
-"first_seen": "2026-10-21",
-"count": 4,
-"stories": [
-"tesla-spacex-merger-talks",
-"starlink-ukraine-speeds",
-"starlink-ukraine-throttling"
-],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -879,22 +882,60 @@
 },
 "Brazil": {
 "first_seen": "2026-10-25",
+"count": 2,
+"stories": [
+"brazil-presidential-runoff"
+],
+"last_seen": "2026-10-26"
+},
+"IMD": {
+"first_seen": "2026-10-25",
+"count": 2,
+"stories": [
+"bayes-cyclone-alert-2026"
+],
+"last_seen": "2026-10-26"
+},
+"Lula da Silva": {
+"first_seen": "2026-10-26",
 "count": 1,
 "stories": [
 "brazil-presidential-runoff"
 ],
-"last_seen": "2026-10-25"
-},
-"IMD": {
-"first_seen": "2026-10-25",
-"count": 1,
-"stories": [
-"bayes-cyclone-alert-2026"
-],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-26"
 }
 },
 "connections": [
+{
+"text": "Brazilian election -> Latin American political alignment",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-26",
+"count": 2
+},
+{
+"text": "Bay of Bengal depression -> cyclone formation -> coastal crop and port disruption",
+"first_seen": "2026-10-25",
+"last_seen": "2026-10-26",
+"count": 2
+},
+{
+"text": "Defense procurement -> domestic manufacturing growth",
+"first_seen": "2026-10-26",
+"last_seen": "2026-10-26",
+"count": 1
+},
+{
+"text": "SpaceX compute demand -> Nvidia chip sales",
+"first_seen": "2026-10-26",
+"last_seen": "2026-10-26",
+"count": 1
+},
+{
+"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity",
+"first_seen": "2026-10-26",
+"last_seen": "2026-10-26",
+"count": 1
+},
 {
 "text": "Crude oil surge -> FII equity withdrawal -> Rupee pressure and Nifty correction",
 "first_seen": "2026-10-25",
@@ -912,18 +953,6 @@
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
 "count": 2
-},
-{
-"text": "Brazilian election -> Latin American political alignment",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 1
-},
-{
-"text": "Bay of Bengal depression -> cyclone formation -> coastal crop and port disruption",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 1
 },
 {
 "text": "Autonomous AI agents -> sandbox escape -> stricter enterprise security controls",
@@ -1235,24 +1264,6 @@
 "text": "Court mandate -> passenger welfare parity for offline ticket buyers",
 "first_seen": "2026-10-14",
 "last_seen": "2026-10-14",
-"count": 1
-},
-{
-"text": "IT earnings -> Nifty 50 rally",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "RBI intervention -> rupee stabilization",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
-"count": 1
-},
-{
-"text": "Saudi export pledge -> oil price easing",
-"first_seen": "2026-10-13",
-"last_seen": "2026-10-13",
 "count": 1
 }
 ]

@@ -1,54 +1,4 @@
 {
- "russia-ukraine-energy-truce": {
-  "first_seen": "2026-10-11",
-  "expectations": [
-   {
-    "date": "2026-10-11",
-    "text": "Watch for formal statements from Moscow and Kyiv"
-   },
-   {
-    "date": "2026-10-11",
-    "text": "Monitor official diplomatic communiques from Moscow"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-11",
-    "event": "Ceasefire announced by Trump; Yandex data center struck again"
-   },
-   {
-    "date": "2026-10-11",
-    "event": "Zelenskyy confirms truce talks as attacks persist"
-   }
-  ],
-  "title": "Trump announces Russia-Ukraine energy ceasefire",
-  "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "Kyiv expressed conditional support for an energy truce, but infrastructure strikes continued in Kyiv and Kharkiv.",
-  "open_questions": [
-   "Will Russia halt strikes on Ukrainian energy infrastructure?",
-   "Will the US halt weapons supplies to enforce conditions?"
-  ],
-  "last_seen": "2026-10-11"
- },
- "us-china-chip-smuggling": {
-  "first_seen": "2026-10-11",
-  "expectations": [],
-  "timeline": [
-   {
-    "date": "2026-10-11",
-    "event": "Guilty plea entered in federal court"
-   }
-  ],
-  "title": "Super Micro contractor pleads guilty to diverting Nvidia AI servers to China",
-  "status": "NEW",
-  "stage": "COURT CASE",
-  "summary": "A contractor pleaded guilty in US federal court to illegally shipping Nvidia-powered AI servers to China.",
-  "open_questions": [
-   "Will the US Department of Justice expand export enforcement to other vendors?"
-  ],
-  "last_seen": "2026-10-11"
- },
  "middle-east-escalation": {
   "first_seen": "2026-10-11",
   "expectations": [
@@ -187,30 +137,6 @@
    "When will the proposed rule on prior approval deference be formally published in the Federal Register?"
   ],
   "last_seen": "2026-10-25"
- },
- "amazon-decart-acquisition": {
-  "first_seen": "2026-10-11",
-  "expectations": [
-   {
-    "date": "2026-10-11",
-    "text": "Formal deal announcement expected within weeks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-11",
-    "event": "Acquisition talks reported by WSJ"
-   }
-  ],
-  "title": "Amazon in talks to acquire AI startup Decart",
-  "status": "NEW",
-  "stage": "NEGOTIATIONS",
-  "summary": "Amazon is in advanced talks to purchase AI platform Decart for approximately $7 billion to expand AI infrastructure.",
-  "open_questions": [
-   "Will antitrust regulators review the $7B transaction?",
-   "When will the acquisition finalize?"
-  ],
-  "last_seen": "2026-10-11"
  },
  "india-cpi-inflation": {
   "first_seen": "2026-10-12",
@@ -778,10 +704,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-10-15",
-    "text": "SEBI review and clearance of red herring prospectus"
-   },
-   {
     "date": "2026-10-18",
     "text": "Subscription opening dates announced by underwriters"
    },
@@ -796,6 +718,10 @@
    {
     "date": "2026-10-25",
     "text": "Public listing debut on Indian exchanges in November"
+   },
+   {
+    "date": "2026-10-26",
+    "text": "Public listing debut on Indian exchanges on October 28"
    }
   ],
   "timeline": [
@@ -834,16 +760,20 @@
    {
     "date": "2026-10-25",
     "event": "IPO closes oversubscribed 7.83x"
+   },
+   {
+    "date": "2026-10-26",
+    "event": "Final listing preparation for October 28"
    }
   ],
-  "title": "Jio Platforms mega-IPO fully subscribed on final day",
-  "status": "MAJOR CHANGE",
+  "title": "Jio Platforms mega-IPO prepares for Dalal Street debut",
+  "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "Reliance's Jio Platforms $3.2B IPO closed 7.83 times subscribed with over 1 crore applications ahead of its Dalal Street listing.",
+  "summary": "Reliance's Jio Platforms $3.2B IPO closed 7.83 times subscribed ahead of its Dalal Street listing on October 28.",
   "open_questions": [
    "What will be the listing premium on the NSE and BSE?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-10-26"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1650,22 +1580,30 @@
    {
     "date": "2026-10-25",
     "text": "Election results to define Latin American trade and environmental policy"
+   },
+   {
+    "date": "2026-10-26",
+    "text": "Policy focus shifting to Latin American trade and Amazon conservation"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-25",
     "event": "Polls open in presidential runoff"
+   },
+   {
+    "date": "2026-10-26",
+    "event": "Lula wins presidential runoff election"
    }
   ],
-  "title": "Brazil votes in high-stakes presidential runoff election",
-  "status": "NEW",
+  "title": "Lula da Silva wins fourth term in Brazil presidential election",
+  "status": "RESOLVED",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Voters across Brazil cast ballots in a tight presidential runoff between incumbent leftist Lula da Silva and right-wing challenger Flávio Bolsonaro.",
+  "summary": "Luiz Inácio Lula da Silva defeated Flávio Bolsonaro in Brazil's presidential runoff to secure a fourth term.",
   "open_questions": [
-   "Which candidate will secure the final legislative majority?"
+   "How will the newly elected government manage legislative coalition building?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-10-26"
  },
  "bayes-cyclone-alert-2026": {
   "first_seen": "2026-10-25",
@@ -1673,22 +1611,30 @@
    {
     "date": "2026-10-25",
     "text": "Landfall expected around October 28 with heavy regional rainfall"
+   },
+   {
+    "date": "2026-10-26",
+    "text": "Landfall expected around October 28 with heavy regional rainfall and coastal storm surges"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-25",
     "event": "Cyclone alert and port warnings issued"
+   },
+   {
+    "date": "2026-10-26",
+    "event": "IMD issues Red Alert for Andhra Pradesh and Odisha"
    }
   ],
-  "title": "IMD issues cyclone alert for Andhra Pradesh and Odisha coasts",
-  "status": "NEW",
-  "stage": "PROPOSED",
-  "summary": "The IMD issued a severe weather alert as a depression over the Bay of Bengal intensifies toward a projected landfall between Bapatla and Visakhapatnam around October 28.",
+  "title": "Cyclone Arnab threatens Andhra Pradesh and Odisha coasts",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Severe Cyclone Arnab in the Bay of Bengal approaches landfall near Bapatla with winds up to 140 km/h expected on October 28.",
   "open_questions": [
    "What will be the exact wind intensity at landfall?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-10-26"
  },
  "openai-cpu-cache-bypass": {
   "first_seen": "2026-10-25",
@@ -1716,5 +1662,51 @@
    "Will enterprise customers require physical hardware air-gapping for agent runtimes?"
   ],
   "last_seen": "2026-10-25"
+ },
+ "india-defence-procurement-2026": {
+  "first_seen": "2026-10-26",
+  "expectations": [
+   {
+    "date": "2026-10-26",
+    "text": "Ramp up in domestic defence manufacturing order books"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-26",
+    "event": "DAC clears ₹2.12 lakh crore defence packages"
+   }
+  ],
+  "title": "India clears ₹2.12 lakh crore defence capital acquisitions",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "India's Defence Acquisition Council approved ₹2.12 lakh crore in military buys including drones, artillery, and missile defense.",
+  "open_questions": [
+   "What is the timeline for formal contract signing with domestic manufacturers?"
+  ],
+  "last_seen": "2026-10-26"
+ },
+ "spacex-apollo-ai-compute": {
+  "first_seen": "2026-10-26",
+  "expectations": [
+   {
+    "date": "2026-10-26",
+    "text": "Delivery of next-generation Nvidia chips to SpaceX data facilities in 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-26",
+    "event": "SpaceX signs $40 billion debt deal with Apollo"
+   }
+  ],
+  "title": "SpaceX closes $40 billion financing deal with Apollo for AI chips",
+  "status": "NEW",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "SpaceX finalized a $40 billion debt facility with Apollo Global Management to fund AI compute infrastructure and purchase Nvidia Vera Rubin chips.",
+  "open_questions": [
+   "How will compute capacity be divided between SpaceX ground systems and xAI?"
+  ],
+  "last_seen": "2026-10-26"
  }
 }
