@@ -138,30 +138,6 @@
   ],
   "last_seen": "2026-10-25"
  },
- "india-cpi-inflation": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "RBI expected to keep repo rate on hold"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "September CPI data released at 5.54%"
-   }
-  ],
-  "title": "India September CPI inflation jumps to 5.54%",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "India's retail inflation accelerated to 5.54% in September led by a sharp rise in food prices, diminishing expectations of an imminent RBI rate cut.",
-  "open_questions": [
-   "Will RBI maintain its pause at the next policy meeting?",
-   "Will food prices cool with the arrival of the kharif harvest?"
-  ],
-  "last_seen": "2026-10-12"
- },
  "rbi-rupee-defense": {
   "first_seen": "2026-10-12",
   "expectations": [
@@ -233,54 +209,6 @@
   ],
   "last_seen": "2026-10-23"
  },
- "us-h1b-fee-lawsuit": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "Injunction remains in place pending appellate review"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "DOJ files formal appeal in federal appeals court"
-   }
-  ],
-  "title": "Trump administration appeals court order blocking $100k H-1B fee",
-  "status": "DEVELOPING",
-  "stage": "COURT CASE",
-  "summary": "The US government appealed a district court decision that enjoined the implementation of a $100,000 fee for H-1B visas.",
-  "open_questions": [
-   "Will the appeals court grant an emergency stay of the injunction?",
-   "When will appellate oral arguments take place?"
-  ],
-  "last_seen": "2026-10-12"
- },
- "microsoft-maia-chip": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "Enterprise customer deployment in Azure early 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "Maia 300 architecture unveiled"
-   }
-  ],
-  "title": "Microsoft introduces custom Azure Maia 300 AI processor",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Microsoft unveiled its Azure Maia 300 AI chip to power internal LLM workloads and decrease dependence on Nvidia hardware.",
-  "open_questions": [
-   "What is the production scale of Maia 300 chips in Azure data centers?",
-   "How does price-performance compare with Nvidia Blackwell architectures?"
-  ],
-  "last_seen": "2026-10-12"
- },
  "meta-muse-wonder": {
   "first_seen": "2026-10-12",
   "expectations": [
@@ -311,54 +239,6 @@
    "How will enterprise adoption compare to competitors?"
   ],
   "last_seen": "2026-10-13"
- },
- "russia-diesel-sanctions": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "Congressional hearings on Russia sanctions policy"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "Sanctions temporarily lifted on Russian fuel"
-   }
-  ],
-  "title": "Trump defends Russian diesel imports under sanctions relief",
-  "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "President Trump defended importing Russian diesel by temporarily lifting fuel sanctions, drawing bipartisan congressional criticism.",
-  "open_questions": [
-   "Will Congress attempt to block the sanctions waiver?",
-   "How much diesel will Russia export to US markets?"
-  ],
-  "last_seen": "2026-10-12"
- },
- "delhi-jantar-mantar-protests": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "Supreme Court review of protest site guidelines"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "Jantar Mantar de-notified by Delhi Police"
-   }
-  ],
-  "title": "Delhi Police de-notifies Jantar Mantar as protest site",
-  "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "Delhi Police de-notified Jantar Mantar as an official demonstration venue and redirected protests to Ramlila Ground as opposition groups marched to the Supreme Court.",
-  "open_questions": [
-   "Will the Supreme Court accept petitions challenging the protest zoning changes?",
-   "How will political parties adapt demonstration venues?"
-  ],
-  "last_seen": "2026-10-12"
  },
  "india-it-rally": {
   "first_seen": "2026-10-13",
@@ -411,10 +291,6 @@
   "expectations": [
    {
     "date": "2026-10-15",
-    "text": "Legal text release and operational timeline announcement"
-   },
-   {
-    "date": "2026-10-15",
     "text": "Official signing and release of text within weeks"
    },
    {
@@ -428,16 +304,16 @@
    {
     "date": "2026-10-21",
     "text": "Formal bilateral treaty signing within coming weeks"
+   },
+   {
+    "date": "2026-10-27",
+    "text": "Formal bilateral trade agreement execution within coming weeks"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-14",
-    "event": "Jaishankar statement; Jaishankar statement on trade deal progress"
-   },
-   {
-    "date": "2026-10-15",
-    "event": "First tranche finalised; legal drafting underway"
+    "date": "2026-10-13..2026-10-15",
+    "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway"
    },
    {
     "date": "2026-10-15",
@@ -470,16 +346,20 @@
    {
     "date": "2026-10-25",
     "event": "Bilateral agreement text 99% complete ahead of formal signing"
+   },
+   {
+    "date": "2026-10-27",
+    "event": "Trade pact enters final legal text fine-tuning stage"
    }
   ],
-  "title": "India-US trade pact in final stage but unsigned",
+  "title": "India and US fine-tuning text for bilateral trade deal",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Negotiators have finalized 99% of the text for the India-US bilateral trade agreement, which is now undergoing final legal review.",
+  "summary": "Commerce Minister Piyush Goyal confirmed core trade negotiations are concluded, with legal teams fine-tuning the final agreement.",
   "open_questions": [
-   "What specific tariff concession lines will be announced at the signing ceremony?"
+   "When will the formal bilateral signing ceremony take place?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-10-27"
  },
  "us-cpi-inflation-sept": {
   "first_seen": "2026-10-14",
@@ -651,6 +531,10 @@
    {
     "date": "2026-10-21",
     "text": "Formal S-1 public registration filing ahead of mid-November window"
+   },
+   {
+    "date": "2026-10-27",
+    "text": "Institutional investor roadshows to commence ahead of late November listing"
    }
   ],
   "timeline": [
@@ -665,16 +549,21 @@
    {
     "date": "2026-10-21",
     "event": "Financial disclosures reveal $80B H1 loss; targeting November IPO"
+   },
+   {
+    "date": "2026-10-27",
+    "event": "Official S-1 registration statement submitted to US SEC"
    }
   ],
-  "title": "Anthropic faces IPO valuation pressure and safety scrutiny",
+  "title": "Anthropic files S-1 prospectus for record public listing",
   "status": "MAJOR CHANGE",
-  "stage": "DISCUSSION",
-  "summary": "Anthropic posted an $80 billion net loss in the first half of 2026 while actively preparing for an IPO as early as mid-November.",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Anthropic filed its S-1 prospectus with the SEC, revealing $2.4B in annual compute spending and listing existential AI risks.",
   "open_questions": [
-   "Will public markets support Anthropic's valuation target given massive computing spend?"
+   "What final valuation multiple will public markets accept for Anthropic?",
+   "When will the official stock trading debut occur?"
   ],
-  "last_seen": "2026-10-21"
+  "last_seen": "2026-10-27"
  },
  "tsmc-q3-texas-fab": {
   "first_seen": "2026-10-15",
@@ -1615,6 +1504,10 @@
    {
     "date": "2026-10-26",
     "text": "Landfall expected around October 28 with heavy regional rainfall and coastal storm surges"
+   },
+   {
+    "date": "2026-10-27",
+    "text": "Landfall projected near Bapatla on Wednesday morning with heavy rainfall"
    }
   ],
   "timeline": [
@@ -1625,16 +1518,20 @@
    {
     "date": "2026-10-26",
     "event": "IMD issues Red Alert for Andhra Pradesh and Odisha"
+   },
+   {
+    "date": "2026-10-27",
+    "event": "Cyclone reaches severe intensity 140 km off Kakinada"
    }
   ],
-  "title": "Cyclone Arnab threatens Andhra Pradesh and Odisha coasts",
+  "title": "Severe Cyclone Arnab closes in on Andhra Pradesh coast",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Arnab in the Bay of Bengal approaches landfall near Bapatla with winds up to 140 km/h expected on October 28.",
+  "summary": "Severe Cyclone Arnab moved within 140 km of Kakinada, prompting train cancellations and extreme weather alerts in Andhra Pradesh and Telangana.",
   "open_questions": [
-   "What will be the exact wind intensity at landfall?"
+   "What will be the exact damage scale to coastal infrastructure and standing crops?"
   ],
-  "last_seen": "2026-10-26"
+  "last_seen": "2026-10-27"
  },
  "openai-cpu-cache-bypass": {
   "first_seen": "2026-10-25",
@@ -1708,5 +1605,75 @@
    "How will compute capacity be divided between SpaceX ground systems and xAI?"
   ],
   "last_seen": "2026-10-26"
+ },
+ "microsoft-60k-buyouts": {
+  "first_seen": "2026-10-27",
+  "expectations": [
+   {
+    "date": "2026-10-27",
+    "text": "Employees up to Level 70 must decide on voluntary severance before December 31 deadline"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-27",
+    "event": "Voluntary buyout offer launched with Dec 31 deadline"
+   }
+  ],
+  "title": "Microsoft offers voluntary buyouts to 60,000 employees globally",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Microsoft offered voluntary exit packages to 60,000 employees across the US, India, UK, and Canada as it reallocates capital to AI compute.",
+  "open_questions": [
+   "How many employees in India will take the voluntary exit?",
+   "Will involuntary layoffs follow after December 31?"
+  ],
+  "last_seen": "2026-10-27"
+ },
+ "melania-ukraine-ceasefire": {
+  "first_seen": "2026-10-27",
+  "expectations": [
+   {
+    "date": "2026-10-27",
+    "text": "Red Cross aid convoys to deliver food and medicine during the humanitarian pause"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-27",
+    "event": "Local truce agreement signed and implemented"
+   }
+  ],
+  "title": "Melania Trump brokers localized one-city ceasefire in Ukraine",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "A temporary humanitarian ceasefire took effect in a besieged Ukrainian city following mediation by US First Lady Melania Trump.",
+  "open_questions": [
+   "Will the localized ceasefire expand to neighboring municipalities?"
+  ],
+  "last_seen": "2026-10-27"
+ },
+ "sarvam-ai-defence-pact": {
+  "first_seen": "2026-10-27",
+  "expectations": [
+   {
+    "date": "2026-10-27",
+    "text": "Sarvam AI to begin deploying localized military LLM tools in late 2026"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-27",
+    "event": "5-year defense AI agreement signed"
+   }
+  ],
+  "title": "Sarvam AI signs 5-year MoU with Indian Defence Ministry",
+  "status": "NEW",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "Indian AI firm Sarvam AI signed a 5-year agreement with the Ministry of Defence to build sovereign AI tools for all three military branches.",
+  "open_questions": [
+   "What specific classified AI models will be deployed on military servers?"
+  ],
+  "last_seen": "2026-10-27"
  }
 }
