@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.axios.com/2026/10/21/openai-google-cloud-ai-models",
-   "title": "OpenAI brings its frontier models to rival Google Cloud",
-   "at": "2026-10-21T12:11:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-says-gpt-6-is-much-better-with-legacy-programming-languages-such-as-cobol-and-fortran/",
-   "title": "OpenAI says GPT-6 is much better with legacy programming languages such as COBOL and Fortran",
-   "at": "2026-10-21T12:11:13+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/10/20/openai-acquires-startup-orchestra-bio%e2%81%a0-to-beef-up-its-biotech-business/",
-   "title": "OpenAI acquires startup Orchestra Bio\u2060 to beef up its biotech business",
-   "at": "2026-10-21T12:11:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/claude-science-tackles-deadly-scorpion-stings-by-designing-protein-binders-from-scratch/",
-   "title": "Claude Science tackles deadly scorpion stings by designing protein binders from scratch",
-   "at": "2026-10-21T12:11:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/mistral-ai-launches-voxtral-3-a-full-voice-agent-stack-that-listens-thinks-and-talks-in-real-time/",
-   "title": "Mistral AI launches Voxtral 3, a full voice agent stack that listens, thinks, and talks in real time",
-   "at": "2026-10-21T12:11:13+00:00"
-  },
-  {
    "link": "https://the-decoder.com/anthropic-takes-on-grok-bot-metas-muse-and-openais-dots-with-its-always-on-agent-claude-duet/",
    "title": "Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\"",
    "at": "2026-10-22T12:12:01+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
    "title": "Google\u2019s AI search changes upended online publishing",
    "at": "2026-10-26T12:14:01+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-opens-its-books-for-wall-street-showing-record-revenue-and-mounting-obligations/",
+   "title": "Anthropic opens its books for Wall Street, showing record revenue and mounting obligations",
+   "at": "2026-10-27T12:12:41+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/10/27/nvidia-invest-meta.html",
+   "title": "Nvidia to invest $3 billion in Meta as tech giants deepen AI partnership",
+   "at": "2026-10-27T12:12:41+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/gpt-6-1-terra-halves-openais-api-prices-and-still-gains-ground-on-its-larger-models/",
+   "title": "GPT-6.1 Terra halves OpenAI's API prices and still gains ground on its larger models",
+   "at": "2026-10-27T12:12:41+00:00"
+  },
+  {
+   "link": "https://www.engadget.com/2297941/openai-new-discoveries-mathematics-computer-science-physics/",
+   "title": "OpenAI announces new discoveries in mathematics, computer science and physics",
+   "at": "2026-10-27T12:12:41+00:00"
+  },
+  {
+   "link": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+   "title": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
+   "at": "2026-10-27T12:12:41+00:00"
   }
  ]
 }
