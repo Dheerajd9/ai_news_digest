@@ -357,6 +357,9 @@ def main() -> int:
         check("## 📈 IPO watch" in ipo_p and "Lot size" in ipo_p and "fresh issue" in ipo_p
               and "not investment advice" in ipo_p and groups.get("ipo"),
               "IPO watch: price band, lot size, money needed, fresh issue vs OFS, profits, demand (India + USA feeds)", errors)
+        wk = (SRC / "prompts" / "weekly_prompt.md").read_text()
+        check("## 📈 IPO watch of the week" in wk and "Coming next week" in wk and "listing price vs issue price" in wk,
+              "weekly: 📈 IPO watch of the week (this week's IPOs + next week's)", errors)
         import podcast as _pc
         check(pos == sorted(pos) and _pc.CHAPTER_NAMES == ["Top stories", "World", "USA", "India", "Tech", "Money", "Wrap-up"],
               "order: most important → world → USA → India → tech & future → money → wrap-up (email + podcast)", errors)

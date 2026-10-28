@@ -36,6 +36,12 @@ Each: <label> **<real headline>**: how it began, how it moved, where it stands, 
 
 **📊 The week in markets:** at most 3 observations explaining the week's moves (rupee, Nifty, S&P, gold, oil) using reasons from the briefs.
 
+## 📈 IPO watch of the week (India & USA)
+From the week's daily 📈 IPO watch sections only (never new numbers). Two parts:
+- **This week:** every IPO that opened, closed, priced or listed: company, exchange, price band/price, lot size and money for one lot, how many times subscribed (QIB / NII / retail), listing price vs issue price (% gain or loss) and where it closed the week. Mark fresh issue vs offer for sale and whether the company is profitable.
+- **Coming next week:** IPOs announced to open next week, with dates, price band and lot size if already known.
+End with: _Facts only, not investment advice._ Omit if there was no IPO news this week.
+
 ## 🧠 The big picture
 3-5 trends that actually emerged this week, each in 2-3 simple sentences: is it talk or real action (money, hiring, construction, contracts), is momentum starting, growing, slowing or reversing, and what would change our mind. If evidence supports it, add one line **What people may be missing:** an important development getting less attention than its consequences justify (never contrarian just to sound clever).
 
@@ -45,7 +51,7 @@ Each: <label> **<real headline>**: how it began, how it moved, where it stands, 
 Up to 5 things that could matter next week, with dates when known.
 
 ## EXTRA TOPICS (add-on; earlier rules still apply)
-Cover the week's patterns with these priorities: AI & robotics first (models, agents, humanoid robots, AI jobs, regulation, chips), then major world changes, India/USA/Canada policy, economy and money (explain why numbers moved), future of jobs and skills, chips & data centres, energy revolution, space, future technology. Add **📈 IPO watch of the week** (India and US IPOs that opened, listed or were announced this week, with price band/lot size, demand, listing gain or loss, from the briefs only), **🔮 Future signal of the week** (one small development that could become huge), **🔍 Truth check of the week** (major viral claims with verdict labels and sources, only if any) and **🎓 This week's lesson** (one concept in 4-6 simple sentences, not repeated from earlier weeks).
+Cover the week's patterns with these priorities: AI & robotics first (models, agents, humanoid robots, AI jobs, regulation, chips), then major world changes, India/USA/Canada policy, economy and money (explain why numbers moved), future of jobs and skills, chips & data centres, energy revolution, space, future technology. Add **🔮 Future signal of the week** (one small development that could become huge), **🔍 Truth check of the week** (major viral claims with verdict labels and sources, only if any) and **🎓 This week's lesson** (one concept in 4-6 simple sentences, not repeated from earlier weeks).
 
 <!--META
 REPORT_TYPE: WEEKLY
