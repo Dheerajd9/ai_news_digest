@@ -42,16 +42,17 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
-"spacex-apollo-ai-compute"
+"spacex-apollo-ai-compute",
+"openai-google-tpu-deal"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-10-28"
 },
 "Super Micro": {
 "first_seen": "2026-10-11",
@@ -279,7 +280,7 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 10,
+"count": 11,
 "stories": [
 "meta-muse-wonder",
 "openai-state-lawsuits",
@@ -287,9 +288,10 @@
 "openai-spy-device-case",
 "openai-agents-disable-monitors",
 "openai-agents-airgap",
-"openai-cpu-cache-bypass"
+"openai-cpu-cache-bypass",
+"openai-google-tpu-deal"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-28"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -423,7 +425,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 27,
+"count": 28,
 "stories": [
 "us-perm-h1b-freeze",
 "sebi-avadhut-sathe-refund",
@@ -434,7 +436,7 @@
 "bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-28"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -446,7 +448,7 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 17,
+"count": 18,
 "stories": [
 "india-us-trade-talks",
 "russia-frees-hubbard",
@@ -454,9 +456,10 @@
 "middle-east-escalation",
 "starlink-ukraine-speeds",
 "us-perm-h1b-freeze",
-"melania-ukraine-ceasefire"
+"melania-ukraine-ceasefire",
+"flávio-bolsonaro-us-visa"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-28"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -509,19 +512,19 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 8,
+"count": 9,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-10-28"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
-"count": 8,
+"count": 9,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-10-28"
 },
 "SEBI": {
 "first_seen": "2026-10-15",
@@ -831,12 +834,12 @@
 },
 "Telangana Government": {
 "first_seen": "2026-10-24",
-"count": 2,
+"count": 3,
 "stories": [
 "telangana-drought-response",
 "bayes-cyclone-alert-2026"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-28"
 },
 "Hyderabad Water Board": {
 "first_seen": "2026-10-24",
@@ -856,19 +859,21 @@
 },
 "NSE": {
 "first_seen": "2026-10-25",
-"count": 2,
+"count": 3,
 "stories": [
-"fpi-outflows-2026"
+"fpi-outflows-2026",
+"jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-28"
 },
 "BSE": {
 "first_seen": "2026-10-25",
-"count": 2,
+"count": 3,
 "stories": [
-"fpi-outflows-2026"
+"fpi-outflows-2026",
+"jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-28"
 },
 "ISRO": {
 "first_seen": "2026-10-25",
@@ -888,19 +893,20 @@
 },
 "Brazil": {
 "first_seen": "2026-10-25",
-"count": 2,
+"count": 3,
 "stories": [
-"brazil-presidential-runoff"
+"brazil-presidential-runoff",
+"flávio-bolsonaro-us-visa"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-10-28"
 },
 "IMD": {
 "first_seen": "2026-10-25",
-"count": 3,
+"count": 4,
 "stories": [
 "bayes-cyclone-alert-2026"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-28"
 },
 "Lula da Silva": {
 "first_seen": "2026-10-26",
@@ -917,9 +923,63 @@
 "sarvam-ai-defence-pact"
 ],
 "last_seen": "2026-10-27"
+},
+"Flávio Bolsonaro": {
+"first_seen": "2026-10-28",
+"count": 1,
+"stories": [
+"flávio-bolsonaro-us-visa"
+],
+"last_seen": "2026-10-28"
+},
+"Spain": {
+"first_seen": "2026-10-28",
+"count": 1,
+"stories": [
+"spain-train-crash-2026"
+],
+"last_seen": "2026-10-28"
+},
+"Google": {
+"first_seen": "2026-10-28",
+"count": 1,
+"stories": [
+"openai-google-tpu-deal"
+],
+"last_seen": "2026-10-28"
 }
 },
 "connections": [
+{
+"text": "Bay of Bengal cyclone -> coastal landfall -> railway and agriculture disruption",
+"first_seen": "2026-10-27",
+"last_seen": "2026-10-28",
+"count": 2
+},
+{
+"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity",
+"first_seen": "2026-10-26",
+"last_seen": "2026-10-28",
+"count": 2
+},
+{
+"text": "Brazilian election -> foreign political asylum -> diplomatic friction",
+"first_seen": "2026-10-28",
+"last_seen": "2026-10-28",
+"count": 1
+},
+{
+"text": "Transit accident -> railway service suspension -> safety inquiry",
+"first_seen": "2026-10-28",
+"last_seen": "2026-10-28",
+"count": 1
+},
+{
+"text": "AI compute spending -> chip supplier diversification -> market competition",
+"first_seen": "2026-10-28",
+"last_seen": "2026-10-28",
+"count": 1
+},
 {
 "text": "AI compute spending -> corporate restructuring -> Big Tech workforce reduction",
 "first_seen": "2026-10-27",
@@ -940,12 +1000,6 @@
 },
 {
 "text": "Trade deal completion -> tariff reduction -> bilateral export surge",
-"first_seen": "2026-10-27",
-"last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "Bay of Bengal cyclone -> coastal landfall -> railway and agriculture disruption",
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27",
 "count": 1
@@ -976,12 +1030,6 @@
 },
 {
 "text": "SpaceX compute demand -> Nvidia chip sales",
-"first_seen": "2026-10-26",
-"last_seen": "2026-10-26",
-"count": 1
-},
-{
-"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity",
 "first_seen": "2026-10-26",
 "last_seen": "2026-10-26",
 "count": 1
@@ -1260,24 +1308,6 @@
 "text": "Court ruling -> bank capital adjustments -> mutual fund NAV revaluations",
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-15",
-"count": 1
-},
-{
-"text": "Slowing AI revenue growth -> tempered public market valuation expectations",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 1
-},
-{
-"text": "US inflation -> Treasury yields -> global market sentiment",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-14",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil above $105 -> Indian import bill pressure",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-14",
 "count": 1
 }
 ]

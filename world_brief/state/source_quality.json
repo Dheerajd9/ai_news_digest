@@ -1,37 +1,37 @@
 {
  "\"\"AI regulation\" OR \"AI jobs\" ": {
   "duplicate": 0,
-  "old": 722,
+  "old": 758,
   "seen": 0,
   "used": 0
  },
  "\"\"Bank of Canada\" OR \"Statisti": {
   "duplicate": 0,
-  "old": 615,
+  "old": 661,
   "seen": 0,
   "used": 0
  },
  "\"\"Bureau of Labor Statistics\" ": {
   "duplicate": 0,
-  "old": 847,
+  "old": 878,
   "seen": 0,
   "used": 0
  },
  "\"\"Express Entry\" OR IRCC when:": {
   "duplicate": 0,
-  "old": 293,
+  "old": 304,
   "seen": 0,
   "used": 0
  },
  "\"\"Express Entry\" OR PGWP OR \"s": {
   "duplicate": 0,
-  "old": 289,
+  "old": 302,
   "seen": 0,
   "used": 0
  },
  "\"\"F-1 visa\" OR OPT OR \"STEM OP": {
   "duplicate": 0,
-  "old": 599,
+  "old": 633,
   "seen": 0,
   "used": 0
  },
@@ -43,25 +43,25 @@
  },
  "\"\"credit card\" OR 401k OR IRA ": {
   "duplicate": 0,
-  "old": 91,
+  "old": 94,
   "seen": 0,
   "used": 0
  },
  "\"\"fact check\" viral OR fake OR": {
   "duplicate": 0,
-  "old": 492,
+  "old": 508,
   "seen": 0,
   "used": 0
  },
  "\"\"fact check\" viral OR mislead": {
   "duplicate": 0,
-  "old": 471,
+  "old": 488,
   "seen": 0,
   "used": 0
  },
  "\"\"grocery prices\" OR \"food pri": {
   "duplicate": 0,
-  "old": 349,
+  "old": 361,
   "seen": 0,
   "used": 0
  },
@@ -73,25 +73,25 @@
  },
  "\"\"humanoid robot\" OR \"AI agent": {
   "duplicate": 0,
-  "old": 165,
+  "old": 167,
   "seen": 0,
   "used": 0
  },
  "\"\"income tax\" OR \"GST council\"": {
   "duplicate": 0,
-  "old": 1317,
+  "old": 1354,
   "seen": 0,
   "used": 0
  },
  "\"\"mortgage rates\" OR \"home loa": {
   "duplicate": 0,
-  "old": 920,
+  "old": 946,
   "seen": 0,
   "used": 0
  },
  "\"\"mortgage rates\" OR \"home pri": {
   "duplicate": 0,
-  "old": 692,
+  "old": 719,
   "seen": 0,
   "used": 0
  },
@@ -103,19 +103,19 @@
  },
  "\"\"quantum computing\" OR \"gene ": {
   "duplicate": 0,
-  "old": 604,
+  "old": 623,
   "seen": 0,
   "used": 0
  },
  "\"\"remote work\" OR \"return to o": {
   "duplicate": 0,
-  "old": 447,
+  "old": 473,
   "seen": 0,
   "used": 0
  },
  "\"\"scam alert\" OR FTC OR \"data ": {
   "duplicate": 0,
-  "old": 305,
+  "old": 310,
   "seen": 0,
   "used": 0
  },
@@ -133,7 +133,7 @@
  },
  "\"Canada housing OR rent OR \"fe": {
   "duplicate": 0,
-  "old": 477,
+  "old": 509,
   "seen": 0,
   "used": 0
  },
@@ -151,7 +151,7 @@
  },
  "\"H-1B OR USCIS OR \"green card\"": {
   "duplicate": 0,
-  "old": 883,
+  "old": 899,
   "seen": 0,
   "used": 0
  },
@@ -175,31 +175,31 @@
  },
  "\"IPO OR layoffs OR \"quarterly ": {
   "duplicate": 0,
-  "old": 479,
+  "old": 480,
   "seen": 0,
   "used": 0
  },
  "\"IRCC OR \"Express Entry\" OR \"s": {
   "duplicate": 0,
-  "old": 544,
+  "old": 559,
   "seen": 0,
   "used": 0
  },
  "\"IRS OR \"capital gains tax\" OR": {
   "duplicate": 0,
-  "old": 931,
+  "old": 969,
   "seen": 0,
   "used": 0
  },
  "\"ISRO OR monsoon when:2d\"": {
   "duplicate": 0,
-  "old": 1156,
+  "old": 1209,
   "seen": 0,
   "used": 0
  },
  "\"India US trade OR tariff OR \"": {
   "duplicate": 0,
-  "old": 964,
+  "old": 1000,
   "seen": 0,
   "used": 0
  },
@@ -217,7 +217,7 @@
  },
  "\"NASA OR ISRO OR \"Moon mission": {
   "duplicate": 0,
-  "old": 250,
+  "old": 267,
   "seen": 0,
   "used": 0
  },
@@ -247,7 +247,7 @@
  },
  "\"RBI repo OR \"CPI inflation\" O": {
   "duplicate": 0,
-  "old": 621,
+  "old": 634,
   "seen": 0,
   "used": 0
  },
@@ -295,7 +295,7 @@
  },
  "\"fusion OR \"nuclear power\" OR ": {
   "duplicate": 0,
-  "old": 496,
+  "old": 516,
   "seen": 0,
   "used": 0
  },
@@ -307,13 +307,13 @@
  },
  "\"layoffs OR \"job cuts\" OR \"hir": {
   "duplicate": 0,
-  "old": 486,
+  "old": 500,
   "seen": 0,
   "used": 0
  },
  "\"layoffs OR hiring \"data engin": {
   "duplicate": 0,
-  "old": 127,
+  "old": 155,
   "seen": 0,
   "used": 0
  },
@@ -331,13 +331,13 @@
  },
  "\"scam OR fraud UPI OR WhatsApp": {
   "duplicate": 0,
-  "old": 297,
+  "old": 324,
   "seen": 0,
   "used": 0
  },
  "\"site:anthropic.com OR Claude ": {
   "duplicate": 1,
-  "old": 6,
+  "old": 8,
   "seen": 1,
   "used": 0
  },
@@ -355,13 +355,13 @@
  },
  "\"site:financialexpress.com eco": {
   "duplicate": 0,
-  "old": 79,
+  "old": 81,
   "seen": 0,
   "used": 0
  },
  "\"site:france24.com when:1d\"": {
   "duplicate": 0,
-  "old": 5,
+  "old": 6,
   "seen": 0,
   "used": 0
  },
@@ -373,7 +373,7 @@
  },
  "\"site:kyivindependent.com when": {
   "duplicate": 0,
-  "old": 208,
+  "old": 215,
   "seen": 0,
   "used": 0
  },
@@ -385,7 +385,7 @@
  },
  "\"site:politico.com when:1d\"": {
   "duplicate": 1,
-  "old": 38,
+  "old": 41,
   "seen": 1,
   "used": 0
  },
@@ -396,20 +396,20 @@
   "used": 0
  },
  "\"site:scroll.in when:1d\"": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "\"site:siasat.com Hyderabad OR ": {
   "duplicate": 0,
-  "old": 11,
+  "old": 13,
   "seen": 0,
   "used": 0
  },
  "\"site:telanganatoday.com when:": {
   "duplicate": 0,
-  "old": 55,
+  "old": 56,
   "seen": 0,
   "used": 0
  },
@@ -427,7 +427,7 @@
  },
  "\"site:timesofisrael.com when:1": {
   "duplicate": 0,
-  "old": 30,
+  "old": 33,
   "seen": 0,
   "used": 0
  },
@@ -439,7 +439,7 @@
  },
  "\"site:whitehouse.gov when:1d\"": {
   "duplicate": 0,
-  "old": 15,
+  "old": 19,
   "seen": 1,
   "used": 0
  },
@@ -451,7 +451,7 @@
  },
  "\"tech layoffs OR \"tech jobs\" O": {
   "duplicate": 0,
-  "old": 707,
+  "old": 736,
   "seen": 0,
   "used": 0
  },
@@ -504,7 +504,7 @@
   "used": 0
  },
  "1470 & 100.3 WMBD": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -515,11 +515,17 @@
   "seen": 2,
   "used": 0
  },
- "24/7 Wall St.": {
-  "duplicate": 35,
+ "2 News Oklahoma KJRH Tulsa": {
+  "duplicate": 0,
   "old": 0,
-  "seen": 23,
-  "used": 2
+  "seen": 1,
+  "used": 0
+ },
+ "24/7 Wall St.": {
+  "duplicate": 37,
+  "old": 0,
+  "seen": 28,
+  "used": 4
  },
  "25 News Now": {
   "duplicate": 1,
@@ -547,7 +553,7 @@
  },
  "404 Media": {
   "duplicate": 0,
-  "old": 95,
+  "old": 108,
   "seen": 0,
   "used": 0
  },
@@ -572,7 +578,7 @@
  "6abc Philadelphia": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "8 News Now": {
@@ -601,6 +607,12 @@
  },
  "95.5 WSB": {
   "duplicate": 2,
+  "old": 0,
+  "seen": 1,
+  "used": 1
+ },
+ "97.7/97.3 The Wolf": {
+  "duplicate": 0,
   "old": 0,
   "seen": 1,
   "used": 1
@@ -678,10 +690,10 @@
   "used": 0
  },
  "ABC News": {
-  "duplicate": 30,
-  "old": 108,
-  "seen": 12,
-  "used": 2
+  "duplicate": 34,
+  "old": 118,
+  "seen": 13,
+  "used": 3
  },
  "ABC News & Headlines": {
   "duplicate": 1,
@@ -768,7 +780,7 @@
   "used": 0
  },
  "AFP.com": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 5,
   "used": 2
@@ -787,7 +799,7 @@
  },
  "AI": {
   "duplicate": 1,
-  "old": 158,
+  "old": 178,
   "seen": 1,
   "used": 0
  },
@@ -798,9 +810,9 @@
   "used": 1
  },
  "AI Magazine": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 2,
+  "seen": 3,
   "used": 0
  },
  "AL Circle": {
@@ -822,10 +834,10 @@
   "used": 0
  },
  "ANI News": {
-  "duplicate": 47,
+  "duplicate": 51,
   "old": 0,
-  "seen": 40,
-  "used": 5
+  "seen": 43,
+  "used": 6
  },
  "AOL.ca": {
   "duplicate": 1,
@@ -840,22 +852,22 @@
   "used": 1
  },
  "AOL.com": {
-  "duplicate": 40,
+  "duplicate": 42,
   "old": 0,
-  "seen": 48,
+  "seen": 49,
   "used": 8
  },
  "AP News": {
-  "duplicate": 226,
+  "duplicate": 248,
   "old": 0,
-  "seen": 141,
-  "used": 29
+  "seen": 152,
+  "used": 32
  },
  "AP7AM": {
-  "duplicate": 6,
+  "duplicate": 8,
   "old": 0,
-  "seen": 2,
-  "used": 0
+  "seen": 3,
+  "used": 1
  },
  "APTN News": {
   "duplicate": 0,
@@ -935,10 +947,16 @@
   "seen": 1,
   "used": 0
  },
- "Action News 5": {
-  "duplicate": 3,
+ "Action Network": {
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
+  "used": 0
+ },
+ "Action News 5": {
+  "duplicate": 4,
+  "old": 0,
+  "seen": 2,
   "used": 0
  },
  "Action News Jax": {
@@ -971,6 +989,12 @@
   "seen": 2,
   "used": 1
  },
+ "Admirals": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Advertiser and Times": {
   "duplicate": 1,
   "old": 0,
@@ -1001,6 +1025,12 @@
   "seen": 0,
   "used": 0
  },
+ "African Business": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Africanews": {
   "duplicate": 2,
   "old": 0,
@@ -1015,8 +1045,8 @@
  },
  "Africanews RSS": {
   "duplicate": 1,
-  "old": 208,
-  "seen": 9,
+  "old": 229,
+  "seen": 11,
   "used": 3
  },
  "AgriLife Today": {
@@ -1049,6 +1079,12 @@
   "seen": 1,
   "used": 1
  },
+ "AiThority": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 1
+ },
  "Aju Press": {
   "duplicate": 1,
   "old": 0,
@@ -1068,10 +1104,10 @@
   "used": 1
  },
  "Al Jazeera": {
-  "duplicate": 77,
+  "duplicate": 79,
   "old": 0,
-  "seen": 136,
-  "used": 40
+  "seen": 142,
+  "used": 42
  },
  "Al-Monitor": {
   "duplicate": 2,
@@ -1123,7 +1159,7 @@
  },
  "Alt News": {
   "duplicate": 1,
-  "old": 150,
+  "old": 159,
   "seen": 2,
   "used": 1
  },
@@ -1145,6 +1181,12 @@
   "seen": 1,
   "used": 0
  },
+ "Amarillo Globe-News": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Amazon Web Services": {
   "duplicate": 1,
   "old": 0,
@@ -1152,9 +1194,9 @@
   "used": 0
  },
  "Amazon Web Services (AWS)": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "American Council on Education": {
@@ -1182,10 +1224,10 @@
   "used": 0
  },
  "Anadolu Ajansı": {
-  "duplicate": 18,
+  "duplicate": 19,
   "old": 0,
-  "seen": 9,
-  "used": 2
+  "seen": 10,
+  "used": 3
  },
  "Analytics India Magazine": {
   "duplicate": 0,
@@ -1248,9 +1290,9 @@
   "used": 0
  },
  "Anthropic": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
-  "seen": 2,
+  "seen": 3,
   "used": 1
  },
  "Apparel Resources": {
@@ -1295,6 +1337,12 @@
   "seen": 2,
   "used": 0
  },
+ "Arise News": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 1
+ },
  "Arizona Capitol Times": {
   "duplicate": 0,
   "old": 0,
@@ -1332,10 +1380,10 @@
   "used": 0
  },
  "Ars Technica": {
-  "duplicate": 19,
-  "old": 274,
-  "seen": 30,
-  "used": 4
+  "duplicate": 21,
+  "old": 277,
+  "seen": 32,
+  "used": 5
  },
  "Artemis.bm": {
   "duplicate": 1,
@@ -1358,7 +1406,7 @@
  "Asia Insurance Post": {
   "duplicate": 1,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "Asia News Network": {
@@ -1488,10 +1536,10 @@
   "used": 0
  },
  "Axios": {
-  "duplicate": 22,
+  "duplicate": 25,
   "old": 0,
-  "seen": 54,
-  "used": 11
+  "seen": 59,
+  "used": 12
  },
  "AzerNews": {
   "duplicate": 0,
@@ -1506,9 +1554,9 @@
   "used": 0
  },
  "BBC": {
-  "duplicate": 104,
-  "old": 3070,
-  "seen": 140,
+  "duplicate": 110,
+  "old": 3222,
+  "seen": 147,
   "used": 39
  },
  "BBC Sky at Night Magazine": {
@@ -1524,9 +1572,9 @@
   "used": 1
  },
  "BCCI": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 2,
+  "seen": 3,
   "used": 0
  },
  "BGR": {
@@ -1544,8 +1592,8 @@
  "BNN Bloomberg": {
   "duplicate": 9,
   "old": 0,
-  "seen": 6,
-  "used": 2
+  "seen": 8,
+  "used": 3
  },
  "BNO News": {
   "duplicate": 0,
@@ -1602,7 +1650,7 @@
   "used": 0
  },
  "BW People": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 3,
   "used": 2
@@ -1620,7 +1668,7 @@
   "used": 2
  },
  "Bakersfield.com": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -1652,7 +1700,7 @@
  "Bangladesh Sangbad Sangstha (B": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "BankInfoSecurity": {
@@ -1674,9 +1722,9 @@
   "used": 1
  },
  "Bar and Bench": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
-  "seen": 27,
+  "seen": 30,
   "used": 3
  },
  "Barca Blaugranes": {
@@ -1686,7 +1734,7 @@
   "used": 1
  },
  "Barchart.com": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
   "seen": 2,
   "used": 1
@@ -1698,9 +1746,9 @@
   "used": 0
  },
  "Barron's": {
-  "duplicate": 12,
+  "duplicate": 13,
   "old": 0,
-  "seen": 17,
+  "seen": 18,
   "used": 3
  },
  "Bay News 9": {
@@ -1716,6 +1764,12 @@
   "used": 0
  },
  "Beaumont Enterprise": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
+ "Beebom": {
   "duplicate": 1,
   "old": 0,
   "seen": 1,
@@ -1757,16 +1811,28 @@
   "seen": 0,
   "used": 0
  },
+ "Benton Institute for Broadband": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Benzinga": {
   "duplicate": 10,
   "old": 0,
-  "seen": 50,
+  "seen": 52,
   "used": 5
  },
  "Bergen Record": {
   "duplicate": 0,
   "old": 0,
   "seen": 1,
+  "used": 0
+ },
+ "Berkeley Engineering": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "Bernama": {
@@ -1800,9 +1866,9 @@
   "used": 0
  },
  "BigGo Finance": {
-  "duplicate": 12,
+  "duplicate": 14,
   "old": 0,
-  "seen": 27,
+  "seen": 33,
   "used": 10
  },
  "BigMint": {
@@ -1821,6 +1887,12 @@
   "duplicate": 0,
   "old": 0,
   "seen": 2,
+  "used": 0
+ },
+ "Billionaires.Africa": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "Binance": {
@@ -1866,9 +1938,9 @@
   "used": 1
  },
  "BleepingComputer": {
-  "duplicate": 6,
-  "old": 53,
-  "seen": 6,
+  "duplicate": 7,
+  "old": 57,
+  "seen": 7,
   "used": 2
  },
  "Blogging The Boys": {
@@ -1878,21 +1950,21 @@
   "used": 0
  },
  "Bloomberg": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 2
  },
  "Bloomberg Law News": {
-  "duplicate": 6,
+  "duplicate": 8,
   "old": 0,
   "seen": 8,
   "used": 2
  },
  "Bloomberg Markets": {
-  "duplicate": 11,
+  "duplicate": 12,
   "old": 4,
-  "seen": 6,
+  "seen": 7,
   "used": 2
  },
  "Bloomberg Tax": {
@@ -1902,9 +1974,9 @@
   "used": 1
  },
  "Bloomberg.com": {
-  "duplicate": 78,
+  "duplicate": 83,
   "old": 0,
-  "seen": 83,
+  "seen": 87,
   "used": 18
  },
  "Bluefield Daily Telegraph": {
@@ -1980,7 +2052,7 @@
   "used": 0
  },
  "Bozeman Daily Chronicle": {
-  "duplicate": 44,
+  "duplicate": 47,
   "old": 0,
   "seen": 13,
   "used": 2
@@ -2003,11 +2075,17 @@
   "seen": 1,
   "used": 0
  },
- "Breaking News, Latest News and": {
-  "duplicate": 41,
+ "Breaking Defense": {
+  "duplicate": 0,
   "old": 0,
-  "seen": 44,
-  "used": 7
+  "seen": 1,
+  "used": 0
+ },
+ "Breaking News, Latest News and": {
+  "duplicate": 43,
+  "old": 0,
+  "seen": 45,
+  "used": 8
  },
  "Breakingthenews.net": {
   "duplicate": 1,
@@ -2040,9 +2118,9 @@
   "used": 1
  },
  "Briefs Finance": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Brisbane Times": {
@@ -2056,6 +2134,12 @@
   "old": 0,
   "seen": 1,
   "used": 1
+ },
+ "Broadband TV News": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
  },
  "Broomfield Enterprise": {
   "duplicate": 1,
@@ -2107,7 +2191,7 @@
  },
  "Business": {
   "duplicate": 0,
-  "old": 1278,
+  "old": 1319,
   "seen": 0,
   "used": 0
  },
@@ -2124,9 +2208,9 @@
   "used": 0
  },
  "Business Insider": {
-  "duplicate": 15,
+  "duplicate": 18,
   "old": 0,
-  "seen": 23,
+  "seen": 27,
   "used": 3
  },
  "Business Insider Africa": {
@@ -2142,8 +2226,8 @@
   "used": 0
  },
  "Business News": {
-  "duplicate": 13,
-  "old": 274,
+  "duplicate": 14,
+  "old": 291,
   "seen": 1,
   "used": 0
  },
@@ -2154,21 +2238,21 @@
   "used": 2
  },
  "Business Standard": {
-  "duplicate": 63,
+  "duplicate": 67,
   "old": 0,
-  "seen": 80,
-  "used": 24
+  "seen": 84,
+  "used": 25
  },
  "Business Today": {
-  "duplicate": 20,
+  "duplicate": 21,
   "old": 0,
-  "seen": 21,
-  "used": 6
+  "seen": 22,
+  "used": 7
  },
  "Business Upturn": {
   "duplicate": 0,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 1
  },
  "Business Wire": {
@@ -2190,9 +2274,9 @@
   "used": 0
  },
  "BusinessLine": {
-  "duplicate": 46,
+  "duplicate": 47,
   "old": 0,
-  "seen": 54,
+  "seen": 56,
   "used": 14
  },
  "BusinessToday Malaysia": {
@@ -2250,9 +2334,9 @@
   "used": 1
  },
  "CBC": {
-  "duplicate": 16,
+  "duplicate": 17,
   "old": 0,
-  "seen": 31,
+  "seen": 32,
   "used": 9
  },
  "CBS 17": {
@@ -2264,8 +2348,8 @@
  "CBS News": {
   "duplicate": 32,
   "old": 0,
-  "seen": 76,
-  "used": 15
+  "seen": 78,
+  "used": 16
  },
  "CBS Sports": {
   "duplicate": 0,
@@ -2308,6 +2392,12 @@
   "old": 0,
   "seen": 2,
   "used": 1
+ },
+ "CFO Dive": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
  },
  "CGTN": {
   "duplicate": 1,
@@ -2376,10 +2466,10 @@
   "used": 1
  },
  "CNBC": {
-  "duplicate": 129,
-  "old": 888,
-  "seen": 239,
-  "used": 72
+  "duplicate": 135,
+  "old": 919,
+  "seen": 245,
+  "used": 73
  },
  "CNBC Africa": {
   "duplicate": 4,
@@ -2388,22 +2478,22 @@
   "used": 2
  },
  "CNBC TV18": {
-  "duplicate": 27,
+  "duplicate": 28,
   "old": 0,
-  "seen": 35,
-  "used": 5
+  "seen": 37,
+  "used": 6
  },
  "CNET": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
-  "seen": 9,
+  "seen": 10,
   "used": 0
  },
  "CNN": {
   "duplicate": 23,
   "old": 0,
-  "seen": 47,
-  "used": 9
+  "seen": 48,
+  "used": 10
  },
  "CNYhomepage.com": {
   "duplicate": 2,
@@ -2414,7 +2504,7 @@
  "CP24": {
   "duplicate": 9,
   "old": 0,
-  "seen": 8,
+  "seen": 9,
   "used": 6
  },
  "CPA Practice Advisor": {
@@ -2442,7 +2532,7 @@
   "used": 0
  },
  "CT Insider": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
   "seen": 3,
   "used": 1
@@ -2456,7 +2546,7 @@
  "CTV News": {
   "duplicate": 19,
   "old": 0,
-  "seen": 13,
+  "seen": 14,
   "used": 5
  },
  "CTech": {
@@ -2490,9 +2580,9 @@
   "used": 0
  },
  "Cafemutual": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "Caledonian Record": {
@@ -2538,16 +2628,28 @@
   "used": 0
  },
  "Canada News": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 96,
-  "seen": 10,
+  "seen": 11,
   "used": 4
+ },
+ "Canada's National Observer": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
  },
  "Canada.ca": {
   "duplicate": 1,
   "old": 0,
   "seen": 0,
   "used": 0
+ },
+ "Canadian Cattlemen": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 1
  },
  "Canadian Grocer": {
   "duplicate": 1,
@@ -2560,6 +2662,12 @@
   "old": 0,
   "seen": 2,
   "used": 0
+ },
+ "Canadim": {
+  "duplicate": 2,
+  "old": 0,
+  "seen": 2,
+  "used": 2
  },
  "CandysDirt.com": {
   "duplicate": 0,
@@ -2611,7 +2719,7 @@
  },
  "Carbon Brief": {
   "duplicate": 2,
-  "old": 89,
+  "old": 97,
   "seen": 2,
   "used": 0
  },
@@ -2682,7 +2790,7 @@
   "used": 1
  },
  "Central Oregon Daily": {
-  "duplicate": 11,
+  "duplicate": 14,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -2898,7 +3006,7 @@
   "used": 0
  },
  "CityNews Toronto": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -3014,7 +3122,7 @@
  "Coinpaper": {
   "duplicate": 0,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
   "used": 0
  },
  "Coinpedia": {
@@ -3098,7 +3206,7 @@
  "Connected to India": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Connecticut Post": {
@@ -3125,6 +3233,12 @@
   "seen": 1,
   "used": 0
  },
+ "Construction World India": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Consumer Finance Monitor": {
   "duplicate": 0,
   "old": 0,
@@ -3147,6 +3261,12 @@
   "duplicate": 0,
   "old": 0,
   "seen": 1,
+  "used": 0
+ },
+ "Corpus Christi Caller-Times": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "Corsicana Daily Sun": {
@@ -3218,14 +3338,14 @@
  "Cricbuzz": {
   "duplicate": 3,
   "old": 0,
-  "seen": 18,
+  "seen": 19,
   "used": 3
  },
  "Cricinfo": {
-  "duplicate": 14,
+  "duplicate": 15,
   "old": 0,
-  "seen": 29,
-  "used": 3
+  "seen": 31,
+  "used": 4
  },
  "Cricket World": {
   "duplicate": 0,
@@ -3234,9 +3354,9 @@
   "used": 0
  },
  "Cricket news from Cricinfo.com": {
-  "duplicate": 18,
-  "old": 628,
-  "seen": 5,
+  "duplicate": 20,
+  "old": 703,
+  "seen": 6,
   "used": 0
  },
  "Cricketnmore": {
@@ -3305,6 +3425,12 @@
   "seen": 5,
   "used": 1
  },
+ "Curly Tales": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Current Federal Tax Developmen": {
   "duplicate": 1,
   "old": 0,
@@ -3318,9 +3444,9 @@
   "used": 1
  },
  "Cybernews": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Cyprus Shipping News": {
@@ -3362,19 +3488,25 @@
  "DT Next": {
   "duplicate": 6,
   "old": 0,
-  "seen": 9,
+  "seen": 11,
+  "used": 0
+ },
+ "DVIDS": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "DW": {
-  "duplicate": 37,
-  "old": 743,
-  "seen": 46,
-  "used": 15
+  "duplicate": 41,
+  "old": 787,
+  "seen": 48,
+  "used": 17
  },
  "DW.com": {
-  "duplicate": 19,
+  "duplicate": 20,
   "old": 0,
-  "seen": 48,
+  "seen": 49,
   "used": 10
  },
  "Daijiworld": {
@@ -3444,7 +3576,7 @@
   "used": 0
  },
  "Daily Pioneer": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
   "seen": 12,
   "used": 6
@@ -3476,7 +3608,7 @@
  "Dailyhunt": {
   "duplicate": 1,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 0
  },
  "Dainik Jagran MP CG": {
@@ -3540,13 +3672,13 @@
   "used": 0
  },
  "Dawn": {
-  "duplicate": 10,
-  "old": 1,
-  "seen": 6,
-  "used": 4
+  "duplicate": 12,
+  "old": 3,
+  "seen": 7,
+  "used": 5
  },
  "Deadline": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -3558,16 +3690,16 @@
   "used": 5
  },
  "Deccan Chronicle": {
-  "duplicate": 47,
+  "duplicate": 49,
   "old": 0,
-  "seen": 44,
+  "seen": 46,
   "used": 12
  },
  "Deccan Herald": {
-  "duplicate": 17,
+  "duplicate": 18,
   "old": 0,
-  "seen": 57,
-  "used": 12
+  "seen": 63,
+  "used": 14
  },
  "Decode39": {
   "duplicate": 1,
@@ -3584,7 +3716,7 @@
  "Defence Watch": {
   "duplicate": 1,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "Defense News": {
@@ -3684,9 +3816,9 @@
   "used": 0
  },
  "Devdiscourse": {
-  "duplicate": 18,
+  "duplicate": 19,
   "old": 0,
-  "seen": 11,
+  "seen": 12,
   "used": 5
  },
  "Dezeen": {
@@ -3698,7 +3830,7 @@
  "Dhaka Tribune": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Diamond World": {
@@ -3793,7 +3925,7 @@
  },
  "ECB": {
   "duplicate": 0,
-  "old": 112,
+  "old": 127,
   "seen": 0,
   "used": 0
  },
@@ -3810,9 +3942,9 @@
   "used": 1
  },
  "EIN Presswire": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 0
  },
  "EL PAÍS English": {
@@ -3824,7 +3956,7 @@
  "EMJ": {
   "duplicate": 1,
   "old": 0,
-  "seen": 11,
+  "seen": 12,
   "used": 0
  },
  "ENewsTime": {
@@ -3872,13 +4004,13 @@
  "ET BrandEquity": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "ET CIO": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 1
  },
  "ET Education": {
@@ -3888,7 +4020,7 @@
   "used": 0
  },
  "ET EnergyWorld": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 1,
   "used": 1
@@ -3968,7 +4100,7 @@
  "ETV Bharat": {
   "duplicate": 11,
   "old": 0,
-  "seen": 18,
+  "seen": 20,
   "used": 8
  },
  "EU Today": {
@@ -3983,8 +4115,14 @@
   "seen": 0,
   "used": 0
  },
+ "EY": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Eagle-Tribune": {
-  "duplicate": 8,
+  "duplicate": 9,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -4020,21 +4158,21 @@
   "used": 0
  },
  "Economic Times": {
-  "duplicate": 36,
-  "old": 295,
-  "seen": 25,
+  "duplicate": 38,
+  "old": 304,
+  "seen": 26,
   "used": 9
  },
  "Economy": {
   "duplicate": 5,
-  "old": 207,
-  "seen": 6,
-  "used": 2
+  "old": 229,
+  "seen": 7,
+  "used": 3
  },
  "EconomyNext": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 0
  },
  "EdTech Innovation Hub": {
@@ -4062,10 +4200,10 @@
   "used": 1
  },
  "Education Times": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 2,
-  "used": 1
+  "seen": 4,
+  "used": 2
  },
  "Effingham Radio": {
   "duplicate": 0,
@@ -4092,15 +4230,33 @@
   "used": 0
  },
  "Electrek": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
+  "used": 0
+ },
+ "Electric Vehicles": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "Elets BFSI": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "Ellwood City Ledger": {
   "duplicate": 1,
   "old": 0,
   "seen": 0,
+  "used": 0
+ },
+ "Endpoints News": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "Energy Connects": {
@@ -4116,9 +4272,9 @@
   "used": 1
  },
  "Engadget": {
-  "duplicate": 9,
+  "duplicate": 10,
   "old": 11,
-  "seen": 10,
+  "seen": 12,
   "used": 4
  },
  "Engineering.com": {
@@ -4202,7 +4358,7 @@
  "Eurasia Business News": {
   "duplicate": 0,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 1
  },
  "Eurasia Review": {
@@ -4230,15 +4386,15 @@
   "used": 0
  },
  "Euronews RSS": {
-  "duplicate": 14,
-  "old": 231,
-  "seen": 8,
+  "duplicate": 18,
+  "old": 257,
+  "seen": 9,
   "used": 2
  },
  "Euronews.com": {
-  "duplicate": 14,
+  "duplicate": 16,
   "old": 0,
-  "seen": 26,
+  "seen": 27,
   "used": 2
  },
  "European Medical Journal": {
@@ -4297,8 +4453,8 @@
  },
  "FACTLY": {
   "duplicate": 1,
-  "old": 58,
-  "seen": 6,
+  "old": 64,
+  "seen": 7,
   "used": 1
  },
  "FCJ Refugee Centre": {
@@ -4452,7 +4608,7 @@
   "used": 0
  },
  "FOX10 News": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -4502,13 +4658,13 @@
  "FXStreet": {
   "duplicate": 10,
   "old": 0,
-  "seen": 11,
-  "used": 0
+  "seen": 12,
+  "used": 1
  },
  "Facebook": {
   "duplicate": 1,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 0
  },
  "Fact Crescendo Sri Lanka": {
@@ -4518,9 +4674,9 @@
   "used": 0
  },
  "FactCheck.org": {
-  "duplicate": 1,
-  "old": 73,
-  "seen": 1,
+  "duplicate": 2,
+  "old": 82,
+  "seen": 2,
   "used": 0
  },
  "FactCheckHub": {
@@ -4555,7 +4711,7 @@
  },
  "Federal Reserve (official)": {
   "duplicate": 0,
-  "old": 496,
+  "old": 516,
   "seen": 2,
   "used": 0
  },
@@ -4566,8 +4722,8 @@
   "used": 1
  },
  "Feed": {
-  "duplicate": 7,
-  "old": 53,
+  "duplicate": 8,
+  "old": 57,
   "seen": 0,
   "used": 0
  },
@@ -4595,9 +4751,15 @@
   "seen": 0,
   "used": 0
  },
+ "Finance & Commerce": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 1
+ },
  "Finance & economics": {
   "duplicate": 0,
-  "old": 2394,
+  "old": 2693,
   "seen": 1,
   "used": 0
  },
@@ -4608,22 +4770,22 @@
   "used": 0
  },
  "Financial Express": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 2
  },
  "Financial Post": {
   "duplicate": 3,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 1
  },
  "Financial Times": {
-  "duplicate": 32,
+  "duplicate": 38,
   "old": 0,
-  "seen": 67,
-  "used": 16
+  "seen": 71,
+  "used": 17
  },
  "FinancialContent": {
   "duplicate": 2,
@@ -4638,7 +4800,7 @@
   "used": 0
  },
  "Finimize": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -4668,10 +4830,10 @@
   "used": 1
  },
  "Firstpost": {
-  "duplicate": 14,
+  "duplicate": 17,
   "old": 0,
-  "seen": 16,
-  "used": 5
+  "seen": 18,
+  "used": 6
  },
  "Florida Department of Law Enfo": {
   "duplicate": 0,
@@ -4692,16 +4854,16 @@
   "used": 0
  },
  "Florida Today": {
-  "duplicate": 7,
+  "duplicate": 9,
   "old": 0,
-  "seen": 4,
-  "used": 0
+  "seen": 6,
+  "used": 2
  },
  "Forbes": {
-  "duplicate": 21,
+  "duplicate": 23,
   "old": 0,
-  "seen": 61,
-  "used": 4
+  "seen": 64,
+  "used": 5
  },
  "Foreign Policy": {
   "duplicate": 1,
@@ -4716,7 +4878,7 @@
   "used": 0
  },
  "Forex Factory": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 4,
   "used": 1
@@ -4746,9 +4908,9 @@
   "used": 0
  },
  "Fortune": {
-  "duplicate": 24,
+  "duplicate": 26,
   "old": 0,
-  "seen": 52,
+  "seen": 54,
   "used": 6
  },
  "Fortune India": {
@@ -4760,8 +4922,8 @@
  "FourWeekMBA": {
   "duplicate": 2,
   "old": 0,
-  "seen": 12,
-  "used": 0
+  "seen": 13,
+  "used": 1
  },
  "Fox 10 News": {
   "duplicate": 2,
@@ -4770,15 +4932,15 @@
   "used": 0
  },
  "Fox Business": {
-  "duplicate": 12,
+  "duplicate": 13,
   "old": 0,
-  "seen": 11,
-  "used": 3
+  "seen": 13,
+  "used": 4
  },
  "Fox News": {
-  "duplicate": 14,
+  "duplicate": 15,
   "old": 0,
-  "seen": 59,
+  "seen": 60,
   "used": 9
  },
  "Fragomen": {
@@ -4788,10 +4950,10 @@
   "used": 0
  },
  "France 24": {
-  "duplicate": 75,
+  "duplicate": 82,
   "old": 0,
-  "seen": 35,
-  "used": 16
+  "seen": 38,
+  "used": 17
  },
  "Franklin Observer": {
   "duplicate": 0,
@@ -4808,7 +4970,7 @@
  "Free Press Journal": {
   "duplicate": 12,
   "old": 0,
-  "seen": 16,
+  "seen": 18,
   "used": 1
  },
  "Free Press Kashmir": {
@@ -4854,9 +5016,9 @@
   "used": 0
  },
  "GDACS RSS information": {
-  "duplicate": 12,
-  "old": 2553,
-  "seen": 12,
+  "duplicate": 13,
+  "old": 2818,
+  "seen": 13,
   "used": 0
  },
  "GIM International": {
@@ -4911,6 +5073,12 @@
   "duplicate": 1,
   "old": 0,
   "seen": 1,
+  "used": 0
+ },
+ "Gainesville Sun": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "GameDev.net": {
@@ -4992,9 +5160,9 @@
   "used": 0
  },
  "Global Banking & Finance Revie": {
-  "duplicate": 2,
+  "duplicate": 4,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "Global Competition Review": {
@@ -5083,9 +5251,9 @@
  },
  "Good News Network": {
   "duplicate": 0,
-  "old": 535,
-  "seen": 52,
-  "used": 12
+  "old": 579,
+  "seen": 57,
+  "used": 13
  },
  "Goodreturns": {
   "duplicate": 8,
@@ -5099,9 +5267,15 @@
   "seen": 1,
   "used": 0
  },
- "Google DeepMind News": {
+ "Google DeepMind": {
   "duplicate": 0,
-  "old": 799,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
+ "Google DeepMind News": {
+  "duplicate": 1,
+  "old": 898,
   "seen": 0,
   "used": 0
  },
@@ -5144,7 +5318,7 @@
  "Greater Kashmir": {
   "duplicate": 4,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 2
  },
  "Greenfield Indiana": {
@@ -5198,7 +5372,7 @@
  "Gulf Today": {
   "duplicate": 1,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "Gulte": {
@@ -5210,7 +5384,7 @@
  "GuruFocus": {
   "duplicate": 2,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 0
  },
  "H&R Block": {
@@ -5246,7 +5420,7 @@
  "HPCwire": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 1
  },
  "HR Executive": {
@@ -5324,8 +5498,8 @@
  "Hawaii Tribune-Herald": {
   "duplicate": 0,
   "old": 0,
-  "seen": 2,
-  "used": 1
+  "seen": 3,
+  "used": 2
  },
  "Hawk Central": {
   "duplicate": 0,
@@ -5388,15 +5562,21 @@
   "used": 0
  },
  "Hindustan Times": {
-  "duplicate": 61,
+  "duplicate": 67,
   "old": 487,
-  "seen": 127,
+  "seen": 130,
   "used": 40
  },
  "Hindusthan Samachar English": {
   "duplicate": 1,
   "old": 0,
   "seen": 0,
+  "used": 0
+ },
+ "Hiru News": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "Homeland Security Today": {
@@ -5412,15 +5592,15 @@
   "used": 0
  },
  "Hong Kong": {
-  "duplicate": 10,
-  "old": 257,
+  "duplicate": 11,
+  "old": 289,
   "seen": 0,
   "used": 0
  },
  "Honolulu Star-Advertiser": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Hoodline": {
@@ -5514,14 +5694,14 @@
   "used": 0
  },
  "Hubbis": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Hugging Face": {
   "duplicate": 0,
-  "old": 7094,
+  "old": 7983,
   "seen": 0,
   "used": 0
  },
@@ -5544,10 +5724,10 @@
   "used": 0
  },
  "Hyderabad Mail": {
-  "duplicate": 17,
+  "duplicate": 19,
   "old": 0,
-  "seen": 24,
-  "used": 9
+  "seen": 25,
+  "used": 10
  },
  "Hypebeast": {
   "duplicate": 1,
@@ -5587,7 +5767,7 @@
  },
  "IEEE Spectrum": {
   "duplicate": 0,
-  "old": 446,
+  "old": 476,
   "seen": 0,
   "used": 0
  },
@@ -5603,6 +5783,12 @@
   "seen": 2,
   "used": 0
  },
+ "IGN": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "ILoveQatar.net": {
   "duplicate": 0,
   "old": 0,
@@ -5610,7 +5796,7 @@
   "used": 0
  },
  "IMDb": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 9,
   "used": 0
@@ -5718,10 +5904,10 @@
   "used": 0
  },
  "ImmigCanada Immigration Consul": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
-  "seen": 3,
-  "used": 3
+  "seen": 4,
+  "used": 4
  },
  "ImmigToronto": {
   "duplicate": 1,
@@ -5773,8 +5959,8 @@
  },
  "India": {
   "duplicate": 1,
-  "old": 721,
-  "seen": 8,
+  "old": 745,
+  "seen": 9,
   "used": 1
  },
  "India Business Trade": {
@@ -5826,10 +6012,10 @@
   "used": 0
  },
  "India Today": {
-  "duplicate": 47,
+  "duplicate": 48,
   "old": 0,
-  "seen": 110,
-  "used": 23
+  "seen": 117,
+  "used": 26
  },
  "India Today NE": {
   "duplicate": 1,
@@ -5927,6 +6113,12 @@
   "seen": 1,
   "used": 0
  },
+ "Informat.ro": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
  "InkFreeNews.com": {
   "duplicate": 1,
   "old": 0,
@@ -5952,9 +6144,9 @@
   "used": 0
  },
  "Inquirer.com": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Inshorts": {
@@ -6009,6 +6201,12 @@
   "duplicate": 1,
   "old": 0,
   "seen": 0,
+  "used": 0
+ },
+ "InsuranceNewsNet": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "Interest.co.nz": {
@@ -6072,9 +6270,9 @@
   "used": 1
  },
  "Investing.com": {
-  "duplicate": 28,
+  "duplicate": 31,
   "old": 0,
-  "seen": 43,
+  "seen": 44,
   "used": 11
  },
  "Investing.com Australia": {
@@ -6086,7 +6284,13 @@
  "Investing.com India": {
   "duplicate": 13,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
+  "used": 1
+ },
+ "Investing.com Nigeria": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "Investing.com South Africa": {
@@ -6114,10 +6318,10 @@
   "used": 0
  },
  "Investment Guru India": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 13,
-  "used": 2
+  "seen": 15,
+  "used": 3
  },
  "Investment Week": {
   "duplicate": 1,
@@ -6128,7 +6332,7 @@
  "Investopedia": {
   "duplicate": 3,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 1
  },
  "Investor's Business Daily": {
@@ -6169,6 +6373,12 @@
  },
  "Irish Independent": {
   "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
+ "Irish Legal News": {
+  "duplicate": 0,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -6312,7 +6522,7 @@
   "used": 0
  },
  "Just In": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 3,
   "used": 0
@@ -6348,9 +6558,9 @@
   "used": 0
  },
  "KBAK": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "KBTX News 3": {
@@ -6360,7 +6570,7 @@
   "used": 1
  },
  "KBZK News": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -6654,7 +6864,7 @@
   "used": 0
  },
  "KPAX News": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -6708,7 +6918,7 @@
   "used": 0
  },
  "KSAT": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -6720,7 +6930,7 @@
   "used": 1
  },
  "KSL News": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -6822,7 +7032,7 @@
   "used": 0
  },
  "KTVN": {
-  "duplicate": 15,
+  "duplicate": 16,
   "old": 0,
   "seen": 6,
   "used": 0
@@ -6906,7 +7116,7 @@
   "used": 0
  },
  "KWQC": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -6930,9 +7140,9 @@
   "used": 0
  },
  "KXAN Austin": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 0
  },
  "KXII": {
@@ -7062,7 +7272,7 @@
   "used": 0
  },
  "Knoxville News Sentinel": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -7081,7 +7291,7 @@
  },
  "Krebs on Security": {
   "duplicate": 0,
-  "old": 78,
+  "old": 88,
   "seen": 0,
   "used": 0
  },
@@ -7110,10 +7320,10 @@
   "used": 0
  },
  "Kyiv Post": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
-  "seen": 7,
-  "used": 2
+  "seen": 8,
+  "used": 3
  },
  "LAist": {
   "duplicate": 1,
@@ -7176,21 +7386,21 @@
   "used": 0
  },
  "Latest News": {
-  "duplicate": 25,
+  "duplicate": 29,
   "old": 30,
   "seen": 8,
   "used": 2
  },
  "Latest articles": {
-  "duplicate": 28,
+  "duplicate": 30,
   "old": 3,
-  "seen": 8,
+  "seen": 9,
   "used": 3
  },
  "Latest from Space.com": {
   "duplicate": 10,
-  "old": 327,
-  "seen": 6,
+  "old": 365,
+  "seen": 7,
   "used": 1
  },
  "Latest news from Azerbaijan": {
@@ -7200,9 +7410,9 @@
   "used": 0
  },
  "LatestLY": {
-  "duplicate": 9,
+  "duplicate": 11,
   "old": 0,
-  "seen": 9,
+  "seen": 10,
   "used": 2
  },
  "Latinoamérica 21": {
@@ -7290,7 +7500,7 @@
   "used": 0
  },
  "Legit News": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -7352,7 +7562,7 @@
  "LinkedIn": {
   "duplicate": 9,
   "old": 0,
-  "seen": 26,
+  "seen": 27,
   "used": 5
  },
  "Liquide Blog": {
@@ -7368,15 +7578,15 @@
   "used": 0
  },
  "Live Law": {
-  "duplicate": 16,
+  "duplicate": 17,
   "old": 0,
-  "seen": 50,
-  "used": 15
+  "seen": 53,
+  "used": 16
  },
  "Live Science": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 0
  },
  "Live and Let's Fly": {
@@ -7392,9 +7602,9 @@
   "used": 1
  },
  "Livemint": {
-  "duplicate": 63,
+  "duplicate": 68,
   "old": 0,
-  "seen": 107,
+  "seen": 109,
   "used": 29
  },
  "Livingston Enterprise": {
@@ -7511,6 +7721,18 @@
   "seen": 1,
   "used": 0
  },
+ "Lubbock Avalanche-Journal": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "Luxurylaunches": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "MARCA": {
   "duplicate": 1,
   "old": 0,
@@ -7531,14 +7753,14 @@
  },
  "MIT News": {
   "duplicate": 0,
-  "old": 394,
+  "old": 442,
   "seen": 0,
   "used": 0
  },
  "MIT Tech Review": {
   "duplicate": 0,
-  "old": 187,
-  "seen": 14,
+  "old": 195,
+  "seen": 15,
   "used": 2
  },
  "MIT Technology Review": {
@@ -7710,7 +7932,7 @@
   "used": 0
  },
  "Marfa Public Radio": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -7723,7 +7945,7 @@
  },
  "MarkTechPost": {
   "duplicate": 1,
-  "old": 40,
+  "old": 45,
   "seen": 1,
   "used": 1
  },
@@ -7759,6 +7981,12 @@
  },
  "MarketsMojo": {
   "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
+ "Martin Cid Magazine": {
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -7802,7 +8030,7 @@
  "Mathrubhumi English": {
   "duplicate": 1,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 0
  },
  "Max-Planck-Gesellschaft": {
@@ -7922,7 +8150,7 @@
  "Merced Sun-Star": {
   "duplicate": 4,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 1
  },
  "Mercedes-Benz Group": {
@@ -7933,7 +8161,7 @@
  },
  "MercoPress": {
   "duplicate": 1,
-  "old": 32,
+  "old": 36,
   "seen": 1,
   "used": 0
  },
@@ -7955,6 +8183,12 @@
   "seen": 1,
   "used": 0
  },
+ "Mezha": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Mezha.net": {
   "duplicate": 2,
   "old": 0,
@@ -7962,7 +8196,7 @@
   "used": 0
  },
  "Miami Herald": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -7980,9 +8214,9 @@
   "used": 0
  },
  "Mid-Day": {
-  "duplicate": 20,
+  "duplicate": 21,
   "old": 0,
-  "seen": 34,
+  "seen": 35,
   "used": 7
  },
  "Midcoast Villager": {
@@ -8028,7 +8262,7 @@
   "used": 0
  },
  "MillenniumPost": {
-  "duplicate": 10,
+  "duplicate": 11,
   "old": 0,
   "seen": 10,
   "used": 2
@@ -8045,6 +8279,12 @@
   "seen": 1,
   "used": 1
  },
+ "Ministry of Sport": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "MinneapoliMedia": {
   "duplicate": 0,
   "old": 0,
@@ -8052,9 +8292,9 @@
   "used": 0
  },
  "Mint": {
-  "duplicate": 16,
-  "old": 776,
-  "seen": 19,
+  "duplicate": 17,
+  "old": 801,
+  "seen": 20,
   "used": 8
  },
  "Mirage News": {
@@ -8076,9 +8316,9 @@
   "used": 1
  },
  "Modern Ghana": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 21,
+  "seen": 23,
   "used": 5
  },
  "Modesto Bee": {
@@ -8100,19 +8340,19 @@
   "used": 1
  },
  "Money": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
   "seen": 0,
   "used": 0
  },
  "Money.ca": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 2,
   "used": 0
  },
  "MoneyWise.com": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
   "seen": 3,
   "used": 0
@@ -8124,10 +8364,10 @@
   "used": 0
  },
  "Moneycontrol.com": {
-  "duplicate": 92,
+  "duplicate": 98,
   "old": 0,
-  "seen": 114,
-  "used": 32
+  "seen": 119,
+  "used": 34
  },
  "Moneylife": {
   "duplicate": 1,
@@ -8158,6 +8398,12 @@
   "old": 0,
   "seen": 1,
   "used": 1
+ },
+ "Morehead State University": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
  },
  "Morning Journal": {
   "duplicate": 1,
@@ -8202,9 +8448,9 @@
   "used": 0
  },
  "MorungExpress": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 0
  },
  "Mother Jones": {
@@ -8352,15 +8598,15 @@
   "used": 0
  },
  "NASA": {
-  "duplicate": 13,
-  "old": 30,
-  "seen": 8,
+  "duplicate": 15,
+  "old": 35,
+  "seen": 9,
   "used": 0
  },
  "NASA (.gov)": {
   "duplicate": 7,
   "old": 0,
-  "seen": 34,
+  "seen": 37,
   "used": 3
  },
  "NASA Earthdata (.gov)": {
@@ -8376,9 +8622,9 @@
   "used": 0
  },
  "NASA Science (.gov)": {
-  "duplicate": 9,
+  "duplicate": 11,
   "old": 0,
-  "seen": 22,
+  "seen": 24,
   "used": 1
  },
  "NBA.com": {
@@ -8406,13 +8652,13 @@
   "used": 0
  },
  "NBC Bay Area": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "NBC Connecticut": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -8430,16 +8676,16 @@
   "used": 0
  },
  "NBC News": {
-  "duplicate": 41,
+  "duplicate": 44,
   "old": 0,
-  "seen": 80,
+  "seen": 82,
   "used": 21
  },
  "NBC News Top Stories": {
-  "duplicate": 22,
-  "old": 29,
-  "seen": 11,
-  "used": 2
+  "duplicate": 26,
+  "old": 34,
+  "seen": 12,
+  "used": 3
  },
  "NBC26": {
   "duplicate": 1,
@@ -8460,21 +8706,21 @@
   "used": 1
  },
  "NDTV": {
-  "duplicate": 67,
+  "duplicate": 72,
   "old": 0,
-  "seen": 130,
-  "used": 28
+  "seen": 133,
+  "used": 29
  },
  "NDTV News Search Records Found": {
-  "duplicate": 22,
+  "duplicate": 26,
   "old": 0,
-  "seen": 14,
-  "used": 5
+  "seen": 16,
+  "used": 7
  },
  "NDTV Profit": {
-  "duplicate": 23,
+  "duplicate": 24,
   "old": 0,
-  "seen": 97,
+  "seen": 102,
   "used": 20
  },
  "NDTV Sports": {
@@ -8484,10 +8730,10 @@
   "used": 0
  },
  "NEWS10 ABC": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 2,
-  "used": 0
+  "seen": 3,
+  "used": 1
  },
  "NHL.com": {
   "duplicate": 0,
@@ -8496,7 +8742,7 @@
   "used": 1
  },
  "NJ.com": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 2,
   "used": 0
@@ -8514,10 +8760,10 @@
   "used": 0
  },
  "NPR": {
-  "duplicate": 47,
-  "old": 153,
-  "seen": 48,
-  "used": 13
+  "duplicate": 52,
+  "old": 156,
+  "seen": 52,
+  "used": 14
  },
  "NPR Las Vegas": {
   "duplicate": 1,
@@ -8526,7 +8772,7 @@
   "used": 0
  },
  "NPR for Oregonians": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -8568,21 +8814,21 @@
   "used": 0
  },
  "NYT > U.S. > Politics": {
-  "duplicate": 41,
+  "duplicate": 47,
   "old": 25,
   "seen": 7,
   "used": 1
  },
  "NYT > U.S. News": {
-  "duplicate": 20,
+  "duplicate": 24,
   "old": 3,
-  "seen": 23,
-  "used": 3
+  "seen": 25,
+  "used": 4
  },
  "NYT > World News": {
-  "duplicate": 24,
-  "old": 174,
-  "seen": 8,
+  "duplicate": 28,
+  "old": 184,
+  "seen": 9,
   "used": 3
  },
  "NZ Advisor": {
@@ -8622,7 +8868,7 @@
   "used": 0
  },
  "NanaimoNewsNOW": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -8634,7 +8880,7 @@
   "used": 1
  },
  "Naples Daily News": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -8701,8 +8947,8 @@
  },
  "Nature": {
   "duplicate": 3,
-  "old": 1805,
-  "seen": 44,
+  "old": 1875,
+  "seen": 45,
   "used": 5
  },
  "Nautilus": {
@@ -8789,6 +9035,12 @@
   "seen": 2,
   "used": 1
  },
+ "New Jersey": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 1
+ },
  "New Jersey Hills": {
   "duplicate": 1,
   "old": 0,
@@ -8803,14 +9055,14 @@
  },
  "New Scientist": {
   "duplicate": 1,
-  "old": 39,
-  "seen": 1,
+  "old": 44,
+  "seen": 2,
   "used": 0
  },
  "New York Post": {
   "duplicate": 7,
   "old": 0,
-  "seen": 28,
+  "seen": 29,
   "used": 2
  },
  "Newark Advertiser": {
@@ -8820,10 +9072,10 @@
   "used": 0
  },
  "News": {
-  "duplicate": 26,
+  "duplicate": 28,
   "old": 0,
-  "seen": 11,
-  "used": 2
+  "seen": 12,
+  "used": 3
  },
  "News & Observer": {
   "duplicate": 1,
@@ -8833,7 +9085,7 @@
  },
  "News (English)": {
   "duplicate": 0,
-  "old": 889,
+  "old": 998,
   "seen": 0,
   "used": 0
  },
@@ -8882,8 +9134,8 @@
  "News On AIR": {
   "duplicate": 8,
   "old": 0,
-  "seen": 48,
-  "used": 20
+  "seen": 50,
+  "used": 21
  },
  "News and Sentinel": {
   "duplicate": 1,
@@ -8934,9 +9186,9 @@
   "used": 0
  },
  "News18": {
-  "duplicate": 18,
+  "duplicate": 20,
   "old": 0,
-  "seen": 20,
+  "seen": 21,
   "used": 9
  },
  "News18 Hindi": {
@@ -8948,7 +9200,7 @@
  "News18 Marathi": {
   "duplicate": 3,
   "old": 0,
-  "seen": 8,
+  "seen": 9,
   "used": 0
  },
  "News18 Punjab": {
@@ -8990,7 +9242,7 @@
  "NewsBytes": {
   "duplicate": 5,
   "old": 0,
-  "seen": 33,
+  "seen": 34,
   "used": 3
  },
  "NewsChannel 10": {
@@ -9024,9 +9276,9 @@
   "used": 0
  },
  "NewsMeter": {
-  "duplicate": 9,
+  "duplicate": 10,
   "old": 0,
-  "seen": 14,
+  "seen": 15,
   "used": 3
  },
  "NewsNation": {
@@ -9140,7 +9392,7 @@
  "Nikkei Asia": {
   "duplicate": 2,
   "old": 0,
-  "seen": 8,
+  "seen": 9,
   "used": 0
  },
  "Nilepost": {
@@ -9209,6 +9461,12 @@
   "seen": 2,
   "used": 0
  },
+ "OMFIF": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "OSV News": {
   "duplicate": 0,
   "old": 0,
@@ -9222,6 +9480,12 @@
   "used": 0
  },
  "Observer Local News": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "Ocala StarBanner": {
   "duplicate": 1,
   "old": 0,
   "seen": 0,
@@ -9258,9 +9522,9 @@
   "used": 0
  },
  "Oherald": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Ohio Capital Journal": {
@@ -9276,10 +9540,10 @@
   "used": 0
  },
  "OilPrice.com": {
-  "duplicate": 17,
+  "duplicate": 19,
   "old": 0,
-  "seen": 20,
-  "used": 9
+  "seen": 23,
+  "used": 10
  },
  "Olathe Reporter": {
   "duplicate": 0,
@@ -9308,8 +9572,8 @@
  "OnlineKhabar English News": {
   "duplicate": 1,
   "old": 0,
-  "seen": 2,
-  "used": 0
+  "seen": 3,
+  "used": 1
  },
  "Only Fact": {
   "duplicate": 1,
@@ -9332,7 +9596,7 @@
  "OpIndia": {
   "duplicate": 0,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 0
  },
  "Open Magazine": {
@@ -9344,12 +9608,12 @@
  "OpenAI": {
   "duplicate": 3,
   "old": 0,
-  "seen": 5,
-  "used": 0
+  "seen": 6,
+  "used": 1
  },
  "OpenAI News": {
-  "duplicate": 5,
-  "old": 10499,
+  "duplicate": 6,
+  "old": 11829,
   "seen": 1,
   "used": 0
  },
@@ -9396,9 +9660,9 @@
   "used": 0
  },
  "Organiser": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "Orlando Sentinel": {
@@ -9414,13 +9678,19 @@
   "used": 0
  },
  "Oskaloosa Herald": {
-  "duplicate": 10,
+  "duplicate": 13,
   "old": 0,
-  "seen": 1,
+  "seen": 4,
+  "used": 0
+ },
+ "Ottawa Citizen": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "Ottumwa Courier": {
-  "duplicate": 20,
+  "duplicate": 22,
   "old": 0,
   "seen": 4,
   "used": 2
@@ -9434,8 +9704,8 @@
  "Outlook India": {
   "duplicate": 4,
   "old": 0,
-  "seen": 4,
-  "used": 0
+  "seen": 5,
+  "used": 1
  },
  "Outlook Money": {
   "duplicate": 1,
@@ -9456,15 +9726,15 @@
   "used": 0
  },
  "PBS": {
-  "duplicate": 30,
+  "duplicate": 31,
   "old": 0,
-  "seen": 16,
+  "seen": 17,
   "used": 3
  },
  "PBS News Hour": {
-  "duplicate": 41,
+  "duplicate": 44,
   "old": 14,
-  "seen": 9,
+  "seen": 10,
   "used": 1
  },
  "PC Guide": {
@@ -9498,22 +9768,28 @@
   "used": 0
  },
  "PIB (official)": {
-  "duplicate": 47,
+  "duplicate": 51,
   "old": 0,
-  "seen": 96,
+  "seen": 103,
   "used": 3
  },
  "POLITICO.eu": {
   "duplicate": 3,
   "old": 0,
-  "seen": 14,
+  "seen": 15,
   "used": 1
  },
  "PR Newswire": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
   "used": 1
+ },
+ "PRNigeria News": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
  },
  "PRWeb": {
   "duplicate": 1,
@@ -9546,9 +9822,9 @@
   "used": 0
  },
  "PYMNTS.com": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
-  "seen": 9,
+  "seen": 10,
   "used": 0
  },
  "Palm Beach Daily News": {
@@ -9608,8 +9884,8 @@
  "PetaPixel": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
-  "used": 0
+  "seen": 2,
+  "used": 1
  },
  "PhillyBurbs": {
   "duplicate": 2,
@@ -9618,9 +9894,9 @@
   "used": 0
  },
  "Phys.org": {
-  "duplicate": 8,
+  "duplicate": 9,
   "old": 0,
-  "seen": 20,
+  "seen": 22,
   "used": 2
  },
  "Pinkvilla": {
@@ -9678,27 +9954,27 @@
   "used": 0
  },
  "Politico": {
-  "duplicate": 16,
+  "duplicate": 17,
   "old": 0,
-  "seen": 43,
+  "seen": 44,
   "used": 9
  },
  "Politics News": {
-  "duplicate": 17,
-  "old": 106,
+  "duplicate": 21,
+  "old": 116,
   "seen": 2,
   "used": 1
  },
  "Positive News": {
   "duplicate": 0,
-  "old": 112,
-  "seen": 7,
+  "old": 121,
+  "seen": 8,
   "used": 0
  },
  "Post Register": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
-  "seen": 8,
+  "seen": 9,
   "used": 0
  },
  "Pragativadi": {
@@ -9722,14 +9998,14 @@
  "Press Gazette": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Press Information Bureau": {
   "duplicate": 1,
   "old": 0,
-  "seen": 8,
-  "used": 0
+  "seen": 10,
+  "used": 1
  },
  "Press Pass Sports": {
   "duplicate": 0,
@@ -9739,7 +10015,7 @@
  },
  "Press Releases": {
   "duplicate": 0,
-  "old": 276,
+  "old": 311,
   "seen": 0,
   "used": 0
  },
@@ -9800,7 +10076,7 @@
  "Prothom Alo English": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 1
  },
  "Psyche": {
@@ -9820,6 +10096,12 @@
   "old": 0,
   "seen": 0,
   "used": 0
+ },
+ "Punch Newspapers": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 1
  },
  "Punjab Kesari English": {
   "duplicate": 3,
@@ -9852,16 +10134,16 @@
   "used": 3
  },
  "Quantum Zeitgeist": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
-  "used": 0
+  "seen": 2,
+  "used": 1
  },
  "Quartz": {
   "duplicate": 5,
   "old": 0,
-  "seen": 7,
-  "used": 5
+  "seen": 8,
+  "used": 6
  },
  "Queen City News": {
   "duplicate": 0,
@@ -9878,7 +10160,7 @@
  "RBI (official)": {
   "duplicate": 11,
   "old": 0,
-  "seen": 49,
+  "seen": 56,
   "used": 10
  },
  "RED FM Canada": {
@@ -9888,9 +10170,9 @@
   "used": 0
  },
  "RFI": {
-  "duplicate": 10,
-  "old": 105,
-  "seen": 9,
+  "duplicate": 12,
+  "old": 117,
+  "seen": 10,
   "used": 4
  },
  "RG.org": {
@@ -9954,9 +10236,9 @@
   "used": 1
  },
  "Radio Free Europe/Radio Libert": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
-  "seen": 2,
+  "seen": 3,
   "used": 1
  },
  "Radio-Canada": {
@@ -10062,16 +10344,16 @@
   "used": 0
  },
  "Rediff": {
-  "duplicate": 14,
+  "duplicate": 16,
   "old": 0,
-  "seen": 37,
+  "seen": 38,
   "used": 9
  },
  "Rediff MoneyWiz": {
   "duplicate": 24,
   "old": 0,
-  "seen": 11,
-  "used": 1
+  "seen": 12,
+  "used": 2
  },
  "Redlands Daily Facts": {
   "duplicate": 0,
@@ -10088,8 +10370,8 @@
  "Republic World": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
-  "used": 0
+  "seen": 2,
+  "used": 1
  },
  "Republican Herald": {
   "duplicate": 1,
@@ -10140,10 +10422,10 @@
   "used": 0
  },
  "Reuters": {
-  "duplicate": 288,
+  "duplicate": 309,
   "old": 0,
-  "seen": 236,
-  "used": 82
+  "seen": 251,
+  "used": 90
  },
  "Revoi.in": {
   "duplicate": 2,
@@ -10236,7 +10518,7 @@
   "used": 0
  },
  "Rutland Herald": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 2,
   "used": 0
@@ -10280,7 +10562,7 @@
  "SEBI (official)": {
   "duplicate": 22,
   "old": 0,
-  "seen": 81,
+  "seen": 89,
   "used": 7
  },
  "SFGATE": {
@@ -10314,7 +10596,7 @@
   "used": 0
  },
  "SMH.com.au": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -10333,8 +10615,8 @@
  },
  "STAT": {
   "duplicate": 3,
-  "old": 64,
-  "seen": 5,
+  "old": 71,
+  "seen": 6,
   "used": 1
  },
  "STL.News": {
@@ -10352,7 +10634,7 @@
  "Sacramento Bee": {
   "duplicate": 10,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "Sahi": {
@@ -10398,7 +10680,7 @@
   "used": 2
  },
  "San Luis Obispo Tribune": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
   "seen": 1,
   "used": 1
@@ -10489,7 +10771,7 @@
  },
  "Science": {
   "duplicate": 0,
-  "old": 842,
+  "old": 857,
   "seen": 0,
   "used": 0
  },
@@ -10507,8 +10789,8 @@
  },
  "Science News": {
   "duplicate": 0,
-  "old": 139,
-  "seen": 2,
+  "old": 154,
+  "seen": 3,
   "used": 0
  },
  "ScienceAlert": {
@@ -10519,7 +10801,7 @@
  },
  "ScienceDaily": {
   "duplicate": 14,
-  "old": 1341,
+  "old": 1396,
   "seen": 9,
   "used": 3
  },
@@ -10538,13 +10820,13 @@
  "Scripps News": {
   "duplicate": 2,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 2
  },
  "Scroll.in": {
-  "duplicate": 4,
+  "duplicate": 6,
   "old": 0,
-  "seen": 11,
+  "seen": 12,
   "used": 3
  },
  "Search Engine Journal": {
@@ -10598,8 +10880,8 @@
  "Seeking Alpha": {
   "duplicate": 7,
   "old": 0,
-  "seen": 26,
-  "used": 4
+  "seen": 27,
+  "used": 5
  },
  "Semafor": {
   "duplicate": 0,
@@ -10784,12 +11066,12 @@
  "Snopes": {
   "duplicate": 1,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "Snopes.com": {
-  "duplicate": 6,
-  "old": 116,
+  "duplicate": 7,
+  "old": 129,
   "seen": 2,
   "used": 0
  },
@@ -10816,6 +11098,12 @@
   "old": 0,
   "seen": 5,
   "used": 2
+ },
+ "Social Samosa": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
  },
  "Social Security Administration": {
   "duplicate": 2,
@@ -10848,9 +11136,9 @@
   "used": 0
  },
  "South China Morning Post": {
-  "duplicate": 14,
+  "duplicate": 15,
   "old": 0,
-  "seen": 47,
+  "seen": 48,
   "used": 16
  },
  "South Dakota State News (.gov)": {
@@ -10890,7 +11178,7 @@
   "used": 0
  },
  "Space": {
-  "duplicate": 16,
+  "duplicate": 17,
   "old": 0,
   "seen": 17,
   "used": 6
@@ -10946,7 +11234,7 @@
  "Sports Illustrated": {
   "duplicate": 10,
   "old": 0,
-  "seen": 43,
+  "seen": 44,
   "used": 2
  },
  "Sportscape Magazine": {
@@ -11027,6 +11315,12 @@
   "seen": 7,
   "used": 0
  },
+ "State of Michigan (.gov)": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Statistique Canada": {
   "duplicate": 1,
   "old": 0,
@@ -11094,7 +11388,7 @@
   "used": 1
  },
  "StreetInsider": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 8,
   "used": 2
@@ -11124,9 +11418,9 @@
   "used": 1
  },
  "Substack": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 2,
+  "seen": 3,
   "used": 0
  },
  "Successful Farming": {
@@ -11171,6 +11465,12 @@
   "seen": 1,
   "used": 0
  },
+ "TCPAWorld": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
  "TG+": {
   "duplicate": 0,
   "old": 0,
@@ -11204,7 +11504,7 @@
  "TNGlobal": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "TODAY.com": {
@@ -11258,8 +11558,8 @@
  "TV News Check": {
   "duplicate": 1,
   "old": 0,
-  "seen": 1,
-  "used": 1
+  "seen": 2,
+  "used": 2
  },
  "TV6": {
   "duplicate": 1,
@@ -11276,7 +11576,7 @@
  "Tacoma News Tribune": {
   "duplicate": 2,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "Taipei Times": {
@@ -11286,9 +11586,9 @@
   "used": 0
  },
  "Tallahassee Democrat": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "Tamil Guardian": {
@@ -11354,7 +11654,7 @@
  "Tech Xplore": {
   "duplicate": 1,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 0
  },
  "Tech.eu": {
@@ -11370,10 +11670,10 @@
   "used": 0
  },
  "TechCrunch": {
-  "duplicate": 39,
-  "old": 227,
-  "seen": 48,
-  "used": 12
+  "duplicate": 43,
+  "old": 234,
+  "seen": 52,
+  "used": 13
  },
  "TechEBlog -": {
   "duplicate": 2,
@@ -11425,15 +11725,15 @@
  },
  "Technology": {
   "duplicate": 0,
-  "old": 741,
+  "old": 765,
   "seen": 0,
   "used": 0
  },
  "Technology Org": {
   "duplicate": 2,
   "old": 0,
-  "seen": 5,
-  "used": 0
+  "seen": 7,
+  "used": 1
  },
  "Techzine Global": {
   "duplicate": 1,
@@ -11448,10 +11748,10 @@
   "used": 1
  },
  "Telangana Today": {
-  "duplicate": 63,
-  "old": 4521,
-  "seen": 40,
-  "used": 8
+  "duplicate": 72,
+  "old": 4874,
+  "seen": 42,
+  "used": 10
  },
  "Telangana Tribune": {
   "duplicate": 1,
@@ -11480,7 +11780,7 @@
  "TelegraphHerald.com": {
   "duplicate": 4,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 1
  },
  "Telugu Post": {
@@ -11496,9 +11796,9 @@
   "used": 2
  },
  "Telugu360": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 1
  },
  "TeluguOne": {
@@ -11586,7 +11886,7 @@
   "used": 0
  },
  "The Age": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -11856,7 +12156,7 @@
   "used": 0
  },
  "The Cumberland Times-News": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 1,
   "used": 1
@@ -11876,7 +12176,7 @@
  "The Daily Beast": {
   "duplicate": 0,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "The Daily Brief by Zerodha": {
@@ -11892,7 +12192,7 @@
   "used": 0
  },
  "The Daily Gazette": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -11946,9 +12246,9 @@
   "used": 1
  },
  "The Decoder": {
-  "duplicate": 10,
-  "old": 15,
-  "seen": 8,
+  "duplicate": 11,
+  "old": 17,
+  "seen": 9,
   "used": 5
  },
  "The Defiant": {
@@ -11996,8 +12296,8 @@
  "The Diplomatic Insight": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
-  "used": 1
+  "seen": 2,
+  "used": 2
  },
  "The Eastern Herald": {
   "duplicate": 0,
@@ -12012,10 +12312,10 @@
   "used": 0
  },
  "The Economic Times": {
-  "duplicate": 148,
+  "duplicate": 153,
   "old": 0,
-  "seen": 184,
-  "used": 56
+  "seen": 192,
+  "used": 58
  },
  "The Economist": {
   "duplicate": 3,
@@ -12024,7 +12324,7 @@
   "used": 3
  },
  "The Edge Malaysia": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
   "seen": 5,
   "used": 2
@@ -12072,9 +12372,9 @@
   "used": 1
  },
  "The Financial Express": {
-  "duplicate": 17,
+  "duplicate": 19,
   "old": 0,
-  "seen": 14,
+  "seen": 15,
   "used": 3
  },
  "The Fiscal Times": {
@@ -12120,9 +12420,9 @@
   "used": 0
  },
  "The Globe and Mail": {
-  "duplicate": 42,
-  "old": 542,
-  "seen": 40,
+  "duplicate": 45,
+  "old": 625,
+  "seen": 41,
   "used": 8
  },
  "The Grand Junction Daily Senti": {
@@ -12132,10 +12432,10 @@
   "used": 0
  },
  "The Guardian": {
-  "duplicate": 74,
-  "old": 423,
-  "seen": 128,
-  "used": 26
+  "duplicate": 77,
+  "old": 437,
+  "seen": 133,
+  "used": 27
  },
  "The Guardian Nigeria News": {
   "duplicate": 0,
@@ -12144,16 +12444,16 @@
   "used": 0
  },
  "The Hacker News": {
-  "duplicate": 9,
-  "old": 308,
-  "seen": 9,
+  "duplicate": 10,
+  "old": 343,
+  "seen": 10,
   "used": 3
  },
  "The Hans India": {
-  "duplicate": 22,
+  "duplicate": 24,
   "old": 0,
-  "seen": 19,
-  "used": 6
+  "seen": 20,
+  "used": 7
  },
  "The Hechinger Report": {
   "duplicate": 1,
@@ -12168,7 +12468,7 @@
   "used": 0
  },
  "The Herald Journal": {
-  "duplicate": 10,
+  "duplicate": 11,
   "old": 0,
   "seen": 4,
   "used": 0
@@ -12180,9 +12480,9 @@
   "used": 0
  },
  "The Hill": {
-  "duplicate": 11,
+  "duplicate": 14,
   "old": 0,
-  "seen": 12,
+  "seen": 13,
   "used": 1
  },
  "The Himalayan Times": {
@@ -12192,10 +12492,10 @@
   "used": 0
  },
  "The Hindu": {
-  "duplicate": 235,
-  "old": 3597,
-  "seen": 291,
-  "used": 120
+  "duplicate": 249,
+  "old": 3772,
+  "seen": 303,
+  "used": 126
  },
  "The Hollywood Reporter": {
   "duplicate": 4,
@@ -12216,16 +12516,16 @@
   "used": 0
  },
  "The Independent World": {
-  "duplicate": 24,
+  "duplicate": 26,
   "old": 10,
-  "seen": 8,
+  "seen": 9,
   "used": 3
  },
  "The Indian Awaaz": {
   "duplicate": 2,
   "old": 0,
-  "seen": 4,
-  "used": 0
+  "seen": 5,
+  "used": 1
  },
  "The Indian EYE": {
   "duplicate": 1,
@@ -12234,15 +12534,21 @@
   "used": 0
  },
  "The Indian Express": {
-  "duplicate": 70,
+  "duplicate": 71,
   "old": 0,
-  "seen": 103,
+  "seen": 104,
   "used": 22
  },
  "The Indian Panorama": {
   "duplicate": 1,
   "old": 0,
   "seen": 1,
+  "used": 0
+ },
+ "The Information": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "The Irish Sun": {
@@ -12264,13 +12570,13 @@
   "used": 0
  },
  "The Japan Times": {
-  "duplicate": 11,
+  "duplicate": 12,
   "old": 0,
-  "seen": 18,
+  "seen": 20,
   "used": 4
  },
  "The Jerusalem Post": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
   "seen": 10,
   "used": 0
@@ -12300,7 +12606,7 @@
   "used": 0
  },
  "The Killeen Daily Herald": {
-  "duplicate": 15,
+  "duplicate": 18,
   "old": 0,
   "seen": 4,
   "used": 1
@@ -12324,9 +12630,9 @@
   "used": 0
  },
  "The Kyiv Independent": {
-  "duplicate": 11,
+  "duplicate": 13,
   "old": 0,
-  "seen": 14,
+  "seen": 16,
   "used": 2
  },
  "The Laconia Daily Sun": {
@@ -12347,6 +12653,12 @@
   "seen": 2,
   "used": 1
  },
+ "The Library of Congress (.gov)": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "The Loadstar": {
   "duplicate": 1,
   "old": 0,
@@ -12366,7 +12678,7 @@
   "used": 0
  },
  "The Lufkin Daily News": {
-  "duplicate": 10,
+  "duplicate": 11,
   "old": 0,
   "seen": 6,
   "used": 1
@@ -12414,7 +12726,7 @@
   "used": 0
  },
  "The Mercury News": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 2,
   "used": 0
@@ -12462,10 +12774,10 @@
   "used": 2
  },
  "The Motley Fool": {
-  "duplicate": 45,
+  "duplicate": 48,
   "old": 0,
-  "seen": 77,
-  "used": 7
+  "seen": 83,
+  "used": 8
  },
  "The Mountain Press": {
   "duplicate": 1,
@@ -12494,7 +12806,7 @@
  "The National Law Review": {
   "duplicate": 1,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 1
  },
  "The National News Desk": {
@@ -12515,17 +12827,23 @@
   "seen": 1,
   "used": 0
  },
- "The New Indian Express": {
-  "duplicate": 69,
+ "The New Arab": {
+  "duplicate": 0,
   "old": 0,
-  "seen": 86,
-  "used": 27
+  "seen": 1,
+  "used": 0
  },
- "The New York Times": {
+ "The New Indian Express": {
   "duplicate": 72,
   "old": 0,
-  "seen": 126,
-  "used": 21
+  "seen": 89,
+  "used": 29
+ },
+ "The New York Times": {
+  "duplicate": 82,
+  "old": 0,
+  "seen": 136,
+  "used": 25
  },
  "The News International": {
   "duplicate": 1,
@@ -12540,16 +12858,16 @@
   "used": 0
  },
  "The News Mill": {
-  "duplicate": 16,
+  "duplicate": 18,
   "old": 0,
-  "seen": 22,
+  "seen": 24,
   "used": 7
  },
  "The News Minute": {
   "duplicate": 2,
   "old": 0,
-  "seen": 9,
-  "used": 2
+  "seen": 10,
+  "used": 3
  },
  "The News Pakistan": {
   "duplicate": 1,
@@ -12564,10 +12882,10 @@
   "used": 1
  },
  "The Next Web": {
-  "duplicate": 3,
+  "duplicate": 4,
   "old": 0,
-  "seen": 8,
-  "used": 5
+  "seen": 9,
+  "used": 6
  },
  "The Non-League Football Paper": {
   "duplicate": 0,
@@ -12660,7 +12978,7 @@
   "used": 0
  },
  "The Peterborough Examiner": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -12714,10 +13032,10 @@
   "used": 0
  },
  "The Quint": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
-  "seen": 8,
-  "used": 3
+  "seen": 9,
+  "used": 4
  },
  "The Real Deal": {
   "duplicate": 0,
@@ -12763,7 +13081,7 @@
  },
  "The Robot Report": {
   "duplicate": 0,
-  "old": 99,
+  "old": 111,
   "seen": 0,
   "used": 0
  },
@@ -12816,22 +13134,22 @@
   "used": 0
  },
  "The Seattle Times": {
-  "duplicate": 4,
+  "duplicate": 7,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 0
  },
  "The Shillong Times": {
   "duplicate": 2,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
   "used": 1
  },
  "The Siasat Daily": {
-  "duplicate": 47,
+  "duplicate": 56,
   "old": 0,
-  "seen": 28,
-  "used": 7
+  "seen": 35,
+  "used": 10
  },
  "The South First": {
   "duplicate": 7,
@@ -12846,7 +13164,7 @@
   "used": 0
  },
  "The Spec": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -12884,7 +13202,7 @@
  "The Star": {
   "duplicate": 3,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 1
  },
  "The State": {
@@ -12900,7 +13218,7 @@
   "used": 0
  },
  "The Statesman": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
   "seen": 5,
   "used": 2
@@ -12953,6 +13271,12 @@
   "seen": 2,
   "used": 1
  },
+ "The Tennessean": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "The Texas Lawbook": {
   "duplicate": 0,
   "old": 0,
@@ -12978,15 +13302,15 @@
   "used": 0
  },
  "The Times of India": {
-  "duplicate": 127,
+  "duplicate": 136,
   "old": 0,
-  "seen": 217,
-  "used": 45
+  "seen": 227,
+  "used": 47
  },
  "The Times of Israel": {
-  "duplicate": 26,
+  "duplicate": 28,
   "old": 0,
-  "seen": 21,
+  "seen": 22,
   "used": 0
  },
  "The Transylvania Times": {
@@ -12998,7 +13322,7 @@
  "The Tribune": {
   "duplicate": 22,
   "old": 0,
-  "seen": 38,
+  "seen": 40,
   "used": 5
  },
  "The Tribune-Democrat": {
@@ -13038,9 +13362,9 @@
   "used": 0
  },
  "The Verge": {
-  "duplicate": 15,
-  "old": 36,
-  "seen": 24,
+  "duplicate": 16,
+  "old": 38,
+  "seen": 25,
   "used": 5
  },
  "The Vibes": {
@@ -13062,10 +13386,10 @@
   "used": 0
  },
  "The Washington Post": {
-  "duplicate": 25,
+  "duplicate": 28,
   "old": 0,
-  "seen": 79,
-  "used": 18
+  "seen": 83,
+  "used": 21
  },
  "The Wave Andaman": {
   "duplicate": 0,
@@ -13086,9 +13410,9 @@
   "used": 0
  },
  "The White House (.gov)": {
-  "duplicate": 14,
+  "duplicate": 16,
   "old": 0,
-  "seen": 59,
+  "seen": 65,
   "used": 3
  },
  "The Worcester News": {
@@ -13116,15 +13440,15 @@
   "used": 0
  },
  "TheHill.com Just In": {
-  "duplicate": 6,
+  "duplicate": 8,
   "old": 0,
   "seen": 5,
   "used": 2
  },
  "ThePrint": {
-  "duplicate": 84,
+  "duplicate": 90,
   "old": 0,
-  "seen": 48,
+  "seen": 51,
   "used": 7
  },
  "ThePrint Hindi": {
@@ -13140,13 +13464,13 @@
   "used": 4
  },
  "TheWire.in": {
-  "duplicate": 0,
+  "duplicate": 2,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 1
  },
  "TheWrap": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -13188,7 +13512,7 @@
   "used": 1
  },
  "Times Higher Education": {
-  "duplicate": 0,
+  "duplicate": 1,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -13208,7 +13532,7 @@
  "Times of India": {
   "duplicate": 14,
   "old": 53,
-  "seen": 83,
+  "seen": 85,
   "used": 31
  },
  "Times of San Diego": {
@@ -13226,7 +13550,7 @@
  "TipRanks": {
   "duplicate": 1,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 1
  },
  "Today's Conveyancer": {
@@ -13261,15 +13585,15 @@
  },
  "Top stories": {
   "duplicate": 0,
-  "old": 142,
+  "old": 145,
   "seen": 0,
   "used": 0
  },
  "Toronto Star": {
-  "duplicate": 21,
+  "duplicate": 24,
   "old": 0,
-  "seen": 12,
-  "used": 2
+  "seen": 14,
+  "used": 4
  },
  "Trade Brains": {
   "duplicate": 0,
@@ -13278,10 +13602,10 @@
   "used": 0
  },
  "Traders Union": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
-  "seen": 3,
-  "used": 2
+  "seen": 4,
+  "used": 3
  },
  "TradingKey": {
   "duplicate": 1,
@@ -13292,13 +13616,13 @@
  "TradingNEWS": {
   "duplicate": 0,
   "old": 0,
-  "seen": 9,
+  "seen": 10,
   "used": 1
  },
  "TradingView": {
-  "duplicate": 138,
+  "duplicate": 153,
   "old": 0,
-  "seen": 145,
+  "seen": 151,
   "used": 17
  },
  "Trak.in": {
@@ -13386,9 +13710,9 @@
   "used": 3
  },
  "Tupaki English": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 0
  },
  "TweakTown": {
@@ -13405,7 +13729,7 @@
  },
  "U.S.": {
   "duplicate": 0,
-  "old": 300,
+  "old": 311,
   "seen": 0,
   "used": 0
  },
@@ -13418,7 +13742,7 @@
  "U.S. Department of War (.gov)": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "U.S. Embassy in Kenya (.gov)": {
@@ -13435,8 +13759,8 @@
  },
  "U.S. News Today on Fox News": {
   "duplicate": 1,
-  "old": 89,
-  "seen": 1,
+  "old": 97,
+  "seen": 2,
   "used": 0
  },
  "U.S. Senate (.gov)": {
@@ -13483,14 +13807,14 @@
  },
  "UN News": {
   "duplicate": 4,
-  "old": 301,
+  "old": 324,
   "seen": 4,
   "used": 2
  },
  "UNITED24 Media": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 1
  },
  "USA Herald": {
@@ -13500,10 +13824,10 @@
   "used": 0
  },
  "USA Today": {
-  "duplicate": 6,
+  "duplicate": 7,
   "old": 0,
-  "seen": 41,
-  "used": 3
+  "seen": 44,
+  "used": 4
  },
  "USCIS (.gov)": {
   "duplicate": 0,
@@ -13632,7 +13956,7 @@
   "used": 0
  },
  "Upper Michigan's Source": {
-  "duplicate": 5,
+  "duplicate": 6,
   "old": 0,
   "seen": 2,
   "used": 0
@@ -13644,16 +13968,16 @@
   "used": 0
  },
  "Upstox": {
-  "duplicate": 18,
+  "duplicate": 19,
   "old": 0,
-  "seen": 20,
+  "seen": 22,
   "used": 8
  },
  "Urban Acres": {
   "duplicate": 8,
   "old": 0,
-  "seen": 34,
-  "used": 11
+  "seen": 36,
+  "used": 12
  },
  "UrbanTurf": {
   "duplicate": 1,
@@ -13668,9 +13992,9 @@
   "used": 0
  },
  "Us": {
-  "duplicate": 4,
-  "old": 25,
-  "seen": 8,
+  "duplicate": 6,
+  "old": 29,
+  "seen": 9,
   "used": 1
  },
  "Utah Public Radio": {
@@ -13754,7 +14078,7 @@
  "Variety": {
   "duplicate": 6,
   "old": 0,
-  "seen": 4,
+  "seen": 5,
   "used": 0
  },
  "Vartha Bharati": {
@@ -13901,6 +14225,12 @@
   "seen": 0,
   "used": 0
  },
+ "WAMC": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
  "WAMN News": {
   "duplicate": 0,
   "old": 0,
@@ -13920,6 +14250,12 @@
   "used": 0
  },
  "WAtoday": {
+  "duplicate": 2,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "WBAA": {
   "duplicate": 1,
   "old": 0,
   "seen": 0,
@@ -14053,6 +14389,12 @@
  },
  "WCJB": {
   "duplicate": 3,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "WCLK": {
+  "duplicate": 1,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -14273,6 +14615,12 @@
   "seen": 0,
   "used": 0
  },
+ "WHQR": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
  "WHSV": {
   "duplicate": 0,
   "old": 0,
@@ -14310,9 +14658,9 @@
   "used": 1
  },
  "WIRED": {
-  "duplicate": 10,
-  "old": 224,
-  "seen": 15,
+  "duplicate": 12,
+  "old": 240,
+  "seen": 17,
   "used": 4
  },
  "WIS News 10": {
@@ -14346,9 +14694,9 @@
   "used": 0
  },
  "WJHG": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "WJHL": {
@@ -14438,7 +14786,7 @@
  "WKYT": {
   "duplicate": 5,
   "old": 0,
-  "seen": 0,
+  "seen": 1,
   "used": 0
  },
  "WKZO": {
@@ -14586,7 +14934,7 @@
   "used": 0
  },
  "WPTV": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -14598,7 +14946,7 @@
   "used": 0
  },
  "WPXI": {
-  "duplicate": 2,
+  "duplicate": 3,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -14676,9 +15024,9 @@
   "used": 0
  },
  "WSJ": {
-  "duplicate": 50,
+  "duplicate": 54,
   "old": 0,
-  "seen": 98,
+  "seen": 101,
   "used": 31
  },
  "WSLS": {
@@ -14783,6 +15131,12 @@
   "seen": 0,
   "used": 0
  },
+ "WTVR.com": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
  "WTVY": {
   "duplicate": 1,
   "old": 0,
@@ -14802,9 +15156,15 @@
   "used": 0
  },
  "WV News": {
-  "duplicate": 11,
+  "duplicate": 13,
   "old": 0,
   "seen": 2,
+  "used": 0
+ },
+ "WVIA Public Media": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 0,
   "used": 0
  },
  "WVLT": {
@@ -14850,7 +15210,7 @@
   "used": 0
  },
  "WXLV": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 1,
   "used": 0
@@ -14862,7 +15222,7 @@
   "used": 0
  },
  "WXXI News": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -14969,6 +15329,12 @@
   "seen": 1,
   "used": 0
  },
+ "Why Evolution Is True": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "Wichita Eagle": {
   "duplicate": 1,
   "old": 0,
@@ -15042,9 +15408,9 @@
   "used": 0
  },
  "World News": {
-  "duplicate": 8,
-  "old": 65,
-  "seen": 10,
+  "duplicate": 10,
+  "old": 67,
+  "seen": 11,
   "used": 5
  },
  "World Nuclear News": {
@@ -15090,37 +15456,37 @@
   "used": 0
  },
  "Yahoo": {
-  "duplicate": 37,
+  "duplicate": 39,
   "old": 0,
-  "seen": 53,
+  "seen": 57,
   "used": 10
  },
  "Yahoo Finance": {
-  "duplicate": 222,
+  "duplicate": 238,
   "old": 0,
-  "seen": 173,
-  "used": 24
+  "seen": 183,
+  "used": 27
  },
  "Yahoo Finance Australia": {
   "duplicate": 2,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
   "used": 0
  },
  "Yahoo Finance Singapore": {
-  "duplicate": 9,
+  "duplicate": 10,
   "old": 0,
   "seen": 9,
   "used": 0
  },
  "Yahoo Finance UK": {
-  "duplicate": 16,
+  "duplicate": 18,
   "old": 0,
-  "seen": 20,
+  "seen": 22,
   "used": 4
  },
  "Yahoo News Canada": {
-  "duplicate": 18,
+  "duplicate": 19,
   "old": 0,
   "seen": 8,
   "used": 0
@@ -15156,16 +15522,16 @@
   "used": 0
  },
  "Yahoo! Finance Canada": {
-  "duplicate": 28,
+  "duplicate": 30,
   "old": 0,
-  "seen": 49,
+  "seen": 51,
   "used": 2
  },
  "Yale Climate Connections": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 2,
-  "used": 1
+  "seen": 3,
+  "used": 2
  },
  "Yen News": {
   "duplicate": 4,
@@ -15182,7 +15548,7 @@
  "Ynetnews": {
   "duplicate": 2,
   "old": 0,
-  "seen": 6,
+  "seen": 7,
   "used": 1
  },
  "Yonhap News Agency": {
@@ -15224,7 +15590,7 @@
  "Zacks Investment Research": {
   "duplicate": 0,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 0
  },
  "Zawya": {
@@ -15248,7 +15614,7 @@
  "Zee News :India National": {
   "duplicate": 2,
   "old": 0,
-  "seen": 5,
+  "seen": 6,
   "used": 0
  },
  "ZigWheels.com": {
@@ -15263,6 +15629,12 @@
   "seen": 1,
   "used": 0
  },
+ "aapnews.aap.com.au": {
+  "duplicate": 0,
+  "old": 0,
+  "seen": 1,
+  "used": 0
+ },
  "ad-hoc-news.de": {
   "duplicate": 3,
   "old": 0,
@@ -15272,8 +15644,14 @@
  "amNewYork": {
   "duplicate": 10,
   "old": 0,
-  "seen": 26,
+  "seen": 27,
   "used": 1
+ },
+ "analyticsindiamag.com": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
+  "used": 0
  },
  "arabcanadanews.ca": {
   "duplicate": 1,
@@ -15344,8 +15722,8 @@
  "cbs19.tv": {
   "duplicate": 0,
   "old": 0,
-  "seen": 4,
-  "used": 0
+  "seen": 5,
+  "used": 1
  },
  "cedarnews.net": {
   "duplicate": 0,
@@ -15408,7 +15786,7 @@
   "used": 0
  },
  "couriernews.com": {
-  "duplicate": 4,
+  "duplicate": 5,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -15440,7 +15818,7 @@
  "dailydispatch.com": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "dailyrecordnews.com": {
@@ -15542,7 +15920,7 @@
  "fox10tv.com": {
   "duplicate": 5,
   "old": 0,
-  "seen": 3,
+  "seen": 4,
   "used": 0
  },
  "fox21online.com": {
@@ -15654,9 +16032,9 @@
   "used": 0
  },
  "https://factcheckafrica.net/": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
-  "seen": 8,
+  "seen": 9,
   "used": 0
  },
  "https://gnyouth.net/": {
@@ -15684,22 +16062,22 @@
   "used": 2
  },
  "https://tech-insider.org/": {
-  "duplicate": 8,
+  "duplicate": 9,
   "old": 0,
-  "seen": 13,
+  "seen": 16,
   "used": 3
  },
  "https://unpublished.ca/": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "https://whispersinthecorridors": {
   "duplicate": 0,
   "old": 0,
-  "seen": 1,
-  "used": 0
+  "seen": 2,
+  "used": 1
  },
  "https://www.dars.gov.et/": {
   "duplicate": 0,
@@ -15812,7 +16190,7 @@
  "investingLive": {
   "duplicate": 4,
   "old": 0,
-  "seen": 18,
+  "seen": 19,
   "used": 4
  },
  "kjzz.com": {
@@ -15852,7 +16230,7 @@
   "used": 0
  },
  "live": {
-  "duplicate": 7,
+  "duplicate": 8,
   "old": 0,
   "seen": 3,
   "used": 0
@@ -15876,10 +16254,10 @@
   "used": 0
  },
  "marketscreener.com": {
-  "duplicate": 39,
+  "duplicate": 44,
   "old": 0,
-  "seen": 31,
-  "used": 5
+  "seen": 35,
+  "used": 7
  },
  "medadmit.in": {
   "duplicate": 0,
@@ -15894,7 +16272,7 @@
   "used": 0
  },
  "morning-times.com": {
-  "duplicate": 3,
+  "duplicate": 5,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -15943,7 +16321,7 @@
  },
  "news": {
   "duplicate": 0,
-  "old": 179,
+  "old": 195,
   "seen": 1,
   "used": 0
  },
@@ -16044,7 +16422,7 @@
   "used": 0
  },
  "reflector.com": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -16068,9 +16446,9 @@
   "used": 0
  },
  "scanx.trade": {
-  "duplicate": 9,
+  "duplicate": 10,
   "old": 0,
-  "seen": 15,
+  "seen": 16,
   "used": 2
  },
  "seMissourian": {
@@ -16086,9 +16464,9 @@
   "used": 0
  },
  "shattered.io": {
-  "duplicate": 5,
+  "duplicate": 7,
   "old": 0,
-  "seen": 7,
+  "seen": 8,
   "used": 2
  },
  "soonersports.com": {
@@ -16113,6 +16491,12 @@
   "duplicate": 1,
   "old": 0,
   "seen": 0,
+  "used": 0
+ },
+ "streamlinefeed.co.ke": {
+  "duplicate": 1,
+  "old": 0,
+  "seen": 1,
   "used": 0
  },
  "swiowanewssource.com": {
@@ -16320,9 +16704,9 @@
   "used": 0
  },
  "www.financialexpress.com": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "www.fox23.com": {
@@ -16333,6 +16717,12 @@
  },
  "www.indiagazette.com": {
   "duplicate": 2,
+  "old": 0,
+  "seen": 0,
+  "used": 0
+ },
+ "www.israelhayom.com": {
+  "duplicate": 1,
   "old": 0,
   "seen": 0,
   "used": 0
@@ -16356,15 +16746,15 @@
   "used": 0
  },
  "www.marketscreener.com": {
-  "duplicate": 18,
+  "duplicate": 21,
   "old": 0,
-  "seen": 20,
-  "used": 2
+  "seen": 23,
+  "used": 3
  },
  "www.nationpathindia.com": {
-  "duplicate": 1,
+  "duplicate": 2,
   "old": 0,
-  "seen": 1,
+  "seen": 2,
   "used": 0
  },
  "www.newswire.com": {
@@ -16496,7 +16886,7 @@
  "شبكة تواصل الإخبارية": {
   "duplicate": 3,
   "old": 0,
-  "seen": 13,
+  "seen": 14,
   "used": 1
  },
  "صحيفة مال": {

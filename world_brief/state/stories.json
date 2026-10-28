@@ -209,83 +209,6 @@
   ],
   "last_seen": "2026-10-23"
  },
- "meta-muse-wonder": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-12",
-    "text": "Benchmark results and developer adoption in Q4 2026"
-   },
-   {
-    "date": "2026-10-13",
-    "text": "Monitor developer adoption"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "Muse Wonder launched for paid agent workflows"
-   },
-   {
-    "date": "2026-10-13",
-    "event": "Model launch"
-   }
-  ],
-  "title": "Meta releases paid frontier model Muse Wonder",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Meta launched Muse Wonder for agent workflows, signaling a shift toward task-based AI.",
-  "open_questions": [
-   "How will enterprise adoption compare to competitors?"
-  ],
-  "last_seen": "2026-10-13"
- },
- "india-it-rally": {
-  "first_seen": "2026-10-13",
-  "expectations": [
-   {
-    "date": "2026-10-13",
-    "text": "Watch for further Q2 results from the IT sector"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-13",
-    "event": "HCLTech earnings release"
-   }
-  ],
-  "title": "Indian IT stocks rally on strong HCLTech earnings",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "HCLTech earnings fueled a 5-7% rally in IT stocks, driving the Nifty 50 up 1.60%.",
-  "open_questions": [
-   "Will IT sector earnings sustain this momentum?"
-  ],
-  "last_seen": "2026-10-13"
- },
- "middle-east-oil": {
-  "first_seen": "2026-10-13",
-  "expectations": [
-   {
-    "date": "2026-10-13",
-    "text": "Monitor oil price volatility"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-13",
-    "event": "Saudi export pledge"
-   }
-  ],
-  "title": "Oil prices ease as Saudi pledges export stability",
-  "status": "MAJOR CHANGE",
-  "stage": "EFFECTIVE",
-  "summary": "Brent crude eased to $105.65 after Saudi Arabia promised to maintain export flows despite regional conflict.",
-  "open_questions": [
-   "Will regional conflict escalate further?"
-  ],
-  "last_seen": "2026-10-13"
- },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
   "expectations": [
@@ -615,12 +538,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15",
-    "event": "Updated IPO filings submitted to raise $3.2 billion"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Final red herring filings prepared for Dalal Street listing"
+    "date": "2026-10-15..2026-10-18",
+    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing"
    },
    {
     "date": "2026-10-18",
@@ -653,16 +572,18 @@
    {
     "date": "2026-10-26",
     "event": "Final listing preparation for October 28"
+   },
+   {
+    "date": "2026-10-28",
+    "event": "Surged 27% on NSE debut"
    }
   ],
-  "title": "Jio Platforms mega-IPO prepares for Dalal Street debut",
-  "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "Reliance's Jio Platforms $3.2B IPO closed 7.83 times subscribed ahead of its Dalal Street listing on October 28.",
-  "open_questions": [
-   "What will be the listing premium on the NSE and BSE?"
-  ],
-  "last_seen": "2026-10-26"
+  "title": "Jio Platforms stock surges 27% in historic market debut",
+  "status": "RESOLVED",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Jio Platforms listed on the NSE and BSE, surging 27% after raising $3.1 billion in India's largest-ever IPO.",
+  "open_questions": [],
+  "last_seen": "2026-10-28"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1508,6 +1429,10 @@
    {
     "date": "2026-10-27",
     "text": "Landfall projected near Bapatla on Wednesday morning with heavy rainfall"
+   },
+   {
+    "date": "2026-10-28",
+    "text": "Disaster management teams to restore power grids and assess crop damage over coming days"
    }
   ],
   "timeline": [
@@ -1522,16 +1447,20 @@
    {
     "date": "2026-10-27",
     "event": "Cyclone reaches severe intensity 140 km off Kakinada"
+   },
+   {
+    "date": "2026-10-28",
+    "event": "Landfall near Narsapur with 150 km/h winds"
    }
   ],
-  "title": "Severe Cyclone Arnab closes in on Andhra Pradesh coast",
-  "status": "DEVELOPING",
+  "title": "Severe Cyclone Arnab makes landfall in Andhra Pradesh",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Arnab moved within 140 km of Kakinada, prompting train cancellations and extreme weather alerts in Andhra Pradesh and Telangana.",
+  "summary": "Cyclone Arnab struck the Andhra coast near Narsapur with 150 km/h winds, killing 3 and causing widespread crop damage.",
   "open_questions": [
-   "What will be the exact damage scale to coastal infrastructure and standing crops?"
+   "How severe will crop damages be across coastal mandals?"
   ],
-  "last_seen": "2026-10-27"
+  "last_seen": "2026-10-28"
  },
  "openai-cpu-cache-bypass": {
   "first_seen": "2026-10-25",
@@ -1675,5 +1604,64 @@
    "What specific classified AI models will be deployed on military servers?"
   ],
   "last_seen": "2026-10-27"
+ },
+ "flvio-bolsonaro-us-visa": {
+  "first_seen": "2026-10-28",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-10-28",
+    "event": "Arrived in Miami on US visa"
+   }
+  ],
+  "title": "Flávio Bolsonaro leaves Brazil for US following election loss",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Flávio Bolsonaro fled Brazil through Argentina and Ecuador after receiving a US visa, taking up residence in Miami.",
+  "open_questions": [
+   "Will Brazil issue an official extradition request?"
+  ],
+  "last_seen": "2026-10-28"
+ },
+ "spain-train-crash-2026": {
+  "first_seen": "2026-10-28",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-10-28",
+    "event": "High-speed collision in Toledo province kills 31"
+   }
+  ],
+  "title": "High-speed train collision in central Spain kills 31",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Two high-speed passenger trains collided in Toledo, Spain, leaving at least 31 people dead and dozens injured.",
+  "open_questions": [
+   "Did signaling system failure cause the collision?"
+  ],
+  "last_seen": "2026-10-28"
+ },
+ "openai-google-tpu-deal": {
+  "first_seen": "2026-10-28",
+  "expectations": [
+   {
+    "date": "2026-10-28",
+    "text": "Google to deploy dedicated TPU clusters for OpenAI model training"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-28",
+    "event": "OpenAI contracts Google TPU compute capacity"
+   }
+  ],
+  "title": "OpenAI plans to purchase Google TPU chips alongside Nvidia GPUs",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "OpenAI arranged to buy Google Tensor Processing Units to supplement its compute capacity alongside Nvidia GPUs.",
+  "open_questions": [
+   "What percentage of OpenAI workload will run on TPUs?"
+  ],
+  "last_seen": "2026-10-28"
  }
 }
