@@ -25,12 +25,12 @@ Each: <label> **<real headline>**: how it began, how it moved, where it stands, 
 
 {{LISTEN}}
 
-## 🇮🇳 India
-## 🇺🇸 USA + 🇮🇳🤝🇺🇸 India–USA
-## 🛂 Immigration
-## 📦 Economy, trade, tariffs & taxes
-## 🤖 AI, technology & jobs
 ## 🌍 World & geopolitics
+## 🇺🇸 USA + 🇮🇳🤝🇺🇸 India–USA
+## 🇮🇳 India
+## 🤖 AI, technology & jobs
+## 📦 Economy, trade, tariffs & taxes
+## 🛂 Immigration
 
 {{MARKET_SNAPSHOT}}
 

@@ -60,17 +60,29 @@ Up to 5 items, readable in about 60 seconds. Each:
 ## ✅ What actually matters today
 After processing everything, the 5-10 developments a normal person genuinely should know (the Top 5 plus up to 5 more). For each, five short labelled lines: *What happened:* · *Why it happened:* · *Why it matters:* · *Who is affected:* · *What happens next:*. Keep each line one or two simple sentences. [ids]
 
-## 🇮🇳 India
-Government, economy (GDP, inflation, RBI, taxes, GST, banking), jobs, infrastructure, energy, defence, agriculture, tech, education, major court decisions, regulation, foreign relations. For big stories: what happened → why it matters to ordinary Indians → what happens next.
+## 🌍 World & geopolitics
+Only events that affect India, the USA, the global economy, oil, gold, trade, markets, technology, security, supply chains or immigration. Group by region. Add India's angle where the items mention it.
 
-## 🏙️ Hyderabad & Telangana
-Family lives here, so cover local news that matters to people living in Hyderabad and Telangana: state government decisions and schemes, GHMC / HYDRAA, Metro, roads and traffic changes, water and power supply, rain, flood or heat alerts, prices (vegetables, petrol, gold locally), big investments, IT and pharma jobs, hospitals, schools and exams, safety. 2-6 stories when the sources have them; skip only on a day with genuinely nothing local.
+## 🗺️ Around the world (region by region)
+So that no country's important news is missed: one short line per significant event that is not already covered above, grouped under bold region labels in this order: **Asia-Pacific**, **Middle East**, **Europe**, **Russia & Central Asia**, **Africa**, **Latin America**, **Global** (UN, climate deals, pandemics). 1-3 lines per region; skip a region only when nothing significant happened there. Name the country first ("**Japan:** ...").
+
+## 🌎 Major world changes
+Only developments that could change the global order: major wars, US–China competition, India's rise as an economic power, big elections or policy shifts, trade wars, demographic shifts, serious geopolitical crises. Explain the long-term significance in plain words. Skip ordinary political news.
 
 ## 🇺🇸 USA + 🇮🇳🤝🇺🇸 India–USA
 US federal government, economy, Fed, inflation, jobs, taxes, housing, energy, regulation, courts, emergencies: how it affects someone living in America. Then India–USA (trade, tariffs, tech, AI, chips, defence, energy, investment, diplomacy): for important stories add *For India:* and *For Indians in America:*.
 
 ## 🇨🇦 Canada
 Canadian government policy, Bank of Canada, GDP, inflation, jobs, housing, immigration/PR/student rules, taxes, technology. Only what matters; mark proposals vs in force.
+
+## 🇮🇳 India
+Government, economy (GDP, inflation, RBI, taxes, GST, banking), jobs, infrastructure, energy, defence, agriculture, tech, education, major court decisions, regulation, foreign relations. For big stories: what happened → why it matters to ordinary Indians → what happens next.
+
+## 🏙️ Hyderabad & Telangana
+Family lives here, so cover local news that matters to people living in Hyderabad and Telangana: state government decisions and schemes, GHMC / HYDRAA, Metro, roads and traffic changes, water and power supply, rain, flood or heat alerts, prices (vegetables, petrol, gold locally), big investments, IT and pharma jobs, hospitals, schools and exams, safety. 2-6 stories when the sources have them; skip only on a day with genuinely nothing local.
+
+## 🏛️ Government & politics
+Major laws and bills, government decisions, elections, court rulings, budgets, taxes, regulation, immigration, healthcare, education and infrastructure decisions in India, the USA and Canada that directly change something for ordinary people. Say what changed for whom and from when; mark 🔵 PROPOSED vs ✅ IN EFFECT.
 
 ## 🤖 AI & robotics (highest priority)
 Major AI models and breakthroughs, AI agents, humanoid robots, autonomous systems, AI replacing or creating jobs, AI regulation, AGI progress, AI chips and real-world adoption. Follow OpenAI, Google DeepMind, Anthropic, NVIDIA, Meta, xAI and serious emerging competitors (incl. Chinese and Indian labs). Prefer developments that change what technology can do or how people live over routine product announcements. For important items: what happened, why it matters, could it affect jobs. (Also covered: cloud, data engineering, MLOps, cybersecurity, Big Tech deals, smartphones, when important.)
@@ -81,17 +93,17 @@ Only developments with real consequences (not every post): Elon Musk, Tesla (aut
 ## 💻 Chips & computing
 NVIDIA/AMD/Intel, TSMC, AI accelerators, semiconductor manufacturing and export controls, data centers, cloud, and AI's huge electricity and infrastructure needs.
 
-## 🌍 World & geopolitics
-Only events that affect India, the USA, the global economy, oil, gold, trade, markets, technology, security, supply chains or immigration. Group by region. Add India's angle where the items mention it.
+## ⚡ Energy revolution
+Nuclear, fusion, solar, batteries, grid and storage, oil and gas shocks, and AI's electricity demand: cheap abundant energy as the enabler of AI, robotics and industry.
 
-## 🗺️ Around the world (region by region)
-So that no country's important news is missed: one short line per significant event that is not already covered above, grouped under bold region labels in this order: **Asia-Pacific**, **Middle East**, **Europe**, **Russia & Central Asia**, **Africa**, **Latin America**, **Global** (UN, climate deals, pandemics). 1-3 lines per region; skip a region only when nothing significant happened there. Name the country first ("**Japan:** ...").
+## 🧬 Future technology
+Quantum computing, biotech, gene editing, brain-computer interfaces, longevity, fusion, advanced batteries, autonomous vehicles, drones, AR/VR: only technologies that could genuinely change society, with how far they really are from everyday use.
 
-## 🌎 Major world changes
-Only developments that could change the global order: major wars, US–China competition, India's rise as an economic power, big elections or policy shifts, trade wars, demographic shifts, serious geopolitical crises. Explain the long-term significance in plain words. Skip ordinary political news.
+## 🛰️ Space
+SpaceX/Starship, NASA, ISRO, Moon/Mars missions, reusable rockets, satellites, Starlink and important commercial space.
 
-## 🏛️ Government & politics
-Major laws and bills, government decisions, elections, court rulings, budgets, taxes, regulation, immigration, healthcare, education and infrastructure decisions in India, the USA and Canada that directly change something for ordinary people. Say what changed for whom and from when; mark 🔵 PROPOSED vs ✅ IN EFFECT.
+## 🔬 Science, health, climate & energy
+Only major developments: medical and scientific discoveries (say how strong the evidence is), public health, climate events, environment. (Space and energy have their own sections just above.)
 
 {{MARKET_SNAPSHOT}}
 
@@ -114,18 +126,6 @@ Major earnings, layoffs/hiring, bankruptcies, mergers, IPOs, industry shifts, la
 
 ## 🛂 Immigration
 US (H-1B, H-4, F-1, OPT, STEM OPT, EAD, PERM, green cards, Visa Bulletin, USCIS, DHS, State, Labor), Canada (Express Entry, CRS, PNP, study and work permits, PGWP, PR, IRCC), and major UK/Europe/Australia changes. Every item gets an immigration label and names the agency. Make clear whether anyone's current legal status actually changed; never word it so it sounds like it changed when it did not.
-
-## ⚡ Energy revolution
-Nuclear, fusion, solar, batteries, grid and storage, oil and gas shocks, and AI's electricity demand: cheap abundant energy as the enabler of AI, robotics and industry.
-
-## 🧬 Future technology
-Quantum computing, biotech, gene editing, brain-computer interfaces, longevity, fusion, advanced batteries, autonomous vehicles, drones, AR/VR: only technologies that could genuinely change society, with how far they really are from everyday use.
-
-## 🛰️ Space
-SpaceX/Starship, NASA, ISRO, Moon/Mars missions, reusable rockets, satellites, Starlink and important commercial space.
-
-## 🔬 Science, health, climate & energy
-Only major developments: medical and scientific discoveries (say how strong the evidence is), public health, climate events, environment. (Space and energy have their own sections above.)
 
 ## 🌪️ Severe weather & disasters
 Cyclones, floods, heatwaves and earthquakes in India (IMD alerts, which states and cities, what to do), and hurricanes, tornadoes, blizzards, wildfires and big storms in the USA (which states), plus major disasters elsewhere. Say who is affected, when, and official warnings. Omit if nothing serious.

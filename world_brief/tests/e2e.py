@@ -343,6 +343,12 @@ def main() -> int:
                             "Personal Global News", "my private") if s in allp]
         check(not gone and "anyone who wants to know what is going on" in bp,
               f"brief is general news for everyone: personal sections removed ({gone})", errors)
+        pos = [bp.rindex(h) for h in ("## 🚨 Top 5", "## 🌍 World", "## 🇺🇸 USA", "## 🇮🇳 India",
+                                     "## 🤖 AI", "## 🔬 Science", "\n{{MARKET_SNAPSHOT}}\n", "## 📦 Economy",
+                                     "## 📅 What to watch")]
+        import podcast as _pc
+        check(pos == sorted(pos) and _pc.CHAPTER_NAMES == ["Top stories", "World", "USA", "India", "Tech", "Money", "Wrap-up"],
+              "order: most important → world → USA → India → tech & future → money → wrap-up (email + podcast)", errors)
         mk = (SRC / "markets.py").read_text()
         check("USD/CAD" in mk and "Ethereum" in mk, "money table: USD/CAD and Ethereum", errors)
         import importlib, os as _os
