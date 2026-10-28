@@ -79,6 +79,9 @@ BRIEF = """# World Brief
 ## 2. India
 - Detail [S3]
 
+## 📈 IPO watch (India & USA)
+- **IPO TESTCO (NSE, tech)** — price band ₹100–105, lot 142 shares [S3]
+
 {{MARKET_SNAPSHOT}}
 
 <!--META
@@ -103,6 +106,8 @@ def fake_gemini(system, user):
     if ("TRANSLATION MODE" in system and "ENGLISH_SCRIPT:" in user and "KARTIK:" in user
             and "CHAPTER:" in user):
         STYLE["tr"] += 1
+    if "EXPLAINING STYLE" in system and "IPO TESTCO" in user:
+        STYLE["ipo_pod"] = STYLE.get("ipo_pod", 0) + 1
     if "EXPLAINING STYLE" in system:
         STYLE["style"] += 1
         STYLE["wx"] += "WEATHER (local days): Hyderabad: now 28°C, light rain; today 22–31°C, rain, rain chance 60%" in user
@@ -276,6 +281,8 @@ def run_edition(work: Path, edition: str, errors: list[str]) -> None:
     check(bool(pages) and "India story one" in "".join(pages) and "Detail" in "".join(pages)
           and all(len(m) <= 1024 for m in msgs) and "Full news" in msgs[0],
           f"{edition}: the full news is in the 📖 Full news article (Instant View); caption under 1024", errors)
+    check("IPO TESTCO" in md and not st.get("ipo_pod"),
+          f"{edition}: IPO watch in the email, never in the podcast", errors)
     check(st.get("tr") == 2, f"{edition}: Telugu + Hindi made from the same English episode "
           f"(same stories and details; {st.get('tr')} conversions)", errors)
     tgt = res.get("tg_text", "")
@@ -346,6 +353,10 @@ def main() -> int:
         pos = [bp.rindex(h) for h in ("## 🚨 Top 5", "## 🌍 World", "## 🇺🇸 USA", "## 🇮🇳 India",
                                      "## 🤖 AI", "## 🔬 Science", "\n{{MARKET_SNAPSHOT}}\n", "## 📦 Economy",
                                      "## 📅 What to watch")]
+        ipo_p = (SRC / "prompts" / "brief_prompt.md").read_text()
+        check("## 📈 IPO watch" in ipo_p and "Lot size" in ipo_p and "fresh issue" in ipo_p
+              and "not investment advice" in ipo_p and groups.get("ipo"),
+              "IPO watch: price band, lot size, money needed, fresh issue vs OFS, profits, demand (India + USA feeds)", errors)
         import podcast as _pc
         check(pos == sorted(pos) and _pc.CHAPTER_NAMES == ["Top stories", "World", "USA", "India", "Tech", "Money", "Wrap-up"],
               "order: most important → world → USA → India → tech & future → money → wrap-up (email + podcast)", errors)

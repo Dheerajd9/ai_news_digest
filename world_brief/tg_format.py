@@ -66,7 +66,7 @@ def _inline(text: str) -> str:
 
 
 TAGS = [   # tap a tag in Telegram to see every past story on that topic
-    (r"Top 5|Top stories", "#Top5"), (r"actually matters", "#MustKnow"),
+    (r"Top 5|Top stories", "#Top5"), (r"IPO", "#IPO"), (r"actually matters", "#MustKnow"),
     (r"Hyderabad|Telangana", "#Hyderabad"),
     (r"USA|🇺🇸", "#USA"), (r"Canada", "#Canada"), (r"India", "#India"),
     (r"AI|robot", "#AI"), (r"Musk|frontier", "#AI #Tech"), (r"Chips|computing|Future tech", "#Tech"),

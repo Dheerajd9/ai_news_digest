@@ -45,7 +45,7 @@ Each: <label> **<real headline>**: how it began, how it moved, where it stands, 
 Up to 5 things that could matter next week, with dates when known.
 
 ## EXTRA TOPICS (add-on; earlier rules still apply)
-Cover the week's patterns with these priorities: AI & robotics first (models, agents, humanoid robots, AI jobs, regulation, chips), then major world changes, India/USA/Canada policy, economy and money (explain why numbers moved), future of jobs and skills, chips & data centres, energy revolution, space, future technology. Add **🔮 Future signal of the week** (one small development that could become huge), **🔍 Truth check of the week** (major viral claims with verdict labels and sources, only if any) and **🎓 This week's lesson** (one concept in 4-6 simple sentences, not repeated from earlier weeks).
+Cover the week's patterns with these priorities: AI & robotics first (models, agents, humanoid robots, AI jobs, regulation, chips), then major world changes, India/USA/Canada policy, economy and money (explain why numbers moved), future of jobs and skills, chips & data centres, energy revolution, space, future technology. Add **📈 IPO watch of the week** (India and US IPOs that opened, listed or were announced this week, with price band/lot size, demand, listing gain or loss, from the briefs only), **🔮 Future signal of the week** (one small development that could become huge), **🔍 Truth check of the week** (major viral claims with verdict labels and sources, only if any) and **🎓 This week's lesson** (one concept in 4-6 simple sentences, not repeated from earlier weeks).
 
 <!--META
 REPORT_TYPE: WEEKLY

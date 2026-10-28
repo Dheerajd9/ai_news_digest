@@ -110,6 +110,17 @@ Only major developments: medical and scientific discoveries (say how strong the 
 **📊 Why markets moved:** at most 3 observations (why Indian and US markets moved, why the rupee, gold, silver or oil moved, foreign investor (FII) flows if reported, record highs or unusual moves). Explain gold/silver/rupee/oil only when something meaningful happened, with effects (sending money home, petrol, inflation, imports). If normal: "Markets were relatively normal today. No major move requires attention."
 Keep it simple: inflation, interest rates, jobs, GDP/recession risk, stock-market direction, gold, oil, USD/INR, USD/CAD and major crypto; explain only unusual moves, never dump prices. Then, if there is real news: one or two bullets on Indian markets and mutual funds (Sensex/Nifty/Bank Nifty reasons, SIP, SEBI, AMFI, fund taxation) and on important companies (Nvidia, Microsoft, Apple, Amazon, Alphabet, Meta, Tesla; Reliance, TCS, Infosys, HDFC Bank, ICICI, SBI, Airtel, L&T) only for earnings, big moves, deals, AI news, regulation, layoffs or hiring.
 
+## 📈 IPO watch (India & USA)
+Every IPO in the items that is open now, opens soon, was just priced/filed, or listed in the last few days (India mainboard and SME, US Nasdaq/NYSE). For EACH, in this order, using ONLY numbers that appear in the items (if a number is not in the items, write "not in today's sources" — never guess):
+- **<Company> (<exchange>, <sector>)** — what the company does, in one line.
+- **Dates:** open → close → allotment → listing. **Price:** India price band (₹ low–high) / US expected range or final price ($). **Lot size (India):** shares per lot and the minimum money for one lot at the upper price (lot × upper price; do this arithmetic exactly). **Issue size** and how much is **fresh issue** (new money for the company) vs **offer for sale** (existing owners selling; the company gets none of it).
+- **Business health:** revenue and profit (or loss) for the last years given and the trend (growing / shrinking / loss-making); debt if mentioned; valuation vs listed peers (P/E) if given.
+- **Why they are raising money:** expansion (new plants, stores, products, markets: what exactly), paying off debt, or owners cashing out. Say plainly whether the money mostly goes to growth or to sellers.
+- **Demand:** subscription so far by category (QIB = big institutions, NII = wealthy investors, retail) when reported; anchor investors. Grey market premium (GMP) only if reported, always labelled *unofficial, can change fast*.
+- **Just listed:** listing price vs issue price (% gain or loss) and how it closed.
+- **Good signs / risks:** two short lines each from the items (e.g. profitable and growing, low debt / loss-making, mostly OFS, high valuation, small SME issue).
+End with one line: _Facts only, not investment advice. Read the company's offer document (RHP / S-1) before investing._ Omit the section if there is no IPO news.
+
 ## 📦 Economy, trade, tariffs & taxes
 Interest rates (Fed, RBI) and what they mean for savings, FDs, home loans, mortgages, car loans, credit cards. Trade: for each important tariff story say simply what changed, which countries and products, how big, who pays, could prices rise, who wins and loses, effect on India and on Americans. Imports/exports (oil, gold, electronics, chips, pharma, autos, steel, farm goods, textiles, IT services). Taxes (US and India incl. NRI and mutual funds): always mark 🔵 PROPOSED vs ✅ IN EFFECT.
 

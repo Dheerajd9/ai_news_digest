@@ -25,6 +25,7 @@ SECTIONS = [
     (r"Students|visas|Travel", "#0369a1"),
     (r"NRI", "#b45309"),
     (r"actually matters", "#059669"),
+    (r"IPO", "#15803d"),
     (r"Hyderabad|Telangana", "#ea580c"),
     (r"🇺🇸|USA", "#1d4ed8"),
     (r"🇮🇳|India", "#f97316"),

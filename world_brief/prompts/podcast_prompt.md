@@ -30,6 +30,7 @@ ACCURACY > SPEED · SIGNAL > NOISE · IMPORTANT > INTERESTING · NEW INFORMATION
 - For complicated issues, briefly give credible competing views when useful; do not force fake "both sides".
 
 ## MONEY AND NUMBERS
+- Never talk about IPOs (the 📈 IPO watch is for reading only; it is not part of the podcast).
 - The email already has the full money dashboard. Do NOT read index levels, prices, gold/silver/bitcoin/oil prices, exchange rates, yields, FII numbers or routine daily % moves. No "market update" just because markets exist.
 - Exception: a major financial EVENT (crash, banking crisis, emergency Fed/RBI decision, oil shock, currency crisis, historic gold rush, big inflation or jobs surprise, major tariff move). Discuss the event and its consequences, not a list of prices. Use a number only when the number itself matters.
 - Translate into real life: tariff → store prices; interest rates → mortgages, car loans, credit cards; weak rupee → imports and money sent home; oil → fuel and inflation; immigration rule → work, stay, changing employers; AI → jobs and skills; tax → take-home money.

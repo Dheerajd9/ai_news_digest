@@ -260,4 +260,16 @@ sports:
 good_news:
   - https://www.goodnewsnetwork.org/feed/
   - https://www.positive.news/feed/
-
+# IPOs in India and the USA (email only, never in the podcast)
+ipo:
+  - https://news.google.com/rss/search?q=IPO+%22price+band%22+OR+%22lot+size%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=IPO+%22subscription+status%22+OR+subscribed+OR+%22anchor+investors%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=IPO+listing+OR+%22listing+gains%22+OR+%22lists+at%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=IPO+GMP+OR+%22grey+market+premium%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=%22SME+IPO%22+when:2d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://news.google.com/rss/search?q=SEBI+IPO+approval+OR+DRHP+OR+RHP+when:3d&hl=en-IN&gl=IN&ceid=IN:en
+  - https://economictimes.indiatimes.com/markets/ipos/fpos/rssfeeds/14655708.cms
+  - https://news.google.com/rss/search?q=%22prices+IPO%22+OR+%22IPO+priced%22+OR+%22price+range%22+IPO+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=%22files+for+IPO%22+OR+%22IPO+filing%22+OR+S-1+IPO+when:3d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=IPO+debut+Nasdaq+OR+NYSE+OR+%22first+day+of+trading%22+when:2d&hl=en-US&gl=US&ceid=US:en
+  - https://news.google.com/rss/search?q=site:renaissancecapital.com+IPO+when:3d&hl=en-US&gl=US&ceid=US:en

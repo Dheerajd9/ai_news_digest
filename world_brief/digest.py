@@ -119,7 +119,7 @@ CATEGORY_CAPS = {"india": 40, "india_economy": 30, "telangana_hyderabad": 25, "w
                  "frontier_companies": 10, "chips_energy_future": 25,
                  "students_visas_jobs": 20, "scams_safety": 12,
                  "weather_disasters": 15,
-                 "sports": 8, "good_news": 6}
+                 "sports": 8, "good_news": 6, "ipo": 20}
 SUMMARY_CHARS = 280
 SEEN_TTL_DAYS = 7
 UA = {"User-Agent": "world-brief/1.0 (personal news digest)"}
@@ -692,6 +692,11 @@ def ask(system: str, user: str, prefer: str = "gemini") -> str | None:
     return None
 
 
+def without_section(md: str, name: str) -> str:
+    """Drop one '## ...name...' section (e.g. IPO watch: email only, never in the podcast)."""
+    return re.sub(rf"(?ms)^## [^\n]*{re.escape(name)}[^\n]*\n.*?(?=^## |\Z)", "", md)
+
+
 def strip_links(md: str) -> str:
     return re.sub(r"\s?\[\[([^\]]+)\]\]\([^)]+\)", "", md)
 
@@ -1029,7 +1034,7 @@ def fallback_brief(items: list[dict], date_str: str) -> str:
 CATEGORY_LABELS = {
     "india": "🇮🇳 India", "india_economy": "🇮🇳 India economy", "telangana_hyderabad": "🏙️ Telangana & Hyderabad",
     "usa": "🇺🇸 USA", "india_us_visa_trade": "🛂 India–USA, visas & trade", "canada": "🇨🇦 Canada",
-    "world": "🌍 World", "world_regions": "🗺️ Around the world", "global_economy": "📦 Global economy", "us_markets_economy": "📈 Markets",
+    "ipo": "📈 IPOs", "world": "🌍 World", "world_regions": "🗺️ Around the world", "global_economy": "📦 Global economy", "us_markets_economy": "📈 Markets",
     "business_jobs": "💼 Business & jobs", "personal_finance_housing": "💵 Money & housing",
     "jobs_tax_housing": "💵 Jobs, tax & housing", "ai_robotics": "🤖 AI & robotics", "tech_ai": "💻 Tech",
     "frontier_companies": "🚀 Frontier companies", "chips_energy_future": "⚡ Chips, energy, future tech & space",
@@ -1578,7 +1583,7 @@ def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: 
     from podcast import make_podcast, latest_previous_script
     import podfeed
     episodes: list[dict] = []
-    source_text = strip_links(final.replace("{{LISTEN}}", ""))
+    source_text = strip_links(without_section(final.replace("{{LISTEN}}", ""), "IPO watch"))
     (ROOT / "out").mkdir(exist_ok=True)
     for old_raw in (ROOT / "out").glob("rawscript_*.txt"):
         old_raw.unlink()

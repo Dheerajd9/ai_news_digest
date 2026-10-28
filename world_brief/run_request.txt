@@ -25,3 +25,4 @@ run: keycheck   # 2026-10-14 verify weather source
 2026-10-19T19:25:26Z run: feedcheck (after removing dead feeds)
 2026-10-19T20:03:07Z run: watchdog (test the missing-email check)
 2026-10-20T13:48:25Z run: podcast morning (today's podcast was skipped on a slow AI day)
+2026-10-28T16:14:00Z run: feedcheck (check the new IPO feeds)
