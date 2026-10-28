@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/anthropic-takes-on-grok-bot-metas-muse-and-openais-dots-with-its-always-on-agent-claude-duet/",
-   "title": "Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\"",
-   "at": "2026-10-22T12:12:01+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/transportation/1015281/gemini-ai-apple-carplay-voice-google-maps",
-   "title": "Conversational Gemini navigation comes to Apple CarPlay",
-   "at": "2026-10-22T12:12:01+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
-   "title": "OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found critical PHP flaw affecting millions of websites",
-   "at": "2026-10-22T12:12:01+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/10/21/nvidia-announces-vera-rubin-racks-that-can-be-shipped-on-a-truck-.html",
-   "title": "Nvidia announces plug and play Vera Rubin racks that can be shipped on a truck",
-   "at": "2026-10-22T12:12:01+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
-   "title": "Recursive launches Flint, a laptop coding model it says was largely built by AI",
-   "at": "2026-10-22T12:12:01+00:00"
-  },
-  {
    "link": "https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/",
    "title": "Microsoft\u2019s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases \u2018medical superintelligence\u2019",
    "at": "2026-10-23T12:12:21+00:00"
@@ -149,6 +124,31 @@
    "link": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
    "title": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
    "at": "2026-10-27T12:12:41+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/",
+   "title": "Google\u2019s Genie 4 world model adds audio, more realistic worlds, and real-time steering",
+   "at": "2026-10-28T12:13:32+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1019373/apple-pages-keynote-numbers-ai-chatbot-update",
+   "title": "Apple is adding an AI chatbot to Pages, Keynote, and Numbers",
+   "at": "2026-10-28T12:13:32+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-asks-outside-experts-including-a-nobel-laureate-to-check-proofs-its-ai-produced-in-math-computer-science-and-physics/",
+   "title": "OpenAI asks outside experts, including a Nobel laureate, to check proofs its AI produced in math, computer science, and physics",
+   "at": "2026-10-28T12:13:32+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/ai-agents-hacked-anthropic-maker-of-arguably-the-most-capable-ai-models-for-cyberdefense/",
+   "title": "AI agents hacked Anthropic, maker of arguably the most capable AI models for cyberdefense",
+   "at": "2026-10-28T12:13:32+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+   "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+   "at": "2026-10-28T12:13:32+00:00"
   }
  ]
 }
