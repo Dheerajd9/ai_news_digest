@@ -284,60 +284,6 @@
   ],
   "last_seen": "2026-10-27"
  },
- "us-cpi-inflation-sept": {
-  "first_seen": "2026-10-14",
-  "expectations": [
-   {
-    "date": "2026-10-14",
-    "text": "US Treasury yields respond to hot inflation data"
-   },
-   {
-    "date": "2026-10-14",
-    "text": "Fed policy meeting interest rate pause or hike debate"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-14",
-    "event": "September CPI print published at 3.7%"
-   },
-   {
-    "date": "2026-10-14",
-    "event": "US equity indices tumble at market close"
-   }
-  ],
-  "title": "US CPI inflation accelerates to 3.7% in September",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "September US inflation jumped to 3.7% driven by higher fuel prices, driving the Nasdaq down 1.88% on rate-hike concerns.",
-  "open_questions": [
-   "Will the Fed deliver another interest rate increase this year?"
-  ],
-  "last_seen": "2026-10-14"
- },
- "fairfax-idbi-bank-stake": {
-  "first_seen": "2026-10-14",
-  "expectations": [
-   {
-    "date": "2026-10-14",
-    "text": "Largest FDI in India's financial sector"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-14",
-    "event": "Cabinet approval for IDBI Bank stake sale"
-   }
-  ],
-  "title": "Canada's Fairfax acquires 60.72% stake in IDBI Bank",
-  "status": "NEW",
-  "stage": "APPROVED/PASSED",
-  "summary": "The Indian Cabinet approved the sale of a 60.72% stake in IDBI Bank to Canada's Fairfax Financial Holdings for ₹52,878 crore.",
-  "open_questions": [
-   "When will the transaction formally close?"
-  ],
-  "last_seen": "2026-10-14"
- },
  "openai-state-lawsuits": {
   "first_seen": "2026-10-14",
   "expectations": [
@@ -369,52 +315,6 @@
    "Will the FTC or federal regulators file coordinated actions?"
   ],
   "last_seen": "2026-10-15"
- },
- "netflix-layoffs-2026": {
-  "first_seen": "2026-10-14",
-  "expectations": [
-   {
-    "date": "2026-10-14",
-    "text": "Earnings commentary on restructuring costs"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-14",
-    "event": "1,000 workers notified of layoffs"
-   }
-  ],
-  "title": "Netflix lays off 1,000 employees in major restructuring",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "Netflix cut roughly 6% of its global workforce (about 1,000 positions), impacting studio, tech, and product roles.",
-  "open_questions": [
-   "Will cuts expand to international operational hubs?"
-  ],
-  "last_seen": "2026-10-14"
- },
- "sc-railway-ticket-insurance": {
-  "first_seen": "2026-10-14",
-  "expectations": [
-   {
-    "date": "2026-10-14",
-    "text": "Implementation by Ministry of Railways on Oct 27"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-14",
-    "event": "Supreme Court ruling delivered"
-   }
-  ],
-  "title": "Supreme Court mandates insurance for offline railway tickets",
-  "status": "NEW",
-  "stage": "APPROVED/PASSED",
-  "summary": "The Supreme Court ruled that Indian Railways must extend passenger insurance to counter-bought tickets from October 27.",
-  "open_questions": [
-   "What will be the premium deduction per ticket?"
-  ],
-  "last_seen": "2026-10-14"
  },
  "us-ppi-inflation-sept": {
   "first_seen": "2026-10-15",
@@ -516,10 +416,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-10-18",
-    "text": "Subscription opening dates announced by underwriters"
-   },
-   {
     "date": "2026-10-19",
     "text": "Public subscription opening and retail bidding this week"
    },
@@ -534,16 +430,16 @@
    {
     "date": "2026-10-26",
     "text": "Public listing debut on Indian exchanges on October 28"
+   },
+   {
+    "date": "2026-10-29",
+    "text": "Strong market performance following listing debut"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-15..2026-10-18",
-    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Red herring prospectuses prepared for Dalal Street listing"
+    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing; Red herring prospectuses prepared for Dalal Street listing"
    },
    {
     "date": "2026-10-19",
@@ -576,14 +472,20 @@
    {
     "date": "2026-10-28",
     "event": "Surged 27% on NSE debut"
+   },
+   {
+    "date": "2026-10-29",
+    "event": "Post-listing market rally extended"
    }
   ],
-  "title": "Jio Platforms stock surges 27% in historic market debut",
-  "status": "RESOLVED",
+  "title": "Jio Platforms extends post-listing gains after record IPO",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Jio Platforms listed on the NSE and BSE, surging 27% after raising $3.1 billion in India's largest-ever IPO.",
-  "open_questions": [],
-  "last_seen": "2026-10-28"
+  "summary": "Jio Platforms shares extended gains following its blockbuster IPO, adding $36 billion in market value and becoming India's second most valuable company.",
+  "open_questions": [
+   "How will retail liquidity sustain secondary market valuations?"
+  ],
+  "last_seen": "2026-10-29"
  },
  "yes-bank-at1-verdict": {
   "first_seen": "2026-10-15",
@@ -1357,33 +1259,6 @@
   ],
   "last_seen": "2026-10-25"
  },
- "starlink-ukraine-throttling": {
-  "first_seen": "2026-10-25",
-  "expectations": [
-   {
-    "date": "2026-10-25",
-    "text": "Increased scrutiny on commercial satellite reliance in military conflicts"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-25",
-    "event": "Musk confirms throttling; service restored"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "Full restoration of Starlink drone speeds confirmed by Ukraine"
-   }
-  ],
-  "title": "Musk restores Ukraine Starlink speeds after acknowledged throttling",
-  "status": "RESOLVED",
-  "stage": "OPERATIONAL",
-  "summary": "Elon Musk confirmed ordering speed curbs on Starlink terminals in Ukraine for high-speed drone operations before fully restoring connections.",
-  "open_questions": [
-   "Will defense departments build sovereign satellite constellations to reduce commercial dependence?"
-  ],
-  "last_seen": "2026-10-25"
- },
  "brazil-presidential-runoff": {
   "first_seen": "2026-10-25",
   "expectations": [
@@ -1663,5 +1538,143 @@
    "What percentage of OpenAI workload will run on TPUs?"
   ],
   "last_seen": "2026-10-28"
+ },
+ "fed-rates-oct-2026": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Rates held steady as expected by markets"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "FOMC rate decision announced"
+   }
+  ],
+  "title": "Federal Reserve holds interest rates steady at 3.75%-4.00%",
+  "status": "DEVELOPING",
+  "stage": "EFFECTIVE",
+  "summary": "The FOMC voted 10-2 to hold benchmark interest rates steady, citing sticky inflation and the need for more economic data.",
+  "open_questions": [
+   "Will incoming employment data prompt a rate cut in December?"
+  ],
+  "last_seen": "2026-10-29"
+ },
+ "alphabet-earnings-miss": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Tech stocks experiencing volatility following earnings release"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "Q3 earnings report released"
+   }
+  ],
+  "title": "Alphabet earnings miss triggers tech stock slide and AI spending concerns",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Alphabet reported an earnings miss driven by weaker-than-expected core search revenue and slower AI monetization, sparking tech sector jitters.",
+  "open_questions": [
+   "Will other tech giants report similar advertising slowdowns?"
+  ],
+  "last_seen": "2026-10-29"
+ },
+ "us-h1b-deference-change": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Stricter compliance review for visa holders"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "Administrative policy proposal advanced"
+   }
+  ],
+  "title": "Trump administration moves to end H-1B visa renewal deference",
+  "status": "DEVELOPING",
+  "stage": "PROPOSED",
+  "summary": "The administration advanced executive proposals to eliminate automatic approval deference for H-1B visa extensions, increasing renewal scrutiny.",
+  "open_questions": [
+   "When will the formal rule be published in the Federal Register?"
+  ],
+  "last_seen": "2026-10-29"
+ },
+ "oil-prices-middle-east": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Oil prices cooling from recent peaks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "Diplomatic outreach initiated"
+   }
+  ],
+  "title": "Crude oil prices ease as US seeks diplomatic opening with Iran",
+  "status": "DEVELOPING",
+  "stage": "NEGOTIATIONS",
+  "summary": "Brent crude slipped to $110.62 after US Vice President JD Vance initiated diplomatic outreach to restart peace talks with Iranian officials.",
+  "open_questions": [
+   "Will formal talks avert further escalation in the Strait of Hormuz?"
+  ],
+  "last_seen": "2026-10-29"
+ },
+ "bank-of-canada-rate-hike": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Higher prime lending rates across Canadian banks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "Rate hike announced"
+   }
+  ],
+  "title": "Bank of Canada raises key interest rate by 25 basis points",
+  "status": "NEW",
+  "stage": "EFFECTIVE",
+  "summary": "The Bank of Canada hiked its key interest rate to 2.5% in its first increase in three years, citing inflation pressures from an ongoing oil shock.",
+  "open_questions": [
+   "Will Canadian commercial banks raise mortgage rates further?"
+  ],
+  "last_seen": "2026-10-29"
+ },
+ "isro-nvs-03-launch": {
+  "first_seen": "2026-10-29",
+  "expectations": [
+   {
+    "date": "2026-10-29",
+    "text": "Successful orbital insertion of NavIC satellite"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-10-29",
+    "event": "Launch scheduled for October 30"
+   }
+  ],
+  "title": "ISRO schedules NVS-03 navigation satellite launch",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "ISRO finalized preparations to launch the NVS-03 navigation satellite aboard GSLV-F18 to strengthen the indigenous NavIC positioning network.",
+  "open_questions": [
+   "Will the launch proceed without technical setbacks like NVS-02?"
+  ],
+  "last_seen": "2026-10-29"
  }
 }

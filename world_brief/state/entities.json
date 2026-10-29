@@ -111,12 +111,13 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "middle-east-escalation",
-"us-israel-iran-strike-plans"
+"us-israel-iran-strike-plans",
+"oil-prices-middle-east"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-29"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -153,15 +154,16 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 12,
+"count": 13,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
 "us-h1b-extension-deference-rule",
 "us-ead-extension-end",
-"vance-h1b-rhetoric"
+"vance-h1b-rhetoric",
+"us-h1b-deference-change"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-29"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -235,14 +237,15 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 6,
+"count": 7,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
 "us-h1b-extension-deference-rule",
-"us-ead-extension-end"
+"us-ead-extension-end",
+"us-h1b-deference-change"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-29"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -391,13 +394,14 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 9,
+"count": 10,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept",
-"oil-spike-market-drop"
+"oil-spike-market-drop",
+"fed-rates-oct-2026"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-10-29"
 },
 "IEA": {
 "first_seen": "2026-10-14",
@@ -448,18 +452,18 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 18,
+"count": 19,
 "stories": [
-"india-us-trade-talks",
 "russia-frees-hubbard",
 "us-israel-iran-strike-plans",
 "middle-east-escalation",
 "starlink-ukraine-speeds",
 "us-perm-h1b-freeze",
 "melania-ukraine-ceasefire",
-"flávio-bolsonaro-us-visa"
+"flávio-bolsonaro-us-visa",
+"oil-prices-middle-east"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "ChatGPT": {
 "first_seen": "2026-10-14",
@@ -512,11 +516,11 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 9,
+"count": 10,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
@@ -877,11 +881,12 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 2,
+"count": 3,
 "stories": [
-"isro-launch-pads-2029"
+"isro-launch-pads-2029",
+"isro-nvs-03-launch"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-10-29"
 },
 "Starlink": {
 "first_seen": "2026-10-25",
@@ -942,14 +947,81 @@
 },
 "Google": {
 "first_seen": "2026-10-28",
+"count": 2,
+"stories": [
+"openai-google-tpu-deal",
+"alphabet-earnings-miss"
+],
+"last_seen": "2026-10-29"
+},
+"Alphabet": {
+"first_seen": "2026-10-29",
 "count": 1,
 "stories": [
-"openai-google-tpu-deal"
+"alphabet-earnings-miss"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
+},
+"Reliance Industries": {
+"first_seen": "2026-10-29",
+"count": 1,
+"stories": [
+"jio-platforms-mega-ipo"
+],
+"last_seen": "2026-10-29"
+},
+"Bank of Canada": {
+"first_seen": "2026-10-29",
+"count": 1,
+"stories": [
+"bank-of-canada-rate-hike"
+],
+"last_seen": "2026-10-29"
 }
 },
 "connections": [
+{
+"text": "US interest rates -> borrowing costs -> mortgage and loan rates",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "Alphabet ad revenue -> AI capital expenditure -> tech stock valuation",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "US visa rules -> IT staffing -> Indian tech workers",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "Jio IPO success -> primary market pipeline -> Dalal Street liquidity",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "Middle East diplomacy -> crude oil prices -> India import bill",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "Bank of Canada rate hike -> Canadian mortgage rates -> housing market slowdown",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
+{
+"text": "ISRO launch -> NavIC positioning -> indigenous space infrastructure",
+"first_seen": "2026-10-29",
+"last_seen": "2026-10-29",
+"count": 1
+},
 {
 "text": "Bay of Bengal cyclone -> coastal landfall -> railway and agriculture disruption",
 "first_seen": "2026-10-27",
@@ -1267,48 +1339,6 @@
 "first_seen": "2026-10-15",
 "last_seen": "2026-10-16",
 "count": 2
-},
-{
-"text": "AI agents / automation -> cyber attacks & scams -> enterprise security overhaul",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-16",
-"count": 2
-},
-{
-"text": "AI agents / automation -> banking security -> customer account restrictions",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-16",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil above $105 -> US inflation -> tech stock sell-off",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-16",
-"count": 1
-},
-{
-"text": "Hot wholesale inflation -> consumer price pressure -> sticky Fed interest rates",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 2
-},
-{
-"text": "Enterprise AI adoption -> LLM revenue growth -> public market IPO",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 1
-},
-{
-"text": "State AG scrutiny -> AI safety regulation -> compliance costs for LLM developers",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-15",
-"count": 2
-},
-{
-"text": "Court ruling -> bank capital adjustments -> mutual fund NAV revaluations",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-15",
-"count": 1
 }
 ]
 }
