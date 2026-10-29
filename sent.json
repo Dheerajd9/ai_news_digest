@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/",
-   "title": "Microsoft\u2019s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases \u2018medical superintelligence\u2019",
-   "at": "2026-10-23T12:12:21+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/googles-agent-compute-engine-gives-every-gemini-agent-its-own-hardware-isolated-micro-virtual-machine/",
-   "title": "Google's Agent Compute Engine gives every Gemini agent its own hardware-isolated micro virtual machine",
-   "at": "2026-10-23T12:12:21+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/recursive-shows-first-result-of-its-ai-driven-research-process-with-flint/",
-   "title": "Recursive shows first result of its AI-driven research process with Flint",
-   "at": "2026-10-23T12:12:21+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
-   "title": "OpenAI makes its Jev competitor widely available as decision model competition heats up",
-   "at": "2026-10-23T12:12:21+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropics-claude-now-writes-code-and-proves-it-safe-automatically/",
-   "title": "Anthropic's Claude now writes code and proves it safe automatically",
-   "at": "2026-10-23T12:12:21+00:00"
-  },
-  {
    "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
    "title": "OpenAI now trains its frontier AI models with no internet access",
    "at": "2026-10-24T12:14:13+00:00"
@@ -149,6 +124,31 @@
    "link": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
    "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
    "at": "2026-10-28T12:13:32+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/google-deepmind-releases-gemini-4-carbon-just-two-weeks-after-argon-with-gains-across-the-board/",
+   "title": "Google Deepmind releases Gemini 4 Carbon just two weeks after Argon with gains across the board",
+   "at": "2026-10-29T12:15:09+00:00"
+  },
+  {
+   "link": "https://openai.com/index/openai-servicenow-partnership-expansion",
+   "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+   "at": "2026-10-29T12:15:09+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/nvidias-open-nemotron-3-5-transcribe-combines-transcription-translation-and-speaker-recognition/",
+   "title": "Nvidia's open Nemotron 3.5 Transcribe combines transcription, translation, and speaker recognition",
+   "at": "2026-10-29T12:15:09+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/google-opens-android-development-to-third-party-ai-agents-and-unveils-new-gemini-apis/",
+   "title": "Google opens Android development to third-party AI agents and unveils new Gemini APIs",
+   "at": "2026-10-29T12:15:09+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/claude-for-legal-now-verifies-sources-automatically-then-hands-the-file-to-a-lawyer/",
+   "title": "Claude for Legal now verifies sources automatically, then hands the file to a lawyer",
+   "at": "2026-10-29T12:15:09+00:00"
   }
  ]
 }
