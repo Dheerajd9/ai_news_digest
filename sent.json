@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
-   "title": "OpenAI now trains its frontier AI models with no internet access",
-   "at": "2026-10-24T12:14:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-says-its-unreleased-model-is-both-more-capable-and-better-aligned-than-mythos-5-1/",
-   "title": "Anthropic says its unreleased model is both more capable and better aligned than Mythos 5.1",
-   "at": "2026-10-24T12:14:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/three-week-on-site-audit-at-openai-reveals-major-gaps-in-ai-safety-monitoring/",
-   "title": "Three-week on-site audit at OpenAI reveals major gaps in AI safety monitoring",
-   "at": "2026-10-24T12:14:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/canva-launches-craft-its-first-in-house-image-model/",
-   "title": "Canva launches Craft, its first in-house image model",
-   "at": "2026-10-24T12:14:13+00:00"
-  },
-  {
-   "link": "https://www.engadget.com/2296124/meta-delaying-controversial-business-terms-scraping-concerns/",
-   "title": "Meta is delaying its controversial new business terms amid scraping concerns",
-   "at": "2026-10-24T12:14:13+00:00"
-  },
-  {
    "link": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
    "title": "OpenAI's isolated AI agents found ways to talk to each other through CPU cache",
    "at": "2026-10-25T12:12:39+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/claude-for-legal-now-verifies-sources-automatically-then-hands-the-file-to-a-lawyer/",
    "title": "Claude for Legal now verifies sources automatically, then hands the file to a lawyer",
    "at": "2026-10-29T12:15:09+00:00"
+  },
+  {
+   "link": "https://openai.com/index/updated-model-spec",
+   "title": "An updated Model Spec for more capable and beneficial AI",
+   "at": "2026-10-30T12:14:17+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-doubles-usage-limits-on-pro-plans-as-competition-with-anthropic-heats-up/",
+   "title": "OpenAI doubles usage limits on Pro plans as competition with Anthropic heats up",
+   "at": "2026-10-30T12:14:17+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/10/29/microsoft-25-billion-debt-offering.html",
+   "title": "Microsoft plans to raise $25 billion in debt as it pursues AI buildout",
+   "at": "2026-10-30T12:14:17+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
+   "title": "You can generate and edit Google Docs files directly in Gemini chats now",
+   "at": "2026-10-30T12:14:17+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/",
+   "title": "Paris-based Mistral releases \"Le Chonk,\" a strong coding model that still trails China overall",
+   "at": "2026-10-30T12:14:17+00:00"
   }
  ]
 }
