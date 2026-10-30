@@ -175,11 +175,12 @@
 },
 "Amazon": {
 "first_seen": "2026-10-11",
-"count": 1,
+"count": 2,
 "stories": [
-"amazon-decart-acquisition"
+"amazon-decart-acquisition",
+"alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-10-11"
+"last_seen": "2026-10-30"
 },
 "Decart": {
 "first_seen": "2026-10-11",
@@ -317,13 +318,14 @@
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
-"count": 3,
+"count": 4,
 "stories": [
 "delhi-jantar-mantar-protests",
 "sc-railway-ticket-insurance",
-"yes-bank-at1-verdict"
+"yes-bank-at1-verdict",
+"sc-bank-fraud-compensation"
 ],
-"last_seen": "2026-10-15"
+"last_seen": "2026-10-30"
 },
 "Surya Kant": {
 "first_seen": "2026-10-12",
@@ -532,12 +534,13 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 9,
+"count": 10,
 "stories": [
 "jio-platforms-mega-ipo",
-"sebi-avadhut-sathe-refund"
+"sebi-avadhut-sathe-refund",
+"sebi-direct-mutual-fund-default"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-10-30"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -822,19 +825,21 @@
 },
 "Reserve Bank of India": {
 "first_seen": "2026-10-23",
-"count": 1,
+"count": 2,
 "stories": [
-"rbi-rupee-defense"
+"rbi-rupee-defense",
+"sc-bank-fraud-compensation"
 ],
-"last_seen": "2026-10-23"
+"last_seen": "2026-10-30"
 },
 "North Korea": {
 "first_seen": "2026-10-24",
-"count": 1,
+"count": 2,
 "stories": [
-"kim-china-summit-bridge"
+"kim-china-summit-bridge",
+"binance-crypto-heist-2026"
 ],
-"last_seen": "2026-10-24"
+"last_seen": "2026-10-30"
 },
 "Telangana Government": {
 "first_seen": "2026-10-24",
@@ -881,12 +886,12 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 3,
+"count": 4,
 "stories": [
 "isro-launch-pads-2029",
 "isro-nvs-03-launch"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-10-30"
 },
 "Starlink": {
 "first_seen": "2026-10-25",
@@ -956,11 +961,12 @@
 },
 "Alphabet": {
 "first_seen": "2026-10-29",
-"count": 1,
+"count": 2,
 "stories": [
-"alphabet-earnings-miss"
+"alphabet-earnings-miss",
+"alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-10-30"
 },
 "Reliance Industries": {
 "first_seen": "2026-10-29",
@@ -977,9 +983,63 @@
 "bank-of-canada-rate-hike"
 ],
 "last_seen": "2026-10-29"
+},
+"Binance": {
+"first_seen": "2026-10-30",
+"count": 1,
+"stories": [
+"binance-crypto-heist-2026"
+],
+"last_seen": "2026-10-30"
+},
+"Intel": {
+"first_seen": "2026-10-30",
+"count": 1,
+"stories": [
+"alphabet-intel-tech-selloff"
+],
+"last_seen": "2026-10-30"
+},
+"AMCs": {
+"first_seen": "2026-10-30",
+"count": 1,
+"stories": [
+"sebi-direct-mutual-fund-default"
+],
+"last_seen": "2026-10-30"
 }
 },
 "connections": [
+{
+"text": "Cyber hack -> crypto market volatility -> investor confidence",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-30",
+"count": 1
+},
+{
+"text": "AI capital expenditure -> legacy cash flow pressure -> stock market correction",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-30",
+"count": 1
+},
+{
+"text": "Cyber fraud losses -> bank liability -> mandatory cybersecurity upgrades",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-30",
+"count": 1
+},
+{
+"text": "Regulatory mandate -> direct fund adoption -> lower retail investment costs",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-30",
+"count": 1
+},
+{
+"text": "Space launch -> NavIC positioning upgrade -> GPS independence",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-30",
+"count": 1
+},
 {
 "text": "US interest rates -> borrowing costs -> mortgage and loan rates",
 "first_seen": "2026-10-29",
@@ -1309,36 +1369,6 @@
 "first_seen": "2026-10-18",
 "last_seen": "2026-10-19",
 "count": 3
-},
-{
-"text": "High global crude oil -> dollar demand -> RBI foreign reserve sales -> rupee stabilizes at 94.96",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-19",
-"count": 3
-},
-{
-"text": "Middle East conflict -> civil aviation threats -> flight suspensions between India and Gulf",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-19",
-"count": 2
-},
-{
-"text": "China solar export curbs -> India domestic manufacturing costs -> clean energy delays",
-"first_seen": "2026-10-18",
-"last_seen": "2026-10-18",
-"count": 1
-},
-{
-"text": "AI agents -> financial transfer attempts -> bank account security blockades",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-18",
-"count": 2
-},
-{
-"text": "AI computing demand -> semiconductor fab capacity -> US onshore chip investment",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-16",
-"count": 2
 }
 ]
 }
