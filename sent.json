@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
-   "title": "OpenAI's isolated AI agents found ways to talk to each other through CPU cache",
-   "at": "2026-10-25T12:12:39+00:00"
-  },
-  {
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaURKclZiTXFBamI0c05icXZaamhMeFRBRjNBMjNDX3FHMnVoRFl1YzNhOWF6ekVGdGJnWGx5LWZZcGhYTFJmb0pSYVk0MU5aSzlhVWdMcEhqZlRBYldVN3hPS1pxb1RWT1ZEdjBfb3UtbnNjS19ud25SMTV6ZnNKUDhFMDZHLU1tRFcxQlJqUWFkZ0RicEhLdA?oc=5",
-   "title": "Anthropic unveils Claude Duet, its answer to AI agents like Dots",
-   "at": "2026-10-25T12:12:39+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra/",
-   "title": "Nvidia open-sources Flora to make robot video labeling 125x cheaper than GPT-6 Astra",
-   "at": "2026-10-25T12:12:39+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-co-founder-jack-clark-moves-his-prediction-for-self-improving-ai-forward-to-2027/",
-   "title": "Anthropic co-founder Jack Clark moves his prediction for self-improving AI forward to 2027",
-   "at": "2026-10-25T12:12:39+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/blocks-new-ai-model-dessa-was-trained-entirely-on-human-speech-to-catch-emotions-text-based-models-miss/",
-   "title": "Block's new AI model Dessa was trained entirely on human speech to catch emotions text-based models miss",
-   "at": "2026-10-25T12:12:39+00:00"
-  },
-  {
    "link": "https://www.cnbc.com/2026/10/26/meta-stock-offering-ai.html",
    "title": "Meta announces $95 billion stock offering to fund AI expansion",
    "at": "2026-10-26T12:14:01+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/",
    "title": "Paris-based Mistral releases \"Le Chonk,\" a strong coding model that still trails China overall",
    "at": "2026-10-30T12:14:17+00:00"
+  },
+  {
+   "link": "https://www.engadget.com/2303225/google-openai-anthropic-ai-crawling-controls/",
+   "title": "Google joins OpenAI and Anthropic in promising new scraping controls",
+   "at": "2026-10-31T12:13:25+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+   "title": "Apple Intelligence is finally coming to China with iOS 27.3",
+   "at": "2026-10-31T12:13:25+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/",
+   "title": "A Claude model autonomously chose a gene therapy and operated on a mouse brain with no human decision-making",
+   "at": "2026-10-31T12:13:25+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/",
+   "title": "OpenAI raises just $11 billion of its $30 billion target as big investors lose their AI appetite",
+   "at": "2026-10-31T12:13:25+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/",
+   "title": "Open-weight model GLM 5.3 built full Firefox exploit chains with zero human input in under 48 hours",
+   "at": "2026-10-31T12:13:25+00:00"
   }
  ]
 }
