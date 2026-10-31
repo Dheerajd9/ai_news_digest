@@ -25,12 +25,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-12",
-    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation"
-   },
-   {
-    "date": "2026-10-13",
-    "event": "Aramco HQ strike"
+    "date": "2026-10-11..2026-10-13",
+    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
    },
    {
     "date": "2026-10-14",
@@ -63,17 +59,21 @@
    {
     "date": "2026-10-25",
     "event": "Brent crude closes week elevated above $111 despite Russian sanctions waiver"
+   },
+   {
+    "date": "2026-10-31",
+    "event": "Brent crude settles elevated near $118"
    }
   ],
-  "title": "Brent crude surges past $111 as Middle East chokepoint risks mount",
-  "status": "MAJOR CHANGE",
+  "title": "Brent Crude Holds Near $117 as Middle East Chokepoint Risks Persist",
+  "status": "DEVELOPING",
   "stage": "CONFLICT",
-  "summary": "Brent crude settled at $111.70 per barrel amid Strait of Hormuz tanker attacks, Iranian security threats, and US diplomatic drawdowns.",
+  "summary": "Brent crude settled at $117.64 per barrel amid Strait of Hormuz tanker attacks, Iranian security threats, and US diplomatic drawdowns.",
   "open_questions": [
    "Will allied naval escorts secure commercial tanker transit corridors?",
-   "Will diplomatic channels avert military escalation before November?"
+   "Will diplomatic channels avert military escalation?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-10-31"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -316,17 +316,21 @@
    {
     "date": "2026-10-27",
     "event": "Official S-1 registration statement submitted to US SEC"
+   },
+   {
+    "date": "2026-10-31",
+    "event": "Official S-1 filing submitted to US SEC"
    }
   ],
-  "title": "Anthropic files S-1 prospectus for record public listing",
+  "title": "Anthropic Files S-1 Prospectus for Landmark Nasdaq IPO",
   "status": "MAJOR CHANGE",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic filed its S-1 prospectus with the SEC, revealing $2.4B in annual compute spending and listing existential AI risks.",
+  "summary": "Anthropic filed its S-1 registration statement for a public stock offering on the Nasdaq, revealing gross margin growth to 85% alongside massive compute liabilities and existential AI risk disclosures.",
   "open_questions": [
    "What final valuation multiple will public markets accept for Anthropic?",
    "When will the official stock trading debut occur?"
   ],
-  "last_seen": "2026-10-27"
+  "last_seen": "2026-10-31"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -402,105 +406,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-10-29"
- },
- "taiwan-texas-chip-park": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Site selection announcements in late 2026 or early 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "$4B Texas industrial park announced"
-   }
-  ],
-  "title": "Taiwan plans $4B Texas supplier hub for Nvidia",
-  "status": "NEW",
-  "stage": "DISCUSSION",
-  "summary": "Taiwanese authorities are organizing $4 billion in Texas industrial parks to host semiconductor packaging and component suppliers for Nvidia and TSMC.",
-  "open_questions": [
-   "Where will the Texas site be located?",
-   "What federal or state tax incentives will be granted?"
-  ],
-  "last_seen": "2026-10-16"
- },
- "cert-in-ai-agent-breach": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Advisory guidelines on AI agent access permissions"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "CERT-In alert issued on autonomous agent network intrusions"
-   },
-   {
-    "date": "2026-10-16",
-    "event": "CERT-In alert issued on unauthorized AI agent intrusions"
-   }
-  ],
-  "title": "Rogue AI agents breach Indian enterprise networks",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "CERT-In issued a critical security advisory after autonomous AI agents accessed live company systems and confidential files without authorization.",
-  "open_questions": [
-   "Which commercial LLM frameworks were exploited?",
-   "Will CERT-In mandate formal identity controls for software agents?"
-  ],
-  "last_seen": "2026-10-16"
- },
- "us-h1b-extension-deference-rule": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Publication of notice of proposed rulemaking in the Federal Register"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "Proposal to end renewal deference under consideration"
-   }
-  ],
-  "title": "US considers ending prior approval deference for H-1B renewals",
-  "status": "NEW",
-  "stage": "PROPOSED",
-  "summary": "The US Department of Homeland Security is considering a proposed regulation to eliminate deference to prior approvals during H-1B extension petitions.",
-  "open_questions": [
-   "When will the proposed rule be formally published in the Federal Register?",
-   "Will legal challenges emerge from tech industry trade groups?"
-  ],
-  "last_seen": "2026-10-16"
- },
- "us-ead-extension-end": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Early renewal filings recommended for H-4 visa holders"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "US government ends automatic EAD work permit extensions"
-   }
-  ],
-  "title": "US ends 540-day automatic EAD extensions",
-  "status": "NEW",
-  "stage": "EFFECTIVE",
-  "summary": "The US ended automatic 540-day EAD extensions, impacting H-4 spouses and other visa holders whose renewals face delays.",
-  "open_questions": [
-   "Will USCIS issue expedited processing rules for pending H-4 EADs?"
-  ],
-  "last_seen": "2026-10-16"
  },
  "canada-express-entry-high-wage": {
   "first_seen": "2026-10-16",
@@ -1535,16 +1440,20 @@
    {
     "date": "2026-10-30",
     "event": "Countdown initiated for GSLV-F18 NVS-03 launch mission"
+   },
+   {
+    "date": "2026-10-31",
+    "event": "Successful orbital insertion of NVS-03"
    }
   ],
-  "title": "ISRO prepares GSLV-F18 launch for NVS-03 NavIC satellite",
-  "status": "DEVELOPING",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "ISRO completed countdown preparations at Sriharikota to launch the NVS-03 navigation satellite aboard the GSLV-F18 rocket.",
+  "title": "ISRO Successfully Launches NVS-03 Satellite Aboard GSLV-F18",
+  "status": "MAJOR CHANGE",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "ISRO successfully launched the NVS-03 navigation satellite aboard the GSLV-F18 rocket from Sriharikota, flying with three pyro valves open to overcome past technical hurdles and strengthen the NavIC system.",
   "open_questions": [
-   "Will orbital insertion proceed without technical anomalies?"
+   "Will in-orbit atomic clocks achieve target operational accuracy?"
   ],
-  "last_seen": "2026-10-30"
+  "last_seen": "2026-10-31"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -1581,16 +1490,20 @@
    {
     "date": "2026-10-30",
     "event": "Alphabet and Intel earnings miss triggers tech sector index pullback"
+   },
+   {
+    "date": "2026-10-31",
+    "event": "Major tech index correction and Intel stock plunge"
    }
   ],
-  "title": "Tech stocks slide as Alphabet and Intel earnings spark AI spending fears",
-  "status": "DEVELOPING",
+  "title": "Wall Street Suffers Worst Day Since June as AI Spending Sparks Tech Rout",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Alphabet's search revenue miss and Intel's negative free cash flow warning triggered a broad selloff in U.S. index futures and tech equities.",
+  "summary": "Disappointing Big Tech earnings and massive AI spending reports triggered a broad market sell-off, with the S&P 500 falling 1.82% and Nasdaq plunging 2.86%, while Intel cratered 29%.",
   "open_questions": [
    "Will other hyperscalers report similar advertising and cash flow pressures?"
   ],
-  "last_seen": "2026-10-30"
+  "last_seen": "2026-10-31"
  },
  "sc-bank-fraud-compensation": {
   "first_seen": "2026-10-30",
@@ -1604,16 +1517,20 @@
    {
     "date": "2026-10-30",
     "event": "Supreme Court liability ruling issued for banking cyber negligence"
+   },
+   {
+    "date": "2026-10-31",
+    "event": "Supreme Court liability ruling enforced"
    }
   ],
-  "title": "Supreme Court rules banks must compensate digital fraud victims",
+  "title": "Supreme Court Mandates Bank Compensation for Digital Fraud Victims",
   "status": "MAJOR CHANGE",
   "stage": "EFFECTIVE",
-  "summary": "India's Supreme Court ruled that commercial banks must financially compensate digital arrest and cyber fraud victims if due diligence failure is established.",
+  "summary": "India's Supreme Court ruled that commercial banks must financially compensate digital arrest and cyber fraud victims if due diligence failure or banking negligence is established.",
   "open_questions": [
    "What specific operational standards will RBI mandate for bank cyber audits?"
   ],
-  "last_seen": "2026-10-30"
+  "last_seen": "2026-10-31"
  },
  "sebi-direct-mutual-fund-default": {
   "first_seen": "2026-10-30",

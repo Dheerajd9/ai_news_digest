@@ -111,13 +111,13 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans",
 "oil-prices-middle-east"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-10-31"
 },
 "IndiGo": {
 "first_seen": "2026-10-11",
@@ -299,14 +299,14 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 9,
+"count": 10,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-31"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -318,14 +318,14 @@
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
-"count": 4,
+"count": 5,
 "stories": [
 "delhi-jantar-mantar-protests",
 "sc-railway-ticket-insurance",
 "yes-bank-at1-verdict",
 "sc-bank-fraud-compensation"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-10-31"
 },
 "Surya Kant": {
 "first_seen": "2026-10-12",
@@ -625,12 +625,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 4,
+"count": 6,
 "stories": [
 "oil-spike-market-drop",
-"anthropic-ipo-prep"
+"anthropic-ipo-prep",
+"alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-10-31"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -825,12 +826,12 @@
 },
 "Reserve Bank of India": {
 "first_seen": "2026-10-23",
-"count": 2,
+"count": 3,
 "stories": [
 "rbi-rupee-defense",
 "sc-bank-fraud-compensation"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-10-31"
 },
 "North Korea": {
 "first_seen": "2026-10-24",
@@ -886,12 +887,12 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 4,
+"count": 5,
 "stories": [
 "isro-launch-pads-2029",
 "isro-nvs-03-launch"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-10-31"
 },
 "Starlink": {
 "first_seen": "2026-10-25",
@@ -961,12 +962,12 @@
 },
 "Alphabet": {
 "first_seen": "2026-10-29",
-"count": 2,
+"count": 3,
 "stories": [
 "alphabet-earnings-miss",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-10-31"
 },
 "Reliance Industries": {
 "first_seen": "2026-10-29",
@@ -994,11 +995,11 @@
 },
 "Intel": {
 "first_seen": "2026-10-30",
-"count": 1,
+"count": 2,
 "stories": [
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-10-31"
 },
 "AMCs": {
 "first_seen": "2026-10-30",
@@ -1007,23 +1008,57 @@
 "sebi-direct-mutual-fund-default"
 ],
 "last_seen": "2026-10-30"
+},
+"S&P 500": {
+"first_seen": "2026-10-31",
+"count": 1,
+"stories": [
+"alphabet-intel-tech-selloff"
+],
+"last_seen": "2026-10-31"
+},
+"US Navy": {
+"first_seen": "2026-10-31",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-10-31"
 }
 },
 "connections": [
 {
-"text": "Cyber hack -> crypto market volatility -> investor confidence",
-"first_seen": "2026-10-30",
-"last_seen": "2026-10-30",
-"count": 1
-},
-{
 "text": "AI capital expenditure -> legacy cash flow pressure -> stock market correction",
 "first_seen": "2026-10-30",
-"last_seen": "2026-10-30",
-"count": 1
+"last_seen": "2026-10-31",
+"count": 2
 },
 {
 "text": "Cyber fraud losses -> bank liability -> mandatory cybersecurity upgrades",
+"first_seen": "2026-10-30",
+"last_seen": "2026-10-31",
+"count": 2
+},
+{
+"text": "ISRO launch -> NavIC positioning -> GPS independence",
+"first_seen": "2026-10-31",
+"last_seen": "2026-10-31",
+"count": 1
+},
+{
+"text": "Anthropic IPO -> AI market confidence -> tech valuation benchmark",
+"first_seen": "2026-10-31",
+"last_seen": "2026-10-31",
+"count": 1
+},
+{
+"text": "Middle East escalation -> oil prices -> India import bill",
+"first_seen": "2026-10-31",
+"last_seen": "2026-10-31",
+"count": 1
+},
+{
+"text": "Cyber hack -> crypto market volatility -> investor confidence",
 "first_seen": "2026-10-30",
 "last_seen": "2026-10-30",
 "count": 1
@@ -1351,24 +1386,6 @@
 "first_seen": "2026-10-17",
 "last_seen": "2026-10-19",
 "count": 4
-},
-{
-"text": "US immigration policy -> tech talent mobility -> corporate legal risk",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-19",
-"count": 5
-},
-{
-"text": "Domestic retail investor expansion -> mega IPO filings -> Nifty and Sensex rallies",
-"first_seen": "2026-10-15",
-"last_seen": "2026-10-19",
-"count": 4
-},
-{
-"text": "AI agents -> junior tech displacement -> software engineering skill pivot",
-"first_seen": "2026-10-18",
-"last_seen": "2026-10-19",
-"count": 3
 }
 ]
 }
