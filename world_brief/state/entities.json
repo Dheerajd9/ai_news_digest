@@ -154,7 +154,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 13,
+"count": 14,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -163,7 +163,7 @@
 "vance-h1b-rhetoric",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-11-01"
 },
 "Volodymyr Zelenskyy": {
 "first_seen": "2026-10-11",
@@ -238,7 +238,7 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 7,
+"count": 8,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
@@ -246,7 +246,7 @@
 "us-ead-extension-end",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-11-01"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -299,7 +299,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 11,
+"count": 12,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -431,7 +431,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 29,
+"count": 31,
 "stories": [
 "sebi-avadhut-sathe-refund",
 "fpi-outflows-2026",
@@ -454,16 +454,16 @@
 },
 "United States Government": {
 "first_seen": "2026-10-14",
-"count": 20,
+"count": 22,
 "stories": [
-"us-israel-iran-strike-plans",
 "middle-east-escalation",
 "starlink-ukraine-speeds",
 "us-perm-h1b-freeze",
 "melania-ukraine-ceasefire",
 "flávio-bolsonaro-us-visa",
 "oil-prices-middle-east",
-"us-midterms-2026"
+"us-midterms-2026",
+"india-us-trade-talks"
 ],
 "last_seen": "2026-11-01"
 },
@@ -493,11 +493,11 @@
 },
 "SEC": {
 "first_seen": "2026-10-15",
-"count": 3,
+"count": 4,
 "stories": [
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-11-01"
 },
 "TSMC": {
 "first_seen": "2026-10-15",
@@ -518,11 +518,11 @@
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
-"count": 10,
+"count": 11,
 "stories": [
 "jio-platforms-mega-ipo"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-11-01"
 },
 "Reliance": {
 "first_seen": "2026-10-15",
@@ -534,13 +534,13 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 10,
+"count": 11,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default"
 ],
-"last_seen": "2026-10-30"
+"last_seen": "2026-11-01"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -625,7 +625,7 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 7,
+"count": 8,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
@@ -835,7 +835,7 @@
 },
 "North Korea": {
 "first_seen": "2026-10-24",
-"count": 3,
+"count": 4,
 "stories": [
 "kim-china-summit-bridge",
 "binance-crypto-heist-2026"
@@ -913,7 +913,7 @@
 },
 "IMD": {
 "first_seen": "2026-10-25",
-"count": 5,
+"count": 6,
 "stories": [
 "bayes-cyclone-alert-2026",
 "cyclone-murasu-2026"
@@ -988,7 +988,7 @@
 },
 "Binance": {
 "first_seen": "2026-10-30",
-"count": 2,
+"count": 3,
 "stories": [
 "binance-crypto-heist-2026"
 ],
@@ -1028,7 +1028,7 @@
 },
 "FBI": {
 "first_seen": "2026-11-01",
-"count": 1,
+"count": 2,
 "stories": [
 "binance-crypto-heist-2026"
 ],
@@ -1036,7 +1036,7 @@
 },
 "Andhra Pradesh": {
 "first_seen": "2026-11-01",
-"count": 1,
+"count": 2,
 "stories": [
 "cyclone-murasu-2026"
 ],
@@ -1044,7 +1044,7 @@
 },
 "Telangana": {
 "first_seen": "2026-11-01",
-"count": 1,
+"count": 2,
 "stories": [
 "cyclone-murasu-2026"
 ],
@@ -1052,7 +1052,7 @@
 },
 "Ministry of Finance": {
 "first_seen": "2026-11-01",
-"count": 1,
+"count": 2,
 "stories": [
 "india-gst-record-oct-2026"
 ],
@@ -1076,7 +1076,7 @@
 },
 "Congress": {
 "first_seen": "2026-11-01",
-"count": 1,
+"count": 2,
 "stories": [
 "us-midterms-2026"
 ],

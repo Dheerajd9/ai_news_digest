@@ -1,28 +1,26 @@
-  [5m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [8m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [9m] ! Gemini gemini-3.6-flash busy (HTTP 503)
-  [9m] ! Gemini gemini-3.6-flash busy (HTTP 503)
-  [9m] ! Gemini gemini-3.5-flash busy (HTTP 503)
-  [13m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [13m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  ! Gemini gemini-3.7-flash: daily free quota used up
+  [3m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [6m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [6m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [6m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [8m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [11m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
 Edition: weekly
-  [2m] written by Gemini gemini-3.8-flash
-  [2m] meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Brent Crude Sustained Above $111; Record ₹3.08 Lakh Crore FPI Capital Flight; AI Agent Hardware Escapes and Air-Gapping; US H-1B and EAD Administrative Rules Tightening; Starlink Ukraine Throttling Fallout', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  [10m] written by Gemini gemini-3.5-flash
-  [14m] written by Gemini gemini-3.6-flash
-  script reviewed: 3410 -> 3417 words
-  en podcast script: 97 turns, 3417 words
+  [8m] written by Gemini gemini-3.5-flash
+  [8m] meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Big Tech AI Capex Selloff; Anthropic S-1 IPO Filing; Binance $6.3B Crypto Heist; India Record GST & Jio IPO Listing; US Midterms & Immigration Rules Tightening', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '8', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  [14m] written by Gemini gemini-3.7-flash
+  [16m] written by Gemini gemini-3.8-flash
+  script reviewed: 4445 -> 3842 words
+  en podcast script: 108 turns, 3842 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
   ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
-  voices: Gemini gemini-3.8-flash-lite-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (8 part(s))
-  chapters: Top stories 0:00, India 5:45, USA 9:50, World 12:25, Tech 14:27, Money 17:28, Wrap-up 19:28
-  world_brief_full podcast ready: 11.2 MB
+  voices: Gemini gemini-3.8-flash-lite-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (9 part(s))
+  chapters: Top stories 0:00, World 6:36, USA 9:23, India 12:20, Tech 16:50, Money 20:00, Wrap-up 23:28
+  world_brief_full podcast ready: 12.7 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
   podcast site updated with 1 audio file(s)
   email sent (2 recipient(s))
   beliefs updated: 4
-  weekly system scorecard: {'week_ending': '2026-10-25', 'runs': 10, 'avg_items_to_ai': 472.5, 'avg_stories_cited': 107.0, 'avg_email_words': 5639.3, 'avg_podcast_minutes': 23.9, 'corrections': 0, 'action_required': 4, 'quiet_days': 0, 'verification_warnings': 1, 'llm_calls': 34}
+  weekly system scorecard: {'week_ending': '2026-11-01', 'runs': 10, 'avg_items_to_ai': 484.3, 'avg_stories_cited': 93.2, 'avg_email_words': 5516.5, 'avg_podcast_minutes': 21.8, 'corrections': 0, 'action_required': 0, 'quiet_days': 0, 'verification_warnings': 0, 'llm_calls': 38}
   story ledger: 8 stories updated
   Telegram channel: 1 message (podcast + 1 full-news page(s) as buttons)

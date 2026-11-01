@@ -127,16 +127,20 @@
    {
     "date": "2026-10-25",
     "event": "US ends automatic 540-day EAD extensions"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Proposal to eliminate extension deference advanced"
    }
   ],
   "title": "US tightens H-1B renewal scrutiny and ends automatic EAD extensions",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "DHS terminated automatic 540-day EAD extensions and drafted rules to eliminate prior approval deference for H-1B extensions.",
+  "summary": "DHS terminated automatic 540-day EAD extensions and advanced proposed rules to eliminate prior approval deference for H-1B visa extensions.",
   "open_questions": [
    "When will the proposed rule on prior approval deference be formally published in the Federal Register?"
   ],
-  "last_seen": "2026-10-25"
+  "last_seen": "2026-11-01"
  },
  "rbi-rupee-defense": {
   "first_seen": "2026-10-12",
@@ -236,11 +240,7 @@
   "timeline": [
    {
     "date": "2026-10-13..2026-10-15",
-    "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway"
-   },
-   {
-    "date": "2026-10-15",
-    "event": "First tranche finalised; legal text drafting initiated"
+    "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated"
    },
    {
     "date": "2026-10-16",
@@ -273,16 +273,20 @@
    {
     "date": "2026-10-27",
     "event": "Trade pact enters final legal text fine-tuning stage"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Legal teams fine-tuning 99% complete agreement text"
    }
   ],
   "title": "India and US fine-tuning text for bilateral trade deal",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Commerce Minister Piyush Goyal confirmed core trade negotiations are concluded, with legal teams fine-tuning the final agreement.",
+  "summary": "Commerce Minister Piyush Goyal confirmed core trade negotiations are complete, with legal teams fine-tuning 99% of the bilateral agreement text.",
   "open_questions": [
    "When will the formal bilateral signing ceremony take place?"
   ],
-  "last_seen": "2026-10-27"
+  "last_seen": "2026-11-01"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -302,6 +306,10 @@
    {
     "date": "2026-11-01",
     "text": "Institutional roadshows ahead of mid-November pricing"
+   },
+   {
+    "date": "2026-11-01",
+    "text": "Institutional roadshows ahead of mid-November pricing window"
    }
   ],
   "timeline": [
@@ -328,15 +336,19 @@
    {
     "date": "2026-11-01",
     "event": "Deep-dive S-1 data on gross margins and infrastructure liabilities analysed"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "S-1 filing published with ticker ANT"
    }
   ],
   "title": "Anthropic S-1 discloses $16.3B revenue and $80.7B loss",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic's S-1 prospectus revealed 1,300% revenue growth alongside massive $80.7B compute losses and $900B in long-term compute commitments as it preps its Nasdaq debut.",
+  "summary": "Anthropic filed its S-1 prospectus revealing $16.3B in revenue alongside an $80.7B net loss and $900B in long-term compute commitments ahead of its Nasdaq debut under ticker ANT.",
   "open_questions": [
-   "What final valuation multiple will public markets accept?",
-   "When will the official stock trading debut occur?"
+   "What valuation multiple will public markets accept?",
+   "When will official stock trading begin in November?"
   ],
   "last_seen": "2026-11-01"
  },
@@ -366,12 +378,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-10-18",
-    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing; Red herring prospectuses prepared for Dalal Street listing"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Anchor book oversubscribed nearly 30 times with ₹2.5 lakh crore in bids"
+    "date": "2026-10-15..2026-10-19",
+    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing; Red herring prospectuses prepared for Dalal Street listing; Anchor book oversubscribed nearly 30 times wit"
    },
    {
     "date": "2026-10-20",
@@ -404,16 +412,20 @@
    {
     "date": "2026-10-29",
     "event": "Post-listing market rally extended"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Listed on NSE/BSE with 27% debut gain"
    }
   ],
   "title": "Jio Platforms extends post-listing gains after record IPO",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Jio Platforms shares extended gains following its blockbuster IPO, adding $36 billion in market value and becoming India's second most valuable company.",
+  "summary": "Jio Platforms listed on October 28 with a 27% gain on NSE debut, adding $36 billion in market cap and extending post-listing gains.",
   "open_questions": [
    "How will retail liquidity sustain secondary market valuations?"
   ],
-  "last_seen": "2026-10-29"
+  "last_seen": "2026-11-01"
  },
  "canada-express-entry-high-wage": {
   "first_seen": "2026-10-16",
@@ -1473,6 +1485,10 @@
    {
     "date": "2026-11-01",
     "text": "Crypto exchanges to face emergency regulatory security audits"
+   },
+   {
+    "date": "2026-11-01",
+    "text": "Exchanges to face emergency regulatory security audits"
    }
   ],
   "timeline": [
@@ -1483,15 +1499,19 @@
    {
     "date": "2026-11-01",
     "event": "Withdrawals resumed; FBI attribution confirmed"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Withdrawals resumed and 95% of stolen assets covered"
    }
   ],
   "title": "Binance resumes withdrawals after $6.3B hack linked to North Korea",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Binance resumed customer withdrawals after replacing 95% of the $6.3B stolen in a digital heist officially attributed by the FBI to North Korea's TraderTraitor group.",
+  "summary": "Binance resumed customer withdrawals after replacing 95% of stolen assets in a $6.3B heist officially attributed by the FBI to North Korea's TraderTraitor group.",
   "open_questions": [
-   "Will law enforcement freeze any portion of the laundered tokens?",
-   "What additional cold-storage mandates will regulators impose?"
+   "Will law enforcement freeze laundered tokens?",
+   "What cold-storage mandates will regulators impose?"
   ],
   "last_seen": "2026-11-01"
  },
@@ -1584,12 +1604,16 @@
    {
     "date": "2026-11-01",
     "event": "Deep depression intensifies into severe cyclone"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Orange alert issued across 6 Telangana districts"
    }
   ],
   "title": "Cyclone Murasu approaches Andhra Pradesh and Telangana",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Murasu intensified over the Bay of Bengal, threatening the Andhra coast with 120 km/h winds and prompting red and orange rainfall alerts across coastal Andhra Pradesh and eastern Telangana.",
+  "summary": "Severe Cyclone Murasu intensified over the Bay of Bengal, threatening coastal Andhra Pradesh and eastern Telangana with 120 km/h winds and orange alerts ahead of expected November 3 landfall.",
   "open_questions": [
    "Where will exact landfall occur on November 3?",
    "How severe will crop and infrastructure damage be?"
@@ -1610,10 +1634,10 @@
     "event": "October collections reach record ₹2.31 lakh crore"
    }
   ],
-  "title": "India October GST collections hit ₹2.31 lakh crore",
+  "title": "India October GST collections hit record ₹2.31 lakh crore",
   "status": "NEW",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Gross GST collections jumped 23% year-on-year to ₹2.31 lakh crore in October, marking the fastest revenue growth in over four years driven by festive spending.",
+  "summary": "Gross GST collections jumped 23% YoY to ₹2.31 lakh crore in October, marking the fastest revenue growth in over four years driven by festive demand.",
   "open_questions": [
    "Will consumer spending momentum sustain into post-festive November?"
   ],
@@ -1660,7 +1684,7 @@
   "title": "US midterms enter final 48 hours amid tight congressional polling",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "With two days until midterm voting, campaigns are locked in razor-thin battles across House and Senate swing districts with voter focus fixed on inflation, tariffs, and immigration.",
+  "summary": "Campaigns enter the final 48 hours before the November 3 midterm elections locked in tight battles across House and Senate swing districts.",
   "open_questions": [
    "Which party will secure majority control of the House and Senate?",
    "How will the outcome alter US trade and tariff policies?"
