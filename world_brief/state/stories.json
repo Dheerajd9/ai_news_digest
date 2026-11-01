@@ -298,6 +298,10 @@
    {
     "date": "2026-10-27",
     "text": "Institutional investor roadshows to commence ahead of late November listing"
+   },
+   {
+    "date": "2026-11-01",
+    "text": "Institutional roadshows ahead of mid-November pricing"
    }
   ],
   "timeline": [
@@ -320,17 +324,21 @@
    {
     "date": "2026-10-31",
     "event": "Official S-1 filing submitted to US SEC"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Deep-dive S-1 data on gross margins and infrastructure liabilities analysed"
    }
   ],
-  "title": "Anthropic Files S-1 Prospectus for Landmark Nasdaq IPO",
-  "status": "MAJOR CHANGE",
+  "title": "Anthropic S-1 discloses $16.3B revenue and $80.7B loss",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic filed its S-1 registration statement for a public stock offering on the Nasdaq, revealing gross margin growth to 85% alongside massive compute liabilities and existential AI risk disclosures.",
+  "summary": "Anthropic's S-1 prospectus revealed 1,300% revenue growth alongside massive $80.7B compute losses and $900B in long-term compute commitments as it preps its Nasdaq debut.",
   "open_questions": [
-   "What final valuation multiple will public markets accept for Anthropic?",
+   "What final valuation multiple will public markets accept?",
    "When will the official stock trading debut occur?"
   ],
-  "last_seen": "2026-10-31"
+  "last_seen": "2026-11-01"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -1461,22 +1469,31 @@
    {
     "date": "2026-10-30",
     "text": "Heightened global cybersecurity audits across major cryptocurrency exchanges"
+   },
+   {
+    "date": "2026-11-01",
+    "text": "Crypto exchanges to face emergency regulatory security audits"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-30",
     "event": "$6.3B crypto theft attributed to North Korean hacking units"
+   },
+   {
+    "date": "2026-11-01",
+    "event": "Withdrawals resumed; FBI attribution confirmed"
    }
   ],
-  "title": "$6.3 billion Binance crypto heist linked to North Korea",
-  "status": "NEW",
+  "title": "Binance resumes withdrawals after $6.3B hack linked to North Korea",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Intelligence firms attributed a record $6.3 billion cryptocurrency theft from Binance to North Korean state-sponsored hackers.",
+  "summary": "Binance resumed customer withdrawals after replacing 95% of the $6.3B stolen in a digital heist officially attributed by the FBI to North Korea's TraderTraitor group.",
   "open_questions": [
-   "Will international law enforcement recover any of the stolen digital assets?"
+   "Will law enforcement freeze any portion of the laundered tokens?",
+   "What additional cold-storage mandates will regulators impose?"
   ],
-  "last_seen": "2026-10-30"
+  "last_seen": "2026-11-01"
  },
  "alphabet-intel-tech-selloff": {
   "first_seen": "2026-10-30",
@@ -1554,5 +1571,100 @@
    "How will traditional distributors restructure fee models following the shift?"
   ],
   "last_seen": "2026-10-30"
+ },
+ "cyclone-murasu-2026": {
+  "first_seen": "2026-11-01",
+  "expectations": [
+   {
+    "date": "2026-11-01",
+    "text": "Landfall near Andhra Pradesh coast on November 3 with heavy rainfall"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-01",
+    "event": "Deep depression intensifies into severe cyclone"
+   }
+  ],
+  "title": "Cyclone Murasu approaches Andhra Pradesh and Telangana",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Severe Cyclone Murasu intensified over the Bay of Bengal, threatening the Andhra coast with 120 km/h winds and prompting red and orange rainfall alerts across coastal Andhra Pradesh and eastern Telangana.",
+  "open_questions": [
+   "Where will exact landfall occur on November 3?",
+   "How severe will crop and infrastructure damage be?"
+  ],
+  "last_seen": "2026-11-01"
+ },
+ "india-gst-record-oct-2026": {
+  "first_seen": "2026-11-01",
+  "expectations": [
+   {
+    "date": "2026-11-01",
+    "text": "Post-festive consumption data in late November"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-01",
+    "event": "October collections reach record ₹2.31 lakh crore"
+   }
+  ],
+  "title": "India October GST collections hit ₹2.31 lakh crore",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Gross GST collections jumped 23% year-on-year to ₹2.31 lakh crore in October, marking the fastest revenue growth in over four years driven by festive spending.",
+  "open_questions": [
+   "Will consumer spending momentum sustain into post-festive November?"
+  ],
+  "last_seen": "2026-11-01"
+ },
+ "europe-youth-cost-of-living-riots": {
+  "first_seen": "2026-11-01",
+  "expectations": [
+   {
+    "date": "2026-11-01",
+    "text": "Heightened security deployments in major European urban centres"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-01",
+    "event": "Protests spread to multiple German cities with looting in Frankfurt"
+   }
+  ],
+  "title": "European cost-of-living protests spread across France and Germany",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Hundreds of thousands demonstrated across France leading to 770+ arrests, while protests in Germany escalated into storefront looting in Frankfurt over inflation and conscription fears.",
+  "open_questions": [
+   "Will French and German governments offer targeted cost-of-living subsidies?",
+   "Will unrest disrupt winter transport networks?"
+  ],
+  "last_seen": "2026-11-01"
+ },
+ "us-midterms-2026": {
+  "first_seen": "2026-11-01",
+  "expectations": [
+   {
+    "date": "2026-11-01",
+    "text": "Preliminary election returns arriving Tuesday night, November 3"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-01",
+    "event": "Final campaign weekend before November 3 vote"
+   }
+  ],
+  "title": "US midterms enter final 48 hours amid tight congressional polling",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "With two days until midterm voting, campaigns are locked in razor-thin battles across House and Senate swing districts with voter focus fixed on inflation, tariffs, and immigration.",
+  "open_questions": [
+   "Which party will secure majority control of the House and Senate?",
+   "How will the outcome alter US trade and tariff policies?"
+  ],
+  "last_seen": "2026-11-01"
  }
 }
