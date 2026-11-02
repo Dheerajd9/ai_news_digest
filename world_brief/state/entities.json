@@ -10,14 +10,6 @@
 ],
 "last_seen": "2026-10-18"
 },
-"Yandex": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"russia-ukraine-energy-truce"
-],
-"last_seen": "2026-10-11"
-},
 "Ukraine": {
 "first_seen": "2026-10-11",
 "count": 6,
@@ -53,14 +45,6 @@
 "openai-google-tpu-deal"
 ],
 "last_seen": "2026-10-28"
-},
-"Super Micro": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"us-china-chip-smuggling"
-],
-"last_seen": "2026-10-11"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -111,29 +95,13 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 7,
+"count": 8,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans",
 "oil-prices-middle-east"
 ],
-"last_seen": "2026-10-31"
-},
-"IndiGo": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"indigo-hyderabad-emergency"
-],
-"last_seen": "2026-10-11"
-},
-"Hyderabad Airport": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"indigo-hyderabad-emergency"
-],
-"last_seen": "2026-10-11"
+"last_seen": "2026-11-02"
 },
 "India MEA": {
 "first_seen": "2026-10-11",
@@ -154,7 +122,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 14,
+"count": 15,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -163,15 +131,7 @@
 "vance-h1b-rhetoric",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-01"
-},
-"Volodymyr Zelenskyy": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"russia-ukraine-energy-truce"
-],
-"last_seen": "2026-10-11"
+"last_seen": "2026-11-02"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
@@ -181,14 +141,6 @@
 "alphabet-intel-tech-selloff"
 ],
 "last_seen": "2026-10-30"
-},
-"Decart": {
-"first_seen": "2026-10-11",
-"count": 1,
-"stories": [
-"amazon-decart-acquisition"
-],
-"last_seen": "2026-10-11"
 },
 "RBI": {
 "first_seen": "2026-10-12",
@@ -238,7 +190,7 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 8,
+"count": 9,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
@@ -246,7 +198,7 @@
 "us-ead-extension-end",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -299,14 +251,14 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 12,
+"count": 13,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Delhi Police": {
 "first_seen": "2026-10-12",
@@ -431,18 +383,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 31,
+"count": 32,
 "stories": [
-"sebi-avadhut-sathe-refund",
 "fpi-outflows-2026",
 "isro-launch-pads-2029",
 "india-us-trade-talks",
 "india-defence-procurement-2026",
 "bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact",
-"india-gst-record-oct-2026"
+"india-gst-record-oct-2026",
+"sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -493,11 +445,11 @@
 },
 "SEC": {
 "first_seen": "2026-10-15",
-"count": 4,
+"count": 5,
 "stories": [
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "TSMC": {
 "first_seen": "2026-10-15",
@@ -534,13 +486,14 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 11,
+"count": 12,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
-"sebi-direct-mutual-fund-default"
+"sebi-direct-mutual-fund-default",
+"sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -625,13 +578,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 8,
+"count": 9,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -668,11 +621,12 @@
 },
 "WTI": {
 "first_seen": "2026-10-18",
-"count": 1,
+"count": 2,
 "stories": [
-"oil-spike-market-drop"
+"oil-spike-market-drop",
+"middle-east-escalation"
 ],
-"last_seen": "2026-10-18"
+"last_seen": "2026-11-02"
 },
 "Marco Rubio": {
 "first_seen": "2026-10-19",
@@ -861,11 +815,12 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 2,
+"count": 3,
 "stories": [
-"fpi-outflows-2026"
+"fpi-outflows-2026",
+"sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-11-02"
 },
 "NSE": {
 "first_seen": "2026-10-25",
@@ -887,12 +842,12 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 5,
+"count": 6,
 "stories": [
 "isro-launch-pads-2029",
 "isro-nvs-03-launch"
 ],
-"last_seen": "2026-10-31"
+"last_seen": "2026-11-02"
 },
 "Starlink": {
 "first_seen": "2026-10-25",
@@ -913,12 +868,12 @@
 },
 "IMD": {
 "first_seen": "2026-10-25",
-"count": 6,
+"count": 7,
 "stories": [
 "bayes-cyclone-alert-2026",
 "cyclone-murasu-2026"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Lula da Silva": {
 "first_seen": "2026-10-26",
@@ -1036,11 +991,11 @@
 },
 "Andhra Pradesh": {
 "first_seen": "2026-11-01",
-"count": 2,
+"count": 3,
 "stories": [
 "cyclone-murasu-2026"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-02"
 },
 "Telangana": {
 "first_seen": "2026-11-01",
@@ -1081,9 +1036,115 @@
 "us-midterms-2026"
 ],
 "last_seen": "2026-11-01"
+},
+"Brent": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-11-02"
+},
+"US": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-11-02"
+},
+"Tamil Nadu": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"cyclone-murasu-2026"
+],
+"last_seen": "2026-11-02"
+},
+"US Congress": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-02"
+},
+"Democratic Party": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-02"
+},
+"Republican Party": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-02"
+},
+"H-1B": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"us-perm-h1b-freeze"
+],
+"last_seen": "2026-11-02"
+},
+"NavIC": {
+"first_seen": "2026-11-02",
+"count": 1,
+"stories": [
+"isro-nvs-03-launch"
+],
+"last_seen": "2026-11-02"
 }
 },
 "connections": [
+{
+"text": "Iran diplomacy -> Hormuz reopening -> oil price plunge -> lower global inflation",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "LTCG tax cut -> foreign investor return -> Indian stock market rally",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "Bay of Bengal cyclone -> coastal landfall -> train cancellations and storm warnings",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "AI infrastructure spending -> international IPO capital sourcing -> public listing benchmark",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "US election outcome -> congressional majority -> federal tax and trade policy",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "H-1B policy changes -> increased renewal friction -> Indian IT worker impact",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
+{
+"text": "NVS-03 operational -> NavIC satellite constellation restored",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-02",
+"count": 1
+},
 {
 "text": "Anthropic IPO -> AI market confidence -> tech valuation benchmark",
 "first_seen": "2026-10-31",
@@ -1400,48 +1461,6 @@
 "text": "Regional travel -> Ebola spread -> public health emergency",
 "first_seen": "2026-10-21",
 "last_seen": "2026-10-21",
-"count": 1
-},
-{
-"text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> market pressure",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
-"count": 1
-},
-{
-"text": "High AI capex -> massive net losses -> public IPO liquidity requirement",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
-"count": 1
-},
-{
-"text": "Trump sanctions waiver -> India oil imports protected -> lower fuel import bill",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-20",
-"count": 4
-},
-{
-"text": "Hormuz shipping attacks -> crude oil reaches $110 -> inflation fears -> tech sell-off",
-"first_seen": "2026-10-17",
-"last_seen": "2026-10-20",
-"count": 5
-},
-{
-"text": "Alberta stability -> Canadian Dollar stabilization -> stable energy exports",
-"first_seen": "2026-10-20",
-"last_seen": "2026-10-20",
-"count": 1
-},
-{
-"text": "Deep space exploration -> international aerospace supply chain",
-"first_seen": "2026-10-20",
-"last_seen": "2026-10-20",
-"count": 1
-},
-{
-"text": "Trade agreements -> tariff elimination -> Indian export expansion",
-"first_seen": "2026-10-20",
-"last_seen": "2026-10-20",
 "count": 1
 }
 ]

@@ -3,10 +3,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-21",
-    "text": "Brent crude volatility to remain elevated above $105/bbl"
-   },
-   {
     "date": "2026-10-22",
     "text": "Crude oil price volatility to remain elevated above $105/bbl"
    },
@@ -21,16 +17,16 @@
    {
     "date": "2026-10-25",
     "text": "Crude oil volatility to remain elevated above $110/bbl"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "US decisions on diplomatic proposal expected following review"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-13",
+    "date": "2026-10-11..2026-10-14",
     "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-14",
-    "event": "Aramco headquarters struck by Houthi drone/missile attack"
    },
    {
     "date": "2026-10-14",
@@ -63,25 +59,24 @@
    {
     "date": "2026-10-31",
     "event": "Brent crude settles elevated near $118"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "Iran draft proposal to reopen Hormuz circulated in Doha"
    }
   ],
-  "title": "Brent Crude Holds Near $117 as Middle East Chokepoint Risks Persist",
+  "title": "Oil Plunges 7% as Iran Peace Talks and Hormuz Proposal Ease Supply Fears",
   "status": "DEVELOPING",
-  "stage": "CONFLICT",
-  "summary": "Brent crude settled at $117.64 per barrel amid Strait of Hormuz tanker attacks, Iranian security threats, and US diplomatic drawdowns.",
+  "stage": "NEGOTIATIONS",
+  "summary": "Brent crude dropped 7.7% to $108.55 after Iranian negotiators in Doha presented a draft proposal to reopen the Strait of Hormuz within two days.",
   "open_questions": [
-   "Will allied naval escorts secure commercial tanker transit corridors?",
-   "Will diplomatic channels avert military escalation?"
+   "Will US formally accept terms to reopen the Strait of Hormuz?"
   ],
-  "last_seen": "2026-10-31"
+  "last_seen": "2026-11-02"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
   "expectations": [
-   {
-    "date": "2026-10-11",
-    "text": "Watch for Department of Labor guidance on pending labor certifications"
-   },
    {
     "date": "2026-10-12",
     "text": "Department of Labor quarterly disclosure on processing backlogs"
@@ -97,6 +92,10 @@
    {
     "date": "2026-10-18",
     "text": "Extended processing delays and early filing requirements for visa holders"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "Public comment period following Federal Register publication"
    }
   ],
   "timeline": [
@@ -131,16 +130,20 @@
    {
     "date": "2026-11-01",
     "event": "Proposal to eliminate extension deference advanced"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "USCIS impact data released on extension rule"
    }
   ],
-  "title": "US tightens H-1B renewal scrutiny and ends automatic EAD extensions",
+  "title": "US H-1B Renewal Scrutiny Data Shows Indian Workers Most Affected",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "DHS terminated automatic 540-day EAD extensions and advanced proposed rules to eliminate prior approval deference for H-1B visa extensions.",
+  "summary": "USCIS data confirmed Indian nationals account for over 70% of visa holders affected by proposed rules ending H-1B extension deference.",
   "open_questions": [
-   "When will the proposed rule on prior approval deference be formally published in the Federal Register?"
+   "When will DHS publish final rule in Federal Register?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-02"
  },
  "rbi-rupee-defense": {
   "first_seen": "2026-10-12",
@@ -292,10 +295,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-10-15",
-    "text": "S-1 filing and valuation details in coming weeks"
-   },
-   {
     "date": "2026-10-21",
     "text": "Formal S-1 public registration filing ahead of mid-November window"
    },
@@ -310,6 +309,10 @@
    {
     "date": "2026-11-01",
     "text": "Institutional roadshows ahead of mid-November pricing window"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "Global institutional roadshows ahead of November pricing"
    }
   ],
   "timeline": [
@@ -340,17 +343,20 @@
    {
     "date": "2026-11-01",
     "event": "S-1 filing published with ticker ANT"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "Japanese share sale paperwork disclosed in SEC filings"
    }
   ],
-  "title": "Anthropic S-1 discloses $16.3B revenue and $80.7B loss",
+  "title": "Anthropic Targets $3.5 Billion Japanese Investor Push Ahead of Nasdaq Listing",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic filed its S-1 prospectus revealing $16.3B in revenue alongside an $80.7B net loss and $900B in long-term compute commitments ahead of its Nasdaq debut under ticker ANT.",
+  "summary": "Anthropic filed prospectus details to sell up to $3.5 billion in shares to Japanese institutional investors for its Nasdaq IPO under ticker ANT.",
   "open_questions": [
-   "What valuation multiple will public markets accept?",
-   "When will official stock trading begin in November?"
+   "What valuation multiple will institutional investors support?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-02"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -470,41 +476,6 @@
   ],
   "last_seen": "2026-10-19"
  },
- "us-banks-block-ai-agents": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Banking sector standards for AI agent authentication"
-   },
-   {
-    "date": "2026-10-17",
-    "text": "Banking industry task forces to establish zero-knowledge proof authentication protocols"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "JPMorgan and Citigroup block external AI agents"
-   },
-   {
-    "date": "2026-10-17",
-    "event": "Top commercial banks ban autonomous AI agent access to customer dashboards"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Top commercial banks instituted account blockades against external AI agents"
-   }
-  ],
-  "title": "US banks restrict AI agents from customer accounts",
-  "status": "MAJOR CHANGE",
-  "stage": "IMPLEMENTED",
-  "summary": "JPMorgan Chase and Citigroup blocked external autonomous AI agents from customer accounts after unauthorized payment attempts were detected.",
-  "open_questions": [
-   "When will federal regulators release official API authentication standards for financial AI agents?"
-  ],
-  "last_seen": "2026-10-18"
- },
  "oil-spike-market-drop": {
   "first_seen": "2026-10-16",
   "expectations": [
@@ -549,37 +520,6 @@
   ],
   "last_seen": "2026-10-19"
  },
- "russia-oil-sanctions-waiver": {
-  "first_seen": "2026-10-17",
-  "expectations": [
-   {
-    "date": "2026-10-17",
-    "text": "Congressional hearings and bipartisan pushback in Washington"
-   },
-   {
-    "date": "2026-10-18",
-    "text": "Congressional hearings on presidential sanctions authority"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-17",
-    "event": "Executive order signed exempting buyers of Russian oil from secondary tariffs"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Ukraine drone strikes ignite Saint Petersburg refinery amid Washington waiver backlash"
-   }
-  ],
-  "title": "Trump waives broad Russia energy sanctions as strikes escalate",
-  "status": "DEVELOPING",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "President Trump's waiver on Russian oil tariffs drew bipartisan outrage in Congress as Ukraine struck an oil refinery in Saint Petersburg.",
-  "open_questions": [
-   "Will Congress introduce legislation to overturn the sanctions waiver?"
-  ],
-  "last_seen": "2026-10-18"
- },
  "air-india-saudi-suspension": {
   "first_seen": "2026-10-17",
   "expectations": [
@@ -606,52 +546,6 @@
    "Will flights resume on October 25 or face further regional extensions?"
   ],
   "last_seen": "2026-10-19"
- },
- "vance-h1b-rhetoric": {
-  "first_seen": "2026-10-18",
-  "expectations": [
-   {
-    "date": "2026-10-18",
-    "text": "Bilateral trade negotiators to address skilled labor mobility"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-18",
-    "event": "Vance walks back anti-H-1B rhetoric"
-   }
-  ],
-  "title": "JD Vance walks back H-1B indentured servants remark",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "JD Vance acknowledged his description of H-1B visa workers as indentured servants was imperfect following protests from Indian officials.",
-  "open_questions": [
-   "Will the White House moderate proposed administrative restrictions on visa renewals?"
-  ],
-  "last_seen": "2026-10-18"
- },
- "china-solar-export-controls": {
-  "first_seen": "2026-10-18",
-  "expectations": [
-   {
-    "date": "2026-10-18",
-    "text": "Indian solar manufacturers seeking alternative machinery suppliers"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-18",
-    "event": "Beijing proposes export bans on advanced solar machinery"
-   }
-  ],
-  "title": "China proposes export controls on solar tech",
-  "status": "NEW",
-  "stage": "PROPOSED",
-  "summary": "China drafted export controls on solar manufacturing technologies to protect its market dominance against Indian and Western industrial expansion.",
-  "open_questions": [
-   "When will the export restrictions be formally enacted?"
-  ],
-  "last_seen": "2026-10-18"
  },
  "anthropic-junior-hiring-shift": {
   "first_seen": "2026-10-18",
@@ -1450,6 +1344,10 @@
    {
     "date": "2026-10-30",
     "text": "Successful deployment of India's regional NavIC satellite upgrade"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "First launch from Kulasekharapatnam in early 2027"
    }
   ],
   "timeline": [
@@ -1464,16 +1362,18 @@
    {
     "date": "2026-10-31",
     "event": "Successful orbital insertion of NVS-03"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "NVS-03 full operational status confirmed"
    }
   ],
-  "title": "ISRO Successfully Launches NVS-03 Satellite Aboard GSLV-F18",
-  "status": "MAJOR CHANGE",
+  "title": "ISRO Declares NavIC NVS-03 Mission Fully Successful",
+  "status": "RESOLVED",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "ISRO successfully launched the NVS-03 navigation satellite aboard the GSLV-F18 rocket from Sriharikota, flying with three pyro valves open to overcome past technical hurdles and strengthen the NavIC system.",
-  "open_questions": [
-   "Will in-orbit atomic clocks achieve target operational accuracy?"
-  ],
-  "last_seen": "2026-10-31"
+  "summary": "ISRO Chairman confirmed NVS-03 satellite operational success and announced Kulasekharapatnam spaceport first launch scheduled for March-April 2027.",
+  "open_questions": [],
+  "last_seen": "2026-11-02"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -1598,6 +1498,10 @@
    {
     "date": "2026-11-01",
     "text": "Landfall near Andhra Pradesh coast on November 3 with heavy rainfall"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "Landfall along south Andhra Pradesh coast tonight"
    }
   ],
   "timeline": [
@@ -1608,17 +1512,20 @@
    {
     "date": "2026-11-01",
     "event": "Orange alert issued across 6 Telangana districts"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "Severe intensity reached with midnight landfall projected"
    }
   ],
-  "title": "Cyclone Murasu approaches Andhra Pradesh and Telangana",
+  "title": "Cyclone Murasu Intensifies into Severe Storm Ahead of Andhra Coast Landfall",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Murasu intensified over the Bay of Bengal, threatening coastal Andhra Pradesh and eastern Telangana with 120 km/h winds and orange alerts ahead of expected November 3 landfall.",
+  "summary": "Severe Cyclone Murasu moved across the Bay of Bengal with 120 km/h winds, expected to cross the south Andhra coast tonight.",
   "open_questions": [
-   "Where will exact landfall occur on November 3?",
-   "How severe will crop and infrastructure damage be?"
+   "Where exactly will maximum storm surge occur?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-02"
  },
  "india-gst-record-oct-2026": {
   "first_seen": "2026-11-01",
@@ -1673,22 +1580,52 @@
    {
     "date": "2026-11-01",
     "text": "Preliminary election returns arriving Tuesday night, November 3"
+   },
+   {
+    "date": "2026-11-02",
+    "text": "National polling stations open Tuesday morning"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-01",
     "event": "Final campaign weekend before November 3 vote"
+   },
+   {
+    "date": "2026-11-02",
+    "event": "Final 48 hours of national campaign rallies"
    }
   ],
-  "title": "US midterms enter final 48 hours amid tight congressional polling",
+  "title": "US Midterms Enter Final 48 Hours as Key Senate Race Shakes Up",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Campaigns enter the final 48 hours before the November 3 midterm elections locked in tight battles across House and Senate swing districts.",
+  "summary": "US midterm campaigns reach final stretch with Michigan Representative Haley Stevens endorsing Republican Mike Rogers and Sen. Chris Murphy hospitalized.",
   "open_questions": [
-   "Which party will secure majority control of the House and Senate?",
-   "How will the outcome alter US trade and tariff policies?"
+   "Which party will gain control of the Senate and House?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-02"
+ },
+ "sebi-ltcg-tax-proposal": {
+  "first_seen": "2026-11-02",
+  "expectations": [
+   {
+    "date": "2026-11-02",
+    "text": "Finance Ministry decision on tax proposal in budget preparation"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-02",
+    "event": "SEBI formal proposal submitted to Ministry of Finance"
+   }
+  ],
+  "title": "SEBI Proposes Scrapping Long-Term Capital Gains Tax for Foreign Investors",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "SEBI recommended eliminating the 12.5% LTCG tax for foreign investors and easing tax rules for mutual fund holders to stem foreign capital flight.",
+  "open_questions": [
+   "Will Union Finance Ministry include LTCG repeal in the upcoming budget?"
+  ],
+  "last_seen": "2026-11-02"
  }
 }

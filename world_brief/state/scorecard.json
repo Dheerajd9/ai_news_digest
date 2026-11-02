@@ -531,6 +531,22 @@
 "warnings": 0,
 "llm_calls": 3,
 "stories_tracked": 8
+},
+{
+"date": "2026-11-02",
+"edition": "morning",
+"raw": 7945,
+"after_dedupe": 6134,
+"items_to_ai": 592,
+"cited": 169,
+"email_words": 6969,
+"podcast_minutes": 26,
+"corrections": 0,
+"action_required": 2,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 4,
+"stories_tracked": 7
 }
 ],
 "weekly": [
