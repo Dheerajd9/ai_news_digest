@@ -95,13 +95,13 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 8,
+"count": 9,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans",
 "oil-prices-middle-east"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "India MEA": {
 "first_seen": "2026-10-11",
@@ -152,14 +152,6 @@
 ],
 "last_seen": "2026-10-19"
 },
-"Ministry of Statistics": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"india-cpi-inflation"
-],
-"last_seen": "2026-10-12"
-},
 "Indian Rupee": {
 "first_seen": "2026-10-12",
 "count": 9,
@@ -169,24 +161,16 @@
 ],
 "last_seen": "2026-10-23"
 },
-"US Dollar": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"rbi-rupee-defense"
-],
-"last_seen": "2026-10-12"
-},
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 14,
+"count": 15,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-11-03"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -208,22 +192,6 @@
 "microsoft-60k-buyouts"
 ],
 "last_seen": "2026-10-27"
-},
-"Azure": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"microsoft-maia-chip"
-],
-"last_seen": "2026-10-12"
-},
-"FAA": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-10-12"
 },
 "Meta": {
 "first_seen": "2026-10-12",
@@ -251,22 +219,14 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 13,
+"count": 14,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap"
 ],
-"last_seen": "2026-11-02"
-},
-"Delhi Police": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"delhi-jantar-mantar-protests"
-],
-"last_seen": "2026-10-12"
+"last_seen": "2026-11-03"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -278,14 +238,6 @@
 "sc-bank-fraud-compensation"
 ],
 "last_seen": "2026-10-31"
-},
-"Surya Kant": {
-"first_seen": "2026-10-12",
-"count": 1,
-"stories": [
-"delhi-jantar-mantar-protests"
-],
-"last_seen": "2026-10-12"
 },
 "Infosys": {
 "first_seen": "2026-10-12",
@@ -445,11 +397,11 @@
 },
 "SEC": {
 "first_seen": "2026-10-15",
-"count": 5,
+"count": 6,
 "stories": [
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "TSMC": {
 "first_seen": "2026-10-15",
@@ -486,14 +438,14 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 12,
+"count": 13,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
 "sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -578,13 +530,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 9,
+"count": 10,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -815,12 +767,12 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 3,
+"count": 4,
 "stories": [
 "fpi-outflows-2026",
 "sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "NSE": {
 "first_seen": "2026-10-25",
@@ -868,12 +820,12 @@
 },
 "IMD": {
 "first_seen": "2026-10-25",
-"count": 7,
+"count": 8,
 "stories": [
 "bayes-cyclone-alert-2026",
 "cyclone-murasu-2026"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "Lula da Silva": {
 "first_seen": "2026-10-26",
@@ -991,27 +943,28 @@
 },
 "Andhra Pradesh": {
 "first_seen": "2026-11-01",
+"count": 4,
+"stories": [
+"cyclone-murasu-2026"
+],
+"last_seen": "2026-11-03"
+},
+"Telangana": {
+"first_seen": "2026-11-01",
 "count": 3,
 "stories": [
 "cyclone-murasu-2026"
 ],
-"last_seen": "2026-11-02"
-},
-"Telangana": {
-"first_seen": "2026-11-01",
-"count": 2,
-"stories": [
-"cyclone-murasu-2026"
-],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-03"
 },
 "Ministry of Finance": {
 "first_seen": "2026-11-01",
-"count": 2,
+"count": 3,
 "stories": [
-"india-gst-record-oct-2026"
+"india-gst-record-oct-2026",
+"sebi-ltcg-tax-proposal"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-03"
 },
 "France": {
 "first_seen": "2026-11-01",
@@ -1071,19 +1024,19 @@
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
-"count": 1,
+"count": 2,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
-"count": 1,
+"count": 2,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-03"
 },
 "H-1B": {
 "first_seen": "2026-11-02",
@@ -1100,9 +1053,55 @@
 "isro-nvs-03-launch"
 ],
 "last_seen": "2026-11-02"
+},
+"U.S. Military": {
+"first_seen": "2026-11-03",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-11-03"
+},
+"U.S. Congress": {
+"first_seen": "2026-11-03",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-03"
 }
 },
 "connections": [
+{
+"text": "Anthropic IPO -> AI market confidence -> tech valuation benchmark",
+"first_seen": "2026-10-31",
+"last_seen": "2026-11-03",
+"count": 3
+},
+{
+"text": "US strikes -> oil prices rise -> import inflation for India",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-03",
+"count": 1
+},
+{
+"text": "US election outcome -> congressional majority -> federal policy",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-03",
+"count": 1
+},
+{
+"text": "LTCG tax cut -> foreign capital return -> Indian stock market liquidity",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-03",
+"count": 1
+},
+{
+"text": "Cyclone landfall -> agricultural disruption -> rabi sowing delay",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-03",
+"count": 1
+},
 {
 "text": "Iran diplomacy -> Hormuz reopening -> oil price plunge -> lower global inflation",
 "first_seen": "2026-11-02",
@@ -1144,12 +1143,6 @@
 "first_seen": "2026-11-02",
 "last_seen": "2026-11-02",
 "count": 1
-},
-{
-"text": "Anthropic IPO -> AI market confidence -> tech valuation benchmark",
-"first_seen": "2026-10-31",
-"last_seen": "2026-11-01",
-"count": 2
 },
 {
 "text": "Cyber hack -> crypto market volatility -> investor confidence",
@@ -1438,30 +1431,6 @@
 "first_seen": "2026-10-21",
 "last_seen": "2026-10-22",
 "count": 2
-},
-{
-"text": "US-Israel strike plans -> Middle East conflict escalation -> Brent crude volatility",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-22",
-"count": 1
-},
-{
-"text": "Meta privacy penalty -> Big Tech regulatory enforcement precedent",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-22",
-"count": 1
-},
-{
-"text": "Diplomatic prisoner release -> trilateral ceasefire talks -> regional stability",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
-"count": 1
-},
-{
-"text": "Regional travel -> Ebola spread -> public health emergency",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-21",
-"count": 1
 }
 ]
 }

@@ -3,10 +3,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-22",
-    "text": "Crude oil price volatility to remain elevated above $105/bbl"
-   },
-   {
     "date": "2026-10-23",
     "text": "Crude oil volatility to remain elevated above $105/bbl"
    },
@@ -21,16 +17,16 @@
    {
     "date": "2026-11-02",
     "text": "US decisions on diplomatic proposal expected following review"
+   },
+   {
+    "date": "2026-11-03",
+    "text": "Crude oil volatility to remain elevated"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-11..2026-10-14",
     "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-14",
-    "event": "Two commercial ships sunk near Strait of Hormuz"
    },
    {
     "date": "2026-10-20",
@@ -63,16 +59,20 @@
    {
     "date": "2026-11-02",
     "event": "Iran draft proposal to reopen Hormuz circulated in Doha"
+   },
+   {
+    "date": "2026-11-03",
+    "event": "U.S. strikes Qeshm Island"
    }
   ],
-  "title": "Oil Plunges 7% as Iran Peace Talks and Hormuz Proposal Ease Supply Fears",
+  "title": "US Military Strikes Iran's Qeshm Island Ahead of Midterm Elections",
   "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "Brent crude dropped 7.7% to $108.55 after Iranian negotiators in Doha presented a draft proposal to reopen the Strait of Hormuz within two days.",
+  "stage": "CONFLICT",
+  "summary": "U.S. military launched limited defensive strikes on Iran's Qeshm Island in the Strait of Hormuz after Iranian forces fired at a U.S. aircraft, pushing Brent crude back up to $105.19.",
   "open_questions": [
-   "Will US formally accept terms to reopen the Strait of Hormuz?"
+   "Will Iran retaliate against regional shipping or U.S. assets?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-03"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -347,16 +347,20 @@
    {
     "date": "2026-11-02",
     "event": "Japanese share sale paperwork disclosed in SEC filings"
+   },
+   {
+    "date": "2026-11-03",
+    "event": "Amended S-1 filing published"
    }
   ],
-  "title": "Anthropic Targets $3.5 Billion Japanese Investor Push Ahead of Nasdaq Listing",
+  "title": "Anthropic Discloses $17B Revenue in Amended S-1 IPO Filing",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic filed prospectus details to sell up to $3.5 billion in shares to Japanese institutional investors for its Nasdaq IPO under ticker ANT.",
+  "summary": "Anthropic filed an amended S-1 for its upcoming Nasdaq IPO under ticker ANT, revealing $17 billion in Q3 revenue alongside nearly $900 billion in cloud and infrastructure commitments.",
   "open_questions": [
-   "What valuation multiple will institutional investors support?"
+   "What valuation will institutional investors support at pricing?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-03"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -432,156 +436,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-11-01"
- },
- "canada-express-entry-high-wage": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Higher CRS draw cutoffs favoring high-earning tech professionals"
-   },
-   {
-    "date": "2026-10-17",
-    "text": "Higher CRS cutoffs favoring high-earning foreign tech professionals from November 3"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "IRCC launches high-wage CRS points boost and drops LMIA requirement"
-   },
-   {
-    "date": "2026-10-17",
-    "event": "Details announced for November 3 launch of high-wage Express Entry boost"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "IRCC finalizes implementation timeline for high-wage Express Entry points"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "IRCC finalized implementation timeline for November 3 rollout"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Doctor licensing fast-tracked for 4 nations as LMIA exemptions finalized"
-   }
-  ],
-  "title": "Canada updates Express Entry for high-wage workers",
-  "status": "DEVELOPING",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Canada moved forward with rules granting up to 100 bonus CRS points for high-wage positions without an LMIA, while fast-tracking doctor licensing for four countries.",
-  "open_questions": [
-   "What exact provincial wage thresholds will apply to tech occupations?"
-  ],
-  "last_seen": "2026-10-19"
- },
- "oil-spike-market-drop": {
-  "first_seen": "2026-10-16",
-  "expectations": [
-   {
-    "date": "2026-10-16",
-    "text": "Sustained pressure on global equities and imported inflation"
-   },
-   {
-    "date": "2026-10-17",
-    "text": "Sustained pressure on global inflation and central bank interest rates"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-16",
-    "event": "Brent crude reaches $110 while US tech stocks slide"
-   },
-   {
-    "date": "2026-10-17",
-    "event": "Brent crude touches $110 and Nasdaq drops 2.15%"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Brent crude tests $110 amid Saint Petersburg strikes"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Brent reached $109.86 as Russian fuel infrastructure took drone damage"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Nasdaq slides 2.15% as 10-year Treasury yield holds at 5.10%"
-   }
-  ],
-  "title": "Brent crude near $108 as tech stocks plunge",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Brent crude held near $108.48 amid Red Sea and Hormuz shipping threats, keeping US 10-year yields at 5.10% and dragging Nasdaq down 2.15%.",
-  "open_questions": [
-   "Will US Treasury yields remain above 5.10% if energy prices stay elevated?",
-   "Will diplomatic frameworks reopen Hormuz commercial transit?"
-  ],
-  "last_seen": "2026-10-19"
- },
- "air-india-saudi-suspension": {
-  "first_seen": "2026-10-17",
-  "expectations": [
-   {
-    "date": "2026-10-17",
-    "text": "Airline reassessment of Gulf airspace security ahead of October 24"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-17",
-    "event": "Flight cancellations extended through October 24"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Flight suspensions extended through October 24"
-   }
-  ],
-  "title": "Air India extends Saudi flight suspension to October 24",
-  "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "Air India and Air India Express extended flight cancellations to Riyadh, Jeddah, and Dammam through October 24 due to regional airspace risks.",
-  "open_questions": [
-   "Will flights resume on October 25 or face further regional extensions?"
-  ],
-  "last_seen": "2026-10-19"
- },
- "anthropic-junior-hiring-shift": {
-  "first_seen": "2026-10-18",
-  "expectations": [
-   {
-    "date": "2026-10-18",
-    "text": "Tech firms revising 2027 college recruitment targets"
-   },
-   {
-    "date": "2026-10-18",
-    "text": "Enterprise software engineering teams revising 2027 college recruitment targets"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-18",
-    "event": "Anthropic junior technical hiring plunges to single digits"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Junior engineering share fell to single digits inside leading AI lab"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Anthropic commits 5% equity ($48B) to public benefit fund for AI workforce impact"
-   }
-  ],
-  "title": "Anthropic cuts junior tech hiring as AI agents expand",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Anthropic committed 5% of its equity to a public benefit fund for displaced workers as its junior technical headcount fell to 9%.",
-  "open_questions": [
-   "Will other AI labs establish similar public benefit endowment funds?",
-   "Will enterprise software teams replicate the junior hiring freeze?"
-  ],
-  "last_seen": "2026-10-19"
  },
  "japan-mmx-mars-launch": {
   "first_seen": "2026-10-20",
@@ -1502,6 +1356,10 @@
    {
     "date": "2026-11-02",
     "text": "Landfall along south Andhra Pradesh coast tonight"
+   },
+   {
+    "date": "2026-11-03",
+    "text": "Relief operations and weather normalization over coming days"
    }
   ],
   "timeline": [
@@ -1516,16 +1374,20 @@
    {
     "date": "2026-11-02",
     "event": "Severe intensity reached with midnight landfall projected"
+   },
+   {
+    "date": "2026-11-03",
+    "event": "Landfall near Ongole"
    }
   ],
-  "title": "Cyclone Murasu Intensifies into Severe Storm Ahead of Andhra Coast Landfall",
+  "title": "Cyclone Murasu Crosses South Andhra Coast with 120 Kmph Winds",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Murasu moved across the Bay of Bengal with 120 km/h winds, expected to cross the south Andhra coast tonight.",
+  "summary": "Severe Cyclone Murasu crossed the south Andhra Pradesh coast near Ongole with winds up to 120 kmph, bringing heavy rain and prompting red alerts in neighboring districts.",
   "open_questions": [
-   "Where exactly will maximum storm surge occur?"
+   "What will be the final extent of agricultural and property damage?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-03"
  },
  "india-gst-record-oct-2026": {
   "first_seen": "2026-11-01",
@@ -1584,6 +1446,10 @@
    {
     "date": "2026-11-02",
     "text": "National polling stations open Tuesday morning"
+   },
+   {
+    "date": "2026-11-03",
+    "text": "Election results arriving overnight"
    }
   ],
   "timeline": [
@@ -1594,16 +1460,20 @@
    {
     "date": "2026-11-02",
     "event": "Final 48 hours of national campaign rallies"
+   },
+   {
+    "date": "2026-11-03",
+    "event": "Polls open nationwide"
    }
   ],
-  "title": "US Midterms Enter Final 48 Hours as Key Senate Race Shakes Up",
+  "title": "US Voters Head to Polls in High-Stakes Midterm Elections",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "US midterm campaigns reach final stretch with Michigan Representative Haley Stevens endorsing Republican Mike Rogers and Sen. Chris Murphy hospitalized.",
+  "summary": "Americans are voting in midterm elections to decide control of Congress, with economic pressures, gas prices, and foreign policy shaping the final outcome.",
   "open_questions": [
-   "Which party will gain control of the Senate and House?"
+   "Which party will secure control of the House and Senate?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-03"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1611,21 +1481,29 @@
    {
     "date": "2026-11-02",
     "text": "Finance Ministry decision on tax proposal in budget preparation"
+   },
+   {
+    "date": "2026-11-03",
+    "text": "Finance Ministry review ahead of Budget 2027"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-02",
     "event": "SEBI formal proposal submitted to Ministry of Finance"
+   },
+   {
+    "date": "2026-11-03",
+    "event": "SEBI proposal submitted to Ministry of Finance"
    }
   ],
   "title": "SEBI Proposes Scrapping Long-Term Capital Gains Tax for Foreign Investors",
   "status": "NEW",
   "stage": "PROPOSED",
-  "summary": "SEBI recommended eliminating the 12.5% LTCG tax for foreign investors and easing tax rules for mutual fund holders to stem foreign capital flight.",
+  "summary": "SEBI recommended eliminating the 12.5% LTCG tax for foreign portfolio investors and easing mutual fund switching rules to counter institutional capital flight.",
   "open_questions": [
-   "Will Union Finance Ministry include LTCG repeal in the upcoming budget?"
+   "Will the Union Budget include the LTCG repeal?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-03"
  }
 }
