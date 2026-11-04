@@ -95,13 +95,13 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 9,
+"count": 10,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans",
 "oil-prices-middle-east"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "India MEA": {
 "first_seen": "2026-10-11",
@@ -163,14 +163,14 @@
 },
 "Brent Crude": {
 "first_seen": "2026-10-12",
-"count": 15,
+"count": 16,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
 "oil-spike-market-drop",
 "russia-oil-sanctions-waiver"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "DHS": {
 "first_seen": "2026-10-12",
@@ -256,14 +256,6 @@
 ],
 "last_seen": "2026-10-19"
 },
-"HCLTech": {
-"first_seen": "2026-10-13",
-"count": 1,
-"stories": [
-"india-it-rally"
-],
-"last_seen": "2026-10-13"
-},
 "Saudi Aramco": {
 "first_seen": "2026-10-13",
 "count": 3,
@@ -271,14 +263,6 @@
 "middle-east-escalation"
 ],
 "last_seen": "2026-10-14"
-},
-"S Jaishankar": {
-"first_seen": "2026-10-13",
-"count": 1,
-"stories": [
-"india-us-trade-talks"
-],
-"last_seen": "2026-10-13"
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
@@ -335,18 +319,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 32,
+"count": 33,
 "stories": [
-"fpi-outflows-2026",
 "isro-launch-pads-2029",
 "india-us-trade-talks",
 "india-defence-procurement-2026",
 "bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact",
 "india-gst-record-oct-2026",
-"sebi-ltcg-tax-proposal"
+"sebi-ltcg-tax-proposal",
+"india-critical-minerals-scheme"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-04"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -438,14 +422,15 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 13,
+"count": 14,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
-"sebi-ltcg-tax-proposal"
+"sebi-ltcg-tax-proposal",
+"razorpay-ipo-approval"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -741,12 +726,12 @@
 },
 "North Korea": {
 "first_seen": "2026-10-24",
-"count": 4,
+"count": 5,
 "stories": [
 "kim-china-summit-bridge",
 "binance-crypto-heist-2026"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-04"
 },
 "Telangana Government": {
 "first_seen": "2026-10-24",
@@ -895,11 +880,11 @@
 },
 "Binance": {
 "first_seen": "2026-10-30",
-"count": 3,
+"count": 4,
 "stories": [
 "binance-crypto-heist-2026"
 ],
-"last_seen": "2026-11-01"
+"last_seen": "2026-11-04"
 },
 "Intel": {
 "first_seen": "2026-10-30",
@@ -1016,19 +1001,19 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-02"
-},
-"Democratic Party": {
-"first_seen": "2026-11-02",
 "count": 2,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
+},
+"Democratic Party": {
+"first_seen": "2026-11-02",
+"count": 3,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-04"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
@@ -1069,9 +1054,87 @@
 "us-midterms-2026"
 ],
 "last_seen": "2026-11-03"
+},
+"House of Representatives": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-04"
+},
+"US Senate": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-04"
+},
+"IRGC": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-11-04"
+},
+"Strait of Hormuz": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"middle-east-escalation"
+],
+"last_seen": "2026-11-04"
+},
+"Ministry of Mines": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"india-critical-minerals-scheme"
+],
+"last_seen": "2026-11-04"
+},
+"Razorpay": {
+"first_seen": "2026-11-04",
+"count": 1,
+"stories": [
+"razorpay-ipo-approval"
+],
+"last_seen": "2026-11-04"
 }
 },
 "connections": [
+{
+"text": "US election outcome -> congressional majority -> federal tax and trade policy",
+"first_seen": "2026-11-02",
+"last_seen": "2026-11-04",
+"count": 2
+},
+{
+"text": "Iran diplomacy -> Hormuz reopening -> oil price stabilization",
+"first_seen": "2026-11-04",
+"last_seen": "2026-11-04",
+"count": 1
+},
+{
+"text": "Critical mineral processing -> EV supply chain -> domestic manufacturing",
+"first_seen": "2026-11-04",
+"last_seen": "2026-11-04",
+"count": 1
+},
+{
+"text": "Fintech IPO -> Indian capital markets -> startup liquidity",
+"first_seen": "2026-11-04",
+"last_seen": "2026-11-04",
+"count": 1
+},
+{
+"text": "Cyber hack -> social engineering -> crypto infrastructure security",
+"first_seen": "2026-11-04",
+"last_seen": "2026-11-04",
+"count": 1
+},
 {
 "text": "Anthropic IPO -> AI market confidence -> tech valuation benchmark",
 "first_seen": "2026-10-31",
@@ -1122,12 +1185,6 @@
 },
 {
 "text": "AI infrastructure spending -> international IPO capital sourcing -> public listing benchmark",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "US election outcome -> congressional majority -> federal tax and trade policy",
 "first_seen": "2026-11-02",
 "last_seen": "2026-11-02",
 "count": 1
@@ -1407,30 +1464,6 @@
 "first_seen": "2026-10-24",
 "last_seen": "2026-10-24",
 "count": 1
-},
-{
-"text": "El Nino drought -> reservoir depletion -> municipal water rationing -> rural employment relief",
-"first_seen": "2026-10-24",
-"last_seen": "2026-10-24",
-"count": 1
-},
-{
-"text": "Jio IPO inflows -> rupee overbought zone -> currency stabilization against oil",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-23",
-"count": 2
-},
-{
-"text": "Middle East escalation -> oil above $105 -> India import costs -> RBI dollar sales -> rupee stabilization",
-"first_seen": "2026-10-16",
-"last_seen": "2026-10-23",
-"count": 3
-},
-{
-"text": "SpaceX compute demand -> Tesla robotics -> corporate merger",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-22",
-"count": 2
 }
 ]
 }

@@ -3,10 +3,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-23",
-    "text": "Crude oil volatility to remain elevated above $105/bbl"
-   },
-   {
     "date": "2026-10-24",
     "text": "Brent crude volatility to remain elevated above $110/bbl"
    },
@@ -21,16 +17,16 @@
    {
     "date": "2026-11-03",
     "text": "Crude oil volatility to remain elevated"
+   },
+   {
+    "date": "2026-11-04",
+    "text": "Naval escorts and advisories for Persian Gulf merchant shipping"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-14",
+    "date": "2026-10-11..2026-10-20",
     "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-20",
-    "event": "UK deploys RAF jets to Saudi Arabia"
    },
    {
     "date": "2026-10-21",
@@ -63,16 +59,20 @@
    {
     "date": "2026-11-03",
     "event": "U.S. strikes Qeshm Island"
+   },
+   {
+    "date": "2026-11-04",
+    "event": "Iran exempts Indian and Chinese vessels from Hormuz restrictions"
    }
   ],
-  "title": "US Military Strikes Iran's Qeshm Island Ahead of Midterm Elections",
+  "title": "Strait of Hormuz Tanker Mines Sparks Selective Trade Exemptions",
   "status": "DEVELOPING",
   "stage": "CONFLICT",
-  "summary": "U.S. military launched limited defensive strikes on Iran's Qeshm Island in the Strait of Hormuz after Iranian forces fired at a U.S. aircraft, pushing Brent crude back up to $105.19.",
+  "summary": "Four oil tankers caught fire near the Strait of Hormuz after hitting mines, but Iran issued official shipping exemptions for vessels bound for India, China, Iraq, and Qatar.",
   "open_questions": [
-   "Will Iran retaliate against regional shipping or U.S. assets?"
+   "Will naval mine clearing operations restore general international transit?"
   ],
-  "last_seen": "2026-11-03"
+  "last_seen": "2026-11-04"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -436,75 +436,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-11-01"
- },
- "japan-mmx-mars-launch": {
-  "first_seen": "2026-10-20",
-  "expectations": [
-   {
-    "date": "2026-10-20",
-    "text": "Orbital cruise phase telemetry confirmation"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-20",
-    "event": "Successful launch from Tanegashima"
-   }
-  ],
-  "title": "Japan launches MMX mission to collect Phobos samples",
-  "status": "NEW",
-  "stage": "OPERATIONAL",
-  "summary": "JAXA launched its MMX spacecraft equipped with the Idefix rover to retrieve surface samples from Mars' moon Phobos and return them by 2031.",
-  "open_questions": [
-   "Will the spacecraft successfully enter Martian orbital insertion in 2027?"
-  ],
-  "last_seen": "2026-10-20"
- },
- "india-nz-fta": {
-  "first_seen": "2026-10-20",
-  "expectations": [
-   {
-    "date": "2026-10-20",
-    "text": "First quarterly bilateral trade volume report in early 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-20",
-    "event": "FTA officially enters into force"
-   }
-  ],
-  "title": "India-New Zealand Free Trade Agreement takes effect",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "The bilateral free trade agreement entered into force on October 20, granting immediate duty-free entry for Indian exports to New Zealand.",
-  "open_questions": [
-   "What will be the annualized export surge for Indian pharma and textiles?"
-  ],
-  "last_seen": "2026-10-20"
- },
- "openai-spy-device-case": {
-  "first_seen": "2026-10-20",
-  "expectations": [
-   {
-    "date": "2026-10-20",
-    "text": "Formal criminal trial proceedings in early 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-20",
-    "event": "Defendant held without bail in federal court"
-   }
-  ],
-  "title": "Ex-OpenAI engineer detained over bugging device and foreign contacts",
-  "status": "NEW",
-  "stage": "COURT CASE",
-  "summary": "Federal court ordered former OpenAI employee Abdulrahman Alfozan held without bail after evidence emerged of planted recording devices and foreign government communication.",
-  "open_questions": [
-   "Will additional individuals be indicted in the corporate espionage ring?"
-  ],
-  "last_seen": "2026-10-20"
  },
  "openai-agents-disable-monitors": {
   "first_seen": "2026-10-21",
@@ -1243,6 +1174,10 @@
    {
     "date": "2026-11-01",
     "text": "Exchanges to face emergency regulatory security audits"
+   },
+   {
+    "date": "2026-11-04",
+    "text": "Exchanges to deploy strict developer tool verification standards"
    }
   ],
   "timeline": [
@@ -1257,17 +1192,20 @@
    {
     "date": "2026-11-01",
     "event": "Withdrawals resumed and 95% of stolen assets covered"
+   },
+   {
+    "date": "2026-11-04",
+    "event": "Detailed attack vector disclosed by exchange security teams"
    }
   ],
-  "title": "Binance resumes withdrawals after $6.3B hack linked to North Korea",
-  "status": "MAJOR CHANGE",
+  "title": "Binance Details $6.43B Hack Originating from Fake Job Interviews",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Binance resumed customer withdrawals after replacing 95% of stolen assets in a $6.3B heist officially attributed by the FBI to North Korea's TraderTraitor group.",
+  "summary": "Binance revealed North Korean hackers used fake developer job interviews and tampered Homebrew code tools to carry out its record crypto theft.",
   "open_questions": [
-   "Will law enforcement freeze laundered tokens?",
-   "What cold-storage mandates will regulators impose?"
+   "Will international law enforcement trace and freeze laundered tokens?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-04"
  },
  "alphabet-intel-tech-selloff": {
   "first_seen": "2026-10-30",
@@ -1450,6 +1388,10 @@
    {
     "date": "2026-11-03",
     "text": "Election results arriving overnight"
+   },
+   {
+    "date": "2026-11-04",
+    "text": "Congressional committee reorganization ahead of January swearing-in"
    }
   ],
   "timeline": [
@@ -1464,16 +1406,20 @@
    {
     "date": "2026-11-03",
     "event": "Polls open nationwide"
+   },
+   {
+    "date": "2026-11-04",
+    "event": "Democrats win majorities in both House and Senate"
    }
   ],
-  "title": "US Voters Head to Polls in High-Stakes Midterm Elections",
-  "status": "DEVELOPING",
+  "title": "Democrats Take Control of US House and Senate in Midterm Elections",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Americans are voting in midterm elections to decide control of Congress, with economic pressures, gas prices, and foreign policy shaping the final outcome.",
+  "summary": "The Democratic Party won majorities in both the US House and Senate, securing historic governorships and setting up strong Congressional oversight of the executive branch.",
   "open_questions": [
-   "Which party will secure control of the House and Senate?"
+   "How will a Democratic Congress impact pending federal budget and tariff legislation?"
   ],
-  "last_seen": "2026-11-03"
+  "last_seen": "2026-11-04"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1505,5 +1451,51 @@
    "Will the Union Budget include the LTCG repeal?"
   ],
   "last_seen": "2026-11-03"
+ },
+ "india-critical-minerals-scheme": {
+  "first_seen": "2026-11-04",
+  "expectations": [
+   {
+    "date": "2026-11-04",
+    "text": "Ministry of Mines to issue bidding guidelines in Q1 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-04",
+    "event": "Cabinet clears ₹2,814 crore mineral incentive package"
+   }
+  ],
+  "title": "Cabinet Approves ₹2,814 Cr Scheme for Critical Mineral Processing",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "The Union Cabinet sanctioned ₹2,814 crore in capital support to boost domestic refining of lithium and nickel for electric vehicles and clean energy.",
+  "open_questions": [
+   "Which domestic industrial groups will win early two-stage bids?"
+  ],
+  "last_seen": "2026-11-04"
+ },
+ "razorpay-ipo-approval": {
+  "first_seen": "2026-11-04",
+  "expectations": [
+   {
+    "date": "2026-11-04",
+    "text": "Global institutional roadshows in coming weeks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-04",
+    "event": "SEBI issues final approval for DRHP"
+   }
+  ],
+  "title": "Razorpay Secures SEBI Approval for ₹6,000 Crore IPO",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "Fintech unicorn Razorpay received approval from SEBI for its ₹6,000 crore mainboard IPO targeting a $5 billion valuation.",
+  "open_questions": [
+   "What price band will institutional anchor investors support?"
+  ],
+  "last_seen": "2026-11-04"
  }
 }
