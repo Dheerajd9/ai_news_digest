@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://openai.com/index/updated-model-spec",
-   "title": "An updated Model Spec for more capable and beneficial AI",
-   "at": "2026-10-30T12:14:17+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-doubles-usage-limits-on-pro-plans-as-competition-with-anthropic-heats-up/",
-   "title": "OpenAI doubles usage limits on Pro plans as competition with Anthropic heats up",
-   "at": "2026-10-30T12:14:17+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/10/29/microsoft-25-billion-debt-offering.html",
-   "title": "Microsoft plans to raise $25 billion in debt as it pursues AI buildout",
-   "at": "2026-10-30T12:14:17+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
-   "title": "You can generate and edit Google Docs files directly in Gemini chats now",
-   "at": "2026-10-30T12:14:17+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/",
-   "title": "Paris-based Mistral releases \"Le Chonk,\" a strong coding model that still trails China overall",
-   "at": "2026-10-30T12:14:17+00:00"
-  },
-  {
    "link": "https://www.engadget.com/2303225/google-openai-anthropic-ai-crawling-controls/",
    "title": "Google joins OpenAI and Anthropic in promising new scraping controls",
    "at": "2026-10-31T12:13:25+00:00"
@@ -124,6 +99,31 @@
    "link": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing/",
    "title": "Apple Watch\u2019s AI features for rewinding and recapping conversations begin beta testing",
    "at": "2026-11-03T13:12:12+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-says-gpt-6-astra-designed-a-hardware-device-from-scratch-in-under-a-week/",
+   "title": "OpenAI says GPT-6 Astra designed a hardware device from scratch in under a week",
+   "at": "2026-11-04T13:13:26+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+   "title": "Anthropic is working on a system to prove AI models\u2019 identity",
+   "at": "2026-11-04T13:13:26+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
+   "title": "Apple starts giving Siri AI access to third-party apps",
+   "at": "2026-11-04T13:13:26+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/11/03/meta-bond-sale-ai-funding.html",
+   "title": "Meta seeks to raise up to $25 billion in debt sale as AI spending jumps",
+   "at": "2026-11-04T13:13:26+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
+   "title": "Google is entirely disabling Search in schools that don\u2019t want AI",
+   "at": "2026-11-04T13:13:26+00:00"
   }
  ]
 }
