@@ -95,13 +95,14 @@
 },
 "Iran": {
 "first_seen": "2026-10-11",
-"count": 10,
+"count": 11,
 "stories": [
 "middle-east-escalation",
 "us-israel-iran-strike-plans",
-"oil-prices-middle-east"
+"oil-prices-middle-east",
+"us-iran-sanctions-india"
 ],
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "India MEA": {
 "first_seen": "2026-10-11",
@@ -204,18 +205,18 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 11,
+"count": 12,
 "stories": [
-"meta-muse-wonder",
 "openai-state-lawsuits",
 "us-banks-block-ai-agents",
 "openai-spy-device-case",
 "openai-agents-disable-monitors",
 "openai-agents-airgap",
 "openai-cpu-cache-bypass",
-"openai-google-tpu-deal"
+"openai-google-tpu-deal",
+"openai-data-center-power"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-05"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -293,44 +294,20 @@
 ],
 "last_seen": "2026-10-29"
 },
-"IEA": {
-"first_seen": "2026-10-14",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-10-14"
-},
-"Fairfax Financial Holdings": {
-"first_seen": "2026-10-14",
-"count": 1,
-"stories": [
-"fairfax-idbi-bank-stake"
-],
-"last_seen": "2026-10-14"
-},
-"IDBI Bank": {
-"first_seen": "2026-10-14",
-"count": 1,
-"stories": [
-"fairfax-idbi-bank-stake"
-],
-"last_seen": "2026-10-14"
-},
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 33,
+"count": 35,
 "stories": [
-"isro-launch-pads-2029",
-"india-us-trade-talks",
 "india-defence-procurement-2026",
 "bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact",
 "india-gst-record-oct-2026",
 "sebi-ltcg-tax-proposal",
-"india-critical-minerals-scheme"
+"india-critical-minerals-scheme",
+"us-iran-sanctions-india",
+"cosmoserve-space-debris-hyderabad"
 ],
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -362,22 +339,6 @@
 "openai-state-lawsuits"
 ],
 "last_seen": "2026-10-15"
-},
-"Netflix": {
-"first_seen": "2026-10-14",
-"count": 1,
-"stories": [
-"netflix-layoffs-2026"
-],
-"last_seen": "2026-10-14"
-},
-"Indian Railways": {
-"first_seen": "2026-10-14",
-"count": 1,
-"stories": [
-"sc-railway-ticket-insurance"
-],
-"last_seen": "2026-10-14"
 },
 "SEC": {
 "first_seen": "2026-10-15",
@@ -422,15 +383,16 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 14,
+"count": 15,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
 "sebi-ltcg-tax-proposal",
-"razorpay-ipo-approval"
+"razorpay-ipo-approval",
+"sebi-nri-digital-kyc"
 ],
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "Kotak Mutual Fund": {
 "first_seen": "2026-10-15",
@@ -1001,19 +963,19 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 2,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-04"
-},
-"Democratic Party": {
-"first_seen": "2026-11-02",
 "count": 3,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
+},
+"Democratic Party": {
+"first_seen": "2026-11-02",
+"count": 4,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-05"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
@@ -1106,6 +1068,36 @@
 },
 "connections": [
 {
+"text": "US election outcome -> congressional majority -> federal policy",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-05",
+"count": 2
+},
+{
+"text": "US strikes -> oil sanctions -> third-country intermediary impact",
+"first_seen": "2026-11-05",
+"last_seen": "2026-11-05",
+"count": 1
+},
+{
+"text": "Digital KYC -> foreign capital onboarding -> Indian equity market liquidity",
+"first_seen": "2026-11-05",
+"last_seen": "2026-11-05",
+"count": 1
+},
+{
+"text": "Data center power demand -> utility rate friction -> corporate policy pledge",
+"first_seen": "2026-11-05",
+"last_seen": "2026-11-05",
+"count": 1
+},
+{
+"text": "Commercial space tech -> orbital debris cleanup -> Hyderabad aerospace hub",
+"first_seen": "2026-11-05",
+"last_seen": "2026-11-05",
+"count": 1
+},
+{
 "text": "US election outcome -> congressional majority -> federal tax and trade policy",
 "first_seen": "2026-11-02",
 "last_seen": "2026-11-04",
@@ -1143,12 +1135,6 @@
 },
 {
 "text": "US strikes -> oil prices rise -> import inflation for India",
-"first_seen": "2026-11-03",
-"last_seen": "2026-11-03",
-"count": 1
-},
-{
-"text": "US election outcome -> congressional majority -> federal policy",
 "first_seen": "2026-11-03",
 "last_seen": "2026-11-03",
 "count": 1
@@ -1440,30 +1426,6 @@
 "first_seen": "2026-10-22",
 "last_seen": "2026-10-24",
 "count": 3
-},
-{
-"text": "AI agents -> autonomy risks -> hardware monitoring architectures",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-24",
-"count": 3
-},
-{
-"text": "Satellite communications -> drone reconnaissance -> tactical warfare",
-"first_seen": "2026-10-24",
-"last_seen": "2026-10-24",
-"count": 1
-},
-{
-"text": "Pyongyang-Beijing alignment -> regional security deterrence",
-"first_seen": "2026-10-24",
-"last_seen": "2026-10-24",
-"count": 1
-},
-{
-"text": "Unregistered financial advice -> retail investor losses -> SEBI regulatory enforcement",
-"first_seen": "2026-10-24",
-"last_seen": "2026-10-24",
-"count": 1
 }
 ]
 }

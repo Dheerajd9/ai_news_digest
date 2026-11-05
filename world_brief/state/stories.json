@@ -492,53 +492,6 @@
   ],
   "last_seen": "2026-10-22"
  },
- "russia-frees-hubbard": {
-  "first_seen": "2026-10-21",
-  "expectations": [
-   {
-    "date": "2026-10-21",
-    "text": "Trilateral diplomatic framework discussions between US, Ukraine, and Russia"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-21",
-    "event": "Hubbard freed from Russian custody without prisoner swap"
-   }
-  ],
-  "title": "Russia releases jailed American Stephen Hubbard during Witkoff trip",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Russia unconditionally released 74-year-old American teacher Stephen Hubbard as Trump envoy Steve Witkoff held Ukraine peace talks with Vladimir Putin.",
-  "open_questions": [
-   "Will Witkoff's visit lead to a formal date for trilateral Ukraine ceasefire talks?"
-  ],
-  "last_seen": "2026-10-21"
- },
- "nigeria-ebola-outbreak": {
-  "first_seen": "2026-10-21",
-  "expectations": [
-   {
-    "date": "2026-10-21",
-    "text": "Africa CDC emergency coordination meeting and contact isolation reports"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-21",
-    "event": "First confirmed Ebola case detected in Abuja diplomat"
-   }
-  ],
-  "title": "Nigeria confirms first Ebola case since 2014",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Nigerian authorities confirmed an imported Bundibugyo Ebola case in Abuja, prompting an emergency Africa CDC summit.",
-  "open_questions": [
-   "Will contact tracing prevent community transmission in Abuja?",
-   "Will neighboring countries restrict travel?"
-  ],
-  "last_seen": "2026-10-21"
- },
  "us-israel-iran-strike-plans": {
   "first_seen": "2026-10-22",
   "expectations": [
@@ -1392,6 +1345,10 @@
    {
     "date": "2026-11-04",
     "text": "Congressional committee reorganization ahead of January swearing-in"
+   },
+   {
+    "date": "2026-11-05",
+    "text": "Congressional committee reorganization ahead of January 2027 swearing-in"
    }
   ],
   "timeline": [
@@ -1410,16 +1367,20 @@
    {
     "date": "2026-11-04",
     "event": "Democrats win majorities in both House and Senate"
+   },
+   {
+    "date": "2026-11-05",
+    "event": "Democrats secure majorities in House and Senate"
    }
   ],
-  "title": "Democrats Take Control of US House and Senate in Midterm Elections",
+  "title": "Democrats Win Control of US House and Senate in Midterm Elections",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "The Democratic Party won majorities in both the US House and Senate, securing historic governorships and setting up strong Congressional oversight of the executive branch.",
+  "summary": "Democrats swept both chambers of US Congress, setting up strong legislative oversight of executive policy and prompting market shifts.",
   "open_questions": [
-   "How will a Democratic Congress impact pending federal budget and tariff legislation?"
+   "How will Democratic control affect pending budget and tariff policy?"
   ],
-  "last_seen": "2026-11-04"
+  "last_seen": "2026-11-05"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1497,5 +1458,97 @@
    "What price band will institutional anchor investors support?"
   ],
   "last_seen": "2026-11-04"
+ },
+ "us-iran-sanctions-india": {
+  "first_seen": "2026-11-05",
+  "expectations": [
+   {
+    "date": "2026-11-05",
+    "text": "Enforcement action by Indian financial compliance bodies"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-05",
+    "event": "US sanctions imposed on Indian and Turkish trade networks"
+   }
+  ],
+  "title": "US Sanctions Indian and Turkish Entities for Iranian Oil Trade",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "The US Treasury sanctioned Indian and Turkish companies and individuals for assisting Iran in evading petroleum export restrictions.",
+  "open_questions": [
+   "Will India institute formal enforcement proceedings against sanctioned firms?"
+  ],
+  "last_seen": "2026-11-05"
+ },
+ "sebi-nri-digital-kyc": {
+  "first_seen": "2026-11-05",
+  "expectations": [
+   {
+    "date": "2026-11-05",
+    "text": "Brokers to integrate digital KYC workflows in Q4 2026"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-05",
+    "event": "SEBI issues simplified digital KYC rules"
+   }
+  ],
+  "title": "SEBI Eases Digital KYC Rules for Foreign Investors and NRIs",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "SEBI approved remote digital KYC verification for NRIs and foreign portfolio investors residing in FATF-compliant jurisdictions.",
+  "open_questions": [
+   "When will all domestic AMCs roll out the updated digital onboarding tools?"
+  ],
+  "last_seen": "2026-11-05"
+ },
+ "openai-data-center-power": {
+  "first_seen": "2026-11-05",
+  "expectations": [
+   {
+    "date": "2026-11-05",
+    "text": "Community-impact assessments submitted for future data center builds"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-05",
+    "event": "OpenAI issues data center policy framework"
+   }
+  ],
+  "title": "OpenAI Pledges Direct Power Payments to Ease Data Center Backlash",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "OpenAI published a policy framework pledging to cover its data center grid capacity costs and protect local utility ratepayers following public pushback.",
+  "open_questions": [
+   "Will other AI hyperscalers adopt similar power payment commitments?"
+  ],
+  "last_seen": "2026-11-05"
+ },
+ "cosmoserve-space-debris-hyderabad": {
+  "first_seen": "2026-11-05",
+  "expectations": [
+   {
+    "date": "2026-11-05",
+    "text": "Initial orbital testing of satellite repair craft in 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-05",
+    "event": "Cosmoserve opens Base 1 in Hyderabad"
+   }
+  ],
+  "title": "Cosmoserve Opens Space Debris Removal Facility in Hyderabad",
+  "status": "NEW",
+  "stage": "OPERATIONAL",
+  "summary": "Space tech startup Cosmoserve launched 'Base 1' in Hyderabad, India's first private facility for satellite servicing and debris removal.",
+  "open_questions": [
+   "When will the first commercial debris removal mission launch?"
+  ],
+  "last_seen": "2026-11-05"
  }
 }
