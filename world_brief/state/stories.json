@@ -295,10 +295,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-10-21",
-    "text": "Formal S-1 public registration filing ahead of mid-November window"
-   },
-   {
     "date": "2026-10-27",
     "text": "Institutional investor roadshows to commence ahead of late November listing"
    },
@@ -313,6 +309,10 @@
    {
     "date": "2026-11-02",
     "text": "Global institutional roadshows ahead of November pricing"
+   },
+   {
+    "date": "2026-11-06",
+    "text": "Institutional roadshow reviews ahead of potential listing decisions"
    }
   ],
   "timeline": [
@@ -351,16 +351,20 @@
    {
     "date": "2026-11-03",
     "event": "Amended S-1 filing published"
+   },
+   {
+    "date": "2026-11-06",
+    "event": "Market rout prompts investor caution over $1.5 trillion IPO valuation"
    }
   ],
-  "title": "Anthropic Discloses $17B Revenue in Amended S-1 IPO Filing",
+  "title": "Anthropic IPO Facing Valuation Scrutiny After Tech Sell-Off",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic filed an amended S-1 for its upcoming Nasdaq IPO under ticker ANT, revealing $17 billion in Q3 revenue alongside nearly $900 billion in cloud and infrastructure commitments.",
+  "summary": "Investors questioned Anthropic's projected $1.5 trillion valuation and IPO timeline following global tech stock declines post-US midterms.",
   "open_questions": [
-   "What valuation will institutional investors support at pricing?"
+   "Will Anthropic adjust its IPO valuation or delay the listing window?"
   ],
-  "last_seen": "2026-11-03"
+  "last_seen": "2026-11-06"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -463,80 +467,6 @@
    "Will enterprise customers pause agent deployment pending hardware-level sandboxing?"
   ],
   "last_seen": "2026-10-23"
- },
- "tesla-spacex-merger-talks": {
-  "first_seen": "2026-10-21",
-  "expectations": [
-   {
-    "date": "2026-10-21",
-    "text": "Financial advisors to deliver preliminary valuation and structure reviews in Q4 2026"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-21",
-    "event": "Special board committees formally established"
-   },
-   {
-    "date": "2026-10-22",
-    "event": "Special board committees formally established to evaluate merger"
-   }
-  ],
-  "title": "Tesla and SpaceX form committees to evaluate potential merger",
-  "status": "NEW",
-  "stage": "DISCUSSION",
-  "summary": "Tesla and SpaceX established independent board committees to formally study a corporate combination uniting automotive, robotics, AI, and space infrastructure.",
-  "open_questions": [
-   "What valuation multiple will be assigned to privately held SpaceX?",
-   "Will regulatory antitrust bodies challenge the combination?"
-  ],
-  "last_seen": "2026-10-22"
- },
- "us-israel-iran-strike-plans": {
-  "first_seen": "2026-10-22",
-  "expectations": [
-   {
-    "date": "2026-10-22",
-    "text": "Heightened geopolitical risk premium in global energy markets"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-22",
-    "event": "Military strike plans drafted for post-midterm execution"
-   }
-  ],
-  "title": "U.S. and Israel draft post-midterm strike plans against Iran",
-  "status": "NEW",
-  "stage": "PROPOSED",
-  "summary": "Intelligence sources revealed that the U.S. and Israel are actively preparing military plans for potential strikes against Iran in early November following the U.S. midterms.",
-  "open_questions": [
-   "Will diplomatic channels avert military escalation before November?"
-  ],
-  "last_seen": "2026-10-22"
- },
- "meta-new-mexico-penalty": {
-  "first_seen": "2026-10-22",
-  "expectations": [
-   {
-    "date": "2026-10-22",
-    "text": "Extended appellate litigation in federal and state courts"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-22",
-    "event": "$25 billion penalty ordered by state court judge"
-   }
-  ],
-  "title": "Meta ordered to pay $25 billion penalty in New Mexico privacy case",
-  "status": "MAJOR CHANGE",
-  "stage": "COURT CASE",
-  "summary": "A U.S. judge ordered Meta to pay a $25 billion penalty for deceiving users about data privacy practices in connection with the Cambridge Analytica scandal.",
-  "open_questions": [
-   "Will Meta's appeal successfully reduce or overturn the penalty?"
-  ],
-  "last_seen": "2026-10-22"
  },
  "openai-agents-airgap": {
   "first_seen": "2026-10-24",
@@ -1072,47 +1002,6 @@
   ],
   "last_seen": "2026-10-29"
  },
- "isro-nvs-03-launch": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Successful orbital insertion of NavIC satellite"
-   },
-   {
-    "date": "2026-10-30",
-    "text": "Successful deployment of India's regional NavIC satellite upgrade"
-   },
-   {
-    "date": "2026-11-02",
-    "text": "First launch from Kulasekharapatnam in early 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "Launch scheduled for October 30"
-   },
-   {
-    "date": "2026-10-30",
-    "event": "Countdown initiated for GSLV-F18 NVS-03 launch mission"
-   },
-   {
-    "date": "2026-10-31",
-    "event": "Successful orbital insertion of NVS-03"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "NVS-03 full operational status confirmed"
-   }
-  ],
-  "title": "ISRO Declares NavIC NVS-03 Mission Fully Successful",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "ISRO Chairman confirmed NVS-03 satellite operational success and announced Kulasekharapatnam spaceport first launch scheduled for March-April 2027.",
-  "open_questions": [],
-  "last_seen": "2026-11-02"
- },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
   "expectations": [
@@ -1371,16 +1260,20 @@
    {
     "date": "2026-11-05",
     "event": "Democrats secure majorities in House and Senate"
+   },
+   {
+    "date": "2026-11-06",
+    "event": "Global tech stocks crash as Democratic sweep heightens AI regulatory concerns"
    }
   ],
   "title": "Democrats Win Control of US House and Senate in Midterm Elections",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Democrats swept both chambers of US Congress, setting up strong legislative oversight of executive policy and prompting market shifts.",
+  "summary": "Democrats captured majorities in both chambers of US Congress, sparking tech regulation fears and driving a global market sell-off alongside emerging market capital rotation.",
   "open_questions": [
-   "How will Democratic control affect pending budget and tariff policy?"
+   "How will Democratic committee chairs reshape tech and energy policy?"
   ],
-  "last_seen": "2026-11-05"
+  "last_seen": "2026-11-06"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1550,5 +1443,74 @@
    "When will the first commercial debris removal mission launch?"
   ],
   "last_seen": "2026-11-05"
+ },
+ "canada-immigration-levels-2027": {
+  "first_seen": "2026-11-06",
+  "expectations": [
+   {
+    "date": "2026-11-06",
+    "text": "IRCC to publish detailed application guidelines for temporary resident PR stream"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-06",
+    "event": "IRCC announces 380k PR target and 200k temporary-to-PR transition path"
+   }
+  ],
+  "title": "Canada Releases 2027-2029 Immigration Levels Plan",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Canada held its permanent resident target at 380,000 annually while capping temporary workers and students, and opening a one-time PR pathway for 200,000 temporary residents.",
+  "open_questions": [
+   "How quickly will IRCC process the 200k temporary resident PR applications?"
+  ],
+  "last_seen": "2026-11-06"
+ },
+ "openai-gpt-6-cyber": {
+  "first_seen": "2026-11-06",
+  "expectations": [
+   {
+    "date": "2026-11-06",
+    "text": "Widespread security software integration across enterprise security stacks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-06",
+    "event": "GPT-6 Cyber launched for commercial security auditing"
+   }
+  ],
+  "title": "OpenAI Launches GPT-6 Cyber Model with Critical Rating",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "OpenAI released GPT-6 Cyber, a specialized frontier model rated Critical for cybersecurity threat analysis and vulnerability research.",
+  "open_questions": [
+   "Will enterprise customers adopt GPT-6 Cyber despite higher API pricing?"
+  ],
+  "last_seen": "2026-11-06"
+ },
+ "tesla-cybertruck-sunset": {
+  "first_seen": "2026-11-06",
+  "expectations": [
+   {
+    "date": "2026-11-06",
+    "text": "Gigafactory Texas retooling ahead of 2027 robotaxi manufacturing"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-06",
+    "event": "Musk confirms 2027 end of Cybertruck production"
+   }
+  ],
+  "title": "Tesla Sunsetting Cybertruck to Focus on Robotaxis and AI",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Tesla will phase out Cybertruck production by mid-2027 to shift Gigafactory Texas capacity toward Cybercab robotaxis and Optimus humanoids.",
+  "open_questions": [
+   "When will Cybercab mass production reach full commercial scale?"
+  ],
+  "last_seen": "2026-11-06"
  }
 }

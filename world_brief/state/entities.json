@@ -205,29 +205,29 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 12,
+"count": 13,
 "stories": [
-"openai-state-lawsuits",
 "us-banks-block-ai-agents",
 "openai-spy-device-case",
 "openai-agents-disable-monitors",
 "openai-agents-airgap",
 "openai-cpu-cache-bypass",
 "openai-google-tpu-deal",
-"openai-data-center-power"
+"openai-data-center-power",
+"openai-gpt-6-cyber"
 ],
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-06"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 14,
+"count": 15,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-06"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -342,11 +342,11 @@
 },
 "SEC": {
 "first_seen": "2026-10-15",
-"count": 6,
+"count": 7,
 "stories": [
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-06"
 },
 "TSMC": {
 "first_seen": "2026-10-15",
@@ -356,14 +356,6 @@
 "taiwan-texas-chip-park"
 ],
 "last_seen": "2026-10-16"
-},
-"AMD": {
-"first_seen": "2026-10-15",
-"count": 1,
-"stories": [
-"tsmc-q3-texas-fab"
-],
-"last_seen": "2026-10-15"
 },
 "Jio Platforms": {
 "first_seen": "2026-10-15",
@@ -393,14 +385,6 @@
 "sebi-nri-digital-kyc"
 ],
 "last_seen": "2026-11-05"
-},
-"Kotak Mutual Fund": {
-"first_seen": "2026-10-15",
-"count": 1,
-"stories": [
-"yes-bank-at1-verdict"
-],
-"last_seen": "2026-10-15"
 },
 "Nirmala Sitharaman": {
 "first_seen": "2026-10-16",
@@ -477,13 +461,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 10,
+"count": 11,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-06"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -545,11 +529,12 @@
 },
 "Government of Canada": {
 "first_seen": "2026-10-20",
-"count": 1,
+"count": 2,
 "stories": [
-"alberta-independence-referendum"
+"alberta-independence-referendum",
+"canada-immigration-levels-2027"
 ],
-"last_seen": "2026-10-20"
+"last_seen": "2026-11-06"
 },
 "Alberta": {
 "first_seen": "2026-10-20",
@@ -601,11 +586,12 @@
 },
 "Tesla": {
 "first_seen": "2026-10-21",
-"count": 2,
+"count": 3,
 "stories": [
-"tesla-spacex-merger-talks"
+"tesla-spacex-merger-talks",
+"tesla-cybertruck-sunset"
 ],
-"last_seen": "2026-10-22"
+"last_seen": "2026-11-06"
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
@@ -620,14 +606,15 @@
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 5,
+"count": 6,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
 "starlink-ukraine-throttling",
-"spacex-apollo-ai-compute"
+"spacex-apollo-ai-compute",
+"tesla-cybertruck-sunset"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-11-06"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -963,19 +950,19 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 3,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-05"
-},
-"Democratic Party": {
-"first_seen": "2026-11-02",
 "count": 4,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-06"
+},
+"Democratic Party": {
+"first_seen": "2026-11-02",
+"count": 5,
+"stories": [
+"us-midterms-2026"
+],
+"last_seen": "2026-11-06"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
@@ -1064,9 +1051,47 @@
 "razorpay-ipo-approval"
 ],
 "last_seen": "2026-11-04"
+},
+"IRCC": {
+"first_seen": "2026-11-06",
+"count": 1,
+"stories": [
+"canada-immigration-levels-2027"
+],
+"last_seen": "2026-11-06"
 }
 },
 "connections": [
+{
+"text": "US election outcome -> tech regulation fears -> global market sell-off -> foreign inflows to India",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-06",
+"count": 1
+},
+{
+"text": "Immigration level plan -> temporary worker caps -> permanent residency transition",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-06",
+"count": 1
+},
+{
+"text": "Frontier AI models -> cybersecurity defense -> automated code auditing",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-06",
+"count": 1
+},
+{
+"text": "EV truck manufacturing -> autonomous Cybercab retooling -> physical AI focus",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-06",
+"count": 1
+},
+{
+"text": "Tech market rout -> AI IPO valuation pressure -> listing timing uncertainty",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-06",
+"count": 1
+},
 {
 "text": "US election outcome -> congressional majority -> federal policy",
 "first_seen": "2026-11-03",
@@ -1396,36 +1421,6 @@
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-25",
 "count": 2
-},
-{
-"text": "India-US trade deal -> tariff reduction -> export opportunities",
-"first_seen": "2026-10-14",
-"last_seen": "2026-10-25",
-"count": 10
-},
-{
-"text": "US administrative visa squeeze -> H-1B renewal friction -> IT staffing adjustments",
-"first_seen": "2026-10-23",
-"last_seen": "2026-10-25",
-"count": 2
-},
-{
-"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity -> rupee strength",
-"first_seen": "2026-10-21",
-"last_seen": "2026-10-25",
-"count": 2
-},
-{
-"text": "Middle East escalation -> oil above $110 -> India import costs -> RBI dollar sales -> rupee stabilization",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 1
-},
-{
-"text": "Middle East escalation -> oil prices jump -> Indian import costs surge -> RBI rupee defense pressure",
-"first_seen": "2026-10-22",
-"last_seen": "2026-10-24",
-"count": 3
 }
 ]
 }
