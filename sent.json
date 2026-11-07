@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/",
-   "title": "OpenAI's upcoming chat-and-work merger in ChatGPT signals the end of all-you-can-prompt pricing",
-   "at": "2026-11-01T13:14:17+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/beekeeping-tips-and-wrestling-advice-can-train-ai-models-to-sabotage-oversight/",
-   "title": "Beekeeping tips and wrestling advice can train AI models to sabotage oversight",
-   "at": "2026-11-01T13:14:17+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/11/01/ai-meta-ads-google-search.html",
-   "title": "Why AI is boosting Meta's ad business while hurting Google search",
-   "at": "2026-11-01T13:14:17+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
-   "title": "Apple CEO says the company doesn\u2019t \u2018want to ship AI for AI\u2019s sake\u2019",
-   "at": "2026-11-01T13:14:17+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/10/31/openai-fundraising-20-billion-valuation.html",
-   "title": "OpenAI pares fundraising goal, now seeking up to $20 billion in latest round",
-   "at": "2026-11-01T13:14:17+00:00"
-  },
-  {
    "link": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
    "title": "Anthropic updates Claude to stop it from recreating existing video games",
    "at": "2026-11-02T13:13:07+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model/",
    "title": "Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model",
    "at": "2026-11-06T13:11:24+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+   "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+   "at": "2026-11-07T13:11:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/thinking-machines-inkling-2-small-claims-top-spot-among-western-open-weight-models/",
+   "title": "Thinking Machines' Inkling 2 Small claims top spot among western open-weight models",
+   "at": "2026-11-07T13:11:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/perplexity-now-has-its-own-always-on-ai-agent/",
+   "title": "Perplexity now has its own always-on AI agent",
+   "at": "2026-11-07T13:11:31+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+   "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+   "at": "2026-11-07T13:11:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/",
+   "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
+   "at": "2026-11-07T13:11:31+00:00"
   }
  ]
 }
