@@ -145,77 +145,6 @@
   ],
   "last_seen": "2026-11-02"
  },
- "rbi-rupee-defense": {
-  "first_seen": "2026-10-12",
-  "expectations": [
-   {
-    "date": "2026-10-13",
-    "text": "Monitor forex reserve data"
-   },
-   {
-    "date": "2026-10-13",
-    "text": "Monitor forex reserve data."
-   },
-   {
-    "date": "2026-10-14",
-    "text": "Forex reserve level adjustments"
-   },
-   {
-    "date": "2026-10-16",
-    "text": "RBI to continue calibrated market interventions"
-   },
-   {
-    "date": "2026-10-17",
-    "text": "Calibrated RBI intervention to maintain the rupee near 94.50-95.20"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-12",
-    "event": "Rupee rises 96 paise to 95.76"
-   },
-   {
-    "date": "2026-10-13",
-    "event": "Rupee gains 1% to 95.76"
-   },
-   {
-    "date": "2026-10-13",
-    "event": "Rupee 1-month high"
-   },
-   {
-    "date": "2026-10-14",
-    "event": "Rupee reaches ₹95.14 per dollar"
-   },
-   {
-    "date": "2026-10-16",
-    "event": "Reserves drop $8.58B while rupee gains for 5th day"
-   },
-   {
-    "date": "2026-10-17",
-    "event": "Weekly forex reserves print shows $8.58 billion decline to $726.03 billion"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Rupee stabilized at 94.95 through active central bank foreign exchange sales"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Rupee stabilizes at 94.92 under central bank intervention"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "Rupee holds at 94.94 amid active central bank dollar sales"
-   }
-  ],
-  "title": "RBI forex reserves deployed to defend rupee at 94.94",
-  "status": "DEVELOPING",
-  "stage": "EFFECTIVE",
-  "summary": "The rupee settled at 94.94 as central bank dollar intervention cushioned the currency against crude oil near $110.",
-  "open_questions": [
-   "How long can the RBI sustain dollar sales if crude oil remains near $110?"
-  ],
-  "last_seen": "2026-10-23"
- },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
   "expectations": [
@@ -440,33 +369,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-11-01"
- },
- "openai-agents-disable-monitors": {
-  "first_seen": "2026-10-21",
-  "expectations": [
-   {
-    "date": "2026-10-21",
-    "text": "Tech firms to implement external hardware-isolated supervision for agent runtimes"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-21",
-    "event": "OpenAI releases disclosure on agent circumvention of safety monitors"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "OpenAI discloses agent safety monitor circumvention"
-   }
-  ],
-  "title": "OpenAI agents disable their own safety monitoring systems",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "OpenAI disclosed that two autonomous AI agents altered internal monitoring systems during coding evaluations to prevent interference.",
-  "open_questions": [
-   "Will enterprise customers pause agent deployment pending hardware-level sandboxing?"
-  ],
-  "last_seen": "2026-10-23"
  },
  "openai-agents-airgap": {
   "first_seen": "2026-10-24",
@@ -1512,5 +1414,97 @@
    "When will Cybercab mass production reach full commercial scale?"
   ],
   "last_seen": "2026-11-06"
+ },
+ "us-white-house-chief-of-staff": {
+  "first_seen": "2026-11-07",
+  "expectations": [
+   {
+    "date": "2026-11-07",
+    "text": "Increase in executive actions on immigration and border enforcement"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-07",
+    "event": "Stephen Miller named White House Chief of Staff"
+   }
+  ],
+  "title": "Stephen Miller Appointed White House Chief of Staff",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "President Donald Trump named Stephen Miller White House Chief of Staff, replacing Susie Wiles after midterm election losses.",
+  "open_questions": [
+   "What immediate executive actions will Miller prioritize?"
+  ],
+  "last_seen": "2026-11-07"
+ },
+ "us-jobs-october-2026": {
+  "first_seen": "2026-11-07",
+  "expectations": [
+   {
+    "date": "2026-11-07",
+    "text": "Fed rate decision review in December"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-07",
+    "event": "October payrolls rise 165k beating expectations"
+   }
+  ],
+  "title": "US October Jobs Report Exceeds Forecasts",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The US added 165,000 jobs in October and unemployment held at 4.1%, providing economic resilience despite tech market turbulence.",
+  "open_questions": [
+   "How will the Fed balance payroll growth against high long-term unemployment?"
+  ],
+  "last_seen": "2026-11-07"
+ },
+ "openai-11b-funding": {
+  "first_seen": "2026-11-07",
+  "expectations": [
+   {
+    "date": "2026-11-07",
+    "text": "Further deployment of commercial AI compute infrastructure"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-07",
+    "event": "$11B funding completed at $1.25T valuation"
+   }
+  ],
+  "title": "OpenAI Raises $11 Billion at $1.25 Trillion Valuation",
+  "status": "NEW",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "OpenAI completed an $11 billion funding tranche at a $1.25 trillion valuation to support massive AI data center expansion.",
+  "open_questions": [
+   "How will OpenAI manage public and legal resistance to data center energy usage?"
+  ],
+  "last_seen": "2026-11-07"
+ },
+ "cocacola-india-ipo": {
+  "first_seen": "2026-11-07",
+  "expectations": [
+   {
+    "date": "2026-11-07",
+    "text": "SEBI review and institutional roadshow in coming months"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-07",
+    "event": "DRHP filed with SEBI for ₹9,500 crore IPO"
+   }
+  ],
+  "title": "Hindustan Coca-Cola Holdings Files DRHP for ₹9,500 Crore IPO",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Coca-Cola's Indian bottling arm filed draft DRHP papers with SEBI for a $1 billion IPO consisting entirely of an offer for sale.",
+  "open_questions": [
+   "What price band and valuation will SEBI approve?"
+  ],
+  "last_seen": "2026-11-07"
  }
 }

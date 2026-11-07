@@ -2,13 +2,14 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
-"russia-oil-sanctions-waiver"
+"russia-oil-sanctions-waiver",
+"us-white-house-chief-of-staff"
 ],
-"last_seen": "2026-10-18"
+"last_seen": "2026-11-07"
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
@@ -115,11 +116,12 @@
 },
 "US Department of Labor": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
-"us-perm-h1b-freeze"
+"us-perm-h1b-freeze",
+"us-jobs-october-2026"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-11-07"
 },
 "USCIS": {
 "first_seen": "2026-10-11",
@@ -205,18 +207,18 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 13,
+"count": 14,
 "stories": [
-"us-banks-block-ai-agents",
 "openai-spy-device-case",
 "openai-agents-disable-monitors",
 "openai-agents-airgap",
 "openai-cpu-cache-bypass",
 "openai-google-tpu-deal",
 "openai-data-center-power",
-"openai-gpt-6-cyber"
+"openai-gpt-6-cyber",
+"openai-11b-funding"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-07"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -285,14 +287,15 @@
 },
 "Federal Reserve": {
 "first_seen": "2026-10-14",
-"count": 10,
+"count": 11,
 "stories": [
 "us-cpi-inflation-sept",
 "us-ppi-inflation-sept",
 "oil-spike-market-drop",
-"fed-rates-oct-2026"
+"fed-rates-oct-2026",
+"us-jobs-october-2026"
 ],
-"last_seen": "2026-10-29"
+"last_seen": "2026-11-07"
 },
 "Government of India": {
 "first_seen": "2026-10-14",
@@ -375,16 +378,17 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 15,
+"count": 16,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
 "sebi-ltcg-tax-proposal",
 "razorpay-ipo-approval",
-"sebi-nri-digital-kyc"
+"sebi-nri-digital-kyc",
+"cocacola-india-ipo"
 ],
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-07"
 },
 "Nirmala Sitharaman": {
 "first_seen": "2026-10-16",
@@ -393,14 +397,6 @@
 "india-us-trade-talks"
 ],
 "last_seen": "2026-10-18"
-},
-"Texas": {
-"first_seen": "2026-10-16",
-"count": 1,
-"stories": [
-"taiwan-texas-chip-park"
-],
-"last_seen": "2026-10-16"
 },
 "CERT-In": {
 "first_seen": "2026-10-16",
@@ -1059,9 +1055,57 @@
 "canada-immigration-levels-2027"
 ],
 "last_seen": "2026-11-06"
+},
+"White House": {
+"first_seen": "2026-11-07",
+"count": 1,
+"stories": [
+"us-white-house-chief-of-staff"
+],
+"last_seen": "2026-11-07"
+},
+"Stephen Miller": {
+"first_seen": "2026-11-07",
+"count": 1,
+"stories": [
+"us-white-house-chief-of-staff"
+],
+"last_seen": "2026-11-07"
+},
+"Hindustan Coca-Cola Holdings": {
+"first_seen": "2026-11-07",
+"count": 1,
+"stories": [
+"cocacola-india-ipo"
+],
+"last_seen": "2026-11-07"
 }
 },
 "connections": [
+{
+"text": "US midterm election loss -> White House leadership shakeup -> tougher immigration policy",
+"first_seen": "2026-11-07",
+"last_seen": "2026-11-07",
+"count": 1
+},
+{
+"text": "Strong job growth -> stock market stabilization -> Fed rate expectations",
+"first_seen": "2026-11-07",
+"last_seen": "2026-11-07",
+"count": 1
+},
+{
+"text": "AI infrastructure capital -> data center power demand -> local community pushback",
+"first_seen": "2026-11-07",
+"last_seen": "2026-11-07",
+"count": 1
+},
+{
+"text": "Consumer market growth -> promoter equity monetization -> Indian stock listing",
+"first_seen": "2026-11-07",
+"last_seen": "2026-11-07",
+"count": 1
+},
 {
 "text": "US election outcome -> tech regulation fears -> global market sell-off -> foreign inflows to India",
 "first_seen": "2026-11-06",
@@ -1397,30 +1441,6 @@
 "first_seen": "2026-10-26",
 "last_seen": "2026-10-26",
 "count": 1
-},
-{
-"text": "Crude oil surge -> FII equity withdrawal -> Rupee pressure and Nifty correction",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 2
-},
-{
-"text": "Space expansion -> commercial satellite demand",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 2
-},
-{
-"text": "Commercial satellite control -> military drone operations -> geopolitical friction",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 2
-},
-{
-"text": "Autonomous AI agents -> sandbox escape -> stricter enterprise security controls",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-25",
-"count": 2
 }
 ]
 }
