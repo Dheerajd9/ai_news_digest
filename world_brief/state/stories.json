@@ -3,10 +3,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-24",
-    "text": "Brent crude volatility to remain elevated above $110/bbl"
-   },
-   {
     "date": "2026-10-25",
     "text": "Crude oil volatility to remain elevated above $110/bbl"
    },
@@ -21,16 +17,16 @@
    {
     "date": "2026-11-04",
     "text": "Naval escorts and advisories for Persian Gulf merchant shipping"
+   },
+   {
+    "date": "2026-11-08",
+    "text": "Elevated marine insurance premiums and persistent Persian Gulf naval patrols through November"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-20",
+    "date": "2026-10-11..2026-10-21",
     "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-21",
-    "event": "Naval mines reported near Hormuz; UK RAF jets deployed to Saudi Arabia"
    },
    {
     "date": "2026-10-22",
@@ -63,16 +59,20 @@
    {
     "date": "2026-11-04",
     "event": "Iran exempts Indian and Chinese vessels from Hormuz restrictions"
+   },
+   {
+    "date": "2026-11-08",
+    "event": "US military strike on cargo ship; Iran grants selective Hormuz transit exemptions"
    }
   ],
-  "title": "Strait of Hormuz Tanker Mines Sparks Selective Trade Exemptions",
+  "title": "Strait of Hormuz Conflict Leads to Military Strikes and Exemptions",
   "status": "DEVELOPING",
   "stage": "CONFLICT",
-  "summary": "Four oil tankers caught fire near the Strait of Hormuz after hitting mines, but Iran issued official shipping exemptions for vessels bound for India, China, Iraq, and Qatar.",
+  "summary": "US forces disabled a cargo ship leaving Iran while Saudi Arabia intercepted missiles over Riyadh; Iran issued Hormuz transit exemptions for India, China, Iraq, and Qatar.",
   "open_questions": [
    "Will naval mine clearing operations restore general international transit?"
   ],
-  "last_seen": "2026-11-04"
+  "last_seen": "2026-11-08"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -134,16 +134,20 @@
    {
     "date": "2026-11-02",
     "event": "USCIS impact data released on extension rule"
+   },
+   {
+    "date": "2026-11-08",
+    "event": "USCIS impact data released showing over 70% affected are Indian nationals"
    }
   ],
   "title": "US H-1B Renewal Scrutiny Data Shows Indian Workers Most Affected",
   "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "USCIS data confirmed Indian nationals account for over 70% of visa holders affected by proposed rules ending H-1B extension deference.",
+  "summary": "USCIS impact data confirmed Indian nationals account for over 70% of visa holders affected by proposed rules ending H-1B extension deference.",
   "open_questions": [
    "When will DHS publish final rule in Federal Register?"
   ],
-  "last_seen": "2026-11-02"
+  "last_seen": "2026-11-08"
  },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
@@ -1050,16 +1054,20 @@
    {
     "date": "2026-11-06",
     "event": "Global tech stocks crash as Democratic sweep heightens AI regulatory concerns"
+   },
+   {
+    "date": "2026-11-08",
+    "event": "Democrats win House and Senate majorities; Jeffries backed for Speaker"
    }
   ],
   "title": "Democrats Win Control of US House and Senate in Midterm Elections",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Democrats captured majorities in both chambers of US Congress, sparking tech regulation fears and driving a global market sell-off alongside emerging market capital rotation.",
+  "summary": "Democrats captured majorities in both chambers of US Congress, sparking tech regulation fears and driving global market sell-offs alongside foreign capital rotation to India.",
   "open_questions": [
    "How will Democratic committee chairs reshape tech and energy policy?"
   ],
-  "last_seen": "2026-11-06"
+  "last_seen": "2026-11-08"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1403,15 +1411,18 @@
    {
     "date": "2026-11-08",
     "event": "Signed $3.4B purchase order for 1.7 GW capacity"
+   },
+   {
+    "date": "2026-11-08",
+    "event": "Signed $3.4B purchase order for 1.7 GW capacity with OnePWR Solutions"
    }
   ],
   "title": "Anthropic Secures $3.4B Gas Generator Contract for Data Centers",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "SIGNED/FINALIZED",
-  "summary": "Anthropic contracted 1.7 GW of heavy-duty gas generators from OnePWR Solutions for $3.4 billion to power private data center infrastructure off-grid.",
+  "summary": "Anthropic contracted 1.7 GW of gas generators for $3.4 billion to power private data centers off-grid.",
   "open_questions": [
-   "Will local regulators approve environmental permits for on-site gas generation?",
-   "How will this impact carbon reduction targets?"
+   "Will local regulators approve environmental permits for on-site gas generation?"
   ],
   "last_seen": "2026-11-08"
  },
@@ -1469,6 +1480,10 @@
    {
     "date": "2026-11-08",
     "text": "Market direction to be dictated by foreign liquidity and Q2 earnings reports"
+   },
+   {
+    "date": "2026-11-08",
+    "text": "Market direction to be dictated by foreign liquidity and US CPI inflation data"
    }
   ],
   "timeline": [
@@ -1480,7 +1495,7 @@
   "title": "FPIs Pump ₹46,000 Crore into Indian Equities Amid Global Tech Sell-Off",
   "status": "NEW",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Foreign portfolio investors poured ₹45,970 crore into Indian shares in one week as capital rotated away from US tech, offsetting a flat Diwali Muhurat session.",
+  "summary": "Foreign portfolio investors bought ₹45,970 crore of Indian shares in one week as capital rotated away from US tech stocks.",
   "open_questions": [
    "Will foreign buying momentum sustain following upcoming US CPI inflation data?"
   ],

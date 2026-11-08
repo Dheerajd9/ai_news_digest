@@ -4,47 +4,47 @@
   "conclusion": "Autonomous AI agents are driving a structural contraction in junior engineering hiring rather than a temporary cyclical freeze.",
   "confidence": "HIGH",
   "momentum": "ACCELERATING",
-  "supporting": "Computer science graduate unemployment rose to 7.8% while Microsoft offered buyouts to 60,000 workers as tech firms shift junior tasks to AI.",
+  "supporting": "NASSCOM warned generative AI is automating entry-level software testing and coding, while global entry-level developer job growth slowed to 1%.",
   "contradicting": "none yet",
   "would_change_mind": "Widespread enterprise reports of AI agent code failure prompting renewed junior human hiring.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-01"
+  "updated": "2026-11-08"
  },
  {
   "id": "energy-driven-inflation-stickiness",
   "conclusion": "Geopolitical chokepoint risks and refinery strikes will keep energy prices elevated, preventing rapid central bank rate cuts.",
   "confidence": "HIGH",
-  "momentum": "ACCELERATING",
-  "supporting": "Brent crude settled at $113.43 per barrel amid Strait of Hormuz risks, keeping Federal Reserve rates held steady at 3.75%-4.00%.",
-  "contradicting": "Diplomatic talks initiated in Doha",
+  "momentum": "STABLE",
+  "supporting": "Strait of Hormuz naval conflict and missile strikes on Aramco infrastructure preserve high geopolitical insurance risk.",
+  "contradicting": "Brent crude dipped to $98.32/bbl over the week.",
   "would_change_mind": "De-escalation restoring normal Strait of Hormuz tanker transit and crude dropping sustainably below $80.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-01"
+  "updated": "2026-11-08"
  },
  {
   "id": "us-administrative-visa-squeeze",
   "conclusion": "US immigration barriers will expand primarily through administrative friction and regulatory hurdles rather than new congressional statutes.",
   "confidence": "HIGH",
   "momentum": "ACCELERATING",
-  "supporting": "DHS ended automatic 540-day EAD extensions and advanced rules eliminating prior approval deference for H-1B extensions.",
+  "supporting": "USCIS confirmed over 70% of visa holders affected by the elimination of H-1B extension deference are Indian nationals.",
   "contradicting": "none yet",
   "would_change_mind": "USCIS introducing broad administrative relief or expanding work authorization flexibilities.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-01"
+  "updated": "2026-11-08"
  },
  {
   "id": "green-tech-supply-balkanization",
   "conclusion": "Solar and clean energy manufacturing is splitting into competing regional blocs via export controls similar to semiconductors.",
   "confidence": "MEDIUM",
   "momentum": "GROWING",
-  "supporting": "Quad committed $10 million for critical mineral recycling in India to build alternative green supply chains.",
+  "supporting": "India Cabinet cleared ₹2,814 crore critical mineral processing scheme to build domestic refining capabilities for lithium and nickel.",
   "contradicting": "none yet",
   "would_change_mind": "Bilateral agreements harmonizing solar supply chains between China and Western markets.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-01"
+  "updated": "2026-11-08"
  }
 ]

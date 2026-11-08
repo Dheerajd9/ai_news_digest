@@ -126,7 +126,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 15,
+"count": 16,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -135,7 +135,7 @@
 "vance-h1b-rhetoric",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-08"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
@@ -223,7 +223,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 16,
+"count": 17,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -263,7 +263,7 @@
 },
 "Saudi Aramco": {
 "first_seen": "2026-10-13",
-"count": 4,
+"count": 5,
 "stories": [
 "middle-east-escalation",
 "middle-east-naval-clashes"
@@ -302,18 +302,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 35,
+"count": 36,
 "stories": [
-"india-defence-procurement-2026",
 "bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact",
 "india-gst-record-oct-2026",
 "sebi-ltcg-tax-proposal",
 "india-critical-minerals-scheme",
 "us-iran-sanctions-india",
-"cosmoserve-space-debris-hyderabad"
+"cosmoserve-space-debris-hyderabad",
+"us-perm-h1b-freeze"
 ],
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-08"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -685,7 +685,7 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 5,
+"count": 6,
 "stories": [
 "fpi-outflows-2026",
 "sebi-ltcg-tax-proposal",
@@ -695,7 +695,7 @@
 },
 "NSE": {
 "first_seen": "2026-10-25",
-"count": 4,
+"count": 5,
 "stories": [
 "fpi-outflows-2026",
 "jio-platforms-mega-ipo",
@@ -705,7 +705,7 @@
 },
 "BSE": {
 "first_seen": "2026-10-25",
-"count": 4,
+"count": 5,
 "stories": [
 "fpi-outflows-2026",
 "jio-platforms-mega-ipo",
@@ -937,7 +937,7 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 5,
+"count": 6,
 "stories": [
 "us-midterms-2026",
 "nvidia-huang-probe"
@@ -946,11 +946,11 @@
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
-"count": 5,
+"count": 6,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-08"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
@@ -1010,7 +1010,7 @@
 },
 "IRGC": {
 "first_seen": "2026-11-04",
-"count": 2,
+"count": 3,
 "stories": [
 "middle-east-escalation",
 "middle-east-naval-clashes"
@@ -1075,7 +1075,7 @@
 },
 "OnePWR Solutions": {
 "first_seen": "2026-11-08",
-"count": 1,
+"count": 2,
 "stories": [
 "anthropic-power-generators"
 ],
@@ -1083,9 +1083,10 @@
 },
 "US Central Command": {
 "first_seen": "2026-11-08",
-"count": 1,
+"count": 2,
 "stories": [
-"middle-east-naval-clashes"
+"middle-east-naval-clashes",
+"middle-east-escalation"
 ],
 "last_seen": "2026-11-08"
 },
@@ -1127,13 +1128,13 @@
 "text": "AI data center demand -> electrical grid bottleneck -> off-grid private generation",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
-"count": 1
+"count": 2
 },
 {
 "text": "Persian Gulf conflict -> maritime insurance -> oil price volatility",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
-"count": 1
+"count": 2
 },
 {
 "text": "Israeli political deadlock -> coalition transition -> regional ceasefire posture",
@@ -1145,10 +1146,22 @@
 "text": "US tech correction -> emerging market rotation -> Indian equity inflow",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
-"count": 1
+"count": 2
 },
 {
 "text": "US-China chip curbs -> export leakage scrutiny -> semiconductor stock volatility",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
+{
+"text": "US election outcome -> tech regulation fears -> global market sell-off -> foreign inflows to India",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-08",
+"count": 2
+},
+{
+"text": "Visa deference elimination -> strict renewal audits -> Indian tech worker impact",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
 "count": 1
@@ -1175,12 +1188,6 @@
 "text": "Consumer market growth -> promoter equity monetization -> Indian stock listing",
 "first_seen": "2026-11-07",
 "last_seen": "2026-11-07",
-"count": 1
-},
-{
-"text": "US election outcome -> tech regulation fears -> global market sell-off -> foreign inflows to India",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-06",
 "count": 1
 },
 {
@@ -1473,12 +1480,6 @@
 },
 {
 "text": "Humanitarian crisis -> diplomatic intervention -> localized ceasefire",
-"first_seen": "2026-10-27",
-"last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "Trade deal completion -> tariff reduction -> bilateral export surge",
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27",
 "count": 1
