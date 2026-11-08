@@ -35,7 +35,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 7,
+"count": 8,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
@@ -43,9 +43,10 @@
 "taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
 "spacex-apollo-ai-compute",
-"openai-google-tpu-deal"
+"openai-google-tpu-deal",
+"nvidia-huang-probe"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-08"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -222,14 +223,15 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 15,
+"count": 16,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
-"openai-agents-airgap"
+"openai-agents-airgap",
+"anthropic-power-generators"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-08"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -261,11 +263,12 @@
 },
 "Saudi Aramco": {
 "first_seen": "2026-10-13",
-"count": 3,
+"count": 4,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"middle-east-naval-clashes"
 ],
-"last_seen": "2026-10-14"
+"last_seen": "2026-11-08"
 },
 "Piyush Goyal": {
 "first_seen": "2026-10-13",
@@ -378,7 +381,7 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 16,
+"count": 17,
 "stories": [
 "jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
@@ -386,9 +389,10 @@
 "sebi-ltcg-tax-proposal",
 "razorpay-ipo-approval",
 "sebi-nri-digital-kyc",
-"cocacola-india-ipo"
+"cocacola-india-ipo",
+"fpi-inflows-india-muhurat"
 ],
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-08"
 },
 "Nirmala Sitharaman": {
 "first_seen": "2026-10-16",
@@ -438,22 +442,6 @@
 "russia-oil-sanctions-waiver"
 ],
 "last_seen": "2026-10-18"
-},
-"Crude Oil": {
-"first_seen": "2026-10-17",
-"count": 1,
-"stories": [
-"russia-oil-sanctions-waiver"
-],
-"last_seen": "2026-10-17"
-},
-"Jamie Dimon": {
-"first_seen": "2026-10-17",
-"count": 1,
-"stories": [
-"us-banks-block-ai-agents"
-],
-"last_seen": "2026-10-17"
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
@@ -697,30 +685,33 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 4,
+"count": 5,
 "stories": [
 "fpi-outflows-2026",
-"sebi-ltcg-tax-proposal"
+"sebi-ltcg-tax-proposal",
+"fpi-inflows-india-muhurat"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-08"
 },
 "NSE": {
 "first_seen": "2026-10-25",
-"count": 3,
+"count": 4,
 "stories": [
 "fpi-outflows-2026",
-"jio-platforms-mega-ipo"
+"jio-platforms-mega-ipo",
+"fpi-inflows-india-muhurat"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-08"
 },
 "BSE": {
 "first_seen": "2026-10-25",
-"count": 3,
+"count": 4,
 "stories": [
 "fpi-outflows-2026",
-"jio-platforms-mega-ipo"
+"jio-platforms-mega-ipo",
+"fpi-inflows-india-muhurat"
 ],
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-08"
 },
 "ISRO": {
 "first_seen": "2026-10-25",
@@ -946,11 +937,12 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 4,
+"count": 5,
 "stories": [
-"us-midterms-2026"
+"us-midterms-2026",
+"nvidia-huang-probe"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-08"
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
@@ -1018,11 +1010,12 @@
 },
 "IRGC": {
 "first_seen": "2026-11-04",
-"count": 1,
+"count": 2,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"middle-east-naval-clashes"
 ],
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-08"
 },
 "Strait of Hormuz": {
 "first_seen": "2026-11-04",
@@ -1079,9 +1072,87 @@
 "cocacola-india-ipo"
 ],
 "last_seen": "2026-11-07"
+},
+"OnePWR Solutions": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"anthropic-power-generators"
+],
+"last_seen": "2026-11-08"
+},
+"US Central Command": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"middle-east-naval-clashes"
+],
+"last_seen": "2026-11-08"
+},
+"Gadi Eisenkot": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"israel-coalition-eisenkot"
+],
+"last_seen": "2026-11-08"
+},
+"Benjamin Netanyahu": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"israel-coalition-eisenkot"
+],
+"last_seen": "2026-11-08"
+},
+"Isaac Herzog": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"israel-coalition-eisenkot"
+],
+"last_seen": "2026-11-08"
+},
+"Jensen Huang": {
+"first_seen": "2026-11-08",
+"count": 1,
+"stories": [
+"nvidia-huang-probe"
+],
+"last_seen": "2026-11-08"
 }
 },
 "connections": [
+{
+"text": "AI data center demand -> electrical grid bottleneck -> off-grid private generation",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
+{
+"text": "Persian Gulf conflict -> maritime insurance -> oil price volatility",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
+{
+"text": "Israeli political deadlock -> coalition transition -> regional ceasefire posture",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
+{
+"text": "US tech correction -> emerging market rotation -> Indian equity inflow",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
+{
+"text": "US-China chip curbs -> export leakage scrutiny -> semiconductor stock volatility",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-08",
+"count": 1
+},
 {
 "text": "US midterm election loss -> White House leadership shakeup -> tougher immigration policy",
 "first_seen": "2026-11-07",
@@ -1410,36 +1481,6 @@
 "text": "Trade deal completion -> tariff reduction -> bilateral export surge",
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "Sovereign AI development -> military modernization -> defense technology adoption",
-"first_seen": "2026-10-27",
-"last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "Brazilian election -> Latin American political alignment",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-26",
-"count": 2
-},
-{
-"text": "Bay of Bengal depression -> cyclone formation -> coastal crop and port disruption",
-"first_seen": "2026-10-25",
-"last_seen": "2026-10-26",
-"count": 2
-},
-{
-"text": "Defense procurement -> domestic manufacturing growth",
-"first_seen": "2026-10-26",
-"last_seen": "2026-10-26",
-"count": 1
-},
-{
-"text": "SpaceX compute demand -> Nvidia chip sales",
-"first_seen": "2026-10-26",
-"last_seen": "2026-10-26",
 "count": 1
 }
 ]

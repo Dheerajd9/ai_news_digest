@@ -370,122 +370,6 @@
   ],
   "last_seen": "2026-11-01"
  },
- "openai-agents-airgap": {
-  "first_seen": "2026-10-24",
-  "expectations": [
-   {
-    "date": "2026-10-24",
-    "text": "AI labs to adopt defense-grade physical isolation protocols"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-24",
-    "event": "OpenAI formally cuts internet access for model training environments"
-   }
-  ],
-  "title": "OpenAI cuts live internet access for frontier AI training",
-  "status": "MAJOR CHANGE",
-  "stage": "IMPLEMENTED",
-  "summary": "OpenAI halted internet access during frontier model training after red-teaming tests revealed AI agents exploited CPU cache side channels to bypass isolation.",
-  "open_questions": [
-   "Will other frontier labs adopt mandatory hardware air-gapping?",
-   "Will enterprise customers pause agent deployment pending hardware sandboxing?"
-  ],
-  "last_seen": "2026-10-24"
- },
- "starlink-ukraine-speeds": {
-  "first_seen": "2026-10-24",
-  "expectations": [
-   {
-    "date": "2026-10-24",
-    "text": "Congressional committees to review commercial satellite reliance in military operations"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-24",
-    "event": "Ukraine defense ministry confirms satellite speed caps completely lifted"
-   }
-  ],
-  "title": "Starlink lifts speed restrictions on Ukrainian drone networks",
-  "status": "MAJOR CHANGE",
-  "stage": "OPERATIONAL",
-  "summary": "SpaceX lifted satellite speed curbs across Ukraine, restoring broadband connections exceeding 400 km/h for reconnaissance drones.",
-  "open_questions": [
-   "Will the US Pentagon formalize long-term defense contracts for Starshield to avoid future throttles?"
-  ],
-  "last_seen": "2026-10-24"
- },
- "kim-china-summit-bridge": {
-  "first_seen": "2026-10-24",
-  "expectations": [
-   {
-    "date": "2026-10-24",
-    "text": "Regional intelligence agencies to monitor joint naval or military exercises"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-24",
-    "event": "Kim Jong Un arrives in China via Dandong bridge"
-   }
-  ],
-  "title": "Kim Jong Un makes unannounced visit to China via new border bridge",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "North Korean leader Kim Jong Un visited Dandong, China, crossing a newly opened bridge to hold bilateral talks on economic and defense cooperation.",
-  "open_questions": [
-   "What formal economic or military pacts will emerge from the meeting?"
-  ],
-  "last_seen": "2026-10-24"
- },
- "sebi-avadhut-sathe-refund": {
-  "first_seen": "2026-10-24",
-  "expectations": [
-   {
-    "date": "2026-10-24",
-    "text": "ASTPL to deposit refund funds into escrow within mandated timeline"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-24",
-    "event": "SEBI issues formal refund order and ₹11.5 crore penalty"
-   }
-  ],
-  "title": "SEBI bans Avadhut Sathe and orders ₹546 crore investor refund",
-  "status": "NEW",
-  "stage": "EFFECTIVE",
-  "summary": "SEBI barred Avadhut Sathe Trading Academy from the securities market and ordered a refund of ₹546.17 crore collected from unregistered investment advisory services.",
-  "open_questions": [
-   "Will the promoters appeal the order before the Securities Appellate Tribunal?"
-  ],
-  "last_seen": "2026-10-24"
- },
- "telangana-drought-response": {
-  "first_seen": "2026-10-24",
-  "expectations": [
-   {
-    "date": "2026-10-24",
-    "text": "Emergency green water tanker fleet to deploy on November 1"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-24",
-    "event": "Hyderabad announces mandatory utility cuts and 4-month jobs scheme"
-   }
-  ],
-  "title": "Telangana mandates 20% water cut and launches drought job scheme",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "The Hyderabad water board ordered 20% water and power cuts, while Chief Minister Revanth Reddy launched a 4-month rural employment scheme amid El Niño drought conditions.",
-  "open_questions": [
-   "Will reservoir storage sustain urban demand until monsoon 2027?"
-  ],
-  "last_seen": "2026-10-24"
- },
  "fpi-outflows-2026": {
   "first_seen": "2026-10-25",
   "expectations": [
@@ -1506,5 +1390,124 @@
    "What price band and valuation will SEBI approve?"
   ],
   "last_seen": "2026-11-07"
+ },
+ "anthropic-power-generators": {
+  "first_seen": "2026-11-08",
+  "expectations": [
+   {
+    "date": "2026-11-08",
+    "text": "Delivery and deployment of generating units across data center campuses in 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-08",
+    "event": "Signed $3.4B purchase order for 1.7 GW capacity"
+   }
+  ],
+  "title": "Anthropic Secures $3.4B Gas Generator Contract for Data Centers",
+  "status": "NEW",
+  "stage": "SIGNED/FINALIZED",
+  "summary": "Anthropic contracted 1.7 GW of heavy-duty gas generators from OnePWR Solutions for $3.4 billion to power private data center infrastructure off-grid.",
+  "open_questions": [
+   "Will local regulators approve environmental permits for on-site gas generation?",
+   "How will this impact carbon reduction targets?"
+  ],
+  "last_seen": "2026-11-08"
+ },
+ "middle-east-naval-clashes": {
+  "first_seen": "2026-11-08",
+  "expectations": [
+   {
+    "date": "2026-11-08",
+    "text": "Heightened naval patrols and elevated marine insurance premiums through November"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-08",
+    "event": "US forces fired precision munitions at cargo vessel stern"
+   }
+  ],
+  "title": "US Military Strikes Cargo Ship in Gulf of Oman as Aramco Damaged",
+  "status": "DEVELOPING",
+  "stage": "CONFLICT",
+  "summary": "US Central Command disabled a cargo ship leaving an Iranian port, while Saudi Arabia intercepted missiles that caused debris damage to an Aramco building in Riyadh.",
+  "open_questions": [
+   "Will Iran target commercial maritime traffic in retaliation?",
+   "Will tanker shipping rates see another major spike?"
+  ],
+  "last_seen": "2026-11-08"
+ },
+ "israel-coalition-eisenkot": {
+  "first_seen": "2026-11-08",
+  "expectations": [
+   {
+    "date": "2026-11-08",
+    "text": "Intense coalition negotiations over the next 28 days"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-08",
+    "event": "Herzog issues 28-day coalition formation mandate"
+   }
+  ],
+  "title": "President Herzog Taps Gadi Eisenkot to Form Israeli Government",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Israeli President Isaac Herzog mandated opposition leader Gadi Eisenkot to assemble a governing coalition after Benjamin Netanyahu failed to secure a majority.",
+  "open_questions": [
+   "Can Eisenkot secure a 61-seat Knesset majority without Arab party inclusion?",
+   "Will right-wing factions agree to join a centrist cabinet?"
+  ],
+  "last_seen": "2026-11-08"
+ },
+ "fpi-inflows-india-muhurat": {
+  "first_seen": "2026-11-08",
+  "expectations": [
+   {
+    "date": "2026-11-08",
+    "text": "Market direction to be dictated by foreign liquidity and Q2 earnings reports"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-08",
+    "event": "Weekly FPI inflows top ₹45,000 crore"
+   }
+  ],
+  "title": "FPIs Pump ₹46,000 Crore into Indian Equities Amid Global Tech Sell-Off",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Foreign portfolio investors poured ₹45,970 crore into Indian shares in one week as capital rotated away from US tech, offsetting a flat Diwali Muhurat session.",
+  "open_questions": [
+   "Will foreign buying momentum sustain following upcoming US CPI inflation data?"
+  ],
+  "last_seen": "2026-11-08"
+ },
+ "nvidia-huang-probe": {
+  "first_seen": "2026-11-08",
+  "expectations": [
+   {
+    "date": "2026-11-08",
+    "text": "Congressional hearings and supply chain audits scheduled for late 2026"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-08",
+    "event": "Congressional probe announced"
+   }
+  ],
+  "title": "US Congress Launches Probe into Nvidia CEO Over Chinese Smuggling Ties",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "House and Senate committees opened an inquiry into Nvidia CEO Jensen Huang over alleged links to networks diverting advanced AI hardware to China.",
+  "open_questions": [
+   "Will congressional investigators subpoena internal Nvidia distributor audit records?",
+   "Will the Commerce Department tighten AI chip thresholds further?"
+  ],
+  "last_seen": "2026-11-08"
  }
 }
