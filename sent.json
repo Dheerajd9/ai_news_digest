@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/",
-   "title": "Anthropic updates Claude to stop it from recreating existing video games",
-   "at": "2026-11-02T13:13:07+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/11/02/openai-abu-dhabi-ai-deals.html",
-   "title": "OpenAI deepens Abu Dhabi foothold as Sam Altman inks deals spanning energy, government and investment",
-   "at": "2026-11-02T13:13:07+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/11/02/openai-sam-altman-samsung-sk-south-korea.html",
-   "title": "Sam Altman makes surprise South Korea visit as OpenAI builds on chip partnerships",
-   "at": "2026-11-02T13:13:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/google-wants-video-ai-to-understand-what-people-need-as-they-workgoogle-researchers-are-teaching-a-video-assistant-when-to-offer-help/",
-   "title": "Google wants video AI to understand what people need as they work",
-   "at": "2026-11-02T13:13:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/adobe-is-testing-how-well-ai-agents-can-use-editing-tools-like-a-photoshop-professional-would/",
-   "title": "Adobe is testing how well AI agents can use editing tools like a Photoshop professional would",
-   "at": "2026-11-02T13:13:07+00:00"
-  },
-  {
    "link": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
    "title": "Anthropic reports $17 billion in Q3 revenue, purchase commitments of $895.4 billion in revised S-1",
    "at": "2026-11-03T13:12:12+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/",
    "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
    "at": "2026-11-07T13:11:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/",
+   "title": "Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation",
+   "at": "2026-11-08T13:14:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking/",
+   "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
+   "at": "2026-11-08T13:14:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/",
+   "title": "AI coding agents still need human cleanup on nearly three out of four tasks in a real-world test",
+   "at": "2026-11-08T13:14:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds/",
+   "title": "AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds",
+   "at": "2026-11-08T13:14:31+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away/",
+   "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
+   "at": "2026-11-08T13:14:31+00:00"
   }
  ]
 }
