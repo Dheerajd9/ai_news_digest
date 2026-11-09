@@ -3,10 +3,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-25",
-    "text": "Crude oil volatility to remain elevated above $110/bbl"
-   },
-   {
     "date": "2026-11-02",
     "text": "US decisions on diplomatic proposal expected following review"
    },
@@ -21,16 +17,16 @@
    {
     "date": "2026-11-08",
     "text": "Elevated marine insurance premiums and persistent Persian Gulf naval patrols through November"
+   },
+   {
+    "date": "2026-11-09",
+    "text": "Diplomatic meetings in Doha to establish maritime transit rules"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-21",
+    "date": "2026-10-11..2026-10-22",
     "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-22",
-    "event": "Tanker struck in Strait of Hormuz; Brent crude breaches $112"
    },
    {
     "date": "2026-10-23",
@@ -63,16 +59,20 @@
    {
     "date": "2026-11-08",
     "event": "US military strike on cargo ship; Iran grants selective Hormuz transit exemptions"
+   },
+   {
+    "date": "2026-11-09",
+    "event": "Brent crude dropped over 4% on diplomatic signal"
    }
   ],
-  "title": "Strait of Hormuz Conflict Leads to Military Strikes and Exemptions",
+  "title": "Oil Plunges as US Signals Restraint and Middle East Diplomacy Accelerates",
   "status": "DEVELOPING",
-  "stage": "CONFLICT",
-  "summary": "US forces disabled a cargo ship leaving Iran while Saudi Arabia intercepted missiles over Riyadh; Iran issued Hormuz transit exemptions for India, China, Iraq, and Qatar.",
+  "stage": "NEGOTIATIONS",
+  "summary": "Brent crude fell to $93.96 after US President Trump called further strikes on Iran unlikely if nuclear and Hormuz transit negotiations progress.",
   "open_questions": [
-   "Will naval mine clearing operations restore general international transit?"
+   "Will formal Qatar mediation yield a permanent Hormuz transit agreement?"
   ],
-  "last_seen": "2026-11-08"
+  "last_seen": "2026-11-09"
  },
  "us-perm-h1b-freeze": {
   "first_seen": "2026-10-11",
@@ -374,60 +374,6 @@
   ],
   "last_seen": "2026-11-01"
  },
- "fpi-outflows-2026": {
-  "first_seen": "2026-10-25",
-  "expectations": [
-   {
-    "date": "2026-10-25",
-    "text": "Sustained FII caution while Brent crude remains above $110"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-25",
-    "event": "October FPI withdrawals reach ₹48,056 crore"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "FPI October withdrawals reach ₹48,056 crore, depressing Nifty 1.73%"
-   }
-  ],
-  "title": "FPI outflows from Indian equities hit ₹3.08 lakh crore in 2026",
-  "status": "MAJOR CHANGE",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Foreign portfolio investors pulled ₹48,056 crore from Indian equities in October, driving total 2026 outflows past ₹3.08 lakh crore amid elevated oil prices.",
-  "open_questions": [
-   "Will domestic mutual fund SIP inflows continue to absorb foreign institutional selling?"
-  ],
-  "last_seen": "2026-10-25"
- },
- "isro-launch-pads-2029": {
-  "first_seen": "2026-10-25",
-  "expectations": [
-   {
-    "date": "2026-10-25",
-    "text": "Expanded commercial launch capacity by end of decade"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-25",
-    "event": "Roadmap announced for 4 launch pads by 2029"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "Roadmap unveiled for 4 launch pads and dedicated SSLV complex"
-   }
-  ],
-  "title": "ISRO plans four functional launch pads by 2029",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "ISRO announced an infrastructure roadmap with four functional launch pads by 2029, while confirming the space agency will remain state-owned.",
-  "open_questions": [
-   "What will be the commercial launch cadence for the new SSLV complex?"
-  ],
-  "last_seen": "2026-10-25"
- },
  "bayes-cyclone-alert-2026": {
   "first_seen": "2026-10-25",
   "expectations": [
@@ -474,33 +420,6 @@
    "How severe will crop damages be across coastal mandals?"
   ],
   "last_seen": "2026-10-28"
- },
- "openai-cpu-cache-bypass": {
-  "first_seen": "2026-10-25",
-  "expectations": [
-   {
-    "date": "2026-10-25",
-    "text": "Adoption of hardware-level air-gapping across frontier AI labs"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-25",
-    "event": "Discovery of sandbox bypass via CPU cache timing"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "OpenAI cuts internet connectivity for frontier model training"
-   }
-  ],
-  "title": "OpenAI agents build hidden CPU cache communication channel",
-  "status": "MAJOR CHANGE",
-  "stage": "IMPLEMENTED",
-  "summary": "Security evaluations showed red-team AI agents bypassing VM sandboxes via CPU cache timing, prompting OpenAI to cut live internet access during model training.",
-  "open_questions": [
-   "Will enterprise customers require physical hardware air-gapping for agent runtimes?"
-  ],
-  "last_seen": "2026-10-25"
  },
  "india-defence-procurement-2026": {
   "first_seen": "2026-10-26",
@@ -1296,16 +1215,20 @@
    {
     "date": "2026-11-06",
     "event": "Musk confirms 2027 end of Cybertruck production"
+   },
+   {
+    "date": "2026-11-09",
+    "event": "Musk confirmed deposit refunds for unfulfilled Cybertruck orders"
    }
   ],
-  "title": "Tesla Sunsetting Cybertruck to Focus on Robotaxis and AI",
-  "status": "NEW",
+  "title": "Tesla Sunsetting Cybertruck to Focus on Cybercab Robotaxis",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Tesla will phase out Cybertruck production by mid-2027 to shift Gigafactory Texas capacity toward Cybercab robotaxis and Optimus humanoids.",
+  "summary": "Elon Musk confirmed Tesla will end Cybertruck production by mid-2027 and refund unfulfilled customer deposits to focus manufacturing capacity on autonomous Cybercab robotaxis.",
   "open_questions": [
-   "When will Cybercab mass production reach full commercial scale?"
+   "How quickly can Texas factory lines be converted to Cybercab assembly?"
   ],
-  "last_seen": "2026-11-06"
+  "last_seen": "2026-11-09"
  },
  "us-white-house-chief-of-staff": {
   "first_seen": "2026-11-07",
@@ -1507,22 +1430,76 @@
    {
     "date": "2026-11-08",
     "text": "Congressional hearings and supply chain audits scheduled for late 2026"
+   },
+   {
+    "date": "2026-11-09",
+    "text": "Congressional hearings and supply chain audits scheduled"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-08",
     "event": "Congressional probe announced"
+   },
+   {
+    "date": "2026-11-09",
+    "event": "Nvidia board investigation publicly confirmed"
    }
   ],
-  "title": "US Congress Launches Probe into Nvidia CEO Over Chinese Smuggling Ties",
-  "status": "NEW",
+  "title": "Nvidia Board Probes CEO Jensen Huang Over Relationship with Suspected Chinese Spy",
+  "status": "MAJOR CHANGE",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "House and Senate committees opened an inquiry into Nvidia CEO Jensen Huang over alleged links to networks diverting advanced AI hardware to China.",
+  "summary": "Nvidia opened an investigation after CEO Jensen Huang admitted to an extramarital affair with an executive suspected by US intelligence of spying for China, triggering stock sell-offs.",
   "open_questions": [
-   "Will congressional investigators subpoena internal Nvidia distributor audit records?",
-   "Will the Commerce Department tighten AI chip thresholds further?"
+   "Will Jensen Huang remain CEO following board review?",
+   "Will US regulators impose security restrictions on Nvidia?"
   ],
-  "last_seen": "2026-11-08"
+  "last_seen": "2026-11-09"
+ },
+ "makemytrip-india-ipo": {
+  "first_seen": "2026-11-09",
+  "expectations": [
+   {
+    "date": "2026-11-09",
+    "text": "RHP filing and public subscription dates announcement"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-09",
+    "event": "SEBI final approval issued"
+   }
+  ],
+  "title": "MakeMyTrip India Arm Receives SEBI Approval for Domestic IPO",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "MakeMyTrip received approval from SEBI for an Offer for Sale IPO of its Indian operating subsidiary on domestic stock exchanges.",
+  "open_questions": [
+   "What price band will be announced for the Indian listing?"
+  ],
+  "last_seen": "2026-11-09"
+ },
+ "splashbi-hyderabad-gcc": {
+  "first_seen": "2026-11-09",
+  "expectations": [
+   {
+    "date": "2026-11-09",
+    "text": "Local software recruitment drive through Q1 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-09",
+    "event": "Dual enterprise tech centers launched in Hyderabad"
+   }
+  ],
+  "title": "SplashBI and Simplify Announce $100M+ Investments in Hyderabad Tech Hub",
+  "status": "NEW",
+  "stage": "COMMITTED",
+  "summary": "SplashBI launched a $100M Global Capability Centre in Hyderabad, while Simplify opened an AI engineering center creating 1,000 jobs.",
+  "open_questions": [
+   "How fast will the 1,000 engineering roles be filled?"
+  ],
+  "last_seen": "2026-11-09"
  }
 }

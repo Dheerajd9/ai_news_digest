@@ -35,7 +35,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 8,
+"count": 9,
 "stories": [
 "us-china-chip-smuggling",
 "microsoft-maia-chip",
@@ -46,7 +46,7 @@
 "openai-google-tpu-deal",
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -302,18 +302,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 36,
+"count": 37,
 "stories": [
-"bayes-cyclone-alert-2026",
 "sarvam-ai-defence-pact",
 "india-gst-record-oct-2026",
 "sebi-ltcg-tax-proposal",
 "india-critical-minerals-scheme",
 "us-iran-sanctions-india",
 "cosmoserve-space-debris-hyderabad",
-"us-perm-h1b-freeze"
+"us-perm-h1b-freeze",
+"middle-east-escalation"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -381,18 +381,18 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 17,
+"count": 18,
 "stories": [
-"jio-platforms-mega-ipo",
 "sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
 "sebi-ltcg-tax-proposal",
 "razorpay-ipo-approval",
 "sebi-nri-digital-kyc",
 "cocacola-india-ipo",
-"fpi-inflows-india-muhurat"
+"fpi-inflows-india-muhurat",
+"makemytrip-india-ipo"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "Nirmala Sitharaman": {
 "first_seen": "2026-10-16",
@@ -478,14 +478,6 @@
 ],
 "last_seen": "2026-10-19"
 },
-"JD Vance": {
-"first_seen": "2026-10-18",
-"count": 1,
-"stories": [
-"vance-h1b-rhetoric"
-],
-"last_seen": "2026-10-18"
-},
 "WTI": {
 "first_seen": "2026-10-18",
 "count": 2,
@@ -570,12 +562,12 @@
 },
 "Tesla": {
 "first_seen": "2026-10-21",
-"count": 3,
+"count": 4,
 "stories": [
 "tesla-spacex-merger-talks",
 "tesla-cybertruck-sunset"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-09"
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
@@ -590,7 +582,7 @@
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 6,
+"count": 7,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
@@ -598,7 +590,7 @@
 "spacex-apollo-ai-compute",
 "tesla-cybertruck-sunset"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-09"
 },
 "Vladimir Putin": {
 "first_seen": "2026-10-21",
@@ -1083,12 +1075,12 @@
 },
 "US Central Command": {
 "first_seen": "2026-11-08",
-"count": 2,
+"count": 3,
 "stories": [
 "middle-east-naval-clashes",
 "middle-east-escalation"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "Gadi Eisenkot": {
 "first_seen": "2026-11-08",
@@ -1116,22 +1108,70 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 1,
+"count": 2,
 "stories": [
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
+},
+"MakeMyTrip": {
+"first_seen": "2026-11-09",
+"count": 1,
+"stories": [
+"makemytrip-india-ipo"
+],
+"last_seen": "2026-11-09"
+},
+"SplashBI": {
+"first_seen": "2026-11-09",
+"count": 1,
+"stories": [
+"splashbi-hyderabad-gcc"
+],
+"last_seen": "2026-11-09"
+},
+"Simplify": {
+"first_seen": "2026-11-09",
+"count": 1,
+"stories": [
+"splashbi-hyderabad-gcc"
+],
+"last_seen": "2026-11-09"
 }
 },
 "connections": [
 {
-"text": "AI data center demand -> electrical grid bottleneck -> off-grid private generation",
+"text": "Persian Gulf conflict -> maritime insurance -> oil price volatility",
 "first_seen": "2026-11-08",
-"last_seen": "2026-11-08",
+"last_seen": "2026-11-09",
+"count": 3
+},
+{
+"text": "Consumer market growth -> promoter equity monetization -> Indian stock listing",
+"first_seen": "2026-11-07",
+"last_seen": "2026-11-09",
 "count": 2
 },
 {
-"text": "Persian Gulf conflict -> maritime insurance -> oil price volatility",
+"text": "EV truck manufacturing -> autonomous Cybercab retooling -> physical AI focus",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-09",
+"count": 2
+},
+{
+"text": "US-China chip curbs -> foreign intelligence scrutiny -> executive board investigation",
+"first_seen": "2026-11-09",
+"last_seen": "2026-11-09",
+"count": 1
+},
+{
+"text": "Commercial space tech -> orbital debris cleanup -> Hyderabad tech expansion",
+"first_seen": "2026-11-09",
+"last_seen": "2026-11-09",
+"count": 1
+},
+{
+"text": "AI data center demand -> electrical grid bottleneck -> off-grid private generation",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
 "count": 2
@@ -1185,12 +1225,6 @@
 "count": 1
 },
 {
-"text": "Consumer market growth -> promoter equity monetization -> Indian stock listing",
-"first_seen": "2026-11-07",
-"last_seen": "2026-11-07",
-"count": 1
-},
-{
 "text": "Immigration level plan -> temporary worker caps -> permanent residency transition",
 "first_seen": "2026-11-06",
 "last_seen": "2026-11-06",
@@ -1198,12 +1232,6 @@
 },
 {
 "text": "Frontier AI models -> cybersecurity defense -> automated code auditing",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-06",
-"count": 1
-},
-{
-"text": "EV truck manufacturing -> autonomous Cybercab retooling -> physical AI focus",
 "first_seen": "2026-11-06",
 "last_seen": "2026-11-06",
 "count": 1
@@ -1468,18 +1496,6 @@
 },
 {
 "text": "AI compute spending -> corporate restructuring -> Big Tech workforce reduction",
-"first_seen": "2026-10-27",
-"last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "AI S-1 filing -> tech market confidence -> US stock market rally",
-"first_seen": "2026-10-27",
-"last_seen": "2026-10-27",
-"count": 1
-},
-{
-"text": "Humanitarian crisis -> diplomatic intervention -> localized ceasefire",
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27",
 "count": 1
