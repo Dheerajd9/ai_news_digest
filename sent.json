@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/openai-says-gpt-6-astra-designed-a-hardware-device-from-scratch-in-under-a-week/",
-   "title": "OpenAI says GPT-6 Astra designed a hardware device from scratch in under a week",
-   "at": "2026-11-04T13:13:26+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
-   "title": "Anthropic is working on a system to prove AI models\u2019 identity",
-   "at": "2026-11-04T13:13:26+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
-   "title": "Apple starts giving Siri AI access to third-party apps",
-   "at": "2026-11-04T13:13:26+00:00"
-  },
-  {
-   "link": "https://www.cnbc.com/2026/11/03/meta-bond-sale-ai-funding.html",
-   "title": "Meta seeks to raise up to $25 billion in debt sale as AI spending jumps",
-   "at": "2026-11-04T13:13:26+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
-   "title": "Google is entirely disabling Search in schools that don\u2019t want AI",
-   "at": "2026-11-04T13:13:26+00:00"
-  },
-  {
    "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRi00VEVTUjJObWdXNGNHYl9TeVRQZnBGVFA3d01KbFFuRS1fX1lLc2dYVlQ0NzUtNWRoZzVFSTJINkp6YnlQYTY3dXZRRmFHa2pLZWRaREZyMVVwUFFWNERqN2JOQ2F5SEhER1NRQlZLUWgyR19MRjJhVDAteGJnUzl5RUFUeDU3TENnU0dkWnJHT0NneWV1amZkLVVUdmpIbll1S0wxMzkzZkNCN1pNTlhicktPaEVFVGxJ?oc=5",
    "title": "ChatGPT Search Hits 20% Of Google\u2019s Query Volume, OpenAI Says",
    "at": "2026-11-05T13:13:13+00:00"
@@ -149,6 +124,31 @@
    "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPZHU5X2d5Z1FMS3hUSVBUZ0ZYSXAyd2xXb0ZhVF9tUzdJclpnWW1DOTFSRnBJS1FGa1JIYk5DU1lNTG9uU29UUHRNZWVJek1SN1pkaFY5REpmdFZSN3NpRkhhWk9qajRZOGRmc3FqYUxZa0JjYVhJcmJIRnJVakdDemtQS1lYLVREUUZvcVp5LWYxUDZ4WXljQW93cU9UX2ZxRl90UnNxTXpDQnk3RHpPdjBSTWo1Z1EzUVBvSENB?oc=5",
    "title": "OpenAI says its new cyber-focused AI model found thousands of Linux kernel vulnerabilities",
    "at": "2026-11-09T13:15:17+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/",
+   "title": "Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its IPO",
+   "at": "2026-11-10T13:12:28+00:00"
+  },
+  {
+   "link": "https://deepmind.google/blog/introducing-alphaproof-code/",
+   "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+   "at": "2026-11-10T13:12:28+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-kicks-off-ipo-roadshow-offering-shares-at-70-to-78-and-targeting-a-trillion-dollar-valuation/",
+   "title": "Anthropic kicks off IPO roadshow, offering shares at $70 to $78 and targeting a trillion-dollar valuation",
+   "at": "2026-11-10T13:12:28+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/meta-launches-muse-ember-a-small-ai-model-built-for-the-repetitive-work-agents-actually-do/",
+   "title": "Meta launches Muse Ember, a small AI model built for the repetitive work agents actually do",
+   "at": "2026-11-10T13:12:28+00:00"
+  },
+  {
+   "link": "https://openai.com/index/control-room",
+   "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+   "at": "2026-11-10T13:12:28+00:00"
   }
  ]
 }
