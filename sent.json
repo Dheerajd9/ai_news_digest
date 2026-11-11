@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPRi00VEVTUjJObWdXNGNHYl9TeVRQZnBGVFA3d01KbFFuRS1fX1lLc2dYVlQ0NzUtNWRoZzVFSTJINkp6YnlQYTY3dXZRRmFHa2pLZWRaREZyMVVwUFFWNERqN2JOQ2F5SEhER1NRQlZLUWgyR19MRjJhVDAteGJnUzl5RUFUeDU3TENnU0dkWnJHT0NneWV1amZkLVVUdmpIbll1S0wxMzkzZkNCN1pNTlhicktPaEVFVGxJ?oc=5",
-   "title": "ChatGPT Search Hits 20% Of Google\u2019s Query Volume, OpenAI Says",
-   "at": "2026-11-05T13:13:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/gpt-6-astra-sees-the-matrix-and-reprograms-other-ai-models-directly-through-their-weights/",
-   "title": "GPT-6 Astra sees the matrix and reprograms other AI models directly through their weights",
-   "at": "2026-11-05T13:13:13+00:00"
-  },
-  {
-   "link": "https://openai.com/index/openai-to-acquire-pierre",
-   "title": "OpenAI to acquire Pierre Computer Company, Inc.",
-   "at": "2026-11-05T13:13:13+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropics-new-prototype-proves-which-model-wrote-an-ai-response-without-exposing-its-weights/",
-   "title": "Anthropic's new prototype proves which model wrote an AI response without exposing its weights",
-   "at": "2026-11-05T13:13:13+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
-   "title": "Apple is reportedly cutting budgets for its internal AI usage",
-   "at": "2026-11-05T13:13:13+00:00"
-  },
-  {
    "link": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
    "title": "OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them",
    "at": "2026-11-06T13:11:24+00:00"
@@ -149,6 +124,31 @@
    "link": "https://openai.com/index/control-room",
    "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
    "at": "2026-11-10T13:12:28+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
+   "title": "Google releases Gemini 4 Carbon with agent \u2018swarm\u2019 feature",
+   "at": "2026-11-11T13:11:42+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-turns-claude-into-a-full-workspace-with-plugins-spreadsheets-whiteboards-and-soon-meeting-notes/",
+   "title": "Anthropic turns Claude into a full workspace with Plugins, spreadsheets, whiteboards, and soon Meeting notes",
+   "at": "2026-11-11T13:11:42+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions/",
+   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
+   "at": "2026-11-11T13:11:42+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/google-deepminds-gemini-robotics-2-5-scores-96-percent-sorting-metal-parts-in-a-mercedes-benz-assembly-pilot/",
+   "title": "Google DeepMind's Gemini Robotics 2.5 scores 96 percent sorting metal parts in a Mercedes-Benz assembly pilot",
+   "at": "2026-11-11T13:11:42+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+   "title": "Meta\u2019s AI agent Muse lands on Apple Watch and Android Wear OS",
+   "at": "2026-11-11T13:11:42+00:00"
   }
  ]
 }
