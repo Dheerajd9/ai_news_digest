@@ -228,10 +228,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-10-27",
-    "text": "Institutional investor roadshows to commence ahead of late November listing"
-   },
-   {
     "date": "2026-11-01",
     "text": "Institutional roadshows ahead of mid-November pricing"
    },
@@ -246,16 +242,16 @@
    {
     "date": "2026-11-06",
     "text": "Institutional roadshow reviews ahead of potential listing decisions"
+   },
+   {
+    "date": "2026-11-11",
+    "text": "Nasdaq trading debut on November 19 under ticker ANT"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-15",
-    "event": "Q3 revenue of $16.8B disclosed"
-   },
-   {
-    "date": "2026-10-15",
-    "event": "Valuation target lowered by investors; METR audit access granted"
+    "date": "2026-10-15..2026-10-15",
+    "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted"
    },
    {
     "date": "2026-10-21",
@@ -288,16 +284,21 @@
    {
     "date": "2026-11-06",
     "event": "Market rout prompts investor caution over $1.5 trillion IPO valuation"
+   },
+   {
+    "date": "2026-11-11",
+    "event": "IPO price band set at $70-$78 per share"
    }
   ],
-  "title": "Anthropic IPO Facing Valuation Scrutiny After Tech Sell-Off",
-  "status": "DEVELOPING",
+  "title": "Anthropic Sets IPO Price Range Targeting $1.4 Trillion Valuation",
+  "status": "MAJOR CHANGE",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Investors questioned Anthropic's projected $1.5 trillion valuation and IPO timeline following global tech stock declines post-US midterms.",
+  "summary": "Anthropic set its IPO price range at $70 to $78 per share, aiming for up to a $1.404 trillion valuation for its scheduled November 19 Nasdaq listing.",
   "open_questions": [
-   "Will Anthropic adjust its IPO valuation or delay the listing window?"
+   "Will institutional demand push final pricing to the top of the range?",
+   "How will public markets evaluate high compute capex liabilities?"
   ],
-  "last_seen": "2026-11-06"
+  "last_seen": "2026-11-11"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -420,122 +421,6 @@
    "How severe will crop damages be across coastal mandals?"
   ],
   "last_seen": "2026-10-28"
- },
- "india-defence-procurement-2026": {
-  "first_seen": "2026-10-26",
-  "expectations": [
-   {
-    "date": "2026-10-26",
-    "text": "Ramp up in domestic defence manufacturing order books"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-26",
-    "event": "DAC clears ₹2.12 lakh crore defence packages"
-   }
-  ],
-  "title": "India clears ₹2.12 lakh crore defence capital acquisitions",
-  "status": "NEW",
-  "stage": "APPROVED/PASSED",
-  "summary": "India's Defence Acquisition Council approved ₹2.12 lakh crore in military buys including drones, artillery, and missile defense.",
-  "open_questions": [
-   "What is the timeline for formal contract signing with domestic manufacturers?"
-  ],
-  "last_seen": "2026-10-26"
- },
- "spacex-apollo-ai-compute": {
-  "first_seen": "2026-10-26",
-  "expectations": [
-   {
-    "date": "2026-10-26",
-    "text": "Delivery of next-generation Nvidia chips to SpaceX data facilities in 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-26",
-    "event": "SpaceX signs $40 billion debt deal with Apollo"
-   }
-  ],
-  "title": "SpaceX closes $40 billion financing deal with Apollo for AI chips",
-  "status": "NEW",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "SpaceX finalized a $40 billion debt facility with Apollo Global Management to fund AI compute infrastructure and purchase Nvidia Vera Rubin chips.",
-  "open_questions": [
-   "How will compute capacity be divided between SpaceX ground systems and xAI?"
-  ],
-  "last_seen": "2026-10-26"
- },
- "microsoft-60k-buyouts": {
-  "first_seen": "2026-10-27",
-  "expectations": [
-   {
-    "date": "2026-10-27",
-    "text": "Employees up to Level 70 must decide on voluntary severance before December 31 deadline"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-27",
-    "event": "Voluntary buyout offer launched with Dec 31 deadline"
-   }
-  ],
-  "title": "Microsoft offers voluntary buyouts to 60,000 employees globally",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Microsoft offered voluntary exit packages to 60,000 employees across the US, India, UK, and Canada as it reallocates capital to AI compute.",
-  "open_questions": [
-   "How many employees in India will take the voluntary exit?",
-   "Will involuntary layoffs follow after December 31?"
-  ],
-  "last_seen": "2026-10-27"
- },
- "melania-ukraine-ceasefire": {
-  "first_seen": "2026-10-27",
-  "expectations": [
-   {
-    "date": "2026-10-27",
-    "text": "Red Cross aid convoys to deliver food and medicine during the humanitarian pause"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-27",
-    "event": "Local truce agreement signed and implemented"
-   }
-  ],
-  "title": "Melania Trump brokers localized one-city ceasefire in Ukraine",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "A temporary humanitarian ceasefire took effect in a besieged Ukrainian city following mediation by US First Lady Melania Trump.",
-  "open_questions": [
-   "Will the localized ceasefire expand to neighboring municipalities?"
-  ],
-  "last_seen": "2026-10-27"
- },
- "sarvam-ai-defence-pact": {
-  "first_seen": "2026-10-27",
-  "expectations": [
-   {
-    "date": "2026-10-27",
-    "text": "Sarvam AI to begin deploying localized military LLM tools in late 2026"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-27",
-    "event": "5-year defense AI agreement signed"
-   }
-  ],
-  "title": "Sarvam AI signs 5-year MoU with Indian Defence Ministry",
-  "status": "NEW",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "Indian AI firm Sarvam AI signed a 5-year agreement with the Ministry of Defence to build sovereign AI tools for all three military branches.",
-  "open_questions": [
-   "What specific classified AI models will be deployed on military servers?"
-  ],
-  "last_seen": "2026-10-27"
  },
  "flvio-bolsonaro-us-visa": {
   "first_seen": "2026-10-28",
@@ -1434,6 +1319,10 @@
    {
     "date": "2026-11-09",
     "text": "Congressional hearings and supply chain audits scheduled"
+   },
+   {
+    "date": "2026-11-11",
+    "text": "Independent legal report and congressional supply chain reviews"
    }
   ],
   "timeline": [
@@ -1444,17 +1333,21 @@
    {
     "date": "2026-11-09",
     "event": "Nvidia board investigation publicly confirmed"
+   },
+   {
+    "date": "2026-11-11",
+    "event": "Law firm Wachtell Lipton hired by board"
    }
   ],
-  "title": "Nvidia Board Probes CEO Jensen Huang Over Relationship with Suspected Chinese Spy",
-  "status": "MAJOR CHANGE",
+  "title": "Nvidia Board Retains Wachtell Lipton to Probe CEO Relationship",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Nvidia opened an investigation after CEO Jensen Huang admitted to an extramarital affair with an executive suspected by US intelligence of spying for China, triggering stock sell-offs.",
+  "summary": "Nvidia's board engaged law firm Wachtell Lipton to investigate CEO Jensen Huang's admitted affair with a former executive linked to foreign intelligence.",
   "open_questions": [
    "Will Jensen Huang remain CEO following board review?",
-   "Will US regulators impose security restrictions on Nvidia?"
+   "Will US regulators impose additional security restrictions on Nvidia?"
   ],
-  "last_seen": "2026-11-09"
+  "last_seen": "2026-11-11"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1501,5 +1394,74 @@
    "How fast will the 1,000 engineering roles be filled?"
   ],
   "last_seen": "2026-11-09"
+ },
+ "us-cpi-inflation-oct-2026": {
+  "first_seen": "2026-11-11",
+  "expectations": [
+   {
+    "date": "2026-11-11",
+    "text": "Federal Reserve interest rate review in December"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-11",
+    "event": "October CPI inflation released at 0.4% MoM"
+   }
+  ],
+  "title": "US October CPI Inflation Rises 0.4%, Fueling Rate Hike Bets",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "US CPI inflation rose 0.4% in October due to persistent service costs, driving 10-year Treasury yields to 4.98% and raising mortgage rates.",
+  "open_questions": [
+   "Will the Federal Reserve pause or hike rates at its December meeting?"
+  ],
+  "last_seen": "2026-11-11"
+ },
+ "qualcomm-india-layoffs": {
+  "first_seen": "2026-11-11",
+  "expectations": [
+   {
+    "date": "2026-11-11",
+    "text": "Execution of severance payouts over coming weeks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-11",
+    "event": "Layoff notices issued to Indian staff"
+   }
+  ],
+  "title": "Qualcomm Begins 1,000 Layoffs Across India Hubs",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Qualcomm initiated workforce reductions in India affecting around 1,000 senior software and hardware engineers in Bengaluru and Hyderabad.",
+  "open_questions": [
+   "What total percentage of Qualcomm's Indian engineering workforce will be cut?"
+  ],
+  "last_seen": "2026-11-11"
+ },
+ "india-rupee-fpi-rally": {
+  "first_seen": "2026-11-11",
+  "expectations": [
+   {
+    "date": "2026-11-11",
+    "text": "FII flow monitoring through Q3 earnings releases"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-11",
+    "event": "Rupee strengthens to ₹93.68 per US dollar"
+   }
+  ],
+  "title": "Indian Rupee Touches 93.68 as Foreign Inflows Top $6 Billion",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The Indian rupee surged to its healthiest level since April backed by $6 billion in November foreign equity buying and lower crude oil prices.",
+  "open_questions": [
+   "Will foreign capital inflows sustain if US Treasury yields remain near 5%?"
+  ],
+  "last_seen": "2026-11-11"
  }
 }
