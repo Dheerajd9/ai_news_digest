@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
-   "title": "OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them",
-   "at": "2026-11-06T13:11:24+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent/",
-   "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",
-   "at": "2026-11-06T13:11:24+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
-   "title": "Claude AI can plug directly into your bank account",
-   "at": "2026-11-06T13:11:24+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/meta-buys-ai-coding-startup-conductor-as-big-tech-races-to-lock-in-developers/",
-   "title": "Meta buys AI coding startup Conductor as big tech races to lock in developers",
-   "at": "2026-11-06T13:11:24+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model/",
-   "title": "Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model",
-   "at": "2026-11-06T13:11:24+00:00"
-  },
-  {
    "link": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
    "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
    "at": "2026-11-07T13:11:31+00:00"
@@ -149,6 +124,31 @@
    "link": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
    "title": "Meta\u2019s AI agent Muse lands on Apple Watch and Android Wear OS",
    "at": "2026-11-11T13:11:42+00:00"
+  },
+  {
+   "link": "https://www.axios.com/2026/11/12/jensen-huang-nvidia-board",
+   "title": "Jensen Huang's looming ouster triggers an AI earthquake",
+   "at": "2026-11-12T13:13:03+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/",
+   "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
+   "at": "2026-11-12T13:13:03+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/google-deepmind-shifts-genomics-ai-from-bulk-tissue-predictions-to-single-cell-type-resolution-with-alphagenome-2/",
+   "title": "Google Deepmind shifts genomics AI from bulk tissue predictions to single cell type resolution with AlphaGenome 2",
+   "at": "2026-11-12T13:13:03+00:00"
+  },
+  {
+   "link": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+   "title": "Taiwan\u2019s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+   "at": "2026-11-12T13:13:03+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days/",
+   "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days",
+   "at": "2026-11-12T13:13:03+00:00"
   }
  ]
 }
