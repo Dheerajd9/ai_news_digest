@@ -229,10 +229,6 @@
   "expectations": [
    {
     "date": "2026-11-01",
-    "text": "Institutional roadshows ahead of mid-November pricing"
-   },
-   {
-    "date": "2026-11-01",
     "text": "Institutional roadshows ahead of mid-November pricing window"
    },
    {
@@ -246,16 +242,16 @@
    {
     "date": "2026-11-11",
     "text": "Nasdaq trading debut on November 19 under ticker ANT"
+   },
+   {
+    "date": "2026-11-12",
+    "text": "Final IPO pricing on Nov 18 and Nasdaq trading debut on Nov 19"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-10-15",
-    "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted"
-   },
-   {
-    "date": "2026-10-21",
-    "event": "Financial disclosures reveal $80B H1 loss; targeting November IPO"
+    "date": "2026-10-15..2026-10-21",
+    "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO"
    },
    {
     "date": "2026-10-27",
@@ -288,17 +284,20 @@
    {
     "date": "2026-11-11",
     "event": "IPO price band set at $70-$78 per share"
+   },
+   {
+    "date": "2026-11-12",
+    "event": "Order book oversubscribed multiple times with Nvidia and Alphabet anchor commitments"
    }
   ],
-  "title": "Anthropic Sets IPO Price Range Targeting $1.4 Trillion Valuation",
-  "status": "MAJOR CHANGE",
+  "title": "Anthropic IPO Demand Oversubscribed Multiple Times",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic set its IPO price range at $70 to $78 per share, aiming for up to a $1.404 trillion valuation for its scheduled November 19 Nasdaq listing.",
+  "summary": "Anthropic's IPO roadshow saw massive demand with order books oversubscribed ahead of its Nov 19 Nasdaq listing.",
   "open_questions": [
-   "Will institutional demand push final pricing to the top of the range?",
-   "How will public markets evaluate high compute capex liabilities?"
+   "Where in the $70-$78 range will final pricing land?"
   ],
-  "last_seen": "2026-11-11"
+  "last_seen": "2026-11-12"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -374,112 +373,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-11-01"
- },
- "bayes-cyclone-alert-2026": {
-  "first_seen": "2026-10-25",
-  "expectations": [
-   {
-    "date": "2026-10-25",
-    "text": "Landfall expected around October 28 with heavy regional rainfall"
-   },
-   {
-    "date": "2026-10-26",
-    "text": "Landfall expected around October 28 with heavy regional rainfall and coastal storm surges"
-   },
-   {
-    "date": "2026-10-27",
-    "text": "Landfall projected near Bapatla on Wednesday morning with heavy rainfall"
-   },
-   {
-    "date": "2026-10-28",
-    "text": "Disaster management teams to restore power grids and assess crop damage over coming days"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-25",
-    "event": "Cyclone alert and port warnings issued"
-   },
-   {
-    "date": "2026-10-26",
-    "event": "IMD issues Red Alert for Andhra Pradesh and Odisha"
-   },
-   {
-    "date": "2026-10-27",
-    "event": "Cyclone reaches severe intensity 140 km off Kakinada"
-   },
-   {
-    "date": "2026-10-28",
-    "event": "Landfall near Narsapur with 150 km/h winds"
-   }
-  ],
-  "title": "Severe Cyclone Arnab makes landfall in Andhra Pradesh",
-  "status": "MAJOR CHANGE",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Cyclone Arnab struck the Andhra coast near Narsapur with 150 km/h winds, killing 3 and causing widespread crop damage.",
-  "open_questions": [
-   "How severe will crop damages be across coastal mandals?"
-  ],
-  "last_seen": "2026-10-28"
- },
- "flvio-bolsonaro-us-visa": {
-  "first_seen": "2026-10-28",
-  "expectations": [],
-  "timeline": [
-   {
-    "date": "2026-10-28",
-    "event": "Arrived in Miami on US visa"
-   }
-  ],
-  "title": "Flávio Bolsonaro leaves Brazil for US following election loss",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Flávio Bolsonaro fled Brazil through Argentina and Ecuador after receiving a US visa, taking up residence in Miami.",
-  "open_questions": [
-   "Will Brazil issue an official extradition request?"
-  ],
-  "last_seen": "2026-10-28"
- },
- "spain-train-crash-2026": {
-  "first_seen": "2026-10-28",
-  "expectations": [],
-  "timeline": [
-   {
-    "date": "2026-10-28",
-    "event": "High-speed collision in Toledo province kills 31"
-   }
-  ],
-  "title": "High-speed train collision in central Spain kills 31",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Two high-speed passenger trains collided in Toledo, Spain, leaving at least 31 people dead and dozens injured.",
-  "open_questions": [
-   "Did signaling system failure cause the collision?"
-  ],
-  "last_seen": "2026-10-28"
- },
- "openai-google-tpu-deal": {
-  "first_seen": "2026-10-28",
-  "expectations": [
-   {
-    "date": "2026-10-28",
-    "text": "Google to deploy dedicated TPU clusters for OpenAI model training"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-28",
-    "event": "OpenAI contracts Google TPU compute capacity"
-   }
-  ],
-  "title": "OpenAI plans to purchase Google TPU chips alongside Nvidia GPUs",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "OpenAI arranged to buy Google Tensor Processing Units to supplement its compute capacity alongside Nvidia GPUs.",
-  "open_questions": [
-   "What percentage of OpenAI workload will run on TPUs?"
-  ],
-  "last_seen": "2026-10-28"
  },
  "fed-rates-oct-2026": {
   "first_seen": "2026-10-29",
@@ -814,10 +707,6 @@
   "first_seen": "2026-11-01",
   "expectations": [
    {
-    "date": "2026-11-01",
-    "text": "Preliminary election returns arriving Tuesday night, November 3"
-   },
-   {
     "date": "2026-11-02",
     "text": "National polling stations open Tuesday morning"
    },
@@ -832,6 +721,10 @@
    {
     "date": "2026-11-05",
     "text": "Congressional committee reorganization ahead of January 2027 swearing-in"
+   },
+   {
+    "date": "2026-11-12",
+    "text": "Swearing-in of new Senate members in January 2027"
    }
   ],
   "timeline": [
@@ -862,16 +755,20 @@
    {
     "date": "2026-11-08",
     "event": "Democrats win House and Senate majorities; Jeffries backed for Speaker"
+   },
+   {
+    "date": "2026-11-12",
+    "event": "Scott Colom elected to US Senate in major upset"
    }
   ],
-  "title": "Democrats Win Control of US House and Senate in Midterm Elections",
+  "title": "Scott Colom Wins Mississippi US Senate Seat",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Democrats captured majorities in both chambers of US Congress, sparking tech regulation fears and driving global market sell-offs alongside foreign capital rotation to India.",
+  "summary": "Democrat Scott Colom flipped the Mississippi Senate seat, becoming the state's first Black US Senator since Reconstruction.",
   "open_questions": [
-   "How will Democratic committee chairs reshape tech and energy policy?"
+   "How will Democratic Senate gains shape committee chairmanships in January?"
   ],
-  "last_seen": "2026-11-08"
+  "last_seen": "2026-11-12"
  },
  "sebi-ltcg-tax-proposal": {
   "first_seen": "2026-11-02",
@@ -1323,6 +1220,10 @@
    {
     "date": "2026-11-11",
     "text": "Independent legal report and congressional supply chain reviews"
+   },
+   {
+    "date": "2026-11-12",
+    "text": "Board evaluation report and potential corporate leadership announcement"
    }
   ],
   "timeline": [
@@ -1337,17 +1238,21 @@
    {
     "date": "2026-11-11",
     "event": "Law firm Wachtell Lipton hired by board"
+   },
+   {
+    "date": "2026-11-12",
+    "event": "Board retained outside law firms and discussed replacement candidates"
    }
   ],
-  "title": "Nvidia Board Retains Wachtell Lipton to Probe CEO Relationship",
+  "title": "Nvidia Board Weighs Ousting CEO Jensen Huang",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Nvidia's board engaged law firm Wachtell Lipton to investigate CEO Jensen Huang's admitted affair with a former executive linked to foreign intelligence.",
+  "summary": "Nvidia's board met to evaluate removing CEO Jensen Huang following an extramarital affair with an executive linked to a Chinese spy probe.",
   "open_questions": [
-   "Will Jensen Huang remain CEO following board review?",
-   "Will US regulators impose additional security restrictions on Nvidia?"
+   "Will Jensen Huang remain CEO or be forced to step down?",
+   "How will US regulators address potential export control breaches?"
   ],
-  "last_seen": "2026-11-11"
+  "last_seen": "2026-11-12"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1430,16 +1335,20 @@
    {
     "date": "2026-11-11",
     "event": "Layoff notices issued to Indian staff"
+   },
+   {
+    "date": "2026-11-12",
+    "event": "Layoff notices issued to tech staff in Hyderabad and Bengaluru"
    }
   ],
-  "title": "Qualcomm Begins 1,000 Layoffs Across India Hubs",
-  "status": "NEW",
+  "title": "Qualcomm Cuts Over 1,000 Tech Jobs in India",
+  "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "Qualcomm initiated workforce reductions in India affecting around 1,000 senior software and hardware engineers in Bengaluru and Hyderabad.",
+  "summary": "Qualcomm initiated workforce reductions across its India engineering hubs, impacting 1,000 to 1,500 senior software and hardware engineers.",
   "open_questions": [
-   "What total percentage of Qualcomm's Indian engineering workforce will be cut?"
+   "What total percentage of Qualcomm's Indian workforce will be cut?"
   ],
-  "last_seen": "2026-11-11"
+  "last_seen": "2026-11-12"
  },
  "india-rupee-fpi-rally": {
   "first_seen": "2026-11-11",
@@ -1463,5 +1372,51 @@
    "Will foreign capital inflows sustain if US Treasury yields remain near 5%?"
   ],
   "last_seen": "2026-11-11"
+ },
+ "india-cpi-inflation-oct-2026": {
+  "first_seen": "2026-11-12",
+  "expectations": [
+   {
+    "date": "2026-11-12",
+    "text": "RBI Monetary Policy Committee rate review"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-12",
+    "event": "October CPI breached 6% upper limit for first time in two years"
+   }
+  ],
+  "title": "India October CPI Inflation Rises to 6.09%",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "India's retail inflation surged to a two-year high of 6.09% in October, breaching the RBI's upper tolerance limit of 6%.",
+  "open_questions": [
+   "Will the RBI hold rates unchanged at its next MPC meeting?"
+  ],
+  "last_seen": "2026-11-12"
+ },
+ "united-airlines-ai-bot-ban": {
+  "first_seen": "2026-11-12",
+  "expectations": [
+   {
+    "date": "2026-11-12",
+    "text": "Industry adoption of certified AI agent access protocols"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-12",
+    "event": "System blocks deployed against AI booking bots"
+   }
+  ],
+  "title": "United Airlines Blocks Third-Party AI Agents",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "United Airlines implemented system blocks against autonomous third-party AI agents booking tickets or scraping flight data.",
+  "open_questions": [
+   "Will other major airlines follow United's ban on AI agents?"
+  ],
+  "last_seen": "2026-11-12"
  }
 }

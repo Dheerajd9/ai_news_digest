@@ -35,18 +35,18 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 10,
+"count": 12,
 "stories": [
-"us-china-chip-smuggling",
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
 "spacex-apollo-ai-compute",
 "openai-google-tpu-deal",
-"nvidia-huang-probe"
+"nvidia-huang-probe",
+"anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -149,13 +149,14 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 10,
+"count": 11,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
-"yes-bank-at1-verdict"
+"yes-bank-at1-verdict",
+"india-cpi-inflation-oct-2026"
 ],
-"last_seen": "2026-10-19"
+"last_seen": "2026-11-12"
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
@@ -224,7 +225,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 18,
+"count": 19,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -232,7 +233,7 @@
 "openai-agents-airgap",
 "anthropic-power-generators"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -304,18 +305,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 37,
+"count": 38,
 "stories": [
-"sarvam-ai-defence-pact",
 "india-gst-record-oct-2026",
 "sebi-ltcg-tax-proposal",
 "india-critical-minerals-scheme",
 "us-iran-sanctions-india",
 "cosmoserve-space-debris-hyderabad",
 "us-perm-h1b-freeze",
-"middle-east-escalation"
+"middle-east-escalation",
+"india-cpi-inflation-oct-2026"
 ],
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-12"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -447,13 +448,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 12,
+"count": 13,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -545,38 +546,6 @@
 "tesla-cybertruck-sunset"
 ],
 "last_seen": "2026-11-09"
-},
-"Vladimir Putin": {
-"first_seen": "2026-10-21",
-"count": 1,
-"stories": [
-"russia-frees-hubbard"
-],
-"last_seen": "2026-10-21"
-},
-"Steve Witkoff": {
-"first_seen": "2026-10-21",
-"count": 1,
-"stories": [
-"russia-frees-hubbard"
-],
-"last_seen": "2026-10-21"
-},
-"WHO": {
-"first_seen": "2026-10-21",
-"count": 1,
-"stories": [
-"nigeria-ebola-outbreak"
-],
-"last_seen": "2026-10-21"
-},
-"Nigeria": {
-"first_seen": "2026-10-21",
-"count": 1,
-"stories": [
-"nigeria-ebola-outbreak"
-],
-"last_seen": "2026-10-21"
 },
 "Houthi": {
 "first_seen": "2026-10-22",
@@ -741,12 +710,13 @@
 },
 "Alphabet": {
 "first_seen": "2026-10-29",
-"count": 3,
+"count": 4,
 "stories": [
 "alphabet-earnings-miss",
-"alphabet-intel-tech-selloff"
+"alphabet-intel-tech-selloff",
+"anthropic-ipo-prep"
 ],
-"last_seen": "2026-10-31"
+"last_seen": "2026-11-12"
 },
 "Reliance Industries": {
 "first_seen": "2026-10-29",
@@ -887,20 +857,20 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 7,
+"count": 9,
 "stories": [
 "us-midterms-2026",
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
-"count": 6,
+"count": 7,
 "stories": [
 "us-midterms-2026"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-12"
 },
 "Republican Party": {
 "first_seen": "2026-11-02",
@@ -1066,11 +1036,11 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 3,
+"count": 4,
 "stories": [
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "MakeMyTrip": {
 "first_seen": "2026-11-09",
@@ -1106,19 +1076,57 @@
 },
 "Qualcomm": {
 "first_seen": "2026-11-11",
-"count": 1,
+"count": 2,
 "stories": [
 "qualcomm-india-layoffs"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
+},
+"United Airlines": {
+"first_seen": "2026-11-12",
+"count": 1,
+"stories": [
+"united-airlines-ai-bot-ban"
+],
+"last_seen": "2026-11-12"
 }
 },
 "connections": [
 {
 "text": "US-China chip curbs -> foreign intelligence scrutiny -> executive board investigation",
 "first_seen": "2026-11-09",
-"last_seen": "2026-11-11",
+"last_seen": "2026-11-12",
+"count": 3
+},
+{
+"text": "Tech market rout -> AI IPO valuation pressure -> listing timing uncertainty",
+"first_seen": "2026-11-06",
+"last_seen": "2026-11-12",
+"count": 3
+},
+{
+"text": "Global tech capex shift -> engineering workforce restructuring -> local real estate impact",
+"first_seen": "2026-11-11",
+"last_seen": "2026-11-12",
 "count": 2
+},
+{
+"text": "US election outcome -> congressional majority -> federal policy",
+"first_seen": "2026-11-03",
+"last_seen": "2026-11-12",
+"count": 3
+},
+{
+"text": "Consumer prices -> interest rate outlook -> home loan EMIs",
+"first_seen": "2026-11-12",
+"last_seen": "2026-11-12",
+"count": 1
+},
+{
+"text": "AI agents -> web scraping concerns -> corporate security blocks",
+"first_seen": "2026-11-12",
+"last_seen": "2026-11-12",
+"count": 1
 },
 {
 "text": "US tech correction -> emerging market rotation -> Indian equity inflow",
@@ -1127,19 +1135,7 @@
 "count": 3
 },
 {
-"text": "Tech market rout -> AI IPO valuation pressure -> listing timing uncertainty",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-11",
-"count": 2
-},
-{
 "text": "Consumer prices -> Treasury yields -> mortgage rates",
-"first_seen": "2026-11-11",
-"last_seen": "2026-11-11",
-"count": 1
-},
-{
-"text": "Global tech capex shift -> engineering workforce restructuring -> local real estate impact",
 "first_seen": "2026-11-11",
 "last_seen": "2026-11-11",
 "count": 1
@@ -1227,12 +1223,6 @@
 "first_seen": "2026-11-06",
 "last_seen": "2026-11-06",
 "count": 1
-},
-{
-"text": "US election outcome -> congressional majority -> federal policy",
-"first_seen": "2026-11-03",
-"last_seen": "2026-11-05",
-"count": 2
 },
 {
 "text": "US strikes -> oil sanctions -> third-country intermediary impact",
@@ -1461,18 +1451,6 @@
 "first_seen": "2026-10-26",
 "last_seen": "2026-10-28",
 "count": 2
-},
-{
-"text": "Brazilian election -> foreign political asylum -> diplomatic friction",
-"first_seen": "2026-10-28",
-"last_seen": "2026-10-28",
-"count": 1
-},
-{
-"text": "Transit accident -> railway service suspension -> safety inquiry",
-"first_seen": "2026-10-28",
-"last_seen": "2026-10-28",
-"count": 1
 }
 ]
 }
