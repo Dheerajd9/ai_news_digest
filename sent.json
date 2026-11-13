@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
-   "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
-   "at": "2026-11-07T13:11:31+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/thinking-machines-inkling-2-small-claims-top-spot-among-western-open-weight-models/",
-   "title": "Thinking Machines' Inkling 2 Small claims top spot among western open-weight models",
-   "at": "2026-11-07T13:11:31+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/perplexity-now-has-its-own-always-on-ai-agent/",
-   "title": "Perplexity now has its own always-on AI agent",
-   "at": "2026-11-07T13:11:31+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
-   "title": "Why a new report on Anthropic automating AI development is alarming researchers",
-   "at": "2026-11-07T13:11:31+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/",
-   "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
-   "at": "2026-11-07T13:11:31+00:00"
-  },
-  {
    "link": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/",
    "title": "Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation",
    "at": "2026-11-08T13:14:31+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days/",
    "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days",
    "at": "2026-11-12T13:13:03+00:00"
+  },
+  {
+   "link": "https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/",
+   "title": "Google rolls out Gemini 4 Hydrogen, finally replacing 3.8 Flash",
+   "at": "2026-11-13T13:12:02+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html",
+   "title": "Nvidia stock closes down over 4% after CEO Jensen Huang announces resignation",
+   "at": "2026-11-13T13:12:02+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWTR4ak5BdnRmV3hzYTZOcVhBYklWU01YRmtLak03b2hmeC1PMTd5blRQWUkxR2Q1ZXZWRC0xNkNxVDVoN2VOdTVlX1hFMXgwS1Y5TW1fUGt4NThQaEhRVFdna1YxUDhLTnBYUFJ6WTlFajlLM1BZTTRwNk5sWFMydkZtMlJNUnU4MWlDcUN6QmNtVHdUT1pLNXd6QXc4QVk0WmMtM1JxWU5XVC1PUGRIMVJNY2wzN1Z1d2N6WWJkbw?oc=5",
+   "title": "OpenAI, Google, Anthropic hit with lawsuit seeking halt to frontier AI development",
+   "at": "2026-11-13T13:12:02+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/claude-meetings-lets-anthropics-ai-join-your-video-calls/",
+   "title": "Claude Meetings lets Anthropic's AI join your video calls",
+   "at": "2026-11-13T13:12:02+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openais-data-suggests-that-frontier-models-are-hiding-their-thoughts-because-developers-optimize-for-capability-and-compute/",
+   "title": "OpenAI\u2019s data suggests that frontier models are hiding their thoughts because developers optimize for capability and compute",
+   "at": "2026-11-13T13:12:02+00:00"
   }
  ]
 }
