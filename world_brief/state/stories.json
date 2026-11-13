@@ -175,12 +175,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-15",
-    "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated"
-   },
-   {
-    "date": "2026-10-16",
-    "event": "Legal drafting underway after first tranche finalised"
+    "date": "2026-10-13..2026-10-16",
+    "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated; Legal drafting underway after first tranche fin"
    },
    {
     "date": "2026-10-18",
@@ -213,16 +209,20 @@
    {
     "date": "2026-11-01",
     "event": "Legal teams fine-tuning 99% complete agreement text"
+   },
+   {
+    "date": "2026-11-13",
+    "event": "US tariff assurances provided to Indian negotiators"
    }
   ],
-  "title": "India and US fine-tuning text for bilateral trade deal",
+  "title": "US Assures India Lower Comparative Tariffs Under Trade Pact",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Commerce Minister Piyush Goyal confirmed core trade negotiations are complete, with legal teams fine-tuning 99% of the bilateral agreement text.",
+  "summary": "US trade officials assured India of lower comparative tariffs than regional peers as legal teams finalize the remaining 1% of bilateral trade deal text.",
   "open_questions": [
    "When will the formal bilateral signing ceremony take place?"
   ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-13"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -250,12 +250,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-10-21",
-    "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO"
-   },
-   {
-    "date": "2026-10-27",
-    "event": "Official S-1 registration statement submitted to US SEC"
+    "date": "2026-10-15..2026-10-27",
+    "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
    },
    {
     "date": "2026-10-31",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-12",
     "event": "Order book oversubscribed multiple times with Nvidia and Alphabet anchor commitments"
+   },
+   {
+    "date": "2026-11-13",
+    "event": "Order book reported six times oversubscribed"
    }
   ],
-  "title": "Anthropic IPO Demand Oversubscribed Multiple Times",
+  "title": "Anthropic IPO Demand Oversubscribed Six Times Ahead of Listing",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic's IPO roadshow saw massive demand with order books oversubscribed ahead of its Nov 19 Nasdaq listing.",
+  "summary": "Anthropic's IPO order book is six times oversubscribed ahead of its Nov 19 Nasdaq listing.",
   "open_questions": [
    "Where in the $70-$78 range will final pricing land?"
   ],
-  "last_seen": "2026-11-12"
+  "last_seen": "2026-11-13"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -373,121 +373,6 @@
    "How will retail liquidity sustain secondary market valuations?"
   ],
   "last_seen": "2026-11-01"
- },
- "fed-rates-oct-2026": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Rates held steady as expected by markets"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "FOMC rate decision announced"
-   }
-  ],
-  "title": "Federal Reserve holds interest rates steady at 3.75%-4.00%",
-  "status": "DEVELOPING",
-  "stage": "EFFECTIVE",
-  "summary": "The FOMC voted 10-2 to hold benchmark interest rates steady, citing sticky inflation and the need for more economic data.",
-  "open_questions": [
-   "Will incoming employment data prompt a rate cut in December?"
-  ],
-  "last_seen": "2026-10-29"
- },
- "alphabet-earnings-miss": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Tech stocks experiencing volatility following earnings release"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "Q3 earnings report released"
-   }
-  ],
-  "title": "Alphabet earnings miss triggers tech stock slide and AI spending concerns",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Alphabet reported an earnings miss driven by weaker-than-expected core search revenue and slower AI monetization, sparking tech sector jitters.",
-  "open_questions": [
-   "Will other tech giants report similar advertising slowdowns?"
-  ],
-  "last_seen": "2026-10-29"
- },
- "us-h1b-deference-change": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Stricter compliance review for visa holders"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "Administrative policy proposal advanced"
-   }
-  ],
-  "title": "Trump administration moves to end H-1B visa renewal deference",
-  "status": "DEVELOPING",
-  "stage": "PROPOSED",
-  "summary": "The administration advanced executive proposals to eliminate automatic approval deference for H-1B visa extensions, increasing renewal scrutiny.",
-  "open_questions": [
-   "When will the formal rule be published in the Federal Register?"
-  ],
-  "last_seen": "2026-10-29"
- },
- "oil-prices-middle-east": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Oil prices cooling from recent peaks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "Diplomatic outreach initiated"
-   }
-  ],
-  "title": "Crude oil prices ease as US seeks diplomatic opening with Iran",
-  "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "Brent crude slipped to $110.62 after US Vice President JD Vance initiated diplomatic outreach to restart peace talks with Iranian officials.",
-  "open_questions": [
-   "Will formal talks avert further escalation in the Strait of Hormuz?"
-  ],
-  "last_seen": "2026-10-29"
- },
- "bank-of-canada-rate-hike": {
-  "first_seen": "2026-10-29",
-  "expectations": [
-   {
-    "date": "2026-10-29",
-    "text": "Higher prime lending rates across Canadian banks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-29",
-    "event": "Rate hike announced"
-   }
-  ],
-  "title": "Bank of Canada raises key interest rate by 25 basis points",
-  "status": "NEW",
-  "stage": "EFFECTIVE",
-  "summary": "The Bank of Canada hiked its key interest rate to 2.5% in its first increase in three years, citing inflation pressures from an ongoing oil shock.",
-  "open_questions": [
-   "Will Canadian commercial banks raise mortgage rates further?"
-  ],
-  "last_seen": "2026-10-29"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -1224,6 +1109,10 @@
    {
     "date": "2026-11-12",
     "text": "Board evaluation report and potential corporate leadership announcement"
+   },
+   {
+    "date": "2026-11-13",
+    "text": "Congressional hearings with Nvidia leadership and Commerce Secretary Howard Lutnick"
    }
   ],
   "timeline": [
@@ -1242,17 +1131,21 @@
    {
     "date": "2026-11-12",
     "event": "Board retained outside law firms and discussed replacement candidates"
+   },
+   {
+    "date": "2026-11-13",
+    "event": "Jensen Huang resigned and CFO Colette Kress appointed interim CEO"
    }
   ],
-  "title": "Nvidia Board Weighs Ousting CEO Jensen Huang",
-  "status": "DEVELOPING",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Nvidia's board met to evaluate removing CEO Jensen Huang following an extramarital affair with an executive linked to a Chinese spy probe.",
+  "title": "Nvidia CEO Jensen Huang Resigns Amid Congressional Probe",
+  "status": "MAJOR CHANGE",
+  "stage": "IMPLEMENTED",
+  "summary": "Jensen Huang resigned as Nvidia CEO after extramarital affairs were disclosed, with CFO Colette Kress taking over as interim CEO as US Congress opens hearings on chip export security.",
   "open_questions": [
-   "Will Jensen Huang remain CEO or be forced to step down?",
-   "How will US regulators address potential export control breaches?"
+   "Who will be selected as permanent CEO?",
+   "Will Congress impose stricter chip export restrictions on Nvidia?"
   ],
-  "last_seen": "2026-11-12"
+  "last_seen": "2026-11-13"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1418,5 +1311,51 @@
    "Will other major airlines follow United's ban on AI agents?"
   ],
   "last_seen": "2026-11-12"
+ },
+ "spacex-tesla-merger-talks": {
+  "first_seen": "2026-11-13",
+  "expectations": [
+   {
+    "date": "2026-11-13",
+    "text": "Formal deal announcement expected by December 2026"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-13",
+    "event": "Merger talks advanced with potential December target"
+   }
+  ],
+  "title": "SpaceX and Tesla Advance Merger Negotiations Towards December Deal",
+  "status": "DEVELOPING",
+  "stage": "NEGOTIATIONS",
+  "summary": "SpaceX and Tesla are advancing talks for a potential merger in December, facing scrutiny from state regulators.",
+  "open_questions": [
+   "Will antitrust regulators move to block a combined SpaceX-Tesla entity?"
+  ],
+  "last_seen": "2026-11-13"
+ },
+ "canada-family-pr-route": {
+  "first_seen": "2026-11-13",
+  "expectations": [
+   {
+    "date": "2026-11-13",
+    "text": "IRCC application portal launch and detailed guidance release"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-13",
+    "event": "45,000 PR family path announced"
+   }
+  ],
+  "title": "Canada Allocates 45,000 PR Spaces for Spouses and Children",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "Canada established a 2027 permanent residence allocation for 45,000 family dependents and gave provinces 139 days for nominee submittals.",
+  "open_questions": [
+   "How fast will IRCC open online portals for spouse and child PR applications?"
+  ],
+  "last_seen": "2026-11-13"
  }
 }

@@ -35,7 +35,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 12,
+"count": 13,
 "stories": [
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
@@ -46,7 +46,7 @@
 "nvidia-huang-probe",
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -225,7 +225,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 19,
+"count": 20,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -233,7 +233,7 @@
 "openai-agents-airgap",
 "anthropic-power-generators"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -305,18 +305,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 38,
+"count": 39,
 "stories": [
-"india-gst-record-oct-2026",
 "sebi-ltcg-tax-proposal",
 "india-critical-minerals-scheme",
 "us-iran-sanctions-india",
 "cosmoserve-space-debris-hyderabad",
 "us-perm-h1b-freeze",
 "middle-east-escalation",
-"india-cpi-inflation-oct-2026"
+"india-cpi-inflation-oct-2026",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -448,13 +448,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 13,
+"count": 14,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -517,12 +517,13 @@
 },
 "Tesla": {
 "first_seen": "2026-10-21",
-"count": 4,
+"count": 5,
 "stories": [
 "tesla-spacex-merger-talks",
-"tesla-cybertruck-sunset"
+"tesla-cybertruck-sunset",
+"spacex-tesla-merger-talks"
 ],
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-13"
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
@@ -537,15 +538,16 @@
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 7,
+"count": 8,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
 "starlink-ukraine-throttling",
 "spacex-apollo-ai-compute",
-"tesla-cybertruck-sunset"
+"tesla-cybertruck-sunset",
+"spacex-tesla-merger-talks"
 ],
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-13"
 },
 "Houthi": {
 "first_seen": "2026-10-22",
@@ -554,14 +556,6 @@
 "middle-east-escalation"
 ],
 "last_seen": "2026-10-23"
-},
-"Israel": {
-"first_seen": "2026-10-22",
-"count": 1,
-"stories": [
-"us-israel-iran-strike-plans"
-],
-"last_seen": "2026-10-22"
 },
 "Reserve Bank of India": {
 "first_seen": "2026-10-23",
@@ -857,12 +851,13 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 9,
+"count": 11,
 "stories": [
 "us-midterms-2026",
-"nvidia-huang-probe"
+"nvidia-huang-probe",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
@@ -963,11 +958,12 @@
 },
 "IRCC": {
 "first_seen": "2026-11-06",
-"count": 1,
+"count": 2,
 "stories": [
-"canada-immigration-levels-2027"
+"canada-immigration-levels-2027",
+"canada-family-pr-route"
 ],
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-13"
 },
 "White House": {
 "first_seen": "2026-11-07",
@@ -1036,11 +1032,11 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 4,
+"count": 5,
 "stories": [
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-13"
 },
 "MakeMyTrip": {
 "first_seen": "2026-11-09",
@@ -1089,18 +1085,58 @@
 "united-airlines-ai-bot-ban"
 ],
 "last_seen": "2026-11-12"
+},
+"Colette Kress": {
+"first_seen": "2026-11-13",
+"count": 1,
+"stories": [
+"nvidia-huang-probe"
+],
+"last_seen": "2026-11-13"
+},
+"Howard Lutnick": {
+"first_seen": "2026-11-13",
+"count": 1,
+"stories": [
+"nvidia-huang-probe"
+],
+"last_seen": "2026-11-13"
 }
 },
 "connections": [
 {
-"text": "US-China chip curbs -> foreign intelligence scrutiny -> executive board investigation",
-"first_seen": "2026-11-09",
-"last_seen": "2026-11-12",
-"count": 3
-},
-{
 "text": "Tech market rout -> AI IPO valuation pressure -> listing timing uncertainty",
 "first_seen": "2026-11-06",
+"last_seen": "2026-11-13",
+"count": 4
+},
+{
+"text": "US-China chip curbs -> foreign intelligence scrutiny -> executive resignation",
+"first_seen": "2026-11-13",
+"last_seen": "2026-11-13",
+"count": 1
+},
+{
+"text": "Bilateral trade agreement -> tariff reductions -> Indian export growth",
+"first_seen": "2026-11-13",
+"last_seen": "2026-11-13",
+"count": 1
+},
+{
+"text": "EV manufacturing -> autonomous Cybercab retooling -> physical AI focus",
+"first_seen": "2026-11-13",
+"last_seen": "2026-11-13",
+"count": 1
+},
+{
+"text": "Immigration policy shift -> family reunification -> permanent resident transition",
+"first_seen": "2026-11-13",
+"last_seen": "2026-11-13",
+"count": 1
+},
+{
+"text": "US-China chip curbs -> foreign intelligence scrutiny -> executive board investigation",
+"first_seen": "2026-11-09",
 "last_seen": "2026-11-12",
 "count": 3
 },
@@ -1427,30 +1463,6 @@
 "first_seen": "2026-10-29",
 "last_seen": "2026-10-29",
 "count": 1
-},
-{
-"text": "Middle East diplomacy -> crude oil prices -> India import bill",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
-"count": 1
-},
-{
-"text": "Bank of Canada rate hike -> Canadian mortgage rates -> housing market slowdown",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
-"count": 1
-},
-{
-"text": "ISRO launch -> NavIC positioning -> indigenous space infrastructure",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
-"count": 1
-},
-{
-"text": "Domestic retail expansion -> mega IPO filings -> Dalal Street liquidity",
-"first_seen": "2026-10-26",
-"last_seen": "2026-10-28",
-"count": 2
 }
 ]
 }
