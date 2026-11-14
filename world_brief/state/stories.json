@@ -175,12 +175,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-16",
+    "date": "2026-10-13..2026-10-18",
     "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated; Legal drafting underway after first tranche fin"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "First phase finalized and moved to legal drafting"
    },
    {
     "date": "2026-10-19",
@@ -213,16 +209,20 @@
    {
     "date": "2026-11-13",
     "event": "US tariff assurances provided to Indian negotiators"
+   },
+   {
+    "date": "2026-11-14",
+    "event": "Jaishankar confirmed trade deal in final stretch with comparative tariff advantages"
    }
   ],
-  "title": "US Assures India Lower Comparative Tariffs Under Trade Pact",
+  "title": "India-US Trade Pact Nearing Final Execution",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "US trade officials assured India of lower comparative tariffs than regional peers as legal teams finalize the remaining 1% of bilateral trade deal text.",
+  "summary": "Indian and US negotiators resolved 99% of bilateral trade treaty terms, with US assurances granting India lower comparative tariffs than regional peers.",
   "open_questions": [
-   "When will the formal bilateral signing ceremony take place?"
+   "When will the formal bilateral treaty signing ceremony take place?"
   ],
-  "last_seen": "2026-11-13"
+  "last_seen": "2026-11-14"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -250,12 +250,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-10-27",
+    "date": "2026-10-15..2026-10-31",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-10-31",
-    "event": "Official S-1 filing submitted to US SEC"
    },
    {
     "date": "2026-11-01",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-13",
     "event": "Order book reported six times oversubscribed"
+   },
+   {
+    "date": "2026-11-14",
+    "event": "Price band set at $70-$78; order book 6x oversubscribed"
    }
   ],
-  "title": "Anthropic IPO Demand Oversubscribed Six Times Ahead of Listing",
+  "title": "Anthropic Sets Price Band for $1.4 Trillion IPO",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic's IPO order book is six times oversubscribed ahead of its Nov 19 Nasdaq listing.",
+  "summary": "Anthropic set its IPO share price range at $70-$78 per share ahead of its Nov 19 Nasdaq listing, with order books oversubscribed six times.",
   "open_questions": [
-   "Where in the $70-$78 range will final pricing land?"
+   "Where in the $70-$78 range will final pricing land on Nov 18?"
   ],
-  "last_seen": "2026-11-13"
+  "last_seen": "2026-11-14"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -474,29 +474,6 @@
    "What specific operational standards will RBI mandate for bank cyber audits?"
   ],
   "last_seen": "2026-10-31"
- },
- "sebi-direct-mutual-fund-default": {
-  "first_seen": "2026-10-30",
-  "expectations": [
-   {
-    "date": "2026-10-30",
-    "text": "Retail investors to save significantly on ongoing SIP commission fees"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-30",
-    "event": "Direct mutual fund plans become default across digital platforms"
-   }
-  ],
-  "title": "SEBI mandates direct mutual fund plans as default on digital platforms",
-  "status": "MAJOR CHANGE",
-  "stage": "EFFECTIVE",
-  "summary": "SEBI's regulatory mandate taking effect makes direct mutual fund plans the default option across all AMC digital platforms.",
-  "open_questions": [
-   "How will traditional distributors restructure fee models following the shift?"
-  ],
-  "last_seen": "2026-10-30"
  },
  "cyclone-murasu-2026": {
   "first_seen": "2026-11-01",
@@ -1095,10 +1072,6 @@
   "first_seen": "2026-11-08",
   "expectations": [
    {
-    "date": "2026-11-08",
-    "text": "Congressional hearings and supply chain audits scheduled for late 2026"
-   },
-   {
     "date": "2026-11-09",
     "text": "Congressional hearings and supply chain audits scheduled"
    },
@@ -1113,6 +1086,10 @@
    {
     "date": "2026-11-13",
     "text": "Congressional hearings with Nvidia leadership and Commerce Secretary Howard Lutnick"
+   },
+   {
+    "date": "2026-11-14",
+    "text": "Nvidia board candidate evaluation and permanent CEO selection"
    }
   ],
   "timeline": [
@@ -1135,17 +1112,21 @@
    {
     "date": "2026-11-13",
     "event": "Jensen Huang resigned and CFO Colette Kress appointed interim CEO"
+   },
+   {
+    "date": "2026-11-14",
+    "event": "Arm CEO Rene Haas approached by Nvidia board"
    }
   ],
-  "title": "Nvidia CEO Jensen Huang Resigns Amid Congressional Probe",
+  "title": "Nvidia Board Approaches Arm CEO to Succeed Huang",
   "status": "MAJOR CHANGE",
   "stage": "IMPLEMENTED",
-  "summary": "Jensen Huang resigned as Nvidia CEO after extramarital affairs were disclosed, with CFO Colette Kress taking over as interim CEO as US Congress opens hearings on chip export security.",
+  "summary": "Nvidia's board approached Arm CEO Rene Haas as a potential successor following Jensen Huang's resignation, while employees push for Huang's return.",
   "open_questions": [
-   "Who will be selected as permanent CEO?",
-   "Will Congress impose stricter chip export restrictions on Nvidia?"
+   "Who will be selected as permanent Nvidia CEO?",
+   "Will US Congress enact tighter chip export restrictions?"
   ],
-  "last_seen": "2026-11-13"
+  "last_seen": "2026-11-14"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1357,5 +1338,51 @@
    "How fast will IRCC open online portals for spouse and child PR applications?"
   ],
   "last_seen": "2026-11-13"
+ },
+ "trilateral-us-china-russia-summit": {
+  "first_seen": "2026-11-14",
+  "expectations": [
+   {
+    "date": "2026-11-14",
+    "text": "Trilateral summit taking place on Thursday at APEC"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-14",
+    "event": "White House confirmed three-way summit in China on Thursday"
+   }
+  ],
+  "title": "Trump, Xi, and Putin Plan Trilateral Summit in China",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "The White House confirmed an unprecedented joint meeting between President Trump, President Xi, and President Putin on the sidelines of APEC focused on nuclear arms cuts.",
+  "open_questions": [
+   "Can the three powers agree on a framework for nuclear arms reduction talks?"
+  ],
+  "last_seen": "2026-11-14"
+ },
+ "us-ukraine-donbas-nato-proposal": {
+  "first_seen": "2026-11-14",
+  "expectations": [
+   {
+    "date": "2026-11-14",
+    "text": "European five-nation diplomatic team joining talks in Abu Dhabi"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-14",
+    "event": "Zelensky confirmed US proposal during Abu Dhabi talks"
+   }
+  ],
+  "title": "US Floats NATO Membership for Donbas Withdrawal in Ukraine Talks",
+  "status": "NEW",
+  "stage": "NEGOTIATIONS",
+  "summary": "President Zelensky confirmed US negotiators floated a deal where Ukraine cedes Donbas in exchange for NATO membership, while Russia demands NATO retrenchment.",
+  "open_questions": [
+   "Will European allies support NATO membership for Ukraine if Donbas is ceded?"
+  ],
+  "last_seen": "2026-11-14"
  }
 }

@@ -1,264 +1,260 @@
+  ! feed failed: https://zeenews.india.com/rss/india-national-news.xml (403 Client Error: Forbidden for url: https://zeenews.india.com/rss/india-national-news.xml)
 Edition: morning
 Fetching feeds...
-   31 items  india                        Top stories
-   40 items  india                        India
+   36 items  india                        Top stories
+   48 items  india                        India
    60 items  india                        The Hindu
   100 items  india                        "site:indianexpress.com India 
-   95 items  india                        Hindustan Times
+   99 items  india                        Hindustan Times
    45 items  india                        Times of India
-    0 items  india                        BBC
+    2 items  india                        BBC
    20 items  india                        NDTV News Search Records Found
    20 items  india                        NDTV News Search Records Found
   100 items  india                        "site:news18.com India when:1d
   100 items  india                        "site:theprint.in when:1d"
-   28 items  india                        "site:scroll.in when:1d"
-   20 items  india                        Zee News :India National
+   33 items  india                        "site:scroll.in when:1d"
    20 items  india                        India
-   50 items  india_economy                Business
+   39 items  india_economy                Business
     2 items  india_economy                Mint
-   44 items  india_economy                Economic Times
-    7 items  india_economy                The Hindu
-   65 items  india_economy                ""mutual fund" OR SIP OR AMFI 
-   20 items  india_economy                "Sensex OR Nifty closing when:
-   16 items  india_economy                "FII OR FPI OR DII selling OR 
-   22 items  india_economy                "RBI repo OR "CPI inflation" O
-   12 items  india_economy                Economy
+   42 items  india_economy                Economic Times
+    1 items  india_economy                The Hindu
+   64 items  india_economy                ""mutual fund" OR SIP OR AMFI 
+   24 items  india_economy                "Sensex OR Nifty closing when:
+   14 items  india_economy                "FII OR FPI OR DII selling OR 
+   10 items  india_economy                "RBI repo OR "CPI inflation" O
+    6 items  india_economy                Economy
   100 items  india_economy                "site:moneycontrol.com when:1d
-   35 items  india_economy                Mint
-   50 items  india_economy                Economic Times
-   97 items  india_economy                "site:financialexpress.com eco
+   33 items  india_economy                Mint
+   34 items  india_economy                Economic Times
+   84 items  india_economy                "site:financialexpress.com eco
    60 items  india_economy                The Hindu
-   46 items  telangana_hyderabad          The Hindu
-   41 items  telangana_hyderabad          The Hindu
+   45 items  telangana_hyderabad          The Hindu
+   29 items  telangana_hyderabad          The Hindu
   100 items  telangana_hyderabad          "Telangana OR Hyderabad when:1
-  166 items  telangana_hyderabad          Telangana Today
+  141 items  telangana_hyderabad          Telangana Today
    99 items  telangana_hyderabad          "site:telanganatoday.com when:
-   50 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
-   10 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
+   69 items  telangana_hyderabad          "GHMC OR HYDRAA OR "Hyderabad 
+   14 items  telangana_hyderabad          "Hyderabad rain OR flood OR tr
    20 items  telangana_hyderabad          Times of India
-  100 items  telangana_hyderabad          "site:siasat.com Hyderabad OR 
-  100 items  telangana_hyderabad          "site:thehansindia.com Telanga
-  100 items  telangana_hyderabad          "site:deccanchronicle.com Hyde
-   42 items  telangana_hyderabad          "site:newindianexpress.com Tel
+   91 items  telangana_hyderabad          "site:siasat.com Hyderabad OR 
+   98 items  telangana_hyderabad          "site:thehansindia.com Telanga
+   98 items  telangana_hyderabad          "site:deccanchronicle.com Hyde
+   47 items  telangana_hyderabad          "site:newindianexpress.com Tel
    40 items  telangana_hyderabad          The Siasat Daily
    50 items  usa                          U.S.
    10 items  usa                          NPR
    10 items  usa                          NPR
   100 items  usa                          "Congress OR "White House" OR 
-   24 items  usa                          NYT > U.S. News
+   38 items  usa                          NYT > U.S. News
    20 items  usa                          NYT > U.S. > Politics
    28 items  usa                          Us
-   13 items  usa                          ABC News
-   21 items  usa                          NBC News Top Stories
+   21 items  usa                          ABC News
+   22 items  usa                          NBC News Top Stories
    20 items  usa                          PBS News Hour
    15 items  usa                          TheHill.com Just In
-   70 items  usa                          "site:politico.com when:1d"
-   18 items  usa                          U.S. News Today on Fox News
+   40 items  usa                          "site:politico.com when:1d"
+   14 items  usa                          U.S. News Today on Fox News
   100 items  usa                          "site:apnews.com when:1d"
   100 items  usa                          "site:reuters.com US when:1d"
-   23 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
-    6 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
-   57 items  india_us_visa_trade          "India US trade OR tariff OR "
-   38 items  india_us_visa_trade          "rupee dollar OR remittance wh
-   93 items  india_us_visa_trade          "India exports OR imports when
-   20 items  world                        BBC
+   28 items  india_us_visa_trade          "H-1B OR USCIS OR "green card"
+    4 items  india_us_visa_trade          ""Express Entry" OR IRCC when:
+   81 items  india_us_visa_trade          "India US trade OR tariff OR "
+   26 items  india_us_visa_trade          "rupee dollar OR remittance wh
+  100 items  india_us_visa_trade          "India exports OR imports when
+   23 items  world                        BBC
    25 items  world                        Al Jazeera
-   30 items  world                        The Guardian
+   23 items  world                        The Guardian
    12 items  world                        DW
-   47 items  world                        The Hindu
-   45 items  world                        DW
-   23 items  world                        NYT > World News
-   19 items  world                        DW
-    4 items  world                        NPR
-   67 items  world                        The Independent World
-   21 items  world                        Euronews RSS
-    8 items  world                        RFI
-    7 items  world                        World News
+   42 items  world                        The Hindu
+   43 items  world                        DW
+   20 items  world                        NYT > World News
+   14 items  world                        DW
+    3 items  world                        NPR
+   48 items  world                        The Independent World
+   17 items  world                        Euronews RSS
+   10 items  world                        RFI
+   10 items  world                        World News
   100 items  world                        "site:reuters.com world when:1
-   99 items  world                        "site:apnews.com world when:1d
-   18 items  global_economy               BBC
-   63 items  global_economy               Business
+  100 items  world                        "site:apnews.com world when:1d
+   11 items  global_economy               BBC
+   46 items  global_economy               Business
   100 items  global_economy               "oil prices OR shipping OR san
    25 items  global_economy               DW
     0 items  global_economy               Finance & economics
    10 items  global_economy               MarketWatch.com
-   28 items  global_economy               CNBC
+   24 items  global_economy               CNBC
    19 items  global_economy               Bloomberg Markets
   100 items  global_economy               "site:wsj.com when:1d"
-   17 items  tech_ai                      Ars Technica
-    4 items  tech_ai                      MIT Tech Review
-   12 items  tech_ai                      Hacker News
-   47 items  tech_ai                      Technology
+   16 items  tech_ai                      Ars Technica
+    1 items  tech_ai                      MIT Tech Review
+    5 items  tech_ai                      Hacker News
+   32 items  tech_ai                      Technology
   100 items  tech_ai                      ""artificial intelligence" whe
    10 items  tech_ai                      The Verge
-   20 items  tech_ai                      TechCrunch
-   15 items  tech_ai                      Engadget
-   38 items  tech_ai                      WIRED
-    2 items  tech_ai                      404 Media
-    2 items  science_health_climate       Nature
-    8 items  science_health_climate       ScienceDaily
-   43 items  science_health_climate       Science
-   44 items  science_health_climate       "ISRO OR monsoon when:2d"
+   13 items  tech_ai                      TechCrunch
+   11 items  tech_ai                      Engadget
+   40 items  tech_ai                      WIRED
+    3 items  tech_ai                      404 Media
+    0 items  science_health_climate       Nature
+    7 items  science_health_climate       ScienceDaily
+   42 items  science_health_climate       Science
+   20 items  science_health_climate       "ISRO OR monsoon when:2d"
     2 items  science_health_climate       Science News
-   10 items  science_health_climate       New Scientist
-   14 items  science_health_climate       STAT
+    6 items  science_health_climate       New Scientist
+   11 items  science_health_climate       STAT
     0 items  science_health_climate       News (English)
-    1 items  science_health_climate       Carbon Brief
-    6 items  science_health_climate       The Hindu
-   16 items  science_health_climate       Latest from Space.com
-    7 items  science_health_climate       NASA
+    0 items  science_health_climate       Carbon Brief
+    1 items  science_health_climate       The Hindu
+   15 items  science_health_climate       Latest from Space.com
+    2 items  science_health_climate       NASA
    10 items  official                     RBI (official)
    30 items  official                     SEBI (official)
-    3 items  official                     Federal Reserve (official)
-   43 items  official                     ""Bureau of Labor Statistics" 
-    0 items  official                     PIB (official)
+    1 items  official                     Federal Reserve (official)
+   56 items  official                     ""Bureau of Labor Statistics" 
+   20 items  official                     PIB (official)
+    1 items  official                     Press Releases
     0 items  official                     Press Releases
-    0 items  official                     Press Releases
-    1 items  official                     ECB
-   10 items  official                     "site:whitehouse.gov when:1d"
+    0 items  official                     ECB
+    4 items  official                     "site:whitehouse.gov when:1d"
    30 items  us_markets_economy           CNBC
-    2 items  us_markets_economy           CNBC
-   19 items  us_markets_economy           ""stock market" today S&P Nasd
-    9 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
-   74 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
-   60 items  jobs_tax_housing             ""income tax" OR "GST council"
-   78 items  jobs_tax_housing             ""mortgage rates" OR "home loa
-   14 items  canada                       Canada News
-    7 items  canada                       Business News
-   20 items  canada                       ""Bank of Canada" OR "Statisti
-   15 items  canada                       "IRCC OR "Express Entry" OR "s
-   73 items  canada                       "Canada housing OR rent OR "fe
+    3 items  us_markets_economy           CNBC
+   18 items  us_markets_economy           ""stock market" today S&P Nasd
+   10 items  jobs_tax_housing             "tech layoffs OR "tech jobs" O
+   48 items  jobs_tax_housing             "IRS OR "capital gains tax" OR
+   44 items  jobs_tax_housing             ""income tax" OR "GST council"
+   47 items  jobs_tax_housing             ""mortgage rates" OR "home loa
+   13 items  canada                       Canada News
+    3 items  canada                       Business News
+   22 items  canada                       ""Bank of Canada" OR "Statisti
+    7 items  canada                       "IRCC OR "Express Entry" OR "s
+   55 items  canada                       "Canada housing OR rent OR "fe
    10 items  canada                       globalnews.ca
-   14 items  canada                       The Globe and Mail
+   25 items  canada                       The Globe and Mail
     0 items  canada                       nationalpost.com
-    6 items  canada                       Politics News
+    7 items  canada                       Politics News
   100 items  business_jobs                "earnings results OR "quarterl
-   68 items  business_jobs                "layoffs OR "job cuts" OR "hir
+   49 items  business_jobs                "layoffs OR "job cuts" OR "hir
   100 items  business_jobs                "acquisition OR merger OR IPO 
-    9 items  business_jobs                ""remote work" OR "return to o  ! feed failed: https://www.positive.news/feed/ (403 Client Error: Forbidden for url: https://www.positive.news/feed/)
-  [1m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [2m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [3m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [3m] ! Gemini gemini-3.6-flash busy (HTTP 503)
-  [8m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [10m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [10m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [11m] ! Gemini gemini-3.6-flash busy (HTTP 503)
-  [12m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [12m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [12m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [13m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [13m] ! Gemini gemini-3.6-flash busy (HTTP 503)
-  [14m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [14m] ! Gemini gemini-3.8-flash busy (HTTP 503)
-  [14m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [15m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+    5 items  business_jobs                ""remote work" OR "return to o
+   48 items  business_jobs                "IPO OR layoffs OR "quarterly   ! feed failed: https://blog.google/technology/ai/rss/ (HTTPSConnectionPool(host='blog.google', port=443): Read timed out. (read timeout=20))
+  ! feed failed: https://www.dawn.com/feeds/home (403 Client Error: Forbidden for url: https://www.dawn.com/feeds/home)
+  ! feed failed: https://www.positive.news/feed/ (403 Client Error: Forbidden for url: https://www.positive.news/feed/)
+  [4m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [4m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+  [8m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [13m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [16m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [17m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [17m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [17m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+  [21m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [22m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [25m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
+  [25m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+  [26m] ! Gemini gemini-3.7-flash busy (HTTP 503)
 
-   42 items  business_jobs                "IPO OR layoffs OR "quarterly 
-   46 items  personal_finance_housing     ""mortgage rates" OR "home pri
-  100 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
-   57 items  personal_finance_housing     ""grocery prices" OR "food pri
-  100 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
-    2 items  fact_check                   Alt News
+   36 items  personal_finance_housing     ""mortgage rates" OR "home pri
+   94 items  personal_finance_housing     ""credit card" OR 401k OR IRA 
+   70 items  personal_finance_housing     ""grocery prices" OR "food pri
+   86 items  personal_finance_housing     ""home loan" OR "FD rates" OR 
+    0 items  fact_check                   Alt News
    16 items  fact_check                   ""fact check" viral OR mislead
-   25 items  fact_check                   ""fact check" viral OR fake OR
-    2 items  fact_check                   FACTLY
-   12 items  fact_check                   Snopes.com
-    1 items  fact_check                   FactCheck.org
+   15 items  fact_check                   ""fact check" viral OR fake OR
+    0 items  fact_check                   FACTLY
+    6 items  fact_check                   Snopes.com
+    0 items  fact_check                   FactCheck.org
   100 items  ai_robotics                  "OpenAI OR Anthropic OR "Googl
-   91 items  ai_robotics                  ""humanoid robot" OR "AI agent
-   60 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
-   20 items  ai_robotics                  TechCrunch
-    0 items  ai_robotics                  IEEE Spectrum
-   10 items  ai_robotics                  The Verge
-    8 items  ai_robotics                  "site:venturebeat.com AI when:
-    6 items  ai_robotics                  The Decoder
-    9 items  ai_robotics                  Feed
-    2 items  ai_robotics                  OpenAI News
-    1 items  ai_robotics                  AI
-    1 items  ai_robotics                  Google DeepMind News
-    1 items  ai_robotics                  Hugging Face
-    8 items  ai_robotics                  news
-    5 items  ai_robotics                  MarkTechPost
+   82 items  ai_robotics                  ""humanoid robot" OR "AI agent
+   34 items  ai_robotics                  ""AI regulation" OR "AI jobs" 
+    8 items  ai_robotics                  TechCrunch
+    1 items  ai_robotics                  IEEE Spectrum
+    6 items  ai_robotics                  The Verge
+    2 items  ai_robotics                  "site:venturebeat.com AI when:
+   10 items  ai_robotics                  The Decoder
+    5 items  ai_robotics                  Feed
+    1 items  ai_robotics                  OpenAI News
+    0 items  ai_robotics                  Google DeepMind News
+    3 items  ai_robotics                  Hugging Face
+    2 items  ai_robotics                  news
+    4 items  ai_robotics                  MarkTechPost
     3 items  ai_robotics                  The Robot Report
-    3 items  ai_robotics                  MIT News
-    1 items  ai_robotics                  "site:anthropic.com OR Claude 
+    0 items  ai_robotics                  MIT News
+    2 items  ai_robotics                  "site:anthropic.com OR Claude 
   100 items  ai_robotics                  ""AI" India OR IndiaAI OR "AI 
   100 items  frontier_companies           "Tesla OR SpaceX OR Starship O
   100 items  chips_energy_future          "NVIDIA OR TSMC OR AMD OR Inte
-   69 items  chips_energy_future          "fusion OR "nuclear power" OR 
-   61 items  chips_energy_future          ""quantum computing" OR "gene 
-   92 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
-    3 items  world_regions                BBC
+   65 items  chips_energy_future          "fusion OR "nuclear power" OR 
+   47 items  chips_energy_future          ""quantum computing" OR "gene 
+   84 items  chips_energy_future          "NASA OR ISRO OR "Moon mission
     4 items  world_regions                BBC
-    4 items  world_regions                BBC
+    1 items  world_regions                BBC
     7 items  world_regions                BBC
+    5 items  world_regions                BBC
     1 items  world_regions                BBC
   100 items  world_regions                "site:france24.com when:1d"
     6 items  world_regions                UN News
   100 items  world_regions                "Russia OR Ukraine OR Kazakhst
   100 items  world_regions                "Pakistan OR Bangladesh OR "Sr
    50 items  world_regions                News
-   20 items  world_regions                Hong Kong
+   16 items  world_regions                Hong Kong
    20 items  world_regions                Latest News
-   30 items  world_regions                Latest articles
+   19 items  world_regions                Latest articles
    97 items  world_regions                "site:timesofisrael.com when:1
-   44 items  world_regions                "site:kyivindependent.com when
-   28 items  world_regions                Dawn
+   28 items  world_regions                "site:kyivindependent.com when
     4 items  world_regions                MercoPress
    25 items  world_regions                Just In
-   30 items  world_regions                Africanews RSS
+   19 items  world_regions                Africanews RSS
   100 items  world_regions                "South Korea OR "North Korea" 
   100 items  world_regions                "Africa OR Nigeria OR Kenya OR
   100 items  world_regions                "Brazil OR Mexico OR Argentina
   100 items  world_regions                "Iran OR Israel OR Gaza OR "Sa
   100 items  world_regions                ""European Union" OR Germany O
-   24 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
-    1 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
-   24 items  students_visas_jobs          "layoffs OR hiring "data engin
-   15 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
-   83 items  scams_safety                 ""scam alert" OR FTC OR "data 
-   16 items  scams_safety                 The Hacker News
+   18 items  students_visas_jobs          ""F-1 visa" OR OPT OR "STEM OP
+    2 items  students_visas_jobs          ""Express Entry" OR PGWP OR "s
+   18 items  students_visas_jobs          "layoffs OR hiring "data engin
+   23 items  scams_safety                 "scam OR fraud UPI OR WhatsApp
+   90 items  scams_safety                 ""scam alert" OR FTC OR "data 
+    6 items  scams_safety                 The Hacker News
     0 items  scams_safety                 Krebs on Security
-   14 items  scams_safety                 BleepingComputer
-   59 items  weather_disasters            GDACS RSS information
-   25 items  weather_disasters            "IMD alert OR cyclone OR flood
+    5 items  scams_safety                 BleepingComputer
+   79 items  weather_disasters            GDACS RSS information
+   23 items  weather_disasters            "IMD alert OR cyclone OR flood
   100 items  weather_disasters            "hurricane OR tornado OR blizz
   100 items  sports                       "India cricket OR BCCI OR "Tea
-   21 items  sports                       Cricket news from Cricinfo.com
-   41 items  sports                       BBC
-    7 items  good_news                    Good News Network
-   19 items  ipo                          "IPO "price band" OR "lot size
-   10 items  ipo                          "IPO "subscription status" OR 
-   32 items  ipo                          "IPO listing OR "listing gains
-   16 items  ipo                          "IPO GMP OR "grey market premi
-    4 items  ipo                          ""SME IPO" when:2d"
-   11 items  ipo                          "SEBI IPO approval OR DRHP OR 
-    4 items  ipo                          Economic Times
-    8 items  ipo                          ""prices IPO" OR "IPO priced" 
-   19 items  ipo                          ""files for IPO" OR "IPO filin
-   14 items  ipo                          "IPO debut Nasdaq OR NYSE OR "
-    3 items  ipo                          "site:renaissancecapital.com I
-[0m] feeds downloaded (8199 items)
-[1m] duplicates merged (6403 stories)
-[1m] 8199 raw -> 612 items after dedupe/cap; 15 history events; memory 14,000 chars
-  [1m] brief prompt ~92,608 tokens
-  [5m] written by Gemini gemini-3.6-flash
-  [12m] written by Gemini gemini-3.6-flash
+   26 items  sports                       Cricket news from Cricinfo.com
+   36 items  sports                       BBC
+    6 items  good_news                    Good News Network
+    9 items  ipo                          "IPO "price band" OR "lot size
+    9 items  ipo                          "IPO "subscription status" OR 
+   26 items  ipo                          "IPO listing OR "listing gains
+   14 items  ipo                          "IPO GMP OR "grey market premi
+    6 items  ipo                          ""SME IPO" when:2d"
+   18 items  ipo                          "SEBI IPO approval OR DRHP OR 
+    5 items  ipo                          Economic Times
+    6 items  ipo                          ""prices IPO" OR "IPO priced" 
+    9 items  ipo                          ""files for IPO" OR "IPO filin
+   11 items  ipo                          "IPO debut Nasdaq OR NYSE OR "
+   12 items  ipo                          "site:renaissancecapital.com I
+[1m] feeds downloaded (7683 items)
+[1m] duplicates merged (5879 stories)
+[1m] 7683 raw -> 615 items after dedupe/cap; 15 history events; memory 14,000 chars
+  [1m] brief prompt ~92,714 tokens
+  [10m] written by Gemini gemini-3.6-flash
+  [17m] written by Gemini gemini-3.6-flash
   fact-check done (2 bullet(s) removed)
-  [12m] meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Nvidia CEO Jensen Huang Resigns; Anthropic IPO Demand 6x Oversubscribed; US Assures India on Lower Trade Tariffs; IRS Raises 2027 401k Limit; Global Microsoft Outage', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '10', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  [14m] written by Gemini gemini-3.6-flash
-  [15m] written by Gemini gemini-3.6-flash
-  script reviewed: 2814 -> 2701 words
-  en podcast script: 84 turns, 2701 words
+  [17m] meta: {'REPORT_TYPE': 'MORNING', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Trump-Xi-Putin Trilateral Summit; India-US Trade Deal Near; OpenAI ChatGPT Wallet; Nvidia Board Approaches Arm CEO; US FAA Flight Ground Stop Lifted', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '10', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  [22m] written by Gemini gemini-3.6-flash
+  [26m] written by Gemini gemini-3.6-flash
+  script reviewed: 2080 -> 2077 words
+  en podcast script: 70 turns, 2077 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
   voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
-  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (6 part(s))
-  chapters: Top stories 0:00, World 3:50, USA 5:29, India 8:24, Tech 12:33, Money 15:03, Wrap-up 15:49
-  world_brief_full podcast ready: 9.1 MB
+  voices: Gemini gemini-3.8-flash-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (5 part(s))
+  chapters: Top stories 0:00, World 2:52, USA 4:18, India 5:42, Tech 8:10, Money 9:29, Wrap-up 11:47
+  world_brief_full podcast ready: 6.7 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
   podcast site updated with 1 audio file(s)
   email sent (2 recipient(s))
   story ledger: 5 stories updated
-  Telegram channel: 1 message (podcast + 1 full-news page(s) as buttons)
-  podcast key check: ok, expires in 338 days
+  Telegram channel: 1 message (podcast + 2 full-news page(s) as buttons)
+  podcast key check: ok, expires in 337 days
