@@ -215,14 +215,14 @@
     "event": "Jaishankar confirmed trade deal in final stretch with comparative tariff advantages"
    }
   ],
-  "title": "India-US Trade Pact Nearing Final Execution",
+  "title": "India Secures Preferential US Market Access and Lower Tariffs",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Indian and US negotiators resolved 99% of bilateral trade treaty terms, with US assurances granting India lower comparative tariffs than regional peers.",
+  "summary": "Indian ministers confirmed the US agreed to grant India preferential trade access with lower tariffs than regional competitor nations.",
   "open_questions": [
-   "When will the formal bilateral treaty signing ceremony take place?"
+   "When will the formal bilateral trade agreement signing ceremony take place?"
   ],
-  "last_seen": "2026-11-14"
+  "last_seen": "2026-11-15"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -420,60 +420,6 @@
    "Will international law enforcement trace and freeze laundered tokens?"
   ],
   "last_seen": "2026-11-04"
- },
- "alphabet-intel-tech-selloff": {
-  "first_seen": "2026-10-30",
-  "expectations": [
-   {
-    "date": "2026-10-30",
-    "text": "Continued volatility in high-multiple technology stocks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-30",
-    "event": "Alphabet and Intel earnings miss triggers tech sector index pullback"
-   },
-   {
-    "date": "2026-10-31",
-    "event": "Major tech index correction and Intel stock plunge"
-   }
-  ],
-  "title": "Wall Street Suffers Worst Day Since June as AI Spending Sparks Tech Rout",
-  "status": "MAJOR CHANGE",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Disappointing Big Tech earnings and massive AI spending reports triggered a broad market sell-off, with the S&P 500 falling 1.82% and Nasdaq plunging 2.86%, while Intel cratered 29%.",
-  "open_questions": [
-   "Will other hyperscalers report similar advertising and cash flow pressures?"
-  ],
-  "last_seen": "2026-10-31"
- },
- "sc-bank-fraud-compensation": {
-  "first_seen": "2026-10-30",
-  "expectations": [
-   {
-    "date": "2026-10-30",
-    "text": "Banks to rapidly upgrade fraud detection and customer verification protocols"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-30",
-    "event": "Supreme Court liability ruling issued for banking cyber negligence"
-   },
-   {
-    "date": "2026-10-31",
-    "event": "Supreme Court liability ruling enforced"
-   }
-  ],
-  "title": "Supreme Court Mandates Bank Compensation for Digital Fraud Victims",
-  "status": "MAJOR CHANGE",
-  "stage": "EFFECTIVE",
-  "summary": "India's Supreme Court ruled that commercial banks must financially compensate digital arrest and cyber fraud victims if due diligence failure or banking negligence is established.",
-  "open_questions": [
-   "What specific operational standards will RBI mandate for bank cyber audits?"
-  ],
-  "last_seen": "2026-10-31"
  },
  "cyclone-murasu-2026": {
   "first_seen": "2026-11-01",
@@ -1118,15 +1064,15 @@
     "event": "Arm CEO Rene Haas approached by Nvidia board"
    }
   ],
-  "title": "Nvidia Board Approaches Arm CEO to Succeed Huang",
+  "title": "Nvidia Scrutiny Expands as US Lawmakers Target Chip Export Rules",
   "status": "MAJOR CHANGE",
-  "stage": "IMPLEMENTED",
-  "summary": "Nvidia's board approached Arm CEO Rene Haas as a potential successor following Jensen Huang's resignation, while employees push for Huang's return.",
+  "stage": "DEVELOPING",
+  "summary": "Following Jensen Huang's resignation, US Treasury and Congress initiated reviews into shell company export bypasses and tighter chip legislation.",
   "open_questions": [
-   "Who will be selected as permanent Nvidia CEO?",
-   "Will US Congress enact tighter chip export restrictions?"
+   "Will US Congress pass new legislation restricting AI chip exports?",
+   "Who will Nvidia select as permanent CEO?"
   ],
-  "last_seen": "2026-11-14"
+  "last_seen": "2026-11-15"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1377,12 +1323,38 @@
    }
   ],
   "title": "US Floats NATO Membership for Donbas Withdrawal in Ukraine Talks",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "President Zelensky confirmed US negotiators floated a deal where Ukraine cedes Donbas in exchange for NATO membership, while Russia demands NATO retrenchment.",
+  "summary": "President Zelensky confirmed US negotiators floated a plan for Ukraine to cede Donbas for NATO membership, while Russia demands NATO retrenchment.",
   "open_questions": [
-   "Will European allies support NATO membership for Ukraine if Donbas is ceded?"
+   "Will NATO members unanimously support Ukrainian membership if Donbas is ceded?"
   ],
-  "last_seen": "2026-11-14"
+  "last_seen": "2026-11-15"
+ },
+ "spacex-starship-upper-catch": {
+  "first_seen": "2026-11-15",
+  "expectations": [],
+  "timeline": [],
+  "title": "SpaceX Catches Starship Upper Stage in Historic World First",
+  "status": "NEW",
+  "stage": "OPERATIONAL",
+  "summary": "SpaceX successfully caught its Starship upper stage rocket using launch tower chopstick arms at Starbase, Texas, during Flight 15.",
+  "open_questions": [
+   "How quickly can SpaceX inspect and re-fly the captured upper stage?"
+  ],
+  "last_seen": "2026-11-15"
+ },
+ "openai-chatgpt-wallet": {
+  "first_seen": "2026-11-15",
+  "expectations": [],
+  "timeline": [],
+  "title": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop for Users",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "OpenAI introduced ChatGPT Wallet, enabling autonomous AI agents to make checkouts using single-use tokenized cards without sharing actual card details.",
+  "open_questions": [
+   "Which major financial networks will integrate native support for ChatGPT Wallet?"
+  ],
+  "last_seen": "2026-11-15"
  }
 }

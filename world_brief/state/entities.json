@@ -13,29 +13,31 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "starlink-ukraine-throttling",
-"melania-ukraine-ceasefire"
+"melania-ukraine-ceasefire",
+"us-ukraine-donbas-nato-proposal"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-11-15"
 },
 "Russia": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 6,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "russia-frees-hubbard",
-"melania-ukraine-ceasefire"
+"melania-ukraine-ceasefire",
+"us-ukraine-donbas-nato-proposal"
 ],
-"last_seen": "2026-10-27"
+"last_seen": "2026-11-15"
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 14,
+"count": 15,
 "stories": [
 "microsoft-maia-chip",
 "tsmc-q3-texas-fab",
@@ -46,7 +48,7 @@
 "nvidia-huang-probe",
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -210,18 +212,18 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 14,
+"count": 15,
 "stories": [
-"openai-spy-device-case",
 "openai-agents-disable-monitors",
 "openai-agents-airgap",
 "openai-cpu-cache-bypass",
 "openai-google-tpu-deal",
 "openai-data-center-power",
 "openai-gpt-6-cyber",
-"openai-11b-funding"
+"openai-11b-funding",
+"openai-chatgpt-wallet"
 ],
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-15"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
@@ -305,7 +307,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 42,
+"count": 43,
 "stories": [
 "us-iran-sanctions-india",
 "cosmoserve-space-debris-hyderabad",
@@ -316,7 +318,7 @@
 "trilateral-us-china-russia-summit",
 "us-ukraine-donbas-nato-proposal"
 ],
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -527,27 +529,29 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 6,
+"count": 7,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
 "starlink-ukraine-throttling",
-"spacex-apollo-ai-compute"
+"spacex-apollo-ai-compute",
+"spacex-starship-upper-catch"
 ],
-"last_seen": "2026-10-26"
+"last_seen": "2026-11-15"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
-"count": 8,
+"count": 9,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
 "starlink-ukraine-throttling",
 "spacex-apollo-ai-compute",
 "tesla-cybertruck-sunset",
-"spacex-tesla-merger-talks"
+"spacex-tesla-merger-talks",
+"spacex-starship-upper-catch"
 ],
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-15"
 },
 "Houthi": {
 "first_seen": "2026-10-22",
@@ -583,14 +587,6 @@
 "bayes-cyclone-alert-2026"
 ],
 "last_seen": "2026-10-28"
-},
-"Hyderabad Water Board": {
-"first_seen": "2026-10-24",
-"count": 1,
-"stories": [
-"telangana-drought-response"
-],
-"last_seen": "2026-10-24"
 },
 "FPI": {
 "first_seen": "2026-10-25",
@@ -851,14 +847,14 @@
 },
 "US Congress": {
 "first_seen": "2026-11-02",
-"count": 13,
+"count": 14,
 "stories": [
 "us-midterms-2026",
 "nvidia-huang-probe",
 "india-us-trade-talks",
 "trilateral-us-china-russia-summit"
 ],
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "Democratic Party": {
 "first_seen": "2026-11-02",
@@ -1033,11 +1029,11 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 6,
+"count": 7,
 "stories": [
 "nvidia-huang-probe"
 ],
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "MakeMyTrip": {
 "first_seen": "2026-11-09",
@@ -1102,9 +1098,56 @@
 "nvidia-huang-probe"
 ],
 "last_seen": "2026-11-13"
+},
+"US Government": {
+"first_seen": "2026-11-15",
+"count": 2,
+"stories": [
+"india-us-trade-talks",
+"us-ukraine-donbas-nato-proposal"
+],
+"last_seen": "2026-11-15"
+},
+"NATO": {
+"first_seen": "2026-11-15",
+"count": 1,
+"stories": [
+"us-ukraine-donbas-nato-proposal"
+],
+"last_seen": "2026-11-15"
 }
 },
 "connections": [
+{
+"text": "Bilateral trade agreement -> tariff reductions -> Indian export growth",
+"first_seen": "2026-11-13",
+"last_seen": "2026-11-15",
+"count": 3
+},
+{
+"text": "US-China chip curbs -> export leakage scrutiny -> semiconductor stock volatility",
+"first_seen": "2026-11-08",
+"last_seen": "2026-11-15",
+"count": 2
+},
+{
+"text": "Reusable rocketry -> space travel cost reduction -> commercial space expansion",
+"first_seen": "2026-11-15",
+"last_seen": "2026-11-15",
+"count": 1
+},
+{
+"text": "Geopolitical peace talks -> NATO expansion -> European security realignment",
+"first_seen": "2026-11-15",
+"last_seen": "2026-11-15",
+"count": 1
+},
+{
+"text": "AI agents -> secure tokenized payments -> autonomous e-commerce",
+"first_seen": "2026-11-15",
+"last_seen": "2026-11-15",
+"count": 1
+},
 {
 "text": "Tech market rout -> AI IPO valuation pressure -> listing timing uncertainty",
 "first_seen": "2026-11-06",
@@ -1113,12 +1156,6 @@
 },
 {
 "text": "US-China chip curbs -> foreign intelligence scrutiny -> executive resignation",
-"first_seen": "2026-11-13",
-"last_seen": "2026-11-14",
-"count": 2
-},
-{
-"text": "Bilateral trade agreement -> tariff reductions -> Indian export growth",
 "first_seen": "2026-11-13",
 "last_seen": "2026-11-14",
 "count": 2
@@ -1215,12 +1252,6 @@
 },
 {
 "text": "Israeli political deadlock -> coalition transition -> regional ceasefire posture",
-"first_seen": "2026-11-08",
-"last_seen": "2026-11-08",
-"count": 1
-},
-{
-"text": "US-China chip curbs -> export leakage scrutiny -> semiconductor stock volatility",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
 "count": 1
@@ -1445,24 +1476,6 @@
 "text": "Space launch -> NavIC positioning upgrade -> GPS independence",
 "first_seen": "2026-10-30",
 "last_seen": "2026-10-30",
-"count": 1
-},
-{
-"text": "US interest rates -> borrowing costs -> mortgage and loan rates",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
-"count": 1
-},
-{
-"text": "Alphabet ad revenue -> AI capital expenditure -> tech stock valuation",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
-"count": 1
-},
-{
-"text": "US visa rules -> IT staffing -> Indian tech workers",
-"first_seen": "2026-10-29",
-"last_seen": "2026-10-29",
 "count": 1
 }
 ]
