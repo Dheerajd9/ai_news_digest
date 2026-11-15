@@ -153,10 +153,6 @@
   "first_seen": "2026-10-13",
   "expectations": [
    {
-    "date": "2026-10-15",
-    "text": "Official signing and release of text within weeks"
-   },
-   {
     "date": "2026-10-16",
     "text": "Legal text completion and signing timeline within weeks"
    },
@@ -171,16 +167,16 @@
    {
     "date": "2026-10-27",
     "text": "Formal bilateral trade agreement execution within coming weeks"
+   },
+   {
+    "date": "2026-11-15",
+    "text": "Formal signing and publication of bilateral legal text"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-18",
+    "date": "2026-10-13..2026-10-19",
     "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated; Legal drafting underway after first tranche fin"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "Rubio confirms bilateral trade pact is very close ahead of Jaishankar meeting"
    },
    {
     "date": "2026-10-20",
@@ -213,14 +209,18 @@
    {
     "date": "2026-11-14",
     "event": "Jaishankar confirmed trade deal in final stretch with comparative tariff advantages"
+   },
+   {
+    "date": "2026-11-15",
+    "event": "Goyal confirmed preferential US market access agreement"
    }
   ],
   "title": "India Secures Preferential US Market Access and Lower Tariffs",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Indian ministers confirmed the US agreed to grant India preferential trade access with lower tariffs than regional competitor nations.",
+  "summary": "Indian ministers confirmed the US agreed to grant India preferential trade access with lower tariffs than regional Asian competitor nations.",
   "open_questions": [
-   "When will the formal bilateral trade agreement signing ceremony take place?"
+   "When will the formal trade agreement signing ceremony take place?"
   ],
   "last_seen": "2026-11-15"
  },
@@ -250,12 +250,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-10-31",
+    "date": "2026-10-15..2026-11-01",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-01",
-    "event": "Deep-dive S-1 data on gross margins and infrastructure liabilities analysed"
    },
    {
     "date": "2026-11-01",
@@ -288,6 +284,10 @@
    {
     "date": "2026-11-14",
     "event": "Price band set at $70-$78; order book 6x oversubscribed"
+   },
+   {
+    "date": "2026-11-15",
+    "event": "Order books six times oversubscribed ahead of Nov 19 listing"
    }
   ],
   "title": "Anthropic Sets Price Band for $1.4 Trillion IPO",
@@ -297,7 +297,7 @@
   "open_questions": [
    "Where in the $70-$78 range will final pricing land on Nov 18?"
   ],
-  "last_seen": "2026-11-14"
+  "last_seen": "2026-11-15"
  },
  "jio-platforms-mega-ipo": {
   "first_seen": "2026-10-15",
@@ -1018,10 +1018,6 @@
   "first_seen": "2026-11-08",
   "expectations": [
    {
-    "date": "2026-11-09",
-    "text": "Congressional hearings and supply chain audits scheduled"
-   },
-   {
     "date": "2026-11-11",
     "text": "Independent legal report and congressional supply chain reviews"
    },
@@ -1036,6 +1032,10 @@
    {
     "date": "2026-11-14",
     "text": "Nvidia board candidate evaluation and permanent CEO selection"
+   },
+   {
+    "date": "2026-11-15",
+    "text": "Nvidia board evaluation report and permanent CEO selection"
    }
   ],
   "timeline": [
@@ -1062,14 +1062,18 @@
    {
     "date": "2026-11-14",
     "event": "Arm CEO Rene Haas approached by Nvidia board"
+   },
+   {
+    "date": "2026-11-15",
+    "event": "US officials warned semiconductor firms face legal liability for export bypasses"
    }
   ],
   "title": "Nvidia Scrutiny Expands as US Lawmakers Target Chip Export Rules",
-  "status": "MAJOR CHANGE",
+  "status": "DEVELOPING",
   "stage": "DEVELOPING",
-  "summary": "Following Jensen Huang's resignation, US Treasury and Congress initiated reviews into shell company export bypasses and tighter chip legislation.",
+  "summary": "Following Jensen Huang's resignation, US Treasury and Congress initiated investigations into shell company export bypasses, while US officials warned chip firms face legal accountability for export leaks.",
   "open_questions": [
-   "Will US Congress pass new legislation restricting AI chip exports?",
+   "Will US Congress pass new chip export restrictions?",
    "Who will Nvidia select as permanent CEO?"
   ],
   "last_seen": "2026-11-15"
@@ -1297,16 +1301,20 @@
    {
     "date": "2026-11-14",
     "event": "White House confirmed three-way summit in China on Thursday"
+   },
+   {
+    "date": "2026-11-15",
+    "event": "Summit confirmed for Thursday during APEC"
    }
   ],
   "title": "Trump, Xi, and Putin Plan Trilateral Summit in China",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "The White House confirmed an unprecedented joint meeting between President Trump, President Xi, and President Putin on the sidelines of APEC focused on nuclear arms cuts.",
+  "summary": "The White House confirmed a joint meeting between President Trump, President Xi, and President Putin on Thursday during APEC focused on nuclear arms cuts.",
   "open_questions": [
    "Can the three powers agree on a framework for nuclear arms reduction talks?"
   ],
-  "last_seen": "2026-11-14"
+  "last_seen": "2026-11-15"
  },
  "us-ukraine-donbas-nato-proposal": {
   "first_seen": "2026-11-14",
@@ -1314,12 +1322,20 @@
    {
     "date": "2026-11-14",
     "text": "European five-nation diplomatic team joining talks in Abu Dhabi"
+   },
+   {
+    "date": "2026-11-15",
+    "text": "Diplomatic consultations ahead of multilateral talks"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-14",
     "event": "Zelensky confirmed US proposal during Abu Dhabi talks"
+   },
+   {
+    "date": "2026-11-15",
+    "event": "Russia rejected proposal demanding NATO pull back to 1997 positions"
    }
   ],
   "title": "US Floats NATO Membership for Donbas Withdrawal in Ukraine Talks",
@@ -1333,8 +1349,18 @@
  },
  "spacex-starship-upper-catch": {
   "first_seen": "2026-11-15",
-  "expectations": [],
-  "timeline": [],
+  "expectations": [
+   {
+    "date": "2026-11-15",
+    "text": "Inspection and re-flight timeline testing in Texas"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-15",
+    "event": "First successful launch pad capture of Starship upper stage"
+   }
+  ],
   "title": "SpaceX Catches Starship Upper Stage in Historic World First",
   "status": "NEW",
   "stage": "OPERATIONAL",
@@ -1346,14 +1372,24 @@
  },
  "openai-chatgpt-wallet": {
   "first_seen": "2026-11-15",
-  "expectations": [],
-  "timeline": [],
+  "expectations": [
+   {
+    "date": "2026-11-15",
+    "text": "Widespread commercial adoption across autonomous e-commerce tools"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-15",
+    "event": "ChatGPT Wallet launched with single-use tokenized cards"
+   }
+  ],
   "title": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop for Users",
   "status": "NEW",
   "stage": "IMPLEMENTED",
-  "summary": "OpenAI introduced ChatGPT Wallet, enabling autonomous AI agents to make checkouts using single-use tokenized cards without sharing actual card details.",
+  "summary": "OpenAI introduced ChatGPT Wallet, enabling autonomous AI agents to make checkouts using single-use tokenized cards without sharing credit card numbers.",
   "open_questions": [
-   "Which major financial networks will integrate native support for ChatGPT Wallet?"
+   "Which financial networks will integrate native support for ChatGPT Wallet?"
   ],
   "last_seen": "2026-11-15"
  }
