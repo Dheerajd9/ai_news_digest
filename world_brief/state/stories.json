@@ -175,12 +175,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-19",
+    "date": "2026-10-13..2026-10-20",
     "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated; Legal drafting underway after first tranche fin"
-   },
-   {
-    "date": "2026-10-20",
-    "event": "Rubio holds Mumbai summit with Jaishankar"
    },
    {
     "date": "2026-10-21",
@@ -213,24 +209,24 @@
    {
     "date": "2026-11-15",
     "event": "Goyal confirmed preferential US market access agreement"
+   },
+   {
+    "date": "2026-11-16",
+    "event": "Official confirmation of preferential market access"
    }
   ],
   "title": "India Secures Preferential US Market Access and Lower Tariffs",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Indian ministers confirmed the US agreed to grant India preferential trade access with lower tariffs than regional Asian competitor nations.",
+  "summary": "Commerce Minister Piyush Goyal confirmed the US agreed to grant India preferential trade access with lower tariffs than regional Asian competitors.",
   "open_questions": [
    "When will the formal trade agreement signing ceremony take place?"
   ],
-  "last_seen": "2026-11-15"
+  "last_seen": "2026-11-16"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
   "expectations": [
-   {
-    "date": "2026-11-01",
-    "text": "Institutional roadshows ahead of mid-November pricing window"
-   },
    {
     "date": "2026-11-02",
     "text": "Global institutional roadshows ahead of November pricing"
@@ -246,16 +242,16 @@
    {
     "date": "2026-11-12",
     "text": "Final IPO pricing on Nov 18 and Nasdaq trading debut on Nov 19"
+   },
+   {
+    "date": "2026-11-16",
+    "text": "Final IPO pricing on Nov 18 and Nasdaq debut on Nov 19"
    }
   ],
   "timeline": [
    {
     "date": "2026-10-15..2026-11-01",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-01",
-    "event": "S-1 filing published with ticker ANT"
    },
    {
     "date": "2026-11-02",
@@ -288,91 +284,20 @@
    {
     "date": "2026-11-15",
     "event": "Order books six times oversubscribed ahead of Nov 19 listing"
+   },
+   {
+    "date": "2026-11-16",
+    "event": "Order books 6x oversubscribed"
    }
   ],
-  "title": "Anthropic Sets Price Band for $1.4 Trillion IPO",
+  "title": "Anthropic IPO Oversubscribed 6x Ahead of Nasdaq Debut",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic set its IPO share price range at $70-$78 per share ahead of its Nov 19 Nasdaq listing, with order books oversubscribed six times.",
+  "summary": "Anthropic's $1.4 trillion IPO set its price range at $70-$78 per share with order books oversubscribed six times ahead of its November 19 Nasdaq listing.",
   "open_questions": [
    "Where in the $70-$78 range will final pricing land on Nov 18?"
   ],
-  "last_seen": "2026-11-15"
- },
- "jio-platforms-mega-ipo": {
-  "first_seen": "2026-10-15",
-  "expectations": [
-   {
-    "date": "2026-10-19",
-    "text": "Public subscription opening and retail bidding this week"
-   },
-   {
-    "date": "2026-10-21",
-    "text": "Final basis of allotment and public listing debut next week"
-   },
-   {
-    "date": "2026-10-25",
-    "text": "Public listing debut on Indian exchanges in November"
-   },
-   {
-    "date": "2026-10-26",
-    "text": "Public listing debut on Indian exchanges on October 28"
-   },
-   {
-    "date": "2026-10-29",
-    "text": "Strong market performance following listing debut"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-15..2026-10-19",
-    "event": "Updated IPO filings submitted to raise $3.2 billion; Final red herring filings prepared for Dalal Street listing; Red herring prospectuses prepared for Dalal Street listing; Anchor book oversubscribed nearly 30 times wit"
-   },
-   {
-    "date": "2026-10-20",
-    "event": "Anchor book closes oversubscribed 30 times"
-   },
-   {
-    "date": "2026-10-21",
-    "event": "Public retail and institutional book fully subscribed on Day 1"
-   },
-   {
-    "date": "2026-10-22",
-    "event": "IPO retail and institutional quota 3.47x subscribed on day two"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "IPO fully subscribed 7.83 times with over 1 crore applications"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "IPO closes oversubscribed 7.83x"
-   },
-   {
-    "date": "2026-10-26",
-    "event": "Final listing preparation for October 28"
-   },
-   {
-    "date": "2026-10-28",
-    "event": "Surged 27% on NSE debut"
-   },
-   {
-    "date": "2026-10-29",
-    "event": "Post-listing market rally extended"
-   },
-   {
-    "date": "2026-11-01",
-    "event": "Listed on NSE/BSE with 27% debut gain"
-   }
-  ],
-  "title": "Jio Platforms extends post-listing gains after record IPO",
-  "status": "MAJOR CHANGE",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Jio Platforms listed on October 28 with a 27% gain on NSE debut, adding $36 billion in market cap and extending post-listing gains.",
-  "open_questions": [
-   "How will retail liquidity sustain secondary market valuations?"
-  ],
-  "last_seen": "2026-11-01"
+  "last_seen": "2026-11-16"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -463,53 +388,6 @@
    "What will be the final extent of agricultural and property damage?"
   ],
   "last_seen": "2026-11-03"
- },
- "india-gst-record-oct-2026": {
-  "first_seen": "2026-11-01",
-  "expectations": [
-   {
-    "date": "2026-11-01",
-    "text": "Post-festive consumption data in late November"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-01",
-    "event": "October collections reach record ₹2.31 lakh crore"
-   }
-  ],
-  "title": "India October GST collections hit record ₹2.31 lakh crore",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Gross GST collections jumped 23% YoY to ₹2.31 lakh crore in October, marking the fastest revenue growth in over four years driven by festive demand.",
-  "open_questions": [
-   "Will consumer spending momentum sustain into post-festive November?"
-  ],
-  "last_seen": "2026-11-01"
- },
- "europe-youth-cost-of-living-riots": {
-  "first_seen": "2026-11-01",
-  "expectations": [
-   {
-    "date": "2026-11-01",
-    "text": "Heightened security deployments in major European urban centres"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-01",
-    "event": "Protests spread to multiple German cities with looting in Frankfurt"
-   }
-  ],
-  "title": "European cost-of-living protests spread across France and Germany",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Hundreds of thousands demonstrated across France leading to 770+ arrests, while protests in Germany escalated into storefront looting in Frankfurt over inflation and conscription fears.",
-  "open_questions": [
-   "Will French and German governments offer targeted cost-of-living subsidies?",
-   "Will unrest disrupt winter transport networks?"
-  ],
-  "last_seen": "2026-11-01"
  },
  "us-midterms-2026": {
   "first_seen": "2026-11-01",
@@ -1066,17 +944,21 @@
    {
     "date": "2026-11-15",
     "event": "US officials warned semiconductor firms face legal liability for export bypasses"
+   },
+   {
+    "date": "2026-11-16",
+    "event": "US Treasury demands formal answers regarding chip bypasses"
    }
   ],
   "title": "Nvidia Scrutiny Expands as US Lawmakers Target Chip Export Rules",
   "status": "DEVELOPING",
   "stage": "DEVELOPING",
-  "summary": "Following Jensen Huang's resignation, US Treasury and Congress initiated investigations into shell company export bypasses, while US officials warned chip firms face legal accountability for export leaks.",
+  "summary": "Following Jensen Huang's resignation, US Treasury and Congress pressed Nvidia over shell company export bypasses while allies petitioned for his return.",
   "open_questions": [
    "Will US Congress pass new chip export restrictions?",
    "Who will Nvidia select as permanent CEO?"
   ],
-  "last_seen": "2026-11-15"
+  "last_seen": "2026-11-16"
  },
  "makemytrip-india-ipo": {
   "first_seen": "2026-11-09",
@@ -1305,16 +1187,20 @@
    {
     "date": "2026-11-15",
     "event": "Summit confirmed for Thursday during APEC"
+   },
+   {
+    "date": "2026-11-16",
+    "event": "Trilateral summit officially confirmed for Thursday in Shenzhen"
    }
   ],
-  "title": "Trump, Xi, and Putin Plan Trilateral Summit in China",
+  "title": "China Says Xi, Trump, Putin to Discuss World Peace in Trilateral Summit",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "The White House confirmed a joint meeting between President Trump, President Xi, and President Putin on Thursday during APEC focused on nuclear arms cuts.",
+  "summary": "Beijing confirmed Presidents Xi, Trump, and Putin will hold a trilateral summit in Shenzhen during APEC to discuss world peace and nuclear arms reduction.",
   "open_questions": [
    "Can the three powers agree on a framework for nuclear arms reduction talks?"
   ],
-  "last_seen": "2026-11-15"
+  "last_seen": "2026-11-16"
  },
  "us-ukraine-donbas-nato-proposal": {
   "first_seen": "2026-11-14",
@@ -1362,13 +1248,13 @@
    }
   ],
   "title": "SpaceX Catches Starship Upper Stage in Historic World First",
-  "status": "NEW",
+  "status": "MAJOR CHANGE",
   "stage": "OPERATIONAL",
   "summary": "SpaceX successfully caught its Starship upper stage rocket using launch tower chopstick arms at Starbase, Texas, during Flight 15.",
   "open_questions": [
    "How quickly can SpaceX inspect and re-fly the captured upper stage?"
   ],
-  "last_seen": "2026-11-15"
+  "last_seen": "2026-11-16"
  },
  "openai-chatgpt-wallet": {
   "first_seen": "2026-11-15",
