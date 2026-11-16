@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/claude-fable-5-2-and-mythos-5-2-cement-anthropics-ai-lead-just-before-its-ipo/",
-   "title": "Claude Fable 5.2 and Mythos 5.2 cement Anthropic's AI lead just before its IPO",
-   "at": "2026-11-10T13:12:28+00:00"
-  },
-  {
-   "link": "https://deepmind.google/blog/introducing-alphaproof-code/",
-   "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
-   "at": "2026-11-10T13:12:28+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-kicks-off-ipo-roadshow-offering-shares-at-70-to-78-and-targeting-a-trillion-dollar-valuation/",
-   "title": "Anthropic kicks off IPO roadshow, offering shares at $70 to $78 and targeting a trillion-dollar valuation",
-   "at": "2026-11-10T13:12:28+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/meta-launches-muse-ember-a-small-ai-model-built-for-the-repetitive-work-agents-actually-do/",
-   "title": "Meta launches Muse Ember, a small AI model built for the repetitive work agents actually do",
-   "at": "2026-11-10T13:12:28+00:00"
-  },
-  {
-   "link": "https://openai.com/index/control-room",
-   "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
-   "at": "2026-11-10T13:12:28+00:00"
-  },
-  {
    "link": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
    "title": "Google releases Gemini 4 Carbon with agent \u2018swarm\u2019 feature",
    "at": "2026-11-11T13:11:42+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon/",
    "title": "Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon",
    "at": "2026-11-15T13:11:53+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/11/16/nvidia-stock-price-jensen-huang.html",
+   "title": "Nvidia stock falls as investors price in fallout from Jensen Huang's resignation",
+   "at": "2026-11-16T13:14:20+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/",
+   "title": "Anthropic's Claude Fable 5.2 doesn't generate images, it paints them",
+   "at": "2026-11-16T13:14:20+00:00"
+  },
+  {
+   "link": "https://openai.com/index/step-toward-defining-the-standard-model",
+   "title": "A step toward defining the Standard Model on a lattice",
+   "at": "2026-11-16T13:14:20+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health/",
+   "title": "Apple launches new app to study how people use AI for health",
+   "at": "2026-11-16T13:14:20+00:00"
+  },
+  {
+   "link": "https://openai.com/index/lvmh-media-division-partnership",
+   "title": "LVMH\u2019s Media Division announces strategic partnership with OpenAI",
+   "at": "2026-11-16T13:14:20+00:00"
   }
  ]
 }
