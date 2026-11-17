@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout",
-   "title": "Google releases Gemini 4 Carbon with agent \u2018swarm\u2019 feature",
-   "at": "2026-11-11T13:11:42+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-turns-claude-into-a-full-workspace-with-plugins-spreadsheets-whiteboards-and-soon-meeting-notes/",
-   "title": "Anthropic turns Claude into a full workspace with Plugins, spreadsheets, whiteboards, and soon Meeting notes",
-   "at": "2026-11-11T13:11:42+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-turns-chatgpt-into-a-business-directory-with-ai-agents-that-handle-customer-questions/",
-   "title": "OpenAI turns ChatGPT into a business directory with AI agents that handle customer questions",
-   "at": "2026-11-11T13:11:42+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/google-deepminds-gemini-robotics-2-5-scores-96-percent-sorting-metal-parts-in-a-mercedes-benz-assembly-pilot/",
-   "title": "Google DeepMind's Gemini Robotics 2.5 scores 96 percent sorting metal parts in a Mercedes-Benz assembly pilot",
-   "at": "2026-11-11T13:11:42+00:00"
-  },
-  {
-   "link": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
-   "title": "Meta\u2019s AI agent Muse lands on Apple Watch and Android Wear OS",
-   "at": "2026-11-11T13:11:42+00:00"
-  },
-  {
    "link": "https://www.axios.com/2026/11/12/jensen-huang-nvidia-board",
    "title": "Jensen Huang's looming ouster triggers an AI earthquake",
    "at": "2026-11-12T13:13:03+00:00"
@@ -149,6 +124,31 @@
    "link": "https://openai.com/index/lvmh-media-division-partnership",
    "title": "LVMH\u2019s Media Division announces strategic partnership with OpenAI",
    "at": "2026-11-16T13:14:20+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openais-gpt-6-astra-tackles-the-standard-models-toughest-math-problem-on-a-lattice/",
+   "title": "OpenAI's GPT-6 Astra tackles the Standard Model's toughest math problem on a lattice",
+   "at": "2026-11-17T13:13:21+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices/",
+   "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
+   "at": "2026-11-17T13:13:21+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-says-the-key-to-agent-memory-is-knowing-what-to-forget-not-how-much-to-store/",
+   "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store",
+   "at": "2026-11-17T13:13:21+00:00"
+  },
+  {
+   "link": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+   "title": "Broadening access to AI for scientists",
+   "at": "2026-11-17T13:13:21+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription",
+   "title": "Apple is testing daily usage limits for more complex Siri AI interactions",
+   "at": "2026-11-17T13:13:21+00:00"
   }
  ]
 }
