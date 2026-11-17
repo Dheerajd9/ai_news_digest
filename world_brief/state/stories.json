@@ -250,12 +250,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-11-01",
+    "date": "2026-10-15..2026-11-02",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "Japanese share sale paperwork disclosed in SEC filings"
    },
    {
     "date": "2026-11-03",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-16",
     "event": "Order books 6x oversubscribed"
+   },
+   {
+    "date": "2026-11-17",
+    "event": "6x oversubscription"
    }
   ],
-  "title": "Anthropic IPO Oversubscribed 6x Ahead of Nasdaq Debut",
+  "title": "Anthropic IPO Oversubscribed",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic's $1.4 trillion IPO set its price range at $70-$78 per share with order books oversubscribed six times ahead of its November 19 Nasdaq listing.",
+  "summary": "Anthropic's IPO is 6x oversubscribed with pricing expected Nov 18.",
   "open_questions": [
-   "Where in the $70-$78 range will final pricing land on Nov 18?"
+   "Final pricing within $70-$78 range?"
   ],
-  "last_seen": "2026-11-16"
+  "last_seen": "2026-11-17"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -1278,5 +1278,78 @@
    "Which financial networks will integrate native support for ChatGPT Wallet?"
   ],
   "last_seen": "2026-11-15"
+ },
+ "nvidia-earnings-volatility": {
+  "first_seen": "2026-11-17",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-11-17",
+    "event": "Earnings call impending"
+   }
+  ],
+  "title": "Nvidia Earnings and Leadership Transition",
+  "status": "DEVELOPING",
+  "stage": "ANNOUNCED",
+  "summary": "Markets are volatile as Nvidia prepares for its first earnings call without Jensen Huang.",
+  "open_questions": [
+   "Who will be the permanent CEO?",
+   "How will the board committee impact export strategy?"
+  ],
+  "last_seen": "2026-11-17"
+ },
+ "cyclone-akvan-india": {
+  "first_seen": "2026-11-17",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-11-17",
+    "event": "Red alert issued"
+   }
+  ],
+  "title": "Cyclone Akvan Landfall Expected",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Cyclone Akvan is intensifying and expected to hit Andhra Pradesh on Nov 20.",
+  "open_questions": [
+   "Extent of damage?"
+  ],
+  "last_seen": "2026-11-17"
+ },
+ "us-china-ai-restrictions": {
+  "first_seen": "2026-11-17",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-11-17",
+    "event": "New rules issued"
+   }
+  ],
+  "title": "US Tightens AI Chip Export Controls",
+  "status": "DEVELOPING",
+  "stage": "APPROVED/PASSED",
+  "summary": "New US rules block Chinese firms from remote access to US AI compute infrastructure.",
+  "open_questions": [
+   "Impact on cloud providers?"
+  ],
+  "last_seen": "2026-11-17"
+ },
+ "india-rupee-strength": {
+  "first_seen": "2026-11-17",
+  "expectations": [],
+  "timeline": [
+   {
+    "date": "2026-11-17",
+    "event": "Seven-month high"
+   }
+  ],
+  "title": "Indian Rupee Hits Seven-Month High",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Rupee reached 93.48 vs USD on strong inflows and lower oil prices.",
+  "open_questions": [
+   "Sustainability of inflows?"
+  ],
+  "last_seen": "2026-11-17"
  }
 }
