@@ -116,7 +116,7 @@ def make_cover(path: Path) -> bool:
 
 FEEDS = {
     "en": {"feed": "feed.xml", "list": "episodes.json", "title": "World Brief",
-           "lang": "en-in", "desc": "Daily India-first news podcast: India, USA and the world, with Kartik and Priya."},
+           "lang": "en-us", "desc": "Daily world news podcast: the world, the USA and India, with Jake and Emma."},
     "te": {"feed": "feed-te.xml", "list": "episodes-te.json", "title": "ఈ రోజు వార్తలు · World Brief Telugu",
            "lang": "te", "desc": "రోజువారీ వార్తలు తెలుగులో: భారత్, తెలంగాణ, అమెరికా, ప్రపంచం. రవి, లక్ష్మి."},
     "hi": {"feed": "feed-hi.xml", "list": "episodes-hi.json", "title": "आज की खबरें · World Brief Hindi",

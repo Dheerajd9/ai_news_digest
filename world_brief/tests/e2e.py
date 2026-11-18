@@ -56,7 +56,7 @@ def fake_items(feeds):
     return out
 digest.fetch_items = fake_items
 
-HOSTS = [("KARTIK", "PRIYA"), ("RAVI", "LAKSHMI"), ("ARJUN", "MEERA")]
+HOSTS = [("JAKE", "EMMA"), ("RAVI", "LAKSHMI"), ("ARJUN", "MEERA")]
 
 def script(a, b):
     lines = []
@@ -103,7 +103,7 @@ def fake_gemini(system, user):
         n = len([l for l in user.splitlines() if l.strip()])
         return "\n".join([f"TE{i}: తెలుగు వార్త {i}" for i in range(1, n + 1)]
                          + [f"HI{i}: हिंदी खबर {i}" for i in range(1, n + 1)])
-    if ("TRANSLATION MODE" in system and "ENGLISH_SCRIPT:" in user and "KARTIK:" in user
+    if ("TRANSLATION MODE" in system and "ENGLISH_SCRIPT:" in user and "JAKE:" in user
             and "CHAPTER:" in user):
         STYLE["tr"] += 1
     if "EXPLAINING STYLE" in system and "IPO TESTCO" in user:
@@ -642,7 +642,7 @@ os.environ["WEATHER"] = "0"
 import podcast
 from pathlib import Path
 def lines(n):
-    return "\n".join(("KARTIK: " if i % 2 == 0 else "PRIYA: ") + "word " * 20 for i in range(n))
+    return "\n".join(("JAKE: " if i % 2 == 0 else "EMMA: ") + "word " * 20 for i in range(n))
 asked = []
 def llm(system, user):
     if user.startswith("SCRIPT:"):
@@ -680,7 +680,7 @@ sys.path.insert(0, os.getcwd())
 os.environ["WEATHER"] = "0"
 import podcast
 from pathlib import Path
-en = "\n".join(("KARTIK: " if i % 2 == 0 else "PRIYA: ") + "word " * 20 for i in range(40))
+en = "\n".join(("JAKE: " if i % 2 == 0 else "EMMA: ") + "word " * 20 for i in range(40))
 calls = []
 def llm(system, user):
     calls.append("TRANSLATION MODE" in system)

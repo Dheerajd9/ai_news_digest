@@ -1192,7 +1192,7 @@ def send_telegram(md: str, audio: Path | None = None) -> None:
             with audio.open("rb") as f:
                 requests.post(f"https://api.telegram.org/bot{token}/sendAudio",
                               data={"chat_id": chat, "title": "World Brief podcast",
-                                    "performer": "Kartik & Priya"},
+                                    "performer": "Jake & Emma"},
                               files={"audio": (audio.name, f, "audio/mpeg")}, timeout=120)
     except Exception as exc:   # the URL holds the bot token: print only the error type
         print(f"  ! telegram failed: {type(exc).__name__}")
@@ -1416,7 +1416,7 @@ def listen_section(episodes: list[dict], meta: dict, brief: str) -> str:
         mins = audio_minutes(ep["file"])
         when = f" (about {mins} min)" if mins else ""
         label = ep["label"] if ep.get("hosts") else f"🔵 English {ep['label']}"
-        who = f" · {ep.get('hosts') or 'Kartik & Priya'}"
+        who = f" · {ep.get('hosts') or 'Jake & Emma'}"
         if ep.get("url"):                    # one big button per podcast in the email
             lines.append(f"[▶️ {label}{when}{who}]({play_link(ep['url'])})")
         else:
@@ -1578,7 +1578,7 @@ def build_system(cfg: dict, edition: str, date_str: str, monthly: bool) -> tuple
 def make_english_podcasts(cfg: dict, final: str, brief: str, meta: dict, title: str,
                           date_str: str, now: datetime, edition: str, dry: bool,
                           late: bool = False) -> list[dict]:
-    """Kartik & Priya episode(s) for this edition, uploaded before the email goes out.
+    """Jake & Emma episode(s) for this edition, uploaded before the email goes out.
     On a slow day the email goes first and the podcast is made right after it (late=True)."""
     from podcast import make_podcast, latest_previous_script
     import podfeed

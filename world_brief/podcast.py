@@ -8,7 +8,7 @@ Voices, best first:
 Set PODCAST_TTS=edge (English) or TELUGU_TTS=edge (Telugu) to always use B.
 
 1. A free LLM (same Gemini -> GitHub Models chain as the brief) rewrites the brief
-   as a natural conversation between KARTIK and PRIYA (prompts/podcast_prompt.md).
+   as a natural conversation between JAKE and EMMA (prompts/podcast_prompt.md).
 2. edge-tts (Microsoft Edge's neural voices, no API key) speaks each line with
    American English voices. Change voices with PODCAST_VOICE_A / PODCAST_VOICE_B
    (list all: `edge-tts --list-voices | grep en-US`).
@@ -29,25 +29,25 @@ from pathlib import Path
 
 import requests
 
-# Voice profiles share one engine: English (Kartik & Priya), Telugu (Ravi & Lakshmi),
+# Voice profiles share one engine: English (Jake & Emma), Telugu (Ravi & Lakshmi),
 # Hindi (Arjun & Meera).
 PROFILES = {
     "en": {
-        "hosts": ("KARTIK", "PRIYA"),
+        "hosts": ("JAKE", "EMMA"),
         "prompt": "podcast_prompt.md",
         "file": "world_brief_podcast.mp3",
-        "edge": {"KARTIK": os.getenv("PODCAST_VOICE_A", "en-US-AndrewNeural"),
-                 "PRIYA": os.getenv("PODCAST_VOICE_B", "en-US-AvaNeural")},
-        "edge_fallback": {"KARTIK": "en-US-GuyNeural", "PRIYA": "en-US-JennyNeural"},
+        "edge": {"JAKE": os.getenv("PODCAST_VOICE_A", "en-US-AndrewNeural"),
+                 "EMMA": os.getenv("PODCAST_VOICE_B", "en-US-AvaNeural")},
+        "edge_fallback": {"JAKE": "en-US-GuyNeural", "EMMA": "en-US-JennyNeural"},
         "edge_rate": os.getenv("PODCAST_RATE", "+4%"),
         "gtts": ("en", "com"),
-        "gemini": {"KARTIK": "Charon", "PRIYA": "Sulafat"},
-        "gemini_pinned": {"KARTIK": os.getenv("GEMINI_VOICE_A", ""),
-                          "PRIYA": os.getenv("GEMINI_VOICE_B", "")},
+        "gemini": {"JAKE": "Charon", "EMMA": "Sulafat"},
+        "gemini_pinned": {"JAKE": os.getenv("GEMINI_VOICE_A", ""),
+                          "EMMA": os.getenv("GEMINI_VOICE_B", "")},
         "lang_code": "en-US",
         "turn_style": "Warm, friendly, natural conversation, relaxed pace",
         "style": ("Read this aloud as a lively, friendly American news discussion show. "
-                  "Kartik and Priya are two friends hosting the show. Both speak with a natural "
+                  "Jake and Emma are two friends hosting the show. Both speak with a natural "
                   "General American English accent (like US public radio hosts, never an Indian "
                   "or British accent), warm and expressive, at a relaxed "
                   "conversational pace, reacting to each other like real people, never robotic:"),
@@ -109,7 +109,7 @@ def clean_brief_for_script(brief_md: str) -> str:
     return re.sub(r"[ \t]+\n", "\n", text)
 
 
-def parse_script(script: str, hosts: tuple[str, str] = ("KARTIK", "PRIYA")) -> list[tuple[str, str]]:
+def parse_script(script: str, hosts: tuple[str, str] = ("JAKE", "EMMA")) -> list[tuple[str, str]]:
     turns = []
     names = "|".join(hosts)
     for line in script.splitlines():
