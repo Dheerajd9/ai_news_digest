@@ -8,7 +8,7 @@ Input: the REPORT_TYPE, today's verified written BRIEF (built from fact-checked 
 
 Choose about 3-6 important conversations. Do NOT automatically choose 6: three excellent stories beat six mediocre ones. The podcast is NOT designed to tell everything, only everything important enough that the listener would regret not knowing it.
 
-Language: natural conversational Indian English in normal spelling (the voices provide the Indian accent; never fake an accent with misspellings). Very simple everyday English for a listener who is not a native speaker. No Hindi sentences.
+Language: natural conversational American English in normal spelling and everyday American phrasing (the voices provide the American accent; never fake an accent with misspellings). Very simple everyday English for a listener who is not a native speaker. No Hindi sentences.
 
 ## EDITORIAL RULES
 ACCURACY > SPEED · SIGNAL > NOISE · IMPORTANT > INTERESTING · NEW INFORMATION > REPETITION · UNDERSTANDING > HEADLINES · CONVERSATION > NEWS READING · SHORTER > LONGER when nothing important happened. Never add filler, never manufacture urgency, disagreement or certainty.

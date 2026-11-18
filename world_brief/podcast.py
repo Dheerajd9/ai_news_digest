@@ -3,15 +3,15 @@ Turn the written brief into a two-host audio podcast, free.
 
 Voices, best first:
   A. Gemini multi-speaker TTS (free tier, your GEMINI_API_KEY): both anchors in one
-     natural-sounding conversation, directed to speak with Indian English accents.
-  B. edge-tts fallback (Microsoft Indian English neural voices), line by line.
+     natural-sounding conversation, directed to speak with American English accents.
+  B. edge-tts fallback (Microsoft American English neural voices), line by line.
 Set PODCAST_TTS=edge (English) or TELUGU_TTS=edge (Telugu) to always use B.
 
 1. A free LLM (same Gemini -> GitHub Models chain as the brief) rewrites the brief
    as a natural conversation between KARTIK and PRIYA (prompts/podcast_prompt.md).
 2. edge-tts (Microsoft Edge's neural voices, no API key) speaks each line with
-   Indian English voices. Change voices with PODCAST_VOICE_A / PODCAST_VOICE_B
-   (list all: `edge-tts --list-voices | grep en-IN`).
+   American English voices. Change voices with PODCAST_VOICE_A / PODCAST_VOICE_B
+   (list all: `edge-tts --list-voices | grep en-US`).
 3. ffmpeg joins the lines with short natural pauses into one small MP3.
 """
 
@@ -36,19 +36,20 @@ PROFILES = {
         "hosts": ("KARTIK", "PRIYA"),
         "prompt": "podcast_prompt.md",
         "file": "world_brief_podcast.mp3",
-        "edge": {"KARTIK": os.getenv("PODCAST_VOICE_A", "en-IN-PrabhatNeural"),
-                 "PRIYA": os.getenv("PODCAST_VOICE_B", "en-IN-NeerjaExpressiveNeural")},
-        "edge_fallback": {"PRIYA": "en-IN-NeerjaNeural"},
+        "edge": {"KARTIK": os.getenv("PODCAST_VOICE_A", "en-US-AndrewNeural"),
+                 "PRIYA": os.getenv("PODCAST_VOICE_B", "en-US-AvaNeural")},
+        "edge_fallback": {"KARTIK": "en-US-GuyNeural", "PRIYA": "en-US-JennyNeural"},
         "edge_rate": os.getenv("PODCAST_RATE", "+4%"),
-        "gtts": ("en", "co.in"),
+        "gtts": ("en", "com"),
         "gemini": {"KARTIK": "Charon", "PRIYA": "Sulafat"},
         "gemini_pinned": {"KARTIK": os.getenv("GEMINI_VOICE_A", ""),
                           "PRIYA": os.getenv("GEMINI_VOICE_B", "")},
-        "lang_code": "en-IN",
+        "lang_code": "en-US",
         "turn_style": "Warm, friendly, natural conversation, relaxed pace",
-        "style": ("Read this aloud as a lively, friendly Indian English news discussion show. "
-                  "Kartik and Priya are two Indian friends from Hyderabad hosting the show. Both "
-                  "speak with a natural Indian English accent, warm and expressive, at a relaxed "
+        "style": ("Read this aloud as a lively, friendly American news discussion show. "
+                  "Kartik and Priya are two friends hosting the show. Both speak with a natural "
+                  "General American English accent (like US public radio hosts, never an Indian "
+                  "or British accent), warm and expressive, at a relaxed "
                   "conversational pace, reacting to each other like real people, never robotic:"),
     },
     "te": {

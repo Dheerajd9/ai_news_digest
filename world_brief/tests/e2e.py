@@ -361,6 +361,11 @@ def main() -> int:
         check("## 📈 IPO watch of the week" in wk and "Coming next week" in wk and "listing price vs issue price" in wk,
               "weekly: 📈 IPO watch of the week (this week's IPOs + next week's)", errors)
         import podcast as _pc
+        en = _pc.PROFILES["en"]
+        check(all(v.startswith("en-US") for v in en["edge"].values()) and en["lang_code"] == "en-US"
+              and en["gtts"] == ("en", "com") and "American English accent" in en["style"]
+              and "American English" in (SRC / "prompts" / "podcast_prompt.md").read_text(),
+              "podcast: American English accent only (Gemini style, backup voices, script language)", errors)
         check(pos == sorted(pos) and _pc.CHAPTER_NAMES == ["Top stories", "World", "USA", "India", "Tech", "Money", "Wrap-up"],
               "order: most important → world → USA → India → tech & future → money → wrap-up (email + podcast)", errors)
         mk = (SRC / "markets.py").read_text()
