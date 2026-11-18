@@ -78,10 +78,6 @@
   "first_seen": "2026-10-11",
   "expectations": [
    {
-    "date": "2026-10-12",
-    "text": "Department of Labor quarterly disclosure on processing backlogs"
-   },
-   {
     "date": "2026-10-13",
     "text": "Review PERM timelines with counsel"
    },
@@ -96,16 +92,16 @@
    {
     "date": "2026-11-02",
     "text": "Public comment period following Federal Register publication"
+   },
+   {
+    "date": "2026-11-18",
+    "text": "Preservation of duration of status rules for international students"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11",
-    "event": "MEA clarifies H-1B status remains protected"
-   },
-   {
-    "date": "2026-10-12",
-    "event": "PERM filings drop to 607 across top 13 firms"
+    "date": "2026-10-11..2026-10-12",
+    "event": "MEA clarifies H-1B status remains protected; PERM filings drop to 607 across top 13 firms"
    },
    {
     "date": "2026-10-13",
@@ -138,16 +134,20 @@
    {
     "date": "2026-11-08",
     "event": "USCIS impact data released showing over 70% affected are Indian nationals"
+   },
+   {
+    "date": "2026-11-18",
+    "event": "Federal judge blocks DHS student visa cap"
    }
   ],
-  "title": "US H-1B Renewal Scrutiny Data Shows Indian Workers Most Affected",
-  "status": "DEVELOPING",
-  "stage": "PROPOSED",
-  "summary": "USCIS impact data confirmed Indian nationals account for over 70% of visa holders affected by proposed rules ending H-1B extension deference.",
+  "title": "Federal Judge Blocks DHS Student Visa Cap Rule",
+  "status": "MAJOR CHANGE",
+  "stage": "APPROVED/PASSED",
+  "summary": "A federal judge struck down the DHS rule attempting to impose a 4-year cap on F-1 student visa stays.",
   "open_questions": [
-   "When will DHS publish final rule in Federal Register?"
+   "Will DHS appeal the ruling?"
   ],
-  "last_seen": "2026-11-08"
+  "last_seen": "2026-11-18"
  },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
@@ -250,12 +250,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-11-02",
+    "date": "2026-10-15..2026-11-03",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-03",
-    "event": "Amended S-1 filing published"
    },
    {
     "date": "2026-11-06",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-17",
     "event": "6x oversubscription"
+   },
+   {
+    "date": "2026-11-18",
+    "event": "Final pricing underway ahead of Nasdaq listing"
    }
   ],
-  "title": "Anthropic IPO Oversubscribed",
+  "title": "Anthropic Prepares for Mammoth Nasdaq IPO After Heavy Overtubscription",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Anthropic's IPO is 6x oversubscribed with pricing expected Nov 18.",
+  "summary": "Anthropic is pricing its IPO within the $70-$78 range ahead of its November 19 Nasdaq debut following massive institutional demand.",
   "open_questions": [
-   "Final pricing within $70-$78 range?"
+   "What will be the final opening stock price on Nasdaq?"
   ],
-  "last_seen": "2026-11-17"
+  "last_seen": "2026-11-18"
  },
  "binance-crypto-heist-2026": {
   "first_seen": "2026-10-30",
@@ -345,49 +345,6 @@
    "Will international law enforcement trace and freeze laundered tokens?"
   ],
   "last_seen": "2026-11-04"
- },
- "cyclone-murasu-2026": {
-  "first_seen": "2026-11-01",
-  "expectations": [
-   {
-    "date": "2026-11-01",
-    "text": "Landfall near Andhra Pradesh coast on November 3 with heavy rainfall"
-   },
-   {
-    "date": "2026-11-02",
-    "text": "Landfall along south Andhra Pradesh coast tonight"
-   },
-   {
-    "date": "2026-11-03",
-    "text": "Relief operations and weather normalization over coming days"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-01",
-    "event": "Deep depression intensifies into severe cyclone"
-   },
-   {
-    "date": "2026-11-01",
-    "event": "Orange alert issued across 6 Telangana districts"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "Severe intensity reached with midnight landfall projected"
-   },
-   {
-    "date": "2026-11-03",
-    "event": "Landfall near Ongole"
-   }
-  ],
-  "title": "Cyclone Murasu Crosses South Andhra Coast with 120 Kmph Winds",
-  "status": "DEVELOPING",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Severe Cyclone Murasu crossed the south Andhra Pradesh coast near Ongole with winds up to 120 kmph, bringing heavy rain and prompting red alerts in neighboring districts.",
-  "open_questions": [
-   "What will be the final extent of agricultural and property damage?"
-  ],
-  "last_seen": "2026-11-03"
  },
  "us-midterms-2026": {
   "first_seen": "2026-11-01",
@@ -455,37 +412,6 @@
    "How will Democratic Senate gains shape committee chairmanships in January?"
   ],
   "last_seen": "2026-11-12"
- },
- "sebi-ltcg-tax-proposal": {
-  "first_seen": "2026-11-02",
-  "expectations": [
-   {
-    "date": "2026-11-02",
-    "text": "Finance Ministry decision on tax proposal in budget preparation"
-   },
-   {
-    "date": "2026-11-03",
-    "text": "Finance Ministry review ahead of Budget 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-02",
-    "event": "SEBI formal proposal submitted to Ministry of Finance"
-   },
-   {
-    "date": "2026-11-03",
-    "event": "SEBI proposal submitted to Ministry of Finance"
-   }
-  ],
-  "title": "SEBI Proposes Scrapping Long-Term Capital Gains Tax for Foreign Investors",
-  "status": "NEW",
-  "stage": "PROPOSED",
-  "summary": "SEBI recommended eliminating the 12.5% LTCG tax for foreign portfolio investors and easing mutual fund switching rules to counter institutional capital flight.",
-  "open_questions": [
-   "Will the Union Budget include the LTCG repeal?"
-  ],
-  "last_seen": "2026-11-03"
  },
  "india-critical-minerals-scheme": {
   "first_seen": "2026-11-04",
@@ -1177,6 +1103,10 @@
    {
     "date": "2026-11-14",
     "text": "Trilateral summit taking place on Thursday at APEC"
+   },
+   {
+    "date": "2026-11-18",
+    "text": "Trilateral meetings and press briefings on Thursday"
    }
   ],
   "timeline": [
@@ -1191,16 +1121,20 @@
    {
     "date": "2026-11-16",
     "event": "Trilateral summit officially confirmed for Thursday in Shenzhen"
+   },
+   {
+    "date": "2026-11-18",
+    "event": "Trump arrives in Shenzhen and meets Xi"
    }
   ],
-  "title": "China Says Xi, Trump, Putin to Discuss World Peace in Trilateral Summit",
+  "title": "Trump Lands in China for Historic Trilateral Summit with Xi and Putin",
   "status": "DEVELOPING",
   "stage": "FORMALLY ANNOUNCED",
-  "summary": "Beijing confirmed Presidents Xi, Trump, and Putin will hold a trilateral summit in Shenzhen during APEC to discuss world peace and nuclear arms reduction.",
+  "summary": "US President Donald Trump arrived in Shenzhen for a trilateral summit with Xi Jinping and Vladimir Putin to discuss global security and trade.",
   "open_questions": [
-   "Can the three powers agree on a framework for nuclear arms reduction talks?"
+   "Will the three leaders agree on a framework for nuclear arms reduction talks?"
   ],
-  "last_seen": "2026-11-16"
+  "last_seen": "2026-11-18"
  },
  "us-ukraine-donbas-nato-proposal": {
   "first_seen": "2026-11-14",
@@ -1281,40 +1215,58 @@
  },
  "nvidia-earnings-volatility": {
   "first_seen": "2026-11-17",
-  "expectations": [],
+  "expectations": [
+   {
+    "date": "2026-11-18",
+    "text": "Permanent CEO appointment search ongoing"
+   }
+  ],
   "timeline": [
    {
     "date": "2026-11-17",
     "event": "Earnings call impending"
+   },
+   {
+    "date": "2026-11-18",
+    "event": "Q3 earnings released and board rejection of Huang confirmed"
    }
   ],
-  "title": "Nvidia Earnings and Leadership Transition",
+  "title": "Nvidia Q3 Results Ease AI Fears as Board Rejects Jensen Huang Return",
   "status": "DEVELOPING",
   "stage": "ANNOUNCED",
-  "summary": "Markets are volatile as Nvidia prepares for its first earnings call without Jensen Huang.",
+  "summary": "Nvidia reported strong Q3 earnings under interim CEO Colette Kress, while the board reaffirmed it will not reinstate Jensen Huang.",
   "open_questions": [
-   "Who will be the permanent CEO?",
-   "How will the board committee impact export strategy?"
+   "Who will be appointed as permanent CEO?",
+   "How will export controls impact future guidance?"
   ],
-  "last_seen": "2026-11-17"
+  "last_seen": "2026-11-18"
  },
  "cyclone-akvan-india": {
   "first_seen": "2026-11-17",
-  "expectations": [],
+  "expectations": [
+   {
+    "date": "2026-11-18",
+    "text": "Landfall expected along the Andhra/Odisha coast on November 20"
+   }
+  ],
   "timeline": [
    {
     "date": "2026-11-17",
     "event": "Red alert issued"
+   },
+   {
+    "date": "2026-11-18",
+    "event": "Orange alert issued as storm intensifies"
    }
   ],
-  "title": "Cyclone Akvan Landfall Expected",
+  "title": "Cyclone Akvan Intensifies in Bay of Bengal with Landfall Expected Nov 20",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Cyclone Akvan is intensifying and expected to hit Andhra Pradesh on Nov 20.",
+  "summary": "Cyclonic Storm Akvan strengthened over the Bay of Bengal, prompting orange alerts across Andhra Pradesh, Odisha, and Telangana.",
   "open_questions": [
-   "Extent of damage?"
+   "Exact landfall location and wind velocity peak"
   ],
-  "last_seen": "2026-11-17"
+  "last_seen": "2026-11-18"
  },
  "us-china-ai-restrictions": {
   "first_seen": "2026-11-17",

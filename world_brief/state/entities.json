@@ -2,14 +2,15 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 6,
+"count": 7,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "russia-oil-sanctions-waiver",
-"us-white-house-chief-of-staff"
+"us-white-house-chief-of-staff",
+"trilateral-us-china-russia-summit"
 ],
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-18"
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
@@ -38,7 +39,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 18,
+"count": 19,
 "stories": [
 "tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
@@ -49,7 +50,7 @@
 "anthropic-ipo-prep",
 "nvidia-earnings-volatility"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -131,7 +132,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 16,
+"count": 17,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -140,17 +141,17 @@
 "vance-h1b-rhetoric",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-18"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
-"count": 3,
+"count": 4,
 "stories": [
 "amazon-decart-acquisition",
 "alphabet-intel-tech-selloff",
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-18"
 },
 "RBI": {
 "first_seen": "2026-10-12",
@@ -186,7 +187,7 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 9,
+"count": 10,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
@@ -194,7 +195,7 @@
 "us-ead-extension-end",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-18"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -231,7 +232,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 24,
+"count": 25,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -239,7 +240,7 @@
 "openai-agents-airgap",
 "anthropic-power-generators"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -454,13 +455,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 18,
+"count": 19,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -654,21 +655,13 @@
 },
 "IMD": {
 "first_seen": "2026-10-25",
-"count": 9,
+"count": 10,
 "stories": [
 "bayes-cyclone-alert-2026",
 "cyclone-murasu-2026",
 "cyclone-akvan-india"
 ],
-"last_seen": "2026-11-17"
-},
-"Sarvam AI": {
-"first_seen": "2026-10-27",
-"count": 1,
-"stories": [
-"sarvam-ai-defence-pact"
-],
-"last_seen": "2026-10-27"
+"last_seen": "2026-11-18"
 },
 "Flávio Bolsonaro": {
 "first_seen": "2026-10-28",
@@ -688,13 +681,13 @@
 },
 "Google": {
 "first_seen": "2026-10-28",
-"count": 3,
+"count": 4,
 "stories": [
 "openai-google-tpu-deal",
 "alphabet-earnings-miss",
 "anthropic-ipo-prep"
 ],
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-18"
 },
 "Alphabet": {
 "first_seen": "2026-10-29",
@@ -772,20 +765,21 @@
 },
 "Andhra Pradesh": {
 "first_seen": "2026-11-01",
-"count": 5,
+"count": 6,
 "stories": [
 "cyclone-murasu-2026",
 "cyclone-akvan-india"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "Telangana": {
 "first_seen": "2026-11-01",
-"count": 3,
+"count": 4,
 "stories": [
-"cyclone-murasu-2026"
+"cyclone-murasu-2026",
+"cyclone-akvan-india"
 ],
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-18"
 },
 "Ministry of Finance": {
 "first_seen": "2026-11-01",
@@ -1028,12 +1022,12 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 10,
+"count": 11,
 "stories": [
 "nvidia-huang-probe",
 "nvidia-earnings-volatility"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "MakeMyTrip": {
 "first_seen": "2026-11-09",
@@ -1086,11 +1080,12 @@
 },
 "Colette Kress": {
 "first_seen": "2026-11-13",
-"count": 2,
+"count": 3,
 "stories": [
-"nvidia-huang-probe"
+"nvidia-huang-probe",
+"nvidia-earnings-volatility"
 ],
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-18"
 },
 "Howard Lutnick": {
 "first_seen": "2026-11-13",
@@ -1126,9 +1121,55 @@
 "trilateral-us-china-russia-summit"
 ],
 "last_seen": "2026-11-16"
+},
+"Xi Jinping": {
+"first_seen": "2026-11-18",
+"count": 1,
+"stories": [
+"trilateral-us-china-russia-summit"
+],
+"last_seen": "2026-11-18"
+},
+"Vladimir Putin": {
+"first_seen": "2026-11-18",
+"count": 1,
+"stories": [
+"trilateral-us-china-russia-summit"
+],
+"last_seen": "2026-11-18"
 }
 },
 "connections": [
+{
+"text": "US-China diplomacy -> global trade stability",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-18",
+"count": 1
+},
+{
+"text": "Nvidia earnings -> AI sector market sentiment",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-18",
+"count": 1
+},
+{
+"text": "Anthropic IPO -> generative AI market valuation",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-18",
+"count": 1
+},
+{
+"text": "Cyclone Akvan -> coastal crop damage and disaster response",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-18",
+"count": 1
+},
+{
+"text": "US immigration policy -> international student enrollment",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-18",
+"count": 1
+},
 {
 "text": "Bilateral trade agreement -> tariff reductions -> Indian export growth",
 "first_seen": "2026-11-13",
@@ -1457,36 +1498,6 @@
 "text": "Cyber hack -> crypto market volatility -> investor confidence",
 "first_seen": "2026-10-30",
 "last_seen": "2026-11-01",
-"count": 2
-},
-{
-"text": "Bay of Bengal cyclone -> coastal landfall -> railway and agriculture disruption",
-"first_seen": "2026-10-27",
-"last_seen": "2026-11-01",
-"count": 3
-},
-{
-"text": "Domestic retail expansion -> GST revenue growth -> fiscal deficit cushion",
-"first_seen": "2026-11-01",
-"last_seen": "2026-11-01",
-"count": 1
-},
-{
-"text": "Inflation stickiness -> youth unemployment -> social unrest",
-"first_seen": "2026-11-01",
-"last_seen": "2026-11-01",
-"count": 1
-},
-{
-"text": "US election outcome -> trade tariff policy -> international commerce",
-"first_seen": "2026-11-01",
-"last_seen": "2026-11-01",
-"count": 1
-},
-{
-"text": "AI capital expenditure -> legacy cash flow pressure -> stock market correction",
-"first_seen": "2026-10-30",
-"last_seen": "2026-10-31",
 "count": 2
 }
 ]
