@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.axios.com/2026/11/12/jensen-huang-nvidia-board",
-   "title": "Jensen Huang's looming ouster triggers an AI earthquake",
-   "at": "2026-11-12T13:13:03+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/google-joins-the-decision-model-wave-with-gemini-decision-1-scoring-1000-questions-in-a-single-pass/",
-   "title": "Google joins the decision-model wave with Gemini Decision 1, scoring 1,000 questions in a single pass",
-   "at": "2026-11-12T13:13:03+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/google-deepmind-shifts-genomics-ai-from-bulk-tissue-predictions-to-single-cell-type-resolution-with-alphagenome-2/",
-   "title": "Google Deepmind shifts genomics AI from bulk tissue predictions to single cell type resolution with AlphaGenome 2",
-   "at": "2026-11-12T13:13:03+00:00"
-  },
-  {
-   "link": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
-   "title": "Taiwan\u2019s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
-   "at": "2026-11-12T13:13:03+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-says-ai-is-eroding-nvidias-cuda-lead-cutting-an-amd-chip-switch-from-months-to-three-days/",
-   "title": "Anthropic says AI is eroding Nvidia's CUDA lead, cutting an AMD chip switch from months to three days",
-   "at": "2026-11-12T13:13:03+00:00"
-  },
-  {
    "link": "https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/",
    "title": "Google rolls out Gemini 4 Hydrogen, finally replacing 3.8 Flash",
    "at": "2026-11-13T13:12:02+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription",
    "title": "Apple is testing daily usage limits for more complex Siri AI interactions",
    "at": "2026-11-17T13:13:21+00:00"
+  },
+  {
+   "link": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+   "title": "Introducing GPT-6.2 Astra and Sol",
+   "at": "2026-11-18T13:16:50+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
+   "title": "Google\u2019s Spark AI agent becomes \u2018Tasks\u2019 \u2014 and now it\u2019s free",
+   "at": "2026-11-18T13:16:50+00:00"
+  },
+  {
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPR1Y0SWNrRFdxeWtFRkxJTGVuNElGM25QSjdFQ0FoZEQ4c1pHc0VLdEtGbTh0UHExemRDQm1Zc2dnRUFXWmgxVVJjS2o1Y1hqT09GNmZjV0pDam9PV2xVODdFU1pJS25DUnhjcWZNd3RvOHlCQjhtQjAtb0EzNkxwekR0cVpHQzMwNFZGMVdETXRKbEhYekFmdkdaN1lwcEEtYk1IMXZuSzBOMEtrM3V1LUVHTUhzTE84V21rekdoVFBGbWYwRlZxUnBB?oc=5",
+   "title": "Microsoft launches MAI Code 2 models to challenge OpenAI and Anthropic in AI coding",
+   "at": "2026-11-18T13:16:50+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/californias-attorney-general-sues-openai-over-rogue-ai-models-that-attacked-hugging-face/",
+   "title": "California's attorney general sues OpenAI over rogue AI models that attacked Hugging Face",
+   "at": "2026-11-18T13:16:50+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+   "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+   "at": "2026-11-18T13:16:50+00:00"
   }
  ]
 }
