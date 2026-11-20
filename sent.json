@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://openai.com/index/introducing-chatgpt-wallet",
-   "title": "Introducing ChatGPT Wallet",
-   "at": "2026-11-14T14:15:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary/",
-   "title": "OpenAI reassigns robotics researchers to other teams as general-purpose models might make specialized robotics AI unnecessary",
-   "at": "2026-11-14T14:15:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-hidden-inside-six-chinese-ai-models/",
-   "title": "Former OpenAI researcher says he found Nvidia Blackwell fingerprints hidden inside six Chinese AI models",
-   "at": "2026-11-14T14:15:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropics-claude-for-manufacturing-plugs-ai-directly-into-factory-software-to-automate-industrial-workflows/",
-   "title": "Anthropic's Claude for Manufacturing plugs AI directly into factory software to automate industrial workflows",
-   "at": "2026-11-14T14:15:07+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/",
-   "title": "Runway's open-source Praxis-1 turns video AI into a robot controller",
-   "at": "2026-11-14T14:15:07+00:00"
-  },
-  {
    "link": "https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol/",
    "title": "Gemini 4 Carbon takes the MathArena crown but costs 15 times more than GPT-6.1 Sol",
    "at": "2026-11-15T13:11:53+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/anthropic-openai-and-google-models-readily-marked-medics-journalists-and-surrendering-soldiers-as-kamikaze-drone-targets/",
    "title": "Anthropic, OpenAI, and Google models readily marked medics, journalists, and surrendering soldiers as kamikaze drone targets",
    "at": "2026-11-19T13:13:41+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropics-81-3-billion-ipo-shatters-spacexs-record-as-rising-rates-and-political-headwinds-shake-the-sector/",
+   "title": "Anthropic's $81.3 billion IPO shatters SpaceX's record as rising rates and political headwinds shake the sector",
+   "at": "2026-11-20T13:12:04+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use",
+   "title": "Gemini on Mac can now use your computer",
+   "at": "2026-11-20T13:12:04+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing",
+   "title": "Apple is hiring engineers to build its own AI agent",
+   "at": "2026-11-20T13:12:04+00:00"
+  },
+  {
+   "link": "https://www.engadget.com/2322656/openai-is-testing-dots-personal-agents-on-its-20-per-month-plus-tier/",
+   "title": "OpenAI is testing Dots personal agents on its $20 per month Plus tier",
+   "at": "2026-11-20T13:12:04+00:00"
+  },
+  {
+   "link": "https://www.anthropic.com/research/claude-black-hole-physics",
+   "title": "Claude solves two open problems in the physics of black holes",
+   "at": "2026-11-20T13:12:04+00:00"
   }
  ]
 }
