@@ -39,7 +39,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 19,
+"count": 20,
 "stories": [
 "tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
@@ -50,7 +50,7 @@
 "anthropic-ipo-prep",
 "nvidia-earnings-volatility"
 ],
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-20"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -132,7 +132,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 18,
+"count": 19,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -141,7 +141,7 @@
 "vance-h1b-rhetoric",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
@@ -155,7 +155,7 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 12,
+"count": 13,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
@@ -163,7 +163,7 @@
 "india-cpi-inflation-oct-2026",
 "india-rupee-strength"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-20"
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
@@ -187,7 +187,7 @@
 },
 "DHS": {
 "first_seen": "2026-10-12",
-"count": 11,
+"count": 12,
 "stories": [
 "us-h1b-fee-lawsuit",
 "us-perm-h1b-freeze",
@@ -195,7 +195,7 @@
 "us-ead-extension-end",
 "us-h1b-deference-change"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "Microsoft": {
 "first_seen": "2026-10-12",
@@ -232,7 +232,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 26,
+"count": 27,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -240,7 +240,7 @@
 "openai-agents-airgap",
 "anthropic-power-generators"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -312,18 +312,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 47,
+"count": 49,
 "stories": [
-"us-iran-sanctions-india",
-"cosmoserve-space-debris-hyderabad",
 "us-perm-h1b-freeze",
 "middle-east-escalation",
 "india-cpi-inflation-oct-2026",
 "india-us-trade-talks",
 "trilateral-us-china-russia-summit",
-"us-ukraine-donbas-nato-proposal"
+"us-ukraine-donbas-nato-proposal",
+"india-rupee-strength",
+"myanmar-rohingya-icj-ruling"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -456,13 +456,13 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 20,
+"count": 21,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -597,7 +597,7 @@
 },
 "FPI": {
 "first_seen": "2026-10-25",
-"count": 8,
+"count": 9,
 "stories": [
 "fpi-outflows-2026",
 "sebi-ltcg-tax-proposal",
@@ -605,7 +605,7 @@
 "india-rupee-fpi-rally",
 "india-rupee-strength"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-20"
 },
 "NSE": {
 "first_seen": "2026-10-25",
@@ -684,22 +684,6 @@
 "anthropic-ipo-prep"
 ],
 "last_seen": "2026-11-12"
-},
-"Reliance Industries": {
-"first_seen": "2026-10-29",
-"count": 1,
-"stories": [
-"jio-platforms-mega-ipo"
-],
-"last_seen": "2026-10-29"
-},
-"Bank of Canada": {
-"first_seen": "2026-10-29",
-"count": 1,
-"stories": [
-"bank-of-canada-rate-hike"
-],
-"last_seen": "2026-10-29"
 },
 "Binance": {
 "first_seen": "2026-10-30",
@@ -943,11 +927,12 @@
 },
 "White House": {
 "first_seen": "2026-11-07",
-"count": 1,
+"count": 2,
 "stories": [
-"us-white-house-chief-of-staff"
+"us-white-house-chief-of-staff",
+"us-cyber-director-fired"
 ],
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-20"
 },
 "Stephen Miller": {
 "first_seen": "2026-11-07",
@@ -1083,14 +1068,15 @@
 },
 "US Government": {
 "first_seen": "2026-11-15",
-"count": 8,
+"count": 9,
 "stories": [
 "india-us-trade-talks",
 "us-ukraine-donbas-nato-proposal",
 "trilateral-us-china-russia-summit",
-"us-china-ai-restrictions"
+"us-china-ai-restrictions",
+"us-cyber-director-fired"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "NATO": {
 "first_seen": "2026-11-15",
@@ -1147,9 +1133,55 @@
 "cyclone-akvan-india"
 ],
 "last_seen": "2026-11-19"
+},
+"AMD": {
+"first_seen": "2026-11-20",
+"count": 1,
+"stories": [
+"anthropic-ipo-prep"
+],
+"last_seen": "2026-11-20"
+},
+"UN": {
+"first_seen": "2026-11-20",
+"count": 1,
+"stories": [
+"myanmar-rohingya-icj-ruling"
+],
+"last_seen": "2026-11-20"
 }
 },
 "connections": [
+{
+"text": "US immigration policy -> international student enrollment",
+"first_seen": "2026-11-18",
+"last_seen": "2026-11-20",
+"count": 3
+},
+{
+"text": "Anthropic IPO -> AI market valuation -> tech sector market sentiment",
+"first_seen": "2026-11-20",
+"last_seen": "2026-11-20",
+"count": 1
+},
+{
+"text": "System outages -> executive accountability -> cyber policy shift",
+"first_seen": "2026-11-20",
+"last_seen": "2026-11-20",
+"count": 1
+},
+{
+"text": "Tech sell-off -> capital rotation to India -> rupee appreciation",
+"first_seen": "2026-11-20",
+"last_seen": "2026-11-20",
+"count": 1
+},
+{
+"text": "ICJ ruling -> international law precedent -> refugee policy impact",
+"first_seen": "2026-11-20",
+"last_seen": "2026-11-20",
+"count": 1
+},
 {
 "text": "US-China diplomacy -> global trade stability",
 "first_seen": "2026-11-18",
@@ -1158,12 +1190,6 @@
 },
 {
 "text": "Cyclone Akvan -> coastal crop damage and disaster response",
-"first_seen": "2026-11-18",
-"last_seen": "2026-11-19",
-"count": 2
-},
-{
-"text": "US immigration policy -> international student enrollment",
 "first_seen": "2026-11-18",
 "last_seen": "2026-11-19",
 "count": 2
@@ -1485,30 +1511,6 @@
 "first_seen": "2026-11-02",
 "last_seen": "2026-11-02",
 "count": 1
-},
-{
-"text": "AI infrastructure spending -> international IPO capital sourcing -> public listing benchmark",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "H-1B policy changes -> increased renewal friction -> Indian IT worker impact",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "NVS-03 operational -> NavIC satellite constellation restored",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "Cyber hack -> crypto market volatility -> investor confidence",
-"first_seen": "2026-10-30",
-"last_seen": "2026-11-01",
-"count": 2
 }
 ]
 }

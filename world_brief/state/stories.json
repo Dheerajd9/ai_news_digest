@@ -79,10 +79,6 @@
   "expectations": [
    {
     "date": "2026-10-13",
-    "text": "Review PERM timelines with counsel"
-   },
-   {
-    "date": "2026-10-13",
     "text": "Monitor DHS official rulemaking portal for public comment periods."
    },
    {
@@ -96,16 +92,16 @@
    {
     "date": "2026-11-18",
     "text": "Preservation of duration of status rules for international students"
+   },
+   {
+    "date": "2026-11-20",
+    "text": "Potential federal appeal filings"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-11..2026-10-13",
-    "event": "MEA clarifies H-1B status remains protected; PERM filings drop to 607 across top 13 firms; DHS proposal announced"
-   },
-   {
-    "date": "2026-10-18",
-    "event": "Administrative tightening advanced across extensions and work permit rules"
+    "date": "2026-10-11..2026-10-18",
+    "event": "MEA clarifies H-1B status remains protected; PERM filings drop to 607 across top 13 firms; DHS proposal announced; Administrative tightening advanced across extensions and work permit rules"
    },
    {
     "date": "2026-10-19",
@@ -138,16 +134,20 @@
    {
     "date": "2026-11-19",
     "event": "Federal judge blocks DHS student visa cap rule"
+   },
+   {
+    "date": "2026-11-20",
+    "event": "Federal judge invalidates DHS student visa duration cap rule"
    }
   ],
-  "title": "Federal Judge Blocks DHS Student Visa Duration Cap Rule",
-  "status": "MAJOR CHANGE",
-  "stage": "APPROVED/PASSED",
-  "summary": "A federal judge struck down the DHS rule attempting to impose a 4-year cap on F-1 student visa stays, preserving duration of status rules.",
+  "title": "Federal Court Strikes Down DHS 4-Year Student Visa Cap",
+  "status": "RESOLVED",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "A US federal court struck down the DHS rule attempting to cap F-1 student visas at four years, preserving traditional duration of status rules.",
   "open_questions": [
-   "Will DHS appeal the ruling?"
+   "Will DHS appeal the federal court decision?"
   ],
-  "last_seen": "2026-11-19"
+  "last_seen": "2026-11-20"
  },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
@@ -228,10 +228,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-11-02",
-    "text": "Global institutional roadshows ahead of November pricing"
-   },
-   {
     "date": "2026-11-06",
     "text": "Institutional roadshow reviews ahead of potential listing decisions"
    },
@@ -246,16 +242,16 @@
    {
     "date": "2026-11-16",
     "text": "Final IPO pricing on Nov 18 and Nasdaq debut on Nov 19"
+   },
+   {
+    "date": "2026-11-20",
+    "text": "Tech earnings guidance reviews over coming weeks"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-11-06",
+    "date": "2026-10-15..2026-11-11",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-11",
-    "event": "IPO price band set at $70-$78 per share"
    },
    {
     "date": "2026-11-12",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-19",
     "event": "Completed record-breaking $107.3B IPO and Nasdaq debut"
+   },
+   {
+    "date": "2026-11-20",
+    "event": "Anthropic stock slumps post-debut triggering 1,100 point Dow drop"
    }
   ],
-  "title": "Anthropic Sets All-Time Record With $107.3 Billion Nasdaq IPO",
+  "title": "Anthropic Debuts on Nasdaq but Post-IPO Slump Sparks Tech Sell-Off",
   "status": "MAJOR CHANGE",
-  "stage": "EFFECTIVE",
-  "summary": "Anthropic priced its IPO at $83 per share, raising $107.3 billion and valuing the firm near $1.5 trillion in the largest market debut in history.",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Anthropic completed its historic $107.3B IPO, but its stock fell up to 8% on day two, triggering a broad sell-off across Wall Street tech shares.",
   "open_questions": [
-   "How will secondary market trading stabilize amid retail investor squeeze risks?"
+   "Will secondary market trading stabilize tech sector valuations?"
   ],
-  "last_seen": "2026-11-19"
+  "last_seen": "2026-11-20"
  },
  "us-midterms-2026": {
   "first_seen": "2026-11-01",
@@ -365,98 +365,6 @@
    "How will Democratic Senate gains shape committee chairmanships in January?"
   ],
   "last_seen": "2026-11-12"
- },
- "us-iran-sanctions-india": {
-  "first_seen": "2026-11-05",
-  "expectations": [
-   {
-    "date": "2026-11-05",
-    "text": "Enforcement action by Indian financial compliance bodies"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-05",
-    "event": "US sanctions imposed on Indian and Turkish trade networks"
-   }
-  ],
-  "title": "US Sanctions Indian and Turkish Entities for Iranian Oil Trade",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "The US Treasury sanctioned Indian and Turkish companies and individuals for assisting Iran in evading petroleum export restrictions.",
-  "open_questions": [
-   "Will India institute formal enforcement proceedings against sanctioned firms?"
-  ],
-  "last_seen": "2026-11-05"
- },
- "sebi-nri-digital-kyc": {
-  "first_seen": "2026-11-05",
-  "expectations": [
-   {
-    "date": "2026-11-05",
-    "text": "Brokers to integrate digital KYC workflows in Q4 2026"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-05",
-    "event": "SEBI issues simplified digital KYC rules"
-   }
-  ],
-  "title": "SEBI Eases Digital KYC Rules for Foreign Investors and NRIs",
-  "status": "NEW",
-  "stage": "APPROVED/PASSED",
-  "summary": "SEBI approved remote digital KYC verification for NRIs and foreign portfolio investors residing in FATF-compliant jurisdictions.",
-  "open_questions": [
-   "When will all domestic AMCs roll out the updated digital onboarding tools?"
-  ],
-  "last_seen": "2026-11-05"
- },
- "openai-data-center-power": {
-  "first_seen": "2026-11-05",
-  "expectations": [
-   {
-    "date": "2026-11-05",
-    "text": "Community-impact assessments submitted for future data center builds"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-05",
-    "event": "OpenAI issues data center policy framework"
-   }
-  ],
-  "title": "OpenAI Pledges Direct Power Payments to Ease Data Center Backlash",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "OpenAI published a policy framework pledging to cover its data center grid capacity costs and protect local utility ratepayers following public pushback.",
-  "open_questions": [
-   "Will other AI hyperscalers adopt similar power payment commitments?"
-  ],
-  "last_seen": "2026-11-05"
- },
- "cosmoserve-space-debris-hyderabad": {
-  "first_seen": "2026-11-05",
-  "expectations": [
-   {
-    "date": "2026-11-05",
-    "text": "Initial orbital testing of satellite repair craft in 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-05",
-    "event": "Cosmoserve opens Base 1 in Hyderabad"
-   }
-  ],
-  "title": "Cosmoserve Opens Space Debris Removal Facility in Hyderabad",
-  "status": "NEW",
-  "stage": "OPERATIONAL",
-  "summary": "Space tech startup Cosmoserve launched 'Base 1' in Hyderabad, India's first private facility for satellite servicing and debris removal.",
-  "open_questions": [
-   "When will the first commercial debris removal mission launch?"
-  ],
-  "last_seen": "2026-11-05"
  },
  "canada-immigration-levels-2027": {
   "first_seen": "2026-11-06",
@@ -1203,20 +1111,75 @@
  },
  "india-rupee-strength": {
   "first_seen": "2026-11-17",
-  "expectations": [],
+  "expectations": [
+   {
+    "date": "2026-11-20",
+    "text": "Foreign inflow tracking through upcoming Q3 corporate earnings"
+   }
+  ],
   "timeline": [
    {
     "date": "2026-11-17",
     "event": "Seven-month high"
+   },
+   {
+    "date": "2026-11-20",
+    "event": "Rupee surges past 93 to hit 92.66 per US dollar"
    }
   ],
-  "title": "Indian Rupee Hits Seven-Month High",
-  "status": "DEVELOPING",
+  "title": "Indian Rupee Hits 7-Month High as FII Inflows Top $12 Billion",
+  "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Rupee reached 93.48 vs USD on strong inflows and lower oil prices.",
+  "summary": "The Indian rupee reached 92.66 against the US dollar backed by over $12 billion in foreign portfolio inflows in November.",
   "open_questions": [
-   "Sustainability of inflows?"
+   "Will foreign buying momentum sustain through Q3 earnings?"
   ],
-  "last_seen": "2026-11-17"
+  "last_seen": "2026-11-20"
+ },
+ "us-cyber-director-fired": {
+  "first_seen": "2026-11-20",
+  "expectations": [
+   {
+    "date": "2026-11-20",
+    "text": "Federal cyber audit reports"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-20",
+    "event": "Kirsten Davies appointed new National Cyber Director"
+   }
+  ],
+  "title": "White House Replaces Cyber Chief After Nationwide Tech Outages",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "The White House replaced National Cyber Director Sean Cairncross with Kirsten Davies following severe tech outages across US aviation and financial systems.",
+  "open_questions": [
+   "What structural changes will the new director introduce to federal cyber defense?"
+  ],
+  "last_seen": "2026-11-20"
+ },
+ "myanmar-rohingya-icj-ruling": {
+  "first_seen": "2026-11-20",
+  "expectations": [
+   {
+    "date": "2026-11-20",
+    "text": "UN Security Council debates on enforcement actions"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-20",
+    "event": "ICJ rules state culpable of genocide for first time"
+   }
+  ],
+  "title": "ICJ Delivers Historic Genocide Verdict Against Myanmar",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The International Court of Justice ruled that Myanmar committed genocide against the Rohingya, setting a historic precedent for state accountability.",
+  "open_questions": [
+   "Will the UN Security Council act to enforce international legal sanctions?"
+  ],
+  "last_seen": "2026-11-20"
  }
 }
