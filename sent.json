@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol/",
-   "title": "Gemini 4 Carbon takes the MathArena crown but costs 15 times more than GPT-6.1 Sol",
-   "at": "2026-11-15T13:11:53+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-says-outdated-prompting-habits-are-slowing-down-claude-opus-5-5/",
-   "title": "Anthropic says outdated prompting habits are slowing down Claude Opus 5.5",
-   "at": "2026-11-15T13:11:53+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/",
-   "title": "Meituan releases a 1.6-trillion-parameter agent model that never touched an Nvidia GPU",
-   "at": "2026-11-15T13:11:53+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo/",
-   "title": "Anthropic CEO Amodei admits \"there's a huge uncertainty in what's going to happen next year\" days before a record IPO",
-   "at": "2026-11-15T13:11:53+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon/",
-   "title": "Anthropic can already retrain Mythos with \"a fraction of the compute originally needed,\" says former researcher Coxon",
-   "at": "2026-11-15T13:11:53+00:00"
-  },
-  {
    "link": "https://www.cnbc.com/2026/11/16/nvidia-stock-price-jensen-huang.html",
    "title": "Nvidia stock falls as investors price in fallout from Jensen Huang's resignation",
    "at": "2026-11-16T13:14:20+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.anthropic.com/research/claude-black-hole-physics",
    "title": "Claude solves two open problems in the physics of black holes",
    "at": "2026-11-20T13:12:04+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
+   "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+   "at": "2026-11-21T13:11:54+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/apple-joins-the-race-for-ai-agents-that-control-your-device-while-raising-new-barriers-for-competitors/",
+   "title": "Apple joins the race for AI agents that control your device while raising new barriers for competitors",
+   "at": "2026-11-21T13:11:54+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/googles-gemini-can-now-run-mac-apps-and-finish-desktop-chores-in-the-background-while-you-keep-working/",
+   "title": "Google's Gemini can now run Mac apps and finish desktop chores in the background while you keep working",
+   "at": "2026-11-21T13:11:54+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-makes-it-much-harder-for-attackers-to-extract-how-its-latest-ai-models-think/",
+   "title": "OpenAI makes it much harder for attackers to extract how its latest AI models think",
+   "at": "2026-11-21T13:11:54+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/bytedance-argues-most-ai-training-phases-are-unnecessary-and-backs-it-up-with-a-competitive-open-model/",
+   "title": "Bytedance argues most AI training phases are unnecessary and backs it up with a competitive open model",
+   "at": "2026-11-21T13:11:54+00:00"
   }
  ]
 }
