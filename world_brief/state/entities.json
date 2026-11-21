@@ -2,15 +2,16 @@
 "entities": {
 "Donald Trump": {
 "first_seen": "2026-10-11",
-"count": 8,
+"count": 9,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "russia-oil-sanctions-waiver",
 "us-white-house-chief-of-staff",
-"trilateral-us-china-russia-summit"
+"trilateral-us-china-russia-summit",
+"trump-data-center-tax-proposal"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-21"
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
@@ -39,18 +40,18 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 20,
+"count": 21,
 "stories": [
-"tsmc-q3-texas-fab",
 "taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
 "spacex-apollo-ai-compute",
 "openai-google-tpu-deal",
 "nvidia-huang-probe",
 "anthropic-ipo-prep",
-"nvidia-earnings-volatility"
+"nvidia-earnings-volatility",
+"us-tech-market-correction"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-21"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -76,13 +77,14 @@
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
-"count": 12,
+"count": 13,
 "stories": [
 "middle-east-escalation",
 "middle-east-oil",
-"air-india-saudi-suspension"
+"air-india-saudi-suspension",
+"middle-east-houthi-missiles"
 ],
-"last_seen": "2026-10-25"
+"last_seen": "2026-11-21"
 },
 "Houthis": {
 "first_seen": "2026-10-11",
@@ -95,11 +97,12 @@
 },
 "Yemen": {
 "first_seen": "2026-10-11",
-"count": 2,
+"count": 3,
 "stories": [
-"middle-east-escalation"
+"middle-east-escalation",
+"middle-east-houthi-missiles"
 ],
-"last_seen": "2026-10-12"
+"last_seen": "2026-11-21"
 },
 "Iran": {
 "first_seen": "2026-10-11",
@@ -232,15 +235,16 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 27,
+"count": 28,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap",
-"anthropic-power-generators"
+"anthropic-power-generators",
+"us-tech-market-correction"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-21"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -312,18 +316,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 49,
+"count": 51,
 "stories": [
-"us-perm-h1b-freeze",
-"middle-east-escalation",
 "india-cpi-inflation-oct-2026",
 "india-us-trade-talks",
 "trilateral-us-china-russia-summit",
 "us-ukraine-donbas-nato-proposal",
 "india-rupee-strength",
-"myanmar-rohingya-icj-ruling"
+"myanmar-rohingya-icj-ruling",
+"operation-monsoon-thunder",
+"nikhil-gupta-sentencing"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-21"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -456,13 +460,14 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 21,
+"count": 22,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
-"alphabet-intel-tech-selloff"
+"alphabet-intel-tech-selloff",
+"us-tech-market-correction"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-21"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -701,21 +706,14 @@
 ],
 "last_seen": "2026-10-31"
 },
-"AMCs": {
-"first_seen": "2026-10-30",
-"count": 1,
-"stories": [
-"sebi-direct-mutual-fund-default"
-],
-"last_seen": "2026-10-30"
-},
 "S&P 500": {
 "first_seen": "2026-10-31",
-"count": 1,
+"count": 2,
 "stories": [
-"alphabet-intel-tech-selloff"
+"alphabet-intel-tech-selloff",
+"us-tech-market-correction"
 ],
-"last_seen": "2026-10-31"
+"last_seen": "2026-11-21"
 },
 "US Navy": {
 "first_seen": "2026-10-31",
@@ -1068,15 +1066,17 @@
 },
 "US Government": {
 "first_seen": "2026-11-15",
-"count": 9,
+"count": 11,
 "stories": [
 "india-us-trade-talks",
 "us-ukraine-donbas-nato-proposal",
 "trilateral-us-china-russia-summit",
 "us-china-ai-restrictions",
-"us-cyber-director-fired"
+"us-cyber-director-fired",
+"trump-data-center-tax-proposal",
+"nikhil-gupta-sentencing"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-21"
 },
 "NATO": {
 "first_seen": "2026-11-15",
@@ -1149,9 +1149,55 @@
 "myanmar-rohingya-icj-ruling"
 ],
 "last_seen": "2026-11-20"
+},
+"NCB": {
+"first_seen": "2026-11-21",
+"count": 1,
+"stories": [
+"operation-monsoon-thunder"
+],
+"last_seen": "2026-11-21"
+},
+"US DEA": {
+"first_seen": "2026-11-21",
+"count": 1,
+"stories": [
+"operation-monsoon-thunder"
+],
+"last_seen": "2026-11-21"
 }
 },
 "connections": [
+{
+"text": "Anthropic IPO -> AI valuation scrutiny -> broad tech stock sell-off",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-21",
+"count": 1
+},
+{
+"text": "Cross-border law enforcement -> drug network disruption",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-21",
+"count": 1
+},
+{
+"text": "US protectionist policy -> international data center CapEx restriction",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-21",
+"count": 1
+},
+{
+"text": "Extraterritorial legal prosecution -> diplomatic resolution",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-21",
+"count": 1
+},
+{
+"text": "Middle East military escalation -> Persian Gulf shipping risk premium",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-21",
+"count": 1
+},
 {
 "text": "US immigration policy -> international student enrollment",
 "first_seen": "2026-11-18",
@@ -1480,36 +1526,6 @@
 "text": "US strikes -> oil prices rise -> import inflation for India",
 "first_seen": "2026-11-03",
 "last_seen": "2026-11-03",
-"count": 1
-},
-{
-"text": "LTCG tax cut -> foreign capital return -> Indian stock market liquidity",
-"first_seen": "2026-11-03",
-"last_seen": "2026-11-03",
-"count": 1
-},
-{
-"text": "Cyclone landfall -> agricultural disruption -> rabi sowing delay",
-"first_seen": "2026-11-03",
-"last_seen": "2026-11-03",
-"count": 1
-},
-{
-"text": "Iran diplomacy -> Hormuz reopening -> oil price plunge -> lower global inflation",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "LTCG tax cut -> foreign investor return -> Indian stock market rally",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
-"count": 1
-},
-{
-"text": "Bay of Bengal cyclone -> coastal landfall -> train cancellations and storm warnings",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-02",
 "count": 1
 }
 ]

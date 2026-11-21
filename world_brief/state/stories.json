@@ -366,52 +366,6 @@
   ],
   "last_seen": "2026-11-12"
  },
- "canada-immigration-levels-2027": {
-  "first_seen": "2026-11-06",
-  "expectations": [
-   {
-    "date": "2026-11-06",
-    "text": "IRCC to publish detailed application guidelines for temporary resident PR stream"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-06",
-    "event": "IRCC announces 380k PR target and 200k temporary-to-PR transition path"
-   }
-  ],
-  "title": "Canada Releases 2027-2029 Immigration Levels Plan",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Canada held its permanent resident target at 380,000 annually while capping temporary workers and students, and opening a one-time PR pathway for 200,000 temporary residents.",
-  "open_questions": [
-   "How quickly will IRCC process the 200k temporary resident PR applications?"
-  ],
-  "last_seen": "2026-11-06"
- },
- "openai-gpt-6-cyber": {
-  "first_seen": "2026-11-06",
-  "expectations": [
-   {
-    "date": "2026-11-06",
-    "text": "Widespread security software integration across enterprise security stacks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-06",
-    "event": "GPT-6 Cyber launched for commercial security auditing"
-   }
-  ],
-  "title": "OpenAI Launches GPT-6 Cyber Model with Critical Rating",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "OpenAI released GPT-6 Cyber, a specialized frontier model rated Critical for cybersecurity threat analysis and vulnerability research.",
-  "open_questions": [
-   "Will enterprise customers adopt GPT-6 Cyber despite higher API pricing?"
-  ],
-  "last_seen": "2026-11-06"
- },
  "tesla-cybertruck-sunset": {
   "first_seen": "2026-11-06",
   "expectations": [
@@ -1181,5 +1135,121 @@
    "Will the UN Security Council act to enforce international legal sanctions?"
   ],
   "last_seen": "2026-11-20"
+ },
+ "us-tech-market-correction": {
+  "first_seen": "2026-11-21",
+  "expectations": [
+   {
+    "date": "2026-11-21",
+    "text": "Upcoming corporate earnings reviews and central bank rate signals"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-21",
+    "event": "Nasdaq drops 5.28% and S&P 500 drops 3.70% into correction territory"
+   }
+  ],
+  "title": "Wall Street Plunges into Correction Territory as AI Tech Rout Deepens",
+  "status": "MAJOR CHANGE",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The S&P 500 and Dow entered official correction territory while the Nasdaq erased all 2026 gains following Anthropic stock's post-IPO drop and reports of an SEC probe into Nvidia.",
+  "open_questions": [
+   "Will tech earnings guidance stabilize equity valuations?",
+   "How far will the SEC investigation into Nvidia extend?"
+  ],
+  "last_seen": "2026-11-21"
+ },
+ "operation-monsoon-thunder": {
+  "first_seen": "2026-11-21",
+  "expectations": [
+   {
+    "date": "2026-11-21",
+    "text": "Digital asset analysis and secondary arrests"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-21",
+    "event": "Six arrested in coordinated multi-city raids across India"
+   }
+  ],
+  "title": "India NCB and US DEA Bust Transnational Drug Ring in Operation Monsoon Thunder",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "India's NCB and US DEA arrested six key operatives across four Indian cities, dismantling an international synthetic drug network.",
+  "open_questions": [
+   "Which international financial networks laundered the drug proceeds?"
+  ],
+  "last_seen": "2026-11-21"
+ },
+ "trump-data-center-tax-proposal": {
+  "first_seen": "2026-11-21",
+  "expectations": [
+   {
+    "date": "2026-11-21",
+    "text": "Congressional review of executive trade and tax powers"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-21",
+    "event": "Public policy warning delivered during White House briefing"
+   }
+  ],
+  "title": "Trump Threatens Tax Penalties on US Firms Building AI Data Centers Overseas",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "US President Donald Trump announced plans to tax or penalize US tech companies constructing AI data infrastructure outside America.",
+  "open_questions": [
+   "Will Congress support statutory tax penalties on foreign tech CapEx?",
+   "How will tech giants adjust global data center expansion plans?"
+  ],
+  "last_seen": "2026-11-21"
+ },
+ "nikhil-gupta-sentencing": {
+  "first_seen": "2026-11-21",
+  "expectations": [
+   {
+    "date": "2026-11-21",
+    "text": "Custodial service in US federal prison"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-21",
+    "event": "235-month prison sentence handed down in New York federal court"
+   }
+  ],
+  "title": "US Court Sentences Nikhil Gupta to 235 Months in Pannun Plot",
+  "status": "RESOLVED",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Indian national Nikhil Gupta was sentenced to over 19 years in US federal prison following his guilty plea in a murder-for-hire case.",
+  "open_questions": [],
+  "last_seen": "2026-11-21"
+ },
+ "middle-east-houthi-missiles": {
+  "first_seen": "2026-11-21",
+  "expectations": [
+   {
+    "date": "2026-11-21",
+    "text": "Heightened naval patrols and air defense readiness across the Gulf"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-21",
+    "event": "Three ballistic missiles intercepted over Saudi capital"
+   }
+  ],
+  "title": "Houthis Launch Ballistic Missiles at Riyadh Following Coalition Port Strikes",
+  "status": "DEVELOPING",
+  "stage": "CONFLICT",
+  "summary": "Saudi air defenses intercepted three Houthi ballistic missiles over Riyadh following coalition air operations against Hodeidah port.",
+  "open_questions": [
+   "Will retaliatory strikes target additional Red Sea port infrastructure?",
+   "Will Persian Gulf oil shipping rates spike?"
+  ],
+  "last_seen": "2026-11-21"
  }
 }
