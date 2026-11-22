@@ -228,10 +228,6 @@
   "first_seen": "2026-10-15",
   "expectations": [
    {
-    "date": "2026-11-06",
-    "text": "Institutional roadshow reviews ahead of potential listing decisions"
-   },
-   {
     "date": "2026-11-11",
     "text": "Nasdaq trading debut on November 19 under ticker ANT"
    },
@@ -246,16 +242,16 @@
    {
     "date": "2026-11-20",
     "text": "Tech earnings guidance reviews over coming weeks"
+   },
+   {
+    "date": "2026-11-22",
+    "text": "Secondary market trading stabilization over coming weeks"
    }
   ],
   "timeline": [
    {
-    "date": "2026-10-15..2026-11-11",
+    "date": "2026-10-15..2026-11-12",
     "event": "Q3 revenue of $16.8B disclosed; Valuation target lowered by investors; METR audit access granted; Financial disclosures reveal $80B H1 loss; targeting November IPO; Official S-1 registration statement submitted to US SEC"
-   },
-   {
-    "date": "2026-11-12",
-    "event": "Order book oversubscribed multiple times with Nvidia and Alphabet anchor commitments"
    },
    {
     "date": "2026-11-13",
@@ -288,16 +284,20 @@
    {
     "date": "2026-11-20",
     "event": "Anthropic stock slumps post-debut triggering 1,100 point Dow drop"
+   },
+   {
+    "date": "2026-11-22",
+    "event": "Completed record Nasdaq IPO and trillion-dollar market cap debut"
    }
   ],
-  "title": "Anthropic Debuts on Nasdaq but Post-IPO Slump Sparks Tech Sell-Off",
+  "title": "Anthropic Completes Trillion-Dollar Valuation Debut Amid Market Volatility",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Anthropic completed its historic $107.3B IPO, but its stock fell up to 8% on day two, triggering a broad sell-off across Wall Street tech shares.",
+  "summary": "Anthropic completed its historic Nasdaq IPO valuing the company near $1.3 trillion, though post-debut volatility contributed to a wider tech stock correction.",
   "open_questions": [
-   "Will secondary market trading stabilize tech sector valuations?"
+   "Will secondary market trading stabilize AI stock valuations?"
   ],
-  "last_seen": "2026-11-20"
+  "last_seen": "2026-11-22"
  },
  "us-midterms-2026": {
   "first_seen": "2026-11-01",
@@ -392,98 +392,6 @@
    "How quickly can Texas factory lines be converted to Cybercab assembly?"
   ],
   "last_seen": "2026-11-09"
- },
- "us-white-house-chief-of-staff": {
-  "first_seen": "2026-11-07",
-  "expectations": [
-   {
-    "date": "2026-11-07",
-    "text": "Increase in executive actions on immigration and border enforcement"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-07",
-    "event": "Stephen Miller named White House Chief of Staff"
-   }
-  ],
-  "title": "Stephen Miller Appointed White House Chief of Staff",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "President Donald Trump named Stephen Miller White House Chief of Staff, replacing Susie Wiles after midterm election losses.",
-  "open_questions": [
-   "What immediate executive actions will Miller prioritize?"
-  ],
-  "last_seen": "2026-11-07"
- },
- "us-jobs-october-2026": {
-  "first_seen": "2026-11-07",
-  "expectations": [
-   {
-    "date": "2026-11-07",
-    "text": "Fed rate decision review in December"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-07",
-    "event": "October payrolls rise 165k beating expectations"
-   }
-  ],
-  "title": "US October Jobs Report Exceeds Forecasts",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "The US added 165,000 jobs in October and unemployment held at 4.1%, providing economic resilience despite tech market turbulence.",
-  "open_questions": [
-   "How will the Fed balance payroll growth against high long-term unemployment?"
-  ],
-  "last_seen": "2026-11-07"
- },
- "openai-11b-funding": {
-  "first_seen": "2026-11-07",
-  "expectations": [
-   {
-    "date": "2026-11-07",
-    "text": "Further deployment of commercial AI compute infrastructure"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-07",
-    "event": "$11B funding completed at $1.25T valuation"
-   }
-  ],
-  "title": "OpenAI Raises $11 Billion at $1.25 Trillion Valuation",
-  "status": "NEW",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "OpenAI completed an $11 billion funding tranche at a $1.25 trillion valuation to support massive AI data center expansion.",
-  "open_questions": [
-   "How will OpenAI manage public and legal resistance to data center energy usage?"
-  ],
-  "last_seen": "2026-11-07"
- },
- "cocacola-india-ipo": {
-  "first_seen": "2026-11-07",
-  "expectations": [
-   {
-    "date": "2026-11-07",
-    "text": "SEBI review and institutional roadshow in coming months"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-07",
-    "event": "DRHP filed with SEBI for ₹9,500 crore IPO"
-   }
-  ],
-  "title": "Hindustan Coca-Cola Holdings Files DRHP for ₹9,500 Crore IPO",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Coca-Cola's Indian bottling arm filed draft DRHP papers with SEBI for a $1 billion IPO consisting entirely of an offer for sale.",
-  "open_questions": [
-   "What price band and valuation will SEBI approve?"
-  ],
-  "last_seen": "2026-11-07"
  },
  "anthropic-power-generators": {
   "first_seen": "2026-11-08",
@@ -1142,23 +1050,31 @@
    {
     "date": "2026-11-21",
     "text": "Upcoming corporate earnings reviews and central bank rate signals"
+   },
+   {
+    "date": "2026-11-22",
+    "text": "Tech sector stabilization dependent on upcoming earnings guidance"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-21",
     "event": "Nasdaq drops 5.28% and S&P 500 drops 3.70% into correction territory"
+   },
+   {
+    "date": "2026-11-22",
+    "event": "S&P 500 and Nasdaq enter correction territory"
    }
   ],
-  "title": "Wall Street Plunges into Correction Territory as AI Tech Rout Deepens",
+  "title": "Wall Street Sinks into Correction Territory as Tech Rout Deepens",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "The S&P 500 and Dow entered official correction territory while the Nasdaq erased all 2026 gains following Anthropic stock's post-IPO drop and reports of an SEC probe into Nvidia.",
+  "summary": "The S&P 500 and Dow entered official correction territory and the Nasdaq erased 2026 gains following Anthropic's post-IPO stock slump and broader AI equity liquidations.",
   "open_questions": [
-   "Will tech earnings guidance stabilize equity valuations?",
-   "How far will the SEC investigation into Nvidia extend?"
+   "Will upcoming corporate earnings stabilize valuations?",
+   "How far will tech sector liquidations extend?"
   ],
-  "last_seen": "2026-11-21"
+  "last_seen": "2026-11-22"
  },
  "operation-monsoon-thunder": {
   "first_seen": "2026-11-21",
@@ -1166,22 +1082,30 @@
    {
     "date": "2026-11-21",
     "text": "Digital asset analysis and secondary arrests"
+   },
+   {
+    "date": "2026-11-22",
+    "text": "Secondary arrests and financial asset freezing"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-21",
     "event": "Six arrested in coordinated multi-city raids across India"
+   },
+   {
+    "date": "2026-11-22",
+    "event": "Six arrests and 5 lakh tablets seized in joint India-US operation"
    }
   ],
-  "title": "India NCB and US DEA Bust Transnational Drug Ring in Operation Monsoon Thunder",
-  "status": "NEW",
+  "title": "India NCB and US DEA Bust Transnational Drug Syndicate in Joint Raid",
+  "status": "DEVELOPING",
   "stage": "IMPLEMENTED",
-  "summary": "India's NCB and US DEA arrested six key operatives across four Indian cities, dismantling an international synthetic drug network.",
+  "summary": "India's NCB and US DEA arrested six key operatives and seized 5 lakh synthetic drug tablets in coordinated multi-city raids under 'Operation Monsoon Thunder'.",
   "open_questions": [
-   "Which international financial networks laundered the drug proceeds?"
+   "Which international financial networks laundered the syndicate's proceeds?"
   ],
-  "last_seen": "2026-11-21"
+  "last_seen": "2026-11-22"
  },
  "trump-data-center-tax-proposal": {
   "first_seen": "2026-11-21",
@@ -1251,5 +1175,74 @@
    "Will Persian Gulf oil shipping rates spike?"
   ],
   "last_seen": "2026-11-21"
+ },
+ "india-oil-import-surge": {
+  "first_seen": "2026-11-22",
+  "expectations": [
+   {
+    "date": "2026-11-22",
+    "text": "Trade deficit monitoring through Q3 economic reports"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-22",
+    "event": "October import bill reaches $16 billion"
+   }
+  ],
+  "title": "India's October Oil and Gas Import Bill Surges 60% Due to Crude Prices",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "India's oil and gas import bill jumped 60% year-on-year to $16 billion in October as Brent crude prices surged amid Middle East supply tensions.",
+  "open_questions": [
+   "Will Middle East supply routes normalize to lower import costs?"
+  ],
+  "last_seen": "2026-11-22"
+ },
+ "south-korea-ai-exam-scandal": {
+  "first_seen": "2026-11-22",
+  "expectations": [
+   {
+    "date": "2026-11-22",
+    "text": "Stricter electronic device bans and AI monitoring during exams"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-22",
+    "event": "Education minister resigns over exam cheating scandal"
+   }
+  ],
+  "title": "South Korea Education Minister Resigns Over University AI-Cheating Scandal",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "South Korean Education Minister Choi Kyo-jin resigned after an AI-assisted cheating scandal compromised key university entrance examinations.",
+  "open_questions": [
+   "What additional security measures will be implemented for national exams?"
+  ],
+  "last_seen": "2026-11-22"
+ },
+ "india-new-zealand-test-record": {
+  "first_seen": "2026-11-22",
+  "expectations": [
+   {
+    "date": "2026-11-22",
+    "text": "Match conclusion and series result"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-22",
+    "event": "India posts record 720/9 in Wellington Test"
+   }
+  ],
+  "title": "India Posts Record 720-Run Test Total Against New Zealand in Wellington",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Team India posted a mammoth 720/9 declared in Wellington, featuring historic centuries by KL Rahul and Rishabh Pant, who became the first Asian wicketkeeper to score centuries in all SENA countries.",
+  "open_questions": [
+   "Can India secure a victory on the final day?"
+  ],
+  "last_seen": "2026-11-22"
  }
 }

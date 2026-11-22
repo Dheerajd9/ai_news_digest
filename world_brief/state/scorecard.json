@@ -877,6 +877,22 @@
 "warnings": 0,
 "llm_calls": 4,
 "stories_tracked": 5
+},
+{
+"date": "2026-11-22",
+"edition": "morning",
+"raw": 6404,
+"after_dedupe": 4887,
+"items_to_ai": 599,
+"cited": 63,
+"email_words": 5913,
+"podcast_minutes": 25,
+"corrections": 0,
+"action_required": 0,
+"quiet": false,
+"warnings": 0,
+"llm_calls": 4,
+"stories_tracked": 6
 }
 ],
 "weekly": [
