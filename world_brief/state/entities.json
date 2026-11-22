@@ -40,7 +40,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 22,
+"count": 23,
 "stories": [
 "taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
@@ -235,7 +235,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 30,
+"count": 31,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -316,7 +316,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 53,
+"count": 55,
 "stories": [
 "india-us-trade-talks",
 "trilateral-us-china-russia-summit",
@@ -460,7 +460,7 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 24,
+"count": 25,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
@@ -708,7 +708,7 @@
 },
 "S&P 500": {
 "first_seen": "2026-10-31",
-"count": 3,
+"count": 4,
 "stories": [
 "alphabet-intel-tech-selloff",
 "us-tech-market-correction"
@@ -1144,7 +1144,7 @@
 },
 "NCB": {
 "first_seen": "2026-11-21",
-"count": 2,
+"count": 3,
 "stories": [
 "operation-monsoon-thunder"
 ],
@@ -1152,7 +1152,7 @@
 },
 "US DEA": {
 "first_seen": "2026-11-21",
-"count": 2,
+"count": 3,
 "stories": [
 "operation-monsoon-thunder"
 ],
@@ -1160,7 +1160,7 @@
 },
 "OPEC": {
 "first_seen": "2026-11-22",
-"count": 1,
+"count": 2,
 "stories": [
 "india-oil-import-surge"
 ],
@@ -1168,7 +1168,7 @@
 },
 "South Korea Government": {
 "first_seen": "2026-11-22",
-"count": 1,
+"count": 2,
 "stories": [
 "south-korea-ai-exam-scandal"
 ],
@@ -1176,7 +1176,7 @@
 },
 "BCCI": {
 "first_seen": "2026-11-22",
-"count": 1,
+"count": 2,
 "stories": [
 "india-new-zealand-test-record"
 ],
@@ -1184,7 +1184,7 @@
 },
 "Rishabh Pant": {
 "first_seen": "2026-11-22",
-"count": 1,
+"count": 2,
 "stories": [
 "india-new-zealand-test-record"
 ],
@@ -1192,7 +1192,7 @@
 },
 "KL Rahul": {
 "first_seen": "2026-11-22",
-"count": 1,
+"count": 2,
 "stories": [
 "india-new-zealand-test-record"
 ],
@@ -1204,7 +1204,7 @@
 "text": "Anthropic IPO drop -> tech sector valuation reassessment -> global equity sell-off",
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
-"count": 1
+"count": 2
 },
 {
 "text": "Anthropic IPO -> massive wealth creation -> tech market volatility",
@@ -1216,25 +1216,25 @@
 "text": "Middle East conflict -> crude oil prices -> India import bill",
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
-"count": 1
+"count": 2
 },
 {
 "text": "Cross-border law enforcement -> transnational drug ring dismantlement",
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
-"count": 1
+"count": 2
 },
 {
 "text": "Generative AI capability -> academic security vulnerability -> administrative resignation",
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
-"count": 1
+"count": 2
 },
 {
 "text": "Batting performance -> historic Test milestone",
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
-"count": 1
+"count": 2
 },
 {
 "text": "Anthropic IPO -> AI valuation scrutiny -> broad tech stock sell-off",

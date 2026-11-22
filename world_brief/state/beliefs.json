@@ -9,7 +9,7 @@
   "would_change_mind": "Widespread enterprise reports of AI agent code failure prompting renewed junior human hiring.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-15"
+  "updated": "2026-11-22"
  },
  {
   "id": "energy-driven-inflation-stickiness",
@@ -17,11 +17,11 @@
   "confidence": "HIGH",
   "momentum": "STABLE",
   "supporting": "Strait of Hormuz conflict and missile threats to Gulf infrastructure maintain risk premiums.",
-  "contradicting": "Brent crude eased to $95.84/bbl over the week.",
+  "contradicting": "Brent crude eased to $89.95/bbl over the week.",
   "would_change_mind": "De-escalation restoring normal Strait of Hormuz tanker transit and crude dropping sustainably below $80.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-15"
+  "updated": "2026-11-22"
  },
  {
   "id": "us-administrative-visa-squeeze",
@@ -33,7 +33,7 @@
   "would_change_mind": "USCIS introducing broad administrative relief or expanding work authorization flexibilities.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-15"
+  "updated": "2026-11-22"
  },
  {
   "id": "green-tech-supply-balkanization",
@@ -45,6 +45,6 @@
   "would_change_mind": "Bilateral agreements harmonizing clean energy supply chains between China and Western markets.",
   "status": "ACTIVE",
   "since": "2026-10-18",
-  "updated": "2026-11-15"
+  "updated": "2026-11-22"
  }
 ]

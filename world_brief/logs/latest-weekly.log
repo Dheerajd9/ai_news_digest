@@ -1,28 +1,35 @@
+  [0m] ! Gemini gemini-3.8-flash busy (HTTP 503)
   [3m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
   [6m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [10m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [10m] ! Gemini gemini-3.7-flash busy (HTTP 503)
-  [14m] ! Gemini gemini-3.7-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [17m] ! Gemini gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=180)
-  [17m] ! Gemini gemini-3.7-flash busy (HTTP 503)
+  [6m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [7m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  [8m] ! Gemini gemini-3.5-flash busy (HTTP 503)
+  [8m] ! Gemini gemini-3.5-flash busy (HTTP 503)
+  [9m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [9m] ! Gemini gemini-3.8-flash busy (HTTP 503)
+  [9m] ! Gemini gemini-3.7-flash busy (HTTP 503)
   ! Gemini gemini-3.7-flash: daily free quota used up
+  [9m] ! Gemini gemini-3.6-flash busy (HTTP 503)
+  ! Gemini gemini-3.8-flash: daily free quota used up
+  ! Gemini gemini-3.6-flash: daily free quota used up
+  ! Gemini gemini-3.5-flash: daily free quota used up
 Edition: weekly
-  [7m] written by Gemini gemini-3.6-flash
-  [7m] meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': 'Nvidia Scrutiny Expands as US Lawmakers Target Chip Export Rules;India Secures Preferential US Market Access and Lower Tariffs;Anthropic Sets Price Band for $1.4 Trillion IPO;US Floats NATO Membership for Donbas Withdrawal in Ukraine Talks;Trump, Xi, and Putin Plan Trilateral Summit in China', 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
-  [14m] written by Gemini gemini-3.6-flash
-  [18m] written by Gemini gemini-3.6-flash
-  script reviewed: 2551 -> 2461 words
-  en podcast script: 80 turns, 2461 words
+  [8m] written by Gemini gemini-3.5-flash-lite
+  [8m] meta: {'REPORT_TYPE': 'WEEKLY', 'PODCAST_REQUIRED': 'TRUE', 'PODCAST_TOPICS': "Wall Street Corrections and Tech Sell-Offs; India's Oil Import Bill Surges 60%; Anthropic's Historic IPO and Market Impact; South Korea AI Cheating Exam Scandal; India Racks Up Record Test Total in New Zealand", 'TOP_STORY_COUNT': '5', 'HIGH_IMPACT_STORY_COUNT': '5', 'URGENT_ALERT': 'FALSE', 'VERIFICATION_WARNINGS': 'NONE'}
+  [10m] written by Gemini gemini-3.6-flash
+  [11m] written by Gemini gemini-3.5-flash-lite
+  script reviewed: 3628 -> 3628 words
+  en podcast script: 93 turns, 3628 words
   voice library fields: ['accent', 'context', 'description', 'display_name', 'gender', 'id', 'language_code', 'persona', 'pitch', 'region_code', 'type']
-  voice library for en-IN: en-in-advisor-1 (male, Indian English, prebuilt); en-in-advisor-10 (female, Indian English, prebuilt); en-in-advisor-11 (female, Indian English, prebuilt); en-in-advisor-12 (male, Indian English, prebuilt); en-in-advisor-2 (female, Indian English, prebuilt); en-in-advisor-3 (male, Indian English, prebuilt); en-in-advisor-4 (female, Indian English, prebuilt); en-in-advisor-5 (male, Indian English, prebuilt); en-in-advisor-6 (female, Indian English, prebuilt); en-in-advisor-7 (male, Indian English, prebuilt); en-in-advisor-8 (female, Indian English, prebuilt); en-in-advisor-9 (male, Indian English, prebuilt); en-in-assistant-1 (male, Indian English, prebuilt); en-in-assistant-10 (male, Indian English, prebuilt); en-in-assistant-11 (male, Indian English, prebuilt); en-in-assistant-12 (neutral, Indian English, prebuilt); en-in-assistant-2 (female, Indian English, prebuilt); en-in-assistant-3 (female, Indian English, prebuilt); en-in-assistant-4 (male, Indian English, prebuilt); en-in-assistant-5 (female, Indian English, prebuilt)
+  voice library for en-US: achernar (female, General American, prebuilt); achird (male, General American, prebuilt); algenib (male, General American, prebuilt); algieba (male, General American, prebuilt); alnilam (male, General American, prebuilt); aoede (female, General American, prebuilt); autonoe (female, General American, prebuilt); callirrhoe (female, General American, prebuilt); charon (male, General American, prebuilt); despina (female, General American, prebuilt); en-us-advisor-1 (female, Northwest, prebuilt); en-us-advisor-10 (female, West Coast, prebuilt); en-us-advisor-11 (female, West Coast, prebuilt); en-us-advisor-2 (female, Northwest, prebuilt); en-us-advisor-3 (female, East Coast, prebuilt); en-us-advisor-4 (male, Gulf Coast, prebuilt); en-us-advisor-5 (male, Inland Southern, prebuilt); en-us-advisor-6 (male, Gulf Coast, prebuilt); en-us-advisor-7 (male, Inland Southern, prebuilt); en-us-advisor-8 (male, Midwest, prebuilt)
   ! Gemini TTS gemini-3.8-flash-tts daily free quota used up
-  voices: Gemini gemini-3.8-flash-lite-tts {'KARTIK': 'en-in-advisor-1', 'PRIYA': 'en-in-advisor-10'} (6 part(s))
-  chapters: Top stories 0:00, World 4:14, USA 5:49, India 9:27, Tech 11:05, Money 13:36, Wrap-up 14:49
-  world_brief_full podcast ready: 7.9 MB
+  voices: Gemini gemini-3.8-flash-lite-tts {'JAKE': 'achird', 'EMMA': 'achernar'} (8 part(s))
+  chapters: Top stories 0:00, World 6:25, USA 8:59, India 12:36, Tech 14:57, Money 17:25, Wrap-up 20:46
+  world_brief_full podcast ready: 11.5 MB
   podcast feed updated: https://daily-world-brief.github.io/world-brief-podcast/feed.xml
   podcast site updated with 1 audio file(s)
   email sent (2 recipient(s))
   beliefs updated: 4
-  weekly system scorecard: {'week_ending': '2026-11-15', 'runs': 10, 'avg_items_to_ai': 489.0, 'avg_stories_cited': 122.2, 'avg_email_words': 5558.8, 'avg_podcast_minutes': 19.7, 'corrections': 0, 'action_required': 5, 'quiet_days': 0, 'verification_warnings': 1, 'llm_calls': 38}
-  story ledger: 7 stories updated
+  weekly system scorecard: {'week_ending': '2026-11-22', 'runs': 10, 'avg_items_to_ai': 484.6, 'avg_stories_cited': 77.1, 'avg_email_words': 5009.0, 'avg_podcast_minutes': 22.0, 'corrections': 0, 'action_required': 4, 'quiet_days': 0, 'verification_warnings': 0, 'llm_calls': 39}
+  story ledger: 5 stories updated
   Telegram channel: 1 message (podcast + 1 full-news page(s) as buttons)

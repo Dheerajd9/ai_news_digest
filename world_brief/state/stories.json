@@ -1064,14 +1064,18 @@
    {
     "date": "2026-11-22",
     "event": "S&P 500 and Nasdaq enter correction territory"
+   },
+   {
+    "date": "2026-11-22",
+    "event": "S&P 500 and Nasdaq enter official correction territory"
    }
   ],
   "title": "Wall Street Sinks into Correction Territory as Tech Rout Deepens",
   "status": "MAJOR CHANGE",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "The S&P 500 and Dow entered official correction territory and the Nasdaq erased 2026 gains following Anthropic's post-IPO stock slump and broader AI equity liquidations.",
+  "summary": "Wall Street suffered its worst week since 2020 as Anthropic's historic IPO collided with a broad tech liquidation, pushing the S&P 500 down to 6,910 and the Nasdaq to 22,618.",
   "open_questions": [
-   "Will upcoming corporate earnings stabilize valuations?",
+   "Will corporate earnings stabilize valuations?",
    "How far will tech sector liquidations extend?"
   ],
   "last_seen": "2026-11-22"
@@ -1211,6 +1215,10 @@
    {
     "date": "2026-11-22",
     "event": "Education minister resigns over exam cheating scandal"
+   },
+   {
+    "date": "2026-11-22",
+    "event": "Education minister resigns over exam cheating"
    }
   ],
   "title": "South Korea Education Minister Resigns Over University AI-Cheating Scandal",
