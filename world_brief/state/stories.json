@@ -393,108 +393,6 @@
   ],
   "last_seen": "2026-11-09"
  },
- "anthropic-power-generators": {
-  "first_seen": "2026-11-08",
-  "expectations": [
-   {
-    "date": "2026-11-08",
-    "text": "Delivery and deployment of generating units across data center campuses in 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-08",
-    "event": "Signed $3.4B purchase order for 1.7 GW capacity"
-   },
-   {
-    "date": "2026-11-08",
-    "event": "Signed $3.4B purchase order for 1.7 GW capacity with OnePWR Solutions"
-   }
-  ],
-  "title": "Anthropic Secures $3.4B Gas Generator Contract for Data Centers",
-  "status": "DEVELOPING",
-  "stage": "SIGNED/FINALIZED",
-  "summary": "Anthropic contracted 1.7 GW of gas generators for $3.4 billion to power private data centers off-grid.",
-  "open_questions": [
-   "Will local regulators approve environmental permits for on-site gas generation?"
-  ],
-  "last_seen": "2026-11-08"
- },
- "middle-east-naval-clashes": {
-  "first_seen": "2026-11-08",
-  "expectations": [
-   {
-    "date": "2026-11-08",
-    "text": "Heightened naval patrols and elevated marine insurance premiums through November"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-08",
-    "event": "US forces fired precision munitions at cargo vessel stern"
-   }
-  ],
-  "title": "US Military Strikes Cargo Ship in Gulf of Oman as Aramco Damaged",
-  "status": "DEVELOPING",
-  "stage": "CONFLICT",
-  "summary": "US Central Command disabled a cargo ship leaving an Iranian port, while Saudi Arabia intercepted missiles that caused debris damage to an Aramco building in Riyadh.",
-  "open_questions": [
-   "Will Iran target commercial maritime traffic in retaliation?",
-   "Will tanker shipping rates see another major spike?"
-  ],
-  "last_seen": "2026-11-08"
- },
- "israel-coalition-eisenkot": {
-  "first_seen": "2026-11-08",
-  "expectations": [
-   {
-    "date": "2026-11-08",
-    "text": "Intense coalition negotiations over the next 28 days"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-08",
-    "event": "Herzog issues 28-day coalition formation mandate"
-   }
-  ],
-  "title": "President Herzog Taps Gadi Eisenkot to Form Israeli Government",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Israeli President Isaac Herzog mandated opposition leader Gadi Eisenkot to assemble a governing coalition after Benjamin Netanyahu failed to secure a majority.",
-  "open_questions": [
-   "Can Eisenkot secure a 61-seat Knesset majority without Arab party inclusion?",
-   "Will right-wing factions agree to join a centrist cabinet?"
-  ],
-  "last_seen": "2026-11-08"
- },
- "fpi-inflows-india-muhurat": {
-  "first_seen": "2026-11-08",
-  "expectations": [
-   {
-    "date": "2026-11-08",
-    "text": "Market direction to be dictated by foreign liquidity and Q2 earnings reports"
-   },
-   {
-    "date": "2026-11-08",
-    "text": "Market direction to be dictated by foreign liquidity and US CPI inflation data"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-08",
-    "event": "Weekly FPI inflows top ₹45,000 crore"
-   }
-  ],
-  "title": "FPIs Pump ₹46,000 Crore into Indian Equities Amid Global Tech Sell-Off",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Foreign portfolio investors bought ₹45,970 crore of Indian shares in one week as capital rotated away from US tech stocks.",
-  "open_questions": [
-   "Will foreign buying momentum sustain following upcoming US CPI inflation data?"
-  ],
-  "last_seen": "2026-11-08"
- },
  "nvidia-huang-probe": {
   "first_seen": "2026-11-08",
   "expectations": [
@@ -1054,6 +952,10 @@
    {
     "date": "2026-11-22",
     "text": "Tech sector stabilization dependent on upcoming earnings guidance"
+   },
+   {
+    "date": "2026-11-23",
+    "text": "Stabilization of AI-linked stock prices"
    }
   ],
   "timeline": [
@@ -1068,17 +970,20 @@
    {
     "date": "2026-11-22",
     "event": "S&P 500 and Nasdaq enter official correction territory"
+   },
+   {
+    "date": "2026-11-23",
+    "event": "Market stabilization attempts"
    }
   ],
-  "title": "Wall Street Sinks into Correction Territory as Tech Rout Deepens",
-  "status": "MAJOR CHANGE",
+  "title": "Wall Street Attempts Rebound After Tech Correction",
+  "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Wall Street suffered its worst week since 2020 as Anthropic's historic IPO collided with a broad tech liquidation, pushing the S&P 500 down to 6,910 and the Nasdaq to 22,618.",
+  "summary": "US markets are showing signs of stabilization after a brutal week where the Nasdaq and S&P 500 entered correction territory.",
   "open_questions": [
-   "Will corporate earnings stabilize valuations?",
-   "How far will tech sector liquidations extend?"
+   "Will tech earnings support current valuations?"
   ],
-  "last_seen": "2026-11-22"
+  "last_seen": "2026-11-23"
  },
  "operation-monsoon-thunder": {
   "first_seen": "2026-11-21",
@@ -1252,5 +1157,95 @@
    "Can India secure a victory on the final day?"
   ],
   "last_seen": "2026-11-22"
+ },
+ "india-nepal-aid": {
+  "first_seen": "2026-11-23",
+  "expectations": [
+   {
+    "date": "2026-11-23",
+    "text": "Implementation of flood recovery projects"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-23",
+    "event": "Aid package announced"
+   }
+  ],
+  "title": "India Announces $1.6 Billion Aid Package for Nepal",
+  "status": "NEW",
+  "stage": "FORMALLY ANNOUNCED",
+  "summary": "India and Nepal finalized a $1.6 billion economic aid package during PM Balendra Shah's visit to New Delhi to support flood recovery.",
+  "open_questions": [
+   "What is the specific timeline for fund disbursement?"
+  ],
+  "last_seen": "2026-11-23"
+ },
+ "anthropic-ipo-volatility": {
+  "first_seen": "2026-11-23",
+  "expectations": [
+   {
+    "date": "2026-11-23",
+    "text": "Stabilization of stock price"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-23",
+    "event": "Post-IPO trading"
+   }
+  ],
+  "title": "Anthropic IPO Sparks Market Volatility",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Anthropic's trillion-dollar valuation debut has contributed to ongoing volatility in the technology sector.",
+  "open_questions": [
+   "Will secondary market trading stabilize AI valuations?"
+  ],
+  "last_seen": "2026-11-23"
+ },
+ "india-nz-test-draw": {
+  "first_seen": "2026-11-23",
+  "expectations": [
+   {
+    "date": "2026-11-23",
+    "text": "Series conclusion"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-23",
+    "event": "Match conclusion"
+   }
+  ],
+  "title": "India-New Zealand Test Ends in Draw",
+  "status": "RESOLVED",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The first Test match between India and New Zealand ended in a draw after New Zealand's batting lineup held firm on the final day.",
+  "open_questions": [],
+  "last_seen": "2026-11-23"
+ },
+ "ai-regulation-trend": {
+  "first_seen": "2026-11-23",
+  "expectations": [
+   {
+    "date": "2026-11-23",
+    "text": "Development of international AI policy standards"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-23",
+    "event": "Policy shift announcement"
+   }
+  ],
+  "title": "Australia Moves to Treat AI as Foreign Policy Challenge",
+  "status": "DEVELOPING",
+  "stage": "PROPOSED",
+  "summary": "Australia is moving to treat AI as a key foreign policy issue, citing risks to democratic processes.",
+  "open_questions": [
+   "Will other nations adopt similar frameworks?"
+  ],
+  "last_seen": "2026-11-23"
  }
 }

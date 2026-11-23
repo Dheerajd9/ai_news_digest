@@ -235,16 +235,17 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 31,
+"count": 33,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
 "anthropic-junior-hiring-shift",
 "openai-agents-airgap",
 "anthropic-power-generators",
-"us-tech-market-correction"
+"us-tech-market-correction",
+"anthropic-ipo-volatility"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-23"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -316,18 +317,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 55,
+"count": 56,
 "stories": [
-"india-us-trade-talks",
 "trilateral-us-china-russia-summit",
 "us-ukraine-donbas-nato-proposal",
 "india-rupee-strength",
 "myanmar-rohingya-icj-ruling",
 "operation-monsoon-thunder",
 "nikhil-gupta-sentencing",
-"india-oil-import-surge"
+"india-oil-import-surge",
+"india-nepal-aid"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-23"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -460,14 +461,14 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 25,
+"count": 26,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff",
 "us-tech-market-correction"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-23"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -708,12 +709,12 @@
 },
 "S&P 500": {
 "first_seen": "2026-10-31",
-"count": 4,
+"count": 5,
 "stories": [
 "alphabet-intel-tech-selloff",
 "us-tech-market-correction"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-23"
 },
 "FBI": {
 "first_seen": "2026-11-01",
@@ -749,22 +750,6 @@
 "sebi-ltcg-tax-proposal"
 ],
 "last_seen": "2026-11-03"
-},
-"France": {
-"first_seen": "2026-11-01",
-"count": 1,
-"stories": [
-"europe-youth-cost-of-living-riots"
-],
-"last_seen": "2026-11-01"
-},
-"Germany": {
-"first_seen": "2026-11-01",
-"count": 1,
-"stories": [
-"europe-youth-cost-of-living-riots"
-],
-"last_seen": "2026-11-01"
 },
 "Congress": {
 "first_seen": "2026-11-01",
@@ -1176,11 +1161,12 @@
 },
 "BCCI": {
 "first_seen": "2026-11-22",
-"count": 2,
+"count": 3,
 "stories": [
-"india-new-zealand-test-record"
+"india-new-zealand-test-record",
+"india-nz-test-draw"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-23"
 },
 "Rishabh Pant": {
 "first_seen": "2026-11-22",
@@ -1197,9 +1183,55 @@
 "india-new-zealand-test-record"
 ],
 "last_seen": "2026-11-22"
+},
+"Government of Nepal": {
+"first_seen": "2026-11-23",
+"count": 1,
+"stories": [
+"india-nepal-aid"
+],
+"last_seen": "2026-11-23"
+},
+"Government of Australia": {
+"first_seen": "2026-11-23",
+"count": 1,
+"stories": [
+"ai-regulation-trend"
+],
+"last_seen": "2026-11-23"
 }
 },
 "connections": [
+{
+"text": "Batting performance -> historic Test milestone",
+"first_seen": "2026-11-22",
+"last_seen": "2026-11-23",
+"count": 3
+},
+{
+"text": "Anthropic IPO -> AI valuation scrutiny -> broad tech stock sell-off",
+"first_seen": "2026-11-21",
+"last_seen": "2026-11-23",
+"count": 2
+},
+{
+"text": "India-Nepal diplomatic ties -> regional stability",
+"first_seen": "2026-11-23",
+"last_seen": "2026-11-23",
+"count": 1
+},
+{
+"text": "Anthropic IPO -> tech sector valuation reassessment -> global equity sell-off",
+"first_seen": "2026-11-23",
+"last_seen": "2026-11-23",
+"count": 1
+},
+{
+"text": "Generative AI capability -> democratic stability -> policy shift",
+"first_seen": "2026-11-23",
+"last_seen": "2026-11-23",
+"count": 1
+},
 {
 "text": "Anthropic IPO drop -> tech sector valuation reassessment -> global equity sell-off",
 "first_seen": "2026-11-22",
@@ -1229,18 +1261,6 @@
 "first_seen": "2026-11-22",
 "last_seen": "2026-11-22",
 "count": 2
-},
-{
-"text": "Batting performance -> historic Test milestone",
-"first_seen": "2026-11-22",
-"last_seen": "2026-11-22",
-"count": 2
-},
-{
-"text": "Anthropic IPO -> AI valuation scrutiny -> broad tech stock sell-off",
-"first_seen": "2026-11-21",
-"last_seen": "2026-11-21",
-"count": 1
 },
 {
 "text": "Cross-border law enforcement -> drug network disruption",
@@ -1541,24 +1561,6 @@
 "first_seen": "2026-11-05",
 "last_seen": "2026-11-05",
 "count": 1
-},
-{
-"text": "Data center power demand -> utility rate friction -> corporate policy pledge",
-"first_seen": "2026-11-05",
-"last_seen": "2026-11-05",
-"count": 1
-},
-{
-"text": "Commercial space tech -> orbital debris cleanup -> Hyderabad aerospace hub",
-"first_seen": "2026-11-05",
-"last_seen": "2026-11-05",
-"count": 1
-},
-{
-"text": "US election outcome -> congressional majority -> federal tax and trade policy",
-"first_seen": "2026-11-02",
-"last_seen": "2026-11-04",
-"count": 2
 }
 ]
 }
