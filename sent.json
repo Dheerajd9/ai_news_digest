@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/openais-gpt-6-astra-tackles-the-standard-models-toughest-math-problem-on-a-lattice/",
-   "title": "OpenAI's GPT-6 Astra tackles the Standard Model's toughest math problem on a lattice",
-   "at": "2026-11-17T13:13:21+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/alibabas-qwen4-max-takes-on-opus-5-5-gpt-6-and-kimi-k3-1-pro-at-much-lower-prices/",
-   "title": "Alibaba's Qwen4-Max takes on Opus 5.5, GPT-6, and Kimi K3.1 Pro at much lower prices",
-   "at": "2026-11-17T13:13:21+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-says-the-key-to-agent-memory-is-knowing-what-to-forget-not-how-much-to-store/",
-   "title": "Anthropic says the key to agent memory is knowing what to forget, not how much to store",
-   "at": "2026-11-17T13:13:21+00:00"
-  },
-  {
-   "link": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
-   "title": "Broadening access to AI for scientists",
-   "at": "2026-11-17T13:13:21+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription",
-   "title": "Apple is testing daily usage limits for more complex Siri AI interactions",
-   "at": "2026-11-17T13:13:21+00:00"
-  },
-  {
    "link": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
    "title": "Introducing GPT-6.2 Astra and Sol",
    "at": "2026-11-18T13:16:50+00:00"
@@ -149,6 +124,31 @@
    "link": "https://the-decoder.com/ai-is-getting-better-faster-than-experts-can-reliably-test-whether-new-systems-are-safe-metr-warns/",
    "title": "AI is getting better faster than experts can reliably test whether new systems are safe, METR warns",
    "at": "2026-11-22T13:12:59+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/gpt-6-2-astra-solved-a-math-theorem-no-other-ai-could-crack-then-invented-its-own-proof-strategy/",
+   "title": "GPT-6.2 Astra solved a math theorem no other AI could crack, then invented its own proof strategy",
+   "at": "2026-11-23T13:12:28+00:00"
+  },
+  {
+   "link": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+   "title": "OpenAI\u2019s chief scientist has thoughts on how to limit AI development",
+   "at": "2026-11-23T13:12:28+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday",
+   "title": "Meta Muse can do your Black Friday shopping at Walmart",
+   "at": "2026-11-23T13:12:28+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/perplexitys-new-monitor-api-turns-web-search-from-a-one-off-query-into-a-nonstop-watchdog/",
+   "title": "Perplexity's new Monitor API turns web search from a one-off query into a nonstop watchdog",
+   "at": "2026-11-23T13:12:28+00:00"
+  },
+  {
+   "link": "https://www.cnbc.com/2026/11/20/cursor-chinese-ai-models-geopolitical-risk.html",
+   "title": "SpaceX\u2019s subsidiary Cursor tells lawmakers it's considering phasing out Chinese AI models",
+   "at": "2026-11-23T13:12:28+00:00"
   }
  ]
 }
