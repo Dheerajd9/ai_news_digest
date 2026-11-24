@@ -1,154 +1,4 @@
 {
- "middle-east-escalation": {
-  "first_seen": "2026-10-11",
-  "expectations": [
-   {
-    "date": "2026-11-02",
-    "text": "US decisions on diplomatic proposal expected following review"
-   },
-   {
-    "date": "2026-11-03",
-    "text": "Crude oil volatility to remain elevated"
-   },
-   {
-    "date": "2026-11-04",
-    "text": "Naval escorts and advisories for Persian Gulf merchant shipping"
-   },
-   {
-    "date": "2026-11-08",
-    "text": "Elevated marine insurance premiums and persistent Persian Gulf naval patrols through November"
-   },
-   {
-    "date": "2026-11-09",
-    "text": "Diplomatic meetings in Doha to establish maritime transit rules"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-11..2026-10-22",
-    "event": "Airstrikes reported on Sanaa airport; Hyderabad resident killed in Riyadh airport strike; Saudi vows response; Hyderabad victim confirmed; crude tops $105; FAA flight warning issued; Saudi vows military retaliation; Aram"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "Tanker attack pushes Brent crude above $109"
-   },
-   {
-    "date": "2026-10-24",
-    "event": "Brent crude hits $116.72 as US draws down Middle East diplomatic staff"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "Brent crude closes week elevated above $111 despite Russian sanctions waiver"
-   },
-   {
-    "date": "2026-10-31",
-    "event": "Brent crude settles elevated near $118"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "Iran draft proposal to reopen Hormuz circulated in Doha"
-   },
-   {
-    "date": "2026-11-03",
-    "event": "U.S. strikes Qeshm Island"
-   },
-   {
-    "date": "2026-11-04",
-    "event": "Iran exempts Indian and Chinese vessels from Hormuz restrictions"
-   },
-   {
-    "date": "2026-11-08",
-    "event": "US military strike on cargo ship; Iran grants selective Hormuz transit exemptions"
-   },
-   {
-    "date": "2026-11-09",
-    "event": "Brent crude dropped over 4% on diplomatic signal"
-   }
-  ],
-  "title": "Oil Plunges as US Signals Restraint and Middle East Diplomacy Accelerates",
-  "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "Brent crude fell to $93.96 after US President Trump called further strikes on Iran unlikely if nuclear and Hormuz transit negotiations progress.",
-  "open_questions": [
-   "Will formal Qatar mediation yield a permanent Hormuz transit agreement?"
-  ],
-  "last_seen": "2026-11-09"
- },
- "us-perm-h1b-freeze": {
-  "first_seen": "2026-10-11",
-  "expectations": [
-   {
-    "date": "2026-10-13",
-    "text": "Monitor DHS official rulemaking portal for public comment periods."
-   },
-   {
-    "date": "2026-10-18",
-    "text": "Extended processing delays and early filing requirements for visa holders"
-   },
-   {
-    "date": "2026-11-02",
-    "text": "Public comment period following Federal Register publication"
-   },
-   {
-    "date": "2026-11-18",
-    "text": "Preservation of duration of status rules for international students"
-   },
-   {
-    "date": "2026-11-20",
-    "text": "Potential federal appeal filings"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-10-11..2026-10-18",
-    "event": "MEA clarifies H-1B status remains protected; PERM filings drop to 607 across top 13 firms; DHS proposal announced; Administrative tightening advanced across extensions and work permit rules"
-   },
-   {
-    "date": "2026-10-19",
-    "event": "TCS, Infosys, and Cognizant cut H-1B lottery filings"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "Administrative tightening advanced across extensions and work permit rules"
-   },
-   {
-    "date": "2026-10-25",
-    "event": "US ends automatic 540-day EAD extensions"
-   },
-   {
-    "date": "2026-11-01",
-    "event": "Proposal to eliminate extension deference advanced"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "USCIS impact data released on extension rule"
-   },
-   {
-    "date": "2026-11-08",
-    "event": "USCIS impact data released showing over 70% affected are Indian nationals"
-   },
-   {
-    "date": "2026-11-18",
-    "event": "Federal judge blocks DHS student visa cap"
-   },
-   {
-    "date": "2026-11-19",
-    "event": "Federal judge blocks DHS student visa cap rule"
-   },
-   {
-    "date": "2026-11-20",
-    "event": "Federal judge invalidates DHS student visa duration cap rule"
-   }
-  ],
-  "title": "Federal Court Strikes Down DHS 4-Year Student Visa Cap",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "A US federal court struck down the DHS rule attempting to cap F-1 student visas at four years, preserving traditional duration of status rules.",
-  "open_questions": [
-   "Will DHS appeal the federal court decision?"
-  ],
-  "last_seen": "2026-11-20"
- },
  "india-us-trade-talks": {
   "first_seen": "2026-10-13",
   "expectations": [
@@ -366,33 +216,6 @@
   ],
   "last_seen": "2026-11-12"
  },
- "tesla-cybertruck-sunset": {
-  "first_seen": "2026-11-06",
-  "expectations": [
-   {
-    "date": "2026-11-06",
-    "text": "Gigafactory Texas retooling ahead of 2027 robotaxi manufacturing"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-06",
-    "event": "Musk confirms 2027 end of Cybertruck production"
-   },
-   {
-    "date": "2026-11-09",
-    "event": "Musk confirmed deposit refunds for unfulfilled Cybertruck orders"
-   }
-  ],
-  "title": "Tesla Sunsetting Cybertruck to Focus on Cybercab Robotaxis",
-  "status": "DEVELOPING",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Elon Musk confirmed Tesla will end Cybertruck production by mid-2027 and refund unfulfilled customer deposits to focus manufacturing capacity on autonomous Cybercab robotaxis.",
-  "open_questions": [
-   "How quickly can Texas factory lines be converted to Cybercab assembly?"
-  ],
-  "last_seen": "2026-11-09"
- },
  "nvidia-huang-probe": {
   "first_seen": "2026-11-08",
   "expectations": [
@@ -460,52 +283,6 @@
    "Who will Nvidia select as permanent CEO?"
   ],
   "last_seen": "2026-11-16"
- },
- "makemytrip-india-ipo": {
-  "first_seen": "2026-11-09",
-  "expectations": [
-   {
-    "date": "2026-11-09",
-    "text": "RHP filing and public subscription dates announcement"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-09",
-    "event": "SEBI final approval issued"
-   }
-  ],
-  "title": "MakeMyTrip India Arm Receives SEBI Approval for Domestic IPO",
-  "status": "NEW",
-  "stage": "APPROVED/PASSED",
-  "summary": "MakeMyTrip received approval from SEBI for an Offer for Sale IPO of its Indian operating subsidiary on domestic stock exchanges.",
-  "open_questions": [
-   "What price band will be announced for the Indian listing?"
-  ],
-  "last_seen": "2026-11-09"
- },
- "splashbi-hyderabad-gcc": {
-  "first_seen": "2026-11-09",
-  "expectations": [
-   {
-    "date": "2026-11-09",
-    "text": "Local software recruitment drive through Q1 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-09",
-    "event": "Dual enterprise tech centers launched in Hyderabad"
-   }
-  ],
-  "title": "SplashBI and Simplify Announce $100M+ Investments in Hyderabad Tech Hub",
-  "status": "NEW",
-  "stage": "COMMITTED",
-  "summary": "SplashBI launched a $100M Global Capability Centre in Hyderabad, while Simplify opened an AI engineering center creating 1,000 jobs.",
-  "open_questions": [
-   "How fast will the 1,000 engineering roles be filled?"
-  ],
-  "last_seen": "2026-11-09"
  },
  "us-cpi-inflation-oct-2026": {
   "first_seen": "2026-11-11",
@@ -1187,22 +964,30 @@
    {
     "date": "2026-11-23",
     "text": "Stabilization of stock price"
+   },
+   {
+    "date": "2026-11-24",
+    "text": "Q4 cloud provider earnings guidance reviews"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-23",
     "event": "Post-IPO trading"
+   },
+   {
+    "date": "2026-11-24",
+    "event": "Stock dips below IPO price"
    }
   ],
-  "title": "Anthropic IPO Sparks Market Volatility",
+  "title": "Anthropic Post-IPO Slump and Insider Share Sales",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "Anthropic's trillion-dollar valuation debut has contributed to ongoing volatility in the technology sector.",
+  "summary": "Anthropic shares slipped below their $83 IPO price as insiders offloaded over $561 million in stock during post-debut trading volatility.",
   "open_questions": [
-   "Will secondary market trading stabilize AI valuations?"
+   "Will tech earnings support trillion-dollar AI valuations?"
   ],
-  "last_seen": "2026-11-23"
+  "last_seen": "2026-11-24"
  },
  "india-nz-test-draw": {
   "first_seen": "2026-11-23",
@@ -1247,5 +1032,95 @@
    "Will other nations adopt similar frameworks?"
   ],
   "last_seen": "2026-11-23"
+ },
+ "nvidia-huang-return": {
+  "first_seen": "2026-11-24",
+  "expectations": [
+   {
+    "date": "2026-11-24",
+    "text": "Congressional hearings on executive governance"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-24",
+    "event": "Jensen Huang reinstated as CEO"
+   }
+  ],
+  "title": "Nvidia Reinstates Jensen Huang as CEO After White House Intervention",
+  "status": "MAJOR CHANGE",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Nvidia board reinstated Jensen Huang as CEO following direct U.S. presidential intervention, sparking a massive Wall Street rally while drawing intense congressional scrutiny.",
+  "open_questions": [
+   "Will Congress pass new restrictions on executive intervention and export rules?"
+  ],
+  "last_seen": "2026-11-24"
+ },
+ "sebi-ipo-gmp-ban": {
+  "first_seen": "2026-11-24",
+  "expectations": [
+   {
+    "date": "2026-11-24",
+    "text": "Enforced removal of GMP trackers across financial media"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-24",
+    "event": "SEBI issues strict advisory banning GMP publication"
+   }
+  ],
+  "title": "SEBI Bans Publication of IPO Grey Market Premium Figures",
+  "status": "MAJOR CHANGE",
+  "stage": "IMPLEMENTED",
+  "summary": "SEBI ordered market participants and media platforms to immediately halt publishing unofficial IPO Grey Market Premium figures to protect retail investors from fraud.",
+  "open_questions": [
+   "Will unauthorized grey market platforms face immediate legal penalties?"
+  ],
+  "last_seen": "2026-11-24"
+ },
+ "ukraine-libya-warship-strike": {
+  "first_seen": "2026-11-24",
+  "expectations": [
+   {
+    "date": "2026-11-24",
+    "text": "Heightened Mediterranean naval security patrols"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-24",
+    "event": "Naval drone strike in Libyan port"
+   }
+  ],
+  "title": "Ukraine Strikes Russian Warship in Libya in Geographic War Expansion",
+  "status": "DEVELOPING",
+  "stage": "CONFLICT",
+  "summary": "Ukrainian naval drones successfully struck a Russian warship docked at a naval base in Libya, expanding the conflict into North Africa.",
+  "open_questions": [
+   "How will Russia respond to naval vulnerabilities outside the Black Sea?"
+  ],
+  "last_seen": "2026-11-24"
+ },
+ "google-india-layoffs-clarified": {
+  "first_seen": "2026-11-24",
+  "expectations": [
+   {
+    "date": "2026-11-24",
+    "text": "Stable enterprise hiring trends in Indian tech hubs"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-24",
+    "event": "Google formally denies mass layoffs"
+   }
+  ],
+  "title": "Google Cloud India Clarifies Layoffs, Confirms 30 Role Cuts",
+  "status": "RESOLVED",
+  "stage": "IMPLEMENTED",
+  "summary": "Google India dismissed mass layoff rumors, confirming that only 30 roles were cut in its Cloud division as part of routine internal reorganisation.",
+  "open_questions": [],
+  "last_seen": "2026-11-24"
  }
 }

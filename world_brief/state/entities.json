@@ -15,43 +15,45 @@
 },
 "Ukraine": {
 "first_seen": "2026-10-11",
-"count": 8,
+"count": 9,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "starlink-ukraine-throttling",
 "melania-ukraine-ceasefire",
-"us-ukraine-donbas-nato-proposal"
+"us-ukraine-donbas-nato-proposal",
+"ukraine-libya-warship-strike"
 ],
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-24"
 },
 "Russia": {
 "first_seen": "2026-10-11",
-"count": 9,
+"count": 10,
 "stories": [
 "russia-ukraine-energy-truce",
 "russia-diesel-sanctions",
 "russia-frees-hubbard",
 "melania-ukraine-ceasefire",
 "us-ukraine-donbas-nato-proposal",
-"trilateral-us-china-russia-summit"
+"trilateral-us-china-russia-summit",
+"ukraine-libya-warship-strike"
 ],
-"last_seen": "2026-11-16"
+"last_seen": "2026-11-24"
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 23,
+"count": 24,
 "stories": [
-"taiwan-texas-chip-park",
 "openai-agents-disable-monitors",
 "spacex-apollo-ai-compute",
 "openai-google-tpu-deal",
 "nvidia-huang-probe",
 "anthropic-ipo-prep",
 "nvidia-earnings-volatility",
-"us-tech-market-correction"
+"us-tech-market-correction",
+"nvidia-huang-return"
 ],
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-24"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -235,7 +237,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 33,
+"count": 34,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -245,7 +247,7 @@
 "us-tech-market-correction",
 "anthropic-ipo-volatility"
 ],
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-24"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -397,18 +399,18 @@
 },
 "SEBI": {
 "first_seen": "2026-10-15",
-"count": 18,
+"count": 19,
 "stories": [
-"sebi-avadhut-sathe-refund",
 "sebi-direct-mutual-fund-default",
 "sebi-ltcg-tax-proposal",
 "razorpay-ipo-approval",
 "sebi-nri-digital-kyc",
 "cocacola-india-ipo",
 "fpi-inflows-india-muhurat",
-"makemytrip-india-ipo"
+"makemytrip-india-ipo",
+"sebi-ipo-gmp-ban"
 ],
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-24"
 },
 "Nirmala Sitharaman": {
 "first_seen": "2026-10-16",
@@ -461,14 +463,15 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 26,
+"count": 27,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff",
-"us-tech-market-correction"
+"us-tech-market-correction",
+"anthropic-ipo-volatility"
 ],
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-24"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -759,30 +762,6 @@
 ],
 "last_seen": "2026-11-01"
 },
-"Brent": {
-"first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-11-02"
-},
-"US": {
-"first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-11-02"
-},
-"Tamil Nadu": {
-"first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"cyclone-murasu-2026"
-],
-"last_seen": "2026-11-02"
-},
 "US Congress": {
 "first_seen": "2026-11-02",
 "count": 15,
@@ -809,22 +788,6 @@
 "us-midterms-2026"
 ],
 "last_seen": "2026-11-03"
-},
-"H-1B": {
-"first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"us-perm-h1b-freeze"
-],
-"last_seen": "2026-11-02"
-},
-"NavIC": {
-"first_seen": "2026-11-02",
-"count": 1,
-"stories": [
-"isro-nvs-03-launch"
-],
-"last_seen": "2026-11-02"
 },
 "U.S. Military": {
 "first_seen": "2026-11-03",
@@ -902,12 +865,13 @@
 },
 "White House": {
 "first_seen": "2026-11-07",
-"count": 2,
+"count": 3,
 "stories": [
 "us-white-house-chief-of-staff",
-"us-cyber-director-fired"
+"us-cyber-director-fired",
+"nvidia-huang-return"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-24"
 },
 "Stephen Miller": {
 "first_seen": "2026-11-07",
@@ -968,12 +932,13 @@
 },
 "Jensen Huang": {
 "first_seen": "2026-11-08",
-"count": 11,
+"count": 12,
 "stories": [
 "nvidia-huang-probe",
-"nvidia-earnings-volatility"
+"nvidia-earnings-volatility",
+"nvidia-huang-return"
 ],
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-24"
 },
 "MakeMyTrip": {
 "first_seen": "2026-11-09",
@@ -1199,9 +1164,63 @@
 "ai-regulation-trend"
 ],
 "last_seen": "2026-11-23"
+},
+"IPO": {
+"first_seen": "2026-11-24",
+"count": 1,
+"stories": [
+"sebi-ipo-gmp-ban"
+],
+"last_seen": "2026-11-24"
+},
+"Google Cloud": {
+"first_seen": "2026-11-24",
+"count": 1,
+"stories": [
+"google-india-layoffs-clarified"
+],
+"last_seen": "2026-11-24"
+},
+"Google India": {
+"first_seen": "2026-11-24",
+"count": 1,
+"stories": [
+"google-india-layoffs-clarified"
+],
+"last_seen": "2026-11-24"
 }
 },
 "connections": [
+{
+"text": "White House intervention -> Nvidia CEO reinstatement -> Wall Street tech rebound",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-24",
+"count": 1
+},
+{
+"text": "SEBI regulation -> retail investor protection -> primary market stability",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-24",
+"count": 1
+},
+{
+"text": "Ukraine drone strike -> Russian naval logistics disruption -> Mediterranean security escalation",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-24",
+"count": 1
+},
+{
+"text": "Anthropic IPO drop -> AI valuation reassessment -> broader tech sector volatility",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-24",
+"count": 1
+},
+{
+"text": "Anonymous forum rumors -> official corporate clarification -> tech labor market stabilization",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-24",
+"count": 1
+},
 {
 "text": "Batting performance -> historic Test milestone",
 "first_seen": "2026-11-22",
@@ -1530,36 +1549,6 @@
 "text": "Strong job growth -> stock market stabilization -> Fed rate expectations",
 "first_seen": "2026-11-07",
 "last_seen": "2026-11-07",
-"count": 1
-},
-{
-"text": "AI infrastructure capital -> data center power demand -> local community pushback",
-"first_seen": "2026-11-07",
-"last_seen": "2026-11-07",
-"count": 1
-},
-{
-"text": "Immigration level plan -> temporary worker caps -> permanent residency transition",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-06",
-"count": 1
-},
-{
-"text": "Frontier AI models -> cybersecurity defense -> automated code auditing",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-06",
-"count": 1
-},
-{
-"text": "US strikes -> oil sanctions -> third-country intermediary impact",
-"first_seen": "2026-11-05",
-"last_seen": "2026-11-05",
-"count": 1
-},
-{
-"text": "Digital KYC -> foreign capital onboarding -> Indian equity market liquidity",
-"first_seen": "2026-11-05",
-"last_seen": "2026-11-05",
 "count": 1
 }
 ]
