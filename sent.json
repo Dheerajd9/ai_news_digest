@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://www.axios.com/2026/11/18/anthropic-ipo-1-trillion",
-   "title": "Anthropic valued at over $1 trillion in historic IPO",
-   "at": "2026-11-19T13:13:41+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/googles-latest-ai-model-is-faster-cheaper-and-smarter-than-its-flagship-predecessor-from-just-weeks-ago/",
-   "title": "Google's latest AI model is faster, cheaper and smarter than its flagship predecessor from just weeks ago",
-   "at": "2026-11-19T13:13:41+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/microsoft-is-replacing-outside-ai-models-in-its-own-products-with-cheaper-in-house-alternatives/",
-   "title": "Microsoft is replacing outside AI models in its own products with cheaper in-house alternatives",
-   "at": "2026-11-19T13:13:41+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/openai-says-its-models-delivered-a-years-worth-of-chip-optimization-on-top-of-amds-own-engineering/",
-   "title": "OpenAI says its models delivered a year's worth of chip optimization on top of AMD's own engineering",
-   "at": "2026-11-19T13:13:41+00:00"
-  },
-  {
-   "link": "https://the-decoder.com/anthropic-openai-and-google-models-readily-marked-medics-journalists-and-surrendering-soldiers-as-kamikaze-drone-targets/",
-   "title": "Anthropic, OpenAI, and Google models readily marked medics, journalists, and surrendering soldiers as kamikaze drone targets",
-   "at": "2026-11-19T13:13:41+00:00"
-  },
-  {
    "link": "https://the-decoder.com/anthropics-81-3-billion-ipo-shatters-spacexs-record-as-rising-rates-and-political-headwinds-shake-the-sector/",
    "title": "Anthropic's $81.3 billion IPO shatters SpaceX's record as rising rates and political headwinds shake the sector",
    "at": "2026-11-20T13:12:04+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/",
    "title": "AI Solved Math\u2019s Most Famous Problem. Now Humans Are Struggling to Understand It",
    "at": "2026-11-24T13:11:16+00:00"
+  },
+  {
+   "link": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+   "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+   "at": "2026-11-25T13:12:47+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/dozens-of-insiders-say-openai-and-anthropics-unreleased-models-have-outgrown-their-safety-measures/",
+   "title": "Dozens of insiders say OpenAI and Anthropic's unreleased models have outgrown their safety measures",
+   "at": "2026-11-25T13:12:47+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-turns-claude-artifacts-into-standalone-desktop-apps-for-macos-and-windows/",
+   "title": "Anthropic turns Claude Artifacts into standalone desktop apps for macOS and Windows",
+   "at": "2026-11-25T13:12:47+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-tops-700-million-monthly-mcp-sdk-downloads-and-expands-the-protocol-for-more-autonomous-ai-agents/",
+   "title": "Anthropic tops 700 million monthly MCP SDK downloads and expands the protocol for more autonomous AI agents",
+   "at": "2026-11-25T13:12:47+00:00"
+  },
+  {
+   "link": "https://www.axios.com/2026/11/25/anthropic-ai-human-control-debate-free-will",
+   "title": "Rival AI leaders push back against Anthropic vision of surrendering human agency to AI",
+   "at": "2026-11-25T13:12:47+00:00"
   }
  ]
 }
