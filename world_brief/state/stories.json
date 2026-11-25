@@ -817,27 +817,6 @@
   ],
   "last_seen": "2026-11-21"
  },
- "nikhil-gupta-sentencing": {
-  "first_seen": "2026-11-21",
-  "expectations": [
-   {
-    "date": "2026-11-21",
-    "text": "Custodial service in US federal prison"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-21",
-    "event": "235-month prison sentence handed down in New York federal court"
-   }
-  ],
-  "title": "US Court Sentences Nikhil Gupta to 235 Months in Pannun Plot",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Indian national Nikhil Gupta was sentenced to over 19 years in US federal prison following his guilty plea in a murder-for-hire case.",
-  "open_questions": [],
-  "last_seen": "2026-11-21"
- },
  "middle-east-houthi-missiles": {
   "first_seen": "2026-11-21",
   "expectations": [
@@ -1122,5 +1101,122 @@
   "summary": "Google India dismissed mass layoff rumors, confirming that only 30 roles were cut in its Cloud division as part of routine internal reorganisation.",
   "open_questions": [],
   "last_seen": "2026-11-24"
+ },
+ "anthropic-ipo-slump": {
+  "first_seen": "2026-11-25",
+  "expectations": [
+   {
+    "date": "2026-11-25",
+    "text": "Secondary market trading stabilization over coming weeks"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-25",
+    "event": "Stock fell below $83 IPO price"
+   }
+  ],
+  "title": "Anthropic Shares Fall Below $83 IPO Price in Post-Debut Slump",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Anthropic stock plunged below its $83 initial offer price four trading days after its historic Nasdaq listing as early venture backers locked in profits.",
+  "open_questions": [
+   "Will cloud provider earnings support AI stock valuations?",
+   "At what level will institutional buying stabilize the stock?"
+  ],
+  "last_seen": "2026-11-25"
+ },
+ "us-section-301-tariffs": {
+  "first_seen": "2026-11-25",
+  "expectations": [
+   {
+    "date": "2026-11-25",
+    "text": "Formal publication of Section 301 findings by US Trade Representative"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-25",
+    "event": "Draft report recommending higher duties on 16 economies"
+   }
+  ],
+  "title": "US Prepares Section 301 Tariffs on India, China, and 14 Nations",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "The US government is finalizing a report proposing higher Section 301 tariffs on industrial goods from India, China, the EU, and 14 other trading partners.",
+  "open_questions": [
+   "Which specific product categories will face the highest tariff rates?",
+   "How will India respond in ongoing bilateral trade negotiations?"
+  ],
+  "last_seen": "2026-11-25"
+ },
+ "us-immigrant-medicare-cuts": {
+  "first_seen": "2026-11-25",
+  "expectations": [
+   {
+    "date": "2026-11-25",
+    "text": "Federal court hearings on emergency injunction applications"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-25",
+    "event": "Formal benefit termination notices distributed"
+   }
+  ],
+  "title": "300,000 Legal US Immigrants Face Loss of Federal Health Coverage",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "US health authorities issued termination notices to 300,000 legal immigrants, refugees, and humanitarian parolees revoking access to Medicare and Medicaid.",
+  "open_questions": [
+   "Will federal courts issue an emergency stay halting benefit cutoffs?"
+  ],
+  "last_seen": "2026-11-25"
+ },
+ "india-stock-market-rally": {
+  "first_seen": "2026-11-25",
+  "expectations": [
+   {
+    "date": "2026-11-25",
+    "text": "Foreign inflow tracking through upcoming corporate earnings"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-25",
+    "event": "Single-day 1.8% surge following local holiday"
+   }
+  ],
+  "title": "Indian Equities Surge 1.8% as Foreign Investors Return",
+  "status": "MAJOR CHANGE",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The Sensex jumped 1,502 points to 83,938 and the Nifty 50 surged to 25,819 as heavy foreign fund inflows into banking and tech stocks drove a sharp recovery.",
+  "open_questions": [
+   "Will foreign buying momentum sustain through upcoming US inflation data?"
+  ],
+  "last_seen": "2026-11-25"
+ },
+ "shenzhou-24-pak-astronaut": {
+  "first_seen": "2026-11-25",
+  "expectations": [
+   {
+    "date": "2026-11-25",
+    "text": "Six-month orbital research mission on board Tiangong"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-25",
+    "event": "Successful docking at Tiangong space station"
+   }
+  ],
+  "title": "China Shenzhou-24 Mission Launches Pakistan's First Astronaut",
+  "status": "NEW",
+  "stage": "OPERATIONAL",
+  "summary": "China successfully launched the Shenzhou-24 crewed spacecraft carrying Pakistani astronaut Muhammad Zeeshan Ali to the Tiangong space station.",
+  "open_questions": [
+   "What joint scientific experiments will the Pakistani astronaut perform on Tiangong?"
+  ],
+  "last_seen": "2026-11-25"
  }
 }

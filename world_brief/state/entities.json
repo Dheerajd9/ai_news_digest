@@ -67,15 +67,17 @@
 },
 "China": {
 "first_seen": "2026-10-11",
-"count": 5,
+"count": 7,
 "stories": [
 "us-china-chip-smuggling",
 "china-solar-export-controls",
 "kim-china-summit-bridge",
 "trilateral-us-china-russia-summit",
-"us-china-ai-restrictions"
+"us-china-ai-restrictions",
+"us-section-301-tariffs",
+"shenzhou-24-pak-astronaut"
 ],
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-25"
 },
 "Saudi Arabia": {
 "first_seen": "2026-10-11",
@@ -137,16 +139,17 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 19,
+"count": 20,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
 "us-h1b-extension-deference-rule",
 "us-ead-extension-end",
 "vance-h1b-rhetoric",
-"us-h1b-deference-change"
+"us-h1b-deference-change",
+"us-immigrant-medicare-cuts"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-25"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
@@ -160,15 +163,16 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 13,
+"count": 14,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
 "yes-bank-at1-verdict",
 "india-cpi-inflation-oct-2026",
-"india-rupee-strength"
+"india-rupee-strength",
+"india-stock-market-rally"
 ],
-"last_seen": "2026-11-20"
+"last_seen": "2026-11-25"
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
@@ -237,7 +241,7 @@
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 34,
+"count": 35,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -245,9 +249,10 @@
 "openai-agents-airgap",
 "anthropic-power-generators",
 "us-tech-market-correction",
-"anthropic-ipo-volatility"
+"anthropic-ipo-volatility",
+"anthropic-ipo-slump"
 ],
-"last_seen": "2026-11-24"
+"last_seen": "2026-11-25"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -319,18 +324,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 56,
+"count": 57,
 "stories": [
-"trilateral-us-china-russia-summit",
 "us-ukraine-donbas-nato-proposal",
 "india-rupee-strength",
 "myanmar-rohingya-icj-ruling",
 "operation-monsoon-thunder",
 "nikhil-gupta-sentencing",
 "india-oil-import-surge",
-"india-nepal-aid"
+"india-nepal-aid",
+"us-section-301-tariffs"
 ],
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-25"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -463,15 +468,16 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 27,
+"count": 28,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
 "alphabet-intel-tech-selloff",
 "us-tech-market-correction",
-"anthropic-ipo-volatility"
+"anthropic-ipo-volatility",
+"anthropic-ipo-slump"
 ],
-"last_seen": "2026-11-24"
+"last_seen": "2026-11-25"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -640,12 +646,13 @@
 },
 "ISRO": {
 "first_seen": "2026-10-25",
-"count": 6,
+"count": 7,
 "stories": [
 "isro-launch-pads-2029",
-"isro-nvs-03-launch"
+"isro-nvs-03-launch",
+"shenzhou-24-pak-astronaut"
 ],
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-25"
 },
 "Starlink": {
 "first_seen": "2026-10-25",
@@ -784,22 +791,6 @@
 "Republican Party": {
 "first_seen": "2026-11-02",
 "count": 2,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-03"
-},
-"U.S. Military": {
-"first_seen": "2026-11-03",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-11-03"
-},
-"U.S. Congress": {
-"first_seen": "2026-11-03",
-"count": 1,
 "stories": [
 "us-midterms-2026"
 ],
@@ -1008,17 +999,18 @@
 },
 "US Government": {
 "first_seen": "2026-11-15",
-"count": 11,
+"count": 13,
 "stories": [
-"india-us-trade-talks",
 "us-ukraine-donbas-nato-proposal",
 "trilateral-us-china-russia-summit",
 "us-china-ai-restrictions",
 "us-cyber-director-fired",
 "trump-data-center-tax-proposal",
-"nikhil-gupta-sentencing"
+"nikhil-gupta-sentencing",
+"us-section-301-tariffs",
+"us-immigrant-medicare-cuts"
 ],
-"last_seen": "2026-11-21"
+"last_seen": "2026-11-25"
 },
 "NATO": {
 "first_seen": "2026-11-15",
@@ -1188,9 +1180,119 @@
 "google-india-layoffs-clarified"
 ],
 "last_seen": "2026-11-24"
+},
+"Broadcom": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"anthropic-ipo-slump"
+],
+"last_seen": "2026-11-25"
+},
+"Ark Invest": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"anthropic-ipo-slump"
+],
+"last_seen": "2026-11-25"
+},
+"European Union": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"us-section-301-tariffs"
+],
+"last_seen": "2026-11-25"
+},
+"HHS": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"us-immigrant-medicare-cuts"
+],
+"last_seen": "2026-11-25"
+},
+"Nifty 50": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"india-stock-market-rally"
+],
+"last_seen": "2026-11-25"
+},
+"Sensex": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"india-stock-market-rally"
+],
+"last_seen": "2026-11-25"
+},
+"HDFC Bank": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"india-stock-market-rally"
+],
+"last_seen": "2026-11-25"
+},
+"ICICI Bank": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"india-stock-market-rally"
+],
+"last_seen": "2026-11-25"
+},
+"Pakistan": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"shenzhou-24-pak-astronaut"
+],
+"last_seen": "2026-11-25"
+},
+"Tiangong Space Station": {
+"first_seen": "2026-11-25",
+"count": 1,
+"stories": [
+"shenzhou-24-pak-astronaut"
+],
+"last_seen": "2026-11-25"
 }
 },
 "connections": [
+{
+"text": "Anthropic IPO drop -> AI valuation reassessment -> broader tech sector volatility",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-25",
+"count": 2
+},
+{
+"text": "US Section 301 tariffs -> foreign industrial goods cost increase -> US consumer inflation",
+"first_seen": "2026-11-25",
+"last_seen": "2026-11-25",
+"count": 1
+},
+{
+"text": "US immigration policy -> Medicaid eligibility termination -> hospital uncompensated care risk",
+"first_seen": "2026-11-25",
+"last_seen": "2026-11-25",
+"count": 1
+},
+{
+"text": "Foreign portfolio inflows -> Indian stock market rally -> Rupee appreciation",
+"first_seen": "2026-11-25",
+"last_seen": "2026-11-25",
+"count": 1
+},
+{
+"text": "China-Pakistan space collaboration -> Tiangong international expansion -> Asian space geopolitics",
+"first_seen": "2026-11-25",
+"last_seen": "2026-11-25",
+"count": 1
+},
 {
 "text": "White House intervention -> Nvidia CEO reinstatement -> Wall Street tech rebound",
 "first_seen": "2026-11-24",
@@ -1205,12 +1307,6 @@
 },
 {
 "text": "Ukraine drone strike -> Russian naval logistics disruption -> Mediterranean security escalation",
-"first_seen": "2026-11-24",
-"last_seen": "2026-11-24",
-"count": 1
-},
-{
-"text": "Anthropic IPO drop -> AI valuation reassessment -> broader tech sector volatility",
 "first_seen": "2026-11-24",
 "last_seen": "2026-11-24",
 "count": 1
@@ -1525,30 +1621,6 @@
 "text": "Israeli political deadlock -> coalition transition -> regional ceasefire posture",
 "first_seen": "2026-11-08",
 "last_seen": "2026-11-08",
-"count": 1
-},
-{
-"text": "US election outcome -> tech regulation fears -> global market sell-off -> foreign inflows to India",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-08",
-"count": 2
-},
-{
-"text": "Visa deference elimination -> strict renewal audits -> Indian tech worker impact",
-"first_seen": "2026-11-08",
-"last_seen": "2026-11-08",
-"count": 1
-},
-{
-"text": "US midterm election loss -> White House leadership shakeup -> tougher immigration policy",
-"first_seen": "2026-11-07",
-"last_seen": "2026-11-07",
-"count": 1
-},
-{
-"text": "Strong job growth -> stock market stabilization -> Fed rate expectations",
-"first_seen": "2026-11-07",
-"last_seen": "2026-11-07",
 "count": 1
 }
 ]
