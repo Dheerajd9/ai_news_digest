@@ -42,18 +42,18 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 24,
+"count": 25,
 "stories": [
-"openai-agents-disable-monitors",
 "spacex-apollo-ai-compute",
 "openai-google-tpu-deal",
 "nvidia-huang-probe",
 "anthropic-ipo-prep",
 "nvidia-earnings-volatility",
 "us-tech-market-correction",
-"nvidia-huang-return"
+"nvidia-huang-return",
+"nvidia-southeast-asia-halt"
 ],
-"last_seen": "2026-11-24"
+"last_seen": "2026-11-26"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -324,7 +324,7 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 57,
+"count": 58,
 "stories": [
 "us-ukraine-donbas-nato-proposal",
 "india-rupee-strength",
@@ -335,7 +335,7 @@
 "india-nepal-aid",
 "us-section-301-tariffs"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-26"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -550,16 +550,17 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 10,
+"count": 11,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
 "starlink-ukraine-throttling",
 "spacex-apollo-ai-compute",
 "spacex-starship-upper-catch",
-"anthropic-ipo-prep"
+"anthropic-ipo-prep",
+"spacex-orbital-data-center"
 ],
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-26"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
@@ -796,22 +797,6 @@
 ],
 "last_seen": "2026-11-03"
 },
-"House of Representatives": {
-"first_seen": "2026-11-04",
-"count": 1,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-04"
-},
-"US Senate": {
-"first_seen": "2026-11-04",
-"count": 1,
-"stories": [
-"us-midterms-2026"
-],
-"last_seen": "2026-11-04"
-},
 "IRGC": {
 "first_seen": "2026-11-04",
 "count": 3,
@@ -820,30 +805,6 @@
 "middle-east-naval-clashes"
 ],
 "last_seen": "2026-11-08"
-},
-"Strait of Hormuz": {
-"first_seen": "2026-11-04",
-"count": 1,
-"stories": [
-"middle-east-escalation"
-],
-"last_seen": "2026-11-04"
-},
-"Ministry of Mines": {
-"first_seen": "2026-11-04",
-"count": 1,
-"stories": [
-"india-critical-minerals-scheme"
-],
-"last_seen": "2026-11-04"
-},
-"Razorpay": {
-"first_seen": "2026-11-04",
-"count": 1,
-"stories": [
-"razorpay-ipo-approval"
-],
-"last_seen": "2026-11-04"
 },
 "IRCC": {
 "first_seen": "2026-11-06",
@@ -1231,19 +1192,21 @@
 },
 "HDFC Bank": {
 "first_seen": "2026-11-25",
-"count": 1,
+"count": 2,
 "stories": [
-"india-stock-market-rally"
+"india-stock-market-rally",
+"supreme-court-bank-sanctions"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-26"
 },
 "ICICI Bank": {
 "first_seen": "2026-11-25",
-"count": 1,
+"count": 2,
 "stories": [
-"india-stock-market-rally"
+"india-stock-market-rally",
+"supreme-court-bank-sanctions"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-26"
 },
 "Pakistan": {
 "first_seen": "2026-11-25",
@@ -1260,9 +1223,95 @@
 "shenzhou-24-pak-astronaut"
 ],
 "last_seen": "2026-11-25"
+},
+"USTR": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"us-section-301-tariffs"
+],
+"last_seen": "2026-11-26"
+},
+"Supermicro": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"nvidia-southeast-asia-halt"
+],
+"last_seen": "2026-11-26"
+},
+"Dell": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"nvidia-southeast-asia-halt"
+],
+"last_seen": "2026-11-26"
+},
+"Supreme Court": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"supreme-court-bank-sanctions"
+],
+"last_seen": "2026-11-26"
+},
+"Apple": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"apple-hyderabad-store"
+],
+"last_seen": "2026-11-26"
+},
+"Hyderabad": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"apple-hyderabad-store"
+],
+"last_seen": "2026-11-26"
+},
+"FCC": {
+"first_seen": "2026-11-26",
+"count": 1,
+"stories": [
+"spacex-orbital-data-center"
+],
+"last_seen": "2026-11-26"
 }
 },
 "connections": [
+{
+"text": "US tariffs -> Indian export cost increase -> trade deficit adjustments",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-26",
+"count": 1
+},
+{
+"text": "US export controls -> Nvidia regional shipment halt -> data center deal delays",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-26",
+"count": 1
+},
+{
+"text": "Supreme Court directive -> executive accountability -> financial fraud prosecution",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-26",
+"count": 1
+},
+{
+"text": "Apple retail expansion -> consumer electronics demand in Telangana",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-26",
+"count": 1
+},
+{
+"text": "FCC authorization -> orbital data centers -> space-based cloud computing",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-26",
+"count": 1
+},
 {
 "text": "Anthropic IPO drop -> AI valuation reassessment -> broader tech sector volatility",
 "first_seen": "2026-11-24",
@@ -1591,36 +1640,6 @@
 "text": "Consumer prices -> Treasury yields -> mortgage rates",
 "first_seen": "2026-11-11",
 "last_seen": "2026-11-11",
-"count": 1
-},
-{
-"text": "Consumer market growth -> promoter equity monetization -> Indian stock listing",
-"first_seen": "2026-11-07",
-"last_seen": "2026-11-09",
-"count": 2
-},
-{
-"text": "EV truck manufacturing -> autonomous Cybercab retooling -> physical AI focus",
-"first_seen": "2026-11-06",
-"last_seen": "2026-11-09",
-"count": 2
-},
-{
-"text": "Commercial space tech -> orbital debris cleanup -> Hyderabad tech expansion",
-"first_seen": "2026-11-09",
-"last_seen": "2026-11-09",
-"count": 1
-},
-{
-"text": "AI data center demand -> electrical grid bottleneck -> off-grid private generation",
-"first_seen": "2026-11-08",
-"last_seen": "2026-11-08",
-"count": 2
-},
-{
-"text": "Israeli political deadlock -> coalition transition -> regional ceasefire posture",
-"first_seen": "2026-11-08",
-"last_seen": "2026-11-08",
 "count": 1
 }
 ]

@@ -284,29 +284,6 @@
   ],
   "last_seen": "2026-11-16"
  },
- "us-cpi-inflation-oct-2026": {
-  "first_seen": "2026-11-11",
-  "expectations": [
-   {
-    "date": "2026-11-11",
-    "text": "Federal Reserve interest rate review in December"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-11",
-    "event": "October CPI inflation released at 0.4% MoM"
-   }
-  ],
-  "title": "US October CPI Inflation Rises 0.4%, Fueling Rate Hike Bets",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "US CPI inflation rose 0.4% in October due to persistent service costs, driving 10-year Treasury yields to 4.98% and raising mortgage rates.",
-  "open_questions": [
-   "Will the Federal Reserve pause or hike rates at its December meeting?"
-  ],
-  "last_seen": "2026-11-11"
- },
  "qualcomm-india-layoffs": {
   "first_seen": "2026-11-11",
   "expectations": [
@@ -333,29 +310,6 @@
    "What total percentage of Qualcomm's Indian workforce will be cut?"
   ],
   "last_seen": "2026-11-12"
- },
- "india-rupee-fpi-rally": {
-  "first_seen": "2026-11-11",
-  "expectations": [
-   {
-    "date": "2026-11-11",
-    "text": "FII flow monitoring through Q3 earnings releases"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-11",
-    "event": "Rupee strengthens to ₹93.68 per US dollar"
-   }
-  ],
-  "title": "Indian Rupee Touches 93.68 as Foreign Inflows Top $6 Billion",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "The Indian rupee surged to its healthiest level since April backed by $6 billion in November foreign equity buying and lower crude oil prices.",
-  "open_questions": [
-   "Will foreign capital inflows sustain if US Treasury yields remain near 5%?"
-  ],
-  "last_seen": "2026-11-11"
  },
  "india-cpi-inflation-oct-2026": {
   "first_seen": "2026-11-12",
@@ -1132,23 +1086,31 @@
    {
     "date": "2026-11-25",
     "text": "Formal publication of Section 301 findings by US Trade Representative"
+   },
+   {
+    "date": "2026-11-26",
+    "text": "Formal trade negotiations between New Delhi and Washington"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-25",
     "event": "Draft report recommending higher duties on 16 economies"
+   },
+   {
+    "date": "2026-11-26",
+    "event": "USTR formalizes tariff proposal structure"
    }
   ],
-  "title": "US Prepares Section 301 Tariffs on India, China, and 14 Nations",
-  "status": "NEW",
+  "title": "US Proposes 25% Tariffs on India and 14 Trade Partners",
+  "status": "DEVELOPING",
   "stage": "PROPOSED",
-  "summary": "The US government is finalizing a report proposing higher Section 301 tariffs on industrial goods from India, China, the EU, and 14 other trading partners.",
+  "summary": "The USTR proposed 25% Section 301 tariffs on India and 13 other trading partners, offering a 17% rate if trade pacts are finalized.",
   "open_questions": [
-   "Which specific product categories will face the highest tariff rates?",
-   "How will India respond in ongoing bilateral trade negotiations?"
+   "Which specific export categories will face immediate duties?",
+   "Will India finalize a bilateral trade agreement to secure the 17% rate?"
   ],
-  "last_seen": "2026-11-25"
+  "last_seen": "2026-11-26"
  },
  "us-immigrant-medicare-cuts": {
   "first_seen": "2026-11-25",
@@ -1218,5 +1180,98 @@
    "What joint scientific experiments will the Pakistani astronaut perform on Tiangong?"
   ],
   "last_seen": "2026-11-25"
+ },
+ "nvidia-southeast-asia-halt": {
+  "first_seen": "2026-11-26",
+  "expectations": [
+   {
+    "date": "2026-11-26",
+    "text": "Secondary market rerouting of high-end AI accelerators"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-26",
+    "event": "Nvidia issues shipment suspension to regional dealers"
+   }
+  ],
+  "title": "Nvidia Halts AI Server Shipments to Four Southeast Asian Countries",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "Nvidia instructed hardware partners to halt server shipments to Malaysia, Singapore, Thailand, and Indonesia following tighter US export controls.",
+  "open_questions": [
+   "Where will displaced B300 chips be redirected?",
+   "How will regional data center projects adapt?"
+  ],
+  "last_seen": "2026-11-26"
+ },
+ "supreme-court-bank-sanctions": {
+  "first_seen": "2026-11-26",
+  "expectations": [
+   {
+    "date": "2026-11-26",
+    "text": "Compliance hearings in the Supreme Court"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-26",
+    "event": "Supreme Court direct summons issued to bank chiefs"
+   }
+  ],
+  "title": "Supreme Court Orders Bank Chiefs to Grant Sanctions or Appear",
+  "status": "DEVELOPING",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "The Supreme Court directed the heads of HDFC Bank and ICICI Bank to grant prosecution sanctions in the subvention scam or appear personally.",
+  "open_questions": [
+   "Will bank executives grant the required prosecution sanctions?"
+  ],
+  "last_seen": "2026-11-26"
+ },
+ "apple-hyderabad-store": {
+  "first_seen": "2026-11-26",
+  "expectations": [
+   {
+    "date": "2026-11-26",
+    "text": "Store opening and retail expansion in South India"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-26",
+    "event": "Official opening date announced for Dec 10"
+   }
+  ],
+  "title": "Apple to Open First Official Store in Hyderabad on Dec 10",
+  "status": "NEW",
+  "stage": "CONSTRUCTION STARTED",
+  "summary": "Apple confirmed it will open its first official retail store in Hyderabad on December 10, marking its seventh outlet in India.",
+  "open_questions": [
+   "What exclusive product launches will accompany the Hyderabad store opening?"
+  ],
+  "last_seen": "2026-11-26"
+ },
+ "spacex-orbital-data-center": {
+  "first_seen": "2026-11-26",
+  "expectations": [
+   {
+    "date": "2026-11-26",
+    "text": "Initial satellite launch scheduling and orbital testing"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-26",
+    "event": "FCC regulatory approval granted"
+   }
+  ],
+  "title": "US Authorizes SpaceX to Deploy 1 Million Orbiting Data Center Satellites",
+  "status": "NEW",
+  "stage": "APPROVED/PASSED",
+  "summary": "The FCC authorized SpaceX to deploy up to 1 million satellites for orbital AI data centers, despite scientific skepticism.",
+  "open_questions": [
+   "How will orbital debris concerns be managed during constellation deployment?"
+  ],
+  "last_seen": "2026-11-26"
  }
 }
