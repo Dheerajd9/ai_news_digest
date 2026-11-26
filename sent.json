@@ -1,31 +1,6 @@
 {
  "sent": [
   {
-   "link": "https://the-decoder.com/anthropics-81-3-billion-ipo-shatters-spacexs-record-as-rising-rates-and-political-headwinds-shake-the-sector/",
-   "title": "Anthropic's $81.3 billion IPO shatters SpaceX's record as rising rates and political headwinds shake the sector",
-   "at": "2026-11-20T13:12:04+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use",
-   "title": "Gemini on Mac can now use your computer",
-   "at": "2026-11-20T13:12:04+00:00"
-  },
-  {
-   "link": "https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing",
-   "title": "Apple is hiring engineers to build its own AI agent",
-   "at": "2026-11-20T13:12:04+00:00"
-  },
-  {
-   "link": "https://www.engadget.com/2322656/openai-is-testing-dots-personal-agents-on-its-20-per-month-plus-tier/",
-   "title": "OpenAI is testing Dots personal agents on its $20 per month Plus tier",
-   "at": "2026-11-20T13:12:04+00:00"
-  },
-  {
-   "link": "https://www.anthropic.com/research/claude-black-hole-physics",
-   "title": "Claude solves two open problems in the physics of black holes",
-   "at": "2026-11-20T13:12:04+00:00"
-  },
-  {
    "link": "https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem",
    "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
    "at": "2026-11-21T13:11:54+00:00"
@@ -149,6 +124,31 @@
    "link": "https://www.axios.com/2026/11/25/anthropic-ai-human-control-debate-free-will",
    "title": "Rival AI leaders push back against Anthropic vision of surrendering human agency to AI",
    "at": "2026-11-25T13:12:47+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/ai-agents-now-control-part-of-deepminds-compute-for-gemini-experiments-but-recursive-self-improvement-remains-distant/",
+   "title": "AI agents now control part of Deepmind's compute for Gemini experiments, but recursive self-improvement remains distant",
+   "at": "2026-11-26T13:12:29+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/openai-wants-companies-to-trust-it-with-sensitive-work-by-promising-not-to-look-at-their-data/",
+   "title": "OpenAI wants companies to trust it with sensitive work by promising not to look at their data",
+   "at": "2026-11-26T13:12:29+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/anthropic-study-shows-the-hardest-part-of-adopting-ai-at-work-has-little-to-do-with-learning-the-tools/",
+   "title": "Anthropic study shows the hardest part of adopting AI at work has little to do with learning the tools",
+   "at": "2026-11-26T13:12:29+00:00"
+  },
+  {
+   "link": "https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/",
+   "title": "Microsoft details how state-backed hackers use the ARTEX AI framework to automate cyberattacks",
+   "at": "2026-11-26T13:12:29+00:00"
+  },
+  {
+   "link": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers",
+   "title": "FCC signs off on SpaceX\u2019s plan to put up to 1 million data center satellites into space",
+   "at": "2026-11-26T13:12:29+00:00"
   }
  ]
 }
