@@ -3,10 +3,6 @@
   "first_seen": "2026-10-13",
   "expectations": [
    {
-    "date": "2026-10-16",
-    "text": "Legal text completion and signing timeline within weeks"
-   },
-   {
     "date": "2026-10-18",
     "text": "Official signing and release of legal text within weeks"
    },
@@ -21,6 +17,10 @@
    {
     "date": "2026-11-15",
     "text": "Formal signing and publication of bilateral legal text"
+   },
+   {
+    "date": "2026-11-27",
+    "text": "Legal treaty text drafting and official signing ceremony"
    }
   ],
   "timeline": [
@@ -65,14 +65,14 @@
     "event": "Trade talks reach final stage pending US tariff framework"
    }
   ],
-  "title": "India-US Trade Deal Talks Nare Finalization Pending Tariff Framework",
+  "title": "India-US Trade Deal Nears Completion Pending Final Framework",
   "status": "DEVELOPING",
   "stage": "NEGOTIATIONS",
-  "summary": "Commerce Secretary officials confirmed bilateral trade deal talks are in their final stage, awaiting formal publication of Washington's overarching tariff framework before signing.",
+  "summary": "Commerce Minister Piyush Goyal confirmed the bilateral trade deal is near finalization, aiming to secure a 17% preferential rate against proposed 25% tariffs.",
   "open_questions": [
-   "When will the formal trade agreement signing ceremony take place?"
+   "When will the formal treaty text be signed?"
   ],
-  "last_seen": "2026-11-19"
+  "last_seen": "2026-11-27"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -149,73 +149,6 @@
   ],
   "last_seen": "2026-11-22"
  },
- "us-midterms-2026": {
-  "first_seen": "2026-11-01",
-  "expectations": [
-   {
-    "date": "2026-11-02",
-    "text": "National polling stations open Tuesday morning"
-   },
-   {
-    "date": "2026-11-03",
-    "text": "Election results arriving overnight"
-   },
-   {
-    "date": "2026-11-04",
-    "text": "Congressional committee reorganization ahead of January swearing-in"
-   },
-   {
-    "date": "2026-11-05",
-    "text": "Congressional committee reorganization ahead of January 2027 swearing-in"
-   },
-   {
-    "date": "2026-11-12",
-    "text": "Swearing-in of new Senate members in January 2027"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-01",
-    "event": "Final campaign weekend before November 3 vote"
-   },
-   {
-    "date": "2026-11-02",
-    "event": "Final 48 hours of national campaign rallies"
-   },
-   {
-    "date": "2026-11-03",
-    "event": "Polls open nationwide"
-   },
-   {
-    "date": "2026-11-04",
-    "event": "Democrats win majorities in both House and Senate"
-   },
-   {
-    "date": "2026-11-05",
-    "event": "Democrats secure majorities in House and Senate"
-   },
-   {
-    "date": "2026-11-06",
-    "event": "Global tech stocks crash as Democratic sweep heightens AI regulatory concerns"
-   },
-   {
-    "date": "2026-11-08",
-    "event": "Democrats win House and Senate majorities; Jeffries backed for Speaker"
-   },
-   {
-    "date": "2026-11-12",
-    "event": "Scott Colom elected to US Senate in major upset"
-   }
-  ],
-  "title": "Scott Colom Wins Mississippi US Senate Seat",
-  "status": "MAJOR CHANGE",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "Democrat Scott Colom flipped the Mississippi Senate seat, becoming the state's first Black US Senator since Reconstruction.",
-  "open_questions": [
-   "How will Democratic Senate gains shape committee chairmanships in January?"
-  ],
-  "last_seen": "2026-11-12"
- },
  "nvidia-huang-probe": {
   "first_seen": "2026-11-08",
   "expectations": [
@@ -283,79 +216,6 @@
    "Who will Nvidia select as permanent CEO?"
   ],
   "last_seen": "2026-11-16"
- },
- "qualcomm-india-layoffs": {
-  "first_seen": "2026-11-11",
-  "expectations": [
-   {
-    "date": "2026-11-11",
-    "text": "Execution of severance payouts over coming weeks"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-11",
-    "event": "Layoff notices issued to Indian staff"
-   },
-   {
-    "date": "2026-11-12",
-    "event": "Layoff notices issued to tech staff in Hyderabad and Bengaluru"
-   }
-  ],
-  "title": "Qualcomm Cuts Over 1,000 Tech Jobs in India",
-  "status": "DEVELOPING",
-  "stage": "IMPLEMENTED",
-  "summary": "Qualcomm initiated workforce reductions across its India engineering hubs, impacting 1,000 to 1,500 senior software and hardware engineers.",
-  "open_questions": [
-   "What total percentage of Qualcomm's Indian workforce will be cut?"
-  ],
-  "last_seen": "2026-11-12"
- },
- "india-cpi-inflation-oct-2026": {
-  "first_seen": "2026-11-12",
-  "expectations": [
-   {
-    "date": "2026-11-12",
-    "text": "RBI Monetary Policy Committee rate review"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-12",
-    "event": "October CPI breached 6% upper limit for first time in two years"
-   }
-  ],
-  "title": "India October CPI Inflation Rises to 6.09%",
-  "status": "NEW",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "India's retail inflation surged to a two-year high of 6.09% in October, breaching the RBI's upper tolerance limit of 6%.",
-  "open_questions": [
-   "Will the RBI hold rates unchanged at its next MPC meeting?"
-  ],
-  "last_seen": "2026-11-12"
- },
- "united-airlines-ai-bot-ban": {
-  "first_seen": "2026-11-12",
-  "expectations": [
-   {
-    "date": "2026-11-12",
-    "text": "Industry adoption of certified AI agent access protocols"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-12",
-    "event": "System blocks deployed against AI booking bots"
-   }
-  ],
-  "title": "United Airlines Blocks Third-Party AI Agents",
-  "status": "NEW",
-  "stage": "IMPLEMENTED",
-  "summary": "United Airlines implemented system blocks against autonomous third-party AI agents booking tickets or scraping flight data.",
-  "open_questions": [
-   "Will other major airlines follow United's ban on AI agents?"
-  ],
-  "last_seen": "2026-11-12"
  },
  "spacex-tesla-merger-talks": {
   "first_seen": "2026-11-13",
@@ -922,27 +782,6 @@
   ],
   "last_seen": "2026-11-24"
  },
- "india-nz-test-draw": {
-  "first_seen": "2026-11-23",
-  "expectations": [
-   {
-    "date": "2026-11-23",
-    "text": "Series conclusion"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-23",
-    "event": "Match conclusion"
-   }
-  ],
-  "title": "India-New Zealand Test Ends in Draw",
-  "status": "RESOLVED",
-  "stage": "REAL-WORLD EFFECT",
-  "summary": "The first Test match between India and New Zealand ended in a draw after New Zealand's batting lineup held firm on the final day.",
-  "open_questions": [],
-  "last_seen": "2026-11-23"
- },
  "ai-regulation-trend": {
   "first_seen": "2026-11-23",
   "expectations": [
@@ -1234,6 +1073,10 @@
    {
     "date": "2026-11-26",
     "text": "Store opening and retail expansion in South India"
+   },
+   {
+    "date": "2026-11-27",
+    "text": "Retail store opening on Dec 10"
    }
   ],
   "timeline": [
@@ -1242,14 +1085,12 @@
     "event": "Official opening date announced for Dec 10"
    }
   ],
-  "title": "Apple to Open First Official Store in Hyderabad on Dec 10",
-  "status": "NEW",
+  "title": "Apple to Open First Store in Hyderabad on Dec 10",
+  "status": "DEVELOPING",
   "stage": "CONSTRUCTION STARTED",
-  "summary": "Apple confirmed it will open its first official retail store in Hyderabad on December 10, marking its seventh outlet in India.",
-  "open_questions": [
-   "What exclusive product launches will accompany the Hyderabad store opening?"
-  ],
-  "last_seen": "2026-11-26"
+  "summary": "Apple confirmed its 7th India retail store will open in Hyderabad on Dec 10.",
+  "open_questions": [],
+  "last_seen": "2026-11-27"
  },
  "spacex-orbital-data-center": {
   "first_seen": "2026-11-26",
@@ -1273,5 +1114,59 @@
    "How will orbital debris concerns be managed during constellation deployment?"
   ],
   "last_seen": "2026-11-26"
+ },
+ "ibm-visa-sponsorship-end": {
+  "first_seen": "2026-11-27",
+  "expectations": [
+   {
+    "date": "2026-11-27",
+    "text": "Review of visa sponsorship policies by competitor IT firms"
+   }
+  ],
+  "timeline": [],
+  "title": "IBM Ends U.S. Visa and Green Card Sponsorship for Consulting Roles",
+  "status": "NEW",
+  "stage": "IMPLEMENTED",
+  "summary": "IBM Consulting terminated U.S. visa and green card sponsorship for most roles, citing local workforce strategy.",
+  "open_questions": [
+   "Will other major IT consulting firms follow IBM's lead?"
+  ],
+  "last_seen": "2026-11-27"
+ },
+ "sap-ai-layoffs-10000": {
+  "first_seen": "2026-11-27",
+  "expectations": [
+   {
+    "date": "2026-11-27",
+    "text": "Finalization of role reassignments and severance packages over coming quarters"
+   }
+  ],
+  "timeline": [],
+  "title": "SAP Plans 10,000 Global Job Cuts in AI Restructuring",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "SAP announced plans to eliminate 10,000 positions globally to reallocate capital toward generative AI automation.",
+  "open_questions": [
+   "How many roles in India and Europe will be directly affected?"
+  ],
+  "last_seen": "2026-11-27"
+ },
+ "swiss-ai-cyberattacks": {
+  "first_seen": "2026-11-27",
+  "expectations": [
+   {
+    "date": "2026-11-27",
+    "text": "Government mandates for AI-resistant cybersecurity protocols"
+   }
+  ],
+  "timeline": [],
+  "title": "AI Agents Breach Swiss Critical Infrastructure Systems",
+  "status": "NEW",
+  "stage": "REAL-WORLD EFFECT",
+  "summary": "Swiss cybersecurity agency confirmed threat actors used autonomous AI agents in 5 attacks on critical infrastructure, breaching 4 systems.",
+  "open_questions": [
+   "Which specific infrastructure sectors were compromised?"
+  ],
+  "last_seen": "2026-11-27"
  }
 }

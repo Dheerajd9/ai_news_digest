@@ -139,7 +139,7 @@
 },
 "USCIS": {
 "first_seen": "2026-10-11",
-"count": 20,
+"count": 21,
 "stories": [
 "us-perm-h1b-freeze",
 "us-h1b-fee-lawsuit",
@@ -147,9 +147,10 @@
 "us-ead-extension-end",
 "vance-h1b-rhetoric",
 "us-h1b-deference-change",
-"us-immigrant-medicare-cuts"
+"us-immigrant-medicare-cuts",
+"ibm-visa-sponsorship-end"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-27"
 },
 "Amazon": {
 "first_seen": "2026-10-11",
@@ -324,18 +325,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 58,
+"count": 59,
 "stories": [
-"us-ukraine-donbas-nato-proposal",
 "india-rupee-strength",
 "myanmar-rohingya-icj-ruling",
 "operation-monsoon-thunder",
 "nikhil-gupta-sentencing",
 "india-oil-import-surge",
 "india-nepal-aid",
-"us-section-301-tariffs"
+"us-section-301-tariffs",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-27"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -960,18 +961,18 @@
 },
 "US Government": {
 "first_seen": "2026-11-15",
-"count": 13,
+"count": 14,
 "stories": [
-"us-ukraine-donbas-nato-proposal",
 "trilateral-us-china-russia-summit",
 "us-china-ai-restrictions",
 "us-cyber-director-fired",
 "trump-data-center-tax-proposal",
 "nikhil-gupta-sentencing",
 "us-section-301-tariffs",
-"us-immigrant-medicare-cuts"
+"us-immigrant-medicare-cuts",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-27"
 },
 "NATO": {
 "first_seen": "2026-11-15",
@@ -1226,11 +1227,12 @@
 },
 "USTR": {
 "first_seen": "2026-11-26",
-"count": 1,
+"count": 2,
 "stories": [
-"us-section-301-tariffs"
+"us-section-301-tariffs",
+"india-us-trade-talks"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-27"
 },
 "Supermicro": {
 "first_seen": "2026-11-26",
@@ -1258,19 +1260,19 @@
 },
 "Apple": {
 "first_seen": "2026-11-26",
-"count": 1,
+"count": 2,
 "stories": [
 "apple-hyderabad-store"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-27"
 },
 "Hyderabad": {
 "first_seen": "2026-11-26",
-"count": 1,
+"count": 2,
 "stories": [
 "apple-hyderabad-store"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-27"
 },
 "FCC": {
 "first_seen": "2026-11-26",
@@ -1279,9 +1281,63 @@
 "spacex-orbital-data-center"
 ],
 "last_seen": "2026-11-26"
+},
+"IBM": {
+"first_seen": "2026-11-27",
+"count": 1,
+"stories": [
+"ibm-visa-sponsorship-end"
+],
+"last_seen": "2026-11-27"
+},
+"SAP": {
+"first_seen": "2026-11-27",
+"count": 1,
+"stories": [
+"sap-ai-layoffs-10000"
+],
+"last_seen": "2026-11-27"
+},
+"Switzerland": {
+"first_seen": "2026-11-27",
+"count": 1,
+"stories": [
+"swiss-ai-cyberattacks"
+],
+"last_seen": "2026-11-27"
 }
 },
 "connections": [
+{
+"text": "US immigration policy -> corporate sponsorship changes -> Indian IT worker mobility",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-27",
+"count": 1
+},
+{
+"text": "AI adoption -> corporate restructuring -> IT labor market contraction",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-27",
+"count": 1
+},
+{
+"text": "US tariffs -> trade negotiations -> preferential export rates",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-27",
+"count": 1
+},
+{
+"text": "AI capabilities -> autonomous hacking -> critical infrastructure risk",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-27",
+"count": 1
+},
+{
+"text": "Apple retail expansion -> consumer tech demand in South India",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-27",
+"count": 1
+},
 {
 "text": "US tariffs -> Indian export cost increase -> trade deficit adjustments",
 "first_seen": "2026-11-26",
@@ -1611,36 +1667,6 @@
 "first_seen": "2026-11-11",
 "last_seen": "2026-11-12",
 "count": 2
-},
-{
-"text": "US election outcome -> congressional majority -> federal policy",
-"first_seen": "2026-11-03",
-"last_seen": "2026-11-12",
-"count": 3
-},
-{
-"text": "Consumer prices -> interest rate outlook -> home loan EMIs",
-"first_seen": "2026-11-12",
-"last_seen": "2026-11-12",
-"count": 1
-},
-{
-"text": "AI agents -> web scraping concerns -> corporate security blocks",
-"first_seen": "2026-11-12",
-"last_seen": "2026-11-12",
-"count": 1
-},
-{
-"text": "US tech correction -> emerging market rotation -> Indian equity inflow",
-"first_seen": "2026-11-08",
-"last_seen": "2026-11-11",
-"count": 3
-},
-{
-"text": "Consumer prices -> Treasury yields -> mortgage rates",
-"first_seen": "2026-11-11",
-"last_seen": "2026-11-11",
-"count": 1
 }
 ]
 }

@@ -1,23 +1,4 @@
 {
-"2026-10-22": {
-"AI agents / automation": 15,
-"AI models & capability": 1,
-"Fed & US rates": 2,
-"India manufacturing & PLI": 1,
-"India-US trade & tariffs": 2,
-"Middle East conflict": 27,
-"Russia-Ukraine": 22,
-"US immigration (H-1B, green card)": 21,
-"US-China tension": 3,
-"cyber attacks & scams": 19,
-"data centers & AI infrastructure": 8,
-"energy & power grids": 5,
-"oil": 11,
-"rupee": 9,
-"semiconductors": 5,
-"tech hiring": 5,
-"tech layoffs": 10
-},
 "2026-10-23": {
 "AI agents / automation": 9,
 "AI models & capability": 1,
@@ -667,5 +648,23 @@
 "semiconductors": 9,
 "tech hiring": 4,
 "tech layoffs": 3
+},
+"2026-11-27": {
+"AI agents / automation": 5,
+"AI models & capability": 2,
+"India manufacturing & PLI": 1,
+"India-US trade & tariffs": 10,
+"Middle East conflict": 19,
+"Russia-Ukraine": 25,
+"US immigration (H-1B, green card)": 14,
+"US-China tension": 5,
+"cyber attacks & scams": 14,
+"data centers & AI infrastructure": 10,
+"energy & power grids": 4,
+"oil": 7,
+"rupee": 5,
+"semiconductors": 9,
+"tech hiring": 3,
+"tech layoffs": 10
 }
 }
