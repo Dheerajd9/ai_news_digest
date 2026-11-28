@@ -25,12 +25,8 @@
   ],
   "timeline": [
    {
-    "date": "2026-10-13..2026-10-21",
+    "date": "2026-10-13..2026-10-23",
     "event": "Jaishankar statement; Jaishankar statement on trade deal progress; First tranche finalised; legal drafting underway; First tranche finalised; legal text drafting initiated; Legal drafting underway after first tranche fin"
-   },
-   {
-    "date": "2026-10-23",
-    "event": "Trade pact reaches final negotiation stage"
    },
    {
     "date": "2026-10-25",
@@ -63,6 +59,10 @@
    {
     "date": "2026-11-19",
     "event": "Trade talks reach final stage pending US tariff framework"
+   },
+   {
+    "date": "2026-11-28",
+    "event": "Piyush Goyal re-confirmed trade deal near finalization"
    }
   ],
   "title": "India-US Trade Deal Nears Completion Pending Final Framework",
@@ -72,7 +72,7 @@
   "open_questions": [
    "When will the formal treaty text be signed?"
   ],
-  "last_seen": "2026-11-27"
+  "last_seen": "2026-11-28"
  },
  "anthropic-ipo-prep": {
   "first_seen": "2026-10-15",
@@ -216,52 +216,6 @@
    "Who will Nvidia select as permanent CEO?"
   ],
   "last_seen": "2026-11-16"
- },
- "spacex-tesla-merger-talks": {
-  "first_seen": "2026-11-13",
-  "expectations": [
-   {
-    "date": "2026-11-13",
-    "text": "Formal deal announcement expected by December 2026"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-13",
-    "event": "Merger talks advanced with potential December target"
-   }
-  ],
-  "title": "SpaceX and Tesla Advance Merger Negotiations Towards December Deal",
-  "status": "DEVELOPING",
-  "stage": "NEGOTIATIONS",
-  "summary": "SpaceX and Tesla are advancing talks for a potential merger in December, facing scrutiny from state regulators.",
-  "open_questions": [
-   "Will antitrust regulators move to block a combined SpaceX-Tesla entity?"
-  ],
-  "last_seen": "2026-11-13"
- },
- "canada-family-pr-route": {
-  "first_seen": "2026-11-13",
-  "expectations": [
-   {
-    "date": "2026-11-13",
-    "text": "IRCC application portal launch and detailed guidance release"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-13",
-    "event": "45,000 PR family path announced"
-   }
-  ],
-  "title": "Canada Allocates 45,000 PR Spaces for Spouses and Children",
-  "status": "NEW",
-  "stage": "FORMALLY ANNOUNCED",
-  "summary": "Canada established a 2027 permanent residence allocation for 45,000 family dependents and gave provinces 139 days for nominee submittals.",
-  "open_questions": [
-   "How fast will IRCC open online portals for spouse and child PR applications?"
-  ],
-  "last_seen": "2026-11-13"
  },
  "trilateral-us-china-russia-summit": {
   "first_seen": "2026-11-14",
@@ -547,6 +501,10 @@
    {
     "date": "2026-11-23",
     "text": "Stabilization of AI-linked stock prices"
+   },
+   {
+    "date": "2026-11-28",
+    "text": "Upcoming economic data releases to dictate market direction next week"
    }
   ],
   "timeline": [
@@ -565,16 +523,20 @@
    {
     "date": "2026-11-23",
     "event": "Market stabilization attempts"
+   },
+   {
+    "date": "2026-11-28",
+    "event": "Nasdaq surged 2.31% and S&P 500 rose 1.60% in Black Friday session"
    }
   ],
-  "title": "Wall Street Attempts Rebound After Tech Correction",
+  "title": "Wall Street Rebounds as Anthropic and Tech Stocks Rally",
   "status": "DEVELOPING",
   "stage": "REAL-WORLD EFFECT",
-  "summary": "US markets are showing signs of stabilization after a brutal week where the Nasdaq and S&P 500 entered correction territory.",
+  "summary": "US markets closed sharply higher on Black Friday led by a 2.31% gain in Nasdaq as Anthropic surged 11% back above its IPO price.",
   "open_questions": [
-   "Will tech earnings support current valuations?"
+   "Will tech buying sustain through upcoming US jobs and CPI data?"
   ],
-  "last_seen": "2026-11-23"
+  "last_seen": "2026-11-28"
  },
  "operation-monsoon-thunder": {
   "first_seen": "2026-11-21",
@@ -874,27 +836,6 @@
   ],
   "last_seen": "2026-11-24"
  },
- "google-india-layoffs-clarified": {
-  "first_seen": "2026-11-24",
-  "expectations": [
-   {
-    "date": "2026-11-24",
-    "text": "Stable enterprise hiring trends in Indian tech hubs"
-   }
-  ],
-  "timeline": [
-   {
-    "date": "2026-11-24",
-    "event": "Google formally denies mass layoffs"
-   }
-  ],
-  "title": "Google Cloud India Clarifies Layoffs, Confirms 30 Role Cuts",
-  "status": "RESOLVED",
-  "stage": "IMPLEMENTED",
-  "summary": "Google India dismissed mass layoff rumors, confirming that only 30 roles were cut in its Cloud division as part of routine internal reorganisation.",
-  "open_questions": [],
-  "last_seen": "2026-11-24"
- },
  "anthropic-ipo-slump": {
   "first_seen": "2026-11-25",
   "expectations": [
@@ -1098,22 +1039,30 @@
    {
     "date": "2026-11-26",
     "text": "Initial satellite launch scheduling and orbital testing"
+   },
+   {
+    "date": "2026-11-28",
+    "text": "Prototype launch and thermal compute testing in orbit"
    }
   ],
   "timeline": [
    {
     "date": "2026-11-26",
     "event": "FCC regulatory approval granted"
+   },
+   {
+    "date": "2026-11-28",
+    "event": "FCC regulatory approval formalized"
    }
   ],
   "title": "US Authorizes SpaceX to Deploy 1 Million Orbiting Data Center Satellites",
-  "status": "NEW",
+  "status": "DEVELOPING",
   "stage": "APPROVED/PASSED",
-  "summary": "The FCC authorized SpaceX to deploy up to 1 million satellites for orbital AI data centers, despite scientific skepticism.",
+  "summary": "The FCC authorized SpaceX to deploy up to 1 million satellites for orbital AI data centers, despite scientific warnings of orbital debris.",
   "open_questions": [
-   "How will orbital debris concerns be managed during constellation deployment?"
+   "How will orbital debris risks be mitigated during initial prototype testing?"
   ],
-  "last_seen": "2026-11-26"
+  "last_seen": "2026-11-28"
  },
  "ibm-visa-sponsorship-end": {
   "first_seen": "2026-11-27",
@@ -1168,5 +1117,52 @@
    "Which specific infrastructure sectors were compromised?"
   ],
   "last_seen": "2026-11-27"
+ },
+ "openai-apple-lawsuit": {
+  "first_seen": "2026-11-28",
+  "expectations": [
+   {
+    "date": "2026-11-28",
+    "text": "Court scheduling for preliminary hearings in early 2027"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-28",
+    "event": "Countersuit filed in US federal court"
+   }
+  ],
+  "title": "OpenAI Countersues Apple Over AI Trade Secrets and Hardware Suppliers",
+  "status": "NEW",
+  "stage": "COURT CASE",
+  "summary": "OpenAI filed a countersuit against Apple alleging theft of trade secrets via a former employee and anti-competitive pressure on hardware suppliers.",
+  "open_questions": [
+   "Will the court grant preliminary injunctions on hardware supplier exclusivity?",
+   "How will this affect Apple's broader AI integration roadmap?"
+  ],
+  "last_seen": "2026-11-28"
+ },
+ "sebi-pre-ipo-exchange": {
+  "first_seen": "2026-11-28",
+  "expectations": [
+   {
+    "date": "2026-11-28",
+    "text": "SEBI consultation paper release on pre-IPO trading platform"
+   }
+  ],
+  "timeline": [
+   {
+    "date": "2026-11-28",
+    "event": "SEBI approved 8 IPO documents and announced pre-IPO platform plan"
+   }
+  ],
+  "title": "SEBI Approves Svatantra Microfin IPO and Plans Pre-IPO Share Platform",
+  "status": "NEW",
+  "stage": "PROPOSED",
+  "summary": "SEBI cleared 8 IPOs including Svatantra Microfin and announced plans to create a regulated exchange platform for pre-IPO shares.",
+  "open_questions": [
+   "What specific eligibility and liquidity criteria will SEBI mandate for pre-IPO share trading?"
+  ],
+  "last_seen": "2026-11-28"
  }
 }

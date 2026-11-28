@@ -42,7 +42,7 @@
 },
 "Nvidia": {
 "first_seen": "2026-10-11",
-"count": 25,
+"count": 26,
 "stories": [
 "spacex-apollo-ai-compute",
 "openai-google-tpu-deal",
@@ -53,7 +53,7 @@
 "nvidia-huang-return",
 "nvidia-southeast-asia-halt"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-28"
 },
 "US Department of Justice": {
 "first_seen": "2026-10-11",
@@ -164,16 +164,17 @@
 },
 "RBI": {
 "first_seen": "2026-10-12",
-"count": 14,
+"count": 15,
 "stories": [
 "india-cpi-inflation",
 "rbi-rupee-defense",
 "yes-bank-at1-verdict",
 "india-cpi-inflation-oct-2026",
 "india-rupee-strength",
-"india-stock-market-rally"
+"india-stock-market-rally",
+"sebi-pre-ipo-exchange"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-28"
 },
 "Indian Rupee": {
 "first_seen": "2026-10-12",
@@ -227,22 +228,22 @@
 },
 "OpenAI": {
 "first_seen": "2026-10-12",
-"count": 16,
+"count": 17,
 "stories": [
-"openai-agents-disable-monitors",
 "openai-agents-airgap",
 "openai-cpu-cache-bypass",
 "openai-google-tpu-deal",
 "openai-data-center-power",
 "openai-gpt-6-cyber",
 "openai-11b-funding",
-"openai-chatgpt-wallet"
+"openai-chatgpt-wallet",
+"openai-apple-lawsuit"
 ],
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-28"
 },
 "Anthropic": {
 "first_seen": "2026-10-12",
-"count": 35,
+"count": 36,
 "stories": [
 "meta-muse-wonder",
 "anthropic-ipo-prep",
@@ -253,7 +254,7 @@
 "anthropic-ipo-volatility",
 "anthropic-ipo-slump"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-28"
 },
 "Supreme Court of India": {
 "first_seen": "2026-10-12",
@@ -325,18 +326,18 @@
 },
 "Government of India": {
 "first_seen": "2026-10-14",
-"count": 59,
+"count": 61,
 "stories": [
-"india-rupee-strength",
 "myanmar-rohingya-icj-ruling",
 "operation-monsoon-thunder",
 "nikhil-gupta-sentencing",
 "india-oil-import-surge",
 "india-nepal-aid",
 "us-section-301-tariffs",
-"india-us-trade-talks"
+"india-us-trade-talks",
+"sebi-pre-ipo-exchange"
 ],
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "S. Jaishankar": {
 "first_seen": "2026-10-14",
@@ -469,7 +470,7 @@
 },
 "Nasdaq": {
 "first_seen": "2026-10-17",
-"count": 28,
+"count": 29,
 "stories": [
 "oil-spike-market-drop",
 "anthropic-ipo-prep",
@@ -478,7 +479,7 @@
 "anthropic-ipo-volatility",
 "anthropic-ipo-slump"
 ],
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-28"
 },
 "Mark Carney": {
 "first_seen": "2026-10-17",
@@ -551,7 +552,7 @@
 },
 "SpaceX": {
 "first_seen": "2026-10-21",
-"count": 11,
+"count": 12,
 "stories": [
 "tesla-spacex-merger-talks",
 "starlink-ukraine-speeds",
@@ -561,7 +562,7 @@
 "anthropic-ipo-prep",
 "spacex-orbital-data-center"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-28"
 },
 "Elon Musk": {
 "first_seen": "2026-10-21",
@@ -961,7 +962,7 @@
 },
 "US Government": {
 "first_seen": "2026-11-15",
-"count": 14,
+"count": 15,
 "stories": [
 "trilateral-us-china-russia-summit",
 "us-china-ai-restrictions",
@@ -972,7 +973,7 @@
 "us-immigrant-medicare-cuts",
 "india-us-trade-talks"
 ],
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "NATO": {
 "first_seen": "2026-11-15",
@@ -1227,12 +1228,12 @@
 },
 "USTR": {
 "first_seen": "2026-11-26",
-"count": 2,
+"count": 3,
 "stories": [
 "us-section-301-tariffs",
 "india-us-trade-talks"
 ],
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "Supermicro": {
 "first_seen": "2026-11-26",
@@ -1260,11 +1261,12 @@
 },
 "Apple": {
 "first_seen": "2026-11-26",
-"count": 2,
+"count": 3,
 "stories": [
-"apple-hyderabad-store"
+"apple-hyderabad-store",
+"openai-apple-lawsuit"
 ],
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "Hyderabad": {
 "first_seen": "2026-11-26",
@@ -1276,11 +1278,11 @@
 },
 "FCC": {
 "first_seen": "2026-11-26",
-"count": 1,
+"count": 2,
 "stories": [
 "spacex-orbital-data-center"
 ],
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-28"
 },
 "IBM": {
 "first_seen": "2026-11-27",
@@ -1309,6 +1311,36 @@
 },
 "connections": [
 {
+"text": "US tariffs -> trade negotiations -> preferential export rates",
+"first_seen": "2026-11-27",
+"last_seen": "2026-11-28",
+"count": 2
+},
+{
+"text": "FCC authorization -> orbital data centers -> space-based cloud computing",
+"first_seen": "2026-11-26",
+"last_seen": "2026-11-28",
+"count": 2
+},
+{
+"text": "SEBI regulation -> retail investor protection -> primary market stability",
+"first_seen": "2026-11-24",
+"last_seen": "2026-11-28",
+"count": 2
+},
+{
+"text": "AI competition -> tech hardware litigation -> supply chain access",
+"first_seen": "2026-11-28",
+"last_seen": "2026-11-28",
+"count": 1
+},
+{
+"text": "Tech stock rebound -> investor sentiment -> AI market stabilization",
+"first_seen": "2026-11-28",
+"last_seen": "2026-11-28",
+"count": 1
+},
+{
 "text": "US immigration policy -> corporate sponsorship changes -> Indian IT worker mobility",
 "first_seen": "2026-11-27",
 "last_seen": "2026-11-27",
@@ -1316,12 +1348,6 @@
 },
 {
 "text": "AI adoption -> corporate restructuring -> IT labor market contraction",
-"first_seen": "2026-11-27",
-"last_seen": "2026-11-27",
-"count": 1
-},
-{
-"text": "US tariffs -> trade negotiations -> preferential export rates",
 "first_seen": "2026-11-27",
 "last_seen": "2026-11-27",
 "count": 1
@@ -1363,12 +1389,6 @@
 "count": 1
 },
 {
-"text": "FCC authorization -> orbital data centers -> space-based cloud computing",
-"first_seen": "2026-11-26",
-"last_seen": "2026-11-26",
-"count": 1
-},
-{
 "text": "Anthropic IPO drop -> AI valuation reassessment -> broader tech sector volatility",
 "first_seen": "2026-11-24",
 "last_seen": "2026-11-25",
@@ -1400,12 +1420,6 @@
 },
 {
 "text": "White House intervention -> Nvidia CEO reinstatement -> Wall Street tech rebound",
-"first_seen": "2026-11-24",
-"last_seen": "2026-11-24",
-"count": 1
-},
-{
-"text": "SEBI regulation -> retail investor protection -> primary market stability",
 "first_seen": "2026-11-24",
 "last_seen": "2026-11-24",
 "count": 1
@@ -1655,18 +1669,6 @@
 "first_seen": "2026-11-13",
 "last_seen": "2026-11-13",
 "count": 1
-},
-{
-"text": "US-China chip curbs -> foreign intelligence scrutiny -> executive board investigation",
-"first_seen": "2026-11-09",
-"last_seen": "2026-11-12",
-"count": 3
-},
-{
-"text": "Global tech capex shift -> engineering workforce restructuring -> local real estate impact",
-"first_seen": "2026-11-11",
-"last_seen": "2026-11-12",
-"count": 2
 }
 ]
 }
